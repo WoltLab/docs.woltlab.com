@@ -35,7 +35,7 @@ Create a new file called `package.xml` and insert the code below:
 		<packagename>Simple Package</packagename>
 		<packagedescription>A simple package to demonstrate the package system of WCF</packagedescription>
 		<version>1.0.0</version>
-		<date>YYYY-MM-DD</date>
+		<date>2016-11-27</date>
 	</packageinformation>
 
 	<authorinformation>
@@ -50,8 +50,8 @@ Create a new file called `package.xml` and insert the code below:
 	<instructions type="install">
 		<instruction type="file" />
 		<instruction type="template" />
-    
-    <instruction type="page" />
+
+		<instruction type="page" />
 	</instructions>
 </package>
 ```
@@ -109,15 +109,17 @@ class TestPage extends AbstractPage {
 
 ```
 
-This page inherits from [wcf\page\AbstractPage](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/page/AbstractPage.class.php) which provides a lot of useful methods required to display a page. It enables you to write just the code you really need.
+The class inherits from [wcf\page\AbstractPage](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/page/AbstractPage.class.php), the default implementation of pages without form controls. It
+defines quite a few methods that will be automatically invoked in a specific order, for example `readParameters()` before `readData()` and finally `assignVariables()` to pass arbitrary values to the template.
 
-Let's take a step back and look at what we've done! We have defined our PHP class along with a member `$world`, which gets the string `'world'` assigned to it. `readData()` is the perfect spot to place code which fetches data from any source and will always be executed by WCF. The next method `assignVariables()` is used to pass our previously defined variable to the template engine. After all we want to display something on our page, don't we?
+The property `$greet` is defined as `World`, but can optionally be populated through a GET variable (`index.php?test/&greet=You` would output `Hello You!`). This extra code illustrates the separation of data
+processing that takes place within all sort of pages, where all user-supplied data is read from within a single method. It helps organizing the code, but most of all it enforces a clean class logic that does not
+start reading user input at random places, including the risk to only escape the input of variable `$_GET['foo']` 4 out of 5 times.
 
-Now that we have defined the body of our PHP class, we should add the template which actually displays the stuff we want.
+Reading and processing the data is only half the story, now we need a template to display the actual content for our page. You don't need to specify it yourself, it will be automatically guessed based on your
+namespace and class name, you can [read more about it later][getting-started_quick-start.html#appendixTemplateGuessing].
 
-But wait, how does WCF know what is the right template to pick? We have never told WCF where it can find the template nor what its name is. This is where the main idea behind WCF kicks in: Don't bother the developer with stupid and boring stuff, ease his/her life. You can read the section on [template guessing](#appendixTemplateGuessing) if you want to know how it works.
-
-By the way: Have you noticed the missing `?>` (closing PHP tag)? This was left out intentionally, preventing PHP from breaking if there is any whitespace. You should never append it.
+Last but not least, you must not include the closing PHP tag `?>` at the end, it can cause PHP to break on whitespaces and is not required at all.
 
 ## The Template
 
@@ -133,42 +135,71 @@ Navigate back to the root directory of your package until you see both the `file
 {include file='footer'}
 ```
 
-That's it, you now have a fully working page which displays the phrase `Hello World!`. Even though this all might sound a bit of an overkill for outputing such a simple string, but you should be made aware of the possibilities offered by WCF. This is not the usual quick'n'dirty application you might have encountered in the past, it indeed requires some effort to aquire the knowledge, but it is worth the time.
+Templates are a mixture of HTML and Smarty-like template scripting to overcome the static nature of raw HTML. The above code will display the phrase `Hello World!` in the application frame, just as any other
+page would render. The included templates `header` and `footer` are responsible for the majority of the overall page functionality, but offer a whole lot of customization abilities to influence their behavior and appearance.
+
+## The Page Definition
+
+The package now contains the PHP class and the matching template, but it is still missing the page definition. Please create the file `page.xml` in your project's root directory, thus on the same level as the `package.xml`.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/page.xsd">
+	<import>
+		<page identifier="com.example.test.Test">
+			<controller>wcf\page\TestPage</controller>
+			<name language="en">Test Page</name>
+			<pageType>system</pageType>
+		</page>
+	</import>
+</data>
+```
+
+You can provide a lot more data for a page, including logical nesting and dedicated handler classes for display in menus.
 
 ## Building the Package
 
-If you have followed the guidelines above carefully, your package directory should now look like this:
+If you have followed the above guidelines carefully, your package directory should now look like this:
 
 > - files
- - lib
-   - page
-     - TestPage.class.php
-- templates
-  - test.tpl
-- package.xml
+> - lib
+>   - page
+>     - TestPage.class.php
+> - templates
+>   - test.tpl
+> - package.xml
+> - page.xml
 
-Please open the directory `files` and add the directory (and its contents) to a TAR-archive called `files.tar`, move it to the parent directory (the same where `package.xml` is located). Do not make the mistake of adding the `files` directory itself to the archive, if you open the archive (e.g. with 7-Zip) it should only display the folder `lib`.
+Both files and templates are archive-based package components, that deploy their payload using tar archives rather than adding the raw files to the package file. Please create the archive `files.tar` and add the contents of the `files/*` directory, but not the directory `files/` itself. Repeat the same process for the `templates` directory, but this time with the file name `templates.tar`. Place both files in the root of your project.
 
-Now switch to the `templates` directory and add all `*.tpl` files to a TAR-archive called `templates.tar`, again move it to the parent directory.
-
-We're almost there: Create another TAR-archive called `com.example.package.tar` and add these files to it:
+Last but not least, create the package archive `com.example.test.tar` and add all the files listed below.
 
 - `files.tar`
 - `package.xml`
+- `page.xml`
 - `templates.tar`
+
+The archive's filename can be anything you want, all though it is the general convention to use the package name itself for easier recognition.
 
 ## Installation
 
-Open the Administration Control Panel and navigate to `System > Packages > Install Package`. Click on `Upload Package` and select the file `com.example.package.tar`. Follow the on-screen instructions until it has been successfully installed.
+Open the Administration Control Panel and navigate to `Configuration > Packages > Install Package`, click on `Upload Package` and select the file `com.example.test.tar` from your disk. Follow the on-screen instructions until it has been successfully installed.
 
-Now use your browser and navigate to the primary application. If it is installed on `http://localhost/wbb/` simply go to `http://localhost/wbb/index.php/Test/`. It should display a fancy page with the string `Hello World!` in the center.
+Open a new browser tab and navigate to your newly created page. If WoltLab Suite is installed at `https://example.com/wsc/`, then the URL should read `https://example.com/wsc/index.php?test/`.
 
 Congratulations, you have just created your first package!
 
 ## Appendix
 
-### Template Guessing
+### Template Guessing {#appendixTemplateGuessing}
 
- WCF examines the namespace of our class and the name of our class, combining both gives WCF everything it needs to load the right template. In our example we have defined the class namespace to be `wcf\page`, WCF now picks the string before the first `\` and uses it to determine the application.
+The class name including the namespace is used to automatically determine the path to the template and its name. The example above used the page class name `wcf\page\TestPage` that is then split into four distinct parts:
 
-The next step is to examine the class name, since our page is called `TestPage`, WCF strips the `Page` part and converts the first char of the result to lowercase. WCF now assumes the template is called `test` and can be found here: `wcf/templates/test.tpl`. You should be aware, that only the first char is actually converted, if you class is called `MyAwesomePage`, the template name will be `myAwesome`.
+1. `wcf`, the internal abbreviation of WoltLab Suite Core (previously known as WoltLab Community Framework)
+2. `\page\` (ignored)
+3. `Test`, the actual name that is used for both the template and the URL
+4. `Page` (page type, ignored)
+
+The fragments `1.` and `4.` from above are used to construct the path to the template: `<installDirOfWSC>/templates/test.tpl` (the first letter of `Test` is being converted to lower-case).
+
+{% include links.html %}
