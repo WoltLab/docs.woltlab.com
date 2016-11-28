@@ -2,6 +2,7 @@
 title: Page Types in WoltLab Suite
 sidebar: sidebar
 permalink: php_pages.html
+folder: php
 ---
 
 ## AbstractPage

@@ -2,6 +2,7 @@
 title: Creating a simple package
 sidebar: sidebar
 permalink: getting-started_quick-start.html
+folder: getting-started
 ---
 
 ## Setup and Requirements
