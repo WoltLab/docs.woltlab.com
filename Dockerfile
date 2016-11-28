@@ -1,21 +1,15 @@
-FROM ruby:2.1
-MAINTAINER mrafayaleem@gmail.com
+FROM ruby
 
-RUN apt-get clean \
-  && mv /var/lib/apt/lists /var/lib/apt/lists.broke \
-  && mkdir -p /var/lib/apt/lists/partial
-
-RUN apt-get update
-
-RUN apt-get install -y \
-    node \
-    python-pygments \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/
+RUN	apt-get update \
+&&	apt-get install -y --no-install-recommends \
+	nodejs \
+	python-pygments \
+&&	rm -rf /var/lib/apt/lists/*
 
 WORKDIR /tmp
-ADD Gemfile /tmp/
-ADD Gemfile.lock /tmp/
+
+COPY Gemfile* /tmp/
+
 RUN bundle install
 
 VOLUME /src
