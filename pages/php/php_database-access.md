@@ -73,7 +73,7 @@ $sql = "SELECT  bar
 $statement = \wcf\system\WCF::getDB()->prepareStatement($sql);
 $statement->execute();
 while ($bar = $statement->fetchColumn()) {
-
+    // handle result
 }
 $bar = $statement->fetchSingleColumn();
 ```
