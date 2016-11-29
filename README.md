@@ -1,19 +1,9 @@
-## Jekyll Documentation theme
+## WoltLab Suite 3.0 Documentation
 
-Build the site to see the instructions for using it. Or just go here: [http://idratherbewriting.com/documentation-theme-jekyll/](http://idratherbewriting.com/documentation-theme-jekyll/)
+This repository is used to build the documentation at [https://docs.woltlab.com](https://docs.woltlab.com), contributions are welcome.
 
-## Running the site in Docker
+## Contributing
 
-You can also use Docker to directly build and run the site on your local machine. Just clone the repo and run the following from your working dir:
+Please create an issue before starting any work on new content or updates/fixes to existing ones. This ensures that the same topic isn't worked on independently by multiple people and that your additions and modifications do not conflict with any other plans.
 
-```
-docker build --no-cache -t mydocs .
-```
-
-Once the build is complete, you can mount and run the whole site as follows:
-
-```
-docker run -v "$PWD:/src" -p 4000:4000 mydocs serve -H 0.0.0.0
-```
-This is perhaps the easiest way to see how your site would actually look.
-
+You can find more information on the theme being used on [http://idratherbewriting.com/documentation-theme-jekyll/](http://idratherbewriting.com/documentation-theme-jekyll/).
