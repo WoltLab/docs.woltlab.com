@@ -1,5 +1,5 @@
 ---
-title: Page Types in WoltLab Suite
+title: Page Types
 sidebar: sidebar
 permalink: php_pages.html
 folder: php
