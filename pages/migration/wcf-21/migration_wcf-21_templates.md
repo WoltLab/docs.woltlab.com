@@ -7,7 +7,7 @@ folder: migration/wcf-21
 
 ## Page Layout
 
-The template structure has been overhauled and it is no longer required nor recommended to include internal templates, such as `documentHeader`, `headInclude` or `userNotice`. Instead use a simple `{include file='header'}` that now takse care of of the entire application frame.
+The template structure has been overhauled and it is no longer required nor recommended to include internal templates, such as `documentHeader`, `headInclude` or `userNotice`. Instead use a simple `{include file='header'}` that now takes care of of the entire application frame.
 
 * Templates must not include a trailing `</body></html>` after including the `footer` template.
 * The `documentHeader`, `headInclude` and `userNotice` template should no longer be included manually, the same goes with the `<body>` element, please use `{include file='header'}` instead.
@@ -171,7 +171,7 @@ The code below includes only the absolute minimum required to display a page, th
     </nav>
 </footer>
 
-<script data-relocate="">
+<script data-relocate="true">
     /* any JavaScript code you need */
 </script>
 
