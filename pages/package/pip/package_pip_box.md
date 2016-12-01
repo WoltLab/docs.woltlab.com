@@ -58,6 +58,10 @@ Controls the display on all pages (`1`) or none (`0`), can be used in conjunctio
 
 Inverts the `<visibleEverywhere>` setting for the listed pages only.
 
+### `<cssClassName>`
+
+Provide a custom CSS class name that is added to the menu container, allowing further customization of the menu's appearance.
+
 ### `<content>`
 
 {%include callout.html content="The `language` attribute is required and should specify the [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code." type="warning" %}
