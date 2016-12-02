@@ -46,6 +46,10 @@ The default display position of this box, can be any of the following:
 * sidebarRight
 * top
 
+#### Placeholder Positions
+
+{% include image.html file="boxPlaceholders.png" alt="Visual illustration of placeholder positions" %}
+
 ### `<showHeader>`
 
 Setting this to `0` will suppress display of the box title, useful for boxes containing advertisements or similar. Defaults to `1`.
@@ -101,5 +105,9 @@ The content that should be used to populate the box, only used and required if t
             </content>
         </box>
     </import>
+
+    <delete>
+        <box identifier="com.woltlab.wcf.RecentActivity" />
+    </delete>
 </data>
 ```
