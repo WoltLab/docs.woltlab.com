@@ -13,7 +13,7 @@ Each item is described as a `<box>` element with the mandatory attribute `name` 
 
 ### `<name>`
 
-{%include callout.html content="The `language` attribute is required and should specify the [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code." type="warning" %}
+{% include languageCode.html %}
 
 The internal name displayed in the admin panel only, can be fully customized by the administrator and is immutable. Only one value is accepted and will be picked based on the site's default language, but you can provide localized values by including multiple `<name>` elements.
 
@@ -68,8 +68,7 @@ Provide a custom CSS class name that is added to the menu container, allowing fu
 
 ### `<content>`
 
-{%include callout.html content="The `language` attribute is required and should specify the [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code." type="warning" %}
-
+{% include languageCode.html %}
 #### `<title>`
 
 The title element is required and controls the box title shown to the end users.

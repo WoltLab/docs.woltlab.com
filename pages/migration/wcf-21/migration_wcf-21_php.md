@@ -115,7 +115,7 @@ Breadcrumbs used to be a lose collection of arbitrary links, but are now represe
 \wcf\system\WCF::getBreadcrumbs()->add(new \wcf\system\breadcrumb\Breadcrumb('title', 'link'));
 
 // after
-\wcf\system\page\PageLocationManager::getInstance()->addParentLocation('com.woltlab.wbb.Board', $board->boardID, $board);
+\wcf\system\page\PageLocationManager::getInstance()->addParentLocation($pageIdentifier, $pageObjectID, $object);
 ```
 
 ## Pages and Forms
