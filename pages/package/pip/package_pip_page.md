@@ -31,7 +31,7 @@ Fully qualified class name that can be optionally set to provide additional meth
 
 ### `<name>`
 
-{%include callout.html content="The `language` attribute is required and should specify the [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code." type="info" %}
+{% include languageCode.html %}
 
 The internal name displayed in the admin panel only, can be fully customized by the administrator and is immutable. Only one value is accepted and will be picked based on the site's default language, but you can provide localized values by including multiple `<name>` elements.
 
@@ -57,7 +57,7 @@ Comma separated list of options that will be checked one after another until at 
 
 ### `<content>`
 
-{%include callout.html content="The `language` attribute is required and should specify the [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code." type="info" %}
+{% include languageCode.html %}
 
 #### `<title>`
 
