@@ -3,6 +3,7 @@ title: menu.xml
 sidebar: sidebar
 permalink: package_pip_menu.html
 folder: package/pip
+parent: package_pip
 ---
 
 Deploy and manage menus that can be placed anywhere on the site.

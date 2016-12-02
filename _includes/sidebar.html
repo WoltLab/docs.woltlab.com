@@ -10,12 +10,13 @@
                 <ul>
                     {% for folderitem in folder.folderitems %}
                         {% if folderitem.title %}
+                            {% capture identifier %}{{ folderitem.url | remove: "/" | remove: ".html" }}{% endcapture %}
                             {% if folderitem.external_url %}
-                                <li><a href="{{folderitem.external_url}}" target="_blank">{{folderitem.title}}</a></li>
+                                <li data-identifier="{{ identifier }}"><a href="{{folderitem.external_url}}" target="_blank">{{folderitem.title}}</a></li>
                             {% elsif page.url == folderitem.url %}
-                                <li class="active"><a href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
+                                <li class="active" data-identifier="{{ identifier }}"><a href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
                             {% else %}
-                                <li><a href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
+                                <li data-identifier="{{ identifier }}"><a href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
                             {% endif %}
                         {% endif %}
 
@@ -24,12 +25,13 @@
                                 <a href="#">{{ subfolders.title }}</a>
                                 <ul>
                                     {% for subfolderitem in subfolders.subfolderitems %}
+                                        {% capture identifier %}{{ subfolderitem.url | remove: "/" | remove: ".html" }}{% endcapture %}
                                         {% if subfolderitem.external_url %}
-                                            <li><a href="{{subfolderitem.external_url}}" target="_blank">{{subfolderitem.title}}</a></li>
+                                            <li data-identifier="{{ identifier }}"><a href="{{subfolderitem.external_url}}" target="_blank">{{subfolderitem.title}}</a></li>
                                         {% elsif page.url == subfolderitem.url %}
-                                            <li class="active"><a href="{{subfolderitem.url | remove: "/"}}">{{subfolderitem.title}}</a></li>
+                                            <li class="active" data-identifier="{{ identifier }}"><a href="{{subfolderitem.url | remove: "/"}}">{{subfolderitem.title}}</a></li>
                                         {% else %}
-                                            <li><a href="{{subfolderitem.url | remove: "/"}}">{{subfolderitem.title}}</a></li>
+                                            <li data-identifier="{{ identifier }}"><a href="{{subfolderitem.url | remove: "/"}}">{{subfolderitem.title}}</a></li>
                                         {% endif %}
                                     {% endfor %}
                                 </ul>
@@ -43,5 +45,17 @@
 </ul>
 </div>
 
-<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
-<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = '{{ page.parent }}';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>

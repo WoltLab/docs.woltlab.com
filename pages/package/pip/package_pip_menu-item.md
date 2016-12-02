@@ -3,6 +3,7 @@ title: menuItem.xml
 sidebar: sidebar
 permalink: package_pip_menu-item.html
 folder: package/pip
+parent: package_pip
 ---
 
 Adds menu items to existing menus.

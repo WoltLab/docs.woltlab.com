@@ -3,6 +3,7 @@ title: box.xml
 sidebar: sidebar
 permalink: package_pip_box.html
 folder: package/pip
+parent: package_pip
 ---
 
 Deploy and manage boxes that can be placed anywhere on the site, they come in two flavors: system and content-based.

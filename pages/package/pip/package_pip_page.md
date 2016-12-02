@@ -3,6 +3,7 @@ title: page.xml
 sidebar: sidebar
 permalink: package_pip_page.html
 folder: package/pip
+parent: package_pip
 ---
 
 Registers page controllers, making them available for selection and configuration, including but not limited to boxes and menus.
