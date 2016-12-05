@@ -2,6 +2,7 @@
 title: Database Access
 sidebar: sidebar
 permalink: php_database-access.html
+folder: php
 ---
 
 [Database Objects][php_database-objects] provide a convenient and object-oriented approach to work with the database, but there can be use-cases that require raw access including writing methods for model classes. This section assumes that you have either used [prepared statements](https://en.wikipedia.org/wiki/Prepared_statement) before or at least understand how it works.

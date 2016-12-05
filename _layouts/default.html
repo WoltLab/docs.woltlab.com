@@ -73,7 +73,8 @@
   <div class="footerBox">
     <div class="container">
       <div class="footerBoxLeft">
-        <a target="_blank" href="https://github.com/{{site.github_editme_path}}{{page.folder}}{{page.url | remove: ".html" | append: ".md"}}" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        {% capture githubPageFolder %}{% if page.folder %}/pages/{{ page.folder }}{% endif %}{% endcapture %}
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master{{ githubPageFolder }}{{page.url | remove: ".html" | append: ".md"}}" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
         <p>Site last generated: {{ site.time | date: "%b %-d, %Y"  }}</p>
       </div>
       <div class="footerBoxRight">
