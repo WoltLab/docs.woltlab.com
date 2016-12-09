@@ -163,9 +163,9 @@ You can provide a lot more data for a page, including logical nesting and dedica
 If you have followed the above guidelines carefully, your package directory should now look like this:
 
 > - files
-> - lib
->   - page
->     - TestPage.class.php
+>   - lib
+>     - page
+>       - TestPage.class.php
 > - templates
 >   - test.tpl
 > - package.xml
