@@ -75,7 +75,7 @@ As `ExampleComponent::$var` is a public property, the event listener code can ch
 If you now execute the example code from above again, the output will change from `var is 1!` to `var is 2!` because prior to returning the value, the event listener code changes the value from `1` to `2`.
 
 This introductory example illustrates how event listeners can change data in a non-intrusive way.
-Program flow can be changed, for example, by throwing a `wcf\system\exception\PermissionDeniedException` if some additional contraint to access a page is not fulfilled.
+Program flow can be changed, for example, by throwing a `wcf\system\exception\PermissionDeniedException` if some additional constraint to access a page is not fulfilled.
 
 
 ## Listening to Events
