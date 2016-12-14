@@ -118,7 +118,7 @@ processing that takes place within all sort of pages, where all user-supplied da
 start reading user input at random places, including the risk to only escape the input of variable `$_GET['foo']` 4 out of 5 times.
 
 Reading and processing the data is only half the story, now we need a template to display the actual content for our page. You don't need to specify it yourself, it will be automatically guessed based on your
-namespace and class name, you can [read more about it later][getting-started_quick-start.html#appendixTemplateGuessing].
+namespace and class name, you can [read more about it later](#appendixTemplateGuessing).
 
 Last but not least, you must not include the closing PHP tag `?>` at the end, it can cause PHP to break on whitespaces and is not required at all.
 
