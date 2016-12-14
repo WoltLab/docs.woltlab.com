@@ -92,9 +92,75 @@ If no additional data is passed, `$parameters` is empty.
 ## Firing Events
 
 If you write code and want plugins to have access at certain points, you can fire an event on your own.
-The only thing to do is to call the `wcf\system\event\EventHandler::fireAction($eventObj, $eventName, array &$parameters = [])` method.
-If you fire from an object context, `$this` should be passed as the first parameter, otherwise pass the class name `static::class`.
-The second parameter identifies the event within the class and has generally the same name as the method.
-In cases, were you might fire more than one event in a method, for example before and after a certain piece of code, you can use the prefixes `before*` and `after*` in your event names.
-The third and the only optional parameter allows you to pass additional data to the event listeners in form of an array without having to make this data accessible via a property explicitly only created for this purpose.
-This additional data can either be just additional information for the event listeners about the context of the method call or allow the event listener to manipulate local data if the code, where the event has been fired, uses the passed data afterwards.  
+The only thing to do is to call the `wcf\system\event\EventHandler::fireAction($eventObj, $eventName, array &$parameters = [])` method and pass the following parameters:
+
+1. `$eventObj` should be `$this` if you fire from an object context, otherwise pass the class name `static::class`.
+2. `$eventName` identifies the event within the class and generally has the same name as the method.
+   In cases, were you might fire more than one event in a method, for example before and after a certain piece of code, you can use the prefixes `before*` and `after*` in your event names.
+3. `$parameters` is an optional array which allows you to pass additional data to the event listeners without having to make this data accessible via a property explicitly only created for this purpose.
+   This additional data can either be just additional information for the event listeners about the context of the method call or allow the event listener to manipulate local data if the code, where the event has been fired, uses the passed data afterwards.  
+
+### Example: Using `$parameters` argument
+
+Consider the following method which gets some text that the methods parses.
+
+```php
+<?php
+namespace wcf\system\example;
+use wcf\system\event\EventHandler;
+
+class ExampleParser {
+	public function parse($text) {
+		// [some parsing done by default]
+		
+		$parameters = ['text' => $text];
+		EventHandler::getInstance()->fireAction($this, 'parse', $parameters);
+		
+		return $parameters['text'];
+	}
+}
+```
+
+After the default parsing by the method itself, the author wants to enable plugins to do additional parsing and thus fires an event and passes the parsed text as an additional parameter.
+Then, a plugin can deliver the following event listener
+
+```php
+<?php
+namespace wcf\system\event\listener;
+
+class ExampleParserEventListener implements IParameterizedEventListener {
+	public function execute($eventObj, $className, $eventName, array &$parameters) {
+		$text = $parameters['text'];
+		
+		// [some additional parsing which changes $text]
+		
+		$parameters['text'] = $text;
+	}
+}
+```
+
+which can access the text via `$parameters['text']`.
+
+This example can also be perfectly used to illustrate how to name multiple events in the same method.
+Let's assume that the author wants to enable plugins to change the text before and after the method does its own parsing and thus fires two events:
+
+```php
+<?php
+namespace wcf\system\example;
+use wcf\system\event\EventHandler;
+
+class ExampleParser {
+	public function parse($text) {
+		$parameters = ['text' => $text];
+		EventHandler::getInstance()->fireAction($this, 'beforeParsing', $parameters);
+		$text = $parameters['text'];
+		
+		// [some parsing done by default]
+		
+		$parameters = ['text' => $text];
+		EventHandler::getInstance()->fireAction($this, 'afterParsing', $parameters);
+		
+		return $parameters['text'];
+	}
+}
+```
