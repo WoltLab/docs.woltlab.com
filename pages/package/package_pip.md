@@ -10,7 +10,7 @@ Package Installation Plugins (PIPs) are interfaces to deploy and edit content as
 ## Built-In PIPs
 
 | Name | Description |
-|-------|-------|
+|------|-------------|
 | [aclOption][package_pip_acl-option] | Customizable permissions for individual objects |
 | [acpMenu][package_pip_acp-menu] | Admin panel menu categories and items |
 | [acpSearchProvider][package_pip_acp-search-provider] | Data provider for the admin panel search |
