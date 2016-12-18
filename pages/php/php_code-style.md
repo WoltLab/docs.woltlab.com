@@ -19,13 +19,13 @@ The relevant naming conventions are:
   All letters are written in upper case and compound words are seperated by underscores.
 
 
-|Type|Convention|Example|
-|----|----------|-------|
-|Variable|lower camel case|`$variableName`|
-|Class|upper camel case|`class UserGroupEditor`|
-|Properties|lower camel case|`public $propertyName`|
-|Method|lower camel case|`public function getObjectByName()`|
-|Constant|screaming snake case|`MODULE_USER_THING`|
+| Type | Convention | Example |
+|------|------------|---------|
+| Variable | lower camel case | `$variableName` |
+| Class | upper camel case | `class UserGroupEditor` |
+| Properties | lower camel case | `public $propertyName` |
+| Method | lower camel case | `public function getObjectByName()` |
+| Constant | screaming snake case | `MODULE_USER_THING` |
 
 ### Arrays
 
