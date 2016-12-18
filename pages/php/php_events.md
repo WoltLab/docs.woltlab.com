@@ -164,3 +164,112 @@ class ExampleParser {
 	}
 }
 ```
+
+
+## Advanced Example: Additional Form Field
+
+One common reason to use event listeners is to add an additional field to a pre-existing form (in combination with template listeners, which we will not cover here).
+We will assume that users are able to do both, create and edit the objects via this form.
+The points in the program flow of [AbstractForm](php_pages.html#abstractform) that are relevant here are:
+
+- adding object (after the form has been submitted):
+  1. reading the value of the field
+  2. validating the read value
+  3. saving the additional value after successful validation and resetting locally stored value or assigning the current value of the field to the template after unsuccessful validation
+
+- editing object:
+  - on initial form request:
+    1. reading the pre-existing value of the edited object
+    2. assigning the field value to the template
+  - after the form has been submitted:
+    1. reading the value of the field
+    2. validating the read value
+    3. saving the additional value after successful validation
+    4. assigning the current value of the field to the template
+
+All of these cases can be covered the by following code in which we assume that `wcf\form\ExampleAddForm` is the form to create example objects and that `wcf\form\ExampleEditForm` extends `wcf\form\ExampleAddForm` and is used for editing existing example objects.
+
+```php
+<?php
+namespace wcf\system\event\listener;
+use wcf\form\ExampleAddForm;
+use wcf\form\ExampleEditForm;
+use wcf\system\exception\UserInputException;
+use wcf\system\WCF;
+
+class ExampleAddFormListener implements IParameterizedEventListener {
+	protected $var = 0;
+	
+	public function execute($eventObj, $className, $eventName, array &$parameters) {
+		$this->$eventName($eventObj);
+	}
+	
+	protected function assignVariables() {
+		WCF::getTPL()->assign('var', $this->var);
+	}
+	
+	protected function readData(ExampleEditForm $eventObj) {
+		if (empty($_POST)) {
+			$this->var = $eventObj->example->var;
+		}
+	}
+	
+	protected function readFormParameters() {
+		if (isset($_POST['var'])) $this->var = intval($_POST['var']);
+	}
+	
+	protected function save(ExampleAddForm $eventObj) {
+		$eventObj->additionalFields = array_merge($eventObj->additionalFields, ['var' => $this->var]);
+	}
+	
+	protected function saved() {
+		$this->var = 0;
+	}
+	
+	protected function validate() {
+		if ($this->var < 0) {
+			throw new UserInputException('var', 'isNegative');
+		}
+	}
+}
+```
+
+The `execute` method in this example just delegates the call to a method with the same name as the event so that this class mimics the structure of a form class itself.
+The form object is passed to the methods but is only given in the method signatures as a parameter here whenever the form object is actually used.
+Furthermore, the type-hinting of the parameter illustrates in which contexts the method is actually called which will become clear in the following discussion of the individual methods:
+
+- `assignVariables()` is called for the add and the edit form and simply assigns the current value of the variable to the template.
+- `readData()` reads the pre-existing value of `$var` if the form has not been submitted and thus is only relevant when editing objects which is illustrated by the explicite type-hint of `ExampleEditForm`.
+- `readFormParameters()` reads the value for both, the add and the edit form.
+- `save()` is, of course, also relevant in both cases but requires the form object to store the additional value in the `wcf\form\AbstractForm::$additionalFields` array which can be used if a `var` column has been added to the database table in which the example objects are stored.
+- `saved()` is only called for the add form as it clears the internal value so that in the `assignVariables()` call, the default value will be assigned to the template to create an "empty" form.
+  During edits, this current value is the actual value that should be shown.
+- `validate()` also needs to be called in both cases as the input data always has to be validated.
+
+Lastly, the following XML file has to be used to register the event listeners (you can find more information about how to register event listeners on [the eventListener package installation plugin page](package_pip_event-listener.html)):
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/eventListener.xsd">
+	<import>
+		<eventlistener name="exampleAddInherited">
+			<eventclassname>wcf\form\ExampleAddForm</eventclassname>
+			<eventname>assignVariables,readFormParameters,save,validate</eventname>
+			<listenerclassname>wcf\system\event\listener\ExampleAddFormListener</listenerclassname>
+			<inherit>1</inherit>
+		</eventlistener>
+		
+		<eventlistener name="exampleAdd">
+			<eventclassname>wcf\form\ExampleAddForm</eventclassname>
+			<eventname>saved</eventname>
+			<listenerclassname>wcf\system\event\listener\ExampleAddFormListener</listenerclassname>
+		</eventlistener>
+		
+		<eventlistener name="exampleEdit">
+			<eventclassname>wcf\form\ExampleEditForm</eventclassname>
+			<eventname>readData</eventname>
+			<listenerclassname>wcf\system\event\listener\ExampleAddFormListener</listenerclassname>
+		</eventlistener>
+	</import>
+</data>
+```
