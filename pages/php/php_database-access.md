@@ -9,7 +9,7 @@ folder: php
 
 ## The PreparedStatement Object
 
-The database access is designed around [PreparedStatement](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/database/statement/PreparedStatement.class.php), built on top of `PDOStatement`, and each query requires you to obtain a statement object.
+The database access is designed around [PreparedStatement](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/database/statement/PreparedStatement.class.php), built on top of PHP's `PDOStatement` so that you call all of `PDOStatement`'s methods, and each query requires you to obtain a statement object.
 
 ```php
 <?php
