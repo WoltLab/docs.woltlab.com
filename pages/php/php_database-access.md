@@ -90,6 +90,68 @@ $statement->execute([$exampleID]);
 $bar = $statement->fetchSingleColumn();
 ```
 
+### Fetching All Results
+
+If you want to fetch all results of a query but only store them in an array without directly processing them, in most cases, you can rely on built-in methods.
+
+To fetch all rows of query, you can use `PDOStatement::fetchAll()` with `\PDO::FETCH_ASSOC` as the first parameter:
+
+```php
+<?php
+$sql = "SELECT  *
+        FROM    wcf".WCF_N."_example";
+$statement = \wcf\system\WCF::getDB()->prepareStatement($sql);
+$statement->execute();
+$rows = $statement->fetchAll(\PDO::FETCH_ASSOC);
+```
+
+As a result, you get an array containing associative arrays with the rows of the `wcf{WCF_N}_example` database table as content.
+
+If you only want to fetch a list of the values of a certain column, you can use `\PDO::FETCH_COLUMN` as the first parameter:
+
+```php
+<?php
+$sql = "SELECT  exampleID
+        FROM    wcf".WCF_N."_example";
+$statement = \wcf\system\WCF::getDB()->prepareStatement($sql);
+$statement->execute();
+$exampleIDs = $statement->fetchAll(\PDO::FETCH_COLUMN);
+```
+
+As a result, you get an array with all `exampleID` values.
+
+The `PreparedStatement` class adds an additional methods that covers another common use case in our code:
+Fetching two columns and using the first column's value as the array key and the second column's value as the array value.
+This case is covered by `PreparedStatement::fetchMap()`:
+
+```php
+<?php
+$sql = "SELECT  exampleID, userID
+        FROM    wcf".WCF_N."_example_mapping";
+$statement = \wcf\system\WCF::getDB()->prepareStatement($sql);
+$statement->execute();
+$map = $statement->fetchMap('exampleID', 'userID');
+```
+
+`$map` is a one-dimensional array where each `exampleID` value maps to the corresponding `userID` value.
+
+{% include callout.html content="If there are multiple entries for a certain `exampleID` value with different `userID` values, the existing entry in the array will be overwritten and contain the last read value from the database table. Therefore, this method should generally only be used for unique combinations." type="warning" %}
+
+If you do not have a combination of columns with unique pairs of values, but you want to get a list of `userID` values with the same `exampleID`, you can set the third parameter of `fetchMap()` to `false` and get a list:
+
+```php
+<?php
+$sql = "SELECT  exampleID, userID
+        FROM    wcf".WCF_N."_example_mapping";
+$statement = \wcf\system\WCF::getDB()->prepareStatement($sql);
+$statement->execute();
+$map = $statement->fetchMap('exampleID', 'userID', false);
+```
+
+Now, as a result, you get a two-dimensional array with the array keys being the `exampleID` values and the array values being arrays with all `userID` values from rows with the respective `exampleID` value.
+
+
+
 ## Building Complex Conditions
 
 Building conditional conditions can turn out to be a real mess and it gets even worse with SQL's `IN (…)` which requires as many placeholders as there will be values. The solutions is `PreparedStatementConditionBuilder`, a simple but useful helper class with a bulky name, it is also the class used when accessing `DatabaseObjecList::getConditionBuilder()`.
