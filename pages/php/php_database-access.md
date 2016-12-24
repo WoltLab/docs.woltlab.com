@@ -82,6 +82,7 @@ $bar = $statement->fetchSingleColumn();
 Similar to fetching a single row, you can also issue a query that will select a single row, but reads only one column from the result row.
 
 ```php
+<?php
 $sql = "SELECT  bar
         FROM    wcf".WCF_N."_example
         WHERE   exampleID = ?";
@@ -190,6 +191,7 @@ foreach ($data as $bar) {
 It is generally advised to wrap bulk operations in a transaction as it allows the database to optimize the process, including fewer I/O operations.
 
 ```php
+<?php
 $data = [
     1 => 'abc',
     3 => 'def',
