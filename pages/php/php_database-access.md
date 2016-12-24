@@ -161,7 +161,7 @@ Building conditional conditions can turn out to be a real mess and it gets even 
 $conditions = new \wcf\system\database\util\PreparedStatementConditionBuilder();
 $conditions->add("exampleID = ?", [$exampleID]);
 if (!empty($valuesForBar)) {
-    $conditions->add("bar IN (?)", [$valuesForBar]);
+    $conditions->add("(bar IN (?) OR baz = ?)", [$valuesForBar, $baz]);
 }
 ```
 
