@@ -1,8 +1,8 @@
 ---
 title: Cronjobs
 sidebar: sidebar
-permalink: php_cronjobs.html
-folder: php
+permalink: php_api_cronjobs.html
+folder: php/api
 ---
 
 Cronjobs offer an easy way to execute actions periodically, like cleaning up the database.

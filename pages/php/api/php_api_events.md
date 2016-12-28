@@ -1,8 +1,8 @@
 ---
 title: Events
 sidebar: sidebar
-permalink: php_events.html
-folder: php
+permalink: php_api_events.html
+folder: php/api
 ---
 
 WoltLab Suite's event system allows manipulation of program flows and data without having to change any of the original source code.
