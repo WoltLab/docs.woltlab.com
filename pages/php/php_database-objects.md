@@ -109,7 +109,9 @@ The following code listing illustrates loading a large set of examples and itera
 ```php
 <?php
 $exampleList = new \wcf\data\example\ExampleList();
+// add contraints using the condition builder
 $exampleList->getConditionBuilder()->add('bar IN (?)', [['Hello World!', 'bar', 'baz']]);
+// actually read the rows
 $exampleList->readObjects();
 foreach ($exampleList as $example) {
     echo $example->bar;
@@ -117,9 +119,54 @@ foreach ($exampleList as $example) {
 
 // retrieve the models directly instead of iterating over them
 $examples = $exampleList->getObjects();
+
+// just retrieve the number of rows
+$exampleCount = $exampleList->countObjects();
 ```
 
-`DatabaseObjecList` implements both [SeekableIterator](https://secure.php.net/manual/en/class.seekableiterator.php) and [Countable](https://secure.php.net/manual/en/class.countable.php).
+`DatabaseObjectList` implements both [SeekableIterator](https://secure.php.net/manual/en/class.seekableiterator.php) and [Countable](https://secure.php.net/manual/en/class.countable.php).
+
+Additionally, `DatabaseObjectList` objects has the following three public properties that are useful when fetching data with lists:
+
+- `$sqlLimit` determines how many rows are fetched.
+  If its value is `0` (which is the default value), all results are fetched.
+  So be careful when dealing with large tables and you only want a limited number of rows:
+  Set `$sqlLimit` to a value larger than zero!
+- `$sqlOffset`:
+  Paginated pages like a thread list use this feature a lot, it allows you to skip a given number of results.
+  Imagine you want to display 20 threads per page but there are a total of 60 threads available.
+  In this case you would specify `$sqlLimit = 20` and `$sqlOffset = 20` which will skip the first 20 threads, effectively displaying thread 21 to 40.
+- `$sqlOrderBy` determines by which column(s) the rows are sorted in which order.
+  Using our example in `$sqlOffset` you might want to display the 20 most recent threads on page 1, thus you should specify the order field and its direction, e.g. `$sqlOrderBy = 'thread.lastPostTime DESC'` which returns the most recent thread first.
+
+For more advanced usage, there two additional fields that deal with the type of objects returned.
+First, let's go into a bit more detail what setting the `$className` property actually does:
+
+1. It is the type of database object in which the rows are wrapped.
+2. It determines which database table is actually queried and which index is used (see the `$databaseTableName` and `$databaseTableIndexName` properties of `DatabaseObject`).
+
+Sometimes you might use the database table of some database object but wrap the rows in another database object.
+This can be achieved by setting the `$objectClassName` property to the desired class name.
+
+In other cases, you might want to wrap the created objects in a database object decorator which can be done by setting the `$decoratorClassName` property to the desired class name:
+
+```php
+<?php
+$exampleList = new \wcf\data\example\ExampleList();
+$exampleList->decoratorClassName = \wcf\data\example\ViewableExample::class;
+```
+
+Of course, you do not have to set the property after creating the list object, you can also set it by creating a dedicated class:
+
+```php
+<?php
+namespace wcf\data\example;
+
+class ViewableExampleList extends ExampleList {
+    public $decoratorClassName = ViewableExample::class;
+}
+```
+
 
 ## AbstractDatabaseObjectAction
 
