@@ -9,6 +9,7 @@ WoltLab Suite uses a unified interface to work with database rows using an objec
 
 Developers are required to provide the proper DatabaseObject implementations themselves, they're not automatically generated, all though the actual code that needs to be written is rather small. The following examples assume the fictional database table `wcf1_example`, `exampleID` as the auto-incrementing primary key and the column `bar` to store some text.
 
+
 ## DatabaseObject
 
 The basic model derives from `wcf\data\DatabaseObject` and provides a convenient constructor to fetch a single row or construct an instance using pre-loaded rows.
@@ -24,6 +25,35 @@ class Example extends DatabaseObject {}
 The class is intended to be empty by default and there only needs to be code if you want to add additional logic to your model. Both the class name and primary key are determinted by `DatabaseObject` using the namespace and class name of the derived class. The example above uses the namespace `wcf\…` which is used as table prefix and the class name `Example` is converted into `exampleID`, resulting in the database table name `wcfN_example` with the primary key `exampleID`.
 
 You can prevent this automatic guessing by setting the class properties `$databaseTableName` and `$databaseTableIndexName` manually.
+
+
+## DatabaseObjectDecorator
+
+If you already have a `DatabaseObject` class and would like to extend it with additional data or methods, for example by providing a class `ViewableExample` which features view-related changes without polluting the original object, you can use `DatabaseObjectDecorator` which a default implementation of a decorator for database objects.
+
+```php
+<?php
+namespace wcf\data\example;
+use wcf\data\DatabaseObjectDecorator;
+
+class ViewableExample extends DatabaseObjectDecorator {
+    protected static $baseClass = Example::class;
+    
+    public function getOutput() {
+        $output = '';
+        
+        // [determine output]
+        
+        return $output;
+    }
+}
+```
+
+It is mandatory to set the static `$baseClass` property to the name of the decorated class.
+
+Like for any decorator, you can directly access the decorated object's properties and methods for a decorated object by accessing the property or calling the method on the decorated object.
+You can access the decorated objects directly via `DatabaseObjectDecorator::getDecoratedObject()`.
+
 
 ## DatabaseObjectEditor
 
@@ -89,6 +119,7 @@ $example = new \wcf\data\example\Example($id);
 $exampleEditor = new \wcf\data\example\ExampleEditor($example);
 $exampleEditor->delete();
 ```
+
 
 ## DatabaseObjectList
 
