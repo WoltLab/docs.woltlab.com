@@ -7,7 +7,7 @@ folder: view
 
 ## SCSS and CSS
 
-SCSS is a scripting language that features a syntax similar to CSS and compiles into native CSS at runtime. It provides many great additions to CSS such as declaration nesting and variables, it is recommended to read the (official guide)[http://sass-lang.com/guide] to learn more.
+SCSS is a scripting language that features a syntax similar to CSS and compiles into native CSS at runtime. It provides many great additions to CSS such as declaration nesting and variables, it is recommended to read the [official guide](http://sass-lang.com/guide) to learn more.
 
 You can create `.scss` files containing only pure CSS code and it will work just fine, you are at no point required to write actual SCSS code.
 
