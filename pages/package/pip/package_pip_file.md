@@ -1,5 +1,5 @@
 ---
-title: files.tar
+title: File Package Installation Plugin
 sidebar: sidebar
 permalink: package_pip_file.html
 folder: package/pip

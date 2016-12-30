@@ -1,5 +1,5 @@
 ---
-title: templates.tar
+title: Template Package Installation Plugin
 sidebar: sidebar
 permalink: package_pip_template.html
 folder: package/pip

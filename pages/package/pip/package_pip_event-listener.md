@@ -1,5 +1,5 @@
 ---
-title: eventListener.xml
+title: Event Listener Package Installation Plugin
 sidebar: sidebar
 permalink: package_pip_event-listener.html
 folder: package/pip

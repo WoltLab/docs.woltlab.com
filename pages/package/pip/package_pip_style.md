@@ -1,5 +1,5 @@
 ---
-title: style.tar
+title: Style Package Installation Plugin
 sidebar: sidebar
 permalink: package_pip_style.html
 folder: package/pip

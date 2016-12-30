@@ -1,5 +1,5 @@
 ---
-title: bbcode.xml
+title: BBCode Package Installation Plugin
 sidebar: sidebar
 permalink: package_pip_bbcode.html
 folder: package/pip

@@ -1,5 +1,5 @@
 ---
-title: page.xml
+title: Page Package Installation Plugin
 sidebar: sidebar
 permalink: package_pip_page.html
 folder: package/pip

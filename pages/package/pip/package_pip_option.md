@@ -1,5 +1,5 @@
 ---
-title: option.xml
+title: Option Package Installation Plugin
 sidebar: sidebar
 permalink: package_pip_option.html
 folder: package/pip

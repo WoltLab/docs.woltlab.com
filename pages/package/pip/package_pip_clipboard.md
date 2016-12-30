@@ -1,5 +1,5 @@
 ---
-title: clipboard.xml
+title: Clipboard Package Installation Plugin
 sidebar: sidebar
 permalink: package_pip_clipboard.html
 folder: package/pip

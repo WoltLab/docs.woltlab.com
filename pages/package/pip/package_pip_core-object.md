@@ -1,5 +1,5 @@
 ---
-title: coreObject.xml
+title: Core Object Package Installation Plugin
 sidebar: sidebar
 permalink: package_pip_core-object.html
 folder: package/pip

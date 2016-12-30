@@ -1,5 +1,5 @@
 ---
-title: acptemplates.tar
+title: ACP Template Installation Plugin
 sidebar: sidebar
 permalink: package_pip_acp-template.html
 folder: package/pip

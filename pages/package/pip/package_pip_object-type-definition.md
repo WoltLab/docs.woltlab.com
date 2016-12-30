@@ -1,5 +1,5 @@
 ---
-title: objectTypeDefinition.xml
+title: Object Type Definition Package Installation Plugin
 sidebar: sidebar
 permalink: package_pip_object-type-definition.html
 folder: package/pip

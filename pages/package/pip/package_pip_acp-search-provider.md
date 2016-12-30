@@ -1,5 +1,5 @@
 ---
-title: acpSearchProvider.xml
+title: ACP Search Provider Package Installation Plugin
 sidebar: sidebar
 permalink: package_pip_acp-search-provider.html
 folder: package/pip

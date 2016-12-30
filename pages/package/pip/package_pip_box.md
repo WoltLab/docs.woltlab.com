@@ -1,5 +1,5 @@
 ---
-title: box.xml
+title: Box Package Installation Plugin
 sidebar: sidebar
 permalink: package_pip_box.html
 folder: package/pip

@@ -1,5 +1,5 @@
 ---
-title: objectType.xml
+title: Object Type Package Installation Plugin
 sidebar: sidebar
 permalink: package_pip_object-type.html
 folder: package/pip

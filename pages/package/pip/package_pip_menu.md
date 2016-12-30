@@ -1,5 +1,5 @@
 ---
-title: menu.xml
+title: Menu Package Installation Plugin
 sidebar: sidebar
 permalink: package_pip_menu.html
 folder: package/pip
