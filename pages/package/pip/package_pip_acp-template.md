@@ -41,7 +41,4 @@ If no `application` attribute is given, the following rules are applied:
 <!-- if an application "com.woltlab.example" is being installed, the following lines are equivalent -->
 <instruction type="acpTemplate" />
 <instruction type="acpTemplate" application="example" />
-
-<!-- if the same application wants to install additional files, in WoltLab Suite Core's directory: -->
-<instruction type="file" application="wcf">files_wcf.tar</instruction>
 ```
