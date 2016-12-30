@@ -5,6 +5,8 @@ permalink: php_code-style.html
 folder: php
 ---
 
+{% include callout.html content="The following code style conventions are used by us for our own packages. While you do not have to follow every rule, you are encouraged to do so." type="info" %}
+
 ## General Code Style
 
 ### Naming conventions
@@ -48,6 +50,66 @@ $multipleElementsWithKey = [
 ];
 ```
 
+### Ternary Operator
+
+The ternary operator can be used for short conditioned assigments:
+
+```php
+<?php
+
+$name = isset($tagArgs['name']) ? $tagArgs['name'] : 'default';
+```
+
+The condition and the values should be short so that the code does not result in a very long line which thus decreases the readability compared to an `if-else` statement.
+
+Parentheses may only be used around the condition and not around the whole statement:
+
+```php
+<?php
+
+// do not do it like this
+$name = (isset($tagArgs['name']) ? $tagArgs['name'] : 'default');
+```
+
+Parentheses around the conditions may not be used to wrap simple function calls:
+
+```php
+<?php
+
+// do not do it like this
+$name = (isset($tagArgs['name'])) ? $tagArgs['name'] : 'default';
+```
+
+but have to be used for comparisons or other binary operators:
+
+```php
+<?php
+
+$value = ($otherValue > $upperLimit) ? $additionalValue : $otherValue;
+``` 
+
+If you need to use more than one binary operator, use an `if-else` statement.
+
+The same rules apply to assigning array values:
+
+```php
+<?php
+
+$values = [
+	'first' => $firstValue,
+	'second' => $secondToggle ? $secondValueA : $secondValueB,
+	'third' => ($thirdToogle > 13) ? $thirdToogleA : $thirdToogleB
+];
+```
+
+or return values:
+
+```php
+<?php
+
+return isset($tagArgs['name']) ? $tagArgs['name'] : 'default';
+```
+
 ### Whitespaces
 
 You have to put a whitespace *in front* of the following things:
@@ -65,6 +127,21 @@ You have to put a whitespace *behind* the following things:
 
 
 ## Classes
+
+### Referencing Class Names
+
+If you have to reference a class name inside a php file, you have to use the `class` keyword.
+
+```php
+<?php
+
+// not like this
+$className = 'wcf\data\example\Example';
+
+// like this
+use wcf\data\example\Example;
+$className = Foo::class;
+```
 
 ### Static Getters (of `DatabaseObject` Classes)
 
@@ -99,3 +176,41 @@ Such methods should always either return the desired object or `null` if the obj
 `wcf\system\database\statement\PreparedStatement::fetchObject()` already takes care of this distinction so that its return value can simply be returned by such methods.
 
 The name of such getters should generally follow the convention `get{object type}By{column or other description}`.
+
+### Long method calls
+
+In some instances, methods with many argument have to be called which can result in lines of code like this one:
+
+```php
+<?php
+
+\wcf\system\search\SearchIndexManager::getInstance()->set('com.woltlab.wcf.article', $articleContent->articleContentID, $articleContent->content, $articleContent->title, $articles[$articleContent->articleID]->time, $articles[$articleContent->articleID]->userID, $articles[$articleContent->articleID]->username, $articleContent->languageID, $articleContent->teaser);
+```
+
+which is hardly readable.
+Therefore, the line must be split into multiple lines with each argument in a separate line:
+
+```php
+<?php
+
+\wcf\system\search\SearchIndexManager::getInstance()->set(
+	'com.woltlab.wcf.article',
+	$articleContent->articleContentID,
+	$articleContent->content,
+	$articleContent->title,
+	$articles[$articleContent->articleID]->time,
+	$articles[$articleContent->articleID]->userID,
+	$articles[$articleContent->articleID]->username,
+	$articleContent->languageID,
+	$articleContent->teaser
+);
+```
+
+In general, this rule applies to the following methods:
+
+- `wcf\system\edit\EditHistoryManager::add()`
+- `wcf\system\message\quote\MessageQuoteManager::addQuote()`
+- `wcf\system\message\quote\MessageQuoteManager::getQuoteID()`
+- `wcf\system\search\SearchIndexManager::set()`
+- `wcf\system\user\object\watch\UserObjectWatchHandler::updateObject()`
+- `wcf\system\user\notification\UserNotificationHandler::fireEvent()`
