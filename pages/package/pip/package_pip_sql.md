@@ -11,7 +11,7 @@ Execute SQL instructions using a MySQL-flavored syntax.
 {% include callout.html content="This file is parsed by WoltLab Suite Core to allow reverting of certain changes, but not every syntax MySQL supports is recognized by the parser. To avoid any troubles, you should always use statements relying on the SQL standard." type="warning" %}
 
 
-## Expected valze
+## Expected Value
 
 The `sql` package installation plugin expects a relative path to a `.sql` file.
 
