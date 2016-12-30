@@ -10,12 +10,14 @@ Add templates for acp pages and forms by providing an archive containing the tem
 
 {% include callout.html content="You cannot overwrite acp templates provided by other packages." type="warning" %}
 
+
 ## Archive
 
 The `acpTemplate` package installation plugins expects a `.tar` (recommended) or `.tar.gz` archive.
 The templates must all be in the root of the archive.
 Do not include any directories in the archive.
 The file path given in the `instruction` element as its value must be relative to the `package.xml` file.
+
 
 ## Attributes
 
@@ -27,6 +29,7 @@ If no `application` attribute is given, the following rules are applied:
 
 - If the package installing the acp templates is an application, then the templates will be installed in this application's directory.
 - If the package installing the acp templates is no application, then the templates will be installed in WoltLab Suite Core's directory.
+
 
 ## Example in `package.xml`
 
@@ -42,5 +45,3 @@ If no `application` attribute is given, the following rules are applied:
 <!-- if the same application wants to install additional files, in WoltLab Suite Core's directory: -->
 <instruction type="file" application="wcf">files_wcf.tar</instruction>
 ```
-
-
