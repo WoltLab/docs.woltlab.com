@@ -202,3 +202,9 @@ Many PIPs provide default file names which are used if no value is given:
 There is a [list of all default PIPs](package_pip.html) available.
 
 {% include callout.html content="Both the `type`-attribute and the element value are case-sensitive. Windows does not care if the file is called `objecttypedefinition.xml` but was referenced as `objectTypeDefinition.xml`, but both Linux and Mac systems will be unable to find the file." type="warning" %}
+
+In addition to the `type` attribute, an optional `run` attribute (with `standalone` as the only valid value) is supported which forces the installation to execute this PIP in an isolated request, allowing a single, resource-heavy PIP to execute without encountering restrictions such as PHP’s `memory_limit` or `max_execution_time`:
+
+```xml
+<instruction type="file" run="standalone" />
+```
