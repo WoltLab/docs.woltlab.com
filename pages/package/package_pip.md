@@ -7,6 +7,8 @@ folder: package
 
 Package Installation Plugins (PIPs) are interfaces to deploy and edit content as well as components.
 
+{% include callout.html content="For XML-based PIPs: `<![CDATA[]]>` must be used for language items and page contents. In all other cases it may only be used when necessary." type="info" %}
+
 ## Built-In PIPs
 
 | Name | Description |
