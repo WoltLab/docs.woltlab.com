@@ -143,7 +143,7 @@ $className = 'wcf\data\example\Example';
 
 // like this
 use wcf\data\example\Example;
-$className = Foo::class;
+$className = Example::class;
 ```
 
 ### Static Getters (of `DatabaseObject` Classes)
