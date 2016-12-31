@@ -7,6 +7,9 @@ folder: php
 
 {% include callout.html content="The following code style conventions are used by us for our own packages. While you do not have to follow every rule, you are encouraged to do so." type="info" %}
 
+For information about how to document your code, please refer to the [documentation page](php_code-style_documentation.html).
+
+
 ## General Code Style
 
 ### Naming conventions
