@@ -63,4 +63,22 @@ Any database object editor class comment must have to following tags to properly
 The only exception to this rule is if the class overwrites the `create()` method which itself has to be propertly documentation then.
 
 The first and second line makes sure that when calling the `create()` or `getDecoratedObject()` method, the return value is correctly recognized and not just a general `DatabaseObject` instance.
-The third line tells the IDE (if `@mixin` is supported) that the database object editor decorates the database object and therefore offers autocompletion for properties and methods from the database object class itself. 
+The third line tells the IDE (if `@mixin` is supported) that the database object editor decorates the database object and therefore offers autocompletion for properties and methods from the database object class itself.
+
+
+## Runtime Caches
+
+### Class Tags
+
+Any class implementing the [IRuntimeCache](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/cache/runtime/IRuntimeCache.class.php) interface must have the following class tags:
+
+```php
+/**
+ * …
+ * @method	{DBO class name}[]	getCachedObjects()
+ * @method	{DBO class name}	getObject($objectID)
+ * @method	{DBO class name}[]	getObjects(array $objectIDs)
+ */
+```
+
+These tags ensure that when calling any of the mentioned methods, the return value refers to the concrete database object and not just generically to [DatabaseObject](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/data/DatabaseObject.class.php).
