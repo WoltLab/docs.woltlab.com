@@ -36,7 +36,7 @@ UserRuntimeCache::getInstance()->cacheObjectIDs($userIDs);
 // […]
 
 // second step: fetch the objects from database
-$userIDs = UserRuntimeCache::getInstance()->getObjects($userIDs);
+$users = UserRuntimeCache::getInstance()->getObjects($userIDs);
 
 // somewhere else: fetch only one user
 $userID = 1;
