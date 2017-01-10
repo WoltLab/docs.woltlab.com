@@ -1,9 +1,9 @@
 ---
 title: Event List
 sidebar: sidebar
-permalink: php_event_list.html
+permalink: php_api_event_list.html
 folder: php
-parent: php_events
+parent: php_api_events
 ---
 
 Events whose name is marked with an asterisk are called from a static method and thus do not provide any object, just the class name. 

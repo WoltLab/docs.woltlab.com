@@ -9,7 +9,7 @@ WoltLab Suite's event system allows manipulation of program flows and data witho
 At many locations throughout the PHP code of WoltLab Suite Core and mainly through inheritance also in the applications and plugins, so called *events* are fired which trigger registered *event listeners* that get access to the object firing the event (or at least the class name if the event has been fired in a static method).
 
 This page focuses on the technical aspects of events and event listeners, [the eventListener package installation plugin page](package_pip_event-listener.html) covers how you can actually register an event listener.
-A comprehensive list of all available events is provided [here](php_event_list.html).
+A comprehensive list of all available events is provided [here](php_api_event_list.html).
 
 
 ## Introductory Example
