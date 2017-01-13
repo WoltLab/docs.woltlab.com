@@ -290,7 +290,7 @@ Now let use go through the different methods in chronological order again:
    {% include callout.html content="Do not call `parent::save()` because that would cause `PersonAddForm::save()` to be executed and thus a new person would to be created! In order for the `save` event to be fired, call `AbstractForm::save()` instead!" type="warning" %}
    
    The only differences compared to `PersonAddForm::save()` are that we pass the edited object to the `PersonAction` constructor, execute the `update` action instead of the `create` action and do not clear the input fields after saving the changes.
-1. In `assignVariables()`, we assign the edited `Person` object to the template, which is required to create the link in the form's action property.
+1. In `assignVariables()`, we assign the edited `Person` object to the template, which is required to create the link in the form’s action property.
    Furthermore, we assign the template variable `$action` `edit` as value.
    
    {% include callout.html content="After calling `parent::assignVariables()`, the template variable `$action` actually has the value `add` so that here, we are overwriting this already assigned value." type="info" %}
@@ -324,7 +324,7 @@ Here, the import parts are that we register the menu item for the main menu `com
 ### People List
 
 As in the ACP, we need a controller and a template.
-You might notice that both the controller's (unqualified) class name and the template name are the same for the ACP and the front end.
+You might notice that both the controller’s (unqualified) class name and the template name are the same for the ACP and the front end.
 This is no problem because the qualified names of the classes differ and the files are stored in different directories and because the templates are installed by different package installation plugins and are also stored in different directories.
 
 #### `PersonListPage`
@@ -352,13 +352,13 @@ Now, let us take a closer look at the differences:
 - We do not explicitly create a `.contentHeader` element but simply assign the title to the `contentTitle` variable.
   The value of the assignment is simply the title of the page and a badge showing the number of listed people.
   The `header` template that we include later will handle correctly displaying the content header on its own based on the `$contentTitle` variable.
-- Next, we create additional element for the HTML document's `<head>` element.
+- Next, we create additional element for the HTML document’s `<head>` element.
   In this case, we define the [canonical link of the page](https://en.wikipedia.org/wiki/Canonical_link_element) and, because we are showing paginated content, add links to the previous and next page (if they exist).
 - We want the page to be sortable but as we will not be using a table for listing the people like in the ACP, we are not able to place links to sort the people into the table head.
   Instead, usually a box is created in the sidebar on the right-hand side that contains `select` elements to determine sort field and sort order.
 - The main part of the page is the listing of the people.
   We use a structure similar to the one used for displaying registered users.
-  Here, for each person, we simply display a FontAwesome icon representing a person and show the person's full name relying on `Person::__toString()`.
+  Here, for each person, we simply display a FontAwesome icon representing a person and show the person’s full name relying on `Person::__toString()`.
   Additionally, like in the user list, we provide the initially empty `ul.inlineList.commaSeparated` and `dl.plain.inlineDataList.small` elements that can be filled by plugins using the templates events. 
 
 
