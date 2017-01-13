@@ -12,3 +12,4 @@ We will start this tutorial series by creating a base structure for the package 
 Note that in the context of this example, not every added feature might make perfect sense but the goal of this tutorial is not to create a useful package but to introduce you to WoltLab Suite.
 
 - [Part 1: Base Structure](tutorial_tutorial-series_part-1-base-structure.html)
+- [Part 2: Event Listeners and Template Listeners](tutorial_tutorial-series_part-2-event-listeners-and-template-listeners.html)
