@@ -138,16 +138,16 @@ Example:
 
 The `file` attribute specifies the location of the optional package's archive relative to the `package.xml`.
 
-### `<excludedPackages>`
+### `<excludedpackages>`
 
 List of packages which conflict with this package. It is not possible to install it if any of the specified packages is installed. In return you cannot install an excluded package if this package is installed.
 
-#### `<excludepackage>`
+#### `<excludedpackage>`
 
 Example:
 
 ```xml
-<excludepackage version="3.1.0 Alpha 1">com.woltlab.wcf</requiredpackage>
+<excludedpackage version="3.1.0 Alpha 1">com.woltlab.wcf</excludedpackage>
 ```
 
 The attribute `version` must be a valid version number as described in the [\<version\>](#version) section. In the example above it will be impossible to install this package in WoltLab Suite Core 3.1.0 Alpha 1 or higher.
