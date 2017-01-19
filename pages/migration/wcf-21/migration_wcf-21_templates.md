@@ -41,7 +41,7 @@ The new markup since WoltLab Suite 3.0:
     <div class="boxContent">
         <!-- Content -->
     </div>
-</fieldset>
+</section>
 ```
 
 ## Forms
