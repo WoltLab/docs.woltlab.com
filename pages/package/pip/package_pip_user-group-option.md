@@ -10,6 +10,8 @@ parent: package_pip
 
 ## Language Items
 
+All relevant language items have to be put into the `wcf.acp.group` language item category.
+
 ### Categories
 
 If you install a category named `user.foo`, you have to provide the language item `wcf.acp.group.option.category.user.foo`, which is used when displaying the options.
