@@ -36,7 +36,7 @@ The new markup since WoltLab Suite 3.0:
 
 ```html
 <section class="box">
-    <h2 class="boxTitle"><!-- Title --></legend>
+    <h2 class="boxTitle"><!-- Title --></h2>
 
     <div class="boxContent">
         <!-- Content -->
