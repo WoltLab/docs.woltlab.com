@@ -197,6 +197,8 @@ We will go piece by piece through the template code:
    The `{hascontent}{content}{/content}{/hascontent}` construct ensures the `.paginationTop` element is only shown if the `pages` template plugin has a return value, thus if a pagination is necessary.
 1. Now comes the main part of the page, the list of the people, which will only be displayed if any people exist.
    Otherwise, an info box is displayed using the generic `wcf.global.noItems` language item.
+   The `$objects` template variable is automatically assigned by `wcf\page\MultipleLinkPage` and contains the `PersonList` object used to read the people from database.
+   
    The table itself consists of a `thead` and a `tbody` element and is extendable with more columns using the template events `columnHeads` and `columns`.
    In general, every table should provide these events.
    The default structure of a table is used here so that the first column of the content rows contains icons to edit and to delete the row (and provides another standard event `rowButtons`) and that the second column contains the ID of the person.
