@@ -31,27 +31,27 @@ Create a new file called `package.xml` and insert the code below:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<package name="com.example.test" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/package.xsd">
+<package name="com.example.test" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/package.xsd">
 	<packageinformation>
 		<packagename>Simple Package</packagename>
-		<packagedescription>A simple package to demonstrate the package system of WCF</packagedescription>
+		<packagedescription>A simple package to demonstrate the package system of WoltLab Suite Core</packagedescription>
 		<version>1.0.0</version>
 		<date>2016-11-27</date>
 	</packageinformation>
-
+	
 	<authorinformation>
 		<author>YOUR NAME</author>
 		<authorurl>http://www.example.com</authorurl>
 	</authorinformation>
-
+	
 	<requiredpackages>
-		<requiredpackage minversion="3.0.0 Alpha 1">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="3.0.0">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
-
+	
 	<instructions type="install">
 		<instruction type="file" />
 		<instruction type="template" />
-
+		
 		<instruction type="page" />
 	</instructions>
 </package>
@@ -83,29 +83,41 @@ use wcf\system\WCF;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  */
 class TestPage extends AbstractPage {
-  protected $greet = '';
-
-  public function readParameters() {
-    parent::readParameters();
-
-    if (isset($_GET['greet'])) $this->greet = $_GET['greet'];
-  }
-
-  public function readData() {
-    parent::readData();
-
-    if (empty($this->greet)) {
-      $this->greet = 'World';
-    }
-  }
-
-  public function assignVariables() {
-    parent::assignVariables();
-
-    WCF::getTPL()->assign([
-      'greet' => $this->greet
-    ]);
-  }
+	/**
+	 * @var string
+	 */
+	protected $greet = '';
+	
+	/**
+	 * @inheritDoc
+	 */
+	public function readParameters() {
+		parent::readParameters();
+		
+		if (isset($_GET['greet'])) $this->greet = $_GET['greet'];
+	}
+	
+	/**
+	 * @inheritDoc
+	 */
+	public function readData() {
+		parent::readData();
+		
+		if (empty($this->greet)) {
+			$this->greet = 'World';
+		}
+	}
+	
+	/**
+	 * @inheritDoc
+	 */
+	public function assignVariables() {
+		parent::assignVariables();
+		
+		WCF::getTPL()->assign([
+			'greet' => $this->greet
+		]);
+	}
 }
 
 ```
@@ -162,14 +174,16 @@ You can provide a lot more data for a page, including logical nesting and dedica
 
 If you have followed the above guidelines carefully, your package directory should now look like this:
 
-> - files
->   - lib
->     - page
->       - TestPage.class.php
-> - templates
->   - test.tpl
-> - package.xml
-> - page.xml
+```
+├── files
+│   └── lib
+│       ├── page
+│       │   ├── TestPage.class.php
+├── package.xml
+├── page.xml
+├── templates
+│   └── test.tpl
+```
 
 Both files and templates are archive-based package components, that deploy their payload using tar archives rather than adding the raw files to the package file. Please create the archive `files.tar` and add the contents of the `files/*` directory, but not the directory `files/` itself. Repeat the same process for the `templates` directory, but this time with the file name `templates.tar`. Place both files in the root of your project.
 
