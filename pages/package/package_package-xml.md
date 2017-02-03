@@ -109,7 +109,7 @@ Can be anything you want.
 
 > (optional)
 
-URL to the author's website
+URL to the author's website.
 
 ### `<requiredpackages>`
 
@@ -118,6 +118,7 @@ A list of packages including their version required for this package to work.
 #### `<requiredpackage>`
 
 Example:
+
 ```xml
 <requiredpackage minversion="2.0.0" file="requirements/com.woltlab.wcf.tar">com.woltlab.wcf</requiredpackage>
 ```
@@ -132,6 +133,7 @@ A list of optional packages which can be selected by the user at the very end of
 #### `<optionalpackage>`
 
 Example:
+
 ```xml
 <optionalpackage file="optionals/com.woltlab.wcf.moderatedUserGroup.tar">com.woltlab.wcf.moderatedUserGroup</optionalpackage>
 ```
