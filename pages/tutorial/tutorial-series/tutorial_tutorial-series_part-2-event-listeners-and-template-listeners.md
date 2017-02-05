@@ -69,7 +69,7 @@ The package will have the following file structure:
 
 ## Extending Person Model (`install.sql`)
 
-The existing model of a person only contains the perso1’2 first name and their last name (in additional to the id used to identify created people).
+The existing model of a person only contains the person’s first name and their last name (in additional to the id used to identify created people).
 To add the birthday to the model, we need to create an additional database table column using the [sql package installation plugin](package_pip_sql.html):
 
 {% highlight sql %}
