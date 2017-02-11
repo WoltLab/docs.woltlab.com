@@ -402,3 +402,5 @@ As the menu item package installation plugin validates the given page and throws
 ---
 
 This concludes the first part of our tutorial series after which you now have a working simple package with which you can manage people in the ACP and show the visitors of your website a simple list of all created people in the front end.
+
+The complete source code of this part can be found on [GitHub](https://github.com/WoltLab/woltlab.github.io/tree/master/_includes/tutorial/tutorial-series/part-1).

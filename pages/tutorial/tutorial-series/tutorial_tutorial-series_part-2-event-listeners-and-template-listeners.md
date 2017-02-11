@@ -218,3 +218,5 @@ The only relevant difference between the `package.xml` file of the base page fro
 ---
 
 This concludes the second part of our tutorial series after which you now have extended the base package using event listeners and template listeners that allow you to enter the birthday of the people.
+
+The complete source code of this part can be found on [GitHub](https://github.com/WoltLab/woltlab.github.io/tree/master/_includes/tutorial/tutorial-series/part-2).
