@@ -12,7 +12,7 @@ It provides the meta data (e.g. package name, description, author) and the instr
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<package name="com.example.package" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vertex/package.xsd">
+<package name="com.example.package" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/package.xsd">
 	<packageinformation>
 		<packagename>Simple Package</packagename>
 		<packagedescription>A simple package to demonstrate the package system of WoltLab Suite Core</packagedescription>
@@ -154,7 +154,7 @@ Example:
 
 The attribute `version` must be a valid version number as described in the [\<version\>](#version) section. In the example above it will be impossible to install this package in WoltLab Suite Core 3.1.0 Alpha 1 or higher.
 
-#### `<instructions>`
+### `<instructions>`
 
 List of instructions to be executed upon install or update. The order is important, the topmost `<instruction>` will be executed first.
 
