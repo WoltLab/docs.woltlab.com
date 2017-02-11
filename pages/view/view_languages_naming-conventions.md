@@ -87,3 +87,30 @@ Example:
 ```
 Do you really want to delete the article <span class="confirmationObject">{$article->getTitle()}</span>?
 ```
+
+
+## User Group Options
+
+### Comments
+
+#### German
+
+| group type | action | example permission name | language item |
+| ---------- | ------ | ----------------------- | ------------- |
+| user | adding | `user.foo.canAddComment` | `Kann Kommentare erstellen` |
+| user | deleting | `user.foo.canDeleteComment` | `Kann eigene Kommentare löschen` |
+| user | editing | `user.foo.canEditComment` | `Kann eigene Kommentare bearbeiten` |
+| moderator | deleting | `mod.foo.canDeleteComment` | `Kann Kommentare löschen` |
+| moderator | editing | `mod.foo.canEditComment` | `Kann Kommentare bearbeiten` |
+| moderator | moderating | `mod.foo.canModerateComment` | `Kann Kommentare moderieren` |
+
+#### English
+
+| group type | action | example permission name | language item |
+| ---------- | ------ | ----------------------- | ------------- |
+| user | adding | `user.foo.canAddComment` | `Can create comments` |
+| user | deleting | `user.foo.canDeleteComment` | `Can delete their comments` |
+| user | editing | `user.foo.canEditComment` | `Can edit their comments` |
+| moderator | deleting | `mod.foo.canDeleteComment` | `Can delete comments` |
+| moderator | editing | `mod.foo.canEditComment` | `Can edit comments` |
+| moderator | moderating | `mod.foo.canModerateComment` | `Can moderate comments` |
