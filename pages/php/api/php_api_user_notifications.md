@@ -344,7 +344,7 @@ In this case, you can use `UserNotificationHandler::markAsConfirmed()`:
 ```php
 $recipientIDs = []; // fill with user ids of the recipients of the notification
 $fooIDs = []; // fill with ids of related foo objects
-UserNotificationHandler::getInstance()->fireEvent(
+UserNotificationHandler::getInstance()->markAsConfirmed(
 	'bar', // event name
 	'com.woltlab.example.foo', // event object type name
 	$recipientIDs,
