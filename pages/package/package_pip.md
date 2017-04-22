@@ -19,7 +19,7 @@ Package Installation Plugins (PIPs) are interfaces to deploy and edit content as
 | [acpTemplate][package_pip_acp-template] | Admin panel templates |
 | [bbcode][package_pip_bbcode] | BBCodes for rich message formatting |
 | [box][package_pip_box] | Boxes that can be placed anywhere on a page |
-| [clipboard][package_pip_clipboard] | Perform bulk operations on objects by marking them |
+| [clipboardAction][package_pip_clipboard_action] | Perform bulk operations on marked objects |
 | [coreObject][package_pip_core-object] | Access Singletons from within the template |
 | [cronjob][package_pip_cronjob] | Periodically execute code with customizable intervals |
 | [eventListener][package_pip_event-listener] | Register listeners for the event system |
