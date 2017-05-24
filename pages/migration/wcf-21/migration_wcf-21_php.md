@@ -7,7 +7,7 @@ folder: migration/wcf-21
 
 ## Message Processing
 
-WoltLab Suite 3.0 finally made the transition from raw bbcode to bbcode-flawored HTML, with many new features related to message processing being added. This change impacts both message validation and storing, requiring slightly different APIs to get the job done.
+WoltLab Suite 3.0 finally made the transition from raw bbcode to bbcode-flavored HTML, with many new features related to message processing being added. This change impacts both message validation and storing, requiring slightly different APIs to get the job done.
 
 ### Input Processing for Storage
 

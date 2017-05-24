@@ -11,7 +11,7 @@ folder: migration/wcf-21
 
 Instructions can now omit the filename, causing them to use the default filename if defined by the package installation plugin (in short: `PIP`). Unless overridden it will default to the PIP's class name with the first letter being lower-cased, e.g. `EventListenerPackageInstallationPlugin` implies the filename `eventListener.xml`. The file is always assumed to be in the archive's root, files located in subdirectories need to be explicitly stated, just as it worked before.
 
-Every PIP can define a custom filename if the default value cannot be properply derived. For example the `ACPMenu`-pip would default to `aCPMenu.xml`, requiring the class to explicitly override the default filename with `acpMenu.xml` for readability.
+Every PIP can define a custom filename if the default value cannot be properly derived. For example the `ACPMenu`-pip would default to `aCPMenu.xml`, requiring the class to explicitly override the default filename with `acpMenu.xml` for readability.
 
 ### Example
 

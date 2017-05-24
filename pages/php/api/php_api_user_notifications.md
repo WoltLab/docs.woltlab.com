@@ -123,7 +123,7 @@ class FooUserNotificationObject extends DatabaseObjectDecorator implements IUser
 
 ## `userNotificationEvent.xml`
 
-Each event that you fire in your package needs to be registred using the [user notification event package installation plugin](package_pip_user-notification-event.html).
+Each event that you fire in your package needs to be registered using the [user notification event package installation plugin](package_pip_user-notification-event.html).
 An example file might look like this:
 
 ```xml
@@ -288,7 +288,7 @@ class FooUserNotificationEvent extends AbstractSharedUserNotificationEvent {
 
 - The `$stackable` property is `false` by default and has to be explicitly set to `true` if stacking of notifications should be enabled.
   Stacking of notification does not create new notifications for the same event for a certain object if the related action as been triggered by different users.
-  For example, if something is liked by one user and then liked again by another user before the recipient of the notification has confirmed it, the existing notificaton will be amended to include both users who liked the content.
+  For example, if something is liked by one user and then liked again by another user before the recipient of the notification has confirmed it, the existing notification will be amended to include both users who liked the content.
   Stacking can thus be used to avoid cluttering the notification list of users.
 - The `checkAccess()` method makes sure that the active user still has access to the object related to the notification.
   If that is not the case, the user notification system will automatically deleted the user notification based on the return value of the method.
@@ -296,7 +296,7 @@ class FooUserNotificationEvent extends AbstractSharedUserNotificationEvent {
 - The `getEmailMessage()` method return data to create the instant email or the daily summary email.
   For instant emails (`$notificationType = 'instant'`), you have to return an array like the one shown in the code above with the following components:
   - `application`:
-    abbrevation of application
+    abbreviation of application
   - `in-reply-to` (optional):
     message id of the notification for the parent item and used to improve the ordering in threaded email clients
   - `message-id` (optional):

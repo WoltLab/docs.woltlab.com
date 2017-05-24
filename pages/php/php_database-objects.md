@@ -22,7 +22,7 @@ use wcf\data\DatabaseObject;
 class Example extends DatabaseObject {}
 ```
 
-The class is intended to be empty by default and there only needs to be code if you want to add additional logic to your model. Both the class name and primary key are determinted by `DatabaseObject` using the namespace and class name of the derived class. The example above uses the namespace `wcf\…` which is used as table prefix and the class name `Example` is converted into `exampleID`, resulting in the database table name `wcfN_example` with the primary key `exampleID`.
+The class is intended to be empty by default and there only needs to be code if you want to add additional logic to your model. Both the class name and primary key are determined by `DatabaseObject` using the namespace and class name of the derived class. The example above uses the namespace `wcf\…` which is used as table prefix and the class name `Example` is converted into `exampleID`, resulting in the database table name `wcfN_example` with the primary key `exampleID`.
 
 You can prevent this automatic guessing by setting the class properties `$databaseTableName` and `$databaseTableIndexName` manually.
 
@@ -71,7 +71,7 @@ class ExampleEditor extends DatabaseObjectEditor {
 }
 ```
 
-The editor class requires you to provide the fullly qualified name of the model, that is the class name including the complete namespace. Database table name and index key will be pulled directly from the model.
+The editor class requires you to provide the fully qualified name of the model, that is the class name including the complete namespace. Database table name and index key will be pulled directly from the model.
 
 ### Create a new row
 
@@ -140,7 +140,7 @@ The following code listing illustrates loading a large set of examples and itera
 ```php
 <?php
 $exampleList = new \wcf\data\example\ExampleList();
-// add contraints using the condition builder
+// add constraints using the condition builder
 $exampleList->getConditionBuilder()->add('bar IN (?)', [['Hello World!', 'bar', 'baz']]);
 // actually read the rows
 $exampleList->readObjects();
@@ -206,7 +206,7 @@ Row creation and manipulation can be performed using the aforementioned `Databas
 1. Row creation, update and deletion takes place silently without notifying any other components.
 2. Data is passed to the database adapter without any further processing.
 
-The `AbstractDatabaseObjectAction` solves both problems by wrapping around the editor class and thus provide an additional layer between the action that should be taken and the actual process. The first problem is solved by a fixed set of events being fired, the second issue is adressed by having a single entry point for all data editing.
+The `AbstractDatabaseObjectAction` solves both problems by wrapping around the editor class and thus provide an additional layer between the action that should be taken and the actual process. The first problem is solved by a fixed set of events being fired, the second issue is addressed by having a single entry point for all data editing.
 
 ```php
 <?php
@@ -255,7 +255,7 @@ This section is about adding the method `baz()` to `ExampleAction` and calling i
 
 #### AJAX Validation
 
-Methods of an action cannot be called via AJAX, unless they have a validation method. This means that `ExampleAction` must define both a `public function baz()` and `public function validateBaz()`, the name for the validation method is constructured by upper-casing the first character of the method name and prepending `validate`.
+Methods of an action cannot be called via AJAX, unless they have a validation method. This means that `ExampleAction` must define both a `public function baz()` and `public function validateBaz()`, the name for the validation method is constructed by upper-casing the first character of the method name and prepending `validate`.
 
 The lack of the companion `validate*` method will cause the AJAX proxy to deny the request instantaneously. Do not add a validation method if you don't want it to be callable via AJAX ever!
 
