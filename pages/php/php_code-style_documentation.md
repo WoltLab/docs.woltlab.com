@@ -13,7 +13,7 @@ parent: php_code-style
 
 ### Database Table Columns as Properties
 
-As the database table columns are not explicit properties of the classes extending `wcf\data\DatabaseObject` but rather stored in `DatabaseObject::$data` and accessible via `DatabaseObject::__get($name)`, the IDE we use, PhpStorm, is neither able to autocomplete such property access nor to interfer the type of the property.
+As the database table columns are not explicit properties of the classes extending `wcf\data\DatabaseObject` but rather stored in `DatabaseObject::$data` and accessible via `DatabaseObject::__get($name)`, the IDE we use, PhpStorm, is neither able to autocomplete such property access nor to interfere the type of the property.
  
 To solve this problem, `@property-read` tags must be added to the class documentation which registers the database table columns as public read-only properties:
 
@@ -60,7 +60,7 @@ Any database object editor class comment must have to following tags to properly
  */
 ```
 
-The only exception to this rule is if the class overwrites the `create()` method which itself has to be propertly documentation then.
+The only exception to this rule is if the class overwrites the `create()` method which itself has to be properly documentation then.
 
 The first and second line makes sure that when calling the `create()` or `getDecoratedObject()` method, the return value is correctly recognized and not just a general `DatabaseObject` instance.
 The third line tells the IDE (if `@mixin` is supported) that the database object editor decorates the database object and therefore offers autocompletion for properties and methods from the database object class itself.

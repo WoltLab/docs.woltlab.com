@@ -6,7 +6,7 @@ folder: package/pip
 parent: package_pip
 ---
 
-Execute arbitrary PHP code during installation, update and uninstallation of the pckage.
+Execute arbitrary PHP code during installation, update and uninstallation of the package.
 
 {% include callout.html content="You must install the PHP script through the [file package installation plugin](package_pip_file.html)." type="warning" %}
 

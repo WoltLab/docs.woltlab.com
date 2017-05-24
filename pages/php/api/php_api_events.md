@@ -239,7 +239,7 @@ The form object is passed to the methods but is only given in the method signatu
 Furthermore, the type-hinting of the parameter illustrates in which contexts the method is actually called which will become clear in the following discussion of the individual methods:
 
 - `assignVariables()` is called for the add and the edit form and simply assigns the current value of the variable to the template.
-- `readData()` reads the pre-existing value of `$var` if the form has not been submitted and thus is only relevant when editing objects which is illustrated by the explicite type-hint of `ExampleEditForm`.
+- `readData()` reads the pre-existing value of `$var` if the form has not been submitted and thus is only relevant when editing objects which is illustrated by the explicit type-hint of `ExampleEditForm`.
 - `readFormParameters()` reads the value for both, the add and the edit form.
 - `save()` is, of course, also relevant in both cases but requires the form object to store the additional value in the `wcf\form\AbstractForm::$additionalFields` array which can be used if a `var` column has been added to the database table in which the example objects are stored.
 - `saved()` is only called for the add form as it clears the internal value so that in the `assignVariables()` call, the default value will be assigned to the template to create an "empty" form.

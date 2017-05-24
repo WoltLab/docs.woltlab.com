@@ -53,7 +53,7 @@ class LastActivityCronjob extends AbstractCronjob {
 Every cronjob needs to implement the `wcf\system\cronjob\ICronjob` interface which requires the `execute(Cronjob $cronjob)` method to be implemented.
 This method is called by [wcf\system\cronjob\CronjobScheduler](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/cronjob/CronjobScheduler.class.php) when executing the cronjobs.
 
-In pratice, however, you should extend the `AbstractCronjob` class and also call the `AbstractCronjob::execute()` method as it fires an event which makes cronjobs extendable by plugins (see [event documentation](php_event.html)).
+In practice, however, you should extend the `AbstractCronjob` class and also call the `AbstractCronjob::execute()` method as it fires an event which makes cronjobs extendable by plugins (see [event documentation](php_event.html)).
 
 
 ## Executing Cronjobs Through CLI

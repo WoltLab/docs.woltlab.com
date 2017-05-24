@@ -20,7 +20,7 @@ Package Installation Plugins have a few notable class members easing your work:
 #### `$installation`
 
 This member contains an instance of [PackageInstallationDispatcher](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/package/PackageInstallationDispatcher.class.php) which provides you with all meta data related to the current package being processed.
-The most common usage is the retrival of the package ID via `$this->installation->getPackageID()`.
+The most common usage is the retrieval of the package ID via `$this->installation->getPackageID()`.
 
 #### `$application`
 
@@ -118,13 +118,13 @@ $sql = "DELETE FROM	wcf".WCF_N."_".$this->tableName."
 			AND templateName = ?";
 $statement = WCF::getDB()->prepareStatement($sql);
 foreach ($items as $item) {
-	$statement->execute(array(
+	$statement->execute([
 		$this->installation->getPackageID(),
 		$item['elements']['environment'],
 		$item['elements']['eventname'],
 		$item['attributes']['name'],
 		$item['elements']['templatename']
-	));
+	]);
 }
 ```
 
@@ -147,4 +147,4 @@ Allows you to (optionally) run additionally actions after all elements were proc
 #### `$reservedTags`
 
 `$reservedTags` is a list of reserved tag names so that any tag encountered but not listed here will be added to the database column `additionalData`.
-This allows options to store arbitary data which can be accessed but were not initially part of the PIP specifications.
+This allows options to store arbitrary data which can be accessed but were not initially part of the PIP specifications.
