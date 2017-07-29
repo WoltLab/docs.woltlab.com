@@ -112,7 +112,7 @@ The `PersonCommentManager` class extended `ICommentManager`’s default implemen
 - The `updateCounter()` updates the comments’ counter of the person.
   We have added a new `comments` database table column to the `wcf1_person` database table in order to keep track on the number of comments.
 
-Additionally, we have added new `enableComments` database table column to the `wcf1_person` database table whose value can be set when creating or editing a person in the ACP.
+Additionally, we have added a new `enableComments` database table column to the `wcf1_person` database table whose value can be set when creating or editing a person in the ACP.
 With this option, comments on individual people can be disabled.
 
 {% include callout.html content="Liking comments is already built-in and only requires some extra code in the `PersonPage` class for showing the likes of pre-loaded comments." type="info" %}
