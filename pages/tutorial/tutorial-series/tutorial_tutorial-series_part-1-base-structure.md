@@ -103,7 +103,7 @@ In our PHP code, each person will be represented by an object of the following c
 {% endhighlight %}
 
 The important thing here is that `Person` extends `DatabaseObject`.
-Additionally, we implement the `IRouteController` interface that allows use to use `Person` objects to create links and implement PHP's magic [__toString()](https://secure.php.net/manual/en/language.oop5.magic.php#object.tostring) method for convenience.
+Additionally, we implement the `IRouteController` interface that allows us to use `Person` objects to create links and implement PHP's magic [__toString()](https://secure.php.net/manual/en/language.oop5.magic.php#object.tostring) method for convenience.
 
 For every database object, you need to implement three additional classes:
 an action class, an editor class and a list class.
