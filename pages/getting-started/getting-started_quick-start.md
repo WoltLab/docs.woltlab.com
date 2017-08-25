@@ -215,6 +215,6 @@ The class name including the namespace is used to automatically determine the pa
 3. `Test`, the actual name that is used for both the template and the URL
 4. `Page` (page type, ignored)
 
-The fragments `1.` and `4.` from above are used to construct the path to the template: `<installDirOfWSC>/templates/test.tpl` (the first letter of `Test` is being converted to lower-case).
+The fragments `1.` and `3.` from above are used to construct the path to the template: `<installDirOfWSC>/templates/test.tpl` (the first letter of `Test` is being converted to lower-case).
 
 {% include links.html %}
