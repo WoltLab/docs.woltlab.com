@@ -38,20 +38,20 @@ Create a new file called `package.xml` and insert the code below:
 		<version>1.0.0</version>
 		<date>2016-11-27</date>
 	</packageinformation>
-	
+
 	<authorinformation>
 		<author>YOUR NAME</author>
 		<authorurl>http://www.example.com</authorurl>
 	</authorinformation>
-	
+
 	<requiredpackages>
 		<requiredpackage minversion="3.0.0">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
-	
+
 	<instructions type="install">
 		<instruction type="file" />
 		<instruction type="template" />
-		
+
 		<instruction type="page" />
 	</instructions>
 </package>
@@ -87,33 +87,33 @@ class TestPage extends AbstractPage {
 	 * @var string
 	 */
 	protected $greet = '';
-	
+
 	/**
 	 * @inheritDoc
 	 */
 	public function readParameters() {
 		parent::readParameters();
-		
+
 		if (isset($_GET['greet'])) $this->greet = $_GET['greet'];
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
 	public function readData() {
 		parent::readData();
-		
+
 		if (empty($this->greet)) {
 			$this->greet = 'World';
 		}
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
 	public function assignVariables() {
 		parent::assignVariables();
-		
+
 		WCF::getTPL()->assign([
 			'greet' => $this->greet
 		]);
@@ -203,6 +203,24 @@ Open the Administration Control Panel and navigate to `Configuration > Packages 
 Open a new browser tab and navigate to your newly created page. If WoltLab Suite is installed at `https://example.com/wsc/`, then the URL should read `https://example.com/wsc/index.php?test/`.
 
 Congratulations, you have just created your first package!
+
+## Developer Tools
+
+{% include callout.html content="This feature is available with WoltLab Suite 3.1 or newer only." type="warning" %}
+
+The developer tools provide an interface to synchronize the data of an installed package with a bare repository on the local disk. You can re-import most PIPs at any time and have the changes applied without crafting a manual update. This process simulates a regular package update with a single PIP only, and resets the cache after the import has been completed.
+
+### Registering a Project
+
+Projects require the absolute path to the package directory, that is, the directory where it can find the `package.xml`. It is not required to install an package to register it as a project, but you have to install it in order to work with it. It does not install the package by itself!
+
+There is a special button on the project list that allows for a mass-import of projects based on a search path. Each direct child directory of the provided path will be tested and projects created this way will use the identifier extracted from the `package.xml`.
+
+### Synchronizing
+
+The install instructions in the `package.xml` are ignored when offering the PIP imports, the detection works entirely based on the default filename for each PIP. On top of that, only PIPs that implement the interface `wcf\system\devtools\pip\IIdempotentPackageInstallationPlugin` are valid for import, as it indicates that importing the PIP multiple times will have no side-effects and that the result is deterministic regardless of the number of times it has been imported.
+
+Some built-in PIPs, such as `sql` or `script`, do not qualify for this step and remain unavailable at all times. However, you can still craft and perform an actual package update to have these PIPs executed.
 
 ## Appendix
 
