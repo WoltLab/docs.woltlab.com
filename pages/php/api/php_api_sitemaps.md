@@ -23,7 +23,7 @@ The `DatabaseObject` class must implement the interface `wcf\data\ILinkableObjec
 Other optional methods are:
 
 * The `getLastModifiedColumn()` method returns the name of the column in the database where the last modification date is stored.
-  If there is none, this method must return `null.
+  If there is none, this method must return `null`.
 * The `canView()` method checks whether the passed `DatabaseObject` is visible to the current user with the current user always being a guest.
 * The `getObjectListClass()` method returns a non-standard `DatabaseObjectList` class name.
 * The `getObjectList()` method returns the `DatabaseObjectList` instance.
@@ -85,7 +85,7 @@ Next, the sitemap object must be registered as an object type:
 ```
 
 In addition to the fully qualified class name, the object type definition `com.woltlab.wcf.sitemap.object` and the object type name, the parameters `priority`, `changeFreq` and `rebuildTime` must also be specified.
-`priority` (https://www.sitemaps.org/protocol.html#prioritydef) and `changeFreq` (https://www.sitemaps.org/protocol.html#changefreqdef) are specifications in the sitemaps protocol and can be changed by the user in the ACP.
+`priority` ([https://www.sitemaps.org/protocol.html#prioritydef](https://www.sitemaps.org/protocol.html#prioritydef)) and `changeFreq` ([https://www.sitemaps.org/protocol.html#changefreqdef](https://www.sitemaps.org/protocol.html#changefreqdef)) are specifications in the sitemaps protocol and can be changed by the user in the ACP.
 The `priority` should be `0.5` by default, unless there is an important reason to change it.
 The parameter `rebuildTime` specifies the number of seconds after which the sitemap should be regenerated.
 
