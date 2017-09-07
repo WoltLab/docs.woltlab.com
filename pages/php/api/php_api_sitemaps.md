@@ -1,3 +1,10 @@
+---
+title: Sitemaps
+sidebar: sidebar
+permalink: php_api_sitemaps.html
+folder: php/api
+---
+
 {% include callout.html content="This feature is available with WoltLab Suite 3.1 or newer only." type="warning" %}
 
 Since version 3.1, WoltLab Suite Core is capable of automatically creating a sitemap.
@@ -16,7 +23,7 @@ The `DatabaseObject` class must implement the interface `wcf\data\ILinkableObjec
 Other optional methods are:
 
 * The `getLastModifiedColumn()` method returns the name of the column in the database where the last modification date is stored.
-  If there is none, this method must return `null`.
+  If there is none, this method must return `null.
 * The `canView()` method checks whether the passed `DatabaseObject` is visible to the current user with the current user always being a guest.
 * The `getObjectListClass()` method returns a non-standard `DatabaseObjectList` class name.
 * The `getObjectList()` method returns the `DatabaseObjectList` instance.
