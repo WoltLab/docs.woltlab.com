@@ -62,4 +62,21 @@ class ExamplePackageInstallationPlugin extends AbstractXMLPackageInstallationPlu
 }
 ```
 
+## Media Providers
+
+TODO: Link to the `mediaProvider.xml`
+
+### Example Implementation
+
+The full match is provided for `$url`, while any capture groups from the regular expression are assigned to `$matches`.
+
+```php
+<?php
+class ExampleBBCodeMediaProvider implements IBBCodeMediaProvider {
+  public function parse($url, array $matches = []) {
+    return 'html-for-this-media-provider';
+  }
+}
+```
+
 {% include links.html %}
