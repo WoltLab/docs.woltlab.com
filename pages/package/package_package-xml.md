@@ -156,6 +156,8 @@ The attribute `version` must be a valid version number as described in the [\<ve
 
 ### `<compatibility>`
 
+{% include callout.html content="Available since WoltLab Suite 3.1" type="info" %}
+
 WoltLab Suite 3.1 introduced a new versioning system that focused around the API compatibility and is intended to replace the `<excludedpackage>` instruction for the Core for most plugins.
 
 The `<compatibility>`-tag holds a list of compatible API versions, and while only a single version is available at the time of writing, future versions will add more versions with backwards-compatibility in mind.
