@@ -19,16 +19,16 @@ It provides the meta data (e.g. package name, description, author) and the instr
 		<version>1.0.0</version>
 		<date>2016-12-18</date>
 	</packageinformation>
-	
+
 	<authorinformation>
 		<author>YOUR NAME</author>
 		<authorurl>http://www.example.com</authorurl>
 	</authorinformation>
-	
+
 	<requiredpackages>
 		<requiredpackage minversion="3.0.0">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
-	
+
 	<instructions type="install">
 		<instruction type="file" />
 		<instruction type="template">templates.tar</instruction>
@@ -153,6 +153,26 @@ Example:
 ```
 
 The attribute `version` must be a valid version number as described in the [\<version\>](#version) section. In the example above it will be impossible to install this package in WoltLab Suite Core 3.1.0 Alpha 1 or higher.
+
+### `<compatibility>`
+
+WoltLab Suite 3.1 introduced a new versioning system that focused around the API compatibility and is intended to replace the `<excludedpackage>` instruction for the Core for most plugins.
+
+The `<compatibility>`-tag holds a list of compatible API versions, and while only a single version is available at the time of writing, future versions will add more versions with backwards-compatibility in mind.
+
+Example:
+
+```xml
+<compatibility>
+	<api version="2018" />
+</compatibility>
+```
+
+#### Existing API versions
+
+| WoltLab Suite Core | API-Version | Backwards-Compatible to API-Version |
+|---|---|---|
+| 3.1 | 2018 | n/a |
 
 ### `<instructions>`
 
