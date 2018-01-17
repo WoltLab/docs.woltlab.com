@@ -64,9 +64,26 @@ class ExamplePackageInstallationPlugin extends AbstractXMLPackageInstallationPlu
 
 ## Media Providers
 
-TODO: Link to the `mediaProvider.xml`
+Media providers were added through regular SQL queries in earlier versions, but this is neither convenient, nor did it offer a reliable method to update an existing provider. WoltLab Suite 3.1 adds a new `mediaProvider`-PIP that also offers a `className` parameter to off-load the result evaluation and HTML generation.
 
 ### Example Implementation
+
+#### `mediaProvider.xml`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/tornado/mediaProvider.xsd">
+  <import>
+    <provider name="example">
+      <title>Example Provider</title>
+      <regex><![CDATA[https?://example.com/watch?v=(?P<ID>[a-zA-Z0-9])]]></regex>
+      <className><![CDATA[wcf\system\bbcode\media\provider\ExampleBBCodeMediaProvider]]></className>
+    </provider>
+  </import>
+</data>
+```
+
+#### PHP Callback
 
 The full match is provided for `$url`, while any capture groups from the regular expression are assigned to `$matches`.
 
@@ -74,8 +91,39 @@ The full match is provided for `$url`, while any capture groups from the regular
 <?php
 class ExampleBBCodeMediaProvider implements IBBCodeMediaProvider {
   public function parse($url, array $matches = []) {
-    return 'html-for-this-media-provider';
+    return "final HTML output";
   }
+}
+```
+
+## Re-Evaluate HTML Messages
+
+The HtmlInputProcessor only supported two ways to handle an existing HTML message:
+
+ 1. Load the string through `process()` and run it through the validation and sanitation process, both of them are rather expensive operations and do not qualify for rebuild data workers.
+ 2. Detect embedded content using `processEmbeddedContent()` which bypasses most tasks that are carried out by `process()` which aren't required, but does not allow a modification of the message.
+
+The newly added method `reprocess($message, $objectType, $objectID)` solves this short-coming by offering a full bbcode and text re-evaluation while bypassing any input filters, assuming that the input HTML was already filtered previously.
+
+#### Example Usage
+
+```php
+<?php
+// rebuild data workers tend to contain code similar to this:
+foreach ($this->objectList as $message) {
+ // ...
+ if (!$message->enableHtml) {
+   // ...
+ }
+ else {
+   // OLD:
+   $this->getHtmlInputProcessor()->processEmbeddedContent($message->message, 'com.example.foo.message', $message->messageID);
+
+   // REPLACE WITH:
+   $this->getHtmlInputProcessor()->reprocess($message->message, 'com.example.foo.message', $message->messageID);
+   $data['message'] = $this->getHtmlInputProcessor()->getHtml();
+ }
+ // ...
 }
 ```
 
