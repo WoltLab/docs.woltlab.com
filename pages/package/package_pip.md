@@ -25,6 +25,7 @@ Package Installation Plugins (PIPs) are interfaces to deploy and edit content as
 | [eventListener][package_pip_event-listener] | Register listeners for the event system |
 | [file][package_pip_file] | Deploy any type of files with the exception of templates |
 | [language][package_pip_language] | Language items |
+| [mediaProvider][package_pip_media-provider] | Detect and convert links to media providers |
 | [menu][package_pip_menu] | Side-wide and custom per-page menus |
 | [menuItem][package_pip_menu-item] | Menu items for menus created through the menu PIP |
 | [objectType][package_pip_object-type] | Flexible type registry based on definitions |
