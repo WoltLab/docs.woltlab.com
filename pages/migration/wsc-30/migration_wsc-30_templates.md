@@ -7,7 +7,7 @@ folder: migration/wsc-30
 
 ## Comment-System Overhaul
 
-{% include callout.html content="Unfortunately, there has been a breaking change related to the creation of comments. You need to apply the changes below before being able to create new comments." type="error" %}
+{% include callout.html content="Unfortunately, there has been a breaking change related to the creation of comments. You need to apply the changes below before being able to create new comments." type="danger" %}
 
 ### Adding Comments
 
