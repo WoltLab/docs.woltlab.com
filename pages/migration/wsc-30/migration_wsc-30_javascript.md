@@ -81,6 +81,16 @@ define(["some", "fancy", "dependencies"], function(Some, Fancy, Dependencies) {
 });
 ```
 
+### Including tinified builds through `{js}`
+
+The `{js}` template-plugin has been updated to include support for tiny builds controlled through the optional flag `hasTiny=true`:
+
+```
+{js application='wcf' file='WCF.Example' hasTiny=true}
+```
+
+This line generates a different output depending on the debug mode and the user login-state.
+
 ## Real Error Messages for AJAX Responses
 
 The `errorMessage` property in the returned response object for failed AJAX requests contained an exception-specific but still highly generic error message. This issue has been around for quite a long time and countless of implementations are relying on this false behavior, eventually forcing us to leave the value unchanged.
@@ -131,7 +141,7 @@ The special values `null` and `undefined` are supported too, but their usage is 
  * `elInnerError(elementRef, null)`
  * `elInnerError(elementRef)`
 
-### Code Example
+### Example Code
 
 ```js
 require(['Language'], function(Language)) {
