@@ -1,5 +1,5 @@
 ---
-title: WSC 3.0 - PHP
+title: Migrating from WSC 3.0 - PHP
 sidebar: sidebar
 permalink: migration_wsc-30_php.html
 folder: migration/wsc-30
@@ -68,7 +68,7 @@ Media providers were added through regular SQL queries in earlier versions, but 
 
 ### Example Implementation
 
-#### `mediaProvider.xml`
+#### mediaProvider.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -105,7 +105,7 @@ The HtmlInputProcessor only supported two ways to handle an existing HTML messag
 
 The newly added method `reprocess($message, $objectType, $objectID)` solves this short-coming by offering a full bbcode and text re-evaluation while bypassing any input filters, assuming that the input HTML was already filtered previously.
 
-#### Example Usage
+### Example Usage
 
 ```php
 <?php
