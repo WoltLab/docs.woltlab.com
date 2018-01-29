@@ -98,6 +98,8 @@ class ExampleBBCodeMediaProvider implements IBBCodeMediaProvider {
 
 ## Re-Evaluate HTML Messages
 
+{% include callout.html content="You need to manually set the disallowed bbcodes in order to avoid unintentional bbcode evaluation. Please see [this commit](https://github.com/WoltLab/WCF/commit/7e058783da1378dda5393a9bb4df9cfe94e5b394) for a reference implementation inside worker processes." type="warning" %}
+
 The HtmlInputProcessor only supported two ways to handle an existing HTML message:
 
  1. Load the string through `process()` and run it through the validation and sanitation process, both of them are rather expensive operations and do not qualify for rebuild data workers.
