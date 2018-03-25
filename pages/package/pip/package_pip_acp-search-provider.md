@@ -14,8 +14,8 @@ Each acp search result provider is described as an `<acpsearchprovider>` element
 
 ### `<classname>`
 
-The name of the class providing the search results.
-The class has to implement the `wcf\system\search\acp\IACPSearchResultProvider` interface.
+The name of the class providing the search results,
+the class has to implement the `wcf\system\search\acp\IACPSearchResultProvider` interface.
 
 ### `<showorder>`
 
