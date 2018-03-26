@@ -16,7 +16,7 @@ JavaScript capabilities.
 
 Fast forward a few years, the old API is still around and most important, it is
 actively being used by some components that have not been rewritten yet. This
-has been done for both to preserve backwards-compatibility and to avoid the
+has been done to preserve the backwards-compatibility and to avoid the
 significant amount of work that it requires to rewrite a component. The components
 invoked on page initialization have all been rewritten to use the modern API, but
 some deferred objects that are invoked later during the page runtime may still
@@ -32,7 +32,7 @@ The `<script>`-tags are extracted and moved during template processing, eventual
 placing them at the very end of the body element while preserving their order of
 appearance.
 
-This behavior is controlled by the `data-relocate="true"` attribute on the `<script>`
+This behavior is controlled through the `data-relocate="true"` attribute on the `<script>`
 which is mandatory for almost all scripts, mostly because their dependencies (such
 as jQuery) are moved to the bottom anyway.
 
