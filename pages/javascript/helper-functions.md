@@ -12,9 +12,9 @@ exposed on the `window`-object and thus are available regardless of the context.
 They are meant to reduce code repetition and to increase readability by moving
 potentially relevant parts to the front of an instruction.
 
-# Elements
+## Elements
 
-## `elCreate()`
+### `elCreate()`
 
 Creates a new element with the provided tag name.
 
@@ -24,7 +24,7 @@ var element = elCreate("div");
 var element = document.createElement("div");
 ```
 
-## `elRemove()`
+### `elRemove()`
 
 Removes an element from its parent without returning it. This function will throw
 an error if the `element` doesn't have a parent node.
@@ -35,7 +35,7 @@ elRemove(element);
 element.parentNode.removeChild(element);
 ```
 
-## `elShow()`
+### `elShow()`
 
 Attempts to show an element by removing the `display` CSS-property, usually used
 in conjunction with the `elHide()` function.
@@ -46,7 +46,7 @@ elShow(element);
 element.style.removeProperty("display");
 ```
 
-## `elHide()`
+### `elHide()`
 
 Attempts to hide an element by setting the `display` CSS-property to `none`, this
 is intended to be used with `elShow()` that relies on this behavior.
@@ -57,14 +57,14 @@ elHide(element);
 element.style.setProperty("display", "none", "");
 ```
 
-## `elToggle()`
+### `elToggle()`
 
 Attempts to toggle the visibility of an element by examining the value of the
 `display` CSS-property and calls either `elShow()` or `elHide()`.
 
-# Attributes
+## Attributes
 
-## `elAttr()`
+### `elAttr()`
 
 Sets or reads an attribute value, value are implicitly casted into strings and
 reading non-existing attributes will always yield an empty string. If you want
@@ -97,7 +97,7 @@ if (elAttrBool(element, "some-attribute")) {
 }
 ```
 
-## `elData()`
+### `elData()`
 
 Short-hand function to read or set HTML5 `data-*`-attributes, it essentially
 prepends the `data-` prefix before forwarding the call to `elAttr()`.
@@ -127,11 +127,11 @@ if (elAttrBool(element, "data-some-attribute")) {
 }
 ```
 
-# Selecting Elements
+## Selecting Elements
 
 {% include callout.html content="Unlike libraries like jQuery, these functions will return `null` if an element is not found. You are responsible to validate if the element exist and to branch accordingly, invoking methods on the return value without checking for `null` will yield an error." type="warning" %}
 
-## `elById()`
+### `elById()`
 
 Selects an element by its `id`-attribute value.
 
@@ -141,7 +141,7 @@ var element = elById("my-awesome-element");
 var element = document.getElementById("my-awesome-element");
 ```
 
-## `elBySel()`
+### `elBySel()`
 
 {% include callout.html content="The underlying `querySelector()`-method works on the entire DOM hierarchy and can yield results outside of your context element! Please read and understand the MDN article on [`Element.querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector#The_entire_hierarchy_counts) to learn more about this." type="danger" %}
 
@@ -159,7 +159,7 @@ var element = elBySel(".some-element", context);
 var element = context.querySelector(".some-element");
 ```
 
-## `elBySelAll()`
+### `elBySelAll()`
 
 {% include callout.html content="The underlying `querySelector()`-method works on the entire DOM hierarchy and can yield results outside of your context element! Please read and understand the MDN article on [`Element.querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector#The_entire_hierarchy_counts) to learn more about this." type="danger" %}
 
@@ -179,7 +179,7 @@ var elements = elBySelAll(".some-element", context);
 var elements = context.querySelectorAll(".some-element");
 ```
 
-### Callback to Iterate Over Elements
+#### Callback to Iterate Over Elements
 
 `elBySelAll()` supports an optional third parameter that expects a callback function
 that is invoked for every element in the list.
@@ -196,7 +196,7 @@ elBySelAll(".some-element", context, function(element) {
 });
 ```
 
-## `elClosest()`
+### `elClosest()`
 
 Returns the first `Element` that matches the provided CSS selector, this will
 return the provided element itself if it matches the selector.
@@ -207,13 +207,13 @@ var element = elClosest(context, ".some-element");
 var element = context.closest(".some-element");
 ```
 
-### Text Nodes
+#### Text Nodes
 
 If the provided context is a `Text`-node, the function will move the context to
 the parent element before applying the CSS selector. If the `Text` has no parent,
 `null` is returned without evaluating the selector.
 
-## `elByClass()`
+### `elByClass()`
 
 Returns a live `NodeList` containing all elements that match the provided CSS
 class now _and_ in the future! The collection is automatically updated whenever
@@ -237,7 +237,7 @@ var elements = elByClass("some-element", context);
 var elements = context.getElementsByClassName(".some-element");
 ```
 
-## `elByTag()`
+### `elByTag()`
 
 Returns a live `NodeList` containing all elements with the provided tag name now
 _and_ in the future! Please read the remarks on `elByClass()` above to understand
@@ -254,17 +254,17 @@ var elements = elByTag("div", context);
 var elements = context.getElementsByTagName("div");
 ```
 
-# Utility Functions
+## Utility Functions
 
-## `elInnerError()``
+### `elInnerError()``
 
 Unified function to display and remove inline error messages for input elements,
 please read the [section in the migration docs][migration_wsc-30_javascript.html#helper-function-for-inline-error-messages]
 to learn more about this function.
 
-# String Extensions
+## String Extensions
 
-## `hashCode()`
+### `hashCode()`
 
 Computes a numeric hash value of a string similar to Java's `String.hashCode()` method.
 
