@@ -224,7 +224,7 @@ require(["EventHandler"], function(EventHandler) {
     console.log("Event was invoked");
   });
 
-  WCF.System.Event.fire("app.foo.bar", "makeSnafucated", { some: "data" });
+  EventHandler.fire("app.foo.bar", "makeSnafucated", { some: "data" });
 });
 </script>
 ```
