@@ -14,20 +14,20 @@ and suffered from extensive jQuery usage for historic reasons.
 
 Eventually a new API was designed that solves the issues with the legacy API
 by following a few basic principles:
- 1. Vanilla ES5-JavaScript.
+ 1. Vanilla ES5-JavaScript.  
     It allows us to achieve the best performance across all platforms, there is
     simply no reason to use jQuery today and the performance penalty on mobile
     devices is a real issue.
- 2. Strict usage of modules.
+ 2. Strict usage of modules.  
     Each component is placed in an own file and all dependencies are explicitly
     declared and injected at the top.Eventually we settled with AMD-style modules
     using require.js which offers both lazy loading and "ahead of time"-compilatio
     with `r.js`.
- 3. No jQuery-based components on page init.
+ 3. No jQuery-based components on page init.  
     Nothing is more annoying than loading a page and then wait for JavaScript to
     modify the page before it becomes usable, forcing the user to sit and wait.
     Heavily optimized vanilla JavaScript components offered the speed we wanted.
- 4. Limited backwards-compatibility.
+ 4. Limited backwards-compatibility.  
     The new API should make it easy to update existing components by providing
     similar interfaces, while still allowing legacy code to run side-by-side for
     best compatibility and to avoid rewritting everything from the start.
@@ -96,7 +96,7 @@ it is strongly recommended to use the aliases for consistency.
 
 | Alias | Full Path |
 |---|---|
-| Ajax | WoltLabSuite/Core/Ajax |
+| [Ajax][javascript_new-api_ajax] | WoltLabSuite/Core/Ajax |
 | AjaxJsonp | WoltLabSuite/Core/Ajax/Jsonp |
 | AjaxRequest | WoltLabSuite/Core/Ajax/Request |
 | CallbackList | WoltLabSuite/Core/CallbackList |
@@ -128,6 +128,5 @@ it is strongly recommended to use the aliases for consistency.
 | Ui/TabMenu | WoltLabSuite/Core/Ui/TabMenu |
 | Upload | WoltLabSuite/Core/Upload |
 | User | WoltLabSuite/Core/User |
-
 
 {% include links.html %}
