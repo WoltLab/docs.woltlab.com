@@ -86,7 +86,7 @@ define(["Core", "./Foo"], function(Core, Foo) {
 });
 ```
 
-### `isPlainObject(object: Object): bool`
+### `isPlainObject(object: Object): boolean`
 
 Verifies if an object is a plain JavaScript object and not an object instance.
 

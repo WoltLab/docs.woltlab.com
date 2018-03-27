@@ -72,7 +72,7 @@ values:
 _Defaults to `{}`._
 
 A plain JavaScript object that contains the request data that represents the form
-data of the request. The `parameters` key is recognized by the PHP-Ajax-API and
+data of the request. The `parameters` key is recognized by the PHP Ajax API and
 becomes accessible through `$this->parameters`.
 
 #### `contentType`
@@ -155,7 +155,7 @@ other non-"silent" requests will still trigger the loading indicator.
 
 _Defaults to `true`._
 
-Sets the custom HTTP-header `X-Requested-With: XMLHttpRequest` for the request,
+Sets the custom HTTP header `X-Requested-With: XMLHttpRequest` for the request,
 it is automatically set to `true` when `url` is pointing at the WSC API endpoint.
 
 #### `failure`

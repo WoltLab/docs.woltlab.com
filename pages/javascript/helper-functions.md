@@ -14,7 +14,7 @@ potentially relevant parts to the front of an instruction.
 
 ## Elements
 
-### `elCreate()`
+### `elCreate(tagName: string): Element`
 
 Creates a new element with the provided tag name.
 
@@ -24,7 +24,7 @@ var element = elCreate("div");
 var element = document.createElement("div");
 ```
 
-### `elRemove()`
+### `elRemove(element: Element)`
 
 Removes an element from its parent without returning it. This function will throw
 an error if the `element` doesn't have a parent node.
@@ -35,7 +35,7 @@ elRemove(element);
 element.parentNode.removeChild(element);
 ```
 
-### `elShow()`
+### `elShow(element: Element)`
 
 Attempts to show an element by removing the `display` CSS-property, usually used
 in conjunction with the `elHide()` function.
@@ -46,7 +46,7 @@ elShow(element);
 element.style.removeProperty("display");
 ```
 
-### `elHide()`
+### `elHide(element: Element)`
 
 Attempts to hide an element by setting the `display` CSS-property to `none`, this
 is intended to be used with `elShow()` that relies on this behavior.
@@ -57,14 +57,14 @@ elHide(element);
 element.style.setProperty("display", "none", "");
 ```
 
-### `elToggle()`
+### `elToggle(element: Element)`
 
 Attempts to toggle the visibility of an element by examining the value of the
 `display` CSS-property and calls either `elShow()` or `elHide()`.
 
 ## Attributes
 
-### `elAttr()`
+### `elAttr(element: Element, attribute: string, value?: string): string`
 
 Sets or reads an attribute value, value are implicitly casted into strings and
 reading non-existing attributes will always yield an empty string. If you want
@@ -85,7 +85,7 @@ elAttr(element, "some-attribute", "some value");
 element.setAttribute("some-attribute", "some value");
 ```
 
-### `elAttrBool()`
+### `elAttrBool(element: Element, attribute: string): boolean`
 
 Reads an attribute and converts it value into a boolean value, the strings `"1"`
 and `"true"` will evaluate to `true`. All other values, including a missing attribute,
@@ -97,7 +97,7 @@ if (elAttrBool(element, "some-attribute")) {
 }
 ```
 
-### `elData()`
+### `elData(element: Element, attribute: string, value?: string): string`
 
 Short-hand function to read or set HTML5 `data-*`-attributes, it essentially
 prepends the `data-` prefix before forwarding the call to `elAttr()`.
@@ -112,7 +112,7 @@ elData(element, "some-attribute", "some value");
 elAttr(element, "data-some-attribute", "some value");
 ```
 
-### `elDataBool()`
+### `elDataBool(element: Element, attribute: string): boolean`
 
 Short-hand function to convert a HTML5 `data-*`-attribute into a boolean value. It
 prepends the `data-` prefix before forwarding the call to `elAttrBool()`.
@@ -131,7 +131,7 @@ if (elAttrBool(element, "data-some-attribute")) {
 
 {% include callout.html content="Unlike libraries like jQuery, these functions will return `null` if an element is not found. You are responsible to validate if the element exist and to branch accordingly, invoking methods on the return value without checking for `null` will yield an error." type="warning" %}
 
-### `elById()`
+### `elById(id: string): Element | null`
 
 Selects an element by its `id`-attribute value.
 
@@ -141,7 +141,7 @@ var element = elById("my-awesome-element");
 var element = document.getElementById("my-awesome-element");
 ```
 
-### `elBySel()`
+### `elBySel(selector: string, context?: Element): Element | null`
 
 {% include callout.html content="The underlying `querySelector()`-method works on the entire DOM hierarchy and can yield results outside of your context element! Please read and understand the MDN article on [`Element.querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector#The_entire_hierarchy_counts) to learn more about this." type="danger" %}
 
@@ -159,7 +159,7 @@ var element = elBySel(".some-element", context);
 var element = context.querySelector(".some-element");
 ```
 
-### `elBySelAll()`
+### `elBySelAll(selector: string, context?: Element, callback: (element: Element) => void): NodeList`
 
 {% include callout.html content="The underlying `querySelector()`-method works on the entire DOM hierarchy and can yield results outside of your context element! Please read and understand the MDN article on [`Element.querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector#The_entire_hierarchy_counts) to learn more about this." type="danger" %}
 
@@ -196,7 +196,7 @@ elBySelAll(".some-element", context, function(element) {
 });
 ```
 
-### `elClosest()`
+### `elClosest(element: Element, selector: string): Element | null`
 
 Returns the first `Element` that matches the provided CSS selector, this will
 return the provided element itself if it matches the selector.
@@ -213,7 +213,7 @@ If the provided context is a `Text`-node, the function will move the context to
 the parent element before applying the CSS selector. If the `Text` has no parent,
 `null` is returned without evaluating the selector.
 
-### `elByClass()`
+### `elByClass(className: string, context?: Element): NodeList`
 
 Returns a live `NodeList` containing all elements that match the provided CSS
 class now _and_ in the future! The collection is automatically updated whenever
@@ -237,7 +237,7 @@ var elements = elByClass("some-element", context);
 var elements = context.getElementsByClassName(".some-element");
 ```
 
-### `elByTag()`
+### `elByTag(tagName: string, context?: Element): NodeList`
 
 Returns a live `NodeList` containing all elements with the provided tag name now
 _and_ in the future! Please read the remarks on `elByClass()` above to understand
@@ -256,7 +256,7 @@ var elements = context.getElementsByTagName("div");
 
 ## Utility Functions
 
-### `elInnerError()``
+### `elInnerError(element: Element, errorMessage?: string, isHtml?: boolean): Element | null``
 
 Unified function to display and remove inline error messages for input elements,
 please read the [section in the migration docs][migration_wsc-30_javascript.html#helper-function-for-inline-error-messages]
@@ -264,7 +264,7 @@ to learn more about this function.
 
 ## String Extensions
 
-### `hashCode()`
+### `hashCode(): string`
 
 Computes a numeric hash value of a string similar to Java's `String.hashCode()` method.
 
