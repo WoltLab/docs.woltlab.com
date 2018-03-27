@@ -22,11 +22,11 @@ The following extra fields are defined:
 
 Defines the `defaultvalue`s for subsets of the groups:
 
-| Type  | Description                                                                                   |
-| ----- | --------------------------------------------------------------------------------------------- |
-| admin | Groups where the `admin.user.accessibleGroups` user group option includes every group         |
-| mod   | Groups where the `mod.general.canUseModeration` is set to `true`                              |
-| user  | Groups where the internal group type is neither `UserGroup::EVERYONE` nor `UserGroup::GUESTS` |
+| Type  | Description                                                                                    |
+| ----- | ---------------------------------------------------------------------------------------------- |
+| admin | Groups where the `admin.user.accessibleGroups` user group option includes every group.         |
+| mod   | Groups where the `mod.general.canUseModeration` is set to `true`.                              |
+| user  | Groups where the internal group type is neither `UserGroup::EVERYONE` nor `UserGroup::GUESTS`. |
 
 ### `<usersonly>`
 
