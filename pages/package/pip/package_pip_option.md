@@ -116,6 +116,21 @@ Specifies whether this option requires localized input (i.e. the administrator m
 Additional fields may be defined by specific types of options.
 Refer to the documentation of these for further explanation.
 
+## Language Items
+
+All relevant language items have to be put into the `wcf.acp.option` language item category.
+
+### Categories
+
+If you install a category named `example.sub`, you have to provide the language item `wcf.acp.option.category.example.sub`, which is used when displaying the options.
+If you want to provide an optional description of the category, you have to provide the language item `wcf.acp.option.category.example.sub.description`.
+Descriptions are only relevant for categories whose parent has a parent itself, i.e. categories on the third level.
+
+### Options
+
+If you install an option named `module_example`, you have to provide the language item `wcf.acp.option.module_example`, which is used as a label for setting the option value.
+If you want to provide an optional description of the option, you have to provide the language item `wcf.acp.option.module_example.description`.
+
 ## Example
 
 ```xml
