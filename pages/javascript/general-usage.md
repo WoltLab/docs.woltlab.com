@@ -7,7 +7,7 @@ folder: javascript
 
 ## The History of the Legacy API
 
-The WoltLab Suite 3.0 [introduced a new API][javascript_new-api] based on AMD-Modules
+The WoltLab Suite 3.0 [introduced a new API][javascript_new-api_writing-a-module] based on AMD-Modules
 with ES5-JavaScript that was designed with high performance and visible dependencies
 in mind. This was a fundamental change in comparison to [the legacy API][javascript_legacy-api]
 that was build many years before while jQuery was still a thing and we had to deal

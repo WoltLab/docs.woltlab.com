@@ -9,7 +9,7 @@ folder: javascript
 
 The legacy JavaScript API is the original code that was part of the 2.x series
 of WoltLab Suite, formerly known as WoltLab Community Framework. It has been
-superseded for the most part by the [ES5/AMD-modules API][javascript_new-api]
+superseded for the most part by the [ES5/AMD-modules API][javascript_new-api_writing-a-module]
 introduced with WoltLab Suite 3.0.
 
 Some parts still exist to this day for backwards-compatibility and because some
