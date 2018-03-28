@@ -108,7 +108,7 @@ it is strongly recommended to use the aliases for consistency.
 | [Dom/ChangeListener][javascript_new-api_dom] | WoltLabSuite/Core/Dom/Change/Listener |
 | Dom/Traverse | WoltLabSuite/Core/Dom/Traverse |
 | [Dom/Util][javascript_new-api_dom] | WoltLabSuite/Core/Dom/Util |
-| Environment | WoltLabSuite/Core/Environment |
+| [Environment][javascript_new-api_browser] | WoltLabSuite/Core/Environment |
 | [EventHandler][javascript_new-api_events] | WoltLabSuite/Core/Event/Handler |
 | [EventKey][javascript_new-api_events] | WoltLabSuite/Core/Event/Key |
 | [Language][javascript_new-api_core] | WoltLabSuite/Core/Language |
@@ -122,7 +122,7 @@ it is strongly recommended to use the aliases for consistency.
 | Ui/Dialog | WoltLabSuite/Core/Ui/Dialog |
 | Ui/Notification | WoltLabSuite/Core/Ui/Notification |
 | Ui/ReusableDropdown | WoltLabSuite/Core/Ui/Dropdown/Reusable |
-| Ui/Screen | WoltLabSuite/Core/Ui/Screen |
+| [Ui/Screen][javascript_new-api_browser] | WoltLabSuite/Core/Ui/Screen |
 | Ui/Scroll | WoltLabSuite/Core/Ui/Scroll |
 | Ui/SimpleDropdown | WoltLabSuite/Core/Ui/Dropdown/Simple |
 | Ui/TabMenu | WoltLabSuite/Core/Ui/TabMenu |
