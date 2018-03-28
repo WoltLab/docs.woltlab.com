@@ -116,11 +116,11 @@ it is strongly recommended to use the aliases for consistency.
 | [ObjectMap][javascript_new-api_data-structures] | WoltLabSuite/Core/ObjectMap |
 | Permission | WoltLabSuite/Core/Permission |
 | [StringUtil][javascript_new-api_core] | WoltLabSuite/Core/StringUtil |
-| Ui/Alignment | WoltLabSuite/Core/Ui/Alignment |
-| Ui/CloseOverlay | WoltLabSuite/Core/Ui/CloseOverlay |
-| Ui/Confirmation | WoltLabSuite/Core/Ui/Confirmation |
+| [Ui/Alignment][javascript_new-api_ui] | WoltLabSuite/Core/Ui/Alignment |
+| [Ui/CloseOverlay][javascript_new-api_ui] | WoltLabSuite/Core/Ui/CloseOverlay |
+| [Ui/Confirmation][javascript_new-api_ui] | WoltLabSuite/Core/Ui/Confirmation |
 | Ui/Dialog | WoltLabSuite/Core/Ui/Dialog |
-| Ui/Notification | WoltLabSuite/Core/Ui/Notification |
+| [Ui/Notification][javascript_new-api_ui] | WoltLabSuite/Core/Ui/Notification |
 | Ui/ReusableDropdown | WoltLabSuite/Core/Ui/Dropdown/Reusable |
 | [Ui/Screen][javascript_new-api_browser] | WoltLabSuite/Core/Ui/Screen |
 | Ui/Scroll | WoltLabSuite/Core/Ui/Scroll |
