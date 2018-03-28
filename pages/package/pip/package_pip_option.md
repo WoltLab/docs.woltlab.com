@@ -10,7 +10,7 @@ Registers new options.
 Options allow the administrator to configure the behaviour of installed packages.
 The specified values are exposed as PHP constants.
 
-## Components (`<categories>`)
+## Category Components
 
 Each category is described as an `<category>` element with the mandatory attribute `name`.
 
@@ -32,7 +32,7 @@ Specifies the order of this option within the parent category.
 
 The options element can contain a comma-separated list of options of which at least one needs to be enabled for the category to be shown to the administrator.
 
-## Components (`<options>`)
+## Option Components
 
 Each option is described as an `<option>` element with the mandatory attribute `name`.
 The `name` is transformed into a PHP constant name by uppercasing it.

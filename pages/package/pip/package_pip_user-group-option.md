@@ -9,11 +9,11 @@ parent: package_pip
 Registers new user group options (“permissions”).
 The behaviour of this package installation plugin closely follows the [option][package_pip_option] PIP.
 
-## Components (`<categories>`)
+## Category Components
 
 The category definition works exactly like the option PIP.
 
-## Components (`<options>`)
+## Option Components
 
 The fields `hidden`, `supporti18n` and `requirei18n` do not apply.
 The following extra fields are defined:
