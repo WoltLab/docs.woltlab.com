@@ -30,7 +30,7 @@ The page that the link should point to, requires the internal identifier set by 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/menuItem.xsd">
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/tornado/menuItem.xsd">
     <import>
         <item identifier="com.woltlab.wcf.FooterLinks">
             <menu>com.woltlab.wcf.MainMenu</menu>
