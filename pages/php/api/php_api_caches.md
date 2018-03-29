@@ -40,7 +40,8 @@ Caching should always be a solution for a problem.
 It's difficult to provide a definite answer or checklist when to use a cache
 and why it is required at this point, because the answer is: It depends. The
 permission cache for user groups is a good example for a valid cache, where
-we can a significant performance improvement compared to reading this data live.
+we can achieve significant performance improvement compared to processing this
+data on every request.
 
 Its caches are build for each permutation of user group memberships that are
 encountered for a page request. Building this data is an expensive process that

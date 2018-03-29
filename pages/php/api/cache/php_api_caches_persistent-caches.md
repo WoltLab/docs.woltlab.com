@@ -80,7 +80,7 @@ the `protected $maxLifetime` property which defaults to `0`. Any cache that has
 a lifetime greater than 0 is automatically discarded when exceeding this age,
 otherwise it will remain forever until it is explicitly removed or invalidated.
 
-### `reset(array $parameters = [])`
+### `reset(array $parameters = []): void`
 
 Invalidates a cache, the `$parameters` array will again be ordered using the same
 rules that are applied for `getData()`.
