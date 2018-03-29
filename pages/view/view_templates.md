@@ -85,7 +85,7 @@ More information about installing templates can be found on those pages.
 		<dl{if $errorField == 'baz'} class="formError"{/if}>
 			<dt><label for="baz">{lang}foo.bar.baz{/lang}</label></dt>
 			<dd>
-				<input type="text" id="foo" name="foo" value="{foo}" class="long" required autofocus>
+				<input type="text" id="baz" name="baz" value="{$baz}" class="long" required autofocus>
 				{if $errorField == 'baz'}
 					<small class="innerError">
 						{if $errorType == 'empty'}
