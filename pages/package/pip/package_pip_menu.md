@@ -32,7 +32,7 @@ The following elements of the [box PIP](package_pip_box.html) are supported, ple
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/menu.xsd">
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/tornado/menu.xsd">
     <import>
         <menu identifier="com.woltlab.wcf.FooterLinks">
             <title language="de">Footer-Links</title>

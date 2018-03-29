@@ -12,7 +12,7 @@ It provides the meta data (e.g. package name, description, author) and the instr
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<package name="com.example.package" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/package.xsd">
+<package name="com.example.package" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/tornado/package.xsd">
 	<packageinformation>
 		<packagename>Simple Package</packagename>
 		<packagedescription>A simple package to demonstrate the package system of WoltLab Suite Core</packagedescription>
