@@ -14,15 +14,6 @@ installation plugin, please also read the [naming conventions for language items
 
 ## Special Phrases
 
-### `wcf.global.pageDirection` - RTL support
-
-_Defaults to `ltr`._
-
-Changing this value to `rtl` will reverse the page direction and enable the
-right-to-left support for phrases. Additionally, a special version of the
-stylesheet is loaded that contains all necessary adjustments for the reverse
-direction.
-
 ### `wcf.date.dateFormat`
 
 {% include callout.html content="Many characters in the format have a special meaning and will be replaced with date fragments. If you want to include a literal character, you'll have to use the backslash `\` as an escape sequence to indicate that the character should be output as-is rather than being replaced. For example, `Y-m-d` will be output as `2018-03-30`, but `\Y-m-d` will result in `Y-03-30`." type="warning" %}
@@ -48,5 +39,14 @@ _Defaults to `0`._
 Sets the first day of the week:
 * `0` - Sunday
 * `1` - Monday
+
+### `wcf.global.pageDirection` - RTL support
+
+_Defaults to `ltr`._
+
+Changing this value to `rtl` will reverse the page direction and enable the
+right-to-left support for phrases. Additionally, a special version of the
+stylesheet is loaded that contains all necessary adjustments for the reverse
+direction.
 
 {% include links.html %}
