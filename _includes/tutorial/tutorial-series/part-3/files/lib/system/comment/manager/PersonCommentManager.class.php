@@ -22,6 +22,11 @@ class PersonCommentManager extends AbstractCommentManager {
 	/**
 	 * @inheritDoc
 	 */
+	protected $permissionAddWithoutModeration = 'user.person.canAddCommentWithoutModeration';
+	
+	/**
+	 * @inheritDoc
+	 */
 	protected $permissionCanModerate = 'mod.person.canModerateComment';
 	
 	/**

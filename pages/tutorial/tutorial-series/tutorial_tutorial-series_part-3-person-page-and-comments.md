@@ -138,8 +138,10 @@ The `assignVariables()` method assigns some additional template variables like `
 {% endhighlight %}
 
 For now, the `person` template is still very empty and only shows the comments in the content area.
-The template code shown for comments is very generic and used in this form in many locations as it only sets the header of the comment list and sets the container `ul#personCommentList` element for the comments rendered using the `commentList` template.
+The template code shown for comments is very generic and used in this form in many locations as it only sets the header of the comment list and the container `ul#personCommentList` element for the comments shown by `commentList` template.
 The `ul#personCommentList` elements has five additional `data-` attributes required by the JavaScript API for comments for loading more comments or creating new ones.
+The `commentListAddComment` template adds the WYSIWYG support.
+The attribute `wysiwygSelector` should be the id of the comment list `personCommentList` with an additional `AddComment` suffix.
 
 ### `page.xml`
 
