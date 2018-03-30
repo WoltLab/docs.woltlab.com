@@ -185,6 +185,15 @@ Template variables can be assigned via `WCF::getTPL()->assign('foo', 'bar')` and
 - `{@$foo}` will result in the contents of `$foo` to be printed directly.
   In general, this method should not be used for user-generated input.
 
+Multiple template variables can be assigned by passing an array:
+
+```php
+WCF::getTPL()->assign([
+	'foo' => 'bar',
+	'baz' => false 
+]);
+```
+
 #### Modifiers
 
 If you want to call a function on a variable, you can use the modifier syntax:
@@ -242,7 +251,7 @@ More examples:
 
 ### Foreach Loops
 
-Foreach loops allow to iterate over arrays or iteratable objects:
+Foreach loops allow to iterate over arrays or iterable objects:
 
 ```smarty
 <ul>
