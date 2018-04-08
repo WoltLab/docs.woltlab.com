@@ -10,7 +10,7 @@ Registers new user profile tabs.
 
 ## Components
 
-Each category is described as an `<userprofilemenuitem>` element with the mandatory attribute `name`.
+Each tab is described as an `<userprofilemenuitem>` element with the mandatory attribute `name`.
 
 ### `<classname>`
 
