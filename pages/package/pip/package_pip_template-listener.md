@@ -60,7 +60,6 @@ The options element can contain a comma-separated list of options of which at le
 
 The permissions element can contain a comma-separated list of permissions of which the active user needs to have at least one for the template listener to be executed.
 
-
 ## Example
 
 ```xml
