@@ -42,6 +42,8 @@ For this example we'll assume the file is placed at `js/WoltLabSuite/Core/Ui/Foo
 the module name is therefore `WoltLabSuite/Core/Ui/Foo`, it is automatically
 derived from the file path and name.
 
+For further instructions on how to define and require modules head over to the [RequireJS API](http://requirejs.org/docs/api.html).
+
 ```js
 define(["Ajax", "WoltLabSuite/Core/Ui/Bar"], function(Ajax, UiBar) {
   "use strict";
@@ -73,6 +75,8 @@ define(["Ajax", "WoltLabSuite/Core/Ui/Bar"], function(Ajax, UiBar) {
       };
     }
   }
+  
+  return Foo;
 });
 ```
 
