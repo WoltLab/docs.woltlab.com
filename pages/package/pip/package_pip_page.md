@@ -56,6 +56,15 @@ Comma separated list of permission names that will be checked one after another 
 
 Comma separated list of options that will be checked one after another until at least one option is set.
 
+### `<excludeFromLandingPage>`
+
+Some pages should not be used as landing page, because they may not always be
+available and/or accessible to the user. For example, the account management
+page is available to logged-in users only and any guest attempting to visit that
+page would be presented with a permission denied message.
+
+Set this to `1` to prevent this page from becoming a landing page ever.
+
 ### `<content>`
 
 {% include languageCode.html %}
