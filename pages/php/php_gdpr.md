@@ -45,9 +45,6 @@ class MyUserExportGdprActionListener implements IParameterizedEventListener {
     $eventObj->ipAddresses['my.fancy.plugin'] = ['wcf'.WCF_N.'_my_fancy_table', 'wcf'.WCF_N.'_i_also_store_ipaddresses_here'];
     $eventObj->skipUserOptions[] = 'thisLooksLikePersonalDataButItIsNot';
     $eventObj->skipUserOptions[] = 'thisIsAlsoNotPersonalDataPleaseIgnoreIt';
-
-    $ev
-    $ipAdde exportIpAddresses($databaseTable, $ipAddressColumn, $timeColumn, $userIDColumn);
   }
 }
 ```
