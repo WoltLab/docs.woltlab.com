@@ -42,6 +42,7 @@ class MyUserExportGdprActionListener implements IParameterizedEventListener {
       'weirdIpAddresses' => $eventObj->exportIpAddresses('app'.WCF_N.'_non_standard_column_names_for_ip_addresses', 'ipAddressColumnName', 'timeColumnName', 'userIDColumnName')
     ];
     $eventObj->exportUserPropertiesIfNotEmpty[] = 'myFancyField';
+    $eventObj->exportUserOptionSettingsIfNotEmpty[] = 'someSettingContainingPersonalData';
     $eventObj->ipAddresses['my.fancy.plugin'] = ['wcf'.WCF_N.'_my_fancy_table', 'wcf'.WCF_N.'_i_also_store_ipaddresses_here'];
     $eventObj->skipUserOptions[] = 'thisLooksLikePersonalDataButItIsNot';
     $eventObj->skipUserOptions[] = 'thisIsAlsoNotPersonalDataPleaseIgnoreIt';
@@ -62,6 +63,13 @@ Only a whitelist of  columns in `wcfN_user` is exported by default, if your plug
 or app adds one or more columns to this table that do hold personal data, then
 you will have to append it to this array. Empty values will not be added to the
 output.
+
+### `$exportUserOptionSettingsIfNotEmpty`
+
+Any user option that exists within a `settings.*` category is automatically
+excluded from the export, with the notable exception of the `timezone` option.
+You can opt-in to include your setting by appending to this array, if it contains
+any personal data.
 
 ### `$ipAddresses`
 
