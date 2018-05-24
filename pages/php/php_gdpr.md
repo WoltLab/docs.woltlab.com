@@ -41,7 +41,9 @@ class MyUserExportGdprActionListener implements IParameterizedEventListener {
       'superPersonalData' => "This text is super personal and should be included in the output",
       'weirdIpAddresses' => $eventObj->exportIpAddresses('app'.WCF_N.'_non_standard_column_names_for_ip_addresses', 'ipAddressColumnName', 'timeColumnName', 'userIDColumnName')
     ];
+    $eventObj->exportUserProperties[] = 'shouldAlwaysExportThisField';
     $eventObj->exportUserPropertiesIfNotEmpty[] = 'myFancyField';
+    $eventObj->exportUserOptionSettings[] = 'thisSettingIsAlwaysExported';
     $eventObj->exportUserOptionSettingsIfNotEmpty[] = 'someSettingContainingPersonalData';
     $eventObj->ipAddresses['my.fancy.plugin'] = ['wcf'.WCF_N.'_my_fancy_table', 'wcf'.WCF_N.'_i_also_store_ipaddresses_here'];
     $eventObj->skipUserOptions[] = 'thisLooksLikePersonalDataButItIsNot';
@@ -57,12 +59,27 @@ fields may already exist (such as `'com.woltlab.wcf'`) and while you may add or
 edit any fields within, you should restrict yourself to only append data from
 your plugin or app.
 
+### `$exportUserProperties`
+
+Only a whitelist of  columns in `wcfN_user` is exported by default, if your plugin
+or app adds one or more columns to this table that do hold personal data, then
+you will have to append it to this array. The listed properties will always be
+included regardless of their content.
+
 ### `$exportUserPropertiesIfNotEmpty`
 
 Only a whitelist of  columns in `wcfN_user` is exported by default, if your plugin
 or app adds one or more columns to this table that do hold personal data, then
 you will have to append it to this array. Empty values will not be added to the
 output.
+
+### `$exportUserOptionSettings`
+
+Any user option that exists within a `settings.*` category is automatically
+excluded from the export, with the notable exception of the `timezone` option.
+You can opt-in to include your setting by appending to this array, if it contains
+any personal data. The listed settings are always included regardless of their
+content.
 
 ### `$exportUserOptionSettingsIfNotEmpty`
 
