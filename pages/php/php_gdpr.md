@@ -33,7 +33,7 @@ use wcf\acp\action\UserExportGdprAction;
 use wcf\data\user\UserProfile;
 
 class MyUserExportGdprActionListener implements IParameterizedEventListener {
-  public function execute(/** @var UserExportGdprAction $eventObj */$eventObj, $className, $eventName, array &$parameters);
+  public function execute(/** @var UserExportGdprAction $eventObj */$eventObj, $className, $eventName, array &$parameters) {
     /** @var UserProfile $user */
     $user = $eventObj->user;
 
