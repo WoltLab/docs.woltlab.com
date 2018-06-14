@@ -41,7 +41,7 @@ This is the case if `1` is used as the value.
 The value of the environment element can either be `admin` or `user` and is `user` if no value is given.
 The value determines if the event listener will be executed in the frontend (`user`) or the backend (`admin`).
 
-### `<niceValue>`
+### `<nice>`
 
 The nice value element can contain an integer value out of the interval `[-128,127]` with `0` being the default value if the element is omitted.
 The nice value determines the execution order of event listeners.

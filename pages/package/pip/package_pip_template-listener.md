@@ -37,7 +37,7 @@ If multiple template listeners listen to a single event their output is concaten
 The value of the environment element can either be `admin` or `user` and is `user` if no value is given.
 The value determines if the template listener will be executed in the frontend (`user`) or the backend (`admin`).
 
-### `<niceValue>`
+### `<nice>`
 
 {% include callout.html content="Optional" type="info" %}
 
