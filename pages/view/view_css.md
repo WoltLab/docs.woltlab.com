@@ -31,7 +31,7 @@ Media breakpoints instruct the browser to apply different CSS depending on the v
     }
 }
 
-/* green background color on smartphones and tables */
+/* green background color on smartphones and tablets */
 @include screen-md-down {
     body {
         background-color: green;
