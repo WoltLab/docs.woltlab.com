@@ -19,7 +19,7 @@ For any type of object related to events, you have to define an object type for 
 		<type>
 			<name>com.woltlab.example.foo</name>
 			<definitionname>com.woltlab.wcf.notification.objectType</definitionname>
-			<classname>example\system\user\notification\event\FooUserNotificationObjectType</classname>
+			<classname>example\system\user\notification\object\type\FooUserNotificationObjectType</classname>
 			<category>com.woltlab.example</category>
 		</type>
 	</import>
