@@ -7,12 +7,12 @@ folder: migration/wsc-31
 
 ## User Content Provider 
 
-User Content Providers help the WSC to find user generated content. They provide a class with which you can find content from a particular user and delete objects.
+User Content Providers help the WoltLab Suite to find user generated content. They provide a class with which you can find content from a particular user and delete objects.
 
 
 ### PHP Class
 
-First, we create the PHP class that provides our interface to provide the data. The class must implement interface `wcf\system\user\content\provider\IUserContentProvider` in any case. Mostly we process data which is based on [`wcf\data\DatabaseObject`](php_database-objects.html). In this case, the WSC provides an abstract class `wcf\system\user\content\provider\AbstractDatabaseUserContentProvider` that can be used to automatically generates the standardized classes to generate the list and deletes objects via the DatabaseObjectAction. For example, if we would create a content provider for comments, the class would look like this: 
+First, we create the PHP class that provides our interface to provide the data. The class must implement interface `wcf\system\user\content\provider\IUserContentProvider` in any case. Mostly we process data which is based on [`wcf\data\DatabaseObject`](php_database-objects.html). In this case, the WoltLab Suite provides an abstract class `wcf\system\user\content\provider\AbstractDatabaseUserContentProvider` that can be used to automatically generates the standardized classes to generate the list and deletes objects via the DatabaseObjectAction. For example, if we would create a content provider for comments, the class would look like this: 
 
 ```php
 <?php
@@ -46,7 +46,7 @@ Now the appropriate object type must be created for the class. This object type 
 
 {% include callout.html content="Optional" type="info" %}
 
-The nice value is used to determine the order in which the remove content worker are execute the provider. Content provider with lower nice value are executed first.
+The nice value is used to determine the order in which the remove content worker are execute the provider. Content provider with lower nice values are executed first.
 
 #### hidden
 
@@ -58,4 +58,4 @@ Specifies whether or not this content provider can be actively selected in the C
 
 {% include callout.html content="Optional" type="info" %}
 
-This parameter specifies object types that must be executed with this object type during the Content Remove Worker. This parameter specifies object types that must be executed with this object type during the Content Remove Worker. Several values can be specified comma separated. Heads up: An order cannot be guaranteed, therefore it is recommended to set a `nicevalue` if the order of execution is important. 
+The specified list of comma-separated object types are automatically removed during content removal when this object type is being removed. Heads up: The order of removal is undefined by default, specify a `nicevalue` if the order is important.
