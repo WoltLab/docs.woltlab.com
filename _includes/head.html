@@ -4,33 +4,24 @@
 <meta name="description" content="{% if page.summary %}{{ page.summary | strip_html | strip_newlines | truncate: 160 }}{% endif %}">
 <meta name="keywords" content="{{page.tags}}{% if page.tags %}, {% endif %} {{page.keywords}}">
 <title>{{ page.title }} | {{ site.site_title }}</title>
-<link rel="stylesheet" href="{{ site.url }}/{{ "css/syntax.css" }}">
 
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{ site.url }}/{{ "css/syntax.css" }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="{{ site.url }}/{{ "font-awesome.min.css" }}">
 <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
 <link rel="stylesheet" href="{{ site.url }}/{{ "css/modern-business.css" }}">
 <link rel="stylesheet" href="{{ site.url }}/{{ "css/lavish-bootstrap.css" }}">
 <link rel="stylesheet" href="{{ site.url }}/{{ "css/customstyles.css" }}">
 <link rel="stylesheet" href="{{ site.url }}/{{ "css/theme-blue.css" }}?v=3">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="{{ site.url }}/{{ "js/jquery.min.js" }}"></script>
+<script src="{{ site.url }}/{{ "js/jquery.cookie.min.js" }}"></script>
 <script src="{{ site.url }}/{{ "js/jquery.navgoco.min.js" }}"></script>
-
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="{{ site.url }}/{{ "js/bootstrap.min.js" }}"></script>
+<script src="{{ site.url }}/{{ "js/anchor.min.js" }}"></script>
 <script src="{{ site.url }}/{{ "js/toc.js" }}"></script>
 <script src="{{ site.url }}/{{ "js/customscripts.js" }}"></script>
 
 <link rel="shortcut icon" href="{{ site.url }}/{{ "images/favicon.ico"  }}">
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
 
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "feed.xml" | prepend: site.url }}">
