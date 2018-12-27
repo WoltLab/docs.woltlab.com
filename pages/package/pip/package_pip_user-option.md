@@ -7,7 +7,7 @@ parent: package_pip
 ---
 
 Registers new user options (profile fields / user settings).
-The behaviour of this package installation plugin closely follows the [option][package_pip_option] PIP.
+The behaviour of this package installation plugin closely follows the [option](package_pip_option.html) PIP.
 
 ## Category Components
 
