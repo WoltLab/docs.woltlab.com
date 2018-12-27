@@ -56,7 +56,7 @@ but literally passed through instead.
 
 ### `<isBlockElement>`
 
-Set to `1` iff the output of this BBCode is a HTML block element (according to the HTML specification).
+Set to `1` if the output of this BBCode is a HTML block element (according to the HTML specification).
 
 ### `<attributes>`
 
