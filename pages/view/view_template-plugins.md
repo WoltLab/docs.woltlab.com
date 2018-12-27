@@ -345,6 +345,15 @@ All additional attributes are added as attributes of the `select` HTML element.
 | `key` | optional template variable name where the current array key is stored during the iteration |
 
 
+## `ipSearch`
+
+`ipSearch` generates a link to search for an IP address.
+
+```smarty
+{"127.0.0.1"|ipSearch}
+```
+
+
 ## `js`
 
 `js` generates script tags based on whether `ENABLE_DEBUG_MODE` and `VISITOR_USE_TINY_BUILD` are enabled.
