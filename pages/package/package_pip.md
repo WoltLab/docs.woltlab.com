@@ -40,6 +40,7 @@ Package Installation Plugins (PIPs) are interfaces to deploy and edit content as
 | [template][package_pip_template] | Frontend templates |
 | [templateListener][package_pip_template-listener] | Embed template code into templates without altering the original |
 | [userGroupOption][package_pip_user-group-option] | Permissions for user groups |
+| [userMenu][package_pip_user-menu] | User menu categories and items |
 | [userNotificationEvent][package_pip_user-notification-event] | Events of the user notification system |
 | [userOption][package_pip_user-option] | User settings |
 | [userProfileMenu][package_pip_user-profile-menu] | User profile tabs |
