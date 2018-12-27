@@ -31,7 +31,7 @@ If not specified this item serves as a category.
 
 ### `<link>`
 
-Additional components iff `<controller>` is set,
+Additional components if `<controller>` is set,
 the full external link otherwise.
 
 ### `<icon>`

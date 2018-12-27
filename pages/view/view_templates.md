@@ -288,65 +288,6 @@ In contrast to PHP’s foreach loop, templates also support `foreachelse`:
 {/foreach}
 ```
 
-### `hascontent`
-
-In many cases, conditional statements can be used to determine if a certain section of a template is shown:
-
-```smarty
-{if $foo === 'bar'}
-	only shown if $foo is bar
-{/if}
-```
-
-In some situations, however, such conditional statements are not sufficient.
-One prominent example is a template event:
-
-```smarty
-{if $foo === 'bar'}
-	<ul>
-		{if $foo === 'bar'}
-			<li>Bar</li>
-		{/if}
-		
-		{event name='listItems'}
-	</li>
-{/if}
-```
-
-In this example, if `$foo !== 'bar'`, the list will not be shown, regardless of the additional template code provided by template listeners.
-In such a situation, `hascontent` has to be used:
-
-```smarty
-{hascontent}
-	<ul>
-		{content}
-			{if $foo === 'bar'}
-				<li>Bar</li>
-			{/if}
-			
-			{event name='listItems'}
-		{/content}
-	</ul>
-{/hascontent}
-```
-
-If the part of the template wrapped in the `content` tags has any (trimmed) content, the part of the template wrapped by `hascontent` tags is shown (including the part wrapped by the `content` tags), otherwise nothing is shown.
-Thus, this construct avoids an empty list compared to the `if` solution above.
-
-Like `foreach`, `hascontent` also supports an `else` part:
-
-```smarty
-{hascontent}
-	<ul>
-		{content}
-			{* … *}
-		{/content}
-	</ul>
-{hascontentelse}
-	no list
-{/hascontent}
-```
-
 ### Including Other Templates
 
 To include template named `foo` from the same domain (frontend/backend), you can use
@@ -366,3 +307,7 @@ Additional template variables can be passed to the included template as addition
 ```smarty
 {include file='foo' application='app' var1='foo1' var2='foo2'}
 ```
+
+### Template Plugins
+
+An overview of all available template plugins can be found [here](view_template-plugins.html).
