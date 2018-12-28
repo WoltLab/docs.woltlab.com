@@ -42,18 +42,18 @@ Now the appropriate object type must be created for the class. This object type 
 
 ### `nicevalue` 
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 The nice value is used to determine the order in which the remove content worker are execute the provider. Content provider with lower nice values are executed first.
 
 ### `hidden`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Specifies whether or not this content provider can be actively selected in the Content Remove Worker. If it cannot be selected, it will not be executed automatically! 
 
 ### `requiredobjecttype`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 The specified list of comma-separated object types are automatically removed during content removal when this object type is being removed. Heads up: The order of removal is undefined by default, specify a `nicevalue` if the order is important.
