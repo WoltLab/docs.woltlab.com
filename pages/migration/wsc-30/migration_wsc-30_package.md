@@ -36,6 +36,6 @@ Please refer to the documentation of the [`mediaProvider.xml`][package_pip_media
 
 ## Limited Forward-Compatibility for Plugins
 
-Please refer to the documentation of the [`<compatibility>`][package_package-xml#compatibility] tag in the `package.xml`.
+Please refer to the documentation of the [`<compatibility>`](package_package-xml.html#compatibility) tag in the `package.xml`.
 
 {% include links.html %}

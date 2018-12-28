@@ -138,7 +138,7 @@ Counter supports the following attributes:
 ```
 
 
-## `dateInterval`
+## <span class="label label-info">3.1+</span> `dateInterval`
 
 `dateInterval` calculates the difference between two unix timestamps and generated a textual date interval.
 
@@ -354,7 +354,7 @@ All additional attributes are added as attributes of the `select` HTML element.
 ```
 
 
-## `js`
+## <span class="label label-info">3.0+</span> `js`
 
 `js` generates script tags based on whether `ENABLE_DEBUG_MODE` and `VISITOR_USE_TINY_BUILD` are enabled.
 
@@ -441,7 +441,7 @@ Additional attributes are passed to `LinkHandler::getLink()`.
 ```
 
 
-## `page`
+## <span class="label label-info">3.0+</span> `page`
 
 `page` generates an internal link to a CMS page.
 
