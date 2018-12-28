@@ -123,7 +123,7 @@ it is strongly recommended to use the aliases for consistency.
 | [Ui/Alignment][javascript_new-api_ui] | WoltLabSuite/Core/Ui/Alignment |
 | [Ui/CloseOverlay][javascript_new-api_ui] | WoltLabSuite/Core/Ui/CloseOverlay |
 | [Ui/Confirmation][javascript_new-api_ui] | WoltLabSuite/Core/Ui/Confirmation |
-| [Ui/Dialog][javascriot_new-api_dialogs] | WoltLabSuite/Core/Ui/Dialog |
+| [Ui/Dialog][javascript_new-api_dialogs] | WoltLabSuite/Core/Ui/Dialog |
 | [Ui/Notification][javascript_new-api_ui] | WoltLabSuite/Core/Ui/Notification |
 | Ui/ReusableDropdown | WoltLabSuite/Core/Ui/Dropdown/Reusable |
 | [Ui/Screen][javascript_new-api_browser] | WoltLabSuite/Core/Ui/Screen |

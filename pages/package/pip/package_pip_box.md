@@ -30,7 +30,7 @@ Provide arbitrary content, requires the `<content>` element.
 
 ### `<objectType>`
 
-Required for boxes with `boxType = system`, must be registered through [the objectType PIP][packages_xml_object-type] for the definition `com.woltlab.wcf.boxController`.
+Required for boxes with `boxType = system`, must be registered through [the objectType PIP](package_pip_object-type.html) for the definition `com.woltlab.wcf.boxController`.
 
 ### `<position>`
 
