@@ -259,7 +259,7 @@ var elements = context.getElementsByTagName("div");
 ### `elInnerError(element: Element, errorMessage?: string, isHtml?: boolean): Element | null``
 
 Unified function to display and remove inline error messages for input elements,
-please read the [section in the migration docs][migration_wsc-30_javascript.html#helper-function-for-inline-error-messages]
+please read the [section in the migration docs](migration_wsc-30_javascript.html#helper-function-for-inline-error-messages)
 to learn more about this function.
 
 ## String Extensions

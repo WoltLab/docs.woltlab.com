@@ -7,7 +7,7 @@ parent: package_pip
 ---
 
 Registers new user group options (“permissions”).
-The behaviour of this package installation plugin closely follows the [option][package_pip_option] PIP.
+The behaviour of this package installation plugin closely follows the [option](package_pip_option.html) PIP.
 
 ## Category Components
 
