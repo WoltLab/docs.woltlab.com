@@ -345,7 +345,7 @@ All additional attributes are added as attributes of the `select` HTML element.
 | `key` | optional template variable name where the current array key is stored during the iteration |
 
 
-## `ipSearch`
+## <span class="label label-info">3.2+</span> `ipSearch`
 
 `ipSearch` generates a link to search for an IP address.
 
