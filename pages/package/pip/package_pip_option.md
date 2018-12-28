@@ -16,19 +16,19 @@ Each category is described as an `<category>` element with the mandatory attribu
 
 ### `<parent>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 The category’s parent category.
 
 ### `<showorder>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Specifies the order of this option within the parent category.
 
 ### `<options>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 The options element can contain a comma-separated list of options of which at least one needs to be enabled for the category to be shown to the administrator.
 
@@ -53,19 +53,19 @@ Valid values are defined by the `optiontype`.
 
 ### `<validationpattern>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Defines a regular expression that is used to validate the value of a free form option (such as `text`).
 
 ### `<showorder>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Specifies the order of this option within the category.
 
 ### `<selectoptions>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 {% include callout.html content="Defined only for `select`, `multiSelect` and `radioButton` types." type="warning" %}
 
 Specifies a newline-separated list of selectable values.
@@ -74,7 +74,7 @@ The language item is shown to the administrator, the internal handle is what is 
 
 ### `<enableoptions>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 {% include callout.html content="Defined only for `boolean`, `select` and `radioButton` types." type="warning" %}
 
 Specifies a comma-separated list of options which should be visually enabled when this option is enabled.
@@ -86,32 +86,32 @@ It does not have an effect on the server side processing of the option.
 
 ### `<hidden>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 If `hidden` is set to `1` the option will not be shown to the administrator.
 It still can be modified programmatically.
 
 ### `<options>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 The options element can contain a comma-separated list of options of which at least one needs to be enabled for the option to be shown to the administrator.
 
 ### `<supporti18n>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Specifies whether this option supports localized input.
 
 ### `<requirei18n>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Specifies whether this option requires localized input (i.e. the administrator must specify a value for every installed language).
 
 ### `<*>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Additional fields may be defined by specific types of options.
 Refer to the documentation of these for further explanation.

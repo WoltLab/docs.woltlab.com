@@ -19,19 +19,19 @@ the class has to implement the `wcf\system\menu\user\profile\content\IUserProfil
 
 ### `<showorder>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Determines at which position of the tab list the tab is shown.
 
 ### `<options>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 The options element can contain a comma-separated list of options of which at least one needs to be enabled for the tab to be shown.
 
 ### `<permissions>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 The permissions element can contain a comma-separated list of permissions of which the active user needs to have at least one for the tab to be shown.
 

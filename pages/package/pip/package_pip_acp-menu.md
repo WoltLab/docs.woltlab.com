@@ -14,13 +14,13 @@ Each item is described as an `<acpmenuitem>` element with the mandatory attribut
 
 ### `<parent>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 The item’s parent item.
 
 ### `<showorder>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Specifies the order of this item within the parent item.
 
@@ -42,13 +42,13 @@ Name of the Font Awesome icon class.
 
 ### `<options>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 The options element can contain a comma-separated list of options of which at least one needs to be enabled for the tab to be shown.
 
 ### `<permissions>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 The permissions element can contain a comma-separated list of permissions of which the active user needs to have at least one for the tab to be shown.
 

@@ -23,7 +23,7 @@ Element with `<page>` children whose value contains the class name of the contro
 
 ### `<showorder>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Determines at which position of the clipboard action list the action is shown.
 

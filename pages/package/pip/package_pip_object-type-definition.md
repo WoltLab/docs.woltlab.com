@@ -22,7 +22,7 @@ Each item is described as a `<definition>` element with the mandatory child `<na
 
 ### `<interfacename>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 The name of the PHP interface [objectTypes](package_pip_object-type.html) have to implement.
 

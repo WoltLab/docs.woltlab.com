@@ -25,14 +25,14 @@ File path relative to the root of WoltLab Suite Core.
 
 ### `<aliases>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 List of smiley aliases.
 Aliases must be separated by a line feed character (`\n`, U+000A).
 
 ### `<showorder>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Determines at which position of the smiley list the smiley is shown.
 
