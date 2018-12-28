@@ -37,7 +37,7 @@ need to be registered.
 
 ### `<wysiwygIcon>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Name of the Font Awesome icon class to show in the editor toolbar.
 
@@ -72,19 +72,19 @@ The contents of this tag are copied into the opening tag of the bbcode.
 
 #### `<validationpattern>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Defines a regular expression that is used to validate the value of the attribute.
 
 #### `<required>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Specifies whether this attribute must be provided.
 
 #### `<useText>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 {% include callout.html content="Should only be set to `1` for the attribute with name `0`." type="info" %}
 
 Specifies whether the text content of the BBCode should become this attribute's value.

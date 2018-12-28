@@ -14,7 +14,7 @@ Each acl option is described as an `<option>` element with the mandatory attribu
 
 ### `<categoryname>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 The name of the acl option category to which the option belongs.
 

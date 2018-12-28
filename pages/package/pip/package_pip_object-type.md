@@ -24,7 +24,7 @@ the class has to implement the `<interfacename>` interface of the object type de
 
 ### `<*>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Additional fields may be defined for specific definitions of object types.
 Refer to the documentation of these for further explanation.

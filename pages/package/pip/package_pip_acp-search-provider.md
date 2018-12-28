@@ -19,7 +19,7 @@ the class has to implement the `wcf\system\search\acp\IACPSearchResultProvider` 
 
 ### `<showorder>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 Determines at which position of the search result list the provided results are shown.
 

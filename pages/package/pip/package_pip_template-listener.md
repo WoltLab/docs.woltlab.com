@@ -39,7 +39,7 @@ The value determines if the template listener will be executed in the frontend (
 
 ### `<nice>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 The nice value element can contain an integer value out of the interval `[-128,127]` with `0` being the default value if the element is omitted.
 The nice value determines the execution order of template listeners.
@@ -50,13 +50,13 @@ If the nice value of two template listeners is equal, the order is undefined.
 
 ### `<options>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 The options element can contain a comma-separated list of options of which at least one needs to be enabled for the template listener to be executed.
 
 ### `<permissions>`
 
-{% include callout.html content="Optional" type="info" %}
+<span class="label label-info">Optional</span>
 
 The permissions element can contain a comma-separated list of permissions of which the active user needs to have at least one for the template listener to be executed.
 
