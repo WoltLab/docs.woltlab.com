@@ -173,8 +173,6 @@ Every form field has to implement the `IFormField` interface which extends `IFor
 - `autoFocus($autoFocus = true)` and `isAutoFocused()` can be used to determine if the form field is auto-focused when the page loads.
   By default, form fields are not auto-focused.
 - `addValidator(IFormFieldValidator $validator)`, `getValidators()`, `removeValidator($validatorId)`, and `hasValidator($validatorId)` can be used to get, set, remove, and check for validators for the form field (see [form validation](php_api_form_builder-validation_data.html#form-validation)).
-- `immutable($immutable = true)` and `isImmutable()` can be used to determine if the value of the form field is mutable or immutable.
-  By default, form field are mutable.
 - `objectProperty($objectProperty)` and `getObjectProperty()` can be used to get and set the object property that the field represents.
   When setting the object property is set to an empty string, the previously set object property is unset.
   If no object property has been set, the field’s (non-prefixed) id is returned.
@@ -226,6 +224,13 @@ If multilingual input is enabled for a specific form field, classes using `TI18n
 If multilingual input is enabled but only a monolingual value is entered, the custom form field data processor does nothing and the form field’s value is added by the `DefaultFormFieldDataProcessor` into the `data` sub-array of the `$parameters` array.
 
 {% include callout.html content="`TI18nFormField` already provides a default implementation of `IFormField::validate()`." type="info" %}
+
+
+#### `IImmutableFormField` / `TImmutableFormField`
+
+`IImmutableFormField` has to be implemented by form fields that support being displayed but whose value cannot be changed.
+The implementing class has to implement the methods `immutable($immutable = true)` and `isImmutable()` that can be used to determine if the value of the form field is mutable or immutable.
+By default, form field are mutable.
 
 
 #### `IMaximumFormField` / `TMaximumFormField`

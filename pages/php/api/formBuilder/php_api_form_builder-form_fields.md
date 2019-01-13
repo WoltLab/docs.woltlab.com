@@ -19,7 +19,7 @@ The following form field classes cannot be instantiated directly because they ar
 ### `AbstractNumericFormField`
 
 `AbstractNumericFormField` is the abstract implementation of a form field handling a single numeric value.
-The class implements `IMaximumFormField`, `IMinimumFormField`, `INullableFormField`, `IPlaceholderFormField` and `ISuffixedFormField`.
+The class implements `IImmutableFormField`, `IMaximumFormField`, `IMinimumFormField`, `INullableFormField`, `IPlaceholderFormField` and `ISuffixedFormField`.
 If the property `$integerValues` is `true`, the form field works with integer values, otherwise it works with floating point numbers.
 The methods `step($step = null)` and `getStep()` can be used to set and get the step attribute of the `input` element.
 The default step for form fields with integer values is `1`.
@@ -118,14 +118,14 @@ These methods do **not**, however, restrict the number of text rows that canbe e
 ### `MultipleSelectionFormField`
 
 `MultipleSelectionFormField` is a form fields that allows the selection of multiple options out of a predefined list of available options.
-The class implements `INullableFormField` and `IFilterableSelectionFormField`.
+The class implements `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
 If the field is nullable and no option is selected, `null` is returned as the save value.
 
 
 ### `RadioButtonFormField`
 
 `RadioButtonFormField` is a form fields that allows the selection of a single option out of a predefined list of available options using radiobuttons.
-The class implements `ISelectionFormField`.
+The class implements `IImmutableFormField` and `ISelectionFormField`.
 
 
 ### `ShowOrderFormField`
@@ -139,7 +139,7 @@ The default id of instances of this class is `showOrder` and their default label
 ### `SingleSelectionFormField`
 
 `SingleSelectionFormField` is a form fields that allows the selection of a single option out of a predefined list of available options.
-The class implements `INullableFormField` and `IFilterableSelectionFormField`.
+The class implements `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
 If the field is nullable and the current form field value is considered `empty` by PHP, `null` is returned as the save value.
 
 
@@ -151,7 +151,7 @@ If the field is nullable and the current form field value is considered `empty` 
 ### `TextFormField`
 
 `TextFormField` is a form field that allows entering a single line of text.
-The class implements `II18nFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, and `IPlaceholderFormField`.
+The class implements `IImmutableFormField`, `II18nFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, and `IPlaceholderFormField`.
 
 
 ### `TitleFormField`
@@ -221,7 +221,7 @@ The default label of instances of this class is `wcf.tagging.tags` and their def
 ### `UserFormField`
 
 `UserFormField` is a form field to enter existing users.
-The class implements `IMultipleFormField` and `INullableFormField`.
+The class implements `IImmutableFormField`, `IMultipleFormField`, and `INullableFormField`.
 
 
 ### `UserGroupOptionFormField`
@@ -234,7 +234,7 @@ The default label of instances of this class is `wcf.form.field.userGroupOption`
 ### `UsernameFormField`
 
 `UsernameFormField` is used for entering one non-existing username.
-The class implements `IMaximumLengthFormField`, `IMinimumLengthFormField`, `INullableFormField`, and `IPlaceholderFormField`.
+The class implements `IImmutableFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `INullableFormField`, and `IPlaceholderFormField`.
 As usernames have a system-wide restriction of a minimum length of 3 and a maximum length of 100 characters, these values are also used as the default value for the field’s minimum and maximum length.
 
 
