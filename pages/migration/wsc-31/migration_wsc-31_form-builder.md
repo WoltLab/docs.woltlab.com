@@ -8,7 +8,7 @@ parent: migration_wsc-31_php
 
 ## Example: Two Text Form Fields
 
-As the first example, the pre-WoltLab Suite Core 3.2 versions of the forms to add and edit persons from the [first part of the tutorial series](tutorial_tutorial-series_part-1-base-structure.html) will be updated to the new form builder API.
+As the first example, the pre-WoltLab Suite Core 5.2 versions of the forms to add and edit persons from the [first part of the tutorial series](tutorial_tutorial-series_part-1-base-structure.html) will be updated to the new form builder API.
 This form is the perfect first examples as it is very simple with only two text fields whose only restriction is that they have to be filled out and that their values may not be longer than 255 characters each.
 
 As a reminder, here are the two relevant PHP files and the relevant template file:

@@ -7,7 +7,7 @@ folder: migration/wsc-31
 
 ## Form Builder
 
-WoltLab Suite Core 3.2 introduces a new, simpler and quicker way of creating forms:
+WoltLab Suite Core 5.2 introduces a new, simpler and quicker way of creating forms:
 [form builder](php_api_form_builder.html).
 You can find examples of how to migrate existing forms to form builder [here](migration_wsc-31_form-builder.html).
 

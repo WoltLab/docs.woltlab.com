@@ -5,9 +5,9 @@ permalink: php_api_form_builder.html
 folder: php/api
 ---
 
-{% include callout.html content="Form builder is only available since WoltLab Suite Core 3.2." type="info" %}
+{% include callout.html content="Form builder is only available since WoltLab Suite Core 5.2." type="info" %}
 
-{% include callout.html content="The [migration guide for WoltLab Suite Core 3.2](migration_wsc-31_form-builder.html) provides some examples of how to migrate existing forms to form builder that can also help in understanding form builder if the old way of creating forms is familiar." type="info" %}
+{% include callout.html content="The [migration guide for WoltLab Suite Core 5.2](migration_wsc-31_form-builder.html) provides some examples of how to migrate existing forms to form builder that can also help in understanding form builder if the old way of creating forms is familiar." type="info" %}
 
 
 ## Advantages of Form Builder
