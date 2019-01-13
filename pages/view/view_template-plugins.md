@@ -294,6 +294,7 @@ Like `foreach`, `hascontent` also supports an `else` part:
 
 | Attribute | Description |
 |-----------|-------------|
+| <span class="label label-info">5.2+</span> `disabled` | if `true`, all checkboxes are disabled |
 | `disableEncoding` | if `true`, the values are not passed through `wcf\util\StringUtil::encodeHTML()`; `false` by default |
 | `name` | `name` attribute of the `input` checkbox element |
 | `output` | array used as keys and values for `options` if present; not present by default |
