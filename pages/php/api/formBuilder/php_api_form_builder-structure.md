@@ -53,7 +53,9 @@ The basis for all three elements are form nodes.
   - Form containers are automatically unavailable if they contain no available children.
   
   Availability sets the static availability for form nodes that does not change during the lifetime of a form.
-  In contrast, dependencies represent a dynamic availability for form nodes that depends on the current value of certain form fields. 
+  In contrast, dependencies represent a dynamic availability for form nodes that depends on the current value of certain form fields.
+- `cleanup()` is called after the whole form is not used anymore to reset other APIs if the form fields depends on them and they expect such a reset.
+  This method is not intended to clean up the form field’s value as a new form document object is created to show a clean form.
 - `getDocument()` returns the `IFormDocument` object the node belongs to.
   (As `IFormDocument` extends `IFormNode`, form document objects simply return themselves.)
 - `getHtml()` returns the HTML representation of the node.
