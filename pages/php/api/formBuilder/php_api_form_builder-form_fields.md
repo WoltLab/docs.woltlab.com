@@ -218,6 +218,24 @@ The default label of instances of this class is `wcf.tagging.tags` and their def
 `TagFormField` objects register a [custom form field data processor](php_api_form_builder-validation_data.html#customformfielddataprocessor) to add the array with entered tag names into the `$parameters` array directly using the object property as the array key.
 
 
+### `UploadFormField`
+
+`UploadFormField` is a form field that allows uploading files by the user.
+
+`UploadFormField` objects register a [custom form field data processor](php_api_form_builder-validation_data.html#customformfielddataprocessor) to add the array of `wcf\system\file\upload\UploadFile\UploadFile` into the `$parameters` array directly using the object property as the array key. Also it registers the removed files as an array of `wcf\system\file\upload\UploadFile\UploadFile` into the `$parameters` array directly using the object property with the suffix `_removedFiles` as the array key.  
+
+The field supports additional settings: 
+- `imageOnly($imageOnly = true)` and `isImageOnly()` can be used to ensure that the uploaded files are only images.
+- `allowSvgImage($allowSvgImages = true)` and `svgImageAllowed()` can be used to allow SVG images, if the image only mode is enabled (otherwise, the method will throw an exception). By default, SVG images are not allowed.
+
+#### Provide value from database object 
+
+To provide values from a database object, you should implement the method `get{$objectProperty}UploadFileLocations()` to your database object class. This method must return an array of strings with the locations of the files.
+
+#### Process files 
+
+To process files in the database object action class, you must [`rename`](https://secure.php.net/manual/en/function.rename.php) the file to the final destination. You get the temporary location, by calling the method `getLocation()` on the given `UploadFile` objects. After that, you call `setProcessed($location)` with `$location` contains the new file location. This method sets the `isProcessed` flag to true and saves the new location. For updating files, it is relevant, whether a given file is already processed or not. For this case, the `UploadFile` object has an method `isProcessed()` which indicates, whether a file is already processed or new uploaded.
+
 ### `UserFormField`
 
 `UserFormField` is a form field to enter existing users.
