@@ -108,6 +108,13 @@ The interface requires the following methods:
 - `description($languageItem = null, array $variables = [])` and `getDescription()` can be used to set and get the description of the form element.
 
 
+### `IObjectTypeFormNode` / `TObjectTypeFormNode`
+
+`IObjectTypeFormField` has to be implemented by form nodes that rely on a object type of a specific object type definition in order to function.
+The implementing class has to implement the methods `objectType($objectType)`, `getObjectType()`, and `getObjectTypeDefinition()`.
+`TObjectTypeFormNode` provides a default implementation of these three methods.
+
+
 ## Form Document
 
 A form document object represents the form as a whole and has to implement the `IFormDocument` interface.
@@ -117,6 +124,12 @@ WoltLab Suite provides a default implementation with the `FormDocument` class.
 `IFormDocument` extends `IFormParentNode` and requires the following additional methods:
 
 - `action($action)` and `getAction()` can be used set and get the `action` attribute of the `<form>` HTML element.
+- `addButton(IFormButton $button)` and `getButtons()` can be used add and get form buttons that are shown at the bottom of the form. 
+  `addDefaultButton($addDefaultButton)` and `hasDefaultButton()` can be used to set and check if the form has the default button which is added by default unless specified otherwise.
+  Each implementing class may define its own default button.
+  `FormDocument` has a button with id `submitButton`, label `wcf.global.button.submit`, access key `s`, and CSS class `buttonPrimary` as its default button. 
+- `ajax($ajax)` and `isAjax()` can be used to set and check if the form document is requested via an AJAX request or processes data via an AJAX request.
+  These methods are helpful for form fields that behave differently when providing data via AJAX.
 - `build()` has to be called once after all nodes have been added to this document to trigger `IFormNode::populate()`.
 - `formMode($formMode)` and `getFormMode()` sets the form mode.
   Possible form modes are:
@@ -142,14 +155,32 @@ WoltLab Suite provides a default implementation with the `FormDocument` class.
 The last aspect is relevant for `DialogFormDocument` objects.
 `DialogFormDocument` is a specialized class for forms in dialogs that, in contrast to `FormDocument` do not require an `action` to be set.
 Additionally, `DialogFormDocument` provides the `cancelable($cancelable = true)` and `isCancelable()` methods used to determine if the dialog from can be canceled.
-By default, dialog forms are cancelable. 
+By default, dialog forms are cancelable.
+
+
+## Form Button
+
+A form button object represents a button shown at the end of the form that, for example, submits the form.
+Every form button has to implement the `IFormButton` interface that extends `IFormChildNode` and `IFormElement`.
+`IFormButton` requires four methods to be implemented:
+
+- `accessKey($accessKey)` and `getAccessKey()` can be used to set and get the access key with which the form button can be activated.
+  By default, form buttons have no access key set.
+- `submit($submitButton)` and `isSubmit()` can be used to set and check if the form button is a submit button.
+  A submit button is an `input[type=submit]` element.
+  Otherwise, the button is a `button` element. 
 
 
 ## Form Container
 
 A form container object represents a container for other form containers or form field directly.
-Every form container has to implement the `IFormContainer` interface.
-There are three container implementations provided by default:
+Every form container has to implement the `IFormContainer` interface which requires the following method:
+
+- `loadValuesFromObject(IStorableObject $object)` is called by `IFormDocument::loadValuesFromObject()` to inform the container that object data is loaded.
+  This method is *not* intended to generally call `IFormField::loadValueFromObject()` on its form field children as these methods are already called by `IFormDocument::loadValuesFromObject()`.
+  This method is intended for specialized form containers with more complex logic.
+
+There are four default container implementations:
 
 1. `FormContainer` is the default implementation of `IFormContainer`.
 1. `TabMenuFormContainer` represents the container of tab menu, while
@@ -170,8 +201,6 @@ Every form field has to implement the `IFormField` interface which extends `IFor
 `IFormField` requires the following additional methods:
 
 - `addValidationError(IFormFieldValidationError $error)` and `getValidationErrors()` can be used to get and set validation errors of the form field (see [form validation](php_api_form_builder-validation_data.html#form-validation)).
-- `autoFocus($autoFocus = true)` and `isAutoFocused()` can be used to determine if the form field is auto-focused when the page loads.
-  By default, form fields are not auto-focused.
 - `addValidator(IFormFieldValidator $validator)`, `getValidators()`, `removeValidator($validatorId)`, and `hasValidator($validatorId)` can be used to get, set, remove, and check for validators for the form field (see [form validation](php_api_form_builder-validation_data.html#form-validation)).
 - `objectProperty($objectProperty)` and `getObjectProperty()` can be used to get and set the object property that the field represents.
   When setting the object property is set to an empty string, the previously set object property is unset.
@@ -197,16 +226,24 @@ An overview of the form fields provided by default can be found [here](php_api_f
 WoltLab Suite Core provides a variety of interfaces and matching traits with default implementations for several common features of form fields:
 
 
-#### `IFilterableSelectionFormField` / `TFilterableSelectionFormField`
+#### `IAutoFocusFormField` / `TAutoFocusFormField`
 
-`IFilterableSelectionFormField` extends `ISelectionFormField` by the possibilty for users when selecting the value(s) to filter the list of available options.
-The implementing class has to implement the methods `filterable($filterable = true)` and `isFilterable()`.
-`TFilterableSelectionFormField` provides a default implementation of these two methods.
+`IAutoFocusFormField` has to be implemented by form fields that can be auto-focused.
+The implementing class has to implement the methods `autoFocus($autoFocus = true)` and `isAutoFocused()`.
+By default, form fields are not auto-focused.
+`TAutoFocusFormField` provides a default implementation of these two methods.
 
 
 #### `IFileFormField`
 
 `IFileFormField` has to be implemented by every form field that uploads files so that the `enctype` attribute of the form document is `multipart/form-data` (see `IFormDocument::getEnctype()`).
+
+
+#### `IFilterableSelectionFormField` / `TFilterableSelectionFormField`
+
+`IFilterableSelectionFormField` extends `ISelectionFormField` by the possibilty for users when selecting the value(s) to filter the list of available options.
+The implementing class has to implement the methods `filterable($filterable = true)` and `isFilterable()`.
+`TFilterableSelectionFormField` provides a default implementation of these two methods.
 
 
 #### `II18nFormField` / `TI18nFormField`
@@ -298,13 +335,6 @@ The implementing class has to implement the methods `nullable($nullable = true)`
 `TNullableFormField` provides a default implementation of these two methods.
 
 `null` should be returned by `IFormField::getSaveValue()` is the field is considered empty and the form field has been set as nullable.
-
-
-#### `IObjectTypeFormField` / `TObjectTypeFormField`
-
-`IObjectTypeFormField` has to be implemented by form fields that rely on a object type of a specific object type definition in order to function.
-The implementing class has to implement the methods `objectType($objectType)`, `getObjectType()`, and `getObjectTypeDefinition()`.
-`TObjectTypeFormField` provides a default implementation of these three methods.
 
 
 #### `IPackagesFormField` / `TPackagesFormField`

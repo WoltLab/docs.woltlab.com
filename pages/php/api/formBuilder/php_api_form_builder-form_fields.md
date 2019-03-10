@@ -164,20 +164,6 @@ The class implements `IImmutableFormField`, `II18nFormField`, `IMaximumLengthFor
 `UrlFormField` is a [text form field](#textformfield) whose values are checked via `Url::is()`.
 
 
-### `WysiwygFormField`
-
-`WysiwygFormField` is used for WYSIWYG editor form fields.
-The class implements `IMaximumLengthFormField`, `IMinimumLengthFormField`, and `IObjectTypeFormField` and requires an object type of the object type definition `com.woltlab.wcf.message`.
-The following methods are specific to this form field class:
-
-- `autosaveId($autosaveId)` and `getAutosaveId()` can be used enable automatically saving the current editor contents in the browser using the given id.
-  An empty string signals that autosaving is disabled.
-- `lastEditTime($lastEditTime)` and `getLastEditTime()` can be used to set the last time the contents have been edited and saved so that the JavaScript can determine if the contents stored in the browser are older or newer.
-  `0` signals that no last edit time has been set.
-
-`WysiwygFormField` objects register a [custom form field data processor](php_api_form_builder-validation_data.html#customformfielddataprocessor) to add the relevant simple ACL data array into the `$parameters` array directly using the object property as the array key.
-
-
 
 ## Specific Fields
 
@@ -254,6 +240,98 @@ The default label of instances of this class is `wcf.form.field.userGroupOption`
 `UsernameFormField` is used for entering one non-existing username.
 The class implements `IImmutableFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `INullableFormField`, and `IPlaceholderFormField`.
 As usernames have a system-wide restriction of a minimum length of 3 and a maximum length of 100 characters, these values are also used as the default value for the field’s minimum and maximum length.
+
+
+
+## Wysiwyg form container
+
+To integrate a wysiwyg editor into a form, you have to create a `WysiwygFormContainer` object.
+This container takes care of creating all necessary form nodes listed below for a wysiwyg editor.
+
+{% include callout.html content="When creating the container object, its id has to be the id of the form field that will manage the actual text." type="warning" %}
+
+The following methods are specific to this form container class:
+
+- `addSettingsNode(IFormNode $settingsNode)`, `addSettingsNodes(array $settingsNodes)` can be used to add nodes to the settings tab container.
+- `attachmentData($objectType, $parentObjectID)` can be used to set the data relevant for attachment support.
+  By default, not attachment data is set, thus attachments are not supported.
+- `getAttachmentField()`, `getPollContainer()`, `getSettingsContainer()`, `getSmiliesContainer()`, and `getWysiwygField()` can be used to get the different components of the wysiwyg form container once the form has been built.
+- `getObjectId()` returns the id of the edited object or `0` if no object is edited.
+- `getPreselect()`, `preselect($preselect)` can be used to set the value of the wysiwyg tab menu's `data-preselect` attribute used to determine which tab is preselected.
+  By default, the preselect is `'true'` which is used to pre-select the first tab.
+- `messageObjectType($messageObjectType)` can be used to set the message object type.
+- `pollObjectType($pollObjectType)` can be used to set the poll object type.
+  By default, no poll object type is set, thus the poll form field container is not available.
+- `supportMentions($supportMentions)` can be used to set if mentions are supported.
+  By default, mentions are not supported.
+  This method is only relevant before the form is built.
+  Afterwards, mention support can only be changed via the wysiwyg form field.
+- `supportSmilies($supportSmilies)` can be used to set if smilies are supported.
+  By default, smilies are not supported.
+  This method is only relevant before the form is built.
+  Afterwards, smiley availability can only be changed via changing the availability of the smilies form container.
+
+
+### `WysiwygAttachmentFormField`
+
+`WysiwygAttachmentFormField` provides attachment support for a wysiwyg editor via a tab in the menu below the editor.
+This class should not be used directly but only via `WysiwygFormContainer`.
+The methods `attachmentHandler(AttachmentHandler $attachmentHandler)` and `getAttachmentHandler()` can be used to set and get the `AttachmentHandler` object that is used for uploaded attachments.
+
+
+### `WysiwygPollFormContainer`
+
+`WysiwygPollFormContainer` provides poll support for a wysiwyg editor via a tab in the menu below the editor.
+This class should not be used directly but only via `WysiwygFormContainer`.
+`WysiwygPollFormContainer` contains all form fields that are required to create polls and requires edited objects to implement `IPollContainer`.
+
+The following methods are specific to this form container class:
+
+- `getEndTimeField()` returns the form field to set the end time of the poll once the form has been built.
+- `getIsChangeableField()` returns the form field to set if poll votes can be changed once the form has been built.
+- `getIsPublicField()` returns the form field to set if poll results are public once the form has been built.
+- `getMaxVotesField()` returns the form field to set the maximum number of votes once the form has been built.
+- `getOptionsField()` returns the form field to set the poll options once the form has been built.
+- `getQuestionField()` returns the form field to set the poll question once the form has been built.
+- `getResultsRequireVoteField()` returns the form field to set if viewing the poll results requires voting once the form has been built.
+- `getSortByVotesField()` returns the form field to set if the results are sorted by votes once the form has been built.
+
+
+### `WysiwygSmileyFormContainer`
+
+`WysiwygSmileyFormContainer` provides smiley support for a wysiwyg editor via a tab in the menu below the editor.
+This class should not be used directly but only via `WysiwygFormContainer`.
+`WysiwygSmileyFormContainer` creates a sub-tab for each smiley category.
+
+#### `WysiwygSmileyFormNode`
+
+`WysiwygSmileyFormNode` is contains the smilies of a specific category.
+This class should not be used directly but only via `WysiwygSmileyFormContainer`.
+
+
+### `WysiwygFormField`
+
+`WysiwygFormField` is used for wysiwyg editor form fields.
+This class should, in general, not be used directly but only via `WysiwygFormContainer`.
+The class implements `IMaximumLengthFormField`, `IMinimumLengthFormField`, and `IObjectTypeFormNode` and requires an object type of the object type definition `com.woltlab.wcf.message`.
+The following methods are specific to this form field class:
+
+- `autosaveId($autosaveId)` and `getAutosaveId()` can be used enable automatically saving the current editor contents in the browser using the given id.
+  An empty string signals that autosaving is disabled.
+- `lastEditTime($lastEditTime)` and `getLastEditTime()` can be used to set the last time the contents have been edited and saved so that the JavaScript can determine if the contents stored in the browser are older or newer.
+  `0` signals that no last edit time has been set.
+- `supportAttachments($supportAttachments)` and `supportsAttachments()` can be used to set and check if the form field supports attachments.
+  
+  {% include callout.html content="It is not sufficient to simply signal attachment support via these methods for attachments to work. These methods are relevant internally to signal the Javascript code that the editor supports attachments. Actual attachment support is provided by `WysiwygAttachmentFormField`." type="warning" %}
+- `supportMentions($supportMentions)` and `supportsMentions()` can be used to set and check if the form field supports mentions of other users.
+
+`WysiwygFormField` objects register a [custom form field data processor](php_api_form_builder-validation_data.html#customformfielddataprocessor) to add the relevant simple ACL data array into the `$parameters` array directly using the object property as the array key.
+
+
+### `TWysiwygFormNode`
+
+All form nodes that need to know the id of the `WysiwygFormField` field should use `TWysiwygFormNode`.
+This trait provides `getWysiwygId()` and `wysiwygId($wysiwygId)` to get and set the relevant wysiwyg editor id.
 
 
 
