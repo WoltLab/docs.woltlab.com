@@ -31,7 +31,7 @@ Create a new file called `package.xml` and insert the code below:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<package name="com.example.test" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/tornado/package.xsd">
+<package name="com.example.test" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/package.xsd">
 	<packageinformation>
 		<packagename>Simple Package</packagename>
 		<packagedescription>A simple package to demonstrate the package system of WoltLab Suite Core</packagedescription>
@@ -157,7 +157,7 @@ The package now contains the PHP class and the matching template, but it is stil
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/tornado/page.xsd">
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/page.xsd">
 	<import>
 		<page identifier="com.example.test.Test">
 			<controller>wcf\page\TestPage</controller>

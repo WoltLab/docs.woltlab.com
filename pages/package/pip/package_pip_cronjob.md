@@ -47,7 +47,7 @@ The options element can contain a comma-separated list of options of which at le
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/tornado/cronjob.xsd">
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/cronjob.xsd">
 	<import>
 		<cronjob name="com.example.package.example">
 			<classname>wcf\system\cronjob\ExampleCronjob</classname>

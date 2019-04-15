@@ -93,7 +93,7 @@ Specifies whether the text content of the BBCode should become this attribute's 
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/bbcode.xsd">
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/bbcode.xsd">
 	<import>
 		<bbcode name="foo">
 			<classname>wcf\system\bbcode\FooBBCode</classname>

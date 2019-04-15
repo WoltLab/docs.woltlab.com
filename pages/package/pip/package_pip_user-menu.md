@@ -63,7 +63,7 @@ the class has to implement the `wcf\system\menu\user\IUserMenuItemProvider` inte
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/userMenu.xsd">
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/userMenu.xsd">
 	<import>
 		<usermenuitem name="wcf.user.menu.foo">
 			<iconclassname>fa-home</iconclassname>
