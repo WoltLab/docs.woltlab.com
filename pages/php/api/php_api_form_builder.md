@@ -12,7 +12,7 @@ folder: php/api
 
 ## Advantages of Form Builder
 
-WoltLab Suite 3.2 introduces a new powerful way of creating forms: form builder.
+WoltLab Suite 5.2 introduces a new powerful way of creating forms: form builder.
 Before taking a closer look at form builder, let us recap how forms are created in previous versions:
 In general, for each form field, there is a corresponding property of the form's PHP class whose value has to be read from the request data, validated, and passed to the database object action to store the value in a database table.
 When editing an object, the property's value has to be set using the value of the corresponding property of the edited object.
