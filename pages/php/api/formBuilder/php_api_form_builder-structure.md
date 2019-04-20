@@ -115,6 +115,25 @@ The implementing class has to implement the methods `objectType($objectType)`, `
 `TObjectTypeFormNode` provides a default implementation of these three methods.
 
 
+### `CustomFormNode`
+
+`CustomFormNode` is a form node whose contents can be set directly via `content($content)`.
+
+{% include callout.html content="This class should generally not be relied on. Instead, `TemplateFormNode` should be used." type="warning" %}
+
+
+### `TemplateFormNode`
+
+`TemplateFormNode` is a form node whose contents are read from a template.
+`TemplateFormNode` has the following additional methods:
+
+- `application($application)` and `getApplicaton()` can be used to set and get the abbreviation of the application the shown template belongs to.
+  If no template has been set explicitly, `getApplicaton()` returns `wcf`.
+- `templateName($templateName)` and `getTemplateName()` can be used to set and get the name of the template containing the node contents.
+  If no template has been set and the node is rendered, an exception will be thrown.
+- `variables(array $variables)` and `getVariables()` can be used to set and get additional variables passed to the template.
+
+
 ## Form Document
 
 A form document object represents the form as a whole and has to implement the `IFormDocument` interface.

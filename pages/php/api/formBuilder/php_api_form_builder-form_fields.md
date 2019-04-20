@@ -128,6 +128,17 @@ If the field is nullable and no option is selected, `null` is returned as the sa
 The class implements `IImmutableFormField` and `ISelectionFormField`.
 
 
+### `RatingFormField`
+
+`RatingFormField` is a form field to set a rating for an object.
+The class implements `IImmutableFormField`, `IMaximumFormField`, `IMinimumFormField`, and `INullableFormField`.
+Form fields of this class have `rating` as their default id, `wcf.form.field.rating` as their default label, `1` as their default minimum, and `5` as their default maximum.
+For this field, the minimum and maximum refer to the minimum and maximum rating an object can get.
+When the field is shown, there will be `maximum() - minimum() + 1` icons be shown with additional CSS classes that can be set and gotten via `defaultCssClasses(array $cssClasses)` and `getDefaultCssClasses()`.
+If a rating values is set, the first `getValue()` icons will instead use the classes that can be set and gotten via `activeCssClasses(array $cssClasses)` and `getActiveCssClasses()`.
+By default, the only default class is `fa-star-o` and the active classes are `fa-star` and `orange`. 
+
+
 ### `ShowOrderFormField`
 
 `ShowOrderFormField` is a [single selection form field](#singleselectionformfield) for which the selected value determines the position at which an object is shown.
@@ -181,6 +192,23 @@ A category name of `null` signals that no category filter is used.
 The relevant database object action method is expected, based on the given ACL object type id, to save the ACL option values appropriately.
 
 
+### `ContentLanguageFormField`
+
+`ContentLanguageFormField` is used to select the content language of an object.
+Fields of this class are only available if multilingualism is enabled and if there are content languages. 
+The class implements `IImmutableFormField`.
+
+
+### `LabelFormField`
+
+`LabelFormField` is used to select a label from a specific label group.
+The class implements `IObjectTypeFormNode`.
+
+The `labelGroup(ViewableLabelGroup $labelGroup)` and `getLabelGroup()` methods are specific to this form field class and can be used to set and get the label group whose labels can be selected.
+Additionally, there is the static method `createFields($objectType, array $labelGroups, $objectProperty = 'labelIDs)` that can be used to create all relevant label form fields for a given list of label groups.
+In most cases, `LabelFormField::createFields()` should be used.
+
+
 ### `OptionFormField`
 
 `OptionFormField` is an [item list form field](#itemlistformfield) to set a list of options.
@@ -193,6 +221,17 @@ The default label of instances of this class is `wcf.form.field.option` and thei
 `SimpleAclFormField` is used for setting up simple acl values (one `yes`/`no` option per user and user group) for specific objects.
 
 `SimpleAclFormField` objects register a [custom form field data processor](php_api_form_builder-validation_data.html#customformfielddataprocessor) to add the relevant simple ACL data array into the `$parameters` array directly using the object property as the array key.
+
+
+### `SingleMediaSelectionFormField`
+
+`SingleMediaSelectionFormField` is used to select a specific media file.
+The class implements `IImmutableFormField`.
+
+The following methods are specific to this form field class:
+
+- `imageOnly($imageOnly = true)` and `isImageOnly()` can be used to set and check if only images may be selected.
+- `getMedia()` returns the media file based on the current field value if a field is set.
 
 
 ### `TagFormField`
