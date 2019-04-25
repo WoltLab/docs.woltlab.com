@@ -13,6 +13,8 @@ You can find examples of how to migrate existing forms to form builder [here](mi
 
 In the near future, to ensure backwards compatibility within WoltLab packages, we will only use form builder for new forms or for major rewrites of existing forms that would break backwards compatibility anyway.
 
+## Like System 
+WoltLab Suite Core 5.2 replaced the like system with the reaction system. You can find the migration guide [here](migration_wsc-31_like.html).
 
 ## User Content Providers
 
