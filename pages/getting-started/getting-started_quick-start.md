@@ -40,7 +40,7 @@ Create a new file called `package.xml` and insert the code below:
 		<date>2019-04-28</date>
 	</packageinformation>
 	<authorinformation>
-		<author>You Name</author>
+		<author>Your Name</author>
 		<authorurl>http://www.example.com</authorurl>
 	</authorinformation>
 	<compatibility>
