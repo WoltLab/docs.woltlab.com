@@ -31,27 +31,24 @@ Create a new file called `package.xml` and insert the code below:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<package name="com.example.test" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/package.xsd">
+<package xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/package.xsd" name="com.example.test">
 	<packageinformation>
+		<!-- com.example.test -->
 		<packagename>Simple Package</packagename>
 		<packagedescription>A simple package to demonstrate the package system of WoltLab Suite Core</packagedescription>
 		<version>1.0.0</version>
-		<date>2016-11-27</date>
+		<date>2019-04-28</date>
 	</packageinformation>
-
 	<authorinformation>
-		<author>YOUR NAME</author>
+		<author>You Name</author>
 		<authorurl>http://www.example.com</authorurl>
 	</authorinformation>
-
-	<requiredpackages>
-		<requiredpackage minversion="3.0.0">com.woltlab.wcf</requiredpackage>
-	</requiredpackages>
-
+	<compatibility>
+		<api version="2019"/>
+	</compatibility>
 	<instructions type="install">
 		<instruction type="file" />
 		<instruction type="template" />
-
 		<instruction type="page" />
 	</instructions>
 </package>
