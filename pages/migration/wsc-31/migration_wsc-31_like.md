@@ -107,7 +107,7 @@ Reaction ({objectName})
 
 _Your language variable for the recent activity text_
 ```
-Reacted with “{$reactionType->getTitle()}” to the {objectName}.
+Reacted with <span title="{$reactionType->getTitle()}" class="jsTooltip">{@$reactionType->renderIcon()}</span> to the {objectName}.
 ```
 
 #### German
@@ -118,7 +118,7 @@ Reaktion ({objectName})
 
 _Your language variable for the recent activity text_
 ```
-Hat mit „{$reactionType->getTitle()}“ auf {objectName} reagiert.
+Hat mit <span title="{$reactionType->getTitle()}" class="jsTooltip">{@$reactionType->renderIcon()}</span> auf {objectName} reagiert.
 ```
 
 ### Comments
