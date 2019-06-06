@@ -146,6 +146,8 @@ The show order field provides a list of all siblings and the object will be posi
 To insert objects at the very beginning, the `options()` automatically method prepends an additional option for that case so that only the existing siblings need to be passed.
 The default id of instances of this class is `showOrder` and their default label is `wcf.form.field.showOrder`.
 
+{% include callout.html content="It is important that the relevant object property is always kept updated. Whenever a new object is added or an existing object is edited or delete, the values of the other objects have to be adjusted to ensure consecutive numbering." type="info" %}
+
 
 ### `SingleSelectionFormField`
 
