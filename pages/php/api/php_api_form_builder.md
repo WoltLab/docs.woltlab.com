@@ -94,7 +94,7 @@ The constructor of `FormBuilderDialog` expects the following parameters:
 The three public functions of `FormBuilderDialog` are:
 
 - `destroy()` destroys the dialog, the form, and all of the form fields.
-- `getData()` returns a promise that returns the form data.
+- `getData()` returns a Promise that returns the form data.
 - `open()` opens the dialog.
 
 Example:
