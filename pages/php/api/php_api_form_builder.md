@@ -66,3 +66,56 @@ In addition to the existing methods inherited by `AbstractForm`, `AbstractFormBu
   Edit forms have to manually identify the edited object based on the request data and set the value of `$formObject`. 
 - `$objectActionName` can be used to set an alternative action to be executed by the database object action that deviates from the default action determined by the value of `$formAction`.
 - `$objectActionClass` is the name of the database object action class that is used to create or update the database object.
+
+
+## `DialogFormDocument`
+
+Form builder forms can also be used in dialogs.
+For such forms, `DialogFormDocument` should be used which provides the additional methods `cancelable($cancelable = true)` and `isCancelable()` to set and check if the dialog can be canceled.
+If a dialog form can be canceled, a cancel button is added.
+
+If the dialog form is fetched via an AJAX request, `IFormDocument::ajax()` has to be called.
+AJAX forms are registered with `WoltLabSuite/Core/Form/Builder/Manager` which also supports getting all of the data of a form via the `getData(formId)` function.
+The `getData()` function relies on all form fields creating and registering a `WoltLabSuite/Core/Form/Builder/Field/Field` object that provides the data of a specific field.
+
+To make it as easy as possible to work with AJAX forms in dialogs, `WoltLabSuite/Core/Form/Builder/Dialog` (abbreviated as `FormBuilderDialog` from now on) should generally be used instead of `WoltLabSuite/Core/Form/Builder/Manager` directly. 
+The constructor of `FormBuilderDialog` expects the following parameters:
+
+- `dialogId`: id of the dialog element
+- `className`: PHP class used to get the form dialog (and save the data if `options.submitActionName` is set)
+- `actionName`: name of the action/method of `className` that returns the dialog; the method is expected to return an array with `formId` containg the id of the returned form and `dialog` containing the rendered form dialog
+- `options`: additional options:
+  - `actionParameters` (default: empty): additional parameters sent during AJAX requests
+  - `destroyOnClose` (default: `false`): if `true`, whenever the dialog is closed, the form is destroyed so that a new form is fetched if the dialog is opened again
+  - `dialog`: additional dialog options used as `options` during dialog setup
+  - `onSubmit`: callback when the form is submitted (takes precedence over `submitActionName`)
+  - `submitActionName` (default: not set): name of the action/method of `className` called when the form is submitted
+
+The three public functions of `FormBuilderDialog` are:
+
+- `destroy()` destroys the dialog, the form, and all of the form fields.
+- `getData()` returns a promise that returns the form data.
+- `open()` opens the dialog.
+
+Example:
+
+```javascript
+require(['WoltLabSuite/Core/Form/Builder/Dialog'], function(FormBuilderDialog) {
+	var dialog = new FormBuilderDialog(
+		'testDialog',
+		'wcf\\data\\test\\TestAction',
+		'getDialog',
+		{
+			destroyOnClose: true,
+			dialog: {
+				title: 'Test Dialog'
+			},
+			submitActionName: 'saveDialog'
+		}
+	);
+	
+	elById('testDialogButton').addEventListener('click', function() {
+		dialog.open();
+	});
+});
+```
