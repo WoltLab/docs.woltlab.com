@@ -308,17 +308,15 @@ The following methods are specific to this form container class:
   This method is only relevant before the form is built.
   Afterwards, mention support can only be changed via the wysiwyg form field.
 - `supportSmilies($supportSmilies)` can be used to set if smilies are supported.
-  By default, smilies are not supported.
+  By default, smilies are supported.
   This method is only relevant before the form is built.
   Afterwards, smiley availability can only be changed via changing the availability of the smilies form container.
-
 
 ### `WysiwygAttachmentFormField`
 
 `WysiwygAttachmentFormField` provides attachment support for a wysiwyg editor via a tab in the menu below the editor.
 This class should not be used directly but only via `WysiwygFormContainer`.
 The methods `attachmentHandler(AttachmentHandler $attachmentHandler)` and `getAttachmentHandler()` can be used to set and get the `AttachmentHandler` object that is used for uploaded attachments.
-
 
 ### `WysiwygPollFormContainer`
 
@@ -337,7 +335,6 @@ The following methods are specific to this form container class:
 - `getResultsRequireVoteField()` returns the form field to set if viewing the poll results requires voting once the form has been built.
 - `getSortByVotesField()` returns the form field to set if the results are sorted by votes once the form has been built.
 
-
 ### `WysiwygSmileyFormContainer`
 
 `WysiwygSmileyFormContainer` provides smiley support for a wysiwyg editor via a tab in the menu below the editor.
@@ -348,6 +345,21 @@ This class should not be used directly but only via `WysiwygFormContainer`.
 
 `WysiwygSmileyFormNode` is contains the smilies of a specific category.
 This class should not be used directly but only via `WysiwygSmileyFormContainer`.
+
+### Example
+
+The following code creates a WYSIWYG editor component for a `message` object property.
+As smilies are supported by default and an attachment object type is given, the tab menu below the editor has two tabs: “Smilies” and “Attachments”.
+Additionally, mentions and quotes are supported.
+
+```php
+WysiwygFormContainer::create('message')
+	->label('foo.bar.message')
+	->messageObjectType('com.example.foo.bar')
+	->attachmentData('com.example.foo.bar')
+	->supportMentions()
+	->supportQuotes()
+```
 
 
 ### `WysiwygFormField`
