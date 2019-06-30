@@ -59,6 +59,9 @@ Additionally, the default id of a `ClassNameFormField` object is `className`, th
 `DateFormField` is a form field to enter a date (and optionally a time).
 The following methods are specific to this form field class:
 
+- `earliestDate($earliestDate)` and `getEarliestDate()` can be used to get and set the earliest selectable/valid date and `latestDate($latestDate)` and `getLatestDate()` can be used to get and set the latest selectable/valid date.
+  The date passed to the setters must have the same format as set via `saveValueFormat()`.
+  If a custom format is used, that format has to be set via `saveValueFormat()` before calling any of the setters.
 - `saveValueFormat($saveValueFormat)` and `getSaveValueFormat()` can be used to specify the date format of the value returned by `getSaveValue()`.
   By default, `U` is used as format.
   The [PHP manual](https://secure.php.net/manual/en/function.date.php) provides an overview of supported formats.
