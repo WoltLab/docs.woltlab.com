@@ -296,7 +296,7 @@ This container takes care of creating all necessary form nodes listed below for 
 
 The following methods are specific to this form container class:
 
-- `addSettingsNode(IFormNode $settingsNode)`, `addSettingsNodes(array $settingsNodes)` can be used to add nodes to the settings tab container.
+- `addSettingsNode(IFormChildNode $settingsNode)` and `addSettingsNodes(array $settingsNodes)` can be used to add nodes to the settings tab container.
 - `attachmentData($objectType, $parentObjectID)` can be used to set the data relevant for attachment support.
   By default, not attachment data is set, thus attachments are not supported.
 - `getAttachmentField()`, `getPollContainer()`, `getSettingsContainer()`, `getSmiliesContainer()`, and `getWysiwygField()` can be used to get the different components of the wysiwyg form container once the form has been built.
