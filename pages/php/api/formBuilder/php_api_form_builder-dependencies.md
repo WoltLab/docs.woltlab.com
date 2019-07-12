@@ -29,11 +29,29 @@ The interface requires the following methods:
 - `dependentNode(IFormNode $node)` and `getDependentNode()` can be used to set and get the node whose availability depends on the referenced form field.
   `TFormNode::addDependency()` automatically calls `dependentNode(IFormNode $node)` with itself as the dependent node, thus the dependent node is automatically set by the API.
 - `field(IFormField $field)` and `getField()` can be used to set and get the form field that influences the availability of the dependent node.
+- `fieldId($fieldId)` and `getFieldId()` can be used to set and get the id of the form field that influences the availability of the dependent node.
 - `getHtml()` returns JavaScript code required to ensure the dependency in the form output.
 - `getId()` returns the id of the dependency used to identify multiple dependencies of the same form node.
 - `static create($id)` is the factory method that has to be used to create new dependencies with the given id.
 
 `AbstractFormFieldDependency` provides default implementations for all methods except for `checkDependency()`.
+
+Using `fieldId($fieldId)` instead of `field(IFormField $field)` makes sense when adding the dependency directly when setting up the form:
+
+```php
+$container->appendChildren([
+	FooField::create('a'),
+	
+	BarField::create('b')
+		->addDependency(
+			BazDependency::create('a')
+				->fieldId('a')
+		)
+]);
+```
+
+Here, without an additional assignment, the first field with id `a` cannot be accessed thus `fieldId($fieldId)` should be used as the id of the relevant field is known.
+When the form is built, all dependencies that only know the id of the relevant field and do not have a reference for the actual object are populated with the actual form field objects.
 
 
 ## Default Dependencies

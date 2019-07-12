@@ -87,7 +87,7 @@ The basis for all three elements are form nodes.
 Additionally, the interface also extends `\Countable` and `\RecursiveIterator`.
 The interface requires the following methods:
 
-- `appendChild(IFormChildNode $child)`, `appendChildren(array $children)`, and `insertBefore(IFormChildNode $child, $referenceNodeId)` are used to insert new children either at the end or at specific positions.
+- `appendChild(IFormChildNode $child)`, `appendChildren(array $children)`, `insertAfter(IFormChildNode $child, $referenceNodeId)`, and `insertBefore(IFormChildNode $child, $referenceNodeId)` are used to insert new children either at the end or at specific positions.
   `validateChild(IFormChildNode $child)` is used to check if a given child node can be added.
   A child node cannot be added if it would cause an id to be used twice.
 - `children()` returns the direct children of a form node.
