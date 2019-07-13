@@ -10,7 +10,7 @@ Adds menu items to existing menus.
 
 ## Components
 
-Each item is described as an `<item>` element with the mandatory attribute `identifier` that should follow the naming pattern `<packageIdentifier>.<MenuName>`, e.g. `com.woltlab.wcf.MainMenu`.
+Each item is described as an `<item>` element with the mandatory attribute `identifier` that should follow the naming pattern `<packageIdentifier>.<PageName>`, e.g. `com.woltlab.wcf.Dashboard`.
 
 ### `<menu>`
 
@@ -32,7 +32,7 @@ The page that the link should point to, requires the internal identifier set by 
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/tornado/menuItem.xsd">
     <import>
-        <item identifier="com.woltlab.wcf.FooterLinks">
+        <item identifier="com.woltlab.wcf.Dashboard">
             <menu>com.woltlab.wcf.MainMenu</menu>
             <title language="de">Dashboard</title>
             <title language="en">Dashboard</title>
