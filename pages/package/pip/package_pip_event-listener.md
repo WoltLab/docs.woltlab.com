@@ -7,7 +7,7 @@ parent: package_pip
 ---
 
 Registers event listeners.
-An explanation of events and event listeners can be found [here](php_events.html).
+An explanation of events and event listeners can be found [here](php_api_events.html).
 
 ## Components
 
