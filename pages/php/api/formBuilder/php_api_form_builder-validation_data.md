@@ -48,25 +48,33 @@ Form field validators are added to form fields via the `addValidator(IFormFieldV
 ## Form Data
 
 After a form is successfully validated, the data of the form fields (returned by `IFormDocument::getData()`) have to be extracted which is the job of the `IFormDataHandler` object returned by `IFormDocument::getDataHandler()`.
-Form data handlers themselves, however, are only iterating through all `IFormFieldDataProcessor` instances that have been registered with the data handler.
+Form data handlers themselves, however, are only iterating through all `IFormDataProcessor` instances that have been registered with the data handler.
 
 
 ### `IFormDataHandler` / `FormDataHandler`
 
 `IFormDataHandler` requires the following methods:
 
-- `add(IFormFieldDataProcessor $processor)` to add new data processors to the data handler.
-- `getData(IFormDocument $document)` to use all registered data handlers to extract the data from the given form.
+- `addProcessor(IFormDataProcessor $processor)` adds a new data processor to the data handler.
+- `getFormData(IFormDocument $document)` returns the data of the given form by applying all registered data handlers on the form.
+- `getObjectData(IFormDocument $document, IStorableObject $object)` returns the data of the given object which will be used to populate the form field values of the given form.
 
 `FormDataHandler` is the default implementation of this interface and should also be extended instead of implementing the interface directly.
 
 
-### `IFormFieldDataProcessor` / `DefaultFormFieldDataProcessor`
+### `IFormDataProcessor` / `DefaultFormDataProcessor`
 
-`IFormFieldDataProcessor` requires `__invoke(IFormDocument $document, array $parameters)` methods that processes the given parameters array and returns the processed version.
+`IFormDataProcessor` requires the following methods:
 
-When `FormDocument` creates its `FormDataHandler` instance, it automatically registers an `DefaultFormFieldDataProcessor` object as the first data processor.
-`DefaultFormFieldDataProcessor` puts the save value of all form fields that are available and have a save value into `$parameters['data']` using the form field’s object property as the array key.
+- `processFormData(IFormDocument $document, array $parameters)` is called by `IFormDataHandler::getFormData()`.
+  The method processes the given parameters array and returns the processed version.
+- `processObjectData(IFormDocument $document, array $data, IStorableObject $object)` is called by `IFormDataHandler::getObjectData()`.
+  The method processes the given object data array and returns the processed version.
+
+When `FormDocument` creates its `FormDataHandler` instance, it automatically registers an `DefaultFormDataProcessor` object as the first data processor.
+`DefaultFormDataProcessor` puts the save value of all form fields that are available and have a save value into `$parameters['data']` using the form field’s object property as the array key.
+
+{% include callout.html content="`IFormDataProcessor` should not be implemented directly. Instead, `AbstractFormDataProcessor` should be extended." type="warning" %}
 
 {% include callout.html content="All form data is put into the `data` sub-array so that the whole `$parameters` array can be passed to a database object action object that requires the actual database object data to be in the `data` sub-array." type="info" %}
  
@@ -74,21 +82,22 @@ When `FormDocument` creates its `FormDataHandler` instance, it automatically reg
 
 ### Additional Data Processors
 
-#### `CustomFormFieldDataProcessor`
+#### `CustomFormDataProcessor`
 
 As mentioned above, the data in the `data` sub-array is intended to directly create or update the database object with.
 As these values are used in the database query directly, these values cannot contain arrays.
 Several form fields, however, store and return their data in form of arrays.
-Thus, this data cannot be returned by `IFormField::getSaveValue()` so that `IFormField::hasSaveValue()` returns `false` and the form field’s data is not collected by the standard `DefaultFormFieldDataProcessor` object.
+Thus, this data cannot be returned by `IFormField::getSaveValue()` so that `IFormField::hasSaveValue()` returns `false` and the form field’s data is not collected by the standard `DefaultFormDataProcessor` object.
 
-Instead, such form fields register a `CustomFormFieldDataProcessor` in their `IFormField::populate()` method that inserts the form field value into the `$parameters` array directly.
+Instead, such form fields register a `CustomFormDataProcessor` in their `IFormField::populate()` method that inserts the form field value into the `$parameters` array directly.
 This way, the relevant database object action method has access to the data to save it appropriately.
 
-The constructor of `CustomFormFieldDataProcessor`, `__construct($id, callable $processor)`, requires an id (that is primarily used in error messages during the validation of the second parameter) and a callable that gets passed the same parameters as `IFormFieldDataProcessor::invoke(IFormDocument $document, array $parameters)` and is also expected to return the processed `$parameters` array.
+The constructor of `CustomFormDataProcessor` requires an id (that is primarily used in error messages during the validation of the second parameter) and callables for `IFormDataProcessor::processFormData()` and `IFormDataProcessor::processObjectData()` which are passed the same parameters as the `IFormDataProcessor` methods.
+Only one of the callables has to be given, the other one then defaults to simply returning the relevant array unchanged.
 
 
-#### `VoidFormFieldDataProcessor`
+#### `VoidFormDataProcessor`
 
 Some form fields might only exist to toggle the visibility of other form fields (via dependencies) but the data of form field itself is irrelevant.
-As `DefaultFormFieldDataProcessor` collects the data of all form fields, an additional data processor in the form of a `VoidFormFieldDataProcessor` can be added whose constructor `__construct($property, $isDataProperty = true)` requires the name of the relevant object property/form id and whether the form field value is stored in the `data` sub-array or directory in the `$parameters` array.
+As `DefaultFormDataProcessor` collects the data of all form fields, an additional data processor in the form of a `VoidFormDataProcessor` can be added whose constructor `__construct($property, $isDataProperty = true)` requires the name of the relevant object property/form id and whether the form field value is stored in the `data` sub-array or directory in the `$parameters` array.
 When the data processor is invoked, it checks whether the relevant entry in the `$parameters` array exists and voids it by removing it from the array.

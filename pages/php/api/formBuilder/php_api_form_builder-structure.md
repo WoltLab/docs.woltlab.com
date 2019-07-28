@@ -159,7 +159,7 @@ WoltLab Suite provides a default implementation with the `FormDocument` class.
 - `getDataHandler()` returns the data handler for this document that is used to process the field data into a parameters array for the constructor of a database object action object.
 - `getEnctype()` returns the encoding type of the form.
   If the form contains a `IFileFormField`, `multipart/form-data` is returned, otherwise `null` is returned.
-- `loadValuesFromObject(IStorableObject $object)` is used when editing an existing object to set the form field values by calling `IFormField::loadValueFromObject()` for all form fields.
+- `loadValues(array $data, IStorableObject $object)` is used when editing an existing object to set the form field values by calling `IFormField::loadValue()` for all form fields.
   Additionally, the form mode is set to `IFormDocument::FORM_MODE_UPDATE`.
 - `method($method)` and `getMethod()` can be used to set and get the `method` attribute of the `<form>` HTML element.
   By default, the method is `post`.
@@ -195,8 +195,8 @@ Every form button has to implement the `IFormButton` interface that extends `IFo
 A form container object represents a container for other form containers or form field directly.
 Every form container has to implement the `IFormContainer` interface which requires the following method:
 
-- `loadValuesFromObject(IStorableObject $object)` is called by `IFormDocument::loadValuesFromObject()` to inform the container that object data is loaded.
-  This method is *not* intended to generally call `IFormField::loadValueFromObject()` on its form field children as these methods are already called by `IFormDocument::loadValuesFromObject()`.
+- `loadValues(array $data, IStorableObject $object)` is called by `IFormDocument::loadValuesFromObject()` to inform the container that object data is loaded.
+  This method is *not* intended to generally call `IFormField::loadValues()` on its form field children as these methods are already called by `IFormDocument::loadValuesFromObject()`.
   This method is intended for specialized form containers with more complex logic.
 
 There are four default container implementations:
@@ -233,7 +233,7 @@ Every form field has to implement the `IFormField` interface which extends `IFor
 - `value($value)` and `getSaveValue()` can be used to get and set the value of the form field to be used outside of the context of forms.
   `getValue()`, in contrast, returns the internal representation of the form field’s value.
   In general, the internal representation is only relevant when validating the value in additional validators.
-  `loadValueFromObject(IStorableObject $object)` extracts the form field value from the given object.
+  `loadValue(array $data, IStorableObject $object)` extracts the form field value from the given data array (and additional, non-editable data from the object if the field needs them).
 
 `AbstractFormField` provides default implementations of many of the listed methods above and should be extended instead of implementing `IFormField` directly.
 
@@ -277,7 +277,7 @@ The implementing class has to implement the following methods:
 
 `TI18nFormField` provides a default implementation of these eight methods and additional default implementations of some of the `IFormField` methods.
 If multilingual input is enabled for a specific form field, classes using `TI18nFormField` register a [custom form field data processor](php_api_form_builder-validation_data.html#customformfielddataprocessor) to add the array with multilingual input into the `$parameters` array directly using `{$objectProperty}_i18n` as the array key.
-If multilingual input is enabled but only a monolingual value is entered, the custom form field data processor does nothing and the form field’s value is added by the `DefaultFormFieldDataProcessor` into the `data` sub-array of the `$parameters` array.
+If multilingual input is enabled but only a monolingual value is entered, the custom form field data processor does nothing and the form field’s value is added by the `DefaultFormDataProcessor` into the `data` sub-array of the `$parameters` array.
 
 {% include callout.html content="`TI18nFormField` already provides a default implementation of `IFormField::validate()`." type="info" %}
 
