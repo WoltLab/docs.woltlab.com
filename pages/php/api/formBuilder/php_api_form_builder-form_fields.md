@@ -266,10 +266,13 @@ To provide values from a database object, you should implement the method `get{$
 
 To process files in the database object action class, you must [`rename`](https://secure.php.net/manual/en/function.rename.php) the file to the final destination. You get the temporary location, by calling the method `getLocation()` on the given `UploadFile` objects. After that, you call `setProcessed($location)` with `$location` contains the new file location. This method sets the `isProcessed` flag to true and saves the new location. For updating files, it is relevant, whether a given file is already processed or not. For this case, the `UploadFile` object has an method `isProcessed()` which indicates, whether a file is already processed or new uploaded.
 
+
 ### `UserFormField`
 
 `UserFormField` is a form field to enter existing users.
-The class implements `IImmutableFormField`, `IMultipleFormField`, and `INullableFormField`.
+The class implements `IAutoFocusFormField`, `IImmutableFormField`, `IMultipleFormField`, and `INullableFormField`.
+While the user is presented the names of the specified users in the user interface, the field returns the ids of the users as data.
+The relevant `UserProfile` objects can be accessed via the `getUsers()` method.
 
 
 ### `UserGroupOptionFormField`
