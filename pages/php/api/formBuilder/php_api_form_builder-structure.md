@@ -29,7 +29,7 @@ The basis for all three elements are form nodes.
 
 `IFormNode` is the base interface that any node of a form has to implement and it requires the following methods:
 
-- `addClass($class)`, `removeClass($class)`, `getClasses()`, and `hasClass($class)` add, remove, get, and check for CSS classes of the HTML element representing the form node.
+- `addClass($class)`, `addClasses(array $classes)`, `removeClass($class)`, `getClasses()`, and `hasClass($class)` add, remove, get, and check for CSS classes of the HTML element representing the form node.
   If the form node consists of multiple (nested) HTML elements, the classes are generally added to the top element.
   `static validateClass($class)` is used to check if a given CSS class is valid.
   By default, a form node has no CSS classes.
@@ -199,12 +199,16 @@ Every form container has to implement the `IFormContainer` interface which requi
   This method is *not* intended to generally call `IFormField::loadValues()` on its form field children as these methods are already called by `IFormDocument::loadValuesFromObject()`.
   This method is intended for specialized form containers with more complex logic.
 
-There are four default container implementations:
+There are multiple default container implementations:
 
 1. `FormContainer` is the default implementation of `IFormContainer`.
 1. `TabMenuFormContainer` represents the container of tab menu, while
 1. `TabFormContainer` represents a tab of a tab menu and
 1. `TabTabMenuFormContainer` represents a tab of a tab menu that itself contains a tab menu.
+1. The children of `RowFormContainer` are shown in a row and should use `col-*` classes.
+1. The children of `RowFormFieldContainer` are also shown in a row but does not show the labels and descriptions of the individual form fields.
+   Instead of the individual labels and descriptions, the container's label and description is shown and both span all of fields.
+1. `SuffixFormFieldContainer` can be used for one form field with a second selection form field used as a suffix.
 
 The methods of the interfaces that `FormContainer` is implementing are well documented, but here is a short overview of the most important methods when setting up a form or extending a form with an event listener:
 
@@ -221,6 +225,7 @@ Every form field has to implement the `IFormField` interface which extends `IFor
 
 - `addValidationError(IFormFieldValidationError $error)` and `getValidationErrors()` can be used to get and set validation errors of the form field (see [form validation](php_api_form_builder-validation_data.html#form-validation)).
 - `addValidator(IFormFieldValidator $validator)`, `getValidators()`, `removeValidator($validatorId)`, and `hasValidator($validatorId)` can be used to get, set, remove, and check for validators for the form field (see [form validation](php_api_form_builder-validation_data.html#form-validation)).
+- `getFieldHtml()` returns the field's HTML output without the surrounding `dl` structure.
 - `objectProperty($objectProperty)` and `getObjectProperty()` can be used to get and set the object property that the field represents.
   When setting the object property is set to an empty string, the previously set object property is unset.
   If no object property has been set, the field’s (non-prefixed) id is returned.
