@@ -70,3 +70,10 @@ Specifies whether or not this content provider can be actively selected in the C
 <span class="label label-info">Optional</span>
 
 The specified list of comma-separated object types are automatically removed during content removal when this object type is being removed. Heads up: The order of removal is undefined by default, specify a `nicevalue` if the order is important.
+
+
+
+## PHP Database API
+
+WoltLab Suite 5.2 introduces a new way to update the database scheme:
+[database PHP API](package_database-php-api.html).
