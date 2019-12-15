@@ -19,7 +19,7 @@ If no adjustments are made to the existing code, the following functions are not
 ## Migration
 ### Notifications
 #### Mark notification as compatible 
-Since there are no more likes with the new version, it makes no sense to send notifications about it. Instead of notifications about likes, notifications about reactions are now sent. However, this only changes the notification text and not the notification itself. To update the notification, we first add the interface `\wcf\data\reaction\object\IReactionObject` to the `\wcf\data\like\object\ILikeObject` object (e.g. in WoltLab Suite Forum we added the interface to the class `\wbb\data\post\LikeablePost`). After that the object is marked as "compatible with WoltLab Suite Core 3.2" and notifications about reactions are sent again. 
+Since there are no more likes with the new version, it makes no sense to send notifications about it. Instead of notifications about likes, notifications about reactions are now sent. However, this only changes the notification text and not the notification itself. To update the notification, we first add the interface `\wcf\data\reaction\object\IReactionObject` to the `\wcf\data\like\object\ILikeObject` object (e.g. in WoltLab Suite Forum we added the interface to the class `\wbb\data\post\LikeablePost`). After that the object is marked as "compatible with WoltLab Suite Core 5.2" and notifications about reactions are sent again. 
 
 #### Language Variables
 Next, to display all reactions for the current notification in the notification text, we include the trait `\wcf\system\user\notification\event\TReactionUserNotificationEvent` in the user notification event class (typically named like `*LikeUserNotificationEvent`). These trait provides a new function that reads out and groups the reactions. The result of this function must now only be passed to the language variable. The name "reactions" is typically used as the variable name for the language variable. 
@@ -136,4 +136,4 @@ If comments send notifications, they must also be updated. The language variable
 
 ## Forward Compatibility 
 
-So that these changes also work in older versions of WoltLab Suite Core, the used classes and traits are backported in a future version of WoltLab Suite Core 3.1. Then it is also possible to make case distinctions in the language variables, so that a plugin in WoltLab Suite Core 3.1 displays e.g. notifications about likes and in WoltLab Suite Core 3.2 notifications about reactions. 
+So that these changes also work in older versions of WoltLab Suite Core, the used classes and traits are backported in a future version of WoltLab Suite Core 3.1. Then it is also possible to make case distinctions in the language variables, so that a plugin in WoltLab Suite Core 3.1 displays e.g. notifications about likes and in WoltLab Suite Core 5.2 notifications about reactions. 
