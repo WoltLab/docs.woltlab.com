@@ -41,13 +41,13 @@ Reaction to a {objectName}
 
 `{prefix}.like.message`
 ```
-{@$author->getAnchorTag()} reacted to your {objectName} ({implode from=$reactions key=reactionID item=count}{#$count}× {@$__wcf->getReactionHandler()->getReactionTypeByID($reactionID)->renderIcon()}{/implode}).
+{@$author->getAnchorTag()} reacted to your {objectName} ({implode from=$reactions key=reactionID item=count}{@$__wcf->getReactionHandler()->getReactionTypeByID($reactionID)->renderIcon()}×{#$count}{/implode}).
 ```
 
 `{prefix}.like.message.stacked`
 
 ```
-{if $count < 4}{@$authors[0]->getAnchorTag()}{if $count == 2} and {else}, {/if}{@$authors[1]->getAnchorTag()}{if $count == 3} and {@$authors[2]->getAnchorTag()}{/if}{else}{@$authors[0]->getAnchorTag()} and {#$others} others{/if} reacted to your {objectName} ({implode from=$reactions key=reactionID item=count}{#$count}× {@$__wcf->getReactionHandler()->getReactionTypeByID($reactionID)->renderIcon()}{/implode}).
+{if $count < 4}{@$authors[0]->getAnchorTag()}{if $count == 2} and {else}, {/if}{@$authors[1]->getAnchorTag()}{if $count == 3} and {@$authors[2]->getAnchorTag()}{/if}{else}{@$authors[0]->getAnchorTag()} and {#$others} others{/if} reacted to your {objectName} ({implode from=$reactions key=reactionID item=count}{@$__wcf->getReactionHandler()->getReactionTypeByID($reactionID)->renderIcon()}×{#$count}{/implode}).
 ```
 
 `wcf.user.notification.{objectTypeName}.like.notification.like`
@@ -70,13 +70,13 @@ Reaktion auf einen {objectName}
 
 `{prefix}.like.message`
 ```
-{@$author->getAnchorTag()} hat auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert ({implode from=$reactions key=reactionID item=count}{#$count}× {@$__wcf->getReactionHandler()->getReactionTypeByID($reactionID)->renderIcon()}{/implode}).
+{@$author->getAnchorTag()} hat auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert ({implode from=$reactions key=reactionID item=count}{@$__wcf->getReactionHandler()->getReactionTypeByID($reactionID)->renderIcon()}×{#$count}{/implode}).
 ```
 
 `{prefix}.like.message.stacked`
 
 ```
-{if $count < 4}{@$authors[0]->getAnchorTag()}{if $count == 2} und {else}, {/if}{@$authors[1]->getAnchorTag()}{if $count == 3} und {@$authors[2]->getAnchorTag()}{/if}{else}{@$authors[0]->getAnchorTag()} und {#$others} weitere{/if} haben auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert ({implode from=$reactions key=reactionID item=count}{#$count}× {@$__wcf->getReactionHandler()->getReactionTypeByID($reactionID)->renderIcon()}{/implode}).
+{if $count < 4}{@$authors[0]->getAnchorTag()}{if $count == 2} und {else}, {/if}{@$authors[1]->getAnchorTag()}{if $count == 3} und {@$authors[2]->getAnchorTag()}{/if}{else}{@$authors[0]->getAnchorTag()} und {#$others} weitere{/if} haben auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert ({implode from=$reactions key=reactionID item=count}{@$__wcf->getReactionHandler()->getReactionTypeByID($reactionID)->renderIcon()}×{#$count}{/implode}).
 ```
 
 `wcf.user.notification.{object_type_name}.like.notification.like`
