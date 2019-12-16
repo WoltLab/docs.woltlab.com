@@ -30,7 +30,7 @@ The name of the PHP interface [objectTypes](package_pip_object-type.html) have t
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/objectTypeDefinition.xsd">
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/objectTypeDefinition.xsd">
 	<import>
 		<definition>
 			<name>com.woltlab.wcf.example</name>

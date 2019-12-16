@@ -11,7 +11,7 @@ use wcf\util\StringUtil;
  * Handles setting the birthday when adding and editing people.
  *
  * @author	Matthias Schmidt
- * @copyright	2001-2017 WoltLab GmbH
+ * @copyright	2001-2019 WoltLab GmbH
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	WoltLabSuite\Core\System\Event\Listener
  */

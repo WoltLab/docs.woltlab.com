@@ -294,6 +294,7 @@ Like `foreach`, `hascontent` also supports an `else` part:
 
 | Attribute | Description |
 |-----------|-------------|
+| <span class="label label-info">5.2+</span> `disabled` | if `true`, all checkboxes are disabled |
 | `disableEncoding` | if `true`, the values are not passed through `wcf\util\StringUtil::encodeHTML()`; `false` by default |
 | `name` | `name` attribute of the `input` checkbox element |
 | `output` | array used as keys and values for `options` if present; not present by default |
@@ -343,6 +344,15 @@ All additional attributes are added as attributes of the `select` HTML element.
 | `glue` | separator between the different array values; `', '` by default |
 | `item` | template variable name where the current array value is stored during the iteration |
 | `key` | optional template variable name where the current array key is stored during the iteration |
+
+
+## <span class="label label-info">5.2+</span> `ipSearch`
+
+`ipSearch` generates a link to search for an IP address.
+
+```smarty
+{"127.0.0.1"|ipSearch}
+```
 
 
 ## <span class="label label-info">3.0+</span> `js`

@@ -7,7 +7,7 @@ folder: javascript
 
 ## Introduction
 
-WoltLab Suite 3.0 and 3.1 ship with a set of global helper functions that are
+Since version 3.0, WoltLab Suite ships with a set of global helper functions that are
 exposed on the `window`-object and thus are available regardless of the context.
 They are meant to reduce code repetition and to increase readability by moving
 potentially relevant parts to the front of an instruction.

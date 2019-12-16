@@ -27,7 +27,7 @@ Determines at which position of the search result list the provided results are 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/tornado/acpSearchProvider.xsd">
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/acpSearchProvider.xsd">
 	<import>
 		<acpsearchprovider name="com.woltlab.wcf.example">
 			<classname>wcf\system\search\acp\ExampleACPSearchResultProvider</classname>

@@ -35,7 +35,7 @@ Package Installation Plugins (PIPs) are interfaces to deploy and edit content as
 | [pip][package_pip_pip] | Package Installation Plugins |
 | [script][package_pip_script] | Execute arbitrary PHP code during installation, update and uninstallation |
 | [smiley][package_pip_smiley] | Smileys |
-| [sql][package_pip_sql] | Execute SQL instructions using a MySQL-flavored syntax |
+| [sql][package_pip_sql] | Execute SQL instructions using a MySQL-flavored syntax (also see [database PHP API](package_database-php-api.html)) |
 | [style][package_pip_style] | Style |
 | [template][package_pip_template] | Frontend templates |
 | [templateListener][package_pip_template-listener] | Embed template code into templates without altering the original |
