@@ -136,4 +136,4 @@ If comments send notifications, they must also be updated. The language variable
 
 ## Forward Compatibility 
 
-So that these changes also work in older versions of WoltLab Suite Core, the used classes and traits are backported in a future version of WoltLab Suite Core 3.1. Then it is also possible to make case distinctions in the language variables, so that a plugin in WoltLab Suite Core 3.1 displays e.g. notifications about likes and in WoltLab Suite Core 5.2 notifications about reactions. 
+So that these changes also work in older versions of WoltLab Suite Core, the used classes and traits were backported with WoltLab Suite Core 3.0.22 and WoltLab Suite Core 3.1.10.
