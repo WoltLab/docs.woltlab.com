@@ -35,7 +35,7 @@ BBCodes can be statically converted to HTML during input processing using a
 `wcf\system\html\metacode\converter\*MetaConverter` class. This class does not
 need to be registered.
 
-### `<wysiwygIcon>`
+### `<wysiwygicon>`
 
 <span class="label label-info">Optional</span>
 
