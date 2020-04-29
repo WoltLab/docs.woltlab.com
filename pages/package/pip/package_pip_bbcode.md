@@ -41,7 +41,7 @@ need to be registered.
 
 Name of the Font Awesome icon class to show in the editor toolbar.
 
-### `<buttonLabel>`
+### `<buttonlabel>`
 
 {% include callout.html content="Optional: Must be provided if an icon is given." type="info" %}
 
@@ -82,7 +82,7 @@ Defines a regular expression that is used to validate the value of the attribute
 
 Specifies whether this attribute must be provided.
 
-#### `<useText>`
+#### `<usetext>`
 
 <span class="label label-info">Optional</span>
 {% include callout.html content="Should only be set to `1` for the attribute with name `0`." type="info" %}
