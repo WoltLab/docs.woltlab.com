@@ -214,7 +214,7 @@ namespace wcf\data\example;
 use wcf\data\AbstractDatabaseObjectAction;
 
 class ExampleAction extends AbstractDatabaseObjectAction {
-    public $className = Example::class;
+    public $className = ExampleEditor::class;
 }
 ```
 
