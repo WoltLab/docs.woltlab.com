@@ -197,6 +197,13 @@ A category name of `null` signals that no category filter is used.
 The relevant database object action method is expected, based on the given ACL object type id, to save the ACL option values appropriately.
 
 
+### `CaptchaFormField`
+
+`CaptchaFormField` is used to add captcha-protection.
+
+You must specify a captcha object type using the `objectType()` method.
+
+
 ### `ContentLanguageFormField`
 
 `ContentLanguageFormField` is used to select the content language of an object.
