@@ -201,7 +201,7 @@ The relevant database object action method is expected, based on the given ACL o
 
 `CaptchaFormField` is used to add captcha protection to the form.
 
-You must specify a captcha object type using the `objectType()` method.
+You must specify a captcha object type (`com.woltlab.wcf.captcha`) using the `objectType()` method.
 
 
 ### `ContentLanguageFormField`
