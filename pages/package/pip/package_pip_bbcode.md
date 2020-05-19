@@ -39,7 +39,7 @@ need to be registered.
 
 <span class="label label-info">Optional</span>
 
-Name of the Font Awesome icon class or path to the image (placed inside the `icon/` directory) to show in the editor toolbar.
+Name of the Font Awesome icon class or path to a `gif`, `jpg`, `jpeg`, `png`, or `svg` image (placed inside the `icon/` directory) to show in the editor toolbar.
 
 ### `<buttonlabel>`
 
