@@ -19,6 +19,10 @@ Please place your style files in a subdirectory of the `style/` directory of the
 
 You can access variables with `$myVariable`, variable interpolation (variables inside strings) is accomplished with `#{$myVariable}`.
 
+#### Linking images
+
+Images used within a style must be located in the style's image folder. To get the folder name within the CSS the SCSS variable `#{$style_image_path}` can be used. The value will contain a trailing slash.
+
 ## Media Breakpoints
 
 Media breakpoints instruct the browser to apply different CSS depending on the viewport dimensions, e.g. serving a desktop PC a different view than when viewed on a smartphone.
