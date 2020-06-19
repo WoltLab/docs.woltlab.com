@@ -40,9 +40,9 @@ define(["Ajax"], function(Ajax) {
       // the value is now set to `2` for this invocation only.
       Ajax.api(this, {
         parameters: {
-          value: 2;
+          value: 2
         }
-      })
+      });
     },
 
     _ajaxSetup: function() {
