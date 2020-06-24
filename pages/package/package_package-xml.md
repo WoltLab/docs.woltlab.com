@@ -28,6 +28,10 @@ It provides the meta data (e.g. package name, description, author) and the instr
 	<requiredpackages>
 		<requiredpackage minversion="3.0.0">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
+	
+	<excludedpackages>
+		<excludedpackage version="6.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+	</excludedpackages>
 
 	<instructions type="install">
 		<instruction type="file" />
