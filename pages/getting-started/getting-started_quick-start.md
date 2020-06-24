@@ -43,6 +43,9 @@ Create a new file called `package.xml` and insert the code below:
 		<author>Your Name</author>
 		<authorurl>http://www.example.com</authorurl>
 	</authorinformation>
+	<excludedpackages>
+		<excludedpackage version="6.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+	</excludedpackages>
 	<instructions type="install">
 		<instruction type="file" />
 		<instruction type="template" />
