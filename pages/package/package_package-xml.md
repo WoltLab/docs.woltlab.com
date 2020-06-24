@@ -160,7 +160,7 @@ The attribute `version` must be a valid version number as described in the [\<ve
 
 ### `<compatibility>`
 {% include callout.html content="Available since WoltLab Suite 3.1" type="info" %}
-{% include callout.html content="With the release of WoltLab Suite 5.2 the API versions were abolished. Instead an exclude to the version "6.0.0 Alpha 1" from the WSC is sufficient." type="warning" %}
+{% include callout.html content="With the release of WoltLab Suite 5.2 the API versions were abolished. Instead of using API versions packages should exclude version `6.0.0 Alpha 1` of `com.woltlab.wcf` going forward." type="warning" %}
 
 WoltLab Suite 3.1 introduced a new versioning system that focused around the API compatibility and is intended to replace the `<excludedpackage>` instruction for the Core for most plugins.
 
