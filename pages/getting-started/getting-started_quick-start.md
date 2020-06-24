@@ -43,9 +43,6 @@ Create a new file called `package.xml` and insert the code below:
 		<author>Your Name</author>
 		<authorurl>http://www.example.com</authorurl>
 	</authorinformation>
-	<compatibility>
-		<api version="2019"/>
-	</compatibility>
 	<instructions type="install">
 		<instruction type="file" />
 		<instruction type="template" />

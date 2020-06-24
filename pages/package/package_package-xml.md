@@ -28,6 +28,10 @@ It provides the meta data (e.g. package name, description, author) and the instr
 	<requiredpackages>
 		<requiredpackage minversion="3.0.0">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
+	
+	<excludedpackages>
+		<excludedpackage version="6.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+	</excludedpackages>
 
 	<instructions type="install">
 		<instruction type="file" />
@@ -155,8 +159,8 @@ Example:
 The attribute `version` must be a valid version number as described in the [\<version\>](#version) section. In the example above it will be impossible to install this package in WoltLab Suite Core 3.1.0 Alpha 1 or higher.
 
 ### `<compatibility>`
-
 {% include callout.html content="Available since WoltLab Suite 3.1" type="info" %}
+{% include callout.html content="With the release of WoltLab Suite 5.2 the API versions were abolished. Instead of using API versions packages should exclude version `6.0.0 Alpha 1` of `com.woltlab.wcf` going forward." type="warning" %}
 
 WoltLab Suite 3.1 introduced a new versioning system that focused around the API compatibility and is intended to replace the `<excludedpackage>` instruction for the Core for most plugins.
 
