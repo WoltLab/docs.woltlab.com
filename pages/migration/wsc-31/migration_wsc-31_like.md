@@ -131,7 +131,7 @@ If comments send notifications, they must also be updated. The language variable
 	<classname>wcf\system\user\notification\object\type\LikeUserNotificationObjectType</classname>
 	<category>com.woltlab.example</category>
 	<supportsReactions>1</supportsReactions>
-</type>                                                                                                                                                                                          
+</type>
 ```
 
 ## Forward Compatibility 
