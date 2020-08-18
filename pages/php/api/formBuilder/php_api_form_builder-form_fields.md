@@ -310,7 +310,7 @@ The following methods are specific to this form container class:
 - `attachmentData($objectType, $parentObjectID)` can be used to set the data relevant for attachment support.
   By default, not attachment data is set, thus attachments are not supported.
 - `getAttachmentField()`, `getPollContainer()`, `getSettingsContainer()`, `getSmiliesContainer()`, and `getWysiwygField()` can be used to get the different components of the wysiwyg form container once the form has been built.
-- `enablePreviewButton($enablePreviewButton)` can be used to set whether the preview button should be shown or not.
+- `enablePreviewButton($enablePreviewButton)` can be used to set whether the preview button for the message is shown or not.
   By default, the preview button is shown.
   This method is only relevant before the form is built.
   Afterwards, the preview button availability can not be changed.
