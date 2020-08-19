@@ -310,6 +310,11 @@ The following methods are specific to this form container class:
 - `attachmentData($objectType, $parentObjectID)` can be used to set the data relevant for attachment support.
   By default, not attachment data is set, thus attachments are not supported.
 - `getAttachmentField()`, `getPollContainer()`, `getSettingsContainer()`, `getSmiliesContainer()`, and `getWysiwygField()` can be used to get the different components of the wysiwyg form container once the form has been built.
+- `enablePreviewButton($enablePreviewButton)` can be used to set whether the preview button for the message is shown or not.
+  By default, the preview button is shown.
+  This method is only relevant before the form is built.
+  Afterwards, the preview button availability can not be changed.
+  Only available since WoltLab Suite Core 5.3.
 - `getObjectId()` returns the id of the edited object or `0` if no object is edited.
 - `getPreselect()`, `preselect($preselect)` can be used to set the value of the wysiwyg tab menu's `data-preselect` attribute used to determine which tab is preselected.
   By default, the preselect is `'true'` which is used to pre-select the first tab.
