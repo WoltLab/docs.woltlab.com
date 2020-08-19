@@ -38,8 +38,8 @@ This is the case if `1` is used as the value.
 
 ### `<environment>`
 
-The value of the environment element can either be `admin` or `user` and is `user` if no value is given.
-The value determines if the event listener will be executed in the frontend (`user`) or the backend (`admin`).
+The value of the environment element must be one of `user`, `admin` or `all` and defaults to `user` if no value is given.
+The value determines if the event listener will be executed in the frontend (`user`), the backend (`admin`) or both (`all`).
 
 ### `<nice>`
 
