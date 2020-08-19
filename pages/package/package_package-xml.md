@@ -236,3 +236,19 @@ In addition to the `type` attribute, an optional `run` attribute (with `standalo
 ```xml
 <instruction type="file" run="standalone" />
 ```
+
+#### `<void/>`
+
+Sometimes a package update should only adjust the metadata of the package (e.g. because a new optional package was added).
+However WoltLab Suite Core requires that the list of `<instructions>` is non-empty.
+Instead of using a dummy `<instruction>` that idempotently updates some PIP the `<void/>` marker can be used for this use-case.
+
+Using the `<void/>` marker is only valid for `<instructions type="update">` and must not be accompanied by other `<instruction>` tags.
+
+Example:
+
+```xml
+<instructions type="update" fromversion="1.0.0">
+	<void/>
+</instructions>
+```
