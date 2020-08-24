@@ -24,4 +24,4 @@ The `\wcf\util\HTTPRequest` class should no longer be used and transparently use
 Use `\wcf\system\io\HttpFactory` to retrieve a correctly configured `GuzzleHttp\ClientInterface`.
 
 Please note that it is recommended to explicitely specify a `sink` when making requests, due to a PHP / Guzzle bug.
-Have a [look at the implementation in WoltLab/WCF](https://github.com/WoltLab/WCF/blob/aa96d34130d58c150a35ebd8936f09c830ccd685/wcfsetup/install/files/lib/util/HTTPRequest.class.php#L193-L196) for an example.
+Have a [look at the implementation in WoltLab/WCF](https://github.com/WoltLab/WCF/blob/ce163806c468763f6e3b04e4bf7318c6f8035737/wcfsetup/install/files/lib/util/HTTPRequest.class.php#L194-L195) for an example.
