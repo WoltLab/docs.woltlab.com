@@ -121,8 +121,8 @@ The following event listeners achieves these requirements:
 
 Some notes on the code:
 
-- The `execute()` just delegates the calls to the specific methods of the class that have the same name as the event (and here also the same name as the methods in which the events are fired).
-  Additionally, we throw a `LogicException` if no such method exists in the class to avoid misuse of the class.
+- We are inheriting from `AbstractEventListener`, instead of just implementing the `IParameterizedEventListener` interface.
+  The `execute()` method of `AbstractEventListener` contains a dispatcher that automatically calsl methods called `on` followed by the event name with the first character uppercased, passing the event object and the `$parameters` array.
 - The `birthday` column has a default value of `0000-00-00`, which we interpret as “birthday not set”.
   To show an empty input field in this case, we empty the `birthday` property after reading such a value in `readData()`.
 - The validation of the date is, as mentioned before, very basic and just checks the form of the string and uses PHP’s [checkdate](https://secure.php.net/manual/en/function.checkdate.php) function to validate the components.
