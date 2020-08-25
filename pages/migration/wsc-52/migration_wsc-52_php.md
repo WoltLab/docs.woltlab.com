@@ -34,7 +34,7 @@ To support this edit link two small changes are required within your `*AddForm`.
     {include file='formNotice'}
     ```
 
-2. Expose `objectEditLink` to the template:
+2. Expose `objectEditLink` to the template.
 
     Example (`$object` being the newly created object):
     ```php
