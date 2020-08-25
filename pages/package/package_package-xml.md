@@ -239,7 +239,7 @@ In addition to the `type` attribute, an optional `run` attribute (with `standalo
 
 #### `<void/>`
 
-Sometimes a package update should only adjust the metadata of the package (e.g. because a new optional package was added).
+Sometimes a package update should only adjust the metadata of the package, for example, an optional package was added.
 However, WoltLab Suite Core requires that the list of `<instructions>` is non-empty.
 Instead of using a dummy `<instruction>` that idempotently updates some PIP, the `<void/>` tag can be used for this use-case.
 
