@@ -3,6 +3,7 @@ namespace wcf\acp\form;
 use wcf\data\person\PersonAction;
 use wcf\form\AbstractForm;
 use wcf\system\exception\UserInputException;
+use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
 
@@ -72,7 +73,7 @@ class PersonAddForm extends AbstractForm {
 				'lastName' => $this->lastName
 			])
 		]);
-		$this->objectAction->executeAction();
+		$returnValues = $this->objectAction->executeAction();
 		
 		$this->saved();
 		
@@ -81,7 +82,10 @@ class PersonAddForm extends AbstractForm {
 		$this->lastName = '';
 		
 		// show success message
-		WCF::getTPL()->assign('success', true);
+		WCF::getTPL()->assign([
+			'success' => true,
+			'objectEditLink' => LinkHandler::getInstance()->getControllerLink(PersonEditForm::class, ['id' => $returnValues['returnValues']->personID]),
+		]);
 	}
 	
 	/**

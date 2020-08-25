@@ -19,3 +19,34 @@ The [`AbstractEventListener`](https://github.com/WoltLab/WCF/blob/75631516d45f93
 `AbstractEventListener` contains an implementation of `execute()` that will dispatch the event handling to dedicated methods based on the `$eventName` and, in case of the event object being an `AbstractDatabaseObjectAction`, the action name.
 
 Find the details of the dispatch behavior within the class comment of `AbstractEventListener`.
+
+## `*AddForm`
+
+WoltLab Suite 5.3 provides a new framework to allow the administrator to easily edit newly created objects by adding an edit link to the success message.
+To support this edit link two small changes are required within your `*AddForm`.
+
+1. Update the template.
+
+    Replace:
+    ```smarty
+    {include file='formError'}
+    
+    {if $success|isset}
+        <p class="success">{lang}wcf.global.success.{$action}{/lang}</p>
+    {/if}
+    ```
+
+    With:
+    ```smarty
+    {include file='formNotice'}
+    ```
+
+2. Expose `objectEditLink` to the template.
+
+    Example (`$object` being the newly created object):
+    ```php
+    WCF::getTPL()->assign([
+        'success' => true,
+        'objectEditLink' => LinkHandler::getInstance()->getControllerLink(ObjectEditForm::class, ['id' => $object->objectID]),
+    ]);
+    ```
