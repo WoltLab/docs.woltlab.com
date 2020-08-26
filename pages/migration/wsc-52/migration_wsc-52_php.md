@@ -20,3 +20,34 @@ A user can be activated even though their email address has not been confirmed, 
 Going forward the new `User::isEmailConfirmed()` method should be used to check whether sending automated emails to this user is acceptable. 
 If you need to check the user's activation status you should use the new method `User::pendingActivation()` instead of relying on `activationCode`. 
 To check, which type of activation is missing, you can use the new methods `User::requiresEmailActivation()` and `User::requiresAdminActivation()`. 
+
+## `*AddForm`
+
+WoltLab Suite 5.3 provides a new framework to allow the administrator to easily edit newly created objects by adding an edit link to the success message.
+To support this edit link two small changes are required within your `*AddForm`.
+
+1. Update the template.
+
+    Replace:
+    ```smarty
+    {include file='formError'}
+    
+    {if $success|isset}
+        <p class="success">{lang}wcf.global.success.{$action}{/lang}</p>
+    {/if}
+    ```
+
+    With:
+    ```smarty
+    {include file='formNotice'}
+    ```
+
+2. Expose `objectEditLink` to the template.
+
+    Example (`$object` being the newly created object):
+    ```php
+    WCF::getTPL()->assign([
+        'success' => true,
+        'objectEditLink' => LinkHandler::getInstance()->getControllerLink(ObjectEditForm::class, ['id' => $object->objectID]),
+    ]);
+    ```
