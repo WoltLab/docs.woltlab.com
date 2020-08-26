@@ -122,7 +122,7 @@ The following event listeners achieves these requirements:
 Some notes on the code:
 
 - We are inheriting from `AbstractEventListener`, instead of just implementing the `IParameterizedEventListener` interface.
-  The `execute()` method of `AbstractEventListener` contains a dispatcher that automatically calls methods called `on` followed by the event name with the first character uppercased, passing the event object and the `$parameters` array.
+  The `execute()` method of `AbstractEventListener` contains a dispatcher that automatically calls methods called `on` followed by the event name with the first character uppercased (an event named `foo` is processed by the method `onFoo`), passing the event object and the `$parameters` array.
 - The `birthday` column has a default value of `0000-00-00`, which we interpret as “birthday not set”.
   To show an empty input field in this case, we empty the `birthday` property after reading such a value in `readData()`.
 - The validation of the date is, as mentioned before, very basic and just checks the form of the string and uses PHP’s [checkdate](https://secure.php.net/manual/en/function.checkdate.php) function to validate the components.
