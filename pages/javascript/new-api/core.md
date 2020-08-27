@@ -126,7 +126,7 @@ Registers a new phrase.
 ```html
 <script data-relocate="true">
   require(["Language"], function(Language) {
-    Language.add("app.foo.bar", "{lang}app.foo.bar{/lang}");
+    Language.add('app.foo.bar', '{jslang}app.foo.bar{/jslang}');
   });
 </script>
 ```
@@ -139,7 +139,7 @@ Registers a list of phrases using a plain object.
 <script data-relocate="true">
   require(["Language"], function(Language) {
     Language.addObject({
-      "app.foo.bar": "{lang}app.foo.bar{/lang}"
+      'app.foo.bar': '{jslang}app.foo.bar{/jslang}'
     });
   });
 </script>
