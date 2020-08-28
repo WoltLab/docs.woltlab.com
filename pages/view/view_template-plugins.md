@@ -379,6 +379,21 @@ All additional attributes are added as attributes of the `select` HTML element.
 ```
 
 
+## <span class="label label-info">5.3+</span> `jslang`
+
+`jslang` works like [`lang`](#lang) with the difference that the resulting string is automatically passed through [`encodeJS`](#encodejs).
+
+```smarty
+require(['Language', /* … */], function(Language, /* … */) {
+    Language.addObject({
+        'app.foo.bar': '{jslang}app.foo.bar{/jslang}',
+    });
+
+    // …
+});
+```
+
+
 ## `lang`
 
 `lang` replaces a language items with its value.
