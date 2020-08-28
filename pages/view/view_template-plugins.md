@@ -156,7 +156,7 @@ Counter supports the following attributes:
 
 ## `encodeJS`
 
-`encodeJS` encodes a string to be used as a single-quoted string in JavaScript by replacing `\\` with `\\\\`, `'` with `\'`, linbreaks with `\n`, and `/` with `\/`.
+`encodeJS` encodes a string to be used as a single-quoted string in JavaScript by replacing `\\` with `\\\\`, `'` with `\'`, linebreaks with `\n`, and `/` with `\/`.
 
 ```smarty
 <script>
@@ -167,7 +167,7 @@ Counter supports the following attributes:
 
 ## `encodeJSON`
 
-`encodeJS` encodes a JSON string to be used as a single-quoted string in JavaScript by replacing `\\` with `\\\\`, `'` with `&#39;`, linbreaks with `\n`, and `/` with `\/`.
+`encodeJSON` encodes a JSON string to be used as a single-quoted string in JavaScript by replacing `\\` with `\\\\`, `'` with `&#39;`, linebreaks with `\n`, and `/` with `\/`.
 Additionally, `htmlspecialchars` is applied to the string.
 
 ```smarty
