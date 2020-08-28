@@ -183,7 +183,7 @@ define(["Ajax"], function(Ajax) {
 <script data-relocate="true">
 $(function() {
   WCF.Language.addObject({
-    "app.foo.bar": "{lang}app.foo.bar{/lang}"
+    'app.foo.bar': '{lang}app.foo.bar{/lang}'
   });
 
   console.log(WCF.Language.get("app.foo.bar"));
@@ -195,7 +195,7 @@ $(function() {
 <script data-relocate="true">
 require(["Language"], function(Language) {
   Language.addObject({
-    "app.foo.bar": "{lang}app.foo.bar{/lang}"
+    'app.foo.bar': '{jslang}app.foo.bar{/jslang}'
   });
 
   console.log(Language.get("app.foo.bar"));

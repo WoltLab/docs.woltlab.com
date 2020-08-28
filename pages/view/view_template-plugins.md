@@ -156,7 +156,7 @@ Counter supports the following attributes:
 
 ## `encodeJS`
 
-`encodeJS` encodes a string to be used as a single-quoted string in JavaScript by replacing `\\` with `\\\\`, `'` with `\'`, linbreaks with `\n`, and `/` with `\/`.
+`encodeJS` encodes a string to be used as a single-quoted string in JavaScript by replacing `\\` with `\\\\`, `'` with `\'`, linebreaks with `\n`, and `/` with `\/`.
 
 ```smarty
 <script>
@@ -167,7 +167,7 @@ Counter supports the following attributes:
 
 ## `encodeJSON`
 
-`encodeJS` encodes a JSON string to be used as a single-quoted string in JavaScript by replacing `\\` with `\\\\`, `'` with `&#39;`, linbreaks with `\n`, and `/` with `\/`.
+`encodeJSON` encodes a JSON string to be used as a single-quoted string in JavaScript by replacing `\\` with `\\\\`, `'` with `&#39;`, linebreaks with `\n`, and `/` with `\/`.
 Additionally, `htmlspecialchars` is applied to the string.
 
 ```smarty
@@ -376,6 +376,21 @@ All additional attributes are added as attributes of the `select` HTML element.
 	{* generates 'http://example.com/wcf/js/WCF.Like.js' if ENABLE_DEBUG_MODE=1 *}
 	{* generates 'http://example.com/wcf/js/WCF.Combined.min.js' (ENABLE_DEBUG_MODE=0 *}
 	{* generates 'http://example.com/wcf/js/WCF.Combined.tiny.min.js' if ENABLE_DEBUG_MODE=0 and VISITOR_USE_TINY_BUILD=1 *}
+```
+
+
+## <span class="label label-info">5.3+</span> `jslang`
+
+`jslang` works like [`lang`](#lang) with the difference that the resulting string is automatically passed through [`encodeJS`](#encodejs).
+
+```smarty
+require(['Language', /* … */], function(Language, /* … */) {
+    Language.addObject({
+        'app.foo.bar': '{jslang}app.foo.bar{/jslang}',
+    });
+
+    // …
+});
 ```
 
 
