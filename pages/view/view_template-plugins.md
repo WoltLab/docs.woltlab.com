@@ -6,7 +6,7 @@ folder: view
 parent: view_templates
 ---
 
-## `anchorAttributes`
+## <span class="label label-info">5.3+</span> `anchorAttributes`
 
 `anchorAttributes` compliments the `StringUtil::getAnchorTagAttributes(string, bool): string` method.
 It allows to easily generate the necessary attributes for an anchor tag based off the destination URL.

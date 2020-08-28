@@ -95,4 +95,4 @@ The `$isUgc` attribute was added to [`StringUtil::getAnchorTag(string, string, b
 If you need to specify additional HTML attributes for the anchor tag you can use the new [`StringUtil::getAnchorTagAttributes(string, bool): string`](https://github.com/WoltLab/WCF/blob/af245d7b9bdb411a344f79c0a038350c1f103e70/wcfsetup/install/files/lib/util/StringUtil.class.php#L691-L699) method to generate the anchor attributes that are dependent on the target URL.
 Specifically the attributes returned are the `class="externalURL"` attribute, the `rel="…"` attribute and the `target="…"` attribute.
 
-Within the template the [`{anchorAttributes}`](view_template-plugins.html#anchorattributes) template plugin is newly available.
+Within the template the [`{anchorAttributes}`](view_template-plugins.html#53-anchorattributes) template plugin is newly available.
