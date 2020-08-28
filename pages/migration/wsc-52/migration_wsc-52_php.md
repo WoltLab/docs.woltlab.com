@@ -80,3 +80,19 @@ require(['Language', /* … */], function(Language, /* … */) {
     // …
 });
 ```
+
+# User Generated Links
+
+It is [recommended by search engines](https://support.google.com/webmasters/answer/96569) to mark up links within user generated content using the `rel="ugc"` attribute to indicate that they might be less trustworthy or spammy.
+
+WoltLab Suite 5.3 will automatically sets that attribute on external links during message output processing.
+Set the new `HtmlOutputProcessor::$enableUgc` property to `false` if the type of message is not user-generated content, but restricted to a set of trustworthy users.
+An example of such a type of message would be official news articles.
+
+If you manually generate links based off user input you need to specify the attribute yourself.
+The `$isUgc` attribute was added to [`StringUtil::getAnchorTag(string, string, bool, bool): string`](https://github.com/WoltLab/WCF/blob/af245d7b9bdb411a344f79c0a038350c1f103e70/wcfsetup/install/files/lib/util/StringUtil.class.php#L664-L673), allowing you to easily generate a correct anchor tag.
+
+If you need to specify additional HTML attributes for the anchor tag you can use the new [`StringUtil::getAnchorTagAttributes(string, bool): string`](https://github.com/WoltLab/WCF/blob/af245d7b9bdb411a344f79c0a038350c1f103e70/wcfsetup/install/files/lib/util/StringUtil.class.php#L691-L699) method to generate the anchor attributes that are dependent on the target URL.
+Specifically the attributes returned are the `class="externalURL"` attribute, the `rel="…"` attribute and the `target="…"` attribute.
+
+Within the template the [`{anchorAttributes}`](view_template-plugins.md#anchorattributes) template plugin is newly available.
