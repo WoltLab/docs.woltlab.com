@@ -4,6 +4,7 @@ use wcf\acp\form\PersonAddForm;
 use wcf\acp\form\PersonEditForm;
 use wcf\form\IForm;
 use wcf\page\IPage;
+use wcf\system\exception\UserInputException;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
 
@@ -11,11 +12,11 @@ use wcf\util\StringUtil;
  * Handles setting the birthday when adding and editing people.
  *
  * @author	Matthias Schmidt
- * @copyright	2001-2019 WoltLab GmbH
+ * @copyright	2001-2020 WoltLab GmbH
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	WoltLabSuite\Core\System\Event\Listener
  */
-class BirthdayPersonAddFormListener implements IParameterizedEventListener {
+class BirthdayPersonAddFormListener extends AbstractEventListener {
 	/**
 	 * birthday of the created or edited person
 	 * @var	string
@@ -25,26 +26,14 @@ class BirthdayPersonAddFormListener implements IParameterizedEventListener {
 	/**
 	 * @see	IPage::assignVariables()
 	 */
-	protected function assignVariables() {
+	protected function onAssignVariables() {
 		WCF::getTPL()->assign('birthday', $this->birthday);
-	}
-	
-	/**
-	 * @inheritDoc
-	 */
-	public function execute($eventObj, $className, $eventName, array &$parameters) {
-		if (method_exists($this, $eventName) && $eventName !== 'execute') {
-			$this->$eventName($eventObj);
-		}
-		else {
-			throw new \LogicException('Unreachable');
-		}
 	}
 	
 	/**
 	 * @see	IPage::readData()
 	 */
-	protected function readData(PersonEditForm $form) {
+	protected function onReadData(PersonEditForm $form) {
 		if (empty($_POST)) {
 			$this->birthday = $form->person->birthday;
 			
@@ -57,7 +46,7 @@ class BirthdayPersonAddFormListener implements IParameterizedEventListener {
 	/**
 	 * @see	IForm::readFormParameters()
 	 */
-	protected function readFormParameters() {
+	protected function onReadFormParameters() {
 		if (isset($_POST['birthday'])) {
 			$this->birthday = StringUtil::trim($_POST['birthday']);
 		}
@@ -66,7 +55,7 @@ class BirthdayPersonAddFormListener implements IParameterizedEventListener {
 	/**
 	 * @see	IForm::save()
 	 */
-	protected function save(PersonAddForm $form) {
+	protected function onSave(PersonAddForm $form) {
 		if ($this->birthday) {
 			$form->additionalFields['birthday'] = $this->birthday;
 		}
@@ -78,14 +67,14 @@ class BirthdayPersonAddFormListener implements IParameterizedEventListener {
 	/**
 	 * @see	IForm::saved()
 	 */
-	protected function saved() {
+	protected function onSaved() {
 		$this->birthday = '';
 	}
 	
 	/**
 	 * @see	IForm::validate()
 	 */
-	protected function validate() {
+	protected function onValidate() {
 		if (empty($this->birthday)) {
 			return;
 		}
