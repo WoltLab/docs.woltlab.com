@@ -59,35 +59,6 @@ To support this edit link two small changes are required within your `*AddForm`.
     ]);
     ```
 
-## `{jslang}`
-
-Starting with WoltLab Suite 5.3 the `{jslang}` template plugin is available.
-`{jslang}` works like `{lang}`, with the difference that the result is automatically encoded for use within a single quoted JavaScript string.
-
-Before:
-
-```smarty
-require(['Language', /* … */], function(Language, /* … */) {
-    Language.addObject({
-        'app.foo.bar': '{lang}app.foo.bar{/lang}',
-    });
-
-    // …
-});
-```
-
-After:
-
-```smarty
-require(['Language', /* … */], function(Language, /* … */) {
-    Language.addObject({
-        'app.foo.bar': '{jslang}app.foo.bar{/jslang}',
-    });
-
-    // …
-});
-```
-
 # User Generated Links
 
 It is [recommended by search engines](https://support.google.com/webmasters/answer/96569) to mark up links within user generated content using the `rel="ugc"` attribute to indicate that they might be less trustworthy or spammy.
