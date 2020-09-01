@@ -523,6 +523,44 @@ The exact formatting depends on the current language (via the language items `wc
 ```
 
 
+## <span class="label label-info">5.3+</span> `plural`
+
+`plural` allows to easily select the correct plural form of a phrase based on a given `value`.
+The pluralization logic follows the [Unicode Language Plural Rules](https://unicode-org.github.io/cldr-staging/charts/37/supplemental/language_plural_rules.html) for cardinal numbers.
+
+The `#` placeholder within the resulting phrase is replaced by the `value`.
+It is automatically formatted using `StringUtil::formatNumeric`.
+
+English:
+```smarty
+{assign var=numberOfWorlds value=2}
+<h1>Hello {plural value=$numberOfWorlds one='World' other='Worlds'}!</h1>
+<p>There {plural value=$numberOfWorlds one='is one world' other='are # worlds'}!</p>
+```
+
+German:
+```smarty
+{assign var=numberOfWorlds value=2}
+<h1>Hallo {plural value=$numberOfWorlds one='Welt' other='Welten'}!</h1>
+<p>Es gibt {plural value=$numberOfWorlds one='eine Welt' other='# Welten'}!</p>
+```
+
+Romanian:
+
+Note the additional use of `few` which is not required in English or German.
+```smarty
+{assign var=numberOfWorlds value=2}
+<h1>Salut {plural value=$numberOfWorlds one='lume' other='lumi'}!</h1>
+<p>Există {plural value=$numberOfWorlds one='o lume' few='# lumi' other='# de lumi'}!</p>
+```
+
+| Attribute | Description |
+|-----------|-------------|
+| value | The value that is used to select the proper phrase. |
+| other | The phrase that is used when no other selector matches. |
+| Any Category Name | The phrase that is used when `value` belongs to the named category. Available categories depend on the language. |
+| Any Integer | The phrase that is used when `value` is that exact integer. |
+
 ## `prepend`
 
 If a string should be prepended to the value of a variable, `prepend` can be used:

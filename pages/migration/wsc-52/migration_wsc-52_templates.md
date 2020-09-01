@@ -1,5 +1,5 @@
 ---
-title: Migrating from WSC 5.2 - Templates
+title: Migrating from WSC 5.2 - Templates and Languages
 sidebar: sidebar
 permalink: migration_wsc-52_templates.html
 folder: migration/wsc-52
@@ -37,3 +37,7 @@ require(['Language', /* … */], function(Language, /* … */) {
 });
 </script>
 ```
+
+## Pluralization
+
+The [`{plural}`](view_template-plugins.html#53-plural) template plugin has been added.
