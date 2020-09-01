@@ -554,6 +554,16 @@ Note the additional use of `few` which is not required in English or German.
 <p>Există {plural value=$numberOfWorlds one='o lume' few='# lumi' other='# de lumi'}!</p>
 ```
 
+Russian:
+
+Note the difference between `1` (exactly `1`) and `one` (ending in `1`, except ending in `11`).
+```smarty
+{assign var=numberOfWorlds value=2}
+<h1>Привет {plural value=$numberOfWorld 1='мир' other='миры'}!</h1>
+<p>Есть {plural value=$numberOfWorlds 1='мир' one='# мир' few='# мира' many='# миров' other='# миров'}!</p>
+```
+
+
 | Attribute | Description |
 |-----------|-------------|
 | value | The value that is used to select the proper phrase. |
