@@ -6,6 +6,21 @@ folder: view
 parent: view_templates
 ---
 
+## <span class="label label-info">5.3+</span> `anchorAttributes`
+
+`anchorAttributes` compliments the `StringUtil::getAnchorTagAttributes(string, bool): string` method.
+It allows to easily generate the necessary attributes for an anchor tag based off the destination URL.
+
+```smarty
+<a href="https://www.example.com" {anchorAttributes url='https://www.example.com' appendHref=false appendClassname=true isUgc=true}>
+```
+
+| Attribute | Description |
+|-----------|-------------|
+| `url` | destination URL |
+| `appendHref` | whether the `href` attribute should be generated; `true` by default |
+| `isUgc` | whether the `rel="ugc"` attribute should be generated; `false` by default |
+| `appendClassname` | whether the `class="externalURL"` attribute should be generated; `true` by default |
 
 ## `append`
 
