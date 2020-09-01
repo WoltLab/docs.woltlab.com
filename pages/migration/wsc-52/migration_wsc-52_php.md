@@ -59,7 +59,7 @@ To support this edit link two small changes are required within your `*AddForm`.
     ]);
     ```
 
-# User Generated Links
+## User Generated Links
 
 It is [recommended by search engines](https://support.google.com/webmasters/answer/96569) to mark up links within user generated content using the `rel="ugc"` attribute to indicate that they might be less trustworthy or spammy.
 
