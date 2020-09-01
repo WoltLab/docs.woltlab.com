@@ -40,4 +40,4 @@ require(['Language', /* … */], function(Language, /* … */) {
 
 ## Pluralization
 
-The [`{plural}`](view_template-plugins.html#53-plural) template plugin is newly available.
+The [`{plural}`](view_template-plugins.html#53-plural) template plugin has been added.
