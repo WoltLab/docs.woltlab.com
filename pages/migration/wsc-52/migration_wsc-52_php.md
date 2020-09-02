@@ -74,3 +74,31 @@ If you need to specify additional HTML attributes for the anchor tag you can use
 Specifically the attributes returned are the `class="externalURL"` attribute, the `rel="…"` attribute and the `target="…"` attribute.
 
 Within the template the [`{anchorAttributes}`](view_template-plugins.html#53-anchorattributes) template plugin is newly available.
+
+## Resource Management When Scaling Images
+
+It was discovered that the code holds references to scaled image resources for an unnecessarily long time, taking up memory.
+This becomes especially apparent when multiple images are scaled within a loop, reusing the same variable name for consecutive images.
+Unless the destination variable is explicitely cleared before processing the next image up to two images will be stored in memory concurrently.
+This possibly causes the request to exceed the memory limit or ImageMagick's internal resource limits, even if sufficient resources would have been available to scale the current image.
+
+Starting with WoltLab Suite 5.3 it is recommended to clear image handles as early as possible.
+The usual pattern of creating a thumbnail for an existing image would then look like this:
+
+```php
+<?php
+foreach ([ 200, 500 ] as $size) {
+    $adapter = ImageHandler::getInstance()->getAdapter();
+    $adapter->loadFile($src);
+    $thumbnail = $adapter->createThumbnail(
+        $size,
+        $size,
+        true
+    );
+    $adapter->writeImage($thumbnail, $destination);
+    // New: Clear thumbnail as soon as possible to free up the memory.
+    $thumbnail = null;
+}
+```
+
+Refer to [WoltLab/WCF#3505](https://github.com/WoltLab/WCF/pull/3505) for additional details.
