@@ -79,6 +79,8 @@ More information about installing templates can be found on those pages.
 
 ### Forms
 
+{% include callout.html content="For new forms, use the new [form builder API](php_api_form_builder.html) introduced with WoltLab Suite 5.2." type="info" %}
+
 ```smarty
 <form method="post" action="{link controller='FooBar'}{/link}">
 	<div class="section">
