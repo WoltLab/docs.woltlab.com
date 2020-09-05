@@ -38,6 +38,6 @@ require(['Language', /* … */], function(Language, /* … */) {
 </script>
 ```
 
-## Pluralization
+## Template Plugins
 
-The [`{plural}`](view_template-plugins.html#53-plural) template plugin has been added.
+The [`{anchor}`](view_template-plugins.html#53-anchor) and the [`{plural}`](view_template-plugins.html#53-plural) template plugin have been added.
