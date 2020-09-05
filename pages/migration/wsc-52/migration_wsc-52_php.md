@@ -102,3 +102,7 @@ foreach ([ 200, 500 ] as $size) {
 ```
 
 Refer to [WoltLab/WCF#3505](https://github.com/WoltLab/WCF/pull/3505) for additional details.
+
+## Toggle for Accelerated Mobile Pages (AMP)
+
+Controllers delivering AMP versions of pages have to check for the new option `MODULE_AMP` and the templates of the non-AMP versions have to also check if the option is enabled before outputting the `<link rel="amphtml" />` element.
