@@ -6,6 +6,49 @@ folder: view
 parent: view_templates
 ---
 
+## <span class="label label-info">5.3+</span> `anchor`
+
+The `anchor` template plugin creates `a` HTML elements.
+The easiest way to use the template plugin is to pass it an instance of `ITitledLinkObject`:
+
+```smarty
+{anchor object=$object}
+```
+
+generates the same output as
+
+```smarty
+<a href="{$object->getLink()}">{$object->getTitle()}</a>
+```
+
+Instead of an `object` parameter, a `link` and `content` parameter can be used:
+
+```smarty
+{anchor link=$linkObject content=$content}
+```
+
+where `$linkObject` implements `ILinkableObject` and `$content` is either an object implementing `ITitledObject` or having a `__toString()` method or `$content` is a string or a number.
+
+The last special attribute is `append` whose contents are appended to the `href` attribute of the generated anchor element.
+
+All of the other attributes matching `~^[a-z]+([A-z]+)+$~`, expect for `href` which is disallowed, are added as attributes to the anchor element.
+
+If an `object` attribute is present, the object also implements `IPopoverObject` and if the return value of `IPopoverObject::getPopoverLinkClass()` is included in the `class` attribute of the `anchor` tag, `data-object-id` is automatically added.
+This functionality makes it easy to generate links with popover support.
+Instead of
+
+```smarty
+<a href="{$entry->getLink()}" class="blogEntryLink" data-object-id="{@$entry->entryID}">{$entry->subject}</a>
+```
+
+using
+
+```smarty
+{anchor object=$entry class='blogEntryLink'}
+```
+
+is sufficient if `Entry::getPopoverLinkClass()` returns `blogEntryLink`.
+
 ## <span class="label label-info">5.3+</span> `anchorAttributes`
 
 `anchorAttributes` compliments the `StringUtil::getAnchorTagAttributes(string, bool): string` method.
