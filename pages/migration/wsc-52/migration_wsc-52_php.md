@@ -74,3 +74,7 @@ If you need to specify additional HTML attributes for the anchor tag you can use
 Specifically the attributes returned are the `class="externalURL"` attribute, the `rel="…"` attribute and the `target="…"` attribute.
 
 Within the template the [`{anchorAttributes}`](view_template-plugins.html#53-anchorattributes) template plugin is newly available.
+
+## AMP option
+
+Controllers delivering AMP versions of pages have to check for the new option `MODULE_AMP` and the templates of the non-AMP versions have to also check if the option is enabled before outputting the `<link rel="amphtml" />` element.
