@@ -682,3 +682,43 @@ If `prepend` is used on an array as the variable, the value is prepended to all 
 | 1 | truncated length; `80` by default |
 | 2 | ellipsis symbol; `wcf\util\StringUtil::HELLIP` by default |
 | 3 | if `true`, words can be broken up in the middle; `false` by default |
+
+
+## <span class="label label-info">5.3+</span> `user`
+
+`user` generates links to user profiles.
+The mandatory `object` parameter requires an instances of `UserProfile`.
+The optional `type` parameter is responsible for what the generated link contains:
+
+- `type='default'` (also applies if no `type` is given) outputs the formatted username relying on the “User Marking” setting of the relevant user group.
+  Additionally, the user popover card will be shown when hovering over the generated link.
+- `type='plain'` outputs the username without additional formatting.
+- `type='avatar(\d+)'` outputs the user’s avatar in the specified size, i.e., `avatar48` outputs the avatar with a width and height of 48 pixels.
+
+The last special attribute is `append` whose contents are appended to the `href` attribute of the generated anchor element.
+
+All of the other attributes matching `~^[a-z]+([A-z]+)+$~`, except for `href` which may not be added, are added as attributes to the anchor element.
+
+Examples:
+
+```smarty
+{user object=$user}
+```
+
+generates
+
+```smarty
+<a href="{$user->getLink()}" data-object-id="{$user->userID}" class="userLink">{@$user->getFormattedUsername()}</a>
+```
+
+and
+
+```smarty
+{user object=$user type='avatar48' foo='bar'}
+```
+
+generates
+
+```smarty
+<a href="{$user->getLink()}" foo="bar">{@$object->getAvatar()->getImageTag(48)}</a>
+```
