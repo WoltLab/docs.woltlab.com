@@ -697,7 +697,7 @@ The optional `type` parameter is responsible for what the generated link contain
 
 The last special attribute is `append` whose contents are appended to the `href` attribute of the generated anchor element.
 
-All of the other attributes matching `~^[a-z]+([A-z]+)+$~`, expect for `href` which is disallowed, are added as attributes to the anchor element.
+All of the other attributes matching `~^[a-z]+([A-z]+)+$~`, except for `href` which may not be added, are added as attributes to the anchor element.
 
 Examples:
 
