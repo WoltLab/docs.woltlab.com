@@ -574,18 +574,25 @@ The pluralization logic follows the [Unicode Language Plural Rules](https://unic
 The `#` placeholder within the resulting phrase is replaced by the `value`.
 It is automatically formatted using `StringUtil::formatNumeric`.
 
+
+
 English:
+
+Note the use of `1` if the number (`#`) is not used within the phrase and the use of `one` otherwise.
+They are equivalent for English, but following this rule generalizes better to other languages, helping the translator.
 ```smarty
 {assign var=numberOfWorlds value=2}
-<h1>Hello {plural value=$numberOfWorlds one='World' other='Worlds'}!</h1>
-<p>There {plural value=$numberOfWorlds one='is one world' other='are # worlds'}!</p>
+<h1>Hello {plural value=$numberOfWorlds 1='World' other='Worlds'}!</h1>
+<p>There {plural value=$numberOfWorlds 1='is one world' other='are # worlds'}!</p>
+<p>There {plural value=$numberOfWorlds one='is # world' other='are # worlds'}!</p>
 ```
 
 German:
 ```smarty
 {assign var=numberOfWorlds value=2}
-<h1>Hallo {plural value=$numberOfWorlds one='Welt' other='Welten'}!</h1>
-<p>Es gibt {plural value=$numberOfWorlds one='eine Welt' other='# Welten'}!</p>
+<h1>Hallo {plural value=$numberOfWorlds 1='Welt' other='Welten'}!</h1>
+<p>Es gibt {plural value=$numberOfWorlds 1='eine Welt' other='# Welten'}!</p>
+<p>Es gibt {plural value=$numberOfWorlds one='# Welt' other='# Welten'}!</p>
 ```
 
 Romanian:
@@ -593,8 +600,9 @@ Romanian:
 Note the additional use of `few` which is not required in English or German.
 ```smarty
 {assign var=numberOfWorlds value=2}
-<h1>Salut {plural value=$numberOfWorlds one='lume' other='lumi'}!</h1>
-<p>Există {plural value=$numberOfWorlds one='o lume' few='# lumi' other='# de lumi'}!</p>
+<h1>Salut {plural value=$numberOfWorlds 1='lume' other='lumi'}!</h1>
+<p>Există {plural value=$numberOfWorlds 1='o lume' few='# lumi' other='# de lumi'}!</p>
+<p>Există {plural value=$numberOfWorlds one='# lume' few='# lumi' other='# de lumi'}!</p>
 ```
 
 Russian:
