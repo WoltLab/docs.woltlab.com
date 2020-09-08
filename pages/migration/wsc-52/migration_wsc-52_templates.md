@@ -82,3 +82,49 @@ in stacked notification messages can be replaced with a new language item:
 ```smarty
 {@'wcf.user.notification.stacked.authorList'|language}
 ```
+
+## Popovers
+
+Popovers provide additional information of the linked object when a user hovers over a link.
+We unified the approach for such links:
+
+1. The relevant DBO class implements `wcf\data\IPopoverObject`.
+2. The relevant DBO action class implements `wcf\data\IPopoverAction` and the `getPopover()` method returns an array with popover content.
+3. Globally available, `WoltLabSuite/Core/Controller/Popover` is initialized with the relevant data.
+4. Links are created with the `anchor` template plugin with an additional `class` attribute whose value is the return value of `IPopoverObject::getPopoverLinkClass()`.
+
+Example:
+
+```php
+class Foo extends DatabaseObject implements IPopoverObject {
+	public function getPopoverLinkClass() {
+		return 'fooLink';
+	}
+}
+
+class FooAction extends AbstractDatabaseObjectAction implements IPopoverAction {
+	public function validateGetPopover() {
+		// …
+	}
+	
+	public function getPopover() {
+		return [
+			'template' => '…',
+		];
+	}
+}
+```
+
+```js
+require(['WoltLabSuite/Core/Controller/Popover'], function(ControllerPopover) {
+	ControllerPopover.init({
+		className: 'fooLink',
+		dboAction: 'wcf\\data\\foo\\FooAction',
+		identifier: 'com.woltlab.wcf.foo'
+	});
+});
+```
+
+```smarty
+{anchor object=$foo class='fooLink'}
+```
