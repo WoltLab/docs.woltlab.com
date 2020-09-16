@@ -26,7 +26,7 @@ define(["Ui/Dialog"], function(UiDialog) {
   function Foo() {};
   Foo.prototype = {
     bar: function() {
-      // this will issue an ajax request with the parameter `value` set to `1`
+      // this will open the dialog constructed by _dialogSetup
       UiDialog.open(this);
     },
 
