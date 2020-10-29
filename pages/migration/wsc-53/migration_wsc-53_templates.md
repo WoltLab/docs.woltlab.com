@@ -7,8 +7,8 @@ folder: migration/wsc-523
 
 ## `{csrfToken}`
 
-Going forward any uses of the `SECURITY_TOKEN_*` constants should be avoided.
-To reference the CSRF token (“Security Token”) within templates the `{csrfToken}` template plugin was added.
+Going forward, any uses of the `SECURITY_TOKEN_*` constants should be avoided.
+To reference the CSRF token (“Security Token”) within templates, the `{csrfToken}` template plugin was added.
 
 Before:
 
