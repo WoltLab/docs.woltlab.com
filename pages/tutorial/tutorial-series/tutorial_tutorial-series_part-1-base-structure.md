@@ -264,7 +264,7 @@ We will now only concentrate on the new parts compared to `personList.tpl`:
      The first part of the event name should reflect the type of fields in the particular `.section` element.
      Here, the input fields are just general “data” fields so that the event is called `dataFields`.
    - After the last `.section` element, fire a `section` event so that plugins can add further sections.
-   - Lastly, the `.formSubmit` shows the submit button and `{@SECURITY_TOKEN_INPUT_TAG}` contains a CSRF token that is automatically validated after the form is submitted.
+   - Lastly, the `.formSubmit` shows the submit button and `{csrfToken}` contains a CSRF token that is automatically validated after the form is submitted.
 
 ### Person Edit Form
 

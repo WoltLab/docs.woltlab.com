@@ -149,6 +149,22 @@ Counter supports the following attributes:
 | `start` | start counter value; `1` by default |
 
 
+## <span class="label label-info">5.4+</span> `csrfToken`
+
+`{csrfToken}` prints out the session's CSRF token (“Security Token”).
+
+```smarty
+<form action="{link controller="Foo"}{/link}" method="post">
+	{* snip *}
+
+	{csrfToken}
+</form>
+```
+
+The `{csrfToken}` template plugin supports a `type` parameter.
+Specifying this parameter might be required in rare situations.
+Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/template/plugin/CsrfTokenFunctionTemplatePlugin.class.php) for details.
+
 ## `currency`
 
 `currency` is a modifier used to format currency values with two decimals using language dependent thousands separators and decimal point:
