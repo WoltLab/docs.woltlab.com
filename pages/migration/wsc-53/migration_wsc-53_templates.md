@@ -1,5 +1,5 @@
 ---
-title: Migrating from WSC 5.3- Templates and Languages
+title: Migrating from WSC 5.3 - Templates and Languages
 sidebar: sidebar
 permalink: migration_wsc-53_templates.html
 folder: migration/wsc-523
