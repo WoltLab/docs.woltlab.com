@@ -15,5 +15,5 @@ Instead, use `click` directly:
 element.addEventListener(WCF_CLICK_EVENT, this._click.bind(this));
 
 // after
-element.addEventListener('click', this._click.bind(this));
+element.addEventListener('click', (ev) => this._click(ev));
 ```
