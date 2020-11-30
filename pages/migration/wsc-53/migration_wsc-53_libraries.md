@@ -17,7 +17,7 @@ The explicit `sink` that was recommended in the [migration guide for WSC 5.2](mi
 
 The Emogrifier library was updated from version 2.2 to 5.0.
 This update comes with a breaking change, as the `Emogrifier` class was removed.
-With the updated Emogrifier library the `CssInliner` class must be used instead.
+With the updated Emogrifier library, the `CssInliner` class must be used instead.
 
 No compatibility layer was added for the `Emogrifier` class, as the Emogrifier library's purpose was to be used within the email subsystem of WoltLab Suite.
 In case you use Emogrifier directly within your own code, you will need to adjust the usage.
