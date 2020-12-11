@@ -51,3 +51,13 @@ The previously mentioned methods of `FloodControl` use the active user and the c
 For further details on these methods, please refer to the [documentation in the FloodControl class](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/flood/FloodControl.class.php).
 
 {% include callout.html content="Do not interact directly with the flood control database table but only via the `FloodControl` class!" type="warning" %}
+
+## Captcha
+
+The reCAPTCHA v1 implementation was completely removed.
+This includes the `\wcf\system\recaptcha\RecaptchaHandler` class (not to be confused with the one in the `captcha` namespace).
+
+The reCAPTCHA v1 endpoints have already been turned off by Google and always return a HTTP 404.
+Thus the implementation was completely non-functional even before this change.
+
+See [WoltLab/WCF#3781](https://github.com/WoltLab/WCF/pull/3781) for details.
