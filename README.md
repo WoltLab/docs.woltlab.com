@@ -1,4 +1,4 @@
-## WoltLab Suite 5.3 Documentation
+## WoltLab Suite 5.4 Documentation
 
 This repository is used to build the documentation at [https://docs.woltlab.com](https://docs.woltlab.com), contributions are welcome.
 
