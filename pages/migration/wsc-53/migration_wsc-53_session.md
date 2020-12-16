@@ -12,29 +12,29 @@ You might appreciate some of the new session methods if you process security sen
 
 ## Summary and Concepts
 
-Most of the changes revolve around the removal of the legacy persistent login functionality and the assumption that a single user has a single session only.
+Most of the changes revolve around the removal of the legacy persistent login functionality and the assumption that every user has a single session only.
 Both aspects are related to each other.
 
 ### Legacy Persistent Login
 
 The legacy persistent login was rather an automated login.
-Upon bootstrapping a session it was checked whether the user had a cookie pair storing the user’s userID and (a single BCrypt hash of) the user’s password.
-If such a cookie pair exists and the single BCrypt hash hashes to the stored password hash then the session would immediately `changeUser()` to the respective user.
+Upon bootstrapping a session, it was checked whether the user had a cookie pair storing the user’s userID and (a single BCrypt hash of) the user’s password.
+If such a cookie pair exists and the single BCrypt hash hashes to the stored password hash, the session would immediately `changeUser()` to the respective user.
 
 This legacy persistent login was completely removed.
-Instead any sessions that belong to an authenticated user will automatically be long-lived.
+Instead, any sessions that belong to an authenticated user will automatically be long-lived.
 These long-lived sessions expire no sooner than 14 days after the last activity, ensuring that the user continously stays logged in, provided that they visit the page at least once per fortnight.
 
 ### Multiple Sessions
 
-To allow for a proper separation of these long-lived user sessions WoltLab Suite now allows for multiple sessions per user.
+To allow for a proper separation of these long-lived user sessions, WoltLab Suite now allows for multiple sessions per user.
 These sessions are completely unrelated to each other.
-Specifically they do not share session variables and they expire independently.
+Specifically, they do not share session variables and they expire independently.
 
-As the existing `wcf1_session` table is also used for the online lists and location tracking it will be maintained on a best effort basis.
+As the existing `wcf1_session` table is also used for the online lists and location tracking, it will be maintained on a best effort basis.
 It no longer stores any private session data.
 
-The actual sessions storing security sensitive information are stored in an unrelated location.
+The actual sessions storing security sensitive information are in an unrelated location.
 They must only be accessed via the PHP API exposed by the `SessionHandler`.
 
 ### Improved authentication and reauthentication
@@ -45,7 +45,7 @@ WoltLab Suite 5.4 ships with multi-factor authentication support and a generic r
 
 ### Password Hashing
 
-WoltLab Suite 5.4 includes a new object oriented password hashing framework that is modeled after PHP’s `password_*` API.
+WoltLab Suite 5.4 includes a new object-oriented password hashing framework that is modeled after PHP’s `password_*` API.
 Check [`PasswordAlgorithmManager`](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/authentication/password/PasswordAlgorithmManager.class.php) and [`IPasswordAlgorithm`](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/authentication/password/IPasswordAlgorithm.class.php) for details.
 
 The new default password hash is a standard BCrypt hash.
@@ -54,7 +54,7 @@ All newly generated hashes in `wcf1_user.password` will include a type prefix, i
 ### Session Storage
 
 The `wcf1_session` table will no longer be used for session storage.
-Instead is maintained for compatibility with existing online lists.
+Instead, it is maintained for compatibility with existing online lists.
 
 The actual session storage is considered an implementation detail and you *must not* directly interact with the session tables.
 Future versions might support alternative session backends, such as Redis.
@@ -63,7 +63,7 @@ Future versions might support alternative session backends, such as Redis.
 
 ### Reauthentication
 
-For security sensitive processing you might want to ensure that the account owner is actually present instead of a third party accessing a session that was accidentally left logged in.
+For security sensitive processing, you might want to ensure that the account owner is actually present instead of a third party accessing a session that was accidentally left logged in.
 
 WoltLab Suite 5.4 ships with a generic reauthentication framework.
 To request reauthentication within your controller you need to:
@@ -77,27 +77,27 @@ To request reauthentication within your controller you need to:
    ```
 
 `requestReauthentication()` will check if the user has recently authenticated themselves.
-If they did then the request proceeds as usual.
-Otherwise they will be asked to reauthenticate themselves.
-After successful authentication they will be redirected to the URL that was passed in (the current controller within the example).
+If they did, the request proceeds as usual.
+Otherwise, they will be asked to reauthenticate themselves.
+After the successful authentication, they will be redirected to the URL that was passed in (the current controller within the example).
 
-Details can be found in [WoltLab/WCF#3775](https://github.com/WoltLab/WCF/pull/3775)
+Details can be found in [WoltLab/WCF#3775](https://github.com/WoltLab/WCF/pull/3775).
 
 ### Multi-factor authentication
 
-To implement multi-factor authentication securely WoltLab Suite 5.4 implements the concept of a “pending user change”.
+To implement multi-factor authentication securely, WoltLab Suite 5.4 implements the concept of a “pending user change”.
 The user will not be logged in (i.e. `WCF::getUser()->userID` returns `null`) until they authenticate themselves with their second factor.
 
 Requesting multi-factor authentication is done on an opt-in basis for compatibility reasons.
-If you perform authentication yourselves and do not trust the authentication source to perform multi-factor authentication itself you will need to adjust your logic to request multi-factor authentication from WoltLab Suite:
+If you perform authentication yourself and do not trust the authentication source to perform multi-factor authentication itself, you will need to adjust your logic to request multi-factor authentication from WoltLab Suite:
 
-Previous:
+Previously:
 
 ```php
 WCF::getSession()->changeUser($targetUser);
 ```
 
-After:
+Now:
 
 ```php
 $isPending = WCF::getSession()->changeUserAfterMultifactorAuthentication($targetUser);
@@ -128,7 +128,7 @@ Adding your own multi-factor method requires the implementation of a single obje
 
 The given classname must implement the [`IMultifactorMethod`](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/multifactor/IMultifactorMethod.class.php) interface.
 
-As a self-contained example you can find the initial implementation of the email multi-factor method in [WoltLab/WCF#3729](https://github.com/WoltLab/WCF/pull/3729).
+As a self-contained example, you can find the initial implementation of the email multi-factor method in [WoltLab/WCF#3729](https://github.com/WoltLab/WCF/pull/3729).
 Please check [the version history](https://github.com/WoltLab/WCF/commits/master/wcfsetup/install/files/lib/system/user/multifactor/EmailMultifactorMethod.class.php) of the PHP class to make sure you do not miss important changes that were added later.
 
 {% include callout.html content="Multi-factor authentication is security sensitive.
@@ -141,13 +141,13 @@ It is strongly recommended to generously check the current state by leveraging a
 ### SessionHandler
 
 Most of the changes with regard to the new session handling happened in `SessionHandler`.
-Most notably `SessionHandler` now is marked `final` to ensure proper encapsulation of data.
+Most notably, `SessionHandler` now is marked `final` to ensure proper encapsulation of data.
 It is not expected that anyone inherited from `SessionHandler`, as it can be considered an implementation detail.
 
-A number of methods in `SessionHandler` are now deprecated and a result in a noop.
-This mostly includes methods that have been used to bootstrap the session, such as `setHasValidCookie()`.
+A number of methods in `SessionHandler` are now deprecated and result in a noop.
+This change mostly affects methods that have been used to bootstrap the session, such as `setHasValidCookie()`.
 
-Additionally accessing the following keys on the session is deprecated.
+Additionally, accessing the following keys on the session is deprecated.
 They directly map to an existing method in another class and any uses can easily be updated:
 - `ipAddress`
 - `userAgent`
@@ -159,7 +159,7 @@ Refer to [the implementation](https://github.com/WoltLab/WCF/blob/439de4963c947c
 
 ### Cookies
 
-The `_userID`, `_password` and `_cookieHash` cookies will no longer be created and no longer be consumed.
+The `_userID`, `_password` and `_cookieHash` cookies will no longer be created nor consumed.
 
 ### Virtual Sessions
 
@@ -172,8 +172,8 @@ This removal includes PHP classes and database tables.
 ### Security Token Constants
 
 The security token constants are deprecated.
-Instead the methods on `SessionHandler` should be used (e.g. `->getSecurityToken()`).
-Within templates it is recommended to use the `{csrfToken}` tag in place of `{@SECURITY_TOKEN_INPUT_TAG}`.
+Instead, the methods of `SessionHandler` should be used (e.g. `->getSecurityToken()`).
+Within templates, it is recommended to use the `{csrfToken}` tag in place of `{@SECURITY_TOKEN_INPUT_TAG}`.
 
 ### PasswordUtil and Double BCrypt hashes
 
