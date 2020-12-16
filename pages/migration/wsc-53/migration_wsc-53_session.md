@@ -49,7 +49,7 @@ WoltLab Suite 5.4 includes a new object-oriented password hashing framework that
 Check [`PasswordAlgorithmManager`](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/authentication/password/PasswordAlgorithmManager.class.php) and [`IPasswordAlgorithm`](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/authentication/password/IPasswordAlgorithm.class.php) for details.
 
 The new default password hash is a standard BCrypt hash.
-All newly generated hashes in `wcf1_user.password` will include a type prefix, instead of special casing the default hash.
+All newly generated hashes in `wcf1_user.password` will now include a type prefix, instead of just passwords imported from other systems.
 
 ### Session Storage
 
