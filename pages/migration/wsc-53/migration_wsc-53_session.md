@@ -37,7 +37,7 @@ It no longer stores any private session data.
 The actual sessions storing security sensitive information are in an unrelated location.
 They must only be accessed via the PHP API exposed by the `SessionHandler`.
 
-### Improved authentication and reauthentication
+### Improved Authentication and Reauthentication
 
 WoltLab Suite 5.4 ships with multi-factor authentication support and a generic re-authentication implementation that can be used to verify the account owner’s presence.
 
@@ -83,7 +83,7 @@ After the successful authentication, they will be redirected to the URL that was
 
 Details can be found in [WoltLab/WCF#3775](https://github.com/WoltLab/WCF/pull/3775).
 
-### Multi-factor authentication
+### Multi-factor Authentication
 
 To implement multi-factor authentication securely, WoltLab Suite 5.4 implements the concept of a “pending user change”.
 The user will not be logged in (i.e. `WCF::getUser()->userID` returns `null`) until they authenticate themselves with their second factor.
@@ -175,6 +175,6 @@ The security token constants are deprecated.
 Instead, the methods of `SessionHandler` should be used (e.g. `->getSecurityToken()`).
 Within templates, it is recommended to use the `{csrfToken}` tag in place of `{@SECURITY_TOKEN_INPUT_TAG}`.
 
-### PasswordUtil and Double BCrypt hashes
+### PasswordUtil and Double BCrypt Hashes
 
 Most of the methods in PasswordUtil are deprecated in favor of the new password hashing framework.
