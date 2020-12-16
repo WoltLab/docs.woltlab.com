@@ -142,7 +142,6 @@ It is strongly recommended to generously check the current state by leveraging a
 
 Most of the changes with regard to the new session handling happened in `SessionHandler`.
 Most notably, `SessionHandler` now is marked `final` to ensure proper encapsulation of data.
-It is not expected that anyone inherited from `SessionHandler`, as it can be considered an implementation detail.
 
 A number of methods in `SessionHandler` are now deprecated and result in a noop.
 This change mostly affects methods that have been used to bootstrap the session, such as `setHasValidCookie()`.
