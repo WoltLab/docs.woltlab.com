@@ -31,7 +31,7 @@ Double check your CSS declarations and particularly the specificity of your sele
 WoltLab Suite 5.4 ships the [`paragonie/constant_time_encoding` library](https://github.com/paragonie/constant_time_encoding).
 It is recommended to use this library to perform encoding and decoding of secrets.
 
-For the common case of encoding the bytes taken from a CSPRNG in hexadecimal form the required change would look like the following:
+For the common case of encoding the bytes taken from a CSPRNG in hexadecimal form, the required change would look like the following:
 
 Previously:
 
