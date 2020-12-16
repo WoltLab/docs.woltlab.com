@@ -18,8 +18,8 @@ Both aspects are related to each other.
 ### Legacy Persistent Login
 
 The legacy persistent login was rather an automated login.
-Upon bootstrapping a session, it was checked whether the user had a cookie pair storing the user’s userID and (a single BCrypt hash of) the user’s password.
-If such a cookie pair exists and the single BCrypt hash hashes to the stored password hash, the session would immediately `changeUser()` to the respective user.
+Upon bootstrapping a session, it was checked whether the user had a cookie pair storing the user’s `userID` and (a single BCrypt hash of) the user’s password.
+If such a cookie pair exists and the BCrypt hash within the cookie matches the user’s password hash when hashed again, the session would immediately `changeUser()` to the respective user.
 
 This legacy persistent login was completely removed.
 Instead, any sessions that belong to an authenticated user will automatically be long-lived.
