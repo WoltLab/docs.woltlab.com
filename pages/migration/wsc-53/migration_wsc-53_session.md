@@ -79,7 +79,7 @@ To request reauthentication within your controller you need to:
 `requestReauthentication()` will check if the user has recently authenticated themselves.
 If they did, the request proceeds as usual.
 Otherwise, they will be asked to reauthenticate themselves.
-After the successful authentication, they will be redirected to the URL that was passed in (the current controller within the example).
+After the successful authentication, they will be redirected to the URL that was passed as the first parameter (the current controller within the example).
 
 Details can be found in [WoltLab/WCF#3775](https://github.com/WoltLab/WCF/pull/3775).
 
