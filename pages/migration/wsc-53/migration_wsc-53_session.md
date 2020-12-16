@@ -173,7 +173,8 @@ This removal includes PHP classes and database tables.
 
 The security token constants are deprecated.
 Instead, the methods of `SessionHandler` should be used (e.g. `->getSecurityToken()`).
-Within templates, it is recommended to use the `{csrfToken}` tag in place of `{@SECURITY_TOKEN_INPUT_TAG}`.
+Within templates, you should migrate to the `{csrfToken}` tag in place of `{@SECURITY_TOKEN_INPUT_TAG}`.
+The `{csrfToken}` tag is a drop-in replacements and was backported to WoltLab Suite 5.2+, allowing you to maintain compatibility across a broad range of versions.
 
 ### PasswordUtil and Double BCrypt Hashes
 
