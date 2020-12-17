@@ -25,3 +25,33 @@ Refer to the [Emogrifier CHANGELOG](https://github.com/MyIntervals/emogrifier/bl
 
 If you only use Emogrifier indirectly by sending HTML mail via the email subsystem then you might notice unexpected visual changes due to the improved CSS support.
 Double check your CSS declarations and particularly the specificity of your selectors in these cases.
+
+## Constant Time Encoder
+
+WoltLab Suite 5.4 ships the [`paragonie/constant_time_encoding` library](https://github.com/paragonie/constant_time_encoding).
+It is recommended to use this library to perform encoding and decoding of secrets to prevent leaks via cache timing attacks.
+Refer to [the library author’s blog post](https://paragonie.com/blog/2016/06/constant-time-encoding-boring-cryptography-rfc-4648-and-you) for more background detail.
+
+For the common case of encoding the bytes taken from a CSPRNG in hexadecimal form, the required change would look like the following:
+
+Previously:
+
+```php
+<?php
+$encoded = hex2bin(random_bytes(16));
+```
+
+Now:
+
+```php
+<?php
+use ParagonIE\ConstantTime\Hex;
+
+// For security reasons you should add the backslash
+// to ensure you refer to the `random_bytes` function
+// within the global namespace and not a function
+// defined in the current namespace.
+$encoded = Hex::encode(\random_bytes(16));
+```
+
+Please refer to the documentation and source code of the `paragonie/constant_time_encoding` library to learn how to use the library with different encodings (e.g. base64).
