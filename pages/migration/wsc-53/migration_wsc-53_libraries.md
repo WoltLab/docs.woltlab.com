@@ -29,7 +29,8 @@ Double check your CSS declarations and particularly the specificity of your sele
 ## Constant Time Encoder
 
 WoltLab Suite 5.4 ships the [`paragonie/constant_time_encoding` library](https://github.com/paragonie/constant_time_encoding).
-It is recommended to use this library to perform encoding and decoding of secrets.
+It is recommended to use this library to perform encoding and decoding of secrets to prevent leaks via cache timing attacks.
+Refer to [the library author’s blog post](https://paragonie.com/blog/2016/06/constant-time-encoding-boring-cryptography-rfc-4648-and-you) for more background detail.
 
 For the common case of encoding the bytes taken from a CSPRNG in hexadecimal form, the required change would look like the following:
 
@@ -53,4 +54,4 @@ use ParagonIE\ConstantTime\Hex;
 $encoded = Hex::encode(\random_bytes(16));
 ```
 
-Please refer to the documentation of the `paragonie/constant_time_encoding` library for details.
+Please refer to the documentation and source code of the `paragonie/constant_time_encoding` library to learn how to use the library with different encodings (e.g. base64).
