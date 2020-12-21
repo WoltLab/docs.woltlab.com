@@ -52,6 +52,20 @@ For further details on these methods, please refer to the [documentation in the 
 
 {% include callout.html content="Do not interact directly with the flood control database table but only via the `FloodControl` class!" type="warning" %}
 
+## PHP Database API
+
+The PHP API to add and change database tables during package installations and updates in the `wcf\system\database\table` namespace now also supports renaming existing table columns with the new `IDatabaseTableColumn::renameTo()` method:
+
+```php
+PartialDatabaseTable::create('wcf1_test')
+        ->columns([
+                NotNullInt10DatabaseTableColumn::create('oldName')
+                        ->renameTo('newName')
+        ]);
+```
+
+{% include callout.html content="Like with every change to existing database tables, packages can only rename columns that they installed." type="info" %} 
+
 ## Captcha
 
 The reCAPTCHA v1 implementation was completely removed.
