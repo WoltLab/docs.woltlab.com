@@ -79,9 +79,9 @@ See [WoltLab/WCF#3781](https://github.com/WoltLab/WCF/pull/3781) for details.
 ## Search
 
 The generic implementation in the `AbstractSearchEngine::parseSearchQuery()` method was dangerous, because it did not have knowledge about the search engine’s specifics.
-The implementation was completely removed `parseSearchQuery()` now always throws a `\BadMethodCallException`.
+The implementation was completely removed: `AbstractSearchEngine::parseSearchQuery()` now always throws a `\BadMethodCallException`.
 
-If you implemented a custom search engine and relied on this method you can inline the previous implementation to preserve existing behavior.
-You should take the time to verify the results against the manual of the search engine to make sure it cannot generate malformed queries or security issues.
+If you implemented a custom search engine and relied on this method, you can inline the previous implementation to preserve existing behavior.
+You should take the time to verify the rewritten queries against the manual of the search engine to make sure it cannot generate malformed queries or security issues.
 
 See [WoltLab/WCF#3815](https://github.com/WoltLab/WCF/issues/3815) for details.
