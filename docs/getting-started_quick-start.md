@@ -49,7 +49,7 @@ Create a new file called `package.xml` and insert the code below:
 </package>
 ```
 
-There is an [entire chapter][package_package-xml] on the package system that explains what the code above
+There is an [entire chapter](package_package-xml.md) on the package system that explains what the code above
 does and how you can adjust it to fit your needs. For now we'll keep it as it is.
 
 ## The PHP Class

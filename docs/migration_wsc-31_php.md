@@ -3,13 +3,13 @@
 ## Form Builder
 
 WoltLab Suite Core 5.2 introduces a new, simpler and quicker way of creating forms:
-[form builder](php_api_form_builder.html).
-You can find examples of how to migrate existing forms to form builder [here](migration_wsc-31_form-builder.html).
+[form builder](php_api_form_builder.md).
+You can find examples of how to migrate existing forms to form builder [here](migration_wsc-31_form-builder.md).
 
 In the near future, to ensure backwards compatibility within WoltLab packages, we will only use form builder for new forms or for major rewrites of existing forms that would break backwards compatibility anyway.
 
 ## Like System 
-WoltLab Suite Core 5.2 replaced the like system with the reaction system. You can find the migration guide [here](migration_wsc-31_like.html).
+WoltLab Suite Core 5.2 replaced the like system with the reaction system. You can find the migration guide [here](migration_wsc-31_like.md).
 
 ## User Content Providers
 
@@ -18,7 +18,7 @@ User content providers help the WoltLab Suite to find user generated content. Th
 
 ### PHP Class
 
-First, we create the PHP class that provides our interface to provide the data. The class must implement interface `wcf\system\user\content\provider\IUserContentProvider` in any case. Mostly we process data which is based on [`wcf\data\DatabaseObject`](php_database-objects.html). In this case, the WoltLab Suite provides an abstract class `wcf\system\user\content\provider\AbstractDatabaseUserContentProvider` that can be used to automatically generates the standardized classes to generate the list and deletes objects via the DatabaseObjectAction. For example, if we would create a content provider for comments, the class would look like this: 
+First, we create the PHP class that provides our interface to provide the data. The class must implement interface `wcf\system\user\content\provider\IUserContentProvider` in any case. Mostly we process data which is based on [`wcf\data\DatabaseObject`](php_database-objects.md). In this case, the WoltLab Suite provides an abstract class `wcf\system\user\content\provider\AbstractDatabaseUserContentProvider` that can be used to automatically generates the standardized classes to generate the list and deletes objects via the DatabaseObjectAction. For example, if we would create a content provider for comments, the class would look like this: 
 
 ```php
 <?php
@@ -71,4 +71,4 @@ The specified list of comma-separated object types are automatically removed dur
 ## PHP Database API
 
 WoltLab Suite 5.2 introduces a new way to update the database scheme:
-[database PHP API](package_database-php-api.html).
+[database PHP API](package_database-php-api.md).

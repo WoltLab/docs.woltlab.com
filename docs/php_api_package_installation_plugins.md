@@ -1,6 +1,6 @@
 # Package Installation Plugins
 
-A package installation plugin (PIP) defines the behavior to handle a specific [instruction](package_package-xml.html#instruction) during package installation, update or uninstallation.
+A package installation plugin (PIP) defines the behavior to handle a specific [instruction](package_package-xml.md#instruction) during package installation, update or uninstallation.
 
 ## `AbstractPackageInstallationPlugin`
 
@@ -52,9 +52,9 @@ Example:
 ```php
 <?php
 return [
-	'environment' => $data['elements']['environment'],
-	'eventName' => $data['elements']['eventname'],
-	'name' => $data['attributes']['name']
+	'environment' => $data['elements']['environment'.md],
+	'eventName' => $data['elements']['eventname'.md],
+	'name' => $data['attributes']['name'.md]
 ];
 ```
 
@@ -115,10 +115,10 @@ $statement = WCF::getDB()->prepareStatement($sql);
 foreach ($items as $item) {
 	$statement->execute([
 		$this->installation->getPackageID(),
-		$item['elements']['environment'],
-		$item['elements']['eventname'],
-		$item['attributes']['name'],
-		$item['elements']['templatename']
+		$item['elements']['environment'.md],
+		$item['elements']['eventname'.md],
+		$item['attributes']['name'.md],
+		$item['elements']['templatename'.md]
 	]);
 }
 ```

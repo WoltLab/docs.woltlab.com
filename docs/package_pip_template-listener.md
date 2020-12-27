@@ -7,7 +7,7 @@ parent: package_pip
 ---
 
 Registers template listeners.
-Template listeners supplement [event listeners](package_pip_event-listener.html), which modify server side behaviour, by adding additional template code to display additional elements.
+Template listeners supplement [event listeners](package_pip_event-listener.md), which modify server side behaviour, by adding additional template code to display additional elements.
 The added template code behaves as if it was part of the original template (i.e. it has access to all local variables).
 
 ## Components

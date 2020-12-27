@@ -27,8 +27,8 @@ You can exclude these pages by adding `<excludeFromLandingPage>1</excludeFromLan
 
 ## New Package Installation Plugin for Media Providers
 
-Please refer to the documentation of the [`mediaProvider.xml`][package_pip_media-provider] to learn more.
+Please refer to the documentation of the [`mediaProvider.xml`](package_pip_media-provider.md) to learn more.
 
 ## Limited Forward-Compatibility for Plugins
 
-Please refer to the documentation of the [`<compatibility>`](package_package-xml.html#compatibility) tag in the `package.xml`.
+Please refer to the documentation of the [`<compatibility>`](package_package-xml.md#compatibility) tag in the `package.xml`.

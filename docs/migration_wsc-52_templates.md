@@ -35,7 +35,7 @@ require(['Language', /* … */], function(Language, /* … */) {
 
 ## Template Plugins
 
-The [`{anchor}`](view_template-plugins.html#53-anchor), [`{plural}`](view_template-plugins.html#53-plural), and [`{user}`](view_template-plugins.html#53-user) template plugins have been added.
+The [`{anchor}`](view_template-plugins.md#53-anchor), [`{plural}`](view_template-plugins.md#53-plural), and [`{user}`](view_template-plugins.md#53-user) template plugins have been added.
 
 ## Notification Language Items
 

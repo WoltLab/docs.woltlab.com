@@ -9,7 +9,7 @@ parent: view_languages
 This page contains general rules for naming language items and for their values.
 API-specific rules are listed on the relevant API page:
 
-- [Comments](php_api_comments.html#language-items)
+- [Comments](php_api_comments.md#language-items)
 
 
 ## Forms

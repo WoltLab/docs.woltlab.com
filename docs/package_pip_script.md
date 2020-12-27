@@ -8,7 +8,7 @@ parent: package_pip
 
 Execute arbitrary PHP code during installation, update and uninstallation of the package.
 
-{% include callout.html content="You must install the PHP script through the [file package installation plugin](package_pip_file.html)." type="warning" %}
+{% include callout.html content="You must install the PHP script through the [file package installation plugin](package_pip_file.md)." type="warning" %}
 
 {% include callout.html content="The installation will attempt to delete the script after successful execution." type="warning" %}
 
@@ -17,7 +17,7 @@ Execute arbitrary PHP code during installation, update and uninstallation of the
 ### `application`
 
 The `application` attribute must have the same value as the `application` attribute of the `file` package installation plugin instruction so that the correct file in the intended application directory is executed.
-For further information about the `application` attribute, refer to its documentation on the [acpTemplate package installation plugin page](package_pip_acp-template.html#application).
+For further information about the `application` attribute, refer to its documentation on the [acpTemplate package installation plugin page](package_pip_acp-template.md#application).
 
 
 ## Expected value
@@ -26,7 +26,7 @@ The `script`-PIP expects a relative path to a `.php` file.
 
 ### Naming convention
 
-The PHP script is deployed by using the [file package installation plugin](package_pip_file.html).
+The PHP script is deployed by using the [file package installation plugin](package_pip_file.md).
 To prevent it from colliding with other install script (remember: You cannot overwrite files created by another plugin), we highly recommend to make use of these naming conventions:
 
 - Installation: `install_<package>_<version>.php` (example: `install_com.woltlab.wbb_5.0.0.php`)

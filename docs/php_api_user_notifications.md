@@ -118,7 +118,7 @@ class FooUserNotificationObject extends DatabaseObjectDecorator implements IUser
 
 ## `userNotificationEvent.xml`
 
-Each event that you fire in your package needs to be registered using the [user notification event package installation plugin](package_pip_user-notification-event.html).
+Each event that you fire in your package needs to be registered using the [user notification event package installation plugin](package_pip_user-notification-event.md).
 An example file might look like this:
 
 ```xml
@@ -313,7 +313,7 @@ class FooUserNotificationEvent extends AbstractSharedUserNotificationEvent {
   By checking the value of `count($this->getAuthors())`, we check if the notification is stacked, thus if the event has been triggered for multiple users so that different languages items are used.
   If your notification event does not support stacking, this distinction is not necessary.
 - The `prepare()` method is called for each user notification before all user notifications are rendered.
-  This allows to tell runtime caches to prepare to load objects later on (see [Runtime Caches](php_api_caches_runtime-caches.html)).
+  This allows to tell runtime caches to prepare to load objects later on (see [Runtime Caches](php_api_caches_runtime-caches.md)).
 
 
 ## Firing Events

@@ -95,7 +95,7 @@ You should use the same icon names for the (logically) same task, unifying the m
 
 ## box.xml
 
-The [box][package_pip_box] PIP has been added.
+The [box](package_pip_box.md) PIP has been added.
 
 ## cronjob.xml
 
@@ -111,11 +111,11 @@ Event listeners can now be assigned a name using the name attribute as in `<even
 
 ## menu.xml
 
-The [menu][package_pip_menu] PIP has been added.
+The [menu](package_pip_menu.md) PIP has been added.
 
 ## menuItem.xml
 
-The [menuItem][package_pip_menu-item] PIP has been added.
+The [menuItem](package_pip_menu-item.md) PIP has been added.
 
 ## objectType.xml
 
@@ -129,7 +129,7 @@ The `module.display` category has been renamed into `module.customization`.
 
 ## page.xml
 
-The [page][package_pip_page] PIP has been added.
+The [page](package_pip_page.md) PIP has been added.
 
 ## pageMenu.xml
 

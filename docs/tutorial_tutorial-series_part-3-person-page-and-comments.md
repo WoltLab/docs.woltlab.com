@@ -12,7 +12,7 @@ To make good use of this new page and introduce a new API of WoltLab Suite, we w
 
 ## Package Functionality
 
-In addition to the existing functions from [part 1](tutorial_tutorial-series_part-1-base-structure.html), the package will provide the following possibilities/functions after this part of the tutorial:
+In addition to the existing functions from [part 1](tutorial_tutorial-series_part-1-base-structure.md), the package will provide the following possibilities/functions after this part of the tutorial:
 
 - Details page for each person linked in the front end person list
 - Comment on people on their respective page (can be disabled per person)
@@ -22,12 +22,12 @@ In addition to the existing functions from [part 1](tutorial_tutorial-series_par
 
 ## Used Components
 
-In addition to the components used in [part 1](tutorial_tutorial-series_part-1-base-structure.html), we will use the [objectType package installation plugin](package_pip_object-type.html), use the [comment API](php_api_comments.html), create a [runtime cache](php_api_caches_runtime-caches.html), and create a page handler.
+In addition to the components used in [part 1](tutorial_tutorial-series_part-1-base-structure.md), we will use the [objectType package installation plugin](package_pip_object-type.md), use the [comment API](php_api_comments.md), create a [runtime cache](php_api_caches_runtime-caches.md), and create a page handler.
 
 
 ## Package Structure
 
-The complete package will have the following file structure (including the files from [part 1](tutorial_tutorial-series_part-1-base-structure.html)):
+The complete package will have the following file structure (including the files from [part 1](tutorial_tutorial-series_part-1-base-structure.md)):
 
 ```
 ├── acpMenu.xml
@@ -80,7 +80,7 @@ The complete package will have the following file structure (including the files
 
 ## Runtime Cache
 
-To reduce the number of database queries when different APIs require person objects, we implement a [runtime cache](php_api_caches_runtime-caches.html) for people:
+To reduce the number of database queries when different APIs require person objects, we implement a [runtime cache](php_api_caches_runtime-caches.md) for people:
 
 {% highlight php %}
 {% include tutorial/tutorial-series/part-3/files/lib/system/cache/runtime/PersonRuntimeCache.class.php %}
@@ -103,7 +103,7 @@ The `PersonCommentManager` class extended `ICommentManager`’s default implemen
 {% endhighlight %}
 
 - First, the system is told the names of the permissions via the `$permission*` properties.
-  More information about comment permissions can be found [here](php_api_comments.html#user-group-options).
+  More information about comment permissions can be found [here](php_api_comments.md#user-group-options).
 - The `getLink()` method returns the link to the person with the passed comment id.
   As in `isAccessible()`, `PersonRuntimeCache` is used to potentially save database queries.
 - The `isAccessible()` method checks if the active user can access the relevant person.

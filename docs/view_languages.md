@@ -4,8 +4,8 @@ WoltLab Suite offers full i18n support with its integrated language system,
 including but not limited to dynamic phrases using template scripting and the
 built-in support for right-to-left languages.
 
-Phrases are deployed using the [language][package_pip_language] package
-installation plugin, please also read the [naming conventions for language items](view_languages_naming-conventions.html).
+Phrases are deployed using the [language](package_pip_language.md) package
+installation plugin, please also read the [naming conventions for language items](view_languages_naming-conventions.md).
 
 ## Special Phrases
 

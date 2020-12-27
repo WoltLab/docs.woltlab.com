@@ -2,9 +2,9 @@
 
 ## The History of the Legacy API
 
-The WoltLab Suite 3.0 [introduced a new API][javascript_new-api_writing-a-module] based on AMD-Modules
+The WoltLab Suite 3.0 [introduced a new API](javascript_new-api_writing-a-module.md) based on AMD-Modules
 with ES5-JavaScript that was designed with high performance and visible dependencies
-in mind. This was a fundamental change in comparison to [the legacy API][javascript_legacy-api]
+in mind. This was a fundamental change in comparison to [the legacy API](javascript_legacy-api.md)
 that was build many years before while jQuery was still a thing and we had to deal
 with ancient browsers such as Internet Explorer 9 that felt short in both CSS and
 JavaScript capabilities.
@@ -83,7 +83,7 @@ the minified and optimized file to the average visitor. You should use the
 
 ### The Accelerated Guest View ("Tiny Builds")
 
-{% include callout.html content="You can learn more on the [Accelerated Guest View][migration_wsc-30_javascript] in the migration docs." type="info" %}
+{% include callout.html content="You can learn more on the [Accelerated Guest View](migration_wsc-30_javascript.md) in the migration docs." type="info" %}
 
 The "Accelerated Guest View" was introduced in WoltLab Suite 3.1 and aims to
 decrease page size and to improve responsiveness by enabling a read-only mode

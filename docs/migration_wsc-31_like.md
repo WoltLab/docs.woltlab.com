@@ -86,7 +86,7 @@ Jemandem hat auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {o
 
 ### Recent Activity 
 
-To adjust entries in the Recent Activity, only three small steps are necessary. First we pass the concrete reaction to the language variable, so that we can use the reaction object there. To do this, we add the following variable to the text of the `\wcf\system\user\activity\event\IUserActivityEvent` object: `$event->reactionType`. Typically we name the variable `reactionType`. In the second step, we mark the event as compatible. Therefore we set the parameter `supportsReactions` in the [`objectType.xml`](package_pip_object-type) to `1`. So for example the entry looks like this:
+To adjust entries in the Recent Activity, only three small steps are necessary. First we pass the concrete reaction to the language variable, so that we can use the reaction object there. To do this, we add the following variable to the text of the `\wcf\system\user\activity\event\IUserActivityEvent` object: `$event->reactionType`. Typically we name the variable `reactionType`. In the second step, we mark the event as compatible. Therefore we set the parameter `supportsReactions` in the [`objectType.xml`](package_pip_object-type.md) to `1`. So for example the entry looks like this:
  
 ```xml
 <type>
@@ -122,7 +122,7 @@ Hat mit <span title="{$reactionType->getTitle()}" class="jsTooltip">{@$reactionT
 ```
 
 ### Comments
-If comments send notifications, they must also be updated. The language variables are changed in the same way as described in the section [Notifications / Language](migration_wsc-31_like.html#Language-Variables). After that comment must be marked as compatible. Therefore we set the parameter `supportsReactions` in the [`objectType.xml`](package_pip_object-type) to `1`. So for example the entry looks like this: 
+If comments send notifications, they must also be updated. The language variables are changed in the same way as described in the section [Notifications / Language](migration_wsc-31_like.md#Language-Variables). After that comment must be marked as compatible. Therefore we set the parameter `supportsReactions` in the [`objectType.xml`](package_pip_object-type.md) to `1`. So for example the entry looks like this: 
 
 ```xml
 <type>

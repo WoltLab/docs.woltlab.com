@@ -222,7 +222,7 @@ Many PIPs provide default file names which are used if no value is given:
 <instruction type="objectTypeDefinition" />
 ```
 
-There is a [list of all default PIPs](package_pip.html) available.
+There is a [list of all default PIPs](package_pip.md) available.
 
 {% include callout.html content="Both the `type`-attribute and the element value are case-sensitive. Windows does not care if the file is called `objecttypedefinition.xml` but was referenced as `objectTypeDefinition.xml`, but both Linux and Mac systems will be unable to find the file." type="warning" %}
 

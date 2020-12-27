@@ -32,7 +32,7 @@ If you follow this convention, WoltLab Suite Core will automatically determine t
 ## Installing Templates
 
 Templates and ACP templates are installed by two different package installation plugins:
-the [template PIP](package_pip_template.html) and the [ACP template PIP](package_pip_acp-template.html).
+the [template PIP](package_pip_template.md) and the [ACP template PIP](package_pip_acp-template.md).
 More information about installing templates can be found on those pages. 
 
 
@@ -79,7 +79,7 @@ More information about installing templates can be found on those pages.
 
 ### Forms
 
-{% include callout.html content="For new forms, use the new [form builder API](php_api_form_builder.html) introduced with WoltLab Suite 5.2." type="info" %}
+{% include callout.html content="For new forms, use the new [form builder API](php_api_form_builder.md) introduced with WoltLab Suite 5.2." type="info" %}
 
 ```smarty
 <form method="post" action="{link controller='FooBar'}{/link}">
@@ -312,4 +312,4 @@ Additional template variables can be passed to the included template as addition
 
 ### Template Plugins
 
-An overview of all available template plugins can be found [here](view_template-plugins.html).
+An overview of all available template plugins can be found [here](view_template-plugins.md).

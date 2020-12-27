@@ -7,7 +7,7 @@ parent: package_pip
 ---
 
 Registers an object type.
-Read about object types in the [objectTypeDefinition](package_pip_object-type-definition.html) PIP.
+Read about object types in the [objectTypeDefinition](package_pip_object-type-definition.md) PIP.
 
 ## Components
 
@@ -15,7 +15,7 @@ Each item is described as a `<type>` element with the mandatory child `<name>` t
 
 ### `<definitionname>`
 
-The `<name>` of the [objectTypeDefinition](package_pip_object-type-definition.html).
+The `<name>` of the [objectTypeDefinition](package_pip_object-type-definition.md).
 
 ### `<classname>`
 

@@ -51,7 +51,7 @@ Additionally, WoltLab Suite Core does not track regular SQL queries such as `DEL
 ### Triggers
 
 WoltLab Suite Core does not support trigger since MySQL does not support execution of triggers if the event was fired by a cascading foreign key action.
-If you really need triggers, you should consider adding them by custom SQL queries using a [script](package_pip_script.html).
+If you really need triggers, you should consider adding them by custom SQL queries using a [script](package_pip_script.md).
 
 
 ## Example

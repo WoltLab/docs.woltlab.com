@@ -115,7 +115,7 @@ Breadcrumbs used to be a lose collection of arbitrary links, but are now represe
 
 ## Pages and Forms
 
-The property `$activeMenuItem` has been deprecated for the front end and is no longer evaluated at runtime. Recognition of the active item is entirely based around the invoked controller class name and its definition in the page table. You need to properly [register your pages](package_pip_page.html) for this feature to work.
+The property `$activeMenuItem` has been deprecated for the front end and is no longer evaluated at runtime. Recognition of the active item is entirely based around the invoked controller class name and its definition in the page table. You need to properly [register your pages](package_pip_page.md) for this feature to work.
 
 ## Search
 

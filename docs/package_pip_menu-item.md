@@ -14,7 +14,7 @@ Each item is described as an `<item>` element with the mandatory attribute `iden
 
 ### `<menu>`
 
-The target menu that the item should be added to, requires the internal identifier set by creating a menu through the [menu.xml][package_pip_menu].
+The target menu that the item should be added to, requires the internal identifier set by creating a menu through the [menu.xml](package_pip_menu.md).
 
 ### `<title>`
 
@@ -24,7 +24,7 @@ The title is displayed as the link title of the menu item and can be fully custo
 
 ### `<page>`
 
-The page that the link should point to, requires the internal identifier set by creating a page through the [page.xml][package_pip_page].
+The page that the link should point to, requires the internal identifier set by creating a page through the [page.xml](package_pip_page.md).
 
 ## Example
 

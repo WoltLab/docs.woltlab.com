@@ -6,7 +6,7 @@ folder: tutorial/tutorial-series
 parent: tutorial_tutorial-series
 ---
 
-In the [first part](tutorial_tutorial-series_part-1-base-structure.html) of this tutorial series, we have created the base structure of our people management package.
+In the [first part](tutorial_tutorial-series_part-1-base-structure.md) of this tutorial series, we have created the base structure of our people management package.
 In further parts, we will use the package of the first part as a basis to directly add new features.
 In order to explain how event listeners and template works, however, we will not directly adding a new feature to the package by altering it in this part, but we will assume that somebody else created the package and that we want to extend it the “correct” way by creating a plugin.
 
@@ -29,15 +29,15 @@ The package should provide the following possibilities/functions:
 
 We will use the following package installation plugins:
 
-- [acpTemplate package installation plugin](package_pip_acp-template.html),
-- [eventListener package installation plugin](package_pip_event-listener.html),
-- [file package installation plugin](package_pip_file.html),
-- [language package installation plugin](package_pip_language.html),
-- [sql package installation plugin](package_pip_sql.html),
-- [template package installation plugin](package_pip_template.html),
-- [templateListener package installation plugin](package_pip_template-listener.html).
+- [acpTemplate package installation plugin](package_pip_acp-template.md),
+- [eventListener package installation plugin](package_pip_event-listener.md),
+- [file package installation plugin](package_pip_file.md),
+- [language package installation plugin](package_pip_language.md),
+- [sql package installation plugin](package_pip_sql.md),
+- [template package installation plugin](package_pip_template.md),
+- [templateListener package installation plugin](package_pip_template-listener.md).
 
-For more information about the event system, please refer to the [dedicated page on events](php_api_events.html).
+For more information about the event system, please refer to the [dedicated page on events](php_api_events.md).
 
 
 ## Package Structure
@@ -70,13 +70,13 @@ The package will have the following file structure:
 ## Extending Person Model (`install.sql`)
 
 The existing model of a person only contains the person’s first name and their last name (in additional to the id used to identify created people).
-To add the birthday to the model, we need to create an additional database table column using the [sql package installation plugin](package_pip_sql.html):
+To add the birthday to the model, we need to create an additional database table column using the [sql package installation plugin](package_pip_sql.md):
 
 {% highlight sql %}
 {% include tutorial/tutorial-series/part-2/install.sql %}
 {% endhighlight %}
 
-If we have a [Person object](tutorial_tutorial-series_part-1-base-structure.html#person), this new property can be accessed the same way as the `personID` property, the `firstName` property, or the `lastName` property from the base package: `$person->birthday`.
+If we have a [Person object](tutorial_tutorial-series_part-1-base-structure.md#person), this new property can be accessed the same way as the `personID` property, the `firstName` property, or the `lastName` property from the base package: `$person->birthday`.
 
 
 ## Setting Birthday in ACP
@@ -99,7 +99,7 @@ The used language item `wcf.person.birthday` is actually the only new one for th
 {% include tutorial/tutorial-series/part-2/language/en.xml %}
 {% endhighlight %}
 
-The template listener needs to be registered using the [templateListener package installation plugin](package_pip_template-listener.html).
+The template listener needs to be registered using the [templateListener package installation plugin](package_pip_template-listener.md).
 The corresponding complete `templateListener.xml` file is included [below](#templatelistenerxml).
 
 The template code alone is not sufficient because the `birthday` field is, at the moment, neither read, nor processed, nor saved by any PHP code.

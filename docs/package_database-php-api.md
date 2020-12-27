@@ -2,8 +2,8 @@
 
 {% include callout.html content="Available since WoltLab Suite 5.2." type="info" %}
 
-While the [sql](package_pip_sql.html) package installation plugin supports adding and removing tables, columns, and indices, it is not able to handle cases where the added table, column, or index already exist.
-We have added a new PHP-based API to manipulate the database scheme which can be used in combination with the [script](package_pip_script.html) package installation plugin that skips parts that already exist:
+While the [sql](package_pip_sql.md) package installation plugin supports adding and removing tables, columns, and indices, it is not able to handle cases where the added table, column, or index already exist.
+We have added a new PHP-based API to manipulate the database scheme which can be used in combination with the [script](package_pip_script.md) package installation plugin that skips parts that already exist:
 
 ```php
 $tables = [

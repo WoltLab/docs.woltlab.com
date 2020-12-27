@@ -2,8 +2,8 @@
 
 WoltLab Suite offers two distinct types of caches:
 
-1. [Persistent caches](php_api_caches_persistent-caches.html) created by cache builders whose data can be stored using different cache sources.
-2. [Runtime caches](php_api_caches_runtime-caches.html) store objects for the duration of a single request.
+1. [Persistent caches](php_api_caches_persistent-caches.md) created by cache builders whose data can be stored using different cache sources.
+2. [Runtime caches](php_api_caches_runtime-caches.md) store objects for the duration of a single request.
 
 ## Understanding Caching
 

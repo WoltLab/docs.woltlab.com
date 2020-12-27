@@ -35,7 +35,7 @@ The basis for all three elements are form nodes.
   By default, a form node has no CSS classes.
 - `addDependency(IFormFieldDependency $dependency)`, `removeDependency($dependencyId)`, `getDependencies()`, and `hasDependency($dependencyId)` add, remove, get, and check for dependencies of this form node on other form fields.
   `checkDependencies()` checks if **all** of the node’s dependencies are met and returns a boolean value reflecting the check’s result.
-  The [form builder dependency documentation](php_api_form_builder-dependencies.html) provides more detailed information about dependencies and how they work.
+  The [form builder dependency documentation](php_api_form_builder-dependencies.md) provides more detailed information about dependencies and how they work.
   By default, a form node has no dependencies.
 - `attribute($name, $value = null)`, `removeAttribute($name)`, `getAttribute($name)`, `getAttributes()`, `hasAttribute($name)` add, remove, get, and check for attributes of the HTML element represting the form node.
   The attributes are added to the same element that the CSS classes are added to.
@@ -223,8 +223,8 @@ Every form field has to implement the `IFormField` interface which extends `IFor
 
 `IFormField` requires the following additional methods:
 
-- `addValidationError(IFormFieldValidationError $error)` and `getValidationErrors()` can be used to get and set validation errors of the form field (see [form validation](php_api_form_builder-validation_data.html#form-validation)).
-- `addValidator(IFormFieldValidator $validator)`, `getValidators()`, `removeValidator($validatorId)`, and `hasValidator($validatorId)` can be used to get, set, remove, and check for validators for the form field (see [form validation](php_api_form_builder-validation_data.html#form-validation)).
+- `addValidationError(IFormFieldValidationError $error)` and `getValidationErrors()` can be used to get and set validation errors of the form field (see [form validation](php_api_form_builder-validation_data.md#form-validation)).
+- `addValidator(IFormFieldValidator $validator)`, `getValidators()`, `removeValidator($validatorId)`, and `hasValidator($validatorId)` can be used to get, set, remove, and check for validators for the form field (see [form validation](php_api_form_builder-validation_data.md#form-validation)).
 - `getFieldHtml()` returns the field's HTML output without the surrounding `dl` structure.
 - `objectProperty($objectProperty)` and `getObjectProperty()` can be used to get and set the object property that the field represents.
   When setting the object property is set to an empty string, the previously set object property is unset.
@@ -242,7 +242,7 @@ Every form field has to implement the `IFormField` interface which extends `IFor
 
 `AbstractFormField` provides default implementations of many of the listed methods above and should be extended instead of implementing `IFormField` directly.
 
-An overview of the form fields provided by default can be found [here](php_api_form_builder-form_fields.html).
+An overview of the form fields provided by default can be found [here](php_api_form_builder-form_fields.md).
 
 
 ### Form Field Interfaces and Traits
@@ -281,7 +281,7 @@ The implementing class has to implement the following methods:
 - `hasI18nValues()` and `hasPlainValue()` check if the current value is a multilingual or monolingual value.
 
 `TI18nFormField` provides a default implementation of these eight methods and additional default implementations of some of the `IFormField` methods.
-If multilingual input is enabled for a specific form field, classes using `TI18nFormField` register a [custom form field data processor](php_api_form_builder-validation_data.html#customformfielddataprocessor) to add the array with multilingual input into the `$parameters` array directly using `{$objectProperty}_i18n` as the array key.
+If multilingual input is enabled for a specific form field, classes using `TI18nFormField` register a [custom form field data processor](php_api_form_builder-validation_data.md#customformfielddataprocessor) to add the array with multilingual input into the `$parameters` array directly using `{$objectProperty}_i18n` as the array key.
 If multilingual input is enabled but only a monolingual value is entered, the custom form field data processor does nothing and the form field’s value is added by the `DefaultFormDataProcessor` into the `data` sub-array of the `$parameters` array.
 
 {% include callout.html content="`TI18nFormField` already provides a default implementation of `IFormField::validate()`." type="info" %}
@@ -347,7 +347,7 @@ The implementing class has to implement the following methods:
   By default, there is no maximum number of values.
   `IMultipleFormField::NO_MAXIMUM_MULTIPLES` is returned if no maximum number of values has been set and it can also be used to unset a previously set maximum number of values.
 
-`TMultipleFormField` provides a default implementation of these six methods and classes using `TMultipleFormField` register a [custom form field data processor](php_api_form_builder-validation_data.html#customformfielddataprocessor) to add the `HtmlInputProcessor` object with the text into the `$parameters` array directly using `{$objectProperty}_htmlInputProcessor` as the array key.
+`TMultipleFormField` provides a default implementation of these six methods and classes using `TMultipleFormField` register a [custom form field data processor](php_api_form_builder-validation_data.md#customformfielddataprocessor) to add the `HtmlInputProcessor` object with the text into the `$parameters` array directly using `{$objectProperty}_htmlInputProcessor` as the array key.
 
 {% include callout.html content="The implementing class has to validate the values against the minimum and maximum number of values manually." type="warning" %}
 

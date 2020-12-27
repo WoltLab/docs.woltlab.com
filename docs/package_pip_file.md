@@ -10,7 +10,7 @@ Adds any type of files with the exception of templates.
 
 {% include callout.html content="You cannot overwrite files provided by other packages." type="warning" %}
 
-The `application` attribute behaves like it does for [acp templates](package_pip_acp-template.html#application).
+The `application` attribute behaves like it does for [acp templates](package_pip_acp-template.md#application).
 
 
 ## Archive

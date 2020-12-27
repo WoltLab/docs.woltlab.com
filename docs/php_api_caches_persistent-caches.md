@@ -23,7 +23,7 @@ It is easy to get lost in the realm of caching, especially when it comes to the
 decision if you should use a cache or not. When in doubt, you should opt to not
 use them, because they also come at a hidden cost that cannot be expressed through
 simple SQL query counts. If you haven't already, it is recommended that you read
-the [introduction article on caching][php_api_caches] first, it provides a bit
+the [introduction article on caching](php_api_caches.md) first, it provides a bit
 of background on caches and examples that should help you in your decision.
 
 ## `AbstractCacheBuilder`

@@ -260,7 +260,7 @@ Additionally, `htmlspecialchars` is applied to the string.
 
 ## `event`
 
-`event` provides extension points in templates that [template listeners](package_pip_template-listener.html) can use.
+`event` provides extension points in templates that [template listeners](package_pip_template-listener.md) can use.
 
 ```smarty
 {event name='foo'}
@@ -585,7 +585,7 @@ The exact formatting depends on the current language (via the language items `wc
 ## <span class="label label-info">5.3+</span> `plural`
 
 `plural` allows to easily select the correct plural form of a phrase based on a given `value`.
-The pluralization logic follows the [Unicode Language Plural Rules](https://unicode-org.github.io/cldr-staging/charts/37/supplemental/language_plural_rules.html) for cardinal numbers.
+The pluralization logic follows the [Unicode Language Plural Rules](https://unicode-org.github.io/cldr-staging/charts/37/supplemental/language_plural_rules.md) for cardinal numbers.
 
 The `#` placeholder within the resulting phrase is replaced by the `value`.
 It is automatically formatted using `StringUtil::formatNumeric`.

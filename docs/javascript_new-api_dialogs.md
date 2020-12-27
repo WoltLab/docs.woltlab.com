@@ -102,7 +102,7 @@ The phrase that is displayed in the tooltip for the close button.
 
 _Defaults to `""`._
 
-Shows a [confirmation dialog][javascript_new-api_ui] using the configured message
+Shows a [confirmation dialog](javascript_new-api_ui.md) using the configured message
 before closing the dialog. The dialog will not be closed if the dialog is
 rejected by the user.
 

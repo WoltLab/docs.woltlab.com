@@ -20,7 +20,7 @@ The internal name displayed in the admin panel only, can be fully customized by 
 
 ### `<box>`
 
-The following elements of the [box PIP](package_pip_box.html) are supported, please refer to the documentation to learn more about them:
+The following elements of the [box PIP](package_pip_box.md) are supported, please refer to the documentation to learn more about them:
 
 * `<position>`
 * `<showHeader>`

@@ -31,7 +31,7 @@ by following a few basic principles:
 
 The default location for modules is `js/` in the Core's app dir,
 but every app and plugin can register their own lookup path by providing the path
-using a [template-listener][package_pip_template-listener] on `requirePaths@headIncludeJavaScript`.
+using a [template-listener](package_pip_template-listener.md) on `requirePaths@headIncludeJavaScript`.
 
 For this example we'll assume the file is placed at `js/WoltLabSuite/Core/Ui/Foo.js`,
 the module name is therefore `WoltLabSuite/Core/Ui/Foo`, it is automatically
@@ -95,33 +95,33 @@ it is strongly recommended to use the aliases for consistency.
 
 | Alias | Full Path |
 |---|---|
-| [Ajax][javascript_new-api_ajax] | WoltLabSuite/Core/Ajax |
+| [Ajax](javascript_new-api_ajax.md) | WoltLabSuite/Core/Ajax |
 | AjaxJsonp | WoltLabSuite/Core/Ajax/Jsonp |
 | AjaxRequest | WoltLabSuite/Core/Ajax/Request |
 | CallbackList | WoltLabSuite/Core/CallbackList |
 | ColorUtil | WoltLabSuite/Core/ColorUtil |
-| [Core][javascript_new-api_core] | WoltLabSuite/Core/Core |
+| [Core](javascript_new-api_core.md) | WoltLabSuite/Core/Core |
 | DateUtil | WoltLabSuite/Core/Date/Util |
 | Devtools | WoltLabSuite/Core/Devtools |
-| [Dictionary][javascript_new-api_data-structures] | WoltLabSuite/Core/Dictionary |
-| [Dom/ChangeListener][javascript_new-api_dom] | WoltLabSuite/Core/Dom/Change/Listener |
+| [Dictionary](javascript_new-api_data-structures.md) | WoltLabSuite/Core/Dictionary |
+| [Dom/ChangeListener](javascript_new-api_dom.md) | WoltLabSuite/Core/Dom/Change/Listener |
 | Dom/Traverse | WoltLabSuite/Core/Dom/Traverse |
-| [Dom/Util][javascript_new-api_dom] | WoltLabSuite/Core/Dom/Util |
-| [Environment][javascript_new-api_browser] | WoltLabSuite/Core/Environment |
-| [EventHandler][javascript_new-api_events] | WoltLabSuite/Core/Event/Handler |
-| [EventKey][javascript_new-api_events] | WoltLabSuite/Core/Event/Key |
-| [Language][javascript_new-api_core] | WoltLabSuite/Core/Language |
-| [List][javascript_new-api_data-structures] | WoltLabSuite/Core/List |
-| [ObjectMap][javascript_new-api_data-structures] | WoltLabSuite/Core/ObjectMap |
+| [Dom/Util](javascript_new-api_dom.md) | WoltLabSuite/Core/Dom/Util |
+| [Environment](javascript_new-api_browser.md) | WoltLabSuite/Core/Environment |
+| [EventHandler](javascript_new-api_events.md) | WoltLabSuite/Core/Event/Handler |
+| [EventKey](javascript_new-api_events.md) | WoltLabSuite/Core/Event/Key |
+| [Language](javascript_new-api_core.md) | WoltLabSuite/Core/Language |
+| [List](javascript_new-api_data-structures.md) | WoltLabSuite/Core/List |
+| [ObjectMap](javascript_new-api_data-structures.md) | WoltLabSuite/Core/ObjectMap |
 | Permission | WoltLabSuite/Core/Permission |
-| [StringUtil][javascript_new-api_core] | WoltLabSuite/Core/StringUtil |
-| [Ui/Alignment][javascript_new-api_ui] | WoltLabSuite/Core/Ui/Alignment |
-| [Ui/CloseOverlay][javascript_new-api_ui] | WoltLabSuite/Core/Ui/CloseOverlay |
-| [Ui/Confirmation][javascript_new-api_ui] | WoltLabSuite/Core/Ui/Confirmation |
-| [Ui/Dialog][javascript_new-api_dialogs] | WoltLabSuite/Core/Ui/Dialog |
-| [Ui/Notification][javascript_new-api_ui] | WoltLabSuite/Core/Ui/Notification |
+| [StringUtil](javascript_new-api_core.md) | WoltLabSuite/Core/StringUtil |
+| [Ui/Alignment](javascript_new-api_ui.md) | WoltLabSuite/Core/Ui/Alignment |
+| [Ui/CloseOverlay](javascript_new-api_ui.md) | WoltLabSuite/Core/Ui/CloseOverlay |
+| [Ui/Confirmation](javascript_new-api_ui.md) | WoltLabSuite/Core/Ui/Confirmation |
+| [Ui/Dialog](javascript_new-api_dialogs.md) | WoltLabSuite/Core/Ui/Dialog |
+| [Ui/Notification](javascript_new-api_ui.md) | WoltLabSuite/Core/Ui/Notification |
 | Ui/ReusableDropdown | WoltLabSuite/Core/Ui/Dropdown/Reusable |
-| [Ui/Screen][javascript_new-api_browser] | WoltLabSuite/Core/Ui/Screen |
+| [Ui/Screen](javascript_new-api_browser.md) | WoltLabSuite/Core/Ui/Screen |
 | Ui/Scroll | WoltLabSuite/Core/Ui/Scroll |
 | Ui/SimpleDropdown | WoltLabSuite/Core/Ui/Dropdown/Simple |
 | Ui/TabMenu | WoltLabSuite/Core/Ui/TabMenu |

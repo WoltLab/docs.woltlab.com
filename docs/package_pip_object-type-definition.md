@@ -7,7 +7,7 @@ parent: package_pip
 ---
 
 Registers an object type definition.
-An object type definition is a blueprint for a certain behaviour that is particularized by [objectTypes](package_pip_object-type.html).
+An object type definition is a blueprint for a certain behaviour that is particularized by [objectTypes](package_pip_object-type.md).
 As an example: Tags can be attached to different types of content (such as forum posts or gallery images).
 The bulk of the work is implemented in a generalized fashion, with all the tags stored in a single database table.
 Certain things, such as permission checking, need to be particularized for the specific type of content, though.
@@ -24,7 +24,7 @@ Each item is described as a `<definition>` element with the mandatory child `<na
 
 <span class="label label-info">Optional</span>
 
-The name of the PHP interface [objectTypes](package_pip_object-type.html) have to implement.
+The name of the PHP interface [objectTypes](package_pip_object-type.md) have to implement.
 
 ## Example
 

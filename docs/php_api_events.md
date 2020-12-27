@@ -3,8 +3,8 @@
 WoltLab Suite's event system allows manipulation of program flows and data without having to change any of the original source code.
 At many locations throughout the PHP code of WoltLab Suite Core and mainly through inheritance also in the applications and plugins, so called *events* are fired which trigger registered *event listeners* that get access to the object firing the event (or at least the class name if the event has been fired in a static method).
 
-This page focuses on the technical aspects of events and event listeners, [the eventListener package installation plugin page](package_pip_event-listener.html) covers how you can actually register an event listener.
-A comprehensive list of all available events is provided [here](php_api_event_list.html).
+This page focuses on the technical aspects of events and event listeners, [the eventListener package installation plugin page](package_pip_event-listener.md) covers how you can actually register an event listener.
+A comprehensive list of all available events is provided [here](php_api_event_list.md).
 
 
 ## Introductory Example
@@ -165,7 +165,7 @@ class ExampleParser {
 
 One common reason to use event listeners is to add an additional field to a pre-existing form (in combination with template listeners, which we will not cover here).
 We will assume that users are able to do both, create and edit the objects via this form.
-The points in the program flow of [AbstractForm](php_pages.html#abstractform) that are relevant here are:
+The points in the program flow of [AbstractForm](php_pages.md#abstractform) that are relevant here are:
 
 - adding object (after the form has been submitted):
   1. reading the value of the field
@@ -241,7 +241,7 @@ Furthermore, the type-hinting of the parameter illustrates in which contexts the
   During edits, this current value is the actual value that should be shown.
 - `validate()` also needs to be called in both cases as the input data always has to be validated.
 
-Lastly, the following XML file has to be used to register the event listeners (you can find more information about how to register event listeners on [the eventListener package installation plugin page](package_pip_event-listener.html)):
+Lastly, the following XML file has to be used to register the event listeners (you can find more information about how to register event listeners on [the eventListener package installation plugin page](package_pip_event-listener.md)):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

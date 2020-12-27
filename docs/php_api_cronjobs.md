@@ -4,7 +4,7 @@ Cronjobs offer an easy way to execute actions periodically, like cleaning up the
 
 {% include callout.html content="The execution of cronjobs is not guaranteed but requires someone to access the page with JavaScript enabled." type="warning" %}
 
-This page focuses on the technical aspects of cronjobs, [the cronjob package installation plugin page](package_pip_cronjob.html) covers how you can actually register a cronjob.
+This page focuses on the technical aspects of cronjobs, [the cronjob package installation plugin page](package_pip_cronjob.md) covers how you can actually register a cronjob.
 
 
 ## Example
@@ -48,7 +48,7 @@ class LastActivityCronjob extends AbstractCronjob {
 Every cronjob needs to implement the `wcf\system\cronjob\ICronjob` interface which requires the `execute(Cronjob $cronjob)` method to be implemented.
 This method is called by [wcf\system\cronjob\CronjobScheduler](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/cronjob/CronjobScheduler.class.php) when executing the cronjobs.
 
-In practice, however, you should extend the `AbstractCronjob` class and also call the `AbstractCronjob::execute()` method as it fires an event which makes cronjobs extendable by plugins (see [event documentation](php_event.html)).
+In practice, however, you should extend the `AbstractCronjob` class and also call the `AbstractCronjob::execute()` method as it fires an event which makes cronjobs extendable by plugins (see [event documentation](php_api_events.md)).
 
 
 ## Executing Cronjobs Through CLI

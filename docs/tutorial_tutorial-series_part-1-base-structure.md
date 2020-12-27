@@ -23,17 +23,17 @@ The package should provide the following possibilities/functions:
 
 We will use the following package installation plugins:
 
-- [acpTemplate package installation plugin](package_pip_acp-template.html),
-- [acpMenu package installation plugin](package_pip_acp-menu.html),
-- [file package installation plugin](package_pip_file.html),
-- [language package installation plugin](package_pip_language.html),
-- [menuItem package installation plugin](package_pip_menu-item.html),
-- [page package installation plugin](package_pip_page.html),
-- [sql package installation plugin](package_pip_sql.html),
-- [template package installation plugin](package_pip_template.html),
-- [userGroupOption package installation plugin](package_pip_user-group-option.html),
+- [acpTemplate package installation plugin](package_pip_acp-template.md),
+- [acpMenu package installation plugin](package_pip_acp-menu.md),
+- [file package installation plugin](package_pip_file.md),
+- [language package installation plugin](package_pip_language.md),
+- [menuItem package installation plugin](package_pip_menu-item.md),
+- [page package installation plugin](package_pip_page.md),
+- [sql package installation plugin](package_pip_sql.md),
+- [template package installation plugin](package_pip_template.md),
+- [userGroupOption package installation plugin](package_pip_user-group-option.md),
 
-use [database objects](php_database-objects.html), create [pages](php_pages.html) and use [templates](view_templates.html).
+use [database objects](php_database-objects.md), create [pages](php_pages.md) and use [templates](view_templates.md).
 
 
 ## Package Structure
@@ -117,7 +117,7 @@ an action class, an editor class and a list class.
 This implementation of `AbstractDatabaseObjectAction` is very basic and only sets the `$permissionsDelete` and `$requireACP` properties.
 This is done so that later on, when implementing the people list for the ACP, we can delete people simply via AJAX.
 `$permissionsDelete` has to be set to the permission needed in order to delete a person.
-We will later use the [userGroupOption package installation plugin](package_pip_user-group-option.html) to create the `admin.content.canManagePeople` permission.
+We will later use the [userGroupOption package installation plugin](package_pip_user-group-option.md) to create the `admin.content.canManagePeople` permission.
 `$requireACP` restricts deletion of people to the ACP.
 
 #### `PersonEditor`
@@ -305,17 +305,17 @@ This page should also be directly linked in the main menu.
 
 ### `page.xml`
 
-First, let us register the page with the system because every front end page or form needs to be explicitly registered using the [page package installation plugin](package_pip_page.html):
+First, let us register the page with the system because every front end page or form needs to be explicitly registered using the [page package installation plugin](package_pip_page.md):
 
 {% highlight xml %}
 {% include tutorial/tutorial-series/part-1/page.xml %}
 {% endhighlight %}
 
-For more information about what each of the elements means, please refer to the [page package installation plugin page](package_pip_page.html).
+For more information about what each of the elements means, please refer to the [page package installation plugin page](package_pip_page.md).
 
 ### `menuItem.xml`
 
-Next, we register the menu item using the [menuItem package installation plugin](package_pip_menuItem.html):
+Next, we register the menu item using the [menuItem package installation plugin](package_pip_menu-item.md):
 
 {% highlight xml %}
 {% include tutorial/tutorial-series/part-1/menuItem.xml %}
@@ -366,7 +366,7 @@ Now, let us take a closer look at the differences:
 
 ## `userGroupOption.xml`
 
-We have already used the `admin.content.canManagePeople` permissions several times, now we need to install it using the [userGroupOption package installation plugin](package_pip_user-group-option.html):
+We have already used the `admin.content.canManagePeople` permissions several times, now we need to install it using the [userGroupOption package installation plugin](package_pip_user-group-option.md):
 
 {% highlight xml %}
 {% include tutorial/tutorial-series/part-1/userGroupOption.xml %}
@@ -381,7 +381,7 @@ This is achieved by setting `usersonly` to `1`.
 ## `package.xml`
 
 Lastly, we need to create the `package.xml` file.
-For more information about this kind of file, please refer to [the `package.xml` page](package_package-xml.html).
+For more information about this kind of file, please refer to [the `package.xml` page](package_package-xml.md).
 
 {% highlight xml %}
 {% include tutorial/tutorial-series/part-1/package.xml %}
