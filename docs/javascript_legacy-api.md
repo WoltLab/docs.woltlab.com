@@ -1,9 +1,4 @@
----
-title: Legacy JavaScript API
-sidebar: sidebar
-permalink: javascript_legacy-api.html
-folder: javascript
----
+# Legacy JavaScript API
 
 ## Introduction
 

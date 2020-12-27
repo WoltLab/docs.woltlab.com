@@ -1,9 +1,4 @@
----
-title: Ajax Requests - JavaScript API
-sidebar: sidebar
-permalink: javascript_new-api_ajax.html
-folder: javascript
----
+# Ajax Requests - JavaScript API
 
 ## Ajax inside Modules
 

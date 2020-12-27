@@ -1,9 +1,4 @@
----
-title: Migrating from WSC 5.2 - PHP
-sidebar: sidebar
-permalink: migration_wsc-52_php.html
-folder: migration/wsc-52
----
+# Migrating from WSC 5.2 - PHP
 
 ## Comments
 

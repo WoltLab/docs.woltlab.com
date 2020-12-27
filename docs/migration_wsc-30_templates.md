@@ -1,9 +1,4 @@
----
-title: Migrating from WSC 3.0 - Templates
-sidebar: sidebar
-permalink: migration_wsc-30_templates.html
-folder: migration/wsc-30
----
+# Migrating from WSC 3.0 - Templates
 
 ## Comment-System Overhaul
 

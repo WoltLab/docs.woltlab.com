@@ -1,9 +1,4 @@
----
-title: Package Installation Plugins
-sidebar: sidebar
-permalink: package_pip.html
-folder: package
----
+# Package Installation Plugins
 
 Package Installation Plugins (PIPs) are interfaces to deploy and edit content as well as components.
 

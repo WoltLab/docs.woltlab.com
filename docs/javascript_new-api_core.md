@@ -1,9 +1,4 @@
----
-title: Core Modules and Functions - JavaScript API
-sidebar: sidebar
-permalink: javascript_new-api_core.html
-folder: javascript
----
+# Core Modules and Functions - JavaScript API
 
 A brief overview of common methods that may be useful when writing any module.
 

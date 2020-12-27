@@ -1,9 +1,4 @@
----
-title: Package Installation Plugins
-sidebar: sidebar
-permalink: php_api_package_installation_plugins.html
-folder: php/api
----
+# Package Installation Plugins
 
 A package installation plugin (PIP) defines the behavior to handle a specific [instruction](package_package-xml.html#instruction) during package installation, update or uninstallation.
 

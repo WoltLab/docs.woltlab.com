@@ -1,9 +1,4 @@
----
-title: Working with the DOM - JavaScript API
-sidebar: sidebar
-permalink: javascript_new-api_dom.html
-folder: javascript
----
+# Working with the DOM - JavaScript API
 
 ## Helper Functions
 

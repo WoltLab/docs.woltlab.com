@@ -1,9 +1,4 @@
----
-title: JavaScript Helper Functions
-sidebar: sidebar
-permalink: javascript_helper-functions.html
-folder: javascript
----
+# JavaScript Helper Functions
 
 ## Introduction
 

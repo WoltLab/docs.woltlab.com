@@ -1,9 +1,4 @@
----
-title: Dialogs - JavaScript API
-sidebar: sidebar
-permalink: javascript_new-api_dialogs.html
-folder: javascript
----
+# Dialogs - JavaScript API
 
 ## Introduction
 

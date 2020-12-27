@@ -1,9 +1,4 @@
----
-title: Migrating from WSC 5.2 - Templates and Languages
-sidebar: sidebar
-permalink: migration_wsc-52_templates.html
-folder: migration/wsc-52
----
+# Migrating from WSC 5.2 - Templates and Languages
 
 ## `{jslang}`
 

@@ -1,9 +1,4 @@
----
-title: Code Snippets - JavaScript API
-sidebar: sidebar
-permalink: javascript_code-snippets.html
-folder: javascript
----
+# Code Snippets - JavaScript API
 
 This is a list of code snippets that do not fit into any of the other articles
 and merely describe how to achieve something very specific, rather than explaining

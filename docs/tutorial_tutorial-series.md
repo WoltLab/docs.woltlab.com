@@ -1,9 +1,4 @@
----
-title: Tutorial Series
-sidebar: sidebar
-permalink: tutorial_tutorial-series.html
-folder: tutorial
----
+# Tutorial Series
 
 In this tutorial series, we will code a package that allows administrators to create a registry of people.
 In this context, "people" does not refer to users registered on the website but anybody living, dead or fictional.

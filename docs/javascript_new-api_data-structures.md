@@ -1,9 +1,4 @@
----
-title: Data Structures - JavaScript API
-sidebar: sidebar
-permalink: javascript_new-api_data-structures.html
-folder: javascript
----
+# Data Structures - JavaScript API
 
 ## Introduction
 

@@ -1,9 +1,4 @@
----
-title: User Activity Points
-sidebar: sidebar
-permalink: php_api_user_activity_points.html
-folder: php/api
----
+# User Activity Points
 
 Users get activity points whenever they create content to award them for their contribution.
 Activity points are used to determine the rank of a user and can also be used for user conditions, for example for automatic user group assignments.

@@ -1,9 +1,4 @@
----
-title: General Data Protection Regulation (GDPR)
-sidebar: sidebar
-permalink: php_gdpr.html
-folder: php
----
+# General Data Protection Regulation (GDPR)
 
 ## Introduction
 

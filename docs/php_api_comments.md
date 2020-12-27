@@ -1,9 +1,4 @@
----
-title: Comments
-sidebar: sidebar
-permalink: php_api_comments.html
-folder: php/api
----
+# Comments
 
 ## User Group Options
 

@@ -1,9 +1,4 @@
----
-title: Migrating from WSC 3.0 - JavaScript
-sidebar: sidebar
-permalink: migration_wsc-30_javascript.html
-folder: migration/wsc-30
----
+# Migrating from WSC 3.0 - JavaScript
 
 ## Accelerated Guest View / Tiny Builds
 

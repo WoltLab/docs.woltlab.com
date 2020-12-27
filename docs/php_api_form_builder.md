@@ -1,9 +1,4 @@
----
-title: Form Builder
-sidebar: sidebar
-permalink: php_api_form_builder.html
-folder: php/api
----
+# Form Builder
 
 {% include callout.html content="Form builder is only available since WoltLab Suite Core 5.2." type="info" %}
 

@@ -1,9 +1,4 @@
----
-title: package.xml
-sidebar: sidebar
-permalink: package_package-xml.html
-folder: package
----
+# package.xml
 
 The `package.xml` is the core component of every package.
 It provides the meta data (e.g. package name, description, author) and the instruction set for a new installation and/or updating from a previous version.

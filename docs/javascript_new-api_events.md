@@ -1,9 +1,4 @@
----
-title: Event Handling - JavaScript API
-sidebar: sidebar
-permalink: javascript_new-api_events.html
-folder: javascript
----
+# Event Handling - JavaScript API
 
 ## `EventKey`
 

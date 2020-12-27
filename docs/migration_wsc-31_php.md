@@ -1,9 +1,4 @@
----
-title: Migrating from WSC 3.1 - PHP
-sidebar: sidebar
-permalink: migration_wsc-31_php.html
-folder: migration/wsc-31
----
+# Migrating from WSC 3.1 - PHP
 
 ## Form Builder
 

@@ -1,9 +1,4 @@
----
-title: WoltLab Suite 5.3 Documentation
-sidebar: sidebar
-permalink: index.html
-toc: false
----
+# WoltLab Suite 5.3 Documentation
 
 ## Introduction
 

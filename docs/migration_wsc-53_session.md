@@ -1,9 +1,4 @@
----
-title: Migrating from WSC 5.3 - Session Handling and Authentication
-sidebar: sidebar
-permalink: migration_wsc-53_session.html
-folder: migration/wsc-53
----
+# Migrating from WSC 5.3 - Session Handling and Authentication
 
 WoltLab Suite 5.4 includes a completely refactored session handling.
 As long as you only interact with sessions via `WCF::getSession()`, especially when you perform read-only accesses, you should not notice any breaking changes.

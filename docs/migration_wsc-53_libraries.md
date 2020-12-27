@@ -1,9 +1,4 @@
----
-title: Migrating from WSC 5.3 - Third Party Libraries
-sidebar: sidebar
-permalink: migration_wsc-53_libraries.html
-folder: migration/wsc-53
----
+# Migrating from WSC 5.3 - Third Party Libraries
 
 ## Guzzle
 

@@ -1,9 +1,4 @@
----
-title: Apps for WoltLab Suite
-sidebar: sidebar
-permalink: php_apps.html
-folder: php
----
+# Apps for WoltLab Suite
 
 ## Introduction
 

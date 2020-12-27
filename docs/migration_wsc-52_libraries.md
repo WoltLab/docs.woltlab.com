@@ -1,9 +1,4 @@
----
-title: Migrating from WSC 5.2 - Third Party Libraries
-sidebar: sidebar
-permalink: migration_wsc-52_libraries.html
-folder: migration/wsc-52
----
+# Migrating from WSC 5.2 - Third Party Libraries
 
 ## SCSS Compiler
 

@@ -1,9 +1,4 @@
----
-title: User Interface - JavaScript API
-sidebar: sidebar
-permalink: javascript_new-api_ui.html
-folder: javascript
----
+# User Interface - JavaScript API
 
 ## `Ui/Alignment`
 

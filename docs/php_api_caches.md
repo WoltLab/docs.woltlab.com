@@ -1,9 +1,4 @@
----
-title: Caches
-sidebar: sidebar
-permalink: php_api_caches.html
-folder: php/api
----
+# Caches
 
 WoltLab Suite offers two distinct types of caches:
 

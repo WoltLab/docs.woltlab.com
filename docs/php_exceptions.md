@@ -1,9 +1,4 @@
----
-title: Exceptions
-sidebar: sidebar
-permalink: php_exceptions.html
-folder: php
----
+# Exceptions
 
 ## SPL Exceptions
 

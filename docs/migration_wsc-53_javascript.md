@@ -1,9 +1,4 @@
----
-title: Migrating from WSC 5.3 - JavaScript
-sidebar: sidebar
-permalink: migration_wsc-53_javascript.html
-folder: migration/wsc-53
----
+# Migrating from WSC 5.3 - JavaScript
 
 ## `WCF_CLICK_EVENT`
 

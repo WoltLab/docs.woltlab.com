@@ -1,9 +1,4 @@
----
-title: Events
-sidebar: sidebar
-permalink: php_api_events.html
-folder: php/api
----
+# Events
 
 WoltLab Suite's event system allows manipulation of program flows and data without having to change any of the original source code.
 At many locations throughout the PHP code of WoltLab Suite Core and mainly through inheritance also in the applications and plugins, so called *events* are fired which trigger registered *event listeners* that get access to the object firing the event (or at least the class name if the event has been fired in a static method).

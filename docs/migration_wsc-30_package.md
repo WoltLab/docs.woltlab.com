@@ -1,9 +1,4 @@
----
-title: Migrating from WSC 3.0 - Package Components
-sidebar: sidebar
-permalink: migration_wsc-30_package.html
-folder: migration/wsc-30
----
+# Migrating from WSC 3.0 - Package Components
 
 ## Cronjob Scheduler uses Server Timezone
 

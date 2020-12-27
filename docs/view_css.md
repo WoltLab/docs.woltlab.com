@@ -1,9 +1,4 @@
----
-title: CSS
-sidebar: sidebar
-permalink: view_css.html
-folder: view
----
+# CSS
 
 ## SCSS and CSS
 

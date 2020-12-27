@@ -1,9 +1,4 @@
----
-title: General JavaScript Usage
-sidebar: sidebar
-permalink: javascript_general-usage.html
-folder: javascript
----
+# General JavaScript Usage
 
 ## The History of the Legacy API
 

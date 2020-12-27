@@ -1,9 +1,4 @@
----
-title: Database Objects
-sidebar: sidebar
-permalink: php_database-objects.html
-folder: php
----
+# Database Objects
 
 WoltLab Suite uses a unified interface to work with database rows using an object based approach instead of using native arrays holding arbitrary data. Each database table is mapped to a model class that is designed to hold a single record from that table and expose methods to work with the stored data, for example providing assistance when working with normalized datasets.
 

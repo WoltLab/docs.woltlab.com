@@ -1,9 +1,4 @@
----
-title: Sitemaps
-sidebar: sidebar
-permalink: php_api_sitemaps.html
-folder: php/api
----
+# Sitemaps
 
 {% include callout.html content="This feature is available with WoltLab Suite 3.1 or newer only." type="warning" %}
 

@@ -1,9 +1,4 @@
----
-title: User Notifications
-sidebar: sidebar
-permalink: php_api_user_notifications.html
-folder: php/api
----
+# User Notifications
 
 WoltLab Suite includes a powerful user notification system that supports notifications directly shown on the website and emails sent immediately or on a daily basis.
 

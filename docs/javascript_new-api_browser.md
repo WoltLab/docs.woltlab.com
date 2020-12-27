@@ -1,9 +1,4 @@
----
-title: Browser and Screen Sizes - JavaScript API
-sidebar: sidebar
-permalink: javascript_new-api_browser.html
-folder: javascript
----
+# Browser and Screen Sizes - JavaScript API
 
 ## `Ui/Screen`
 

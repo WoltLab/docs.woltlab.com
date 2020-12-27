@@ -1,9 +1,4 @@
----
-title: Code Style
-sidebar: sidebar
-permalink: php_code-style.html
-folder: php
----
+# Code Style
 
 {% include callout.html content="The following code style conventions are used by us for our own packages. While you do not have to follow every rule, you are encouraged to do so." type="info" %}
 

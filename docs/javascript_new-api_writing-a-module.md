@@ -1,9 +1,4 @@
----
-title: Writing a Module - JavaScript API
-sidebar: sidebar
-permalink: javascript_new-api_writing-a-module.html
-folder: javascript
----
+# Writing a Module - JavaScript API
 
 ## Introduction
 

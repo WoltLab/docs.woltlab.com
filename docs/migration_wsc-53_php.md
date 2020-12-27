@@ -1,9 +1,4 @@
----
-title: Migrating from WSC 5.3 - PHP
-sidebar: sidebar
-permalink: migration_wsc-53_php.html
-folder: migration/wsc-53
----
+# Migrating from WSC 5.3 - PHP
 
 ## Minimum requirements
 

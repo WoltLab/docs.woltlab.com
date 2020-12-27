@@ -1,9 +1,4 @@
----
-title: Database PHP API
-permalink: package_database-php-api.html
-folder: package
-parent: package_pip
----
+# Database PHP API
 
 {% include callout.html content="Available since WoltLab Suite 5.2." type="info" %}
 

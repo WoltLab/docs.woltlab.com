@@ -1,9 +1,4 @@
----
-title: Migrating from WSC 3.0 - PHP
-sidebar: sidebar
-permalink: migration_wsc-30_php.html
-folder: migration/wsc-30
----
+# Migrating from WSC 3.0 - PHP
 
 ## Approval-System for Comments
 

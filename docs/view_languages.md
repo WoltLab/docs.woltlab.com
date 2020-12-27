@@ -1,9 +1,4 @@
----
-title: Languages
-sidebar: sidebar
-permalink: view_languages.html
-folder: view
----
+# Languages
 
 WoltLab Suite offers full i18n support with its integrated language system,
 including but not limited to dynamic phrases using template scripting and the

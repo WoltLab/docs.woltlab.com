@@ -1,9 +1,4 @@
----
-title: Page Types
-sidebar: sidebar
-permalink: php_pages.html
-folder: php
----
+# Page Types
 
 ## AbstractPage
 
