@@ -45,5 +45,3 @@ The page that the link should point to, requires the internal identifier set by 
     </delete>
 </data>
 ```
-
-{% include links.html %}

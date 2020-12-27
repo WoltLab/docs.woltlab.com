@@ -110,5 +110,3 @@ Returns true if there is a value for the provided key in this collection.
 ### `get(key: Object): Object | undefined`
 
 Retrieves the value of the provided key, or `undefined` if the key was not found.
-
-{% include links.html %}

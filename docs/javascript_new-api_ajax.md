@@ -241,5 +241,3 @@ modules from altering the behavior. It is strongly  recommended to always use
   });
 </script>
 ```
-
-{% include links.html %}

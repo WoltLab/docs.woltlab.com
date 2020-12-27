@@ -272,5 +272,3 @@ Computes a numeric hash value of a string similar to Java's `String.hashCode()` 
 console.log("Hello World".hashCode());
 // outputs: -862545276
 ```
-
-{% include links.html %}

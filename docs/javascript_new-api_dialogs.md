@@ -175,5 +175,3 @@ key is `.content` which holds a reference to the dialog's inner content element.
 ## `isOpen(id: string | Object): boolean`
 
 Returns true if the dialog exists and is open.
-
-{% include links.html %}

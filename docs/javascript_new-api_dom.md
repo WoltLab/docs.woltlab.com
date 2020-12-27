@@ -73,5 +73,3 @@ require(["Dom/ChangeListener"], function(DomChangeListener) {
   DomChangeListener.trigger();
 });
 ```
-
-{% include links.html %}

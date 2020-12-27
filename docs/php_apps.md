@@ -90,5 +90,3 @@ the app identifier (`com.example.foo -> foo`) will be used instead.
 
 An example project with the [source code can be found on GitHub](https://github.com/WoltLab/woltlab.github.io/tree/master/_includes/tutorial/basic-app/),
 it includes everything that is required for a basic app.
-
-{% include links.html %}

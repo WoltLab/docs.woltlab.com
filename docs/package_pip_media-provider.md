@@ -62,5 +62,3 @@ Replacement HTML that gets populated using the captured matches in `<regex>`, va
   </delete>
 </data>
 ```
-
-{% include links.html %}

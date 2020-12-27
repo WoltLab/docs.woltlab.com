@@ -228,5 +228,3 @@ require(["EventHandler"], function(EventHandler) {
 });
 </script>
 ```
-
-{% include links.html %}

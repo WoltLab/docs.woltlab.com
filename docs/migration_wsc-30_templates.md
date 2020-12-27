@@ -46,5 +46,3 @@ You can provide a custom label before including the sidebars by assigning the ne
 {assign var='__sidebarRightShow' value='Show Right Sidebar'}
 {assign var='__sidebarRightHide' value='Hide Right Sidebar'}
 ```
-
-{% include links.html %}

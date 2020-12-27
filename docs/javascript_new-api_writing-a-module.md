@@ -132,5 +132,3 @@ it is strongly recommended to use the aliases for consistency.
 | Ui/TabMenu | WoltLabSuite/Core/Ui/TabMenu |
 | Upload | WoltLabSuite/Core/Upload |
 | User | WoltLabSuite/Core/User |
-
-{% include links.html %}

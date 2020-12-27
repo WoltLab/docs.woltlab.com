@@ -90,5 +90,3 @@ Possible values:
  - `windows` (IE Mobile)
  - `mobile` (generic mobile device)
  - `desktop` (default)
-
-{% include links.html %}

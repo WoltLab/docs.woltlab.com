@@ -105,5 +105,3 @@ All user options are included in the export by default, unless they start with
 `can*` or `admin*`, or are blacklisted using this array. You should append any
 of your plugin's or app's user option that should not be exported, for example
 because it does not contain personal data, such as internal data.
-
-{% include links.html %}

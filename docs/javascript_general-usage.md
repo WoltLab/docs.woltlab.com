@@ -110,5 +110,3 @@ method to include external JavaScript files.
 
 The `hasTiny` attribute is optional, you can set it to `false` or just omit it
 entirely if you do not provide a tiny build for your file.
-
-{% include links.html %}

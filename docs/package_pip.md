@@ -44,5 +44,3 @@ Package Installation Plugins (PIPs) are interfaces to deploy and edit content as
 | [userNotificationEvent][package_pip_user-notification-event] | Events of the user notification system |
 | [userOption][package_pip_user-option] | User settings |
 | [userProfileMenu][package_pip_user-profile-menu] | User profile tabs |
-
-{% include links.html %}

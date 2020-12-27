@@ -128,5 +128,3 @@ foreach ($this->objectList as $message) {
  // ...
 }
 ```
-
-{% include links.html %}

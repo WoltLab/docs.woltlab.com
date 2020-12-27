@@ -29,5 +29,3 @@ These variables control the appearance of the editor toolbar and its buttons.
 ## Color Variables in `alert.scss`
 
 The color values for `<small class="innerError">` used to be hardcoded values, but have now been changed to use the values for error messages (`wcfStatusError*`) instead.
-
-{% include links.html %}

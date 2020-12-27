@@ -92,5 +92,3 @@ _This method is protected._
 This is the only method that a cache builder deriving from `AbstractCacheBuilder`
 has to implement and it will be invoked whenever the cache is required to be
 rebuild for whatever reason.
-
-{% include links.html %}

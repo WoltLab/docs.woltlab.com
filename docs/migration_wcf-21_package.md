@@ -139,5 +139,3 @@ The [page][package_pip_page] PIP has been added.
 ## pageMenu.xml
 
 The `pageMenu.xml` has been superseded by the `page.xml` and is no longer available.
-
-{% include links.html %}

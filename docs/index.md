@@ -16,5 +16,3 @@ Head over to the [quick start tutorial][getting-started_quick-start] to learn mo
 The [WoltLab Suite Core](https://github.com/WoltLab/WCF) as well as most of the other packages are available on [github.com/WoltLab/](https://github.com/WoltLab) and are licensed under the terms of the [GNU Lesser General Public License 2.1](https://github.com/WoltLab/WCF/blob/master/LICENSE).
 
 You can edit this documentation by visiting the edit link on each page, it is also available on [GitHub](https://github.com/WoltLab/woltlab.github.io).
-
-{% include links.html %}

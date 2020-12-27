@@ -159,5 +159,3 @@ require(['Language'], function(Language)) {
   elInnerError(input, (input.value.trim() === '' ? Language.get('wcf.global.form.error.empty') : false));
 }
 ```
-
-{% include links.html %}

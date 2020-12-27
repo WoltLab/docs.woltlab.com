@@ -20,5 +20,3 @@ class `jsImageViewer` that points to the full version.
   <img src="http://example.com/thumbnail.jpg">
 </a>
 ```
-
-{% include links.html %}

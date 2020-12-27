@@ -189,5 +189,3 @@ Makes a string's first character uppercase.
 
 Converts some HTML entities into their original character. This is the reverse
 function of `escapeHTML()`.
-
-{% include links.html %}

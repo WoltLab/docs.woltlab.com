@@ -95,5 +95,3 @@ Removes all event listeners registered for the provided `identifier` and `action
 
 Removes all event listeners for an `identifier` whose action ends with the value
 of `suffix`.
-
-{% include links.html %}

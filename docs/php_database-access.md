@@ -212,5 +212,3 @@ foreach ($data as $exampleID => $bar) {
 }
 \wcf\system\WCF::getDB()->commitTransaction();
 ```
-
-{% include links.html %}

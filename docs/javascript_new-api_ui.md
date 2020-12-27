@@ -192,5 +192,3 @@ require(["Ui/Notification"], function(UiNotification) {
 ### `show(message: string, callback?: () => void, cssClassName?: string)`
 
 Shows the notification and executes the callback after 2 seconds.
-
-{% include links.html %}

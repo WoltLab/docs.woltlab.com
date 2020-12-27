@@ -131,5 +131,3 @@ Added the `setLocation()` method that is used to set the current page location b
 ### SearchIndexManager
 
 The methods `SearchIndexManager::add()` and `SearchIndexManager::update()` have been deprecated and forward their call to the new method `SearchIndexManager::set()`.
-
-{% include links.html %}

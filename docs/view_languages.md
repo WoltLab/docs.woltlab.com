@@ -48,5 +48,3 @@ Changing this value to `rtl` will reverse the page direction and enable the
 right-to-left support for phrases. Additionally, a special version of the
 stylesheet is loaded that contains all necessary adjustments for the reverse
 direction.
-
-{% include links.html %}

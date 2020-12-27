@@ -88,5 +88,3 @@ file was introduced in the design process, without evaluating if the cache -
 at least how it was implemented - was really necessary.
 
 Caching should always be a solution for a problem. Not the other way around.
-
-{% include links.html %}
