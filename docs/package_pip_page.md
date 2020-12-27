@@ -46,13 +46,13 @@ Pages can be assigned any other page as parent page by default, set to `1` to ma
 
 ### `<permissions>`
 
-{% include callout.html content="The comma represents a logical `or`, the check is successful if at least one permission is set." type="warning" %}
+!!! warning "The comma represents a logical `or`, the check is successful if at least one permission is set."
 
 Comma separated list of permission names that will be checked one after another until at least one permission is set.
 
 ### `<options>`
 
-{% include callout.html content="The comma represents a logical `or`, the check is successful if at least one option is enabled." type="warning" %}
+!!! warning "The comma represents a logical `or`, the check is successful if at least one option is enabled."
 
 Comma separated list of options that will be checked one after another until at least one option is set.
 

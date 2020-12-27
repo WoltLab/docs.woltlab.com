@@ -8,9 +8,9 @@ parent: package_pip
 
 Execute arbitrary PHP code during installation, update and uninstallation of the package.
 
-{% include callout.html content="You must install the PHP script through the [file package installation plugin](package_pip_file.md)." type="warning" %}
+!!! warning "You must install the PHP script through the [file package installation plugin](package_pip_file.md)."
 
-{% include callout.html content="The installation will attempt to delete the script after successful execution." type="warning" %}
+!!! warning "The installation will attempt to delete the script after successful execution."
 
 ## Attributes
 

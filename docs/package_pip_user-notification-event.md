@@ -29,7 +29,7 @@ Defines whether this event is enabled by default.
 
 ### `<presetmailnotificationtype>`
 
-{% include callout.html content="Avoid using this option, as sending unsolicited mail can be seen as spamming." type="info" %}
+!!! info "Avoid using this option, as sending unsolicited mail can be seen as spamming."
 
 One of `instant` or `daily`.
 Defines whether this type of email notifications is enabled by default.

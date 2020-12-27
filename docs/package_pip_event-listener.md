@@ -29,7 +29,7 @@ You can either give a single event name or a comma-separated list of event names
 The listener class name is the name of the class which is triggered if the relevant event is fired.
 The PHP class has to implement the `wcf\system\event\listener\IParameterizedEventListener` interface.
 
-{% include callout.html content="Legacy event listeners are only required to implement the deprecated `wcf\system\event\IEventListener` interface. When writing new code or update existing code, you should always implement the `wcf\system\event\listener\IParameterizedEventListener` interface!" type="warning" %}
+!!! warning "Legacy event listeners are only required to implement the deprecated `wcf\system\event\IEventListener` interface. When writing new code or update existing code, you should always implement the `wcf\system\event\listener\IParameterizedEventListener` interface!"
 
 ### `<inherit>`
 
@@ -48,7 +48,7 @@ The nice value determines the execution order of event listeners.
 Event listeners with smaller nice values are executed first.
 If the nice value of two event listeners is equal, they are sorted by the listener class name.
 
-{% include callout.html content="If you pass a value out of the mentioned interval, the value will be adjusted to the closest value in the interval." type="info" %}
+!!! info "If you pass a value out of the mentioned interval, the value will be adjusted to the closest value in the interval."
 
 ### `<options>`
 

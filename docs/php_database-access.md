@@ -37,7 +37,7 @@ while ($row = $statement->fetchArray()) {
 
 ### Fetching a Single Result
 
-{% include callout.html content="Do not attempt to use `fetchSingleRow()` or `fetchSingleColumn()` if the result contains more than one row." type="danger" %}
+!!! danger "Do not attempt to use `fetchSingleRow()` or `fetchSingleColumn()` if the result contains more than one row."
 
 You can opt-in to retrieve only a single row from database and make use of shortcut methods to reduce the code that you have to write.
 
@@ -58,7 +58,7 @@ There are two distinct differences when comparing with the example on query para
 
 ### Fetch by Column
 
-{% include callout.html content="There is no way to return another column from the same row if you use `fetchColumn()` to retrieve data." type="warning" %}
+!!! warning "There is no way to return another column from the same row if you use `fetchColumn()` to retrieve data."
 
 Fetching an array is only useful if there is going to be more than one column per result row, otherwise accessing the column directly is much more convenient and increases the code readability.
 
@@ -131,7 +131,7 @@ $map = $statement->fetchMap('exampleID', 'userID');
 
 `$map` is a one-dimensional array where each `exampleID` value maps to the corresponding `userID` value.
 
-{% include callout.html content="If there are multiple entries for a certain `exampleID` value with different `userID` values, the existing entry in the array will be overwritten and contain the last read value from the database table. Therefore, this method should generally only be used for unique combinations." type="warning" %}
+!!! warning "If there are multiple entries for a certain `exampleID` value with different `userID` values, the existing entry in the array will be overwritten and contain the last read value from the database table. Therefore, this method should generally only be used for unique combinations."
 
 If you do not have a combination of columns with unique pairs of values, but you want to get a list of `userID` values with the same `exampleID`, you can set the third parameter of `fetchMap()` to `false` and get a list:
 

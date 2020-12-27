@@ -40,7 +40,7 @@ Media breakpoints instruct the browser to apply different CSS depending on the v
 
 ### Available Breakpoints
 
-{% include callout.html content="Some very large smartphones, for example the Apple iPhone 7 Plus, do match the media query for `Tablets (portrait)` when viewed in landscape mode." type="info" %}
+!!! info "Some very large smartphones, for example the Apple iPhone 7 Plus, do match the media query for `Tablets (portrait)` when viewed in landscape mode."
 
 | Name | Devices | `@media` equivalent |
 |-------|-------|-------|

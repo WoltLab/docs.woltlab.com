@@ -198,7 +198,7 @@ Congratulations, you have just created your first package!
 
 ## Developer Tools
 
-{% include callout.html content="This feature is available with WoltLab Suite 3.1 or newer only." type="warning" %}
+!!! warning "This feature is available with WoltLab Suite 3.1 or newer only."
 
 The developer tools provide an interface to synchronize the data of an installed package with a bare repository on the local disk. You can re-import most PIPs at any time and have the changes applied without crafting a manual update. This process simulates a regular package update with a single PIP only, and resets the cache after the import has been completed.
 

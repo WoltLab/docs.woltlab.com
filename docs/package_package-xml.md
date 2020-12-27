@@ -154,8 +154,8 @@ Example:
 The attribute `version` must be a valid version number as described in the [\<version\>](#version) section. In the example above it will be impossible to install this package in WoltLab Suite Core 3.1.0 Alpha 1 or higher.
 
 ### `<compatibility>`
-{% include callout.html content="Available since WoltLab Suite 3.1" type="info" %}
-{% include callout.html content="With the release of WoltLab Suite 5.2 the API versions were abolished. Instead of using API versions packages should exclude version `6.0.0 Alpha 1` of `com.woltlab.wcf` going forward." type="warning" %}
+!!! info "Available since WoltLab Suite 3.1"
+!!! warning "With the release of WoltLab Suite 5.2 the API versions were abolished. Instead of using API versions packages should exclude version `6.0.0 Alpha 1` of `com.woltlab.wcf` going forward."
 
 WoltLab Suite 3.1 introduced a new versioning system that focused around the API compatibility and is intended to replace the `<excludedpackage>` instruction for the Core for most plugins.
 
@@ -187,7 +187,7 @@ List of instructions for a new installation of this package.
 
 The attribute `fromversion` must be a valid version number as described in the [\<version\>](#version) section and specifies a possible update from that very version to the package's version.
 
-{% include callout.html content="The installation process will pick exactly one update instruction, ignoring everything else. Please read the explanation below!" type="warning" %}
+!!! warning "The installation process will pick exactly one update instruction, ignoring everything else. Please read the explanation below!"
 
 Example:
 
@@ -224,7 +224,7 @@ Many PIPs provide default file names which are used if no value is given:
 
 There is a [list of all default PIPs](package_pip.md) available.
 
-{% include callout.html content="Both the `type`-attribute and the element value are case-sensitive. Windows does not care if the file is called `objecttypedefinition.xml` but was referenced as `objectTypeDefinition.xml`, but both Linux and Mac systems will be unable to find the file." type="warning" %}
+!!! warning "Both the `type`-attribute and the element value are case-sensitive. Windows does not care if the file is called `objecttypedefinition.xml` but was referenced as `objectTypeDefinition.xml`, but both Linux and Mac systems will be unable to find the file."
 
 In addition to the `type` attribute, an optional `run` attribute (with `standalone` as the only valid value) is supported which forces the installation to execute this PIP in an isolated request, allowing a single, resource-heavy PIP to execute without encountering restrictions such as PHP’s `memory_limit` or `max_execution_time`:
 

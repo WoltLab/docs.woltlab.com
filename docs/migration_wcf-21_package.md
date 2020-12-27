@@ -30,7 +30,7 @@ Every PIP can define a custom filename if the default value cannot be properly d
 
 ### Exceptions
 
-{% include callout.html content="These exceptions represent the built-in PIPs only, 3rd party plugins and apps may define their own exceptions." type="info" %}
+!!! info "These exceptions represent the built-in PIPs only, 3rd party plugins and apps may define their own exceptions."
 
 | PIP | Default Value |
 |-------|-------|
@@ -99,13 +99,13 @@ The [box](package_pip_box.md) PIP has been added.
 
 ## cronjob.xml
 
-{% include callout.html content="Legacy cronjobs are assigned a non-deterministic generic name, the only way to assign them a name is removing them and then adding them again." type="warning" %}
+!!! warning "Legacy cronjobs are assigned a non-deterministic generic name, the only way to assign them a name is removing them and then adding them again."
 
 Cronjobs can now be assigned a name using the name attribute as in `<cronjob name="com.woltlab.wcf.refreshPackageUpdates">`, it will be used to identify cronjobs during an update or delete.
 
 ## eventListener.xml
 
-{% include callout.html content="Legacy event listeners are assigned a non-deterministic generic name, the only way to assign them a name is removing them and then adding them again." type="warning" %}
+!!! warning "Legacy event listeners are assigned a non-deterministic generic name, the only way to assign them a name is removing them and then adding them again."
 
 Event listeners can now be assigned a name using the name attribute as in `<eventlistener name="sessionPageAccessLog">`, it will be used to identify event listeners during an update or delete.
 

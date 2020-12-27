@@ -66,7 +66,7 @@ Specifies the order of this option within the category.
 ### `<selectoptions>`
 
 <span class="label label-info">Optional</span>
-{% include callout.html content="Defined only for `select`, `multiSelect` and `radioButton` types." type="warning" %}
+!!! warning "Defined only for `select`, `multiSelect` and `radioButton` types."
 
 Specifies a newline-separated list of selectable values.
 Each line consists of an internal handle, followed by a colon (`:`, U+003A), followed by a language item.
@@ -75,7 +75,7 @@ The language item is shown to the administrator, the internal handle is what is 
 ### `<enableoptions>`
 
 <span class="label label-info">Optional</span>
-{% include callout.html content="Defined only for `boolean`, `select` and `radioButton` types." type="warning" %}
+!!! warning "Defined only for `boolean`, `select` and `radioButton` types."
 
 Specifies a comma-separated list of options which should be visually enabled when this option is enabled.
 A leading exclamation mark (`!`, U+0021) will disable the specified option when this option is enabled.

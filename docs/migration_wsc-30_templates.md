@@ -2,7 +2,7 @@
 
 ## Comment-System Overhaul
 
-{% include callout.html content="Unfortunately, there has been a breaking change related to the creation of comments. You need to apply the changes below before being able to create new comments." type="danger" %}
+!!! danger "Unfortunately, there has been a breaking change related to the creation of comments. You need to apply the changes below before being able to create new comments."
 
 ### Adding Comments
 
@@ -29,7 +29,7 @@ Custom interaction buttons were previously added through the template event `row
 
 ## Sidebar Toogle-Buttons on Mobile Device
 
-{% include callout.html content="You cannot override the button label for sidebars containing navigation menus." type="info" %}
+!!! info "You cannot override the button label for sidebars containing navigation menus."
 
 The page sidebars are automatically collapsed and presented as one or, when both sidebar are present, two condensed buttons. They use generic sidebar-related labels when open or closed, with the exception of embedded menus which will change the button label to read "Show/Hide Navigation".
 

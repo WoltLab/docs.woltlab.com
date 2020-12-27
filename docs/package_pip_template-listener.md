@@ -30,7 +30,7 @@ The given template code is literally copied into the target template during comp
 The original template is not modified.
 If multiple template listeners listen to a single event their output is concatenated using the line feed character (`\n`, U+000A) in the order defined by the [`niceValue`](#niceValue).
 
-{% include callout.html content="It is recommend that the only code is an `{include}` of a template to enable changes by the administrator. Names of templates included by a template listener start with two underscores by convention." type="warning" %}
+!!! warning "It is recommend that the only code is an `{include}` of a template to enable changes by the administrator. Names of templates included by a template listener start with two underscores by convention."
 
 ### `<environment>`
 
@@ -46,7 +46,7 @@ The nice value determines the execution order of template listeners.
 Template listeners with smaller nice values are executed first.
 If the nice value of two template listeners is equal, the order is undefined.
 
-{% include callout.html content="If you pass a value out of the mentioned interval, the value will be adjusted to the closest value in the interval." type="info" %}
+!!! info "If you pass a value out of the mentioned interval, the value will be adjusted to the closest value in the interval."
 
 ### `<options>`
 

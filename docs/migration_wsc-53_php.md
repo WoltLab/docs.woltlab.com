@@ -39,13 +39,13 @@ Leveraging this API is easily done.
    $earliestTime = $data['earliestTime'];
    ```
    The method also returns `earliestTime` so that you can tell the user in the error message when they are able again to create new content of the relevant type.
-   {% include callout.html content="Flood control entries are only stored for 31 days and older entries are cleaned up daily." type="info" %}
+   !!! info "Flood control entries are only stored for 31 days and older entries are cleaned up daily."
 
 The previously mentioned methods of `FloodControl` use the active user and the current timestamp as reference point.
 `FloodControl` also provides methods to register content or check flood control for other registered users or for guests via their IP address.
 For further details on these methods, please refer to the [documentation in the FloodControl class](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/flood/FloodControl.class.php).
 
-{% include callout.html content="Do not interact directly with the flood control database table but only via the `FloodControl` class!" type="warning" %}
+!!! warning "Do not interact directly with the flood control database table but only via the `FloodControl` class!"
 
 ## PHP Database API
 
@@ -59,7 +59,7 @@ PartialDatabaseTable::create('wcf1_test')
         ]);
 ```
 
-{% include callout.html content="Like with every change to existing database tables, packages can only rename columns that they installed." type="info" %} 
+!!! info "Like with every change to existing database tables, packages can only rename columns that they installed." 
 
 ## Captcha
 

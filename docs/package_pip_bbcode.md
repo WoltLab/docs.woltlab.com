@@ -15,13 +15,13 @@ The `name` attribute must contain alphanumeric characters only and is exposed to
 
 ### `<htmlopen>`
 
-{% include callout.html content="Optional: Must not be provided if the BBCode is being processed a PHP class (`<classname>`)." type="info" %}
+!!! info "Optional: Must not be provided if the BBCode is being processed a PHP class (`<classname>`)."
 
 The contents of this tag are literally copied into the opening tag of the bbcode.
 
 ### `<htmlclose>`
 
-{% include callout.html content="Optional: Must not be provided if `<htmlopen>` is not given." type="info" %}
+!!! info "Optional: Must not be provided if `<htmlopen>` is not given."
 
 Must match the `<htmlopen>` tag.
 Do not provide for self-closing tags.
@@ -43,7 +43,7 @@ Name of the Font Awesome icon class or path to a `gif`, `jpg`, `jpeg`, `png`, or
 
 ### `<buttonlabel>`
 
-{% include callout.html content="Optional: Must be provided if an icon is given." type="info" %}
+!!! info "Optional: Must be provided if an icon is given."
 
 Explanatory text to show when hovering the icon.
 
@@ -65,7 +65,7 @@ The `name` attribute is a 0-indexed integer.
 
 #### `<html>`
 
-{% include callout.html content="Optional: Must not be provided if the BBCode is being processed a PHP class (`<classname>`)." type="info" %}
+!!! info "Optional: Must not be provided if the BBCode is being processed a PHP class (`<classname>`)."
 
 The contents of this tag are copied into the opening tag of the bbcode.
 `%s` is replaced by the attribute value.
@@ -85,7 +85,7 @@ Specifies whether this attribute must be provided.
 #### `<usetext>`
 
 <span class="label label-info">Optional</span>
-{% include callout.html content="Should only be set to `1` for the attribute with name `0`." type="info" %}
+!!! info "Should only be set to `1` for the attribute with name `0`."
 
 Specifies whether the text content of the BBCode should become this attribute's value.
 

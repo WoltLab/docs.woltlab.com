@@ -6,7 +6,7 @@ folder: package/pip
 parent: package_pip
 ---
 
-{% include callout.html content="Available since WoltLab Suite 3.1" type="info" %}
+!!! info "Available since WoltLab Suite 3.1"
 
 Media providers are responsible to detect and convert links to a 3rd party service inside messages.
 
@@ -24,7 +24,7 @@ The regular expression used to identify links to this provider, it must not cont
 
 ### `<className>`
 
-{% include callout.html content="`<className>` and `<html>` are mutually exclusive." type="warning" %}
+!!! warning "`<className>` and `<html>` are mutually exclusive."
 
 PHP-Callback-Class that is invoked to process the matched link in case that additional logic must be applied that cannot be handled through a simple replacement as defined by the `<html>` element.
 
@@ -32,7 +32,7 @@ The callback-class must implement the interface `\wcf\system\bbcode\media\provid
 
 ### `<html>`
 
-{% include callout.html content="`<className>` and `<html>` are mutually exclusive." type="warning" %}
+!!! warning "`<className>` and `<html>` are mutually exclusive."
 
 Replacement HTML that gets populated using the captured matches in `<regex>`, variables are accessed as `{$VariableName}`. For example, the capture group `(?P<ID>...)` is accessed using `{$ID}`.
 

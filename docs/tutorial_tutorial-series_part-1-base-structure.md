@@ -289,13 +289,13 @@ Now let use go through the different methods in chronological order again:
    The data properties of `PersonAddForm` are populated with the data of the edited person so that this data is shown in the form for the initial request.
 1. `save()` handles saving the changed data.
    
-   {% include callout.html content="Do not call `parent::save()` because that would cause `PersonAddForm::save()` to be executed and thus a new person would to be created! In order for the `save` event to be fired, call `AbstractForm::save()` instead!" type="warning" %}
+   !!! warning "Do not call `parent::save()` because that would cause `PersonAddForm::save()` to be executed and thus a new person would to be created! In order for the `save` event to be fired, call `AbstractForm::save()` instead!"
    
    The only differences compared to `PersonAddForm::save()` are that we pass the edited object to the `PersonAction` constructor, execute the `update` action instead of the `create` action and do not clear the input fields after saving the changes.
 1. In `assignVariables()`, we assign the edited `Person` object to the template, which is required to create the link in the form’s action property.
    Furthermore, we assign the template variable `$action` `edit` as value.
    
-   {% include callout.html content="After calling `parent::assignVariables()`, the template variable `$action` actually has the value `add` so that here, we are overwriting this already assigned value." type="info" %}
+   !!! info "After calling `parent::assignVariables()`, the template variable `$action` actually has the value `add` so that here, we are overwriting this already assigned value."
 
 
 ## Frontend

@@ -75,7 +75,7 @@ $processor->process(…);
 
 #### Converting from BBCode
 
-{% include callout.html content="Enabling message conversion for HTML messages is undefined and yields unexpected results." type="warning" %}
+!!! warning "Enabling message conversion for HTML messages is undefined and yields unexpected results."
 
 Legacy message that still use raw bbcodes must be converted to be properly parsed by the html processors. This process is enabled by setting the fourth parameter of `process()` to `true`.
 
@@ -100,7 +100,7 @@ $processor->processEmbeddedContent($html, $messageObjectType, $messageObjectID);
 
 ## Breadcrumbs / Page Location
 
-{% include callout.html content="Breadcrumbs used to be added left to right, but parent locations are added from the bottom to the top, starting with the first ancestor and going upwards. In most cases you simply need to reverse the order." type="warning" %}
+!!! warning "Breadcrumbs used to be added left to right, but parent locations are added from the bottom to the top, starting with the first ancestor and going upwards. In most cases you simply need to reverse the order."
 
 Breadcrumbs used to be a lose collection of arbitrary links, but are now represented by actual page objects and the control has shifted over to the `PageLocationManager`.
 

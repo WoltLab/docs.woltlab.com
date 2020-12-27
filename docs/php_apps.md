@@ -64,7 +64,7 @@ a controller name that is already provided by the Core or any other app itself.
 
 ## Creating an App
 
-{% include callout.html content="This is a non-reversible operation! Once a package has been installed, its type cannot be changed without uninstalling and reinstalling the entire package, an app will always be an app and vice versa." type="danger" %}
+!!! danger "This is a non-reversible operation! Once a package has been installed, its type cannot be changed without uninstalling and reinstalling the entire package, an app will always be an app and vice versa."
 
 ### `package.xml`
 

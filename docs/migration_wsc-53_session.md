@@ -54,7 +54,7 @@ Instead, it is maintained for compatibility with existing online lists.
 The actual session storage is considered an implementation detail and you *must not* directly interact with the session tables.
 Future versions might support alternative session backends, such as Redis.
 
-{% include callout.html content="Do not interact directly with the session database tables but only via the `SessionHandler` class!" type="warning" %}
+!!! warning "Do not interact directly with the session database tables but only via the `SessionHandler` class!"
 
 ### Reauthentication
 
@@ -126,10 +126,7 @@ The given classname must implement the [`IMultifactorMethod`](https://github.com
 As a self-contained example, you can find the initial implementation of the email multi-factor method in [WoltLab/WCF#3729](https://github.com/WoltLab/WCF/pull/3729).
 Please check [the version history](https://github.com/WoltLab/WCF/commits/master/wcfsetup/install/files/lib/system/user/multifactor/EmailMultifactorMethod.class.php) of the PHP class to make sure you do not miss important changes that were added later.
 
-{% include callout.html content="Multi-factor authentication is security sensitive.
-Make sure to carefully read the remarks in IMultifactorMethod for possible issues.
-Also make sure to carefully test your implementation against all sorts of incorrect input and consider attack vectors such as race conditions.
-It is strongly recommended to generously check the current state by leveraging assertions and exceptions." type="warning" %}
+!!! warning "Multi-factor authentication is security sensitive. Make sure to carefully read the remarks in `IMultifactorMethod` for possible issues. Also make sure to carefully test your implementation against all sorts of incorrect input and consider attack vectors such as race conditions. It is strongly recommended to generously check the current state by leveraging assertions and exceptions."
 
 ## Deprecations and Removals
 

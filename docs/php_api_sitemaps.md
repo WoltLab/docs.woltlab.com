@@ -1,6 +1,6 @@
 # Sitemaps
 
-{% include callout.html content="This feature is available with WoltLab Suite 3.1 or newer only." type="warning" %}
+!!! warning "This feature is available with WoltLab Suite 3.1 or newer only."
 
 Since version 3.1, WoltLab Suite Core is capable of automatically creating a sitemap.
 This sitemap contains all static pages registered via the page package installation plugin and which may be indexed by search engines (checking the `allowSpidersToIndex` parameter and page permissions) and do not expect an object ID.

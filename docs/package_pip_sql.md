@@ -8,7 +8,7 @@ parent: package_pip
 
 Execute SQL instructions using a MySQL-flavored syntax.
 
-{% include callout.html content="This file is parsed by WoltLab Suite Core to allow reverting of certain changes, but not every syntax MySQL supports is recognized by the parser. To avoid any troubles, you should always use statements relying on the SQL standard." type="warning" %}
+!!! warning "This file is parsed by WoltLab Suite Core to allow reverting of certain changes, but not every syntax MySQL supports is recognized by the parser. To avoid any troubles, you should always use statements relying on the SQL standard."
 
 
 ## Expected Value

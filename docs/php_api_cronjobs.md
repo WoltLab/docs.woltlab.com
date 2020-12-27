@@ -2,7 +2,7 @@
 
 Cronjobs offer an easy way to execute actions periodically, like cleaning up the database.
 
-{% include callout.html content="The execution of cronjobs is not guaranteed but requires someone to access the page with JavaScript enabled." type="warning" %}
+!!! warning "The execution of cronjobs is not guaranteed but requires someone to access the page with JavaScript enabled."
 
 This page focuses on the technical aspects of cronjobs, [the cronjob package installation plugin page](package_pip_cronjob.md) covers how you can actually register a cronjob.
 

@@ -105,7 +105,7 @@ Core API endpoint if left empty. If the Core API endpoint is used, the options
 
 #### `withCredentials`
 
-{% include callout.html content="Enabling this parameter for any domain other than the current will trigger a CORS preflight request." type="warning" %}
+!!! warning "Enabling this parameter for any domain other than the current will trigger a CORS preflight request."
 
 _Defaults to `false`._
 
@@ -146,7 +146,7 @@ other non-"silent" requests will still trigger the loading indicator.
 
 #### `includeRequestedWith`
 
-{% include callout.html content="Enabling this parameter for any domain other than the current will trigger a CORS preflight request." type="warning" %}
+!!! warning "Enabling this parameter for any domain other than the current will trigger a CORS preflight request."
 
 _Defaults to `true`._
 

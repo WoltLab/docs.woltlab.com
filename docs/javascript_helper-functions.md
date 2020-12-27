@@ -124,7 +124,7 @@ if (elAttrBool(element, "data-some-attribute")) {
 
 ## Selecting Elements
 
-{% include callout.html content="Unlike libraries like jQuery, these functions will return `null` if an element is not found. You are responsible to validate if the element exist and to branch accordingly, invoking methods on the return value without checking for `null` will yield an error." type="warning" %}
+!!! warning "Unlike libraries like jQuery, these functions will return `null` if an element is not found. You are responsible to validate if the element exist and to branch accordingly, invoking methods on the return value without checking for `null` will yield an error."
 
 ### `elById(id: string): Element | null`
 
@@ -138,7 +138,7 @@ var element = document.getElementById("my-awesome-element");
 
 ### `elBySel(selector: string, context?: Element): Element | null`
 
-{% include callout.html content="The underlying `querySelector()`-method works on the entire DOM hierarchy and can yield results outside of your context element! Please read and understand the MDN article on [`Element.querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector#The_entire_hierarchy_counts) to learn more about this." type="danger" %}
+!!! danger "The underlying `querySelector()`-method works on the entire DOM hierarchy and can yield results outside of your context element! Please read and understand the MDN article on [`Element.querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector#The_entire_hierarchy_counts) to learn more about this."
 
 Select a single element based on a CSS selector, optionally limiting the results
 to be a direct or indirect children of the context element.
@@ -156,7 +156,7 @@ var element = context.querySelector(".some-element");
 
 ### `elBySelAll(selector: string, context?: Element, callback: (element: Element) => void): NodeList`
 
-{% include callout.html content="The underlying `querySelector()`-method works on the entire DOM hierarchy and can yield results outside of your context element! Please read and understand the MDN article on [`Element.querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector#The_entire_hierarchy_counts) to learn more about this." type="danger" %}
+!!! danger "The underlying `querySelector()`-method works on the entire DOM hierarchy and can yield results outside of your context element! Please read and understand the MDN article on [`Element.querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector#The_entire_hierarchy_counts) to learn more about this."
 
 Finds and returns a `NodeList` containing all elements that match the provided
 CSS selector. Although `NodeList` is an array-like structure, it is not possible

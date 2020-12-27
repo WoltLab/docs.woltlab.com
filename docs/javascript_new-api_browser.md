@@ -56,7 +56,7 @@ the page scrolling.
 
 ## `Environment`
 
-{% include callout.html content="The `Environment` module uses a mixture of feature detection and user agent sniffing to determine the browser and platform. In general, its results have proven to be very accurate, but it should be taken with a grain of salt regardless. Especially the browser checks are designed to be your last resort, please use feature detection instead whenever it is possible!" type="warning" %}
+!!! warning "The `Environment` module uses a mixture of feature detection and user agent sniffing to determine the browser and platform. In general, its results have proven to be very accurate, but it should be taken with a grain of salt regardless. Especially the browser checks are designed to be your last resort, please use feature detection instead whenever it is possible!"
 
 Sometimes it may be necessary to alter the behavior of your code depending on
 the browser platform (e. g. mobile devices) or based on a specific browser in

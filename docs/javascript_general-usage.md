@@ -83,7 +83,7 @@ the minified and optimized file to the average visitor. You should use the
 
 ### The Accelerated Guest View ("Tiny Builds")
 
-{% include callout.html content="You can learn more on the [Accelerated Guest View](migration_wsc-30_javascript.md) in the migration docs." type="info" %}
+!!! info "You can learn more on the [Accelerated Guest View](migration_wsc-30_javascript.md) in the migration docs."
 
 The "Accelerated Guest View" was introduced in WoltLab Suite 3.1 and aims to
 decrease page size and to improve responsiveness by enabling a read-only mode

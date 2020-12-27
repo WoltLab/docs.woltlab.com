@@ -14,7 +14,7 @@ Forms built with form builder consist of three major structural elements listed 
 
 The basis for all three elements are form nodes.
 
-{% include callout.html content="The form builder API uses fluent interfaces heavily, meaning that unless a method is a getter, it generally returns the objects itself to support method chaining." type="info" %}
+!!! info "The form builder API uses fluent interfaces heavily, meaning that unless a method is a getter, it generally returns the objects itself to support method chaining."
 
 
 ## Form Nodes
@@ -119,7 +119,7 @@ The implementing class has to implement the methods `objectType($objectType)`, `
 
 `CustomFormNode` is a form node whose contents can be set directly via `content($content)`.
 
-{% include callout.html content="This class should generally not be relied on. Instead, `TemplateFormNode` should be used." type="warning" %}
+!!! warning "This class should generally not be relied on. Instead, `TemplateFormNode` should be used."
 
 
 ### `TemplateFormNode`
@@ -284,7 +284,7 @@ The implementing class has to implement the following methods:
 If multilingual input is enabled for a specific form field, classes using `TI18nFormField` register a [custom form field data processor](php_api_form_builder-validation_data.md#customformfielddataprocessor) to add the array with multilingual input into the `$parameters` array directly using `{$objectProperty}_i18n` as the array key.
 If multilingual input is enabled but only a monolingual value is entered, the custom form field data processor does nothing and the form field’s value is added by the `DefaultFormDataProcessor` into the `data` sub-array of the `$parameters` array.
 
-{% include callout.html content="`TI18nFormField` already provides a default implementation of `IFormField::validate()`." type="info" %}
+!!! info "`TI18nFormField` already provides a default implementation of `IFormField::validate()`."
 
 
 #### `IImmutableFormField` / `TImmutableFormField`
@@ -301,7 +301,7 @@ The implementing class has to implement the methods `maximum($maximum = null)` a
 A maximum of `null` signals that no maximum value has been set.
 `TMaximumFormField` provides a default implementation of these two methods.
 
-{% include callout.html content="The implementing class has to validate the entered value against the maximum value manually." type="warning" %}
+!!! warning "The implementing class has to validate the entered value against the maximum value manually."
 
 
 #### `IMaximumLengthFormField` / `TMaximumLengthFormField`
@@ -311,7 +311,7 @@ The implementing class has to implement the methods `maximumLength($maximumLengt
 A maximum length of `null` signals that no maximum length has been set.
 `TMaximumLengthFormField` provides a default implementation of these two methods.
 
-{% include callout.html content="The implementing class has to validate the entered value against the maximum value manually by calling `validateMaximumLength()`." type="warning" %}
+!!! warning "The implementing class has to validate the entered value against the maximum value manually by calling `validateMaximumLength()`."
 
 
 #### `IMinimumFormField` / `TMinimumFormField`
@@ -321,7 +321,7 @@ The implementing class has to implement the methods `minimum($minimum = null)` a
 A minimum of `null` signals that no minimum value has been set.
 `TMinimumFormField` provides a default implementation of these three methods.
 
-{% include callout.html content="The implementing class has to validate the entered value against the minimum value manually." type="warning" %}
+!!! warning "The implementing class has to validate the entered value against the minimum value manually."
 
 
 #### `IMinimumLengthFormField` / `TMinimumLengthFormField`
@@ -331,7 +331,7 @@ The implementing class has to implement the methods `minimumLength($minimumLengt
 A minimum length of `null` signals that no minimum length has been set.
 `TMinimumLengthFormField` provides a default implementation of these three methods.
 
-{% include callout.html content="The implementing class has to validate the entered value against the minimum value manually by calling `validateMinimumLength()`." type="warning" %}
+!!! warning "The implementing class has to validate the entered value against the minimum value manually by calling `validateMinimumLength()`."
 
 
 #### `IMultipleFormField` / `TMultipleFormField`
@@ -349,7 +349,7 @@ The implementing class has to implement the following methods:
 
 `TMultipleFormField` provides a default implementation of these six methods and classes using `TMultipleFormField` register a [custom form field data processor](php_api_form_builder-validation_data.md#customformfielddataprocessor) to add the `HtmlInputProcessor` object with the text into the `$parameters` array directly using `{$objectProperty}_htmlInputProcessor` as the array key.
 
-{% include callout.html content="The implementing class has to validate the values against the minimum and maximum number of values manually." type="warning" %}
+!!! warning "The implementing class has to validate the values against the minimum and maximum number of values manually."
 
 
 #### `INullableFormField` / `TNullableFormField`

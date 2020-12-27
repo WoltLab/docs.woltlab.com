@@ -7,7 +7,7 @@ The [Standard PHP Library (SPL)](https://secure.php.net/manual/en/book.spl.php) 
 
 ## Custom Exceptions
 
-{% include callout.html content="Do not use `wcf\system\exception\SystemException` anymore, use specific exception classes!" type="warning" %}
+!!! warning "Do not use `wcf\system\exception\SystemException` anymore, use specific exception classes!"
 
 The following table contains a list of custom exceptions that are commonly used.
 

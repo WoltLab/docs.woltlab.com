@@ -76,7 +76,7 @@ This read-only property counts the number of items in the list.
 
 ## `ObjectMap`
 
-{% include callout.html content="This class uses a `WeakMap` internally, the keys are only weakly referenced and do not prevent garbage collection." type="info" %}
+!!! info "This class uses a `WeakMap` internally, the keys are only weakly referenced and do not prevent garbage collection."
 
 Represents a collection where any kind of objects, such as class instances or
 DOM elements, can be used as key. These keys are weakly referenced and will not

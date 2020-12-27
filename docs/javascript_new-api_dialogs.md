@@ -162,7 +162,7 @@ will always be invoked, but it cannot abort the close operation.
 
 ## `getDialog(id: string | Object): Object`
 
-{% include callout.html content="This method returns an internal data object by reference, any modifications made do have an effect on the dialogs behavior and in particular no validation is performed on the modification. It is strongly recommended to use the `.set*()` methods only." type="warning" %}
+!!! warning "This method returns an internal data object by reference, any modifications made do have an effect on the dialogs behavior and in particular no validation is performed on the modification. It is strongly recommended to use the `.set*()` methods only."
 
 Returns the internal dialog data that is attached to a dialog. The most important
 key is `.content` which holds a reference to the dialog's inner content element.

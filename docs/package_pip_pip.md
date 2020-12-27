@@ -12,7 +12,7 @@ Registers new package installation plugins.
 
 Each package installation plugin is described as an `<pip>` element with a `name` attribute and a PHP classname as the text content.
 
-{% include callout.html content="The package installation plugin’s class file must be installed into the `wcf` application and must not include classes outside the `\wcf\*` hierarchy to allow for proper uninstallation!" type="warning" %}
+!!! warning "The package installation plugin’s class file must be installed into the `wcf` application and must not include classes outside the `\wcf\*` hierarchy to allow for proper uninstallation!"
 
 ## Example
 

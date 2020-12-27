@@ -2,7 +2,7 @@
 
 ## New Style Variables
 
-{% include callout.html content="The new style variables are only applied to styles that have the compatibility set to WSC 3.1" type="info" %}
+!!! info "The new style variables are only applied to styles that have the compatibility set to WSC 3.1"
 
 ### wcfContentContainer
 

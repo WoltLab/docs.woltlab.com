@@ -52,7 +52,7 @@ You can access the decorated objects directly via `DatabaseObjectDecorator::getD
 
 ## DatabaseObjectEditor
 
-{% include callout.html content="This is the low-level interface to manipulate data rows, it is recommended to use `AbstractDatabaseObjectAction`." type="info" %}
+!!! info "This is the low-level interface to manipulate data rows, it is recommended to use `AbstractDatabaseObjectAction`."
 
 Adding, editing and deleting models is done using the `DatabaseObjectEditor` class that decorates a `DatabaseObject` and uses its data to perform the actions.
 
@@ -84,7 +84,7 @@ echo $example->bar;
 
 ### Updating an existing row
 
-{% include callout.html content="The internal state of the decorated `DatabaseObject` is not altered at any point, the values will still be the same after editing or deleting the represented row. If you need an object with the latest data, you'll have to discard the current object and refetch the data from database." type="warning" %}
+!!! warning "The internal state of the decorated `DatabaseObject` is not altered at any point, the values will still be the same after editing or deleting the represented row. If you need an object with the latest data, you'll have to discard the current object and refetch the data from database."
 
 ```php
 <?php
@@ -106,7 +106,7 @@ echo $example->bar;
 
 ### Deleting a row
 
-{% include callout.html content="Similar to the update process, the decorated `DatabaseObject` is not altered and will then point to an inexistent row." type="warning" %}
+!!! warning "Similar to the update process, the decorated `DatabaseObject` is not altered and will then point to an inexistent row."
 
 ```php
 <?php
@@ -215,7 +215,7 @@ class ExampleAction extends AbstractDatabaseObjectAction {
 
 ### Executing an Action
 
-{% include callout.html content="The method `AbstractDatabaseObjectAction::validateAction()` is internally used for AJAX method invocation and must not be called programmatically." type="warning" %}
+!!! warning "The method `AbstractDatabaseObjectAction::validateAction()` is internally used for AJAX method invocation and must not be called programmatically."
 
 The next example represents the same functionality as seen for `DatabaseObjectEditor`:
 

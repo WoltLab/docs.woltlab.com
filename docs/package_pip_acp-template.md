@@ -8,7 +8,7 @@ parent: package_pip
 
 Add templates for acp pages and forms by providing an archive containing the template files.
 
-{% include callout.html content="You cannot overwrite acp templates provided by other packages." type="warning" %}
+!!! warning "You cannot overwrite acp templates provided by other packages."
 
 
 ## Archive

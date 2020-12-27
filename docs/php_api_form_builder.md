@@ -1,8 +1,8 @@
 # Form Builder
 
-{% include callout.html content="Form builder is only available since WoltLab Suite Core 5.2." type="info" %}
+!!! info "Form builder is only available since WoltLab Suite Core 5.2."
 
-{% include callout.html content="The [migration guide for WoltLab Suite Core 5.2](migration_wsc-31_form-builder.md) provides some examples of how to migrate existing forms to form builder that can also help in understanding form builder if the old way of creating forms is familiar." type="info" %}
+!!! info "The [migration guide for WoltLab Suite Core 5.2](migration_wsc-31_form-builder.md) provides some examples of how to migrate existing forms to form builder that can also help in understanding form builder if the old way of creating forms is familiar."
 
 
 ## Advantages of Form Builder
@@ -26,9 +26,7 @@ Form builder consists of several components that are presented on the following 
 1. [Form validation and form data](php_api_form_builder-validation_data.md)
 1. [Form node dependencies](php_api_form_builder-dependencies.md)
 
-{% include callout.html content="In general, form builder provides default implementation of interfaces by providing either abstract classes or traits.
-  It is expected that the interfaces are always implemented using these abstract classes and traits!
-  This way, if new methods are added to the interfaces, default implementations can be provided by the abstract classes and traits without causing backwards compatibility problems." type="warning" %}
+!!! warning "In general, form builder provides default implementation of interfaces by providing either abstract classes or traits. It is expected that the interfaces are always implemented using these abstract classes and traits! This way, if new methods are added to the interfaces, default implementations can be provided by the abstract classes and traits without causing backwards compatibility problems."
 
 
 ## `AbstractFormBuilderForm`

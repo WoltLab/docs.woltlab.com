@@ -11,7 +11,7 @@ installation plugin, please also read the [naming conventions for language items
 
 ### `wcf.date.dateFormat`
 
-{% include callout.html content="Many characters in the format have a special meaning and will be replaced with date fragments. If you want to include a literal character, you'll have to use the backslash `\` as an escape sequence to indicate that the character should be output as-is rather than being replaced. For example, `Y-m-d` will be output as `2018-03-30`, but `\Y-m-d` will result in `Y-03-30`." type="warning" %}
+!!! warning "Many characters in the format have a special meaning and will be replaced with date fragments. If you want to include a literal character, you'll have to use the backslash `\` as an escape sequence to indicate that the character should be output as-is rather than being replaced. For example, `Y-m-d` will be output as `2018-03-30`, but `\Y-m-d` will result in `Y-03-30`."
 
 _Defaults to `M jS Y`._
 

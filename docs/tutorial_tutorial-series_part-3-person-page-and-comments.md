@@ -75,7 +75,7 @@ The complete package will have the following file structure (including the files
 └── userGroupOption.xml
 ```
 
-{% include callout.html content="We will not mention every code change between the first part and this part, as we only want to focus on the important, new parts of the code. For example, there is a new `Person::getLink()` method and new language items have been added. For all changes, please refer to the [source code on GitHub](https://github.com/WoltLab/woltlab.github.io/tree/master/_includes/tutorial/tutorial-series/part-3)." type="warning" %}
+!!! warning "We will not mention every code change between the first part and this part, as we only want to focus on the important, new parts of the code. For example, there is a new `Person::getLink()` method and new language items have been added. For all changes, please refer to the [source code on GitHub](https://github.com/WoltLab/woltlab.github.io/tree/master/_includes/tutorial/tutorial-series/part-3)."
 
 
 ## Runtime Cache
@@ -115,7 +115,7 @@ The `PersonCommentManager` class extended `ICommentManager`’s default implemen
 Additionally, we have added a new `enableComments` database table column to the `wcf1_person` database table whose value can be set when creating or editing a person in the ACP.
 With this option, comments on individual people can be disabled.
 
-{% include callout.html content="Liking comments is already built-in and only requires some extra code in the `PersonPage` class for showing the likes of pre-loaded comments." type="info" %}
+!!! info "Liking comments is already built-in and only requires some extra code in the `PersonPage` class for showing the likes of pre-loaded comments."
 
 
 ## Person Page

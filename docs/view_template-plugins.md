@@ -190,7 +190,7 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 {cycle name=fooCycle} {* prints 'bar' *}
 ```
 
-{% include callout.html content="The values attribute only has to be present for the first call. If `cycle` is used in a loop, the presence of the same values in consecutive calls has no effect. Only once the values change, the cycle is reset." type="info" %}
+!!! info "The values attribute only has to be present for the first call. If `cycle` is used in a loop, the presence of the same values in consecutive calls has no effect. Only once the values change, the cycle is reset."
 
 | Attribute | Description |
 |-----------|-------------|

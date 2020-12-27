@@ -6,7 +6,7 @@ folder: php
 parent: php_code-style
 ---
 
-{% include callout.html content="The following documentation conventions are used by us for our own packages. While you do not have to follow every rule, you are encouraged to do so." type="info" %}
+!!! info "The following documentation conventions are used by us for our own packages. While you do not have to follow every rule, you are encouraged to do so."
 
 
 ## Database Objects

@@ -149,7 +149,7 @@ The show order field provides a list of all siblings and the object will be posi
 To insert objects at the very beginning, the `options()` automatically method prepends an additional option for that case so that only the existing siblings need to be passed.
 The default id of instances of this class is `showOrder` and their default label is `wcf.form.field.showOrder`.
 
-{% include callout.html content="It is important that the relevant object property is always kept updated. Whenever a new object is added or an existing object is edited or delete, the values of the other objects have to be adjusted to ensure consecutive numbering." type="info" %}
+!!! info "It is important that the relevant object property is always kept updated. Whenever a new object is added or an existing object is edited or delete, the values of the other objects have to be adjusted to ensure consecutive numbering."
 
 
 ### `SingleSelectionFormField`
@@ -302,7 +302,7 @@ As usernames have a system-wide restriction of a minimum length of 3 and a maxim
 To integrate a wysiwyg editor into a form, you have to create a `WysiwygFormContainer` object.
 This container takes care of creating all necessary form nodes listed below for a wysiwyg editor.
 
-{% include callout.html content="When creating the container object, its id has to be the id of the form field that will manage the actual text." type="warning" %}
+!!! warning "When creating the container object, its id has to be the id of the form field that will manage the actual text."
 
 The following methods are specific to this form container class:
 
@@ -393,7 +393,7 @@ The following methods are specific to this form field class:
   `0` signals that no last edit time has been set.
 - `supportAttachments($supportAttachments)` and `supportsAttachments()` can be used to set and check if the form field supports attachments.
   
-  {% include callout.html content="It is not sufficient to simply signal attachment support via these methods for attachments to work. These methods are relevant internally to signal the Javascript code that the editor supports attachments. Actual attachment support is provided by `WysiwygAttachmentFormField`." type="warning" %}
+  !!! warning "It is not sufficient to simply signal attachment support via these methods for attachments to work. These methods are relevant internally to signal the Javascript code that the editor supports attachments. Actual attachment support is provided by `WysiwygAttachmentFormField`."
 - `supportMentions($supportMentions)` and `supportsMentions()` can be used to set and check if the form field supports mentions of other users.
 
 `WysiwygFormField` objects register a [custom form field data processor](php_api_form_builder-validation_data.md#customformfielddataprocessor) to add the relevant simple ACL data array into the `$parameters` array directly using the object property as the array key.

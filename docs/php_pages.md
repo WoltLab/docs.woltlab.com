@@ -86,7 +86,7 @@ Extends the AbstractPage implementation with additional methods designed to hand
 
 #### submit()
 
-{% include callout.html content="The methods `submit()` up until `save()` are only invoked if either `$_POST` or `$_FILES` are not empty, otherwise they won't be invoked and the execution will continue with `readData()`." type="warning" %}
+!!! warning "The methods `submit()` up until `save()` are only invoked if either `$_POST` or `$_FILES` are not empty, otherwise they won't be invoked and the execution will continue with `readData()`."
 
 This is an internal method that is responsible of input processing and validation.
 
@@ -112,7 +112,7 @@ Saves the processed data to database or any other source of your choice. Please 
 
 #### saved()
 
-{% include callout.html content="This method is not called automatically and must be invoked manually by executing `$this->saved()` inside `save()`." type="warning" %}
+!!! warning "This method is not called automatically and must be invoked manually by executing `$this->saved()` inside `save()`."
 
 The only purpose of this method is to fire the event `saved` that signals that the form data has been processed successfully and data has been saved. It is somewhat special as it is dispatched after the data has been saved, but before the data is purged during form reset. This is by default the last event that has access to the processed data.
 

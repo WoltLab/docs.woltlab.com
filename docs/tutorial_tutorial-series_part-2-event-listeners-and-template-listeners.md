@@ -148,7 +148,7 @@ The first part is a very simple class:
 {% include tutorial/tutorial-series/part-2/files/lib/system/event/listener/BirthdaySortFieldPersonListPageListener.class.php %}
 {% endhighlight %}
 
-{% include callout.html content="We use `SortablePage` as a type hint instead of `wcf\acp\page\PersonListPage` because we will be using the same event listener class in the front end to also allow sorting that list by birthday." type="info" %}
+!!! info "We use `SortablePage` as a type hint instead of `wcf\acp\page\PersonListPage` because we will be using the same event listener class in the front end to also allow sorting that list by birthday."
 
 As the relevant template codes are only one line each, we will simply put them directly in the `templateListener.xml` file that will be shown [later on](#templatelistenerxml).
 The code for the table head is similar to the other `th` elements:
@@ -175,7 +175,7 @@ In the front end, we will now use a template (`__personListBirthdaySortField.tpl
 {% include tutorial/tutorial-series/part-2/templates/__personListBirthdaySortField.tpl %}
 {% endhighlight %}
 
-{% include callout.html content="You might have noticed the two underscores at the beginning of the template file. For templates that are included via template listeners, this is the naming convention we use." type="info" %}
+!!! info "You might have noticed the two underscores at the beginning of the template file. For templates that are included via template listeners, this is the naming convention we use."
 
 Putting the template code into a file has the advantage that in the administrator is able to edit the code directly via a custom template group, even though in this case this might not be very probable.
 

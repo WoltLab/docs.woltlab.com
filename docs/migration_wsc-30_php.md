@@ -93,7 +93,7 @@ class ExampleBBCodeMediaProvider implements IBBCodeMediaProvider {
 
 ## Re-Evaluate HTML Messages
 
-{% include callout.html content="You need to manually set the disallowed bbcodes in order to avoid unintentional bbcode evaluation. Please see [this commit](https://github.com/WoltLab/WCF/commit/7e058783da1378dda5393a9bb4df9cfe94e5b394) for a reference implementation inside worker processes." type="warning" %}
+!!! warning "You need to manually set the disallowed bbcodes in order to avoid unintentional bbcode evaluation. Please see [this commit](https://github.com/WoltLab/WCF/commit/7e058783da1378dda5393a9bb4df9cfe94e5b394) for a reference implementation inside worker processes."
 
 The HtmlInputProcessor only supported two ways to handle an existing HTML message:
 

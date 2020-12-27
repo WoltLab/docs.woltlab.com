@@ -25,7 +25,7 @@ For pages and forms, the name of the template matches the unqualified name of th
 
 If you follow this convention, WoltLab Suite Core will automatically determine the template name so that you do not have to explicitly set it.
 
-{% include callout.html content="For forms that handle creating and editing objects, in general, there are two form classes: `FooAddForm` and `FooEditForm`. WoltLab Suite Core, however, generally only uses one template `fooAdd.tpl` and the template variable `$action` to distinguish between creating a new object (`$action = 'add'`) and editing an existing object (`$action = 'edit'`) as the differences between templates for adding and editing an object are minimal." type="info" %}
+!!! info "For forms that handle creating and editing objects, in general, there are two form classes: `FooAddForm` and `FooEditForm`. WoltLab Suite Core, however, generally only uses one template `fooAdd.tpl` and the template variable `$action` to distinguish between creating a new object (`$action = 'add'`) and editing an existing object (`$action = 'edit'`) as the differences between templates for adding and editing an object are minimal."
 
 
 
@@ -79,7 +79,7 @@ More information about installing templates can be found on those pages.
 
 ### Forms
 
-{% include callout.html content="For new forms, use the new [form builder API](php_api_form_builder.md) introduced with WoltLab Suite 5.2." type="info" %}
+!!! info "For new forms, use the new [form builder API](php_api_form_builder.md) introduced with WoltLab Suite 5.2."
 
 ```smarty
 <form method="post" action="{link controller='FooBar'}{/link}">
@@ -225,7 +225,7 @@ Comments are wrapped in `{*` and `*}` and can span multiple lines:
    comment *}
 ```
 
-{% include callout.html content="The template compiler discards the comments, so that they not included in the compiled template." type="info" %}
+!!! info "The template compiler discards the comments, so that they not included in the compiled template."
 
 ### Conditions
 
