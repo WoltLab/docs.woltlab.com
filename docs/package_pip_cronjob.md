@@ -16,7 +16,7 @@ the class has to implement the `wcf\system\cronjob\ICronjob` interface.
 
 ### `<description>`
 
-{% include languageCode.html requirement="optional" %}
+!!! info "The `language` attribute is optional and should specify the [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code."
 
 Provides a human readable description for the administrator.
 

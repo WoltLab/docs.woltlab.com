@@ -8,7 +8,7 @@ Each item is described as a `<box>` element with the mandatory attribute `name` 
 
 ### `<name>`
 
-{% include languageCode.html %}
+!!! info "The `language` attribute is required and should specify the [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code."
 
 The internal name displayed in the admin panel only, can be fully customized by the administrator and is immutable. Only one value is accepted and will be picked based on the site's default language, but you can provide localized values by including multiple `<name>` elements.
 
@@ -43,7 +43,7 @@ The default display position of this box, can be any of the following:
 
 #### Placeholder Positions
 
-{% include image.html file="boxPlaceholders.png" alt="Visual illustration of placeholder positions" %}
+--8<-- "image.html file="boxPlaceholders.png" alt="Visual illustration of placeholder positions""
 
 ### `<showHeader>`
 
@@ -63,7 +63,8 @@ Provide a custom CSS class name that is added to the menu container, allowing fu
 
 ### `<content>`
 
-{% include languageCode.html %}
+!!! info "The `language` attribute is required and should specify the [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code."
+
 #### `<title>`
 
 The title element is required and controls the box title shown to the end users.

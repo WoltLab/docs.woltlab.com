@@ -12,7 +12,7 @@ The target menu that the item should be added to, requires the internal identifi
 
 ### `<title>`
 
-{% include languageCode.html %}
+!!! info "The `language` attribute is required and should specify the [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code."
 
 The title is displayed as the link title of the menu item and can be fully customized by the administrator, thus is immutable after deployment. Supports multiple `<title>` elements to provide localized values.
 
