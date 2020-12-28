@@ -40,19 +40,19 @@ The package will have the following file structure:
 
 ```
 ├── acptemplates
-│   └── __personAddBirthday.tpl
+│   └── __personAddBirthday.tpl
 ├── eventListener.xml
 ├── files
-│   └── lib
-│       └── system
-│           └── event
-│               └── listener
-│                   ├── BirthdayPersonAddFormListener.class.php
-│                   └── BirthdaySortFieldPersonListPageListener.class.php
+│   └── lib
+│       └── system
+│           └── event
+│               └── listener
+│                   ├── BirthdayPersonAddFormListener.class.php
+│                   └── BirthdaySortFieldPersonListPageListener.class.php
 ├── install.sql
 ├── language
-│   ├── de.xml
-│   └── en.xml
+│   ├── de.xml
+│   └── en.xml
 ├── package.xml
 ├── templateListener.xml
 └── templates

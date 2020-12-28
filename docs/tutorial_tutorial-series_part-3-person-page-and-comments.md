@@ -26,46 +26,46 @@ The complete package will have the following file structure (including the files
 ```
 ├── acpMenu.xml
 ├── acptemplates
-│   ├── personAdd.tpl
-│   └── personList.tpl
+│   ├── personAdd.tpl
+│   └── personList.tpl
 ├── files
-│   └── lib
-│       ├── acp
-│       │   ├── form
-│       │   │   ├── PersonAddForm.class.php
-│       │   │   └── PersonEditForm.class.php
-│       │   └── page
-│       │       └── PersonListPage.class.php
-│       ├── data
-│       │   └── person
-│       │       ├── Person.class.php
-│       │       ├── PersonAction.class.php
-│       │       ├── PersonEditor.class.php
-│       │       └── PersonList.class.php
-│       ├── page
-│       │   ├── PersonListPage.class.php
-│       │   └── PersonPage.class.php
-│       └── system
-│           ├── cache
-│           │   └── runtime
-│           │       └── PersonRuntimeCache.class.php
-│           ├── comment
-│           │   └── manager
-│           │       └── PersonCommentManager.class.php
-│           └── page
-│               └── handler
-│                   └── PersonPageHandler.class.php
+│   └── lib
+│       ├── acp
+│       │   ├── form
+│       │   │   ├── PersonAddForm.class.php
+│       │   │   └── PersonEditForm.class.php
+│       │   └── page
+│       │       └── PersonListPage.class.php
+│       ├── data
+│       │   └── person
+│       │       ├── Person.class.php
+│       │       ├── PersonAction.class.php
+│       │       ├── PersonEditor.class.php
+│       │       └── PersonList.class.php
+│       ├── page
+│       │   ├── PersonListPage.class.php
+│       │   └── PersonPage.class.php
+│       └── system
+│           ├── cache
+│           │   └── runtime
+│           │       └── PersonRuntimeCache.class.php
+│           ├── comment
+│           │   └── manager
+│           │       └── PersonCommentManager.class.php
+│           └── page
+│               └── handler
+│                   └── PersonPageHandler.class.php
 ├── install.sql
 ├── language
-│   ├── de.xml
-│   └── en.xml
+│   ├── de.xml
+│   └── en.xml
 ├── menuItem.xml
 ├── objectType.xml
 ├── package.xml
 ├── page.xml
 ├── templates
-│   ├── person.tpl
-│   └── personList.tpl
+│   ├── person.tpl
+│   └── personList.tpl
 └── userGroupOption.xml
 ```
 

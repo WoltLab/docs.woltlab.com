@@ -168,13 +168,13 @@ If you have followed the above guidelines carefully, your package directory shou
 
 ```
 ├── files
-│   └── lib
-│       ├── page
-│       │   ├── TestPage.class.php
+│   └── lib
+│       ├── page
+│       │   ├── TestPage.class.php
 ├── package.xml
 ├── page.xml
 ├── templates
-│   └── test.tpl
+│   └── test.tpl
 ```
 
 Both files and templates are archive-based package components, that deploy their payload using tar archives rather than adding the raw files to the package file. Please create the archive `files.tar` and add the contents of the `files/*` directory, but not the directory `files/` itself. Repeat the same process for the `templates` directory, but this time with the file name `templates.tar`. Place both files in the root of your project.
