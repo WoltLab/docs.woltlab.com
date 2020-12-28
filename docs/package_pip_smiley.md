@@ -12,7 +12,7 @@ Short human readable description of the smiley.
 
 ### `<path(2x)?>`
 
-{% include important.html content="The files must be installed using the [file](package_pip_file.md) PIP." %}
+!!! warning "The files must be installed using the [file](package_pip_file.md) PIP."
 
 File path relative to the root of WoltLab Suite Core.
 `path2x` is optional and being used for High-DPI screens.

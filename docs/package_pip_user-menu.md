@@ -30,7 +30,7 @@ the full external link otherwise.
 
 ### `<iconclassname>`
 
-{% include tip.html content="Use an icon only for top-level items." %}
+!!! info "Use an icon only for top-level items."
 
 Name of the Font Awesome icon class.
 

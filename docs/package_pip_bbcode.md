@@ -43,7 +43,7 @@ Explanatory text to show when hovering the icon.
 
 ### `<sourcecode>`
 
-{% include warning.html content="Do not set this to `1` if you don't specify a PHP class for processing. You must perform XSS sanitizing yourself!" %}
+!!! warning "Do not set this to `1` if you don't specify a PHP class for processing. You must perform XSS sanitizing yourself!"
 
 If set to `1` contents of this BBCode will not be interpreted,
 but literally passed through instead.

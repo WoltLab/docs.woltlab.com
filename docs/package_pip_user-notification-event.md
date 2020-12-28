@@ -8,7 +8,7 @@ Each package installation plugin is described as an `<event>` element with the m
 
 ### `<objectType>`
 
-{% include warning.html content="The `(name, objectType)` pair must be unique." %}
+!!! warning "The `(name, objectType)` pair must be unique."
 
 The given object type must implement the `com.woltlab.wcf.notification.objectType` definition.
 
