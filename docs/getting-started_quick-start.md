@@ -122,7 +122,7 @@ processing that takes place within all sort of pages, where all user-supplied da
 start reading user input at random places, including the risk to only escape the input of variable `$_GET['foo']` 4 out of 5 times.
 
 Reading and processing the data is only half the story, now we need a template to display the actual content for our page. You don't need to specify it yourself, it will be automatically guessed based on your
-namespace and class name, you can [read more about it later](#appendixTemplateGuessing).
+namespace and class name, you can [read more about it later](#template-guessing).
 
 Last but not least, you must not include the closing PHP tag `?>` at the end, it can cause PHP to break on whitespaces and is not required at all.
 
@@ -216,7 +216,7 @@ Some built-in PIPs, such as `sql` or `script`, do not qualify for this step and 
 
 ## Appendix
 
-### Template Guessing {#appendixTemplateGuessing}
+### Template Guessing
 
 The class name including the namespace is used to automatically determine the path to the template and its name. The example above used the page class name `wcf\page\TestPage` that is then split into four distinct parts:
 
