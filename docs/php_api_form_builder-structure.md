@@ -1,10 +1,4 @@
----
-title: Structure of Form Builder
-sidebar: sidebar
-permalink: php_api_form_builder-structure.html
-folder: php/api/formBuilder
-parent: php_api_form_builder
----
+# Structure of Form Builder
 
 Forms built with form builder consist of three major structural elements listed from top to bottom:
 

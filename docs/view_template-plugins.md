@@ -1,10 +1,4 @@
----
-title: Template Plugins
-sidebar: sidebar
-permalink: view_template-plugins.html
-folder: view
-parent: view_templates
----
+# Template Plugins
 
 ## <span class="label label-info">5.3+</span> `anchor`
 

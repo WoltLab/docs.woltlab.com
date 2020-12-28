@@ -1,10 +1,4 @@
----
-title: Clipboard Action Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_clipboard_action.html
-folder: package/pip
-parent: package_pip
----
+# Clipboard Action Package Installation Plugin
 
 Registers clipboard actions.
 

@@ -1,10 +1,4 @@
----
-title: Templates
-sidebar: sidebar
-permalink: view_templates.html
-folder: view
-parent: view
----
+# Templates
 
 Templates are responsible for the output a user sees when requesting a page (while the PHP code is responsible for providing the data that will be shown).
 Templates are text files with `.tpl` as the file extension.

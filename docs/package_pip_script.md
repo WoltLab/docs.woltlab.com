@@ -1,10 +1,4 @@
----
-title: Script Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_script.html
-folder: package/pip
-parent: package_pip
----
+# Script Package Installation Plugin
 
 Execute arbitrary PHP code during installation, update and uninstallation of the package.
 

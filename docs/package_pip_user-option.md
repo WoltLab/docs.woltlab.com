@@ -1,10 +1,4 @@
----
-title: User Option Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_user-option.html
-folder: package/pip
-parent: package_pip
----
+# User Option Package Installation Plugin
 
 Registers new user options (profile fields / user settings).
 The behaviour of this package installation plugin closely follows the [option](package_pip_option.md) PIP.

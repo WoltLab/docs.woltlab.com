@@ -1,10 +1,4 @@
----
-title: Migrating from WSC 3.1 - Form Builder
-sidebar: sidebar
-permalink: migration_wsc-31_form-builder.html
-folder: migration/wsc-31
-parent: migration_wsc-31_php
----
+# Migrating from WSC 3.1 - Form Builder
 
 ## Example: Two Text Form Fields
 

@@ -1,10 +1,4 @@
----
-title: ACP Search Provider Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_acp-search-provider.html
-folder: package/pip
-parent: package_pip
----
+# ACP Search Provider Package Installation Plugin
 
 Registers data provider for the admin panel search.
 

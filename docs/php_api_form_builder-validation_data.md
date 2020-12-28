@@ -1,10 +1,4 @@
----
-title: Form Validation and Form Data
-sidebar: sidebar
-permalink: php_api_form_builder-validation_data.html
-folder: php/api/formBuilder
-parent: php_api_form_builder
----
+# Form Validation and Form Data
 
 ## Form Validation
 

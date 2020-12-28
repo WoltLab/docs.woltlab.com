@@ -1,10 +1,4 @@
----
-title: Object Type Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_object-type.html
-folder: package/pip
-parent: package_pip
----
+# Object Type Package Installation Plugin
 
 Registers an object type.
 Read about object types in the [objectTypeDefinition](package_pip_object-type-definition.md) PIP.

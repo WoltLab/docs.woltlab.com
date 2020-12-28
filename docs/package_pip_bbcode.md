@@ -1,10 +1,4 @@
----
-title: BBCode Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_bbcode.html
-folder: package/pip
-parent: package_pip
----
+# BBCode Package Installation Plugin
 
 Registers new BBCodes.
 

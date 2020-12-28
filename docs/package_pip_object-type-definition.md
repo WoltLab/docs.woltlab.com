@@ -1,10 +1,4 @@
----
-title: Object Type Definition Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_object-type-definition.html
-folder: package/pip
-parent: package_pip
----
+# Object Type Definition Package Installation Plugin
 
 Registers an object type definition.
 An object type definition is a blueprint for a certain behaviour that is particularized by [objectTypes](package_pip_object-type.md).

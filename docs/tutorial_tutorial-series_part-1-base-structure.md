@@ -1,10 +1,4 @@
----
-title: "Tutorial Series Part 1: Base Structure"
-sidebar: sidebar
-permalink: tutorial_tutorial-series_part-1-base-structure.html
-folder: tutorial/tutorial-series
-parent: tutorial_tutorial-series
----
+# Tutorial Series Part 1: Base Structure
 
 In the first part of this tutorial series, we will lay out what the basic version of package should be able to do and how to implement these functions.
 

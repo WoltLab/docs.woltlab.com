@@ -1,10 +1,4 @@
----
-title: Template Listener Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_template-listener.html
-folder: package/pip
-parent: package_pip
----
+# Template Listener Package Installation Plugin
 
 Registers template listeners.
 Template listeners supplement [event listeners](package_pip_event-listener.md), which modify server side behaviour, by adding additional template code to display additional elements.

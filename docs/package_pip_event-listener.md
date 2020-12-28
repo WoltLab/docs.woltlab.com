@@ -1,10 +1,4 @@
----
-title: Event Listener Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_event-listener.html
-folder: package/pip
-parent: package_pip
----
+# Event Listener Package Installation Plugin
 
 Registers event listeners.
 An explanation of events and event listeners can be found [here](php_api_events.md).

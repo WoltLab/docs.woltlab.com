@@ -1,10 +1,4 @@
----
-title: SQL Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_sql.html
-folder: package/pip
-parent: package_pip
----
+# SQL Package Installation Plugin
 
 Execute SQL instructions using a MySQL-flavored syntax.
 

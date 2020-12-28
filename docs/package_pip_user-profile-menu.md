@@ -1,10 +1,4 @@
----
-title: User Profile Menu Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_user-profile-menu.html
-folder: package/pip
-parent: package_pip
----
+# User Profile Menu Package Installation Plugin
 
 Registers new user profile tabs.
 

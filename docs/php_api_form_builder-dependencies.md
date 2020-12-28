@@ -1,10 +1,4 @@
----
-title: Form Node Dependencies
-sidebar: sidebar
-permalink: php_api_form_builder-dependencies.html
-folder: php/api/formBuilder
-parent: php_api_form_builder
----
+# Form Node Dependencies
 
 Form node dependencies allow to make parts of a form dynamically available or unavailable depending on the values of form fields.
 Dependencies are always added to the object whose visibility is determined by certain form fields.

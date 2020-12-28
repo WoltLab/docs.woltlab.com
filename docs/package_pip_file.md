@@ -1,10 +1,4 @@
----
-title: File Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_file.html
-folder: package/pip
-parent: package_pip
----
+# File Package Installation Plugin
 
 Adds any type of files with the exception of templates.
 

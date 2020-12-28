@@ -1,10 +1,4 @@
----
-title: "Part 2: Event Listeners and Template Listeners"
-sidebar: sidebar
-permalink: tutorial_tutorial-series_part-2-event-listeners-and-template-listeners.html
-folder: tutorial/tutorial-series
-parent: tutorial_tutorial-series
----
+# Part 2: Event Listeners and Template Listeners
 
 In the [first part](tutorial_tutorial-series_part-1-base-structure.md) of this tutorial series, we have created the base structure of our people management package.
 In further parts, we will use the package of the first part as a basis to directly add new features.

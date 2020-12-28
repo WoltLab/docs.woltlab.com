@@ -1,10 +1,4 @@
----
-title: User Menu Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_user-menu.html
-folder: package/pip
-parent: package_pip
----
+# User Menu Package Installation Plugin
 
 Registers new user menu items.
 

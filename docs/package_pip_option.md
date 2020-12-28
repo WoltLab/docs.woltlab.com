@@ -1,10 +1,4 @@
----
-title: Option Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_option.html
-folder: package/pip
-parent: package_pip
----
+# Option Package Installation Plugin
 
 Registers new options.
 Options allow the administrator to configure the behaviour of installed packages.

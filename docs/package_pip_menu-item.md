@@ -1,10 +1,4 @@
----
-title: Menu Item Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_menu-item.html
-folder: package/pip
-parent: package_pip
----
+# Menu Item Package Installation Plugin
 
 Adds menu items to existing menus.
 

@@ -1,10 +1,4 @@
----
-title: Form Builder Fields
-sidebar: sidebar
-permalink: php_api_form_builder-form_fields.html
-folder: php/api/formBuilder
-parent: php_api_form_builder
----
+# Form Builder Fields
 
 ## Abstract Form Fields
 

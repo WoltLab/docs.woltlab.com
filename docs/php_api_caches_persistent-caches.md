@@ -1,10 +1,4 @@
----
-title: Persistent Caches
-sidebar: sidebar
-permalink: php_api_caches_persistent-caches.html
-folder: php/api/cache
-parent: php_api_caches
----
+# Persistent Caches
 
 Relational databases are designed around the principle of normalized data that
 is organized across clearly separated tables with defined releations between

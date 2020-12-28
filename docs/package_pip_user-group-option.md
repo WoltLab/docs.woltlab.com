@@ -1,10 +1,4 @@
----
-title: User Group Option Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_user-group-option.html
-folder: package/pip
-parent: package_pip
----
+# User Group Option Package Installation Plugin
 
 Registers new user group options (“permissions”).
 The behaviour of this package installation plugin closely follows the [option](package_pip_option.md) PIP.

@@ -1,10 +1,4 @@
----
-title: Language Naming Conventions
-sidebar: sidebar
-permalink: view_languages_naming-conventions.html
-folder: view
-parent: view_languages
----
+# Language Naming Conventions
 
 This page contains general rules for naming language items and for their values.
 API-specific rules are listed on the relevant API page:

@@ -1,10 +1,4 @@
----
-title: ACP Template Installation Plugin
-sidebar: sidebar
-permalink: package_pip_acp-template.html
-folder: package/pip
-parent: package_pip
----
+# ACP Template Installation Plugin
 
 Add templates for acp pages and forms by providing an archive containing the template files.
 

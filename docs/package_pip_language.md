@@ -1,10 +1,4 @@
----
-title: Language Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_language.html
-folder: package/pip
-parent: package_pip
----
+# Language Package Installation Plugin
 
 Registers new language items.
 

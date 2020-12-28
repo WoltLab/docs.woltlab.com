@@ -1,10 +1,4 @@
----
-title: Runtime Caches
-sidebar: sidebar
-permalink: php_api_caches_runtime-caches.html
-folder: php/api/cache
-parent: php_api_caches
----
+# Runtime Caches
 
 Runtime caches store objects created during the runtime of the script and are automatically discarded after the script terminates.
 Runtime caches are especially useful when objects are fetched by different APIs, each requiring separate requests.

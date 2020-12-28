@@ -1,10 +1,4 @@
----
-title: ACL Option Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_acl-option.html
-folder: package/pip
-parent: package_pip
----
+# ACL Option Package Installation Plugin
 
 Add customizable permissions for individual objects.
 

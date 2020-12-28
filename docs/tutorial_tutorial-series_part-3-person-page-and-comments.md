@@ -1,10 +1,4 @@
----
-title: "Tutorial Series Part 3: Person Page and Comments"
-sidebar: sidebar
-permalink: tutorial_tutorial-series_part-3-person-page-and-comments.html
-folder: tutorial/tutorial-series
-parent: tutorial_tutorial-series
----
+# Tutorial Series Part 3: Person Page and Comments
 
 In this part of our tutorial series, we will add a new front end page to our package that is dedicated to each person and shows their personal details.
 To make good use of this new page and introduce a new API of WoltLab Suite, we will add the opportunity for users to comment on the person using WoltLab Suite’s reusable comment functionality.

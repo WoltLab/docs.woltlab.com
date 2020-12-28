@@ -1,10 +1,4 @@
----
-title: Documentation
-sidebar: sidebar
-permalink: php_code-style_documentation.html
-folder: php
-parent: php_code-style
----
+# Documentation
 
 !!! info "The following documentation conventions are used by us for our own packages. While you do not have to follow every rule, you are encouraged to do so."
 

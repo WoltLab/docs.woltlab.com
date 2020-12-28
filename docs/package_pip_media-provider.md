@@ -1,10 +1,4 @@
----
-title: Media Provider Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_media-provider.html
-folder: package/pip
-parent: package_pip
----
+# Media Provider Package Installation Plugin
 
 !!! info "Available since WoltLab Suite 3.1"
 

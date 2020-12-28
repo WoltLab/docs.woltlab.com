@@ -1,10 +1,4 @@
----
-title: Cronjob Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_cronjob.html
-folder: package/pip
-parent: package_pip
----
+# Cronjob Package Installation Plugin
 
 Registers new cronjobs.
 The cronjob schedular works similar to the `cron(8)` daemon, which might not available to web applications on regular webspaces.

@@ -1,10 +1,4 @@
----
-title: Template Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_template.html
-folder: package/pip
-parent: package_pip
----
+# Template Package Installation Plugin
 
 Add templates for frontend pages and forms by providing an archive containing the template files.
 

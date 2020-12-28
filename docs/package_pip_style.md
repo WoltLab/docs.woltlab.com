@@ -1,10 +1,4 @@
----
-title: Style Package Installation Plugin
-sidebar: sidebar
-permalink: package_pip_style.html
-folder: package/pip
-parent: package_pip
----
+# Style Package Installation Plugin
 
 Install styles during package installation.
 
