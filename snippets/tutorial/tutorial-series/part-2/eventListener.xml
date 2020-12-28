@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/tornado/eventListener.xsd">
+	<import>
+		<!-- admin -->
+		<eventlistener name="birthdaySortFieldAdminPersonList">
+			<environment>admin</environment>
+			<eventclassname>wcf\acp\page\PersonListPage</eventclassname>
+			<eventname>validateSortField</eventname>
+			<listenerclassname>wcf\system\event\listener\BirthdaySortFieldPersonListPageListener</listenerclassname>
+		</eventlistener>
+		<eventlistener name="birthdayPersonAddForm">
+			<environment>admin</environment>
+			<eventclassname>wcf\acp\form\PersonAddForm</eventclassname>
+			<eventname>saved</eventname>
+			<listenerclassname>wcf\system\event\listener\BirthdayPersonAddFormListener</listenerclassname>
+		</eventlistener>
+		<eventlistener name="birthdayPersonAddFormInherited">
+			<environment>admin</environment>
+			<eventclassname>wcf\acp\form\PersonAddForm</eventclassname>
+			<eventname>assignVariables,readFormParameters,save,validate</eventname>
+			<listenerclassname>wcf\system\event\listener\BirthdayPersonAddFormListener</listenerclassname>
+			<inherit>1</inherit>
+		</eventlistener>
+		<eventlistener name="birthdayPersonEditForm">
+			<environment>admin</environment>
+			<eventclassname>wcf\acp\form\PersonEditForm</eventclassname>
+			<eventname>readData</eventname>
+			<listenerclassname>wcf\system\event\listener\BirthdayPersonAddFormListener</listenerclassname>
+		</eventlistener>
+		<!-- /admin -->
+		
+		<!-- user -->
+		<eventlistener name="birthdaySortFieldPersonList">
+			<environment>user</environment>
+			<eventclassname>wcf\page\PersonListPage</eventclassname>
+			<eventname>validateSortField</eventname>
+			<listenerclassname>wcf\system\event\listener\BirthdaySortFieldPersonListPageListener</listenerclassname>
+		</eventlistener>
+		<!-- /user -->
+	</import>
+</data>

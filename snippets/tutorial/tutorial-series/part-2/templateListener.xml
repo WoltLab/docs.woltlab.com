@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/tornado/XSD/templateListener.xsd">
+	<import>
+		<!-- admin -->
+		<templatelistener name="personListBirthdayColumnHead">
+			<eventname>columnHeads</eventname>
+			<environment>admin</environment>
+			<templatecode><![CDATA[<th class="columnDate columnBirthday{if $sortField == 'birthday'} active {@$sortOrder}{/if}"><a href="{link controller='PersonList'}pageNo={@$pageNo}&sortField=birthday&sortOrder={if $sortField == 'birthday' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.person.birthday{/lang}</a></th>]]></templatecode>
+			<templatename>personList</templatename>
+		</templatelistener>
+		<templatelistener name="personListBirthdayColumn">
+			<eventname>columns</eventname>
+			<environment>admin</environment>
+			<templatecode><![CDATA[<td class="columnDate columnBirthday">{if $person->birthday !== '0000-00-00'}{@$person->birthday|strtotime|date}{/if}</td>]]></templatecode>
+			<templatename>personList</templatename>
+		</templatelistener>
+		<templatelistener name="personAddBirthday">
+			<eventname>dataFields</eventname>
+			<environment>admin</environment>
+			<templatecode><![CDATA[{include file='__personAddBirthday'}]]></templatecode>
+			<templatename>personAdd</templatename>
+		</templatelistener>
+		<!-- /admin -->
+		
+		<!-- user -->
+		<templatelistener name="personListBirthday">
+			<eventname>personStatistics</eventname>
+			<environment>user</environment>
+			<templatecode><![CDATA[{include file='__personListBirthday'}]]></templatecode>
+			<templatename>personList</templatename>
+		</templatelistener>
+		<templatelistener name="personListBirthdaySortField">
+			<eventname>sortField</eventname>
+			<environment>user</environment>
+			<templatecode><![CDATA[{include file='__personListBirthdaySortField'}]]></templatecode>
+			<templatename>personList</templatename>
+		</templatelistener>
+		<!-- /user -->
+	</import>
+</data>

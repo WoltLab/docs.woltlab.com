@@ -7,36 +7,36 @@ This form is the perfect first examples as it is very simple with only two text 
 
 As a reminder, here are the two relevant PHP files and the relevant template file:
 
-{% highlight php %}
-{% include migration/wsc-31/formBuilder/PersonAddForm_old.class.php %}
-{% endhighlight %}
+```php
+--8<-- "migration/wsc-31/formBuilder/PersonAddForm_old.class.php"
+```
 
-{% highlight php %}
-{% include migration/wsc-31/formBuilder/PersonEditForm_old.class.php %}
-{% endhighlight %}
+```php
+--8<-- "migration/wsc-31/formBuilder/PersonEditForm_old.class.php"
+```
 
-{% highlight php %}
-{% include migration/wsc-31/formBuilder/personAdd_old.tpl %}
-{% endhighlight %}
+```php
+--8<-- "migration/wsc-31/formBuilder/personAdd_old.tpl"
+```
 
 Updating the template is easy as the complete form is replace by a single line of code:
 
-{% highlight php %}
-{% include migration/wsc-31/formBuilder/personAdd_new.tpl %}
-{% endhighlight %}
+```php
+--8<-- "migration/wsc-31/formBuilder/personAdd_new.tpl"
+```
 
 `PersonEditForm` also becomes much simpler:
 only the edited `Person` object must be read:
 
-{% highlight php %}
-{% include migration/wsc-31/formBuilder/PersonEditForm_new.class.php %}
-{% endhighlight %}
+```php
+--8<-- "migration/wsc-31/formBuilder/PersonEditForm_new.class.php"
+```
 
 Most of the work is done in `PersonAddForm`:
 
-{% highlight php %}
-{% include migration/wsc-31/formBuilder/PersonAddForm_new.class.php %}
-{% endhighlight %}
+```php
+--8<-- "migration/wsc-31/formBuilder/PersonAddForm_new.class.php"
+```
 
 But, as you can see, the number of lines almost decreased by half.
 All changes are due to extending `AbstractFormBuilderForm`:
