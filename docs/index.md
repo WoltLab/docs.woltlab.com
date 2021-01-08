@@ -4,7 +4,7 @@
 
 This documentation explains the basic API functionality and the creation of own packages. It is expected that you are somewhat experienced with [PHP](https://en.wikipedia.org/wiki/PHP), [Object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming) and [MySQL](https://en.wikipedia.org/wiki/MySQL).
 
-Head over to the [quick start tutorial](getting-started_quick-start.md) to learn more.
+Head over to the [quick start tutorial](getting-started.md) to learn more.
 
 ## About WoltLab Suite 5.3
 
