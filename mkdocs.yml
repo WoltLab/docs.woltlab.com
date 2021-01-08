@@ -88,7 +88,13 @@ markdown_extensions:
         toc_depth: 4
     - admonition
     - abbr
-    - pymdownx.highlight
+    - pymdownx.highlight:
+        extend_pygments_lang:
+            -
+                name: php
+                lang: php
+                options:
+                    startinline: true
     - pymdownx.superfences
     - pymdownx.snippets:
           base_path: "snippets/"
