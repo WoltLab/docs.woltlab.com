@@ -1,4 +1,4 @@
-# WoltLab Suite 5.3 Documentation
+# WoltLab Suite 5.4 Documentation
 
 ## Introduction
 
@@ -6,7 +6,7 @@ This documentation explains the basic API functionality and the creation of own 
 
 Head over to the [quick start tutorial](getting-started.md) to learn more.
 
-## About WoltLab Suite 5.3
+## About WoltLab Suite 5.4
 
 The [WoltLab Suite Core](https://github.com/WoltLab/WCF) as well as most of the other packages are available on [github.com/WoltLab/](https://github.com/WoltLab) and are licensed under the terms of the [GNU Lesser General Public License 2.1](https://github.com/WoltLab/WCF/blob/master/LICENSE).
 
