@@ -38,6 +38,11 @@ Objects of this class require a label.
 The return value of `getSaveValue()` is the integer representation of the boolean value, i.e. `0` or `1`.
 
 
+### <span class="label label-info">5.3.2+</span> `CheckboxFormField`
+
+`CheckboxFormField` extends `BooleanFormField` and offers a simple HTML checkbox.
+
+
 ### `ClassNameFormField`
 
 `ClassNameFormField` is a [text form field](#textformfield) that supports additional settings, specific to entering a PHP class name:
