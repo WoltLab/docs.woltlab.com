@@ -21,6 +21,16 @@ Refer to the [Emogrifier CHANGELOG](https://github.com/MyIntervals/emogrifier/bl
 If you only use Emogrifier indirectly by sending HTML mail via the email subsystem then you might notice unexpected visual changes due to the improved CSS support.
 Double check your CSS declarations and particularly the specificity of your selectors in these cases.
 
+## scssphp
+
+scssphp was updated from version 1.1 to 1.4.
+
+If you interact with scssphp only by deploying `.scss` files then you should not experience any breaking changes, except when the improved SCSS compatibility interprets your SCSS differently.
+
+If you happen to directly use scssphp in your PHP code you should be aware that scssphp deprecated the use of output formatters in favor of a simple output style enum.
+
+Refer to [WoltLab/WCF #3851](https://github.com/WoltLab/WCF/pull/3851) and the [scssphp releases](https://github.com/scssphp/scssphp/releases) for details.
+
 ## Constant Time Encoder
 
 WoltLab Suite 5.4 ships the [`paragonie/constant_time_encoding` library](https://github.com/paragonie/constant_time_encoding).
