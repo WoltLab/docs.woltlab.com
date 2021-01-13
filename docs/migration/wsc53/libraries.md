@@ -25,9 +25,9 @@ Double check your CSS declarations and particularly the specificity of your sele
 
 scssphp was updated from version 1.1 to 1.4.
 
-If you interact with scssphp only by deploying `.scss` files then you should not experience any breaking changes, except when the improved SCSS compatibility interprets your SCSS differently.
+If you interact with scssphp only by deploying `.scss` files, then you should not experience any breaking changes, except when the improved SCSS compatibility interprets your SCSS code differently.
 
-If you happen to directly use scssphp in your PHP code you should be aware that scssphp deprecated the use of output formatters in favor of a simple output style enum.
+If you happen to directly use scssphp in your PHP code, you should be aware that scssphp deprecated the use of output formatters in favor of a simple output style enum.
 
 Refer to [WoltLab/WCF #3851](https://github.com/WoltLab/WCF/pull/3851) and the [scssphp releases](https://github.com/scssphp/scssphp/releases) for details.
 
