@@ -281,6 +281,12 @@ While the user is presented the names of the specified users in the user interfa
 The relevant `UserProfile` objects can be accessed via the `getUsers()` method.
 
 
+### `UserPasswordField`
+
+`UserPasswordField` is a form field for users' to enter their current password.
+The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `IAutoFocusFormField`, and `IPlaceholderFormField`
+
+
 ### `UserGroupOptionFormField`
 
 `UserGroupOptionFormField` is an [item list form field](#itemlistformfield) to set a list of user group options/permissions.
