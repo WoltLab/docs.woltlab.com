@@ -155,7 +155,7 @@ WoltLab Suite provides a default implementation with the `FormDocument` class.
   If the form contains a `IFileFormField`, `multipart/form-data` is returned, otherwise `null` is returned.
 - `loadValues(array $data, IStorableObject $object)` is used when editing an existing object to set the form field values by calling `IFormField::loadValue()` for all form fields.
   Additionally, the form mode is set to `IFormDocument::FORM_MODE_UPDATE`.
-- `markRequiredFields(bool $markRequiredFields = true): self` and `marksRequiredFields(): bool` can be used to set and check whether fields that are required are marked (with an asterisk in the label) in the output.
+- <span class="label label-info">5.4+</span> `markRequiredFields(bool $markRequiredFields = true): self` and `marksRequiredFields(): bool` can be used to set and check whether fields that are required are marked (with an asterisk in the label) in the output.
 - `method($method)` and `getMethod()` can be used to set and get the `method` attribute of the `<form>` HTML element.
   By default, the method is `post`.
 - `prefix($prefix)` and `getPrefix()` can be used to set and get a global form prefix that is prepended to form elements’ names and ids to avoid conflicts with other forms.
@@ -247,6 +247,8 @@ WoltLab Suite Core provides a variety of interfaces and matching traits with def
 
 #### `IAutoCompleteFormField`
 
+!!! info "Only available since version 5.4."
+
 `IAutoCompleteFormField` has to be implemented by form fields that support the [`autocomplete` attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute).
 The implementing class has to implement the methods `autoComplete(?string $autoComplete): self` and `getAutoComplete(): ?string`, which are used to set and get the autocomplete value, respectively.
 `TAutoCompleteFormField` provides a default implementation of these two methods and `TTextAutoCompleteFormField` specializes the trait for text form fields.
@@ -298,6 +300,8 @@ By default, form field are mutable.
 
 
 #### `IInputModeFormField`
+
+!!! info "Only available since version 5.4."
 
 `IInputModeFormField` has to be implemented by form fields that support the [`inputmode` attribute](https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-inputmode-attribute).
 The implementing class has to implement the methods `inputMode(?string $inputMode): self` and `getInputMode(): ?string`, which are used to set and get the input mode, respectively.
@@ -379,6 +383,8 @@ The implementing class has to implement the methods `packageIDs(array $packageID
 
 
 #### `IPatternFormField`
+
+!!! info "Only available since version 5.4."
 
 `IPatternFormField` has to be implemented by form fields that support the [`pattern` attribute](https://html.spec.whatwg.org/multipage/input.html#the-pattern-attribute).
 The implementing class has to implement the methods `pattern(?string $pattern): self` and `getPattern(): ?string`, which are used to set and get the pattern, respectively.

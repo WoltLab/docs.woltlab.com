@@ -32,7 +32,9 @@ Objects of this class require a label.
 The return value of `getSaveValue()` is the integer representation of the boolean value, i.e. `0` or `1`.
 
 
-### <span class="label label-info">5.3.2+</span> `CheckboxFormField`
+### `CheckboxFormField`
+
+!!! info "Only available since version 5.3.2."
 
 `CheckboxFormField` extends `BooleanFormField` and offers a simple HTML checkbox.
 
@@ -282,6 +284,8 @@ The relevant `UserProfile` objects can be accessed via the `getUsers()` method.
 
 
 ### `UserPasswordField`
+
+!!! info "Only available since version 5.4."
 
 `UserPasswordField` is a form field for users' to enter their current password.
 The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `IAutoFocusFormField`, and `IPlaceholderFormField`
