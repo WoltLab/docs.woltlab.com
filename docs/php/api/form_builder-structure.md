@@ -362,6 +362,13 @@ The implementing class has to implement the methods `packageIDs(array $packageID
 `TPackagesFormField` provides a default implementation of these two methods.
 
 
+#### `IPatternFormField`
+
+`IPatternFormField` has to be implemented by form fields that support the [`pattern` attribute](https://html.spec.whatwg.org/multipage/input.html#the-pattern-attribute).
+The implementing class has to implement the methods `pattern(?string $pattern): self` and `getPattern(): ?string`, which are used to set and get the pattern, respectively.
+`TPatternFormField` provides a default implementation of these two methods.
+
+
 #### `IPlaceholderFormField`
 
 `IPlaceholderFormField` has to be implemented by form fields that support a placeholder value for empty fields.
