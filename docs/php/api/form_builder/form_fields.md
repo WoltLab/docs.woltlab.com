@@ -13,7 +13,7 @@ The following form field classes cannot be instantiated directly because they ar
 ### `AbstractNumericFormField`
 
 `AbstractNumericFormField` is the abstract implementation of a form field handling a single numeric value.
-The class implements `IImmutableFormField`, `IMaximumFormField`, `IMinimumFormField`, `INullableFormField`, `IPlaceholderFormField` and `ISuffixedFormField`.
+The class implements `IImmutableFormField`, `IInputModeFormField`, `IMaximumFormField`, `IMinimumFormField`, `INullableFormField`, `IPlaceholderFormField` and `ISuffixedFormField`.
 If the property `$integerValues` is `true`, the form field works with integer values, otherwise it works with floating point numbers.
 The methods `step($step = null)` and `getStep()` can be used to set and get the step attribute of the `input` element.
 The default step for form fields with integer values is `1`.
@@ -166,7 +166,7 @@ If the field is nullable and the current form field value is considered `empty` 
 ### `TextFormField`
 
 `TextFormField` is a form field that allows entering a single line of text.
-The class implements `IImmutableFormField`, `II18nFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
+The class implements `IImmutableFormField`, `II18nFormField`, `IInputModeFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
 
 
 ### `TitleFormField`

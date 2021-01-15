@@ -288,6 +288,13 @@ The implementing class has to implement the methods `immutable($immutable = true
 By default, form field are mutable.
 
 
+#### `IInputModeFormField`
+
+`IInputModeFormField` has to be implemented by form fields that support the [`inputmode` attribute](https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-inputmode-attribute).
+The implementing class has to implement the methods `inputMode(?string $inputMode): self` and `getInputMode(): ?string`, which are used to set and get the input mode, respectively.
+`TInputModeFormField` provides a default implementation of these two methods.
+
+
 #### `IMaximumFormField`
 
 `IMaximumFormField` has to be implemented by form fields if the entered value must have a maximum value.
