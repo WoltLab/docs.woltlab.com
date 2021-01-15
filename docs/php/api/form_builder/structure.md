@@ -155,6 +155,7 @@ WoltLab Suite provides a default implementation with the `FormDocument` class.
   If the form contains a `IFileFormField`, `multipart/form-data` is returned, otherwise `null` is returned.
 - `loadValues(array $data, IStorableObject $object)` is used when editing an existing object to set the form field values by calling `IFormField::loadValue()` for all form fields.
   Additionally, the form mode is set to `IFormDocument::FORM_MODE_UPDATE`.
+- `markRequiredFields(bool $markRequiredFields = true): self` and `marksRequiredFields(): bool` can be used to set and check whether fields that are required are marked (with an asterisk in the label) in the output.
 - `method($method)` and `getMethod()` can be used to set and get the `method` attribute of the `<form>` HTML element.
   By default, the method is `post`.
 - `prefix($prefix)` and `getPrefix()` can be used to set and get a global form prefix that is prepended to form elements’ names and ids to avoid conflicts with other forms.
