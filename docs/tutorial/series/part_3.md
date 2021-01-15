@@ -6,7 +6,7 @@ To make good use of this new page and introduce a new API of WoltLab Suite, we w
 
 ## Package Functionality
 
-In addition to the existing functions from [part 1](part-1.md), the package will provide the following possibilities/functions after this part of the tutorial:
+In addition to the existing functions from [part 1](part_1.md), the package will provide the following possibilities/functions after this part of the tutorial:
 
 - Details page for each person linked in the front end person list
 - Comment on people on their respective page (can be disabled per person)
@@ -16,12 +16,12 @@ In addition to the existing functions from [part 1](part-1.md), the package will
 
 ## Used Components
 
-In addition to the components used in [part 1](part-1.md), we will use the [objectType package installation plugin](../../package/pip/object-type.md), use the [comment API](../../php/api/comments.md), create a [runtime cache](../../php/api/caches_runtime-caches.md), and create a page handler.
+In addition to the components used in [part 1](part_1.md), we will use the [objectType package installation plugin](../../package/pip/object-type.md), use the [comment API](../../php/api/comments.md), create a [runtime cache](../../php/api/caches_runtime-caches.md), and create a page handler.
 
 
 ## Package Structure
 
-The complete package will have the following file structure (including the files from [part 1](part-1.md)):
+The complete package will have the following file structure (including the files from [part 1](part_1.md)):
 
 ```
 ├── acpMenu.xml

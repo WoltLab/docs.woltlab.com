@@ -1,6 +1,6 @@
 # Part 2: Event Listeners and Template Listeners
 
-In the [first part](part-1.md) of this tutorial series, we have created the base structure of our people management package.
+In the [first part](part_1.md) of this tutorial series, we have created the base structure of our people management package.
 In further parts, we will use the package of the first part as a basis to directly add new features.
 In order to explain how event listeners and template works, however, we will not directly adding a new feature to the package by altering it in this part, but we will assume that somebody else created the package and that we want to extend it the “correct” way by creating a plugin.
 
@@ -70,7 +70,7 @@ To add the birthday to the model, we need to create an additional database table
 --8<-- "tutorial/tutorial-series/part-2/install.sql"
 ```
 
-If we have a [Person object](part-1.md#person), this new property can be accessed the same way as the `personID` property, the `firstName` property, or the `lastName` property from the base package: `$person->birthday`.
+If we have a [Person object](part_1.md#person), this new property can be accessed the same way as the `personID` property, the `firstName` property, or the `lastName` property from the base package: `$person->birthday`.
 
 
 ## Setting Birthday in ACP
