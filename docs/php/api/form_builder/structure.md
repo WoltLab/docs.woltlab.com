@@ -244,6 +244,14 @@ An overview of the form fields provided by default can be found [here](form_fiel
 WoltLab Suite Core provides a variety of interfaces and matching traits with default implementations for several common features of form fields:
 
 
+#### `IAutoCompleteFormField`
+
+`IAutoCompleteFormField` has to be implemented by form fields that support the [`autocomplete` attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute).
+The implementing class has to implement the methods `autoComplete(?string $autoComplete): self` and `getAutoComplete(): ?string`, which are used to set and get the autocomplete value, respectively.
+`TAutoCompleteFormField` provides a default implementation of these two methods and `TTextAutoCompleteFormField` specializes the trait for text form fields.
+When using `TAutoCompleteFormField`, you have to implement the `getValidAutoCompleteTokens(): array` method which returns all valid `autocomplete` tokens.
+
+
 #### `IAutoFocusFormField`
 
 `IAutoFocusFormField` has to be implemented by form fields that can be auto-focused.
