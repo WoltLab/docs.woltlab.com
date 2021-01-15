@@ -106,7 +106,7 @@ The following save value types are supported:
 
 By default, `ItemListFormField::SAVE_VALUE_TYPE_CSV` is used.
 
-If `ItemListFormField::SAVE_VALUE_TYPE_ARRAY` is used as save value type, `ItemListFormField` objects register a [custom form field data processor](form_builder-validation_data.md#customformfielddataprocessor) to add the relevant array into the `$parameters` array directly using the object property as the array key.
+If `ItemListFormField::SAVE_VALUE_TYPE_ARRAY` is used as save value type, `ItemListFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant array into the `$parameters` array directly using the object property as the array key.
 
 
 ### `MultilineTextFormField`
@@ -192,7 +192,7 @@ The class implements `IObjectTypeFormField` and requires an object type of the o
 Additionally, the class provides the methods `categoryName($categoryName)` and `getCategoryName()` that allow setting a specific name or filter for the acl option categories whose acl options are shown.
 A category name of `null` signals that no category filter is used.
 
-`AclFormField` objects register a [custom form field data processor](form_builder-validation_data.md#customformfielddataprocessor) to add the relevant ACL object type id into the `$parameters` array directly using `{$objectProperty}_aclObjectTypeID` as the array key.
+`AclFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant ACL object type id into the `$parameters` array directly using `{$objectProperty}_aclObjectTypeID` as the array key.
 The relevant database object action method is expected, based on the given ACL object type id, to save the ACL option values appropriately.
 
 
@@ -231,7 +231,7 @@ The default label of instances of this class is `wcf.form.field.option` and thei
 
 `SimpleAclFormField` is used for setting up simple acl values (one `yes`/`no` option per user and user group) for specific objects.
 
-`SimpleAclFormField` objects register a [custom form field data processor](form_builder-validation_data.md#customformfielddataprocessor) to add the relevant simple ACL data array into the `$parameters` array directly using the object property as the array key.
+`SimpleAclFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant simple ACL data array into the `$parameters` array directly using the object property as the array key.
 
 
 ### `SingleMediaSelectionFormField`
@@ -251,14 +251,14 @@ The following methods are specific to this form field class:
 Arrays passed to `TagFormField::values()` can contain tag names as strings and `Tag` objects.
 The default label of instances of this class is `wcf.tagging.tags` and their default description is `wcf.tagging.tags.description`.
 
-`TagFormField` objects register a [custom form field data processor](form_builder-validation_data.md#customformfielddataprocessor) to add the array with entered tag names into the `$parameters` array directly using the object property as the array key.
+`TagFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the array with entered tag names into the `$parameters` array directly using the object property as the array key.
 
 
 ### `UploadFormField`
 
 `UploadFormField` is a form field that allows uploading files by the user.
 
-`UploadFormField` objects register a [custom form field data processor](form_builder-validation_data.md#customformfielddataprocessor) to add the array of `wcf\system\file\upload\UploadFile\UploadFile` into the `$parameters` array directly using the object property as the array key. Also it registers the removed files as an array of `wcf\system\file\upload\UploadFile\UploadFile` into the `$parameters` array directly using the object property with the suffix `_removedFiles` as the array key.  
+`UploadFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the array of `wcf\system\file\upload\UploadFile\UploadFile` into the `$parameters` array directly using the object property as the array key. Also it registers the removed files as an array of `wcf\system\file\upload\UploadFile\UploadFile` into the `$parameters` array directly using the object property with the suffix `_removedFiles` as the array key.  
 
 The field supports additional settings: 
 - `imageOnly($imageOnly = true)` and `isImageOnly()` can be used to ensure that the uploaded files are only images.
@@ -395,7 +395,7 @@ The following methods are specific to this form field class:
   !!! warning "It is not sufficient to simply signal attachment support via these methods for attachments to work. These methods are relevant internally to signal the Javascript code that the editor supports attachments. Actual attachment support is provided by `WysiwygAttachmentFormField`."
 - `supportMentions($supportMentions)` and `supportsMentions()` can be used to set and check if the form field supports mentions of other users.
 
-`WysiwygFormField` objects register a [custom form field data processor](form_builder-validation_data.md#customformfielddataprocessor) to add the relevant simple ACL data array into the `$parameters` array directly using the object property as the array key.
+`WysiwygFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant simple ACL data array into the `$parameters` array directly using the object property as the array key.
 
 
 ### `TWysiwygFormNode`

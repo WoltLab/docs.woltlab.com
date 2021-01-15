@@ -3,7 +3,7 @@
 ## Form Builder
 
 WoltLab Suite Core 5.2 introduces a new, simpler and quicker way of creating forms:
-[form builder](../../php/api/form_builder.md).
+[form builder](../../php/api/form_builder/overview.md).
 You can find examples of how to migrate existing forms to form builder [here](form-builder.md).
 
 In the near future, to ensure backwards compatibility within WoltLab packages, we will only use form builder for new forms or for major rewrites of existing forms that would break backwards compatibility anyway.
