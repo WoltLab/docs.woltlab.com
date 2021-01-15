@@ -166,7 +166,7 @@ If the field is nullable and the current form field value is considered `empty` 
 ### `TextFormField`
 
 `TextFormField` is a form field that allows entering a single line of text.
-The class implements `IImmutableFormField`, `II18nFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, and `IPlaceholderFormField`.
+The class implements `IImmutableFormField`, `II18nFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
 
 
 ### `TitleFormField`
