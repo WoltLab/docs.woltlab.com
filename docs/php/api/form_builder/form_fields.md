@@ -13,7 +13,7 @@ The following form field classes cannot be instantiated directly because they ar
 ### `AbstractNumericFormField`
 
 `AbstractNumericFormField` is the abstract implementation of a form field handling a single numeric value.
-The class implements `IImmutableFormField`, `IMaximumFormField`, `IMinimumFormField`, `INullableFormField`, `IPlaceholderFormField` and `ISuffixedFormField`.
+The class implements `IAutoCompleteFormField`, `IImmutableFormField`, `IInputModeFormField`, `IMaximumFormField`, `IMinimumFormField`, `INullableFormField`, `IPlaceholderFormField` and `ISuffixedFormField`.
 If the property `$integerValues` is `true`, the form field works with integer values, otherwise it works with floating point numbers.
 The methods `step($step = null)` and `getStep()` can be used to set and get the step attribute of the `input` element.
 The default step for form fields with integer values is `1`.
@@ -32,7 +32,9 @@ Objects of this class require a label.
 The return value of `getSaveValue()` is the integer representation of the boolean value, i.e. `0` or `1`.
 
 
-### <span class="label label-info">5.3.2+</span> `CheckboxFormField`
+### `CheckboxFormField`
+
+!!! info "Only available since version 5.3.2."
 
 `CheckboxFormField` extends `BooleanFormField` and offers a simple HTML checkbox.
 
@@ -166,7 +168,7 @@ If the field is nullable and the current form field value is considered `empty` 
 ### `TextFormField`
 
 `TextFormField` is a form field that allows entering a single line of text.
-The class implements `IImmutableFormField`, `II18nFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
+The class implements `IAutoCompleteFormField`, `IImmutableFormField`, `II18nFormField`, `IInputModeFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
 
 
 ### `TitleFormField`
@@ -276,9 +278,17 @@ To process files in the database object action class, you must [`rename`](https:
 ### `UserFormField`
 
 `UserFormField` is a form field to enter existing users.
-The class implements `IAutoFocusFormField`, `IImmutableFormField`, `IMultipleFormField`, and `INullableFormField`.
+The class implements `IAutoCompleteFormField`, `IAutoFocusFormField`, `IImmutableFormField`, `IMultipleFormField`, and `INullableFormField`.
 While the user is presented the names of the specified users in the user interface, the field returns the ids of the users as data.
 The relevant `UserProfile` objects can be accessed via the `getUsers()` method.
+
+
+### `UserPasswordField`
+
+!!! info "Only available since version 5.4."
+
+`UserPasswordField` is a form field for users' to enter their current password.
+The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `IAutoFocusFormField`, and `IPlaceholderFormField`
 
 
 ### `UserGroupOptionFormField`
