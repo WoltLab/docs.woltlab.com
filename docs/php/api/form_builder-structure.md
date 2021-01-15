@@ -19,7 +19,7 @@ The basis for all three elements are form nodes.
 - `IFormElement` extends `IFormNode` for such elements of a form that can have a description and a label.
 
 
-### `IFormNode` / `TFormNode`
+### `IFormNode`
 
 `IFormNode` is the base interface that any node of a form has to implement and it requires the following methods:
 
@@ -69,13 +69,13 @@ The basis for all three elements are form nodes.
 `TFormNode` provides a default implementation of most of these methods.
 
 
-### `IFormChildNode` / `TFormChildNode`
+### `IFormChildNode`
 
 `IFormChildNode` extends `IFormNode` for such elements of a form that can be a child node to a parent node and it requires the `parent(IFormParentNode $parentNode)` and `getParent()` methods used to set and get the node’s parent node.
 `TFormChildNode` provides a default implementation of these two methods and also of `IFormNode::getDocument()`.
 
 
-### `IFormParentNode` / `TFormParentNode`
+### `IFormParentNode`
 
 `IFormParentNode` extends `IFormNode` for such elements of a form that can be a parent to child nodes.
 Additionally, the interface also extends `\Countable` and `\RecursiveIterator`.
@@ -92,7 +92,7 @@ The interface requires the following methods:
 - `readValues()` recursively calls `IFormParentNode::readValues()` and `IFormField::readValue()` on its children.
 
 
-### `IFormElement` / `TFormElement`
+### `IFormElement`
 
 `IFormElement` extends `IFormNode` for such elements of a form that can have a description and a label and it requires the following methods:
 
@@ -102,7 +102,7 @@ The interface requires the following methods:
 - `description($languageItem = null, array $variables = [])` and `getDescription()` can be used to set and get the description of the form element.
 
 
-### `IObjectTypeFormNode` / `TObjectTypeFormNode`
+### `IObjectTypeFormNode`
 
 `IObjectTypeFormField` has to be implemented by form nodes that rely on a object type of a specific object type definition in order to function.
 The implementing class has to implement the methods `objectType($objectType)`, `getObjectType()`, and `getObjectTypeDefinition()`.
@@ -244,7 +244,7 @@ An overview of the form fields provided by default can be found [here](form_buil
 WoltLab Suite Core provides a variety of interfaces and matching traits with default implementations for several common features of form fields:
 
 
-#### `IAutoFocusFormField` / `TAutoFocusFormField`
+#### `IAutoFocusFormField`
 
 `IAutoFocusFormField` has to be implemented by form fields that can be auto-focused.
 The implementing class has to implement the methods `autoFocus($autoFocus = true)` and `isAutoFocused()`.
@@ -257,14 +257,14 @@ By default, form fields are not auto-focused.
 `IFileFormField` has to be implemented by every form field that uploads files so that the `enctype` attribute of the form document is `multipart/form-data` (see `IFormDocument::getEnctype()`).
 
 
-#### `IFilterableSelectionFormField` / `TFilterableSelectionFormField`
+#### `IFilterableSelectionFormField`
 
 `IFilterableSelectionFormField` extends `ISelectionFormField` by the possibilty for users when selecting the value(s) to filter the list of available options.
 The implementing class has to implement the methods `filterable($filterable = true)` and `isFilterable()`.
 `TFilterableSelectionFormField` provides a default implementation of these two methods.
 
 
-#### `II18nFormField` / `TI18nFormField`
+#### `II18nFormField`
 
 `II18nFormField` has to be implemented by form fields if the form field value can be entered separately for all available languages.
 The implementing class has to implement the following methods:
@@ -281,14 +281,14 @@ If multilingual input is enabled but only a monolingual value is entered, the cu
 !!! info "`TI18nFormField` already provides a default implementation of `IFormField::validate()`."
 
 
-#### `IImmutableFormField` / `TImmutableFormField`
+#### `IImmutableFormField`
 
 `IImmutableFormField` has to be implemented by form fields that support being displayed but whose value cannot be changed.
 The implementing class has to implement the methods `immutable($immutable = true)` and `isImmutable()` that can be used to determine if the value of the form field is mutable or immutable.
 By default, form field are mutable.
 
 
-#### `IMaximumFormField` / `TMaximumFormField`
+#### `IMaximumFormField`
 
 `IMaximumFormField` has to be implemented by form fields if the entered value must have a maximum value.
 The implementing class has to implement the methods `maximum($maximum = null)` and `getMaximum()`.
@@ -298,7 +298,7 @@ A maximum of `null` signals that no maximum value has been set.
 !!! warning "The implementing class has to validate the entered value against the maximum value manually."
 
 
-#### `IMaximumLengthFormField` / `TMaximumLengthFormField`
+#### `IMaximumLengthFormField`
 
 `IMaximumLengthFormField` has to be implemented by form fields if the entered value must have a maximum length.
 The implementing class has to implement the methods `maximumLength($maximumLength = null)`, `getMaximumLength()`, and `validateMaximumLength($text, Language $language = null)`.
@@ -308,7 +308,7 @@ A maximum length of `null` signals that no maximum length has been set.
 !!! warning "The implementing class has to validate the entered value against the maximum value manually by calling `validateMaximumLength()`."
 
 
-#### `IMinimumFormField` / `TMinimumFormField`
+#### `IMinimumFormField`
 
 `IMinimumFormField` has to be implemented by form fields if the entered value must have a minimum value.
 The implementing class has to implement the methods `minimum($minimum = null)` and `getMinimum()`.
@@ -318,7 +318,7 @@ A minimum of `null` signals that no minimum value has been set.
 !!! warning "The implementing class has to validate the entered value against the minimum value manually."
 
 
-#### `IMinimumLengthFormField` / `TMinimumLengthFormField`
+#### `IMinimumLengthFormField`
 
 `IMinimumLengthFormField` has to be implemented by form fields if the entered value must have a minimum length.
 The implementing class has to implement the methods `minimumLength($minimumLength = null)`, `getMinimumLength()`, and `validateMinimumLength($text, Language $language = null)`.
@@ -328,7 +328,7 @@ A minimum length of `null` signals that no minimum length has been set.
 !!! warning "The implementing class has to validate the entered value against the minimum value manually by calling `validateMinimumLength()`."
 
 
-#### `IMultipleFormField` / `TMultipleFormField`
+#### `IMultipleFormField`
 
 `IMinimumLengthFormField` has to be implemented by form fields that support selecting or setting multiple values.
 The implementing class has to implement the following methods:
@@ -346,7 +346,7 @@ The implementing class has to implement the following methods:
 !!! warning "The implementing class has to validate the values against the minimum and maximum number of values manually."
 
 
-#### `INullableFormField` / `TNullableFormField`
+#### `INullableFormField`
 
 `INullableFormField` has to be implemented by form fields that support `null` as their (empty) value.
 The implementing class has to implement the methods `nullable($nullable = true)` and `isNullable()`.
@@ -355,21 +355,21 @@ The implementing class has to implement the methods `nullable($nullable = true)`
 `null` should be returned by `IFormField::getSaveValue()` is the field is considered empty and the form field has been set as nullable.
 
 
-#### `IPackagesFormField` / `TPackagesFormField`
+#### `IPackagesFormField`
 
 `IPackagesFormField` has to be implemented by form fields that, in some way, considers packages whose ids may be passed to the field object.
 The implementing class has to implement the methods `packageIDs(array $packageIDs)` and `getPackageIDs()`.
 `TPackagesFormField` provides a default implementation of these two methods.
 
 
-#### `IPlaceholderFormField` / `TPlaceholderFormField`
+#### `IPlaceholderFormField`
 
 `IPlaceholderFormField` has to be implemented by form fields that support a placeholder value for empty fields.
 The implementing class has to implement the methods `placeholder($languageItem = null, array $variables = [])` and `getPlaceholder()`.
 `TPlaceholderFormField` provides a default implementation of these two methods.
 
 
-#### `ISelectionFormField` / `TSelectionFormField`
+#### `ISelectionFormField`
 
 `ISelectionFormField` has to be implemented by form fields with a predefined set of possible values.
 The implementing class has to implement the getter and setter methods `options($options, $nestedOptions = false, $labelLanguageItems = true)` and `getOptions()` and additionally two methods related to nesting, i.e. whether the selectable options have a hierarchy:
@@ -377,7 +377,7 @@ The implementing class has to implement the getter and setter methods `options($
 `TSelectionFormField` provides a default implementation of these four methods.
 
 
-#### `ISuffixedFormField` / `TSuffixedFormField`
+#### `ISuffixedFormField`
 
 `ISuffixedFormField` has to be implemented by form fields that support supports displaying a suffix behind the actual input field.
 The implementing class has to implement the methods `suffix($languageItem = null, array $variables = [])` and `getSuffix()`.
