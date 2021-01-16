@@ -13,7 +13,7 @@ The following form field classes cannot be instantiated directly because they ar
 ### `AbstractNumericFormField`
 
 `AbstractNumericFormField` is the abstract implementation of a form field handling a single numeric value.
-The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `IImmutableFormField`, `IInputModeFormField`, `IMaximumFormField`, `IMinimumFormField`, `INullableFormField`, `IPlaceholderFormField` and `ISuffixedFormField`.
+The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `ICssClassFormField`, `IImmutableFormField`, `IInputModeFormField`, `IMaximumFormField`, `IMinimumFormField`, `INullableFormField`, `IPlaceholderFormField` and `ISuffixedFormField`.
 If the property `$integerValues` is `true`, the form field works with integer values, otherwise it works with floating point numbers.
 The methods `step($step = null)` and `getStep()` can be used to set and get the step attribute of the `input` element.
 The default step for form fields with integer values is `1`.
@@ -30,7 +30,7 @@ The following form fields are general reusable fields without any underlying con
 `BooleanFormField` is used for boolean (`0` or `1`, `yes` or `no`) values.
 Objects of this class require a label.
 The return value of `getSaveValue()` is the integer representation of the boolean value, i.e. `0` or `1`.
-The class implements `IAttributeFormField`, `IAutoFocusFormField`, and `IImmutableFormField`.
+The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFormField`, and `IImmutableFormField`.
 
 
 ### `CheckboxFormField`
@@ -59,7 +59,7 @@ Additionally, the default id of a `ClassNameFormField` object is `className`, th
 ### `DateFormField`
 
 `DateFormField` is a form field to enter a date (and optionally a time).
-The class implements `IAttributeFormField`, `IAutoFocusFormField`, `IImmutableFormField`, and `INullableFormField`.
+The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFormField`, `IImmutableFormField`, and `INullableFormField`.
 The following methods are specific to this form field class:
 
 - `earliestDate($earliestDate)` and `getEarliestDate()` can be used to get and set the earliest selectable/valid date and `latestDate($latestDate)` and `getLatestDate()` can be used to get and set the latest selectable/valid date.
@@ -100,7 +100,7 @@ The following methods are specific to this form field class:
 ### `ItemListFormField`
 
 `ItemListFormField` is a form field in which multiple values can be entered and returned in different formats as save value.
-The class implements `IAttributeFormField`, `IAutoFocusFormField`, `IImmutableFormField`, and `IMultipleFormField`.
+The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFormField`, `IImmutableFormField`, and `IMultipleFormField`.
 The `saveValueType($saveValueType)` and `getSaveValueType()` methods are specific to this form field class and determine the format of the save value.
 The following save value types are supported:
 
@@ -125,14 +125,14 @@ These methods do **not**, however, restrict the number of text rows that canbe e
 ### `MultipleSelectionFormField`
 
 `MultipleSelectionFormField` is a form fields that allows the selection of multiple options out of a predefined list of available options.
-The class implements `IAttributeFormField`, `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
+The class implements `IAttributeFormField`, `ICssClassFormField`, `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
 If the field is nullable and no option is selected, `null` is returned as the save value.
 
 
 ### `RadioButtonFormField`
 
 `RadioButtonFormField` is a form fields that allows the selection of a single option out of a predefined list of available options using radiobuttons.
-The class implements `IAttributeFormField`, `IImmutableFormField`, and `ISelectionFormField`.
+The class implements `IAttributeFormField`, `ICssClassFormField`, `IImmutableFormField`, and `ISelectionFormField`.
 
 
 ### `RatingFormField`
@@ -159,7 +159,7 @@ The default id of instances of this class is `showOrder` and their default label
 ### `SingleSelectionFormField`
 
 `SingleSelectionFormField` is a form fields that allows the selection of a single option out of a predefined list of available options.
-The class implements `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
+The class implements `ICssClassFormField`, `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
 If the field is nullable and the current form field value is considered `empty` by PHP, `null` is returned as the save value.
 
 
@@ -171,7 +171,7 @@ If the field is nullable and the current form field value is considered `empty` 
 ### `TextFormField`
 
 `TextFormField` is a form field that allows entering a single line of text.
-The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `IImmutableFormField`, `II18nFormField`, `IInputModeFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
+The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `ICssClassFormField`, `IImmutableFormField`, `II18nFormField`, `IInputModeFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
 
 
 ### `TitleFormField`

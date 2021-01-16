@@ -256,7 +256,6 @@ These two traits also ensure that if a specific interface that handles a specifi
 Instead, the dedicated API provided by the relevant interface has to be used.
 
 
-
 #### `IAutoCompleteFormField`
 
 !!! info "Only available since version 5.4."
@@ -273,6 +272,16 @@ When using `TAutoCompleteFormField`, you have to implement the `getValidAutoComp
 The implementing class has to implement the methods `autoFocus($autoFocus = true)` and `isAutoFocused()`.
 By default, form fields are not auto-focused.
 `TAutoFocusFormField` provides a default implementation of these two methods.
+
+
+#### `ICssClassFormField`
+
+!!! info "Only available since version 5.4."
+
+`ICssClassFormField` has to be implemented by form fields for which CSS classes can be added to the actual form element (in addition to adding CSS classes to the surrounding element via the class-related methods of `IFormNode`).
+The implementing class has to implement the methods `addFieldClass(string $class): self`/`addFieldClasses(array $classes): self` and `getFieldClasses(): array`, which are used to add and get the CSS classes, respectively.
+Additionally, `hasFieldClass(string $class): bool` has to implemented to check if a certain CSS class is present and `removeFieldClass(string $class): self` to remove a CSS class.
+`TCssClassFormField` provides a default implementation of these methods.
 
 
 #### `IFileFormField`
