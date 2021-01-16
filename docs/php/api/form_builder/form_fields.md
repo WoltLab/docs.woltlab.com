@@ -77,6 +77,12 @@ The following methods are specific to this form field class:
 `DescriptionFormField` is a [multi-line text form field](#multilinetextformfield) with `description` as the default id and `wcf.global.description` as the default label.
 
 
+### `EmailFormField`
+
+`EmailFormField` is a form field to enter an email address which is internally validated using `UserUtil::isValidEmail()`.
+The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `IAutoFocusFormField`, `ICssClassFormField`, `II18nFormField`, `IImmutableFormField`, `IInputModeFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
+
+
 ### `FloatFormField`
 
 `FloatFormField` is an implementation of [AbstractNumericFormField](#abstractnumericformfield) for floating point numbers.
