@@ -244,6 +244,18 @@ An overview of the form fields provided by default can be found [here](form_fiel
 
 WoltLab Suite Core provides a variety of interfaces and matching traits with default implementations for several common features of form fields:
 
+#### `IAttributeFormField`
+
+!!! info "Only available since version 5.4."
+
+`IAttributeFormField` has to be implemented by form fields for which attributes can be added to the actual form element (in addition to adding attributes to the surrounding element via the attribute-related methods of `IFormNode`).
+The implementing class has to implement the methods `fieldAttribute(string $name, string $value = null): self` and `getFieldAttribute(string $name): self`/`getFieldAttributes(): array`, which are used to add and get the attributes, respectively.
+Additionally, `hasFieldAttribute(string $name): bool` has to implemented to check if a certain attribute is present, `removeFieldAttribute(string $name): self` to remove an attribute, and `static validateFieldAttribute(string $name)` to check if the attribute is valid for this specific class.
+`TAttributeFormField` provides a default implementation of these methods and `TInputAttributeFormField` specializes the trait for `input`-based form fields.
+These two traits also ensure that if a specific interface that handles a specific attribute is implemented, like `IAutoCompleteFormField` handling `autocomplete`, this attribute cannot be set with this API.
+Instead, the dedicated API provided by the relevant interface has to be used.
+
+
 
 #### `IAutoCompleteFormField`
 
