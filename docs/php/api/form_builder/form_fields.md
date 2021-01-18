@@ -13,7 +13,7 @@ The following form field classes cannot be instantiated directly because they ar
 ### `AbstractNumericFormField`
 
 `AbstractNumericFormField` is the abstract implementation of a form field handling a single numeric value.
-The class implements `IAutoCompleteFormField`, `IImmutableFormField`, `IInputModeFormField`, `IMaximumFormField`, `IMinimumFormField`, `INullableFormField`, `IPlaceholderFormField` and `ISuffixedFormField`.
+The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `ICssClassFormField`, `IImmutableFormField`, `IInputModeFormField`, `IMaximumFormField`, `IMinimumFormField`, `INullableFormField`, `IPlaceholderFormField` and `ISuffixedFormField`.
 If the property `$integerValues` is `true`, the form field works with integer values, otherwise it works with floating point numbers.
 The methods `step($step = null)` and `getStep()` can be used to set and get the step attribute of the `input` element.
 The default step for form fields with integer values is `1`.
@@ -30,6 +30,7 @@ The following form fields are general reusable fields without any underlying con
 `BooleanFormField` is used for boolean (`0` or `1`, `yes` or `no`) values.
 Objects of this class require a label.
 The return value of `getSaveValue()` is the integer representation of the boolean value, i.e. `0` or `1`.
+The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFormField`, and `IImmutableFormField`.
 
 
 ### `CheckboxFormField`
@@ -58,6 +59,7 @@ Additionally, the default id of a `ClassNameFormField` object is `className`, th
 ### `DateFormField`
 
 `DateFormField` is a form field to enter a date (and optionally a time).
+The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFormField`, `IImmutableFormField`, and `INullableFormField`.
 The following methods are specific to this form field class:
 
 - `earliestDate($earliestDate)` and `getEarliestDate()` can be used to get and set the earliest selectable/valid date and `latestDate($latestDate)` and `getLatestDate()` can be used to get and set the latest selectable/valid date.
@@ -73,6 +75,12 @@ The following methods are specific to this form field class:
 ### `DescriptionFormField`
 
 `DescriptionFormField` is a [multi-line text form field](#multilinetextformfield) with `description` as the default id and `wcf.global.description` as the default label.
+
+
+### `EmailFormField`
+
+`EmailFormField` is a form field to enter an email address which is internally validated using `UserUtil::isValidEmail()`.
+The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `IAutoFocusFormField`, `ICssClassFormField`, `II18nFormField`, `IImmutableFormField`, `IInputModeFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
 
 
 ### `FloatFormField`
@@ -98,6 +106,7 @@ The following methods are specific to this form field class:
 ### `ItemListFormField`
 
 `ItemListFormField` is a form field in which multiple values can be entered and returned in different formats as save value.
+The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFormField`, `IImmutableFormField`, and `IMultipleFormField`.
 The `saveValueType($saveValueType)` and `getSaveValueType()` methods are specific to this form field class and determine the format of the save value.
 The following save value types are supported:
 
@@ -122,14 +131,14 @@ These methods do **not**, however, restrict the number of text rows that canbe e
 ### `MultipleSelectionFormField`
 
 `MultipleSelectionFormField` is a form fields that allows the selection of multiple options out of a predefined list of available options.
-The class implements `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
+The class implements `IAttributeFormField`, `ICssClassFormField`, `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
 If the field is nullable and no option is selected, `null` is returned as the save value.
 
 
 ### `RadioButtonFormField`
 
 `RadioButtonFormField` is a form fields that allows the selection of a single option out of a predefined list of available options using radiobuttons.
-The class implements `IImmutableFormField` and `ISelectionFormField`.
+The class implements `IAttributeFormField`, `ICssClassFormField`, `IImmutableFormField`, and `ISelectionFormField`.
 
 
 ### `RatingFormField`
@@ -156,7 +165,7 @@ The default id of instances of this class is `showOrder` and their default label
 ### `SingleSelectionFormField`
 
 `SingleSelectionFormField` is a form fields that allows the selection of a single option out of a predefined list of available options.
-The class implements `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
+The class implements `ICssClassFormField`, `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
 If the field is nullable and the current form field value is considered `empty` by PHP, `null` is returned as the save value.
 
 
@@ -168,7 +177,7 @@ If the field is nullable and the current form field value is considered `empty` 
 ### `TextFormField`
 
 `TextFormField` is a form field that allows entering a single line of text.
-The class implements `IAutoCompleteFormField`, `IImmutableFormField`, `II18nFormField`, `IInputModeFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
+The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `ICssClassFormField`, `IImmutableFormField`, `II18nFormField`, `IInputModeFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
 
 
 ### `TitleFormField`
@@ -196,6 +205,16 @@ A category name of `null` signals that no category filter is used.
 
 `AclFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant ACL object type id into the `$parameters` array directly using `{$objectProperty}_aclObjectTypeID` as the array key.
 The relevant database object action method is expected, based on the given ACL object type id, to save the ACL option values appropriately.
+
+
+### `ButtonFormField`
+
+!!! info "Only available since version 5.4."
+
+`ButtonFormField` shows a submit button as part of the form.
+The class implements `IAttributeFormField` and `ICssClassFormField`.
+
+Specifically for this form field, there is the `IsNotClickedFormFieldDependency` dependency with which certain parts of the form will only be processed if the relevent button has not clicked. 
 
 
 ### `CaptchaFormField`
@@ -250,6 +269,7 @@ The following methods are specific to this form field class:
 ### `TagFormField`
 
 `TagFormField` is a form field to enter tags.
+The class implements `IAttributeFormField` and `IObjectTypeFormNode`.
 Arrays passed to `TagFormField::values()` can contain tag names as strings and `Tag` objects.
 The default label of instances of this class is `wcf.tagging.tags` and their default description is `wcf.tagging.tags.description`.
 
@@ -288,7 +308,7 @@ The relevant `UserProfile` objects can be accessed via the `getUsers()` method.
 !!! info "Only available since version 5.4."
 
 `UserPasswordField` is a form field for users' to enter their current password.
-The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `IAutoFocusFormField`, and `IPlaceholderFormField`
+The class implements `IAttributeFormField`, `IAttributeFormField`, `IAutoCompleteFormField`, `IAutoFocusFormField`, and `IPlaceholderFormField`
 
 
 ### `UserGroupOptionFormField`
@@ -301,7 +321,7 @@ The default label of instances of this class is `wcf.form.field.userGroupOption`
 ### `UsernameFormField`
 
 `UsernameFormField` is used for entering one non-existing username.
-The class implements `IImmutableFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `INullableFormField`, and `IPlaceholderFormField`.
+The class implements `IAttributeFormField`, `IImmutableFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `INullableFormField`, and `IPlaceholderFormField`.
 As usernames have a system-wide restriction of a minimum length of 3 and a maximum length of 100 characters, these values are also used as the default value for the field’s minimum and maximum length.
 
 
@@ -393,7 +413,7 @@ WysiwygFormContainer::create('message')
 
 `WysiwygFormField` is used for wysiwyg editor form fields.
 This class should, in general, not be used directly but only via `WysiwygFormContainer`.
-The class implements `IMaximumLengthFormField`, `IMinimumLengthFormField`, and `IObjectTypeFormNode` and requires an object type of the object type definition `com.woltlab.wcf.message`.
+The class implements `IAttributeFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, and `IObjectTypeFormNode` and requires an object type of the object type definition `com.woltlab.wcf.message`.
 The following methods are specific to this form field class:
 
 - `autosaveId($autosaveId)` and `getAutosaveId()` can be used enable automatically saving the current editor contents in the browser using the given id.
