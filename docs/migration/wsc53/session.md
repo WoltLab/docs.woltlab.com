@@ -150,7 +150,7 @@ Refer to [the implementation](https://github.com/WoltLab/WCF/blob/439de4963c947c
 
 ### Cookies
 
-The `_userID`, `_password` and `_cookieHash` cookies will no longer be created nor consumed.
+The `_userID`, `_password`, `_cookieHash` and `_cookieHash_acp` cookies will no longer be created nor consumed.
 
 ### Virtual Sessions
 
