@@ -32,14 +32,14 @@ It no longer stores any private session data.
 The actual sessions storing security sensitive information are in an unrelated location.
 They must only be accessed via the PHP API exposed by the `SessionHandler`.
 
-### Merged ACP and Frontend sessions
+### Merged ACP and Frontend Sessions
 
 WoltLab Suite 5.4 shares a single session across both the frontend, as well as the ACP.
 When a user logs in to the frontend, they will also be logged into the ACP and vice versa.
 
 Actual access to the ACP is controlled via the new [reauthentication mechanism](#reauthentication).
 
-The session variable store is scoped.
+The session variable store is scoped:
 Session variables set within the frontend are not available within the ACP and vice versa.
 
 ### Improved Authentication and Reauthentication
