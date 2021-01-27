@@ -32,6 +32,16 @@ It no longer stores any private session data.
 The actual sessions storing security sensitive information are in an unrelated location.
 They must only be accessed via the PHP API exposed by the `SessionHandler`.
 
+### Merged ACP and Frontend Sessions
+
+WoltLab Suite 5.4 shares a single session across both the frontend, as well as the ACP.
+When a user logs in to the frontend, they will also be logged into the ACP and vice versa.
+
+Actual access to the ACP is controlled via the new [reauthentication mechanism](#reauthentication).
+
+The session variable store is scoped:
+Session variables set within the frontend are not available within the ACP and vice versa.
+
 ### Improved Authentication and Reauthentication
 
 WoltLab Suite 5.4 ships with multi-factor authentication support and a generic re-authentication implementation that can be used to verify the account owner’s presence.
@@ -148,9 +158,14 @@ They directly map to an existing method in another class and any uses can easily
 
 Refer to [the implementation](https://github.com/WoltLab/WCF/blob/439de4963c947c3569a0c584f795245f693155b0/wcfsetup/install/files/lib/system/session/SessionHandler.class.php#L168-L178) for details.
 
+### ACP Sessions
+
+The database tables related to ACP sessions have been removed.
+The PHP classes have been preserved due to being used within the class hierarchy of the legacy sessions.
+
 ### Cookies
 
-The `_userID`, `_password` and `_cookieHash` cookies will no longer be created nor consumed.
+The `_userID`, `_password`, `_cookieHash` and `_cookieHash_acp` cookies will no longer be created nor consumed.
 
 ### Virtual Sessions
 
