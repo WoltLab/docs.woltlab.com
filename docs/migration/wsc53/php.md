@@ -83,8 +83,8 @@ See [WoltLab/WCF#3815](https://github.com/WoltLab/WCF/issues/3815) for details.
 
 ## Styles
 
-The `StyleCompiler` is marked `final` now.
-It was noticed that the `$compiler` property was a design issue that leaked compiler state across multiple compiled styles, possibly causing misgenerated stylesheets.
-As the removal of the `$compiler` property effectively broke compatibility within the `StyleCompiler` and as the `StyleCompiler` never was meant to be extended it was marked final.
+The `StyleCompiler` class is marked `final` now.
+The internal SCSS compiler object being stored in the `$compiler` property was a design issue that leaked compiler state across multiple compiled styles, possibly causing misgenerated stylesheets.
+As the removal of the `$compiler` property effectively broke compatibility within the `StyleCompiler` and as the `StyleCompiler` never was meant to be extended, it was marked final.
 
 See [WoltLab/WCF#3929](https://github.com/WoltLab/WCF/pull/3929) for details.
