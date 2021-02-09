@@ -93,8 +93,8 @@ See [WoltLab/WCF#3929](https://github.com/WoltLab/WCF/pull/3929) for details.
 
 Use of the `wcf1_tag_to_object.languageID` column is deprecated.
 The `languageID` column is redundant, because its value can be derived from the `tagID`.
-With WoltLab Suite 5.4 it will no longer be part of any indices, allowing more efficient index usage in the general case.
+With WoltLab Suite 5.4, it will no longer be part of any indices, allowing more efficient index usage in the general case.
 
-If you need to filter the contents of `wcf1_tag_to_object` by language then you should perform an `INNER JOIN wcf1_tag tag ON tag.tagID = tag_to_object.tagID` and filter on `wcf1_tag.languageID`.
+If you need to filter the contents of `wcf1_tag_to_object` by language, you should perform an `INNER JOIN wcf1_tag tag ON tag.tagID = tag_to_object.tagID` and filter on `wcf1_tag.languageID`.
 
 See [WoltLab/WCF#3904](https://github.com/WoltLab/WCF/pull/3904) for details.
