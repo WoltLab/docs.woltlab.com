@@ -258,7 +258,7 @@ The lack of the companion `validate*` method will cause the AJAX proxy to deny t
 
 The methods `create`, `update` and `delete` are available for all classes deriving from `AbstractDatabaseObjectAction` and directly pass the input data to the `DatabaseObjectEditor`. These methods deny access to them via AJAX by default, unless you explicitly enable access. Depending on your case, there are two different strategies to enable AJAX access to them.
 
-```
+```php
 <?php
 namespace wcf\data\example;
 use wcf\data\AbstractDatabaseObjectAction;
