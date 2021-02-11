@@ -111,7 +111,7 @@ if ($isPending) {
 	// Note: Do not use `getControllerLink` to support both the frontend as well as the ACP.
 	HeaderUtil::redirect(LinkHandler::getInstance()->getLink('MultifactorAuthentication', [
 		'url' => /* Return To */,
-	]);
+	]));
 	exit;
 }
 // Proceed as usual. The user will be logged in.
