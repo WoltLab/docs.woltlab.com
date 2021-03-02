@@ -2,23 +2,24 @@ name: Deploy
 
 on:
   push:
+    branches:
+    - '5.4'
 
 jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v1
-        with:
-          python-version: '3.x'
-      - run: pip3 install -r requirements.txt
-      - name: Prepare git
-        run: |
-          git config user.name "WoltLab GmbH"
-          git config user.email "woltlab@woltlab.com"
-      - name: Deploy documentation
-        run: |
-          mike deploy 5.4
-          git status
-          git log gh-pages
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    - run: pip3 install -r requirements.txt
+    - name: Prepare git
+      run: |
+        git config user.name "WoltLab GmbH"
+        git config user.email "woltlab@woltlab.com"
+    - name: Deploy documentation
+      run: mike deploy --push "${GITHUB_REF#refs/heads/}"
