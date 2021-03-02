@@ -1,0 +1,2406 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/default.favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+    
+    
+      
+        <title>User Interface - WoltLab Suite Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1655a90d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+    
+    
+    
+
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#user-interface-javascript-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-announce">
+          <div class="md-announce__inner md-grid md-typeset">
+            
+    <a href="https://www.woltlab.com">Back to <strong>woltlab.com</strong></a>
+
+          </div>
+        </aside>
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="WoltLab Suite Documentation" class="md-header__button md-logo" aria-label="WoltLab Suite Documentation">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WoltLab Suite Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              User Interface
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="WoltLab Suite Documentation" class="md-nav__button md-logo" aria-label="WoltLab Suite Documentation">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    WoltLab Suite Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        PHP API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="PHP API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          PHP API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/pages/" class="md-nav__link">
+        Pages
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/database-objects/" class="md-nav__link">
+        Database Objects
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/database-access/" class="md-nav__link">
+        Database Access
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      <label class="md-nav__link" for="__nav_2_5">
+        API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/caches/" class="md-nav__link">
+        Caches
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/comments/" class="md-nav__link">
+        Comments
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/cronjobs/" class="md-nav__link">
+        Cronjobs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/events/" class="md-nav__link">
+        Events
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_5" type="checkbox" id="__nav_2_5_5" >
+      
+      <label class="md-nav__link" for="__nav_2_5_5">
+        Form Builder
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Form Builder" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Form Builder
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/form_builder/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/form_builder/structure/" class="md-nav__link">
+        Structure
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/form_builder/form_fields/" class="md-nav__link">
+        Fields
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/form_builder/validation_data/" class="md-nav__link">
+        Validation and Data
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/form_builder/dependencies/" class="md-nav__link">
+        Dependencies
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/package_installation_plugins/" class="md-nav__link">
+        Package Installation Plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/user_activity_points/" class="md-nav__link">
+        User Activity Points
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/user_notifications/" class="md-nav__link">
+        User Notifications
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/sitemaps/" class="md-nav__link">
+        Sitemaps
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/code-style/" class="md-nav__link">
+        Code Style
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/apps/" class="md-nav__link">
+        Apps
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/gdpr/" class="md-nav__link">
+        GDPR
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Languages, Templates & CSS
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Languages, Templates & CSS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Languages, Templates & CSS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../view/languages/" class="md-nav__link">
+        Languages
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../view/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../view/css/" class="md-nav__link">
+        CSS
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        JavaScript API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="JavaScript API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScript API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general-usage/" class="md-nav__link">
+        General Usage
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        New API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="New API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          New API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_writing-a-module/" class="md-nav__link">
+        Writing a module
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_data-structures/" class="md-nav__link">
+        Data Structures
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_core/" class="md-nav__link">
+        Core Functions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_dom/" class="md-nav__link">
+        DOM
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_events/" class="md-nav__link">
+        Event Handling
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_ajax/" class="md-nav__link">
+        Ajax
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_dialogs/" class="md-nav__link">
+        Dialogs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_browser/" class="md-nav__link">
+        Browser and Screen Sizes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          User Interface
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        User Interface
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uialignment" class="md-nav__link">
+    Ui/Alignment
+  </a>
+  
+    <nav class="md-nav" aria-label="Ui/Alignment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setelement-element-referenceelement-element-options-object" class="md-nav__link">
+    set(element: Element, referenceElement: Element, options: Object)
+  </a>
+  
+    <nav class="md-nav" aria-label="set(element: Element, referenceElement: Element, options: Object)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verticaloffset-number" class="md-nav__link">
+    verticalOffset: number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pointer-boolean" class="md-nav__link">
+    pointer: boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pointeroffset-number" class="md-nav__link">
+    pointerOffset: number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pointerclassnames-string" class="md-nav__link">
+    pointerClassNames: string[]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refdimensionselement-element" class="md-nav__link">
+    refDimensionsElement: Element
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#horizontal-string" class="md-nav__link">
+    horizontal: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vertical-string" class="md-nav__link">
+    vertical: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allowflip-string" class="md-nav__link">
+    allowFlip: string
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uicloseoverlay" class="md-nav__link">
+    Ui/CloseOverlay
+  </a>
+  
+    <nav class="md-nav" aria-label="Ui/CloseOverlay">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addidentifier-string-callback-void" class="md-nav__link">
+    add(identifier: string, callback: () =&gt; void)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uiconfirmation" class="md-nav__link">
+    Ui/Confirmation
+  </a>
+  
+    <nav class="md-nav" aria-label="Ui/Confirmation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#showoptions-object" class="md-nav__link">
+    show(options: Object)
+  </a>
+  
+    <nav class="md-nav" aria-label="show(options: Object)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cancel-parameters-object-void" class="md-nav__link">
+    cancel: (parameters: Object) =&gt; void
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirm-parameters-object-void" class="md-nav__link">
+    confirm: (parameters: Object) =&gt; void
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-string" class="md-nav__link">
+    message: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messageishtml" class="md-nav__link">
+    messageIsHtml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-object" class="md-nav__link">
+    parameters: Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-string" class="md-nav__link">
+    template: string
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uinotification" class="md-nav__link">
+    Ui/Notification
+  </a>
+  
+    <nav class="md-nav" aria-label="Ui/Notification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#showmessage-string-callback-void-cssclassname-string" class="md-nav__link">
+    show(message: string, callback?: () =&gt; void, cssClassName?: string)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy-api/" class="md-nav__link">
+        Legacy API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helper-functions/" class="md-nav__link">
+        Helper Functions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-snippets/" class="md-nav__link">
+        Code Snippets
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Package Components
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Package Components" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Package Components
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/package-xml/" class="md-nav__link">
+        package.xml
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        PIPs
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="PIPs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          PIPs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/acl-option/" class="md-nav__link">
+        aclOption
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/acp-menu/" class="md-nav__link">
+        acpMenu
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/acp-search-provider/" class="md-nav__link">
+        acpSearchProvider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/acp-template/" class="md-nav__link">
+        acpTemplate
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/bbcode/" class="md-nav__link">
+        bbcode
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/box/" class="md-nav__link">
+        box
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/clipboard-action/" class="md-nav__link">
+        clipboardAction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/core-object/" class="md-nav__link">
+        coreObject
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/cronjob/" class="md-nav__link">
+        cronjob
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/event-listener/" class="md-nav__link">
+        eventListener
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/file/" class="md-nav__link">
+        file
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/language/" class="md-nav__link">
+        language
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/media-provider/" class="md-nav__link">
+        mediaProvider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/menu/" class="md-nav__link">
+        menu
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/menu-item/" class="md-nav__link">
+        menuItem
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/object-type/" class="md-nav__link">
+        objectType
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/object-type-definition/" class="md-nav__link">
+        objectTypeDefinition
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/option/" class="md-nav__link">
+        option
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/page/" class="md-nav__link">
+        page
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/pip/" class="md-nav__link">
+        pip
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/script/" class="md-nav__link">
+        script
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/smiley/" class="md-nav__link">
+        smiley
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/sql/" class="md-nav__link">
+        sql
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/style/" class="md-nav__link">
+        style
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/template/" class="md-nav__link">
+        template
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/template-listener/" class="md-nav__link">
+        templateListener
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/user-group-option/" class="md-nav__link">
+        userGroupOption
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/user-menu/" class="md-nav__link">
+        userMenu
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/user-notification-event/" class="md-nav__link">
+        userNotificationEvent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/user-option/" class="md-nav__link">
+        userOption
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/user-profile-menu/" class="md-nav__link">
+        userProfileMenu
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/database-php-api/" class="md-nav__link">
+        Database PHP API
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Migration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Migration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Migration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      <label class="md-nav__link" for="__nav_6_1">
+        Migrating from WSC 5.3
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Migrating from WSC 5.3" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Migrating from WSC 5.3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc53/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc53/session/" class="md-nav__link">
+        Session Handling and Authentication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc53/javascript/" class="md-nav__link">
+        JavaScript
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc53/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc53/libraries/" class="md-nav__link">
+        Third Party Libraries
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      <label class="md-nav__link" for="__nav_6_2">
+        Migrating from WSC 5.2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Migrating from WSC 5.2" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Migrating from WSC 5.2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc52/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc52/templates/" class="md-nav__link">
+        Templates and Languages
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc52/libraries/" class="md-nav__link">
+        Third Party Libraries
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      <label class="md-nav__link" for="__nav_6_3">
+        Migrating from WSC 3.1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Migrating from WSC 3.1" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Migrating from WSC 3.1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc31/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      <label class="md-nav__link" for="__nav_6_4">
+        Migrating from WSC 3.0
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Migrating from WSC 3.0" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Migrating from WSC 3.0
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc30/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc30/javascript/" class="md-nav__link">
+        JavaScript API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc30/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc30/css/" class="md-nav__link">
+        CSS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc30/package/" class="md-nav__link">
+        Package Components
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      <label class="md-nav__link" for="__nav_6_5">
+        Migrating from WCF 2.1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Migrating from WCF 2.1" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Migrating from WCF 2.1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wcf21/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wcf21/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wcf21/css/" class="md-nav__link">
+        CSS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wcf21/package/" class="md-nav__link">
+        Package Components
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Tutorials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" >
+      
+      <label class="md-nav__link" for="__nav_7_1">
+        Tutorial Series
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tutorial Series" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/series/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/series/part_1/" class="md-nav__link">
+        Part 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/series/part_2/" class="md-nav__link">
+        Part 2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/series/part_3/" class="md-nav__link">
+        Part 3
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uialignment" class="md-nav__link">
+    Ui/Alignment
+  </a>
+  
+    <nav class="md-nav" aria-label="Ui/Alignment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setelement-element-referenceelement-element-options-object" class="md-nav__link">
+    set(element: Element, referenceElement: Element, options: Object)
+  </a>
+  
+    <nav class="md-nav" aria-label="set(element: Element, referenceElement: Element, options: Object)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verticaloffset-number" class="md-nav__link">
+    verticalOffset: number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pointer-boolean" class="md-nav__link">
+    pointer: boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pointeroffset-number" class="md-nav__link">
+    pointerOffset: number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pointerclassnames-string" class="md-nav__link">
+    pointerClassNames: string[]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refdimensionselement-element" class="md-nav__link">
+    refDimensionsElement: Element
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#horizontal-string" class="md-nav__link">
+    horizontal: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vertical-string" class="md-nav__link">
+    vertical: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allowflip-string" class="md-nav__link">
+    allowFlip: string
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uicloseoverlay" class="md-nav__link">
+    Ui/CloseOverlay
+  </a>
+  
+    <nav class="md-nav" aria-label="Ui/CloseOverlay">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addidentifier-string-callback-void" class="md-nav__link">
+    add(identifier: string, callback: () =&gt; void)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uiconfirmation" class="md-nav__link">
+    Ui/Confirmation
+  </a>
+  
+    <nav class="md-nav" aria-label="Ui/Confirmation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#showoptions-object" class="md-nav__link">
+    show(options: Object)
+  </a>
+  
+    <nav class="md-nav" aria-label="show(options: Object)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cancel-parameters-object-void" class="md-nav__link">
+    cancel: (parameters: Object) =&gt; void
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirm-parameters-object-void" class="md-nav__link">
+    confirm: (parameters: Object) =&gt; void
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-string" class="md-nav__link">
+    message: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messageishtml" class="md-nav__link">
+    messageIsHtml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-object" class="md-nav__link">
+    parameters: Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-string" class="md-nav__link">
+    template: string
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uinotification" class="md-nav__link">
+    Ui/Notification
+  </a>
+  
+    <nav class="md-nav" aria-label="Ui/Notification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#showmessage-string-callback-void-cssclassname-string" class="md-nav__link">
+    show(message: string, callback?: () =&gt; void, cssClassName?: string)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="user-interface-javascript-api">User Interface - JavaScript API<a class="headerlink" href="#user-interface-javascript-api" title="Permanent link">#</a></h1>
+<h2 id="uialignment"><code>Ui/Alignment</code><a class="headerlink" href="#uialignment" title="Permanent link">#</a></h2>
+<p>Calculates the alignment of one element relative to another element, with support
+for boundary constraints, alignment restrictions and additional pointer elements.</p>
+<h3 id="setelement-element-referenceelement-element-options-object"><code>set(element: Element, referenceElement: Element, options: Object)</code><a class="headerlink" href="#setelement-element-referenceelement-element-options-object" title="Permanent link">#</a></h3>
+<p>Calculates and sets the alignment of the element <code>element</code>.</p>
+<h4 id="verticaloffset-number"><code>verticalOffset: number</code><a class="headerlink" href="#verticaloffset-number" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>0</code>.</em></p>
+<p>Creates a gap between the element and the reference element, in pixels.</p>
+<h4 id="pointer-boolean"><code>pointer: boolean</code><a class="headerlink" href="#pointer-boolean" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>false</code>.</em></p>
+<p>Sets the position of the pointer element, requires an existing child of the
+element with the CSS class <code>.elementPointer</code>.</p>
+<h4 id="pointeroffset-number"><code>pointerOffset: number</code><a class="headerlink" href="#pointeroffset-number" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>4</code>.</em></p>
+<p>The margin from the left/right edge of the element and is used to avoid the
+arrow from being placed right at the edge.</p>
+<p>Does not apply when aligning the element to the reference elemnent's center.</p>
+<h4 id="pointerclassnames-string"><code>pointerClassNames: string[]</code><a class="headerlink" href="#pointerclassnames-string" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>[]</code>.</em></p>
+<p>If your element uses CSS-only pointers, such as using the <code>::before</code> or <code>::after</code>
+pseudo selectors, you can specifiy two separate CSS class names that control the
+alignment:</p>
+<ul>
+<li><code>pointerClassNames[0]</code> is applied to the element when the pointer is displayed
+   at the bottom.</li>
+<li><code>pointerClassNames[1]</code> is used to align the pointer to the right side of the
+  element.</li>
+</ul>
+<h4 id="refdimensionselement-element"><code>refDimensionsElement: Element</code><a class="headerlink" href="#refdimensionselement-element" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>null</code>.</em></p>
+<p>An alternative element that will be used to determine the position and dimensions
+of the reference element. This can be useful if you reference element is contained
+in a wrapper element with alternating dimensions.</p>
+<h4 id="horizontal-string"><code>horizontal: string</code><a class="headerlink" href="#horizontal-string" title="Permanent link">#</a></h4>
+<div class="admonition info">
+<p class="admonition-title">This value is automatically flipped for RTL (right-to-left) languages, <code>left</code> is changed into <code>right</code> and vice versa.</p>
+</div>
+<p><em>Defaults to <code>"left"</code>.</em></p>
+<p>Sets the prefered alignment, accepts either <code>left</code> or <code>right</code>. The value <code>left</code>
+instructs the module to align the element with the left boundary of the reference
+element.</p>
+<p>The <code>horizontal</code> alignment is used as the default and a flip only occurs, if there
+is not enough space in the desired direction. If the element exceeds the boundaries
+in both directions, the value of <code>horizontal</code> is used.</p>
+<h4 id="vertical-string"><code>vertical: string</code><a class="headerlink" href="#vertical-string" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>"bottom"</code>.</em></p>
+<p>Sets the prefered alignment, accepts either <code>bottom</code> or <code>top</code>. The value <code>bottom</code>
+instructs the module to align the element below the reference element.</p>
+<p>The <code>vertical</code> alignment is used as the default and a flip only occurs, if there
+is not enough space in the desired direction. If the element exceeds the boundaries
+in both directions, the value of <code>vertical</code> is used.</p>
+<h4 id="allowflip-string"><code>allowFlip: string</code><a class="headerlink" href="#allowflip-string" title="Permanent link">#</a></h4>
+<div class="admonition info">
+<p class="admonition-title">The value for <code>horizontal</code> is automatically flipped for RTL (right-to-left) languages, <code>left</code> is changed into <code>right</code> and vice versa. This setting only controls the behavior when violating space constraints, therefore the aforementioned transformation is always applied.</p>
+</div>
+<p><em>Defaults to <code>"both"</code>.</em></p>
+<p>Restricts the automatic alignment flipping if the element exceeds the window
+boundaries in the instructed direction.</p>
+<ul>
+<li><code>both</code> - No restrictions.</li>
+<li><code>horizontal</code> - Element can be aligned with the left <em>or</em> the right boundary of
+  the reference element, but the vertical position is fixed.</li>
+<li><code>vertical</code> - Element can be aligned below <em>or</em> above the reference element,
+  but the vertical position is fixed.</li>
+<li><code>none</code> - No flipping can occur, the element will be aligned regardless of
+  any space constraints.</li>
+</ul>
+<h2 id="uicloseoverlay"><code>Ui/CloseOverlay</code><a class="headerlink" href="#uicloseoverlay" title="Permanent link">#</a></h2>
+<p>Register elements that should be closed when the user clicks anywhere else, such
+as drop-down menus or tooltips.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Ui/CloseOverlay&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">UiCloseOverlay</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">UiCloseOverlay</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;App/Foo&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// invoked, close something</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h3 id="addidentifier-string-callback-void"><code>add(identifier: string, callback: () =&gt; void)</code><a class="headerlink" href="#addidentifier-string-callback-void" title="Permanent link">#</a></h3>
+<p>Adds a callback that will be invoked when the user clicks anywhere else.</p>
+<h2 id="uiconfirmation"><code>Ui/Confirmation</code><a class="headerlink" href="#uiconfirmation" title="Permanent link">#</a></h2>
+<p>Prompt the user to make a decision before carrying out an action, such as a safety
+warning before permanently deleting content.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Ui/Confirmation&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">UiConfirmation</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">UiConfirmation</span><span class="p">.</span><span class="nx">show</span><span class="p">({</span>
+    <span class="nx">confirm</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// the user has confirmed the dialog</span>
+    <span class="p">},</span>
+    <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Do you really want to continue?&quot;</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h3 id="showoptions-object"><code>show(options: Object)</code><a class="headerlink" href="#showoptions-object" title="Permanent link">#</a></h3>
+<p>Displays a dialog overlay with actions buttons to confirm or reject the dialog.</p>
+<h4 id="cancel-parameters-object-void"><code>cancel: (parameters: Object) =&gt; void</code><a class="headerlink" href="#cancel-parameters-object-void" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>null</code>.</em></p>
+<p>Callback that is invoked when the dialog was rejected.</p>
+<h4 id="confirm-parameters-object-void"><code>confirm: (parameters: Object) =&gt; void</code><a class="headerlink" href="#confirm-parameters-object-void" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>null</code>.</em></p>
+<p>Callback that is invoked when the user has confirmed the dialog.</p>
+<h4 id="message-string"><code>message: string</code><a class="headerlink" href="#message-string" title="Permanent link">#</a></h4>
+<p><em>Defaults to '""'.</em></p>
+<p>Text that is displayed in the content area of the dialog, optionally this can
+be HTML, but this requires <code>messageIsHtml</code> to be enabled.</p>
+<h4 id="messageishtml"><code>messageIsHtml</code><a class="headerlink" href="#messageishtml" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>false</code>.</em></p>
+<p>The <code>message</code> option is interpreted as text-only, setting this option to <code>true</code>
+will cause the <code>message</code> to be evaluated as HTML.</p>
+<h4 id="parameters-object"><code>parameters: Object</code><a class="headerlink" href="#parameters-object" title="Permanent link">#</a></h4>
+<p>Optional list of parameter options that will be passed to the <code>cancel()</code> and
+<code>confirm()</code> callbacks.</p>
+<h4 id="template-string"><code>template: string</code><a class="headerlink" href="#template-string" title="Permanent link">#</a></h4>
+<p>An optional HTML template that will be inserted into the dialog content area,
+but after the <code>message</code> section.</p>
+<h2 id="uinotification"><code>Ui/Notification</code><a class="headerlink" href="#uinotification" title="Permanent link">#</a></h2>
+<p>Displays a simple notification at the very top of the window, such as a success
+message for Ajax based actions.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Ui/Notification&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">UiNotification</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">UiNotification</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span>
+    <span class="s2">&quot;Your changes have been saved.&quot;</span><span class="p">,</span>
+    <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// this callback will be invoked after 2 seconds</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;success&quot;</span>
+  <span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h3 id="showmessage-string-callback-void-cssclassname-string"><code>show(message: string, callback?: () =&gt; void, cssClassName?: string)</code><a class="headerlink" href="#showmessage-string-callback-void-cssclassname-string" title="Permanent link">#</a></h3>
+<p>Shows the notification and executes the callback after 2 seconds.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../new-api_browser/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Browser and Screen Sizes
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../legacy-api/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Legacy API
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2020 WoltLab GmbH
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      <div class="md-footer-copyright">
+	<a href="https://www.woltlab.com/legal-notice/">Legal Notice</a> 
+	<a href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      
+    
+  </body>
+</html>
