@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Database Objects | WoltLab Suite 5.3 Documentation</title>
+
+<link rel="stylesheet" href="https://docs.woltlab.com/css/syntax.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://docs.woltlab.com/css/modern-business.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/customstyles.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/theme-blue.css?v=3">
+
+<script src="https://docs.woltlab.com/js/jquery.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.cookie.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.navgoco.min.js"></script>
+<script src="https://docs.woltlab.com/js/bootstrap.min.js"></script>
+<script src="https://docs.woltlab.com/js/anchor.min.js"></script>
+<script src="https://docs.woltlab.com/js/toc.js"></script>
+<script src="https://docs.woltlab.com/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="https://docs.woltlab.com/images/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" title="mike-test" href="https://docs.woltlab.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> WoltLab Suite 5.3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://www.woltlab.com" target="_blank">woltlab.com</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/WoltLab/WCF/" target="_blank">Code on github.com</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="https://docs.woltlab.com/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'https://docs.woltlab.com/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Database Objects">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">WoltLab Suite 5.3</li>
+
+    
+        
+            <li>
+                <a href="#">Getting Started</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="index"><a href="index.html">Introduction</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="getting-started_quick-start"><a href="getting-started_quick-start.html">Quick Start</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">PHP API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_pages"><a href="php_pages.html">Pages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li class="active" data-identifier="php_database-objects"><a href="php_database-objects.html">Database Objects</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-access"><a href="php_database-access.html">Database Access</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_exceptions"><a href="php_exceptions.html">Exceptions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_caches"><a href="php_api_caches.html">Caches</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_comments"><a href="php_api_comments.html">Comments</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_cronjobs"><a href="php_api_cronjobs.html">Cronjobs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_events"><a href="php_api_events.html">Events</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_form_builder"><a href="php_api_form_builder.html">Form Builder</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_package_installation_plugins"><a href="php_api_package_installation_plugins.html">Package Installation Plugins</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_activity_points"><a href="php_api_user_activity_points.html">User Activity Points</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_notifications"><a href="php_api_user_notifications.html">User Notifications</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_sitemaps"><a href="php_api_sitemaps.html">Sitemaps</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_code-style"><a href="php_code-style.html">Code Style</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_apps"><a href="php_apps.html">Apps</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_gdpr"><a href="php_gdpr.html">GDPR</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Languages, Templates & CSS</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_languages"><a href="view_languages.html">Languages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_templates"><a href="view_templates.html">Templates</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_css"><a href="view_css.html">CSS</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">JavaScript API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_general-usage"><a href="javascript_general-usage.html">General Usage</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">New API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_writing-a-module"><a href="javascript_new-api_writing-a-module.html">Writing a module</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_data-structures"><a href="javascript_new-api_data-structures.html">Data Structures</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_core"><a href="javascript_new-api_core.html">Core Functions</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dom"><a href="javascript_new-api_dom.html">DOM</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_events"><a href="javascript_new-api_events.html">Event Handling</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ajax"><a href="javascript_new-api_ajax.html">Ajax</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dialogs"><a href="javascript_new-api_dialogs.html">Dialogs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_browser"><a href="javascript_new-api_browser.html">Browser and Screen Sizes</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ui"><a href="javascript_new-api_ui.html">User Interface</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_legacy-api"><a href="javascript_legacy-api.html">Legacy API</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_helper-functions"><a href="javascript_helper-functions.html">Helper Functions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_code-snippets"><a href="javascript_code-snippets.html">Code Snippets</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Package Components</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_package-xml"><a href="package_package-xml.html">package.xml</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_pip"><a href="package_pip.html">PIPs</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Migration</a>
+                <ul>
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 5.2</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_php"><a href="migration_wsc-52_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_templates"><a href="migration_wsc-52_templates.html">Templates and Languages</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_libraries"><a href="migration_wsc-52_libraries.html">Third Party Libraries</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-31_php"><a href="migration_wsc-31_php.html">PHP API</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.0</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_php"><a href="migration_wsc-30_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_javascript"><a href="migration_wsc-30_javascript.html">JavaScript API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_templates"><a href="migration_wsc-30_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_css"><a href="migration_wsc-30_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_package"><a href="migration_wsc-30_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WCF 2.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_php"><a href="migration_wcf-21_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_templates"><a href="migration_wcf-21_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_css"><a href="migration_wcf-21_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_package"><a href="migration_wcf-21_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Tutorials</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="tutorial_tutorial-series"><a href="tutorial_tutorial-series.html">Tutorial Series</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+    
+</ul>
+
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = '';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Database Objects</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+  <p>WoltLab Suite uses a unified interface to work with database rows using an object based approach instead of using native arrays holding arbitrary data. Each database table is mapped to a model class that is designed to hold a single record from that table and expose methods to work with the stored data, for example providing assistance when working with normalized datasets.</p>
+
+<p>Developers are required to provide the proper DatabaseObject implementations themselves, they’re not automatically generated, all though the actual code that needs to be written is rather small. The following examples assume the fictional database table <code class="language-plaintext highlighter-rouge">wcf1_example</code>, <code class="language-plaintext highlighter-rouge">exampleID</code> as the auto-incrementing primary key and the column <code class="language-plaintext highlighter-rouge">bar</code> to store some text.</p>
+
+<h2 id="databaseobject">DatabaseObject</h2>
+
+<p>The basic model derives from <code class="language-plaintext highlighter-rouge">wcf\data\DatabaseObject</code> and provides a convenient constructor to fetch a single row or construct an instance using pre-loaded rows.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\data\example</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\DatabaseObject</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">Example</span> <span class="k">extends</span> <span class="nx">DatabaseObject</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<p>The class is intended to be empty by default and there only needs to be code if you want to add additional logic to your model. Both the class name and primary key are determined by <code class="language-plaintext highlighter-rouge">DatabaseObject</code> using the namespace and class name of the derived class. The example above uses the namespace <code class="language-plaintext highlighter-rouge">wcf\…</code> which is used as table prefix and the class name <code class="language-plaintext highlighter-rouge">Example</code> is converted into <code class="language-plaintext highlighter-rouge">exampleID</code>, resulting in the database table name <code class="language-plaintext highlighter-rouge">wcfN_example</code> with the primary key <code class="language-plaintext highlighter-rouge">exampleID</code>.</p>
+
+<p>You can prevent this automatic guessing by setting the class properties <code class="language-plaintext highlighter-rouge">$databaseTableName</code> and <code class="language-plaintext highlighter-rouge">$databaseTableIndexName</code> manually.</p>
+
+<h2 id="databaseobjectdecorator">DatabaseObjectDecorator</h2>
+
+<p>If you already have a <code class="language-plaintext highlighter-rouge">DatabaseObject</code> class and would like to extend it with additional data or methods, for example by providing a class <code class="language-plaintext highlighter-rouge">ViewableExample</code> which features view-related changes without polluting the original object, you can use <code class="language-plaintext highlighter-rouge">DatabaseObjectDecorator</code> which a default implementation of a decorator for database objects.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\data\example</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\DatabaseObjectDecorator</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">ViewableExample</span> <span class="k">extends</span> <span class="nx">DatabaseObjectDecorator</span> <span class="p">{</span>
+    <span class="k">protected</span> <span class="k">static</span> <span class="nv">$baseClass</span> <span class="o">=</span> <span class="nx">Example</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+    
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getOutput</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$output</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+        
+        <span class="c1">// [determine output]</span>
+        
+        <span class="k">return</span> <span class="nv">$output</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>It is mandatory to set the static <code class="language-plaintext highlighter-rouge">$baseClass</code> property to the name of the decorated class.</p>
+
+<p>Like for any decorator, you can directly access the decorated object’s properties and methods for a decorated object by accessing the property or calling the method on the decorated object.
+You can access the decorated objects directly via <code class="language-plaintext highlighter-rouge">DatabaseObjectDecorator::getDecoratedObject()</code>.</p>
+
+<h2 id="databaseobjecteditor">DatabaseObjectEditor</h2>
+
+<div class="bs-callout bs-callout-info">This is the low-level interface to manipulate data rows, it is recommended to use <code class="language-plaintext highlighter-rouge">AbstractDatabaseObjectAction</code>.</div>
+
+<p>Adding, editing and deleting models is done using the <code class="language-plaintext highlighter-rouge">DatabaseObjectEditor</code> class that decorates a <code class="language-plaintext highlighter-rouge">DatabaseObject</code> and uses its data to perform the actions.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\data\example</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\DatabaseObjectEditor</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">ExampleEditor</span> <span class="k">extends</span> <span class="nx">DatabaseObjectEditor</span> <span class="p">{</span>
+    <span class="k">protected</span> <span class="k">static</span> <span class="nv">$baseClass</span> <span class="o">=</span> <span class="nx">Example</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The editor class requires you to provide the fully qualified name of the model, that is the class name including the complete namespace. Database table name and index key will be pulled directly from the model.</p>
+
+<h3 id="create-a-new-row">Create a new row</h3>
+
+<p>Inserting a new row into the database table is provided through <code class="language-plaintext highlighter-rouge">DatabaseObjectEditor::create()</code> which yields a <code class="language-plaintext highlighter-rouge">DatabaseObject</code> instance after creation.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$example</span> <span class="o">=</span> <span class="nx">\wcf\data\example\ExampleEditor</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+    <span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'Hello World!'</span>
+<span class="p">]);</span>
+
+<span class="c1">// output: Hello World!</span>
+<span class="k">echo</span> <span class="nv">$example</span><span class="o">-&gt;</span><span class="na">bar</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="updating-an-existing-row">Updating an existing row</h3>
+
+<div class="bs-callout bs-callout-warning">The internal state of the decorated <code class="language-plaintext highlighter-rouge">DatabaseObject</code> is not altered at any point, the values will still be the same after editing or deleting the represented row. If you need an object with the latest data, you’ll have to discard the current object and refetch the data from database.</div>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$example</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\Example</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="nv">$exampleEditor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\ExampleEditor</span><span class="p">(</span><span class="nv">$example</span><span class="p">);</span>
+<span class="nv">$exampleEditor</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span>
+    <span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'baz'</span>
+<span class="p">]);</span>
+
+<span class="c1">// output: Hello World!</span>
+<span class="k">echo</span> <span class="nv">$example</span><span class="o">-&gt;</span><span class="na">bar</span><span class="p">;</span>
+
+<span class="c1">// re-creating the object will query the database again and retrieve the updated value</span>
+<span class="nv">$example</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\Example</span><span class="p">(</span><span class="nv">$example</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">);</span>
+
+<span class="c1">// output: baz</span>
+<span class="k">echo</span> <span class="nv">$example</span><span class="o">-&gt;</span><span class="na">bar</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="deleting-a-row">Deleting a row</h3>
+
+<div class="bs-callout bs-callout-warning">Similar to the update process, the decorated <code class="language-plaintext highlighter-rouge">DatabaseObject</code> is not altered and will then point to an inexistent row.</div>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$example</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\Example</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="nv">$exampleEditor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\ExampleEditor</span><span class="p">(</span><span class="nv">$example</span><span class="p">);</span>
+<span class="nv">$exampleEditor</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h2 id="databaseobjectlist">DatabaseObjectList</h2>
+
+<p>Every row is represented as a single instance of the model, but the instance creation deals with single rows only. Retrieving larger sets of rows would be quite inefficient due to the large amount of queries that will be dispatched. This is solved with the <code class="language-plaintext highlighter-rouge">DatabaseObjectList</code> object that exposes an interface to query the database table using arbitrary conditions for data selection. All rows will be fetched using a single query and the resulting rows are automatically loaded into separate models.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\data\example</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\DatabaseObjectList</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">ExampleList</span> <span class="k">extends</span> <span class="nx">DatabaseObjectList</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$className</span> <span class="o">=</span> <span class="nx">Example</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The following code listing illustrates loading a large set of examples and iterating over the list to retrieve the objects.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$exampleList</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\ExampleList</span><span class="p">();</span>
+<span class="c1">// add constraints using the condition builder</span>
+<span class="nv">$exampleList</span><span class="o">-&gt;</span><span class="na">getConditionBuilder</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'bar IN (?)'</span><span class="p">,</span> <span class="p">[[</span><span class="s1">'Hello World!'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'baz'</span><span class="p">]]);</span>
+<span class="c1">// actually read the rows</span>
+<span class="nv">$exampleList</span><span class="o">-&gt;</span><span class="na">readObjects</span><span class="p">();</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$exampleList</span> <span class="k">as</span> <span class="nv">$example</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$example</span><span class="o">-&gt;</span><span class="na">bar</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// retrieve the models directly instead of iterating over them</span>
+<span class="nv">$examples</span> <span class="o">=</span> <span class="nv">$exampleList</span><span class="o">-&gt;</span><span class="na">getObjects</span><span class="p">();</span>
+
+<span class="c1">// just retrieve the number of rows</span>
+<span class="nv">$exampleCount</span> <span class="o">=</span> <span class="nv">$exampleList</span><span class="o">-&gt;</span><span class="na">countObjects</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">DatabaseObjectList</code> implements both <a href="https://secure.php.net/manual/en/class.seekableiterator.php">SeekableIterator</a> and <a href="https://secure.php.net/manual/en/class.countable.php">Countable</a>.</p>
+
+<p>Additionally, <code class="language-plaintext highlighter-rouge">DatabaseObjectList</code> objects has the following three public properties that are useful when fetching data with lists:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">$sqlLimit</code> determines how many rows are fetched.
+If its value is <code class="language-plaintext highlighter-rouge">0</code> (which is the default value), all results are fetched.
+So be careful when dealing with large tables and you only want a limited number of rows:
+Set <code class="language-plaintext highlighter-rouge">$sqlLimit</code> to a value larger than zero!</li>
+  <li><code class="language-plaintext highlighter-rouge">$sqlOffset</code>:
+Paginated pages like a thread list use this feature a lot, it allows you to skip a given number of results.
+Imagine you want to display 20 threads per page but there are a total of 60 threads available.
+In this case you would specify <code class="language-plaintext highlighter-rouge">$sqlLimit = 20</code> and <code class="language-plaintext highlighter-rouge">$sqlOffset = 20</code> which will skip the first 20 threads, effectively displaying thread 21 to 40.</li>
+  <li><code class="language-plaintext highlighter-rouge">$sqlOrderBy</code> determines by which column(s) the rows are sorted in which order.
+Using our example in <code class="language-plaintext highlighter-rouge">$sqlOffset</code> you might want to display the 20 most recent threads on page 1, thus you should specify the order field and its direction, e.g. <code class="language-plaintext highlighter-rouge">$sqlOrderBy = 'thread.lastPostTime DESC'</code> which returns the most recent thread first.</li>
+</ul>
+
+<p>For more advanced usage, there two additional fields that deal with the type of objects returned.
+First, let’s go into a bit more detail what setting the <code class="language-plaintext highlighter-rouge">$className</code> property actually does:</p>
+
+<ol>
+  <li>It is the type of database object in which the rows are wrapped.</li>
+  <li>It determines which database table is actually queried and which index is used (see the <code class="language-plaintext highlighter-rouge">$databaseTableName</code> and <code class="language-plaintext highlighter-rouge">$databaseTableIndexName</code> properties of <code class="language-plaintext highlighter-rouge">DatabaseObject</code>).</li>
+</ol>
+
+<p>Sometimes you might use the database table of some database object but wrap the rows in another database object.
+This can be achieved by setting the <code class="language-plaintext highlighter-rouge">$objectClassName</code> property to the desired class name.</p>
+
+<p>In other cases, you might want to wrap the created objects in a database object decorator which can be done by setting the <code class="language-plaintext highlighter-rouge">$decoratorClassName</code> property to the desired class name:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$exampleList</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\ExampleList</span><span class="p">();</span>
+<span class="nv">$exampleList</span><span class="o">-&gt;</span><span class="na">decoratorClassName</span> <span class="o">=</span> <span class="nx">\wcf\data\example\ViewableExample</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Of course, you do not have to set the property after creating the list object, you can also set it by creating a dedicated class:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\data\example</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">ViewableExampleList</span> <span class="k">extends</span> <span class="nx">ExampleList</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$decoratorClassName</span> <span class="o">=</span> <span class="nx">ViewableExample</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="abstractdatabaseobjectaction">AbstractDatabaseObjectAction</h2>
+
+<p>Row creation and manipulation can be performed using the aforementioned <code class="language-plaintext highlighter-rouge">DatabaseObjectEditor</code> class, but this approach has two major issues:</p>
+
+<ol>
+  <li>Row creation, update and deletion takes place silently without notifying any other components.</li>
+  <li>Data is passed to the database adapter without any further processing.</li>
+</ol>
+
+<p>The <code class="language-plaintext highlighter-rouge">AbstractDatabaseObjectAction</code> solves both problems by wrapping around the editor class and thus provide an additional layer between the action that should be taken and the actual process. The first problem is solved by a fixed set of events being fired, the second issue is addressed by having a single entry point for all data editing.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\data\example</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\AbstractDatabaseObjectAction</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">ExampleAction</span> <span class="k">extends</span> <span class="nx">AbstractDatabaseObjectAction</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$className</span> <span class="o">=</span> <span class="nx">ExampleEditor</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="executing-an-action">Executing an Action</h3>
+
+<div class="bs-callout bs-callout-warning">The method <code class="language-plaintext highlighter-rouge">AbstractDatabaseObjectAction::validateAction()</code> is internally used for AJAX method invocation and must not be called programmatically.</div>
+
+<p>The next example represents the same functionality as seen for <code class="language-plaintext highlighter-rouge">DatabaseObjectEditor</code>:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">use</span> <span class="nn">wcf\data\example\ExampleAction</span><span class="p">;</span>
+
+<span class="c1">// create a row</span>
+<span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([],</span> <span class="s1">'create'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'Hello World'</span><span class="p">]</span>
+<span class="p">]);</span>
+<span class="nv">$example</span> <span class="o">=</span> <span class="nv">$exampleAction</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">()[</span><span class="s1">'returnValues'</span><span class="p">];</span>
+
+<span class="c1">// update a row using the id</span>
+<span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'update'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'baz'</span><span class="p">]</span>
+<span class="p">]);</span>
+<span class="nv">$exampleAction</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">();</span>
+
+<span class="c1">// delete a row using a model</span>
+<span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([</span><span class="nv">$example</span><span class="p">],</span> <span class="s1">'delete'</span><span class="p">);</span>
+<span class="nv">$exampleAction</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>You can access the return values both by storing the return value of <code class="language-plaintext highlighter-rouge">executeAction()</code> or by retrieving it via <code class="language-plaintext highlighter-rouge">getReturnValues()</code>.</p>
+
+<p><span class="label label-info">Events</span> <code class="language-plaintext highlighter-rouge">initializeAction</code>, <code class="language-plaintext highlighter-rouge">validateAction</code> and <code class="language-plaintext highlighter-rouge">finalizeAction</code></p>
+
+<h3 id="custom-method-with-ajax-support">Custom Method with AJAX Support</h3>
+
+<p>This section is about adding the method <code class="language-plaintext highlighter-rouge">baz()</code> to <code class="language-plaintext highlighter-rouge">ExampleAction</code> and calling it via AJAX.</p>
+
+<h4 id="ajax-validation">AJAX Validation</h4>
+
+<p>Methods of an action cannot be called via AJAX, unless they have a validation method. This means that <code class="language-plaintext highlighter-rouge">ExampleAction</code> must define both a <code class="language-plaintext highlighter-rouge">public function baz()</code> and <code class="language-plaintext highlighter-rouge">public function validateBaz()</code>, the name for the validation method is constructed by upper-casing the first character of the method name and prepending <code class="language-plaintext highlighter-rouge">validate</code>.</p>
+
+<p>The lack of the companion <code class="language-plaintext highlighter-rouge">validate*</code> method will cause the AJAX proxy to deny the request instantaneously. Do not add a validation method if you don’t want it to be callable via AJAX ever!</p>
+
+<h4 id="create-update-and-delete">create, update and delete</h4>
+
+<p>The methods <code class="language-plaintext highlighter-rouge">create</code>, <code class="language-plaintext highlighter-rouge">update</code> and <code class="language-plaintext highlighter-rouge">delete</code> are available for all classes deriving from <code class="language-plaintext highlighter-rouge">AbstractDatabaseObjectAction</code> and directly pass the input data to the <code class="language-plaintext highlighter-rouge">DatabaseObjectEditor</code>. These methods deny access to them via AJAX by default, unless you explicitly enable access. Depending on your case, there are two different strategies to enable AJAX access to them.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+namespace wcf\data\example;
+use wcf\data\AbstractDatabaseObjectAction;
+
+class ExampleAction extends AbstractDatabaseObjectAction {
+    // `create()` can now be called via AJAX if the requesting user posses the listed permissions
+    protected $permissionsCreate = ['admin.example.canManageExample'];
+
+    public function validateUpdate() {
+        // your very own validation logic that does not make use of the
+        // built-in `$permissionsUpdate` property
+
+        // you can still invoke the built-in permissions check if you like to
+        parent::validateUpdate();
+    }
+}
+</code></pre></div></div>
+
+<h4 id="allow-invokation-by-guests">Allow Invokation by Guests</h4>
+
+<p>Invoking methods is restricted to logged-in users by default and the only way to override this behavior is to alter the property <code class="language-plaintext highlighter-rouge">$allowGuestAccess</code>. It is a simple string array that is expected to hold all methods that should be accessible by users, excluding their companion validation methods.</p>
+
+<h4 id="acp-access-only">ACP Access Only</h4>
+
+<p>Method access is usually limited by permissions, but sometimes there might be the need for some added security to avoid mistakes. The <code class="language-plaintext highlighter-rouge">$requireACP</code> property works similar to <code class="language-plaintext highlighter-rouge">$allowGuestAccess</code>, but enforces the request to originate from the ACP together with a valid ACP session, ensuring that only users able to access the ACP can actually invoke these methods.</p>
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footerBox">
+    <div class="container">
+      <div class="footerBoxLeft">
+        
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master/pages/php/php_database-objects.md" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <p>Site last generated: Mar 2, 2021</p>
+      </div>
+      <div class="footerBoxRight">
+        <a class="no_icon" href="https://www.woltlab.com"><img src="https://docs.woltlab.com/images/woltlab-black.png" srcset="https://docs.woltlab.com/images/woltlab-black@2x.png 2x" height="40" width="204" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pageFooter">
+    <div class="container">
+      &copy; 2001 ‐ 2021 <a class="no_icon" href="https://www.woltlab.com">WoltLab GmbH</a>. All rights reserved. | <a class="no_icon" href="https://www.woltlab.com/legal-notice/">Legal Notice</a> | <a class="no_icon" href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+
+</html>

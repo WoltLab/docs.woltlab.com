@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>WCF 2.1.x - Templates | WoltLab Suite 5.3 Documentation</title>
+
+<link rel="stylesheet" href="https://docs.woltlab.com/css/syntax.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://docs.woltlab.com/css/modern-business.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/customstyles.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/theme-blue.css?v=3">
+
+<script src="https://docs.woltlab.com/js/jquery.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.cookie.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.navgoco.min.js"></script>
+<script src="https://docs.woltlab.com/js/bootstrap.min.js"></script>
+<script src="https://docs.woltlab.com/js/anchor.min.js"></script>
+<script src="https://docs.woltlab.com/js/toc.js"></script>
+<script src="https://docs.woltlab.com/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="https://docs.woltlab.com/images/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" title="mike-test" href="https://docs.woltlab.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> WoltLab Suite 5.3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://www.woltlab.com" target="_blank">woltlab.com</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/WoltLab/WCF/" target="_blank">Code on github.com</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="https://docs.woltlab.com/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'https://docs.woltlab.com/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="WCF 2.1.x - Templates">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">WoltLab Suite 5.3</li>
+
+    
+        
+            <li>
+                <a href="#">Getting Started</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="index"><a href="index.html">Introduction</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="getting-started_quick-start"><a href="getting-started_quick-start.html">Quick Start</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">PHP API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_pages"><a href="php_pages.html">Pages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-objects"><a href="php_database-objects.html">Database Objects</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-access"><a href="php_database-access.html">Database Access</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_exceptions"><a href="php_exceptions.html">Exceptions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_caches"><a href="php_api_caches.html">Caches</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_comments"><a href="php_api_comments.html">Comments</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_cronjobs"><a href="php_api_cronjobs.html">Cronjobs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_events"><a href="php_api_events.html">Events</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_form_builder"><a href="php_api_form_builder.html">Form Builder</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_package_installation_plugins"><a href="php_api_package_installation_plugins.html">Package Installation Plugins</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_activity_points"><a href="php_api_user_activity_points.html">User Activity Points</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_notifications"><a href="php_api_user_notifications.html">User Notifications</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_sitemaps"><a href="php_api_sitemaps.html">Sitemaps</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_code-style"><a href="php_code-style.html">Code Style</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_apps"><a href="php_apps.html">Apps</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_gdpr"><a href="php_gdpr.html">GDPR</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Languages, Templates & CSS</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_languages"><a href="view_languages.html">Languages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_templates"><a href="view_templates.html">Templates</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_css"><a href="view_css.html">CSS</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">JavaScript API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_general-usage"><a href="javascript_general-usage.html">General Usage</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">New API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_writing-a-module"><a href="javascript_new-api_writing-a-module.html">Writing a module</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_data-structures"><a href="javascript_new-api_data-structures.html">Data Structures</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_core"><a href="javascript_new-api_core.html">Core Functions</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dom"><a href="javascript_new-api_dom.html">DOM</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_events"><a href="javascript_new-api_events.html">Event Handling</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ajax"><a href="javascript_new-api_ajax.html">Ajax</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dialogs"><a href="javascript_new-api_dialogs.html">Dialogs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_browser"><a href="javascript_new-api_browser.html">Browser and Screen Sizes</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ui"><a href="javascript_new-api_ui.html">User Interface</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_legacy-api"><a href="javascript_legacy-api.html">Legacy API</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_helper-functions"><a href="javascript_helper-functions.html">Helper Functions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_code-snippets"><a href="javascript_code-snippets.html">Code Snippets</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Package Components</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_package-xml"><a href="package_package-xml.html">package.xml</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_pip"><a href="package_pip.html">PIPs</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Migration</a>
+                <ul>
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 5.2</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_php"><a href="migration_wsc-52_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_templates"><a href="migration_wsc-52_templates.html">Templates and Languages</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_libraries"><a href="migration_wsc-52_libraries.html">Third Party Libraries</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-31_php"><a href="migration_wsc-31_php.html">PHP API</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.0</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_php"><a href="migration_wsc-30_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_javascript"><a href="migration_wsc-30_javascript.html">JavaScript API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_templates"><a href="migration_wsc-30_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_css"><a href="migration_wsc-30_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_package"><a href="migration_wsc-30_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WCF 2.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_php"><a href="migration_wcf-21_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li class="active" data-identifier="migration_wcf-21_templates"><a href="migration_wcf-21_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_css"><a href="migration_wcf-21_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_package"><a href="migration_wcf-21_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Tutorials</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="tutorial_tutorial-series"><a href="tutorial_tutorial-series.html">Tutorial Series</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+    
+</ul>
+
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = '';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">WCF 2.1.x - Templates</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+  <h2 id="page-layout">Page Layout</h2>
+
+<p>The template structure has been overhauled and it is no longer required nor recommended to include internal templates, such as <code class="language-plaintext highlighter-rouge">documentHeader</code>, <code class="language-plaintext highlighter-rouge">headInclude</code> or <code class="language-plaintext highlighter-rouge">userNotice</code>. Instead use a simple <code class="language-plaintext highlighter-rouge">{include file='header'}</code> that now takes care of of the entire application frame.</p>
+
+<ul>
+  <li>Templates must not include a trailing <code class="language-plaintext highlighter-rouge">&lt;/body&gt;&lt;/html&gt;</code> after including the <code class="language-plaintext highlighter-rouge">footer</code> template.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">documentHeader</code>, <code class="language-plaintext highlighter-rouge">headInclude</code> and <code class="language-plaintext highlighter-rouge">userNotice</code> template should no longer be included manually, the same goes with the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> element, please use <code class="language-plaintext highlighter-rouge">{include file='header'}</code> instead.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">sidebarOrientation</code> variable for the <code class="language-plaintext highlighter-rouge">header</code> template has been removed and no longer works.</li>
+  <li><code class="language-plaintext highlighter-rouge">header.boxHeadline</code> has been unified and now reads <code class="language-plaintext highlighter-rouge">header.contentHeader</code></li>
+</ul>
+
+<p>Please see the full example at the end of this page for more information.</p>
+
+<h2 id="sidebars">Sidebars</h2>
+
+<p>Sidebars are now dynamically populated by the box system, this requires a small change to unify the markup. Additionally the usage of <code class="language-plaintext highlighter-rouge">&lt;fieldset&gt;</code> has been deprecated due to browser inconsistencies and bugs and should be replaced with <code class="language-plaintext highlighter-rouge">section.box</code>.</p>
+
+<p>Previous markup used in WoltLab Community Framework 2.1 and earlier:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;fieldset&gt;</span>
+    <span class="nt">&lt;legend&gt;</span><span class="c">&lt;!-- Title --&gt;</span><span class="nt">&lt;/legend&gt;</span>
+
+    <span class="nt">&lt;div&gt;</span>
+        <span class="c">&lt;!-- Content --&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/fieldset&gt;</span>
+</code></pre></div></div>
+
+<p>The new markup since WoltLab Suite 3.0:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"boxTitle"</span><span class="nt">&gt;</span><span class="c">&lt;!-- Title --&gt;</span><span class="nt">&lt;/h2&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"boxContent"</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- Content --&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre></div></div>
+
+<h2 id="forms">Forms</h2>
+
+<p>The input tag for session ids <code class="language-plaintext highlighter-rouge">SID_INPUT_TAG</code> has been deprecated and no longer yields any content, it can be safely removed. In previous versions forms have been wrapped in <code class="language-plaintext highlighter-rouge">&lt;div class="container containerPadding marginTop"&gt;…&lt;/div&gt;</code> which no longer has any effect and should be removed.</p>
+
+<p>If you’re using the preview feature for WYSIWYG-powered input fields, you need to alter the preview button include instruction:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'messageFormPreviewButton'</span> <span class="na">previewMessageObjectType</span><span class="o">=</span><span class="s1">'com.example.foo.bar'</span> <span class="na">previewMessageObjectID</span><span class="o">=</span><span class="m">0</span><span class="k">}</span>
+</code></pre></div></div>
+
+<p><em>The message object id should be non-zero when editing.</em></p>
+
+<h2 id="icons">Icons</h2>
+
+<p>The old <code class="language-plaintext highlighter-rouge">.icon-&lt;iconName&gt;</code> classes have been removed, you are required to use the official <code class="language-plaintext highlighter-rouge">.fa-&lt;iconName&gt;</code> class names from FontAwesome. This does not affect the generic classes <code class="language-plaintext highlighter-rouge">.icon</code> (indicates an icon) and <code class="language-plaintext highlighter-rouge">.icon&lt;size&gt;</code> (e.g. <code class="language-plaintext highlighter-rouge">.icon16</code> that sets the dimensions), these are still required and have not been deprecated.</p>
+
+<p>Before:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon icon16 icon-list"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>Now:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon icon16 fa-list"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h3 id="changed-icon-names">Changed Icon Names</h3>
+
+<p>Quite a few icon names have been renamed, the official wiki lists the <a href="https://github.com/FortAwesome/Font-Awesome/wiki/Upgrading-from-3.2.1-to-4">new icon names</a> in FontAwesome 4.</p>
+
+<h2 id="changed-classes">Changed Classes</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.dataList</code> has been replaced and should now read <code class="language-plaintext highlighter-rouge">&lt;ol class="inlineList commaSeparated"&gt;</code> (same applies to <code class="language-plaintext highlighter-rouge">&lt;ul&gt;</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">.framedIconList</code> has been changed into <code class="language-plaintext highlighter-rouge">.userAvatarList</code></li>
+</ul>
+
+<h2 id="removed-elements-and-classes">Removed Elements and Classes</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;nav class="jsClipboardEditor"&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;div class="jsClipboardContainer"&gt;</code> have been replaced with a floating button.</li>
+  <li>The anchors <code class="language-plaintext highlighter-rouge">a.toTopLink</code> have been replaced with a floating button.</li>
+  <li>Avatars should no longer receive the class <code class="language-plaintext highlighter-rouge">framed</code></li>
+  <li>The <code class="language-plaintext highlighter-rouge">dl.condensed</code> class, as seen in the editor tab menu, is no longer required.</li>
+  <li>Anything related to <code class="language-plaintext highlighter-rouge">sidebarCollapsed</code> has been removed as sidebars are no longer collapsible.</li>
+</ul>
+
+<h2 id="simple-example">Simple Example</h2>
+
+<p>The code below includes only the absolute minimum required to display a page, the content title is already included in the output.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'header'</span><span class="k">}</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section"</span><span class="nt">&gt;</span>
+    Hello World!
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'footer'</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h2 id="full-example">Full Example</h2>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">{*
+    The page title is automatically set using the page definition, avoid setting it if you can!
+    If you really need to modify the title, you can still reference the original title with:
+    {$__wcf-&gt;getActivePage()-&gt;getTitle()}
+*}</span>
+<span class="k">{</span><span class="nb">capture</span> <span class="nb">assign</span><span class="o">=</span><span class="s1">'pageTitle'</span><span class="k">}</span>Custom Page Title<span class="k">{/</span><span class="nb">capture</span><span class="k">}</span>
+
+<span class="c">{*
+    NOTICE: The content header goes here, see the section after this to learn more.
+*}</span>
+
+<span class="c">{* you must not use `headContent` for JavaScript *}</span>
+<span class="k">{</span><span class="nb">capture</span> <span class="nb">assign</span><span class="o">=</span><span class="s1">'headContent'</span><span class="k">}</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"alternate"</span> <span class="na">type=</span><span class="s">"application/rss+xml"</span> <span class="na">title=</span><span class="s">"</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span><span class="s">wcf.global.button.rss</span><span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="s">"</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>
+<span class="k">{/</span><span class="nb">capture</span><span class="k">}</span>
+
+<span class="c">{* optional, content will be added to the top of the left sidebar *}</span>
+<span class="k">{</span><span class="nb">capture</span> <span class="nb">assign</span><span class="o">=</span><span class="s1">'sidebarLeft'</span><span class="k">}</span>
+    …
+
+    <span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'boxes'</span><span class="k">}</span>
+<span class="k">{/</span><span class="nb">capture</span><span class="k">}</span>
+
+<span class="c">{* optional, content will be added to the top of the right sidebar *}</span>
+<span class="k">{</span><span class="nb">capture</span> <span class="nb">assign</span><span class="o">=</span><span class="s1">'sidebarRight'</span><span class="k">}</span>
+    …
+
+    <span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'boxes'</span><span class="k">}</span>
+<span class="k">{/</span><span class="nb">capture</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nb">capture</span> <span class="nb">assign</span><span class="o">=</span><span class="s1">'headerNavigation'</span><span class="k">}</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">title=</span><span class="s">"Custom Button"</span> <span class="na">class=</span><span class="s">"jsTooltip"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"icon icon16 fa-check"</span><span class="nt">&gt;&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"invisible"</span><span class="nt">&gt;</span>Custom Button<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="k">{/</span><span class="nb">capture</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'header'</span><span class="k">}</span>
+
+<span class="k">{</span><span class="na">hascontent</span><span class="k">}</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"paginationTop"</span><span class="nt">&gt;</span>
+        <span class="k">{</span><span class="na">content</span><span class="k">}</span>
+            <span class="k">{</span><span class="na">pages</span> <span class="err">…</span><span class="k">}</span>
+        <span class="k">{/</span><span class="na">content</span><span class="k">}</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="k">{/</span><span class="na">hascontent</span><span class="k">}</span>
+
+<span class="c">{* the actual content *}</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section"</span><span class="nt">&gt;</span>
+    …
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"contentFooter"</span><span class="nt">&gt;</span>
+    <span class="c">{* skip this if you're not using any pagination *}</span>
+    <span class="k">{</span><span class="na">hascontent</span><span class="k">}</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"paginationBottom"</span><span class="nt">&gt;</span>
+            <span class="k">{</span><span class="na">content</span><span class="k">}{</span><span class="o">@</span><span class="nv">$pagesLinks</span><span class="k">}{/</span><span class="na">content</span><span class="k">}</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="k">{/</span><span class="na">hascontent</span><span class="k">}</span>
+
+    <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"contentFooterNavigation"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;ul&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"icon icon16 fa-plus"</span><span class="nt">&gt;&lt;/span&gt;</span> <span class="nt">&lt;span&gt;</span>Custom Button<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'contentFooterNavigation'</span><span class="k">}</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/nav&gt;</span>
+<span class="nt">&lt;/footer&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">data-relocate=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+    <span class="cm">/* any JavaScript code you need */</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="c">{* do not include `&lt;/body&gt;&lt;/html&gt;` here, the footer template is the last bit of code! *}</span>
+<span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'footer'</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h3 id="content-header">Content Header</h3>
+
+<p>There are two different methods to set the content header, one sets only the actual values, but leaves the outer HTML untouched, that is generated by the <code class="language-plaintext highlighter-rouge">header</code> template. This is the recommended approach and you should avoid using the alternative method whenever possible.</p>
+
+<h4 id="recommended-approach">Recommended Approach</h4>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">{* This is automatically set using the page data and should not be set manually! *}</span>
+<span class="k">{</span><span class="nb">capture</span> <span class="nb">assign</span><span class="o">=</span><span class="s1">'contentTitle'</span><span class="k">}</span>Custom Content Title<span class="k">{/</span><span class="nb">capture</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nb">capture</span> <span class="nb">assign</span><span class="o">=</span><span class="s1">'contentDescription'</span><span class="k">}</span>Optional description that is displayed right after the title.<span class="k">{/</span><span class="nb">capture</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nb">capture</span> <span class="nb">assign</span><span class="o">=</span><span class="s1">'contentHeaderNavigation'</span><span class="k">}</span>List of navigation buttons displayed right next to the title.<span class="k">{/</span><span class="nb">capture</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h4 id="alternative">Alternative</h4>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">capture</span> <span class="nb">assign</span><span class="o">=</span><span class="s1">'contentHeader'</span><span class="k">}</span>
+    <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"contentHeader"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"contentHeaderTitle"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"contentTitle"</span><span class="nt">&gt;</span>Custom Content Title<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"contentHeaderDescription"</span><span class="nt">&gt;</span>Custom Content Description<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+
+        <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"contentHeaderNavigation"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;ul&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'CustomController'</span><span class="k">}{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"icon icon16 fa-plus"</span><span class="nt">&gt;&lt;/span&gt;</span> <span class="nt">&lt;span&gt;</span>Custom Button<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'contentHeaderNavigation'</span><span class="k">}</span>
+            <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/nav&gt;</span>
+    <span class="nt">&lt;/header&gt;</span>
+<span class="k">{/</span><span class="nb">capture</span><span class="k">}</span>
+</code></pre></div></div>
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footerBox">
+    <div class="container">
+      <div class="footerBoxLeft">
+        
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master/pages/migration/wcf-21/migration_wcf-21_templates.md" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <p>Site last generated: Mar 2, 2021</p>
+      </div>
+      <div class="footerBoxRight">
+        <a class="no_icon" href="https://www.woltlab.com"><img src="https://docs.woltlab.com/images/woltlab-black.png" srcset="https://docs.woltlab.com/images/woltlab-black@2x.png 2x" height="40" width="204" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pageFooter">
+    <div class="container">
+      &copy; 2001 ‐ 2021 <a class="no_icon" href="https://www.woltlab.com">WoltLab GmbH</a>. All rights reserved. | <a class="no_icon" href="https://www.woltlab.com/legal-notice/">Legal Notice</a> | <a class="no_icon" href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Tutorial Series Part 1: Base Structure | WoltLab Suite 5.3 Documentation</title>
+
+<link rel="stylesheet" href="https://docs.woltlab.com/css/syntax.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://docs.woltlab.com/css/modern-business.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/customstyles.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/theme-blue.css?v=3">
+
+<script src="https://docs.woltlab.com/js/jquery.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.cookie.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.navgoco.min.js"></script>
+<script src="https://docs.woltlab.com/js/bootstrap.min.js"></script>
+<script src="https://docs.woltlab.com/js/anchor.min.js"></script>
+<script src="https://docs.woltlab.com/js/toc.js"></script>
+<script src="https://docs.woltlab.com/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="https://docs.woltlab.com/images/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" title="mike-test" href="https://docs.woltlab.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> WoltLab Suite 5.3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://www.woltlab.com" target="_blank">woltlab.com</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/WoltLab/WCF/" target="_blank">Code on github.com</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="https://docs.woltlab.com/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'https://docs.woltlab.com/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Tutorial Series Part 1: Base Structure">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">WoltLab Suite 5.3</li>
+
+    
+        
+            <li>
+                <a href="#">Getting Started</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="index"><a href="index.html">Introduction</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="getting-started_quick-start"><a href="getting-started_quick-start.html">Quick Start</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">PHP API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_pages"><a href="php_pages.html">Pages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-objects"><a href="php_database-objects.html">Database Objects</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-access"><a href="php_database-access.html">Database Access</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_exceptions"><a href="php_exceptions.html">Exceptions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_caches"><a href="php_api_caches.html">Caches</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_comments"><a href="php_api_comments.html">Comments</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_cronjobs"><a href="php_api_cronjobs.html">Cronjobs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_events"><a href="php_api_events.html">Events</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_form_builder"><a href="php_api_form_builder.html">Form Builder</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_package_installation_plugins"><a href="php_api_package_installation_plugins.html">Package Installation Plugins</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_activity_points"><a href="php_api_user_activity_points.html">User Activity Points</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_notifications"><a href="php_api_user_notifications.html">User Notifications</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_sitemaps"><a href="php_api_sitemaps.html">Sitemaps</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_code-style"><a href="php_code-style.html">Code Style</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_apps"><a href="php_apps.html">Apps</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_gdpr"><a href="php_gdpr.html">GDPR</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Languages, Templates & CSS</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_languages"><a href="view_languages.html">Languages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_templates"><a href="view_templates.html">Templates</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_css"><a href="view_css.html">CSS</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">JavaScript API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_general-usage"><a href="javascript_general-usage.html">General Usage</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">New API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_writing-a-module"><a href="javascript_new-api_writing-a-module.html">Writing a module</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_data-structures"><a href="javascript_new-api_data-structures.html">Data Structures</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_core"><a href="javascript_new-api_core.html">Core Functions</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dom"><a href="javascript_new-api_dom.html">DOM</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_events"><a href="javascript_new-api_events.html">Event Handling</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ajax"><a href="javascript_new-api_ajax.html">Ajax</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dialogs"><a href="javascript_new-api_dialogs.html">Dialogs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_browser"><a href="javascript_new-api_browser.html">Browser and Screen Sizes</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ui"><a href="javascript_new-api_ui.html">User Interface</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_legacy-api"><a href="javascript_legacy-api.html">Legacy API</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_helper-functions"><a href="javascript_helper-functions.html">Helper Functions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_code-snippets"><a href="javascript_code-snippets.html">Code Snippets</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Package Components</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_package-xml"><a href="package_package-xml.html">package.xml</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_pip"><a href="package_pip.html">PIPs</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Migration</a>
+                <ul>
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 5.2</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_php"><a href="migration_wsc-52_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_templates"><a href="migration_wsc-52_templates.html">Templates and Languages</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_libraries"><a href="migration_wsc-52_libraries.html">Third Party Libraries</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-31_php"><a href="migration_wsc-31_php.html">PHP API</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.0</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_php"><a href="migration_wsc-30_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_javascript"><a href="migration_wsc-30_javascript.html">JavaScript API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_templates"><a href="migration_wsc-30_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_css"><a href="migration_wsc-30_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_package"><a href="migration_wsc-30_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WCF 2.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_php"><a href="migration_wcf-21_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_templates"><a href="migration_wcf-21_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_css"><a href="migration_wcf-21_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_package"><a href="migration_wcf-21_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Tutorials</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="tutorial_tutorial-series"><a href="tutorial_tutorial-series.html">Tutorial Series</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+    
+</ul>
+
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = 'tutorial_tutorial-series';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Tutorial Series Part 1: Base Structure</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+  <p>In the first part of this tutorial series, we will lay out what the basic version of package should be able to do and how to implement these functions.</p>
+
+<h2 id="package-functionality">Package Functionality</h2>
+
+<p>The package should provide the following possibilities/functions:</p>
+
+<ul>
+  <li>Sortable list of all people in the ACP</li>
+  <li>Ability to add, edit and delete people in the ACP</li>
+  <li>Restrict the ability to add, edit and delete people (in short: manage people) in the ACP</li>
+  <li>Sortable list of all people in the front end</li>
+</ul>
+
+<h2 id="used-components">Used Components</h2>
+
+<p>We will use the following package installation plugins:</p>
+
+<ul>
+  <li><a href="package_pip_acp-template.html">acpTemplate package installation plugin</a>,</li>
+  <li><a href="package_pip_acp-menu.html">acpMenu package installation plugin</a>,</li>
+  <li><a href="package_pip_file.html">file package installation plugin</a>,</li>
+  <li><a href="package_pip_language.html">language package installation plugin</a>,</li>
+  <li><a href="package_pip_menu-item.html">menuItem package installation plugin</a>,</li>
+  <li><a href="package_pip_page.html">page package installation plugin</a>,</li>
+  <li><a href="package_pip_sql.html">sql package installation plugin</a>,</li>
+  <li><a href="package_pip_template.html">template package installation plugin</a>,</li>
+  <li><a href="package_pip_user-group-option.html">userGroupOption package installation plugin</a>,</li>
+</ul>
+
+<p>use <a href="php_database-objects.html">database objects</a>, create <a href="php_pages.html">pages</a> and use <a href="view_templates.html">templates</a>.</p>
+
+<h2 id="package-structure">Package Structure</h2>
+
+<p>The package will have the following file structure:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── acpMenu.xml
+├── acptemplates
+│   ├── personAdd.tpl
+│   └── personList.tpl
+├── files
+│   └── lib
+│       ├── acp
+│       │   ├── form
+│       │   │   ├── PersonAddForm.class.php
+│       │   │   └── PersonEditForm.class.php
+│       │   └── page
+│       │       └── PersonListPage.class.php
+│       ├── data
+│       │   └── person
+│       │       ├── PersonAction.class.php
+│       │       ├── Person.class.php
+│       │       ├── PersonEditor.class.php
+│       │       └── PersonList.class.php
+│       └── page
+│           └── PersonListPage.class.php
+├── install.sql
+├── language
+│   ├── de.xml
+│   └── en.xml
+├── menuItem.xml
+├── package.xml
+├── page.xml
+├── templates
+│   └── personList.tpl
+└── userGroupOption.xml
+</code></pre></div></div>
+
+<h2 id="person-modeling">Person Modeling</h2>
+
+<h3 id="database-table">Database Table</h3>
+
+<p>As the first step, we have to model the people we want to manage with this package.
+As this is only an introductory tutorial, we will keep things simple and only consider the first and last name of a person.
+Thus, the database table we will store the people in only contains three columns:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">personID</code> is the unique numeric identifier of each person created,</li>
+  <li><code class="language-plaintext highlighter-rouge">firstName</code> contains the first name of the person,</li>
+  <li><code class="language-plaintext highlighter-rouge">lastName</code> contains the last name of the person.</li>
+</ol>
+
+<p>The first file for our package is the <code class="language-plaintext highlighter-rouge">install.sql</code> file used to create such a database table during package installation:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">wcf1_person</span><span class="p">;</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">wcf1_person</span> <span class="p">(</span>
+	<span class="n">personID</span> <span class="nb">INT</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+	<span class="n">firstName</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+	<span class="n">lastName</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="p">);</span></code></pre></figure>
+
+<h3 id="database-object">Database Object</h3>
+
+<h4 id="person"><code class="language-plaintext highlighter-rouge">Person</code></h4>
+
+<p>In our PHP code, each person will be represented by an object of the following class:</p>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\data\person</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\DatabaseObject</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\request\IRouteController</span><span class="p">;</span>
+
+<span class="cd">/**
+ * Represents a person.
+ * 
+ * @author	Matthias Schmidt
+ * @copyright	2001-2019 WoltLab GmbH
+ * @license	GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;
+ * @package	WoltLabSuite\Core\Data\Person
+ * 
+ * @property-read	integer		$personID	unique id of the person
+ * @property-read	string		$firstName	first name of the person
+ * @property-read	string		$lastName	last name of the person
+ */</span>
+<span class="kd">class</span> <span class="nc">Person</span> <span class="k">extends</span> <span class="nx">DatabaseObject</span> <span class="k">implements</span> <span class="nx">IRouteController</span> <span class="p">{</span>
+	<span class="cd">/**
+	 * Returns the first and last name of the person if a person object is treated as a string.
+	 * 
+	 * @return	string
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">__toString</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="p">();</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getTitle</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">firstName</span> <span class="o">.</span> <span class="s1">' '</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lastName</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The important thing here is that <code class="language-plaintext highlighter-rouge">Person</code> extends <code class="language-plaintext highlighter-rouge">DatabaseObject</code>.
+Additionally, we implement the <code class="language-plaintext highlighter-rouge">IRouteController</code> interface, which allows us to use <code class="language-plaintext highlighter-rouge">Person</code> objects to create links, and we implement PHP’s magic <a href="https://secure.php.net/manual/en/language.oop5.magic.php#object.tostring">__toString()</a> method for convenience.</p>
+
+<p>For every database object, you need to implement three additional classes:
+an action class, an editor class and a list class.</p>
+
+<h4 id="personaction"><code class="language-plaintext highlighter-rouge">PersonAction</code></h4>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\data\person</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\AbstractDatabaseObjectAction</span><span class="p">;</span>
+
+<span class="cd">/**
+ * Executes person-related actions.
+ * 
+ * @author	Matthias Schmidt
+ * @copyright	2001-2019 WoltLab GmbH
+ * @license	GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;
+ * @package	WoltLabSuite\Core\Data\Person
+ *
+ * @method	Person		create()
+ * @method	PersonEditor[]	getObjects()
+ * @method	PersonEditor	getSingleObject()
+ */</span>
+<span class="kd">class</span> <span class="nc">PersonAction</span> <span class="k">extends</span> <span class="nx">AbstractDatabaseObjectAction</span> <span class="p">{</span>
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="nv">$permissionsDelete</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'admin.content.canManagePeople'</span><span class="p">];</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="nv">$requireACP</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'delete'</span><span class="p">];</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>This implementation of <code class="language-plaintext highlighter-rouge">AbstractDatabaseObjectAction</code> is very basic and only sets the <code class="language-plaintext highlighter-rouge">$permissionsDelete</code> and <code class="language-plaintext highlighter-rouge">$requireACP</code> properties.
+This is done so that later on, when implementing the people list for the ACP, we can delete people simply via AJAX.
+<code class="language-plaintext highlighter-rouge">$permissionsDelete</code> has to be set to the permission needed in order to delete a person.
+We will later use the <a href="package_pip_user-group-option.html">userGroupOption package installation plugin</a> to create the <code class="language-plaintext highlighter-rouge">admin.content.canManagePeople</code> permission.
+<code class="language-plaintext highlighter-rouge">$requireACP</code> restricts deletion of people to the ACP.</p>
+
+<h4 id="personeditor"><code class="language-plaintext highlighter-rouge">PersonEditor</code></h4>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\data\person</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\DatabaseObjectEditor</span><span class="p">;</span>
+
+<span class="cd">/**
+ * Provides functions to edit people.
+ * 
+ * @author	Matthias Schmidt
+ * @copyright	2001-2019 WoltLab GmbH
+ * @license	GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;
+ * @package	WoltLabSuite\Core\Data\Person
+ * 
+ * @method static	Person	create(array $parameters = [])
+ * @method		Person	getDecoratedObject()
+ * @mixin		Person
+ */</span>
+<span class="kd">class</span> <span class="nc">PersonEditor</span> <span class="k">extends</span> <span class="nx">DatabaseObjectEditor</span> <span class="p">{</span>
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="k">static</span> <span class="nv">$baseClass</span> <span class="o">=</span> <span class="nx">Person</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>This implementation of <code class="language-plaintext highlighter-rouge">DatabaseObjectEditor</code> fulfills the minimum requirement for a database object editor:
+setting the static <code class="language-plaintext highlighter-rouge">$baseClass</code> property to the database object class name.</p>
+
+<h4 id="personlist"><code class="language-plaintext highlighter-rouge">PersonList</code></h4>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\data\person</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\DatabaseObjectList</span><span class="p">;</span>
+
+<span class="cd">/**
+ * Represents a list of people.
+ * 
+ * @author	Matthias Schmidt
+ * @copyright	2001-2019 WoltLab GmbH
+ * @license	GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;
+ * @package	WoltLabSuite\Core\Data\Person
+ * 
+ * @method	Person		current()
+ * @method	Person[]	getObjects()
+ * @method	Person|null	search($objectID)
+ * @property	Person[]	$objects
+ */</span>
+<span class="kd">class</span> <span class="nc">PersonList</span> <span class="k">extends</span> <span class="nx">DatabaseObjectList</span> <span class="p">{}</span></code></pre></figure>
+
+<p>Due to the default implementation of <code class="language-plaintext highlighter-rouge">DatabaseObjectList</code>, our <code class="language-plaintext highlighter-rouge">PersonList</code> class just needs to extend it and everything else is either automatically set by the code of <code class="language-plaintext highlighter-rouge">DatabaseObjectList</code> or, in the case of properties and methods, provided by that class.</p>
+
+<h2 id="acp">ACP</h2>
+
+<p>Next, we will take care of the controllers and views for the ACP.
+In total, we need three each:</p>
+
+<ol>
+  <li>page to list people,</li>
+  <li>form to add people, and</li>
+  <li>form to edit people.</li>
+</ol>
+
+<p>Before we create the controllers and views, let us first create the menu items for the pages in the ACP menu.</p>
+
+<h3 id="acp-menu">ACP Menu</h3>
+
+<p>We need to create three menu items:</p>
+
+<ol>
+  <li>a “parent” menu item on the second level of the ACP menu item tree,</li>
+  <li>a third level menu item for the people list page, and</li>
+  <li>a fourth level menu item for the form to add new people.</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/tornado/acpMenu.xsd"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;import&gt;</span>
+		<span class="nt">&lt;acpmenuitem</span> <span class="na">name=</span><span class="s">"wcf.acp.menu.link.person"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;parent&gt;</span>wcf.acp.menu.link.content<span class="nt">&lt;/parent&gt;</span>
+		<span class="nt">&lt;/acpmenuitem&gt;</span>
+		<span class="nt">&lt;acpmenuitem</span> <span class="na">name=</span><span class="s">"wcf.acp.menu.link.person.list"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;controller&gt;</span>wcf\acp\page\PersonListPage<span class="nt">&lt;/controller&gt;</span>
+			<span class="nt">&lt;parent&gt;</span>wcf.acp.menu.link.person<span class="nt">&lt;/parent&gt;</span>
+			<span class="nt">&lt;permissions&gt;</span>admin.content.canManagePeople<span class="nt">&lt;/permissions&gt;</span>
+		<span class="nt">&lt;/acpmenuitem&gt;</span>
+		<span class="nt">&lt;acpmenuitem</span> <span class="na">name=</span><span class="s">"wcf.acp.menu.link.person.add"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;controller&gt;</span>wcf\acp\form\PersonAddForm<span class="nt">&lt;/controller&gt;</span>
+			<span class="nt">&lt;parent&gt;</span>wcf.acp.menu.link.person.list<span class="nt">&lt;/parent&gt;</span>
+			<span class="nt">&lt;permissions&gt;</span>admin.content.canManagePeople<span class="nt">&lt;/permissions&gt;</span>
+			<span class="nt">&lt;icon&gt;</span>fa-plus<span class="nt">&lt;/icon&gt;</span>
+		<span class="nt">&lt;/acpmenuitem&gt;</span>
+	<span class="nt">&lt;/import&gt;</span>
+<span class="nt">&lt;/data&gt;</span></code></pre></figure>
+
+<p>We choose <code class="language-plaintext highlighter-rouge">wcf.acp.menu.link.content</code> as the parent menu item for the first menu item <code class="language-plaintext highlighter-rouge">wcf.acp.menu.link.person</code> because the people we are managing is just one form of content.
+The fourth level menu item <code class="language-plaintext highlighter-rouge">wcf.acp.menu.link.person.add</code> will only be shown as an icon and thus needs an additional element <code class="language-plaintext highlighter-rouge">icon</code> which takes a FontAwesome icon class as value.</p>
+
+<h3 id="people-list">People List</h3>
+
+<p>To list the people in the ACP, we need a <code class="language-plaintext highlighter-rouge">PersonListPage</code> class and a <code class="language-plaintext highlighter-rouge">personList</code> template.</p>
+
+<h4 id="personlistpage"><code class="language-plaintext highlighter-rouge">PersonListPage</code></h4>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\acp\page</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\person\PersonList</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\page\SortablePage</span><span class="p">;</span>
+
+<span class="cd">/**
+ * Shows the list of people.
+ * 
+ * @author	Matthias Schmidt
+ * @copyright	2001-2019 WoltLab GmbH
+ * @license	GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;
+ * @package	WoltLabSuite\Core\Acp\Page
+ */</span>
+<span class="kd">class</span> <span class="nc">PersonListPage</span> <span class="k">extends</span> <span class="nx">SortablePage</span> <span class="p">{</span>
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="nv">$activeMenuItem</span> <span class="o">=</span> <span class="s1">'wcf.acp.menu.link.person.list'</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="nv">$neededPermissions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'admin.content.canManagePeople'</span><span class="p">];</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="nv">$objectListClassName</span> <span class="o">=</span> <span class="nx">PersonList</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="nv">$validSortFields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'personID'</span><span class="p">,</span> <span class="s1">'firstName'</span><span class="p">,</span> <span class="s1">'lastName'</span><span class="p">];</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>As WoltLab Suite Core already provides a powerful default implementation of a sortable page, our work here is minimal:</p>
+
+<ol>
+  <li>We need to set the active ACP menu item via the <code class="language-plaintext highlighter-rouge">$activeMenuItem</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">$neededPermissions</code> contains a list of permissions of which the user needs to have at least one in order to see the person list.
+We use the same permission for both the menu item and the page.</li>
+  <li>The database object list class whose name is provided via <code class="language-plaintext highlighter-rouge">$objectListClassName</code> and that handles fetching the people from database is the <code class="language-plaintext highlighter-rouge">PersonList</code> class, which we have already created.</li>
+  <li>To validate the sort field passed with the request, we set <code class="language-plaintext highlighter-rouge">$validSortFields</code> to the available database table columns.</li>
+</ol>
+
+<h4 id="personlisttpl"><code class="language-plaintext highlighter-rouge">personList.tpl</code></h4>
+
+<figure class="highlight"><pre><code class="language-smarty" data-lang="smarty"><span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'header'</span> <span class="na">pageTitle</span><span class="o">=</span><span class="s1">'wcf.acp.person.list'</span><span class="k">}</span>
+
+<span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"contentHeader"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"contentHeaderTitle"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"contentTitle"</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.acp.person.list<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/h1&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	
+	<span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"contentHeaderNavigation"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;ul&gt;</span>
+			<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonAdd'</span><span class="k">}{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"icon icon16 fa-plus"</span><span class="nt">&gt;&lt;/span&gt;</span> <span class="nt">&lt;span&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.acp.menu.link.person.add<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+			
+			<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'contentHeaderNavigation'</span><span class="k">}</span>
+		<span class="nt">&lt;/ul&gt;</span>
+	<span class="nt">&lt;/nav&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+
+<span class="k">{</span><span class="na">hascontent</span><span class="k">}</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"paginationTop"</span><span class="nt">&gt;</span>
+		<span class="k">{</span><span class="na">content</span><span class="k">}{</span><span class="na">pages</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span> <span class="nb">assign</span><span class="o">=</span><span class="na">pagesLinks</span> <span class="na">controller</span><span class="o">=</span><span class="s2">"PersonList"</span> <span class="na">link</span><span class="o">=</span><span class="s2">"pageNo=%d&amp;sortField=$sortField&amp;sortOrder=$sortOrder"</span><span class="k">}{/</span><span class="na">content</span><span class="k">}</span>
+	<span class="nt">&lt;/div&gt;</span>
+<span class="k">{/</span><span class="na">hascontent</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nb">if</span> <span class="nv">$objects</span><span class="o">|</span><span class="na">count</span><span class="k">}</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section tabularBox"</span> <span class="na">id=</span><span class="s">"personTableContainer"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;thead&gt;</span>
+				<span class="nt">&lt;tr&gt;</span>
+					<span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"columnID columnPersonID</span><span class="k">{</span><span class="nb">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">'personID'</span><span class="k">}</span><span class="s"> active {@$sortOrder}</span><span class="k">{/</span><span class="nb">if</span><span class="k">}</span><span class="s">"</span> <span class="na">colspan=</span><span class="s">"2"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonList'</span><span class="k">}</span><span class="s">pageNo={@$pageNo}&amp;sortField=personID&amp;sortOrder=</span><span class="k">{</span><span class="nb">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">'personID'</span> <span class="o">&amp;&amp;</span> <span class="nv">$sortOrder</span> <span class="o">==</span> <span class="s1">'ASC'</span><span class="k">}</span><span class="s">DESC</span><span class="k">{</span><span class="nb">else</span><span class="k">}</span><span class="s">ASC</span><span class="k">{/</span><span class="nb">if</span><span class="k">}{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.global.objectID<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/a&gt;&lt;/th&gt;</span>
+					<span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"columnTitle columnFirstName</span><span class="k">{</span><span class="nb">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">'firstName'</span><span class="k">}</span><span class="s"> active {@$sortOrder}</span><span class="k">{/</span><span class="nb">if</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonList'</span><span class="k">}</span><span class="s">pageNo={@$pageNo}&amp;sortField=firstName&amp;sortOrder=</span><span class="k">{</span><span class="nb">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">'firstName'</span> <span class="o">&amp;&amp;</span> <span class="nv">$sortOrder</span> <span class="o">==</span> <span class="s1">'ASC'</span><span class="k">}</span><span class="s">DESC</span><span class="k">{</span><span class="nb">else</span><span class="k">}</span><span class="s">ASC</span><span class="k">{/</span><span class="nb">if</span><span class="k">}{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.person.firstName<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/a&gt;&lt;/th&gt;</span>
+					<span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"columnTitle columnLastName</span><span class="k">{</span><span class="nb">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">'lastName'</span><span class="k">}</span><span class="s"> active {@$sortOrder}</span><span class="k">{/</span><span class="nb">if</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonList'</span><span class="k">}</span><span class="s">pageNo={@$pageNo}&amp;sortField=lastName&amp;sortOrder=</span><span class="k">{</span><span class="nb">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">'lastName'</span> <span class="o">&amp;&amp;</span> <span class="nv">$sortOrder</span> <span class="o">==</span> <span class="s1">'ASC'</span><span class="k">}</span><span class="s">DESC</span><span class="k">{</span><span class="nb">else</span><span class="k">}</span><span class="s">ASC</span><span class="k">{/</span><span class="nb">if</span><span class="k">}{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.person.lastName<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/a&gt;&lt;/th&gt;</span>
+					
+					<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'columnHeads'</span><span class="k">}</span>
+				<span class="nt">&lt;/tr&gt;</span>
+			<span class="nt">&lt;/thead&gt;</span>
+			
+			<span class="nt">&lt;tbody&gt;</span>
+				<span class="k">{</span><span class="nb">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$objects</span> <span class="na">item</span><span class="o">=</span><span class="na">person</span><span class="k">}</span>
+					<span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"jsPersonRow"</span><span class="nt">&gt;</span>
+						<span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"columnIcon"</span><span class="nt">&gt;</span>
+							<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonEdit'</span> <span class="na">object</span><span class="o">=</span><span class="nv">$person</span><span class="k">}{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span> <span class="na">title=</span><span class="s">"</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span><span class="s">wcf.global.button.edit</span><span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="s">"</span> <span class="na">class=</span><span class="s">"jsTooltip"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"icon icon16 fa-pencil"</span><span class="nt">&gt;&lt;/span&gt;&lt;/a&gt;</span>
+							<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon icon16 fa-times jsDeleteButton jsTooltip pointer"</span> <span class="na">title=</span><span class="s">"</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span><span class="s">wcf.global.button.delete</span><span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="s">"</span> <span class="na">data-object-id=</span><span class="s">"{@$person-&gt;personID}"</span> <span class="na">data-confirm-message-html=</span><span class="s">"</span><span class="k">{</span><span class="na">lang</span> <span class="na">__encode</span><span class="o">=</span><span class="kc">true</span><span class="k">}</span><span class="s">wcf.acp.person.delete.confirmMessage</span><span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;&lt;/span&gt;</span>
+							
+							<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'rowButtons'</span><span class="k">}</span>
+						<span class="nt">&lt;/td&gt;</span>
+						<span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"columnID"</span><span class="nt">&gt;</span><span class="k">{</span><span class="err">#</span><span class="nv">$person</span><span class="o">-&gt;</span><span class="na">personID</span><span class="k">}</span><span class="nt">&lt;/td&gt;</span>
+						<span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"columnTitle columnFirstName"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonEdit'</span> <span class="na">object</span><span class="o">=</span><span class="nv">$person</span><span class="k">}{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{</span><span class="nv">$person</span><span class="o">-&gt;</span><span class="na">firstName</span><span class="k">}</span><span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+						<span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"columnTitle columnLastName"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonEdit'</span> <span class="na">object</span><span class="o">=</span><span class="nv">$person</span><span class="k">}{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{</span><span class="nv">$person</span><span class="o">-&gt;</span><span class="na">lastName</span><span class="k">}</span><span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+						
+						<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'columns'</span><span class="k">}</span>
+					<span class="nt">&lt;/tr&gt;</span>
+				<span class="k">{/</span><span class="nb">foreach</span><span class="k">}</span>
+			<span class="nt">&lt;/tbody&gt;</span>
+		<span class="nt">&lt;/table&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	
+	<span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"contentFooter"</span><span class="nt">&gt;</span>
+		<span class="k">{</span><span class="na">hascontent</span><span class="k">}</span>
+			<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"paginationBottom"</span><span class="nt">&gt;</span>
+				<span class="k">{</span><span class="na">content</span><span class="k">}{</span><span class="o">@</span><span class="nv">$pagesLinks</span><span class="k">}{/</span><span class="na">content</span><span class="k">}</span>
+			<span class="nt">&lt;/div&gt;</span>
+		<span class="k">{/</span><span class="na">hascontent</span><span class="k">}</span>
+		
+		<span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"contentFooterNavigation"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;ul&gt;</span>
+				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonAdd'</span><span class="k">}{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"icon icon16 fa-plus"</span><span class="nt">&gt;&lt;/span&gt;</span> <span class="nt">&lt;span&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.acp.menu.link.person.add<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+				
+				<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'contentFooterNavigation'</span><span class="k">}</span>
+			<span class="nt">&lt;/ul&gt;</span>
+		<span class="nt">&lt;/nav&gt;</span>
+	<span class="nt">&lt;/footer&gt;</span>
+<span class="k">{</span><span class="nb">else</span><span class="k">}</span>
+	<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"info"</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.global.noItems<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/p&gt;</span>
+<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+
+<span class="nt">&lt;script </span><span class="na">data-relocate=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+	<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">new</span> <span class="nx">WCF</span><span class="p">.</span><span class="nx">Action</span><span class="p">.</span><span class="nx">Delete</span><span class="p">(</span><span class="dl">'</span><span class="s1">wcf</span><span class="se">\\</span><span class="s1">data</span><span class="se">\\</span><span class="s1">person</span><span class="se">\\</span><span class="s1">PersonAction</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">.jsPersonRow</span><span class="dl">'</span><span class="p">);</span>
+		
+		<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="p">};</span>
+		<span class="k">{</span><span class="nb">if</span> <span class="nv">$pages</span> <span class="o">&gt;</span> <span class="m">1</span><span class="k">}</span>
+			<span class="nx">options</span><span class="p">.</span><span class="nx">refreshPage</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+			<span class="k">{</span><span class="nb">if</span> <span class="nv">$pages</span> <span class="o">==</span> <span class="nv">$pageNo</span><span class="k">}</span>
+				<span class="nx">options</span><span class="p">.</span><span class="nx">updatePageNumber</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+			<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+		<span class="k">{</span><span class="nb">else</span><span class="k">}</span>
+			<span class="nx">options</span><span class="p">.</span><span class="nx">emptyMessage</span> <span class="o">=</span> <span class="dl">'</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span><span class="s1">wcf.global.noItems</span><span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="dl">'</span><span class="p">;</span>
+		<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+		
+		<span class="k">new</span> <span class="nx">WCF</span><span class="p">.</span><span class="nx">Table</span><span class="p">.</span><span class="nx">EmptyTableHandler</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#personTableContainer</span><span class="dl">'</span><span class="p">),</span> <span class="dl">'</span><span class="s1">jsPersonRow</span><span class="dl">'</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+	<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'footer'</span><span class="k">}</span></code></pre></figure>
+
+<p>We will go piece by piece through the template code:</p>
+
+<ol>
+  <li>We include the <code class="language-plaintext highlighter-rouge">header</code> template and set the page title <code class="language-plaintext highlighter-rouge">wcf.acp.person.list</code>.
+You have to include this template for every page!</li>
+  <li>We set the content header and additional provide a button to create a new person in the content header navigation.</li>
+  <li>As not all people are listed on the same page if many people have been created, we need a pagination for which we use the <code class="language-plaintext highlighter-rouge">pages</code> template plugin.
+The <code class="language-plaintext highlighter-rouge">{hascontent}{content}{/content}{/hascontent}</code> construct ensures the <code class="language-plaintext highlighter-rouge">.paginationTop</code> element is only shown if the <code class="language-plaintext highlighter-rouge">pages</code> template plugin has a return value, thus if a pagination is necessary.</li>
+  <li>
+    <p>Now comes the main part of the page, the list of the people, which will only be displayed if any people exist.
+Otherwise, an info box is displayed using the generic <code class="language-plaintext highlighter-rouge">wcf.global.noItems</code> language item.
+The <code class="language-plaintext highlighter-rouge">$objects</code> template variable is automatically assigned by <code class="language-plaintext highlighter-rouge">wcf\page\MultipleLinkPage</code> and contains the <code class="language-plaintext highlighter-rouge">PersonList</code> object used to read the people from database.</p>
+
+    <p>The table itself consists of a <code class="language-plaintext highlighter-rouge">thead</code> and a <code class="language-plaintext highlighter-rouge">tbody</code> element and is extendable with more columns using the template events <code class="language-plaintext highlighter-rouge">columnHeads</code> and <code class="language-plaintext highlighter-rouge">columns</code>.
+In general, every table should provide these events.
+The default structure of a table is used here so that the first column of the content rows contains icons to edit and to delete the row (and provides another standard event <code class="language-plaintext highlighter-rouge">rowButtons</code>) and that the second column contains the ID of the person.
+The table can be sorted by clicking on the head of each column.
+The used variables <code class="language-plaintext highlighter-rouge">$sortField</code> and <code class="language-plaintext highlighter-rouge">$sortOrder</code> are automatically assigned to the template by <code class="language-plaintext highlighter-rouge">SortablePage</code>.</p>
+  </li>
+  <li>The <code class="language-plaintext highlighter-rouge">.contentFooter</code> element is only shown if people exist as it basically repeats the <code class="language-plaintext highlighter-rouge">.contentHeaderNavigation</code> and <code class="language-plaintext highlighter-rouge">.paginationTop</code> element.</li>
+  <li>The JavaScript code here fulfills two duties:
+Handling clicks on the delete icons and forwarding the requests via AJAX to the <code class="language-plaintext highlighter-rouge">PersonAction</code> class, and setting up some code that triggers if all people shown on the current page are deleted via JavaScript to either reload the page or show the <code class="language-plaintext highlighter-rouge">wcf.global.noItems</code> info box.</li>
+  <li>Lastly, the <code class="language-plaintext highlighter-rouge">footer</code> template is included that terminates the page.
+You also have to include this template for every page!</li>
+</ol>
+
+<p>Now, we have finished the page to manage the people so that we can move on to the forms with which we actually create and edit the people.</p>
+
+<h3 id="person-add-form">Person Add Form</h3>
+
+<p>Like the person list, the form to add new people requires a controller class and a template.</p>
+
+<h4 id="personaddform"><code class="language-plaintext highlighter-rouge">PersonAddForm</code></h4>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\acp\form</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\person\PersonAction</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\form\AbstractForm</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\exception\UserInputException</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\request\LinkHandler</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\WCF</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\util\StringUtil</span><span class="p">;</span>
+
+<span class="cd">/**
+ * Shows the form to create a new person.
+ * 
+ * @author	Matthias Schmidt
+ * @copyright	2001-2019 WoltLab GmbH
+ * @license	GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;
+ * @package	WoltLabSuite\Core\Acp\Form
+ */</span>
+<span class="kd">class</span> <span class="nc">PersonAddForm</span> <span class="k">extends</span> <span class="nx">AbstractForm</span> <span class="p">{</span>
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="nv">$activeMenuItem</span> <span class="o">=</span> <span class="s1">'wcf.acp.menu.link.person.add'</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * first name of the person
+	 * @var	string
+	 */</span>
+	<span class="k">public</span> <span class="nv">$firstName</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * last name of the person
+	 * @var	string
+	 */</span>
+	<span class="k">public</span> <span class="nv">$lastName</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="nv">$neededPermissions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'admin.content.canManagePeople'</span><span class="p">];</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">assignVariables</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">parent</span><span class="o">::</span><span class="na">assignVariables</span><span class="p">();</span>
+		
+		<span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
+			<span class="s1">'action'</span> <span class="o">=&gt;</span> <span class="s1">'add'</span><span class="p">,</span>
+			<span class="s1">'firstName'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">firstName</span><span class="p">,</span>
+			<span class="s1">'lastName'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lastName</span>
+		<span class="p">]);</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">readFormParameters</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">parent</span><span class="o">::</span><span class="na">readFormParameters</span><span class="p">();</span>
+		
+		<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'firstName'</span><span class="p">]))</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">firstName</span> <span class="o">=</span> <span class="nx">StringUtil</span><span class="o">::</span><span class="na">trim</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'firstName'</span><span class="p">]);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'lastName'</span><span class="p">]))</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lastName</span> <span class="o">=</span> <span class="nx">StringUtil</span><span class="o">::</span><span class="na">trim</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'lastName'</span><span class="p">]);</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">save</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">parent</span><span class="o">::</span><span class="na">save</span><span class="p">();</span>
+		
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">objectAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PersonAction</span><span class="p">([],</span> <span class="s1">'create'</span><span class="p">,</span> <span class="p">[</span>
+			<span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="nb">array_merge</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">additionalFields</span><span class="p">,</span> <span class="p">[</span>
+				<span class="s1">'firstName'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">firstName</span><span class="p">,</span>
+				<span class="s1">'lastName'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lastName</span>
+			<span class="p">])</span>
+		<span class="p">]);</span>
+		<span class="nv">$returnValues</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">objectAction</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">();</span>
+		
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">saved</span><span class="p">();</span>
+		
+		<span class="c1">// reset values</span>
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">firstName</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lastName</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+		
+		<span class="c1">// show success message</span>
+		<span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
+			<span class="s1">'success'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+			<span class="s1">'objectEditLink'</span> <span class="o">=&gt;</span> <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getControllerLink</span><span class="p">(</span><span class="nx">PersonEditForm</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="p">[</span><span class="s1">'id'</span> <span class="o">=&gt;</span> <span class="nv">$returnValues</span><span class="p">[</span><span class="s1">'returnValues'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">personID</span><span class="p">]),</span>
+		<span class="p">]);</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">validate</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">parent</span><span class="o">::</span><span class="na">validate</span><span class="p">();</span>
+		
+		<span class="c1">// validate first name</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">firstName</span><span class="p">))</span> <span class="p">{</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nx">UserInputException</span><span class="p">(</span><span class="s1">'firstName'</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nb">mb_strlen</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">firstName</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nx">UserInputException</span><span class="p">(</span><span class="s1">'firstName'</span><span class="p">,</span> <span class="s1">'tooLong'</span><span class="p">);</span>
+		<span class="p">}</span>
+		
+		<span class="c1">// validate last name</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lastName</span><span class="p">))</span> <span class="p">{</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nx">UserInputException</span><span class="p">(</span><span class="s1">'lastName'</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nb">mb_strlen</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lastName</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nx">UserInputException</span><span class="p">(</span><span class="s1">'lastName'</span><span class="p">,</span> <span class="s1">'tooLong'</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The properties here consist of two types:
+the “housekeeping” properties <code class="language-plaintext highlighter-rouge">$activeMenuItem</code> and <code class="language-plaintext highlighter-rouge">$neededPermissions</code>, which fulfill the same roles as for <code class="language-plaintext highlighter-rouge">PersonListPage</code>, and the “data” properties <code class="language-plaintext highlighter-rouge">$firstName</code> and <code class="language-plaintext highlighter-rouge">$lastName</code>, which will contain the data entered by the user of the person to be created.</p>
+
+<p>Now, let’s go through each method in execution order:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">readFormParameters()</code> is called after the form has been submitted and reads the entered first and last name and sanitizes the values by calling <code class="language-plaintext highlighter-rouge">StringUtil::trim()</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">validate()</code> is called after the form has been submitted and is used to validate the input data.
+In case of invalid data, the method is expected to throw a <code class="language-plaintext highlighter-rouge">UserInputException</code>.
+Here, the validation for first and last name is the same and quite basic:
+We check that any name has been entered and that it is not longer than the database table column permits.</li>
+  <li><code class="language-plaintext highlighter-rouge">save()</code> is called after the form has been submitted and the entered data has been validated and it creates the new person via <code class="language-plaintext highlighter-rouge">PersonAction</code>.
+Please note that we do not just pass the first and last name to the action object but merge them with the <code class="language-plaintext highlighter-rouge">$this-&gt;additionalFields</code> array which can be used by event listeners of plugins to add additional data.
+After creating the object, the <code class="language-plaintext highlighter-rouge">saved()</code> method is called which fires an event for plugins and the data properties are cleared so that the input fields on the page are empty so that another new person can be created.
+Lastly, a <code class="language-plaintext highlighter-rouge">success</code> variable is assigned to the template which will show a message that the person has been successfully created.</li>
+  <li><code class="language-plaintext highlighter-rouge">assignVariables()</code> assigns the values of the “data” properties to the template and additionally assigns an <code class="language-plaintext highlighter-rouge">action</code> variable.
+This <code class="language-plaintext highlighter-rouge">action</code> variable will be used in the template to distinguish between adding a new person and editing an existing person so that which minimal adjustments, we can use the template for both cases.</li>
+</ol>
+
+<h4 id="personaddtpl"><code class="language-plaintext highlighter-rouge">personAdd.tpl</code></h4>
+
+<figure class="highlight"><pre><code class="language-smarty" data-lang="smarty"><span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'header'</span> <span class="na">pageTitle</span><span class="o">=</span><span class="s1">'wcf.acp.person.'</span><span class="o">|</span><span class="na">concat</span><span class="o">:</span><span class="nv">$action</span><span class="k">}</span>
+
+<span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"contentHeader"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"contentHeaderTitle"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"contentTitle"</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.acp.person.<span class="k">{</span><span class="nv">$action</span><span class="k">}{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/h1&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	
+	<span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"contentHeaderNavigation"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;ul&gt;</span>
+			<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonList'</span><span class="k">}{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"icon icon16 fa-list"</span><span class="nt">&gt;&lt;/span&gt;</span> <span class="nt">&lt;span&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.acp.menu.link.person.list<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+			
+			<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'contentHeaderNavigation'</span><span class="k">}</span>
+		<span class="nt">&lt;/ul&gt;</span>
+	<span class="nt">&lt;/nav&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+
+<span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'formNotice'</span><span class="k">}</span>
+
+<span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">"post"</span> <span class="na">action=</span><span class="s">"</span><span class="k">{</span><span class="nb">if</span> <span class="nv">$action</span> <span class="o">==</span> <span class="s1">'add'</span><span class="k">}{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonAdd'</span><span class="k">}{/</span><span class="na">link</span><span class="k">}{</span><span class="nb">else</span><span class="k">}{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonEdit'</span> <span class="na">object</span><span class="o">=</span><span class="nv">$person</span><span class="k">}{/</span><span class="na">link</span><span class="k">}{/</span><span class="nb">if</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;dl</span><span class="k">{</span><span class="nb">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">'firstName'</span><span class="k">}</span> <span class="na">class=</span><span class="s">"formError"</span><span class="k">{/</span><span class="nb">if</span><span class="k">}</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;dt&gt;&lt;label</span> <span class="na">for=</span><span class="s">"firstName"</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.person.firstName<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/label&gt;&lt;/dt&gt;</span>
+			<span class="nt">&lt;dd&gt;</span>
+				<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"firstName"</span> <span class="na">name=</span><span class="s">"firstName"</span> <span class="na">value=</span><span class="s">"</span><span class="k">{</span><span class="nv">$firstName</span><span class="k">}</span><span class="s">"</span> <span class="na">required</span> <span class="na">autofocus</span> <span class="na">maxlength=</span><span class="s">"255"</span> <span class="na">class=</span><span class="s">"long"</span><span class="nt">&gt;</span>
+				<span class="k">{</span><span class="nb">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">'firstName'</span><span class="k">}</span>
+					<span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"innerError"</span><span class="nt">&gt;</span>
+						<span class="k">{</span><span class="nb">if</span> <span class="nv">$errorType</span> <span class="o">==</span> <span class="s1">'empty'</span><span class="k">}</span>
+							<span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.global.form.error.empty<span class="k">{/</span><span class="na">lang</span><span class="k">}</span>
+						<span class="k">{</span><span class="nb">else</span><span class="k">}</span>
+							<span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.acp.person.firstName.error.<span class="k">{</span><span class="nv">$errorType</span><span class="k">}{/</span><span class="na">lang</span><span class="k">}</span>
+						<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+					<span class="nt">&lt;/small&gt;</span>
+				<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+			<span class="nt">&lt;/dd&gt;</span>
+		<span class="nt">&lt;/dl&gt;</span>
+		
+		<span class="nt">&lt;dl</span><span class="k">{</span><span class="nb">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">'lastName'</span><span class="k">}</span> <span class="na">class=</span><span class="s">"formError"</span><span class="k">{/</span><span class="nb">if</span><span class="k">}</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;dt&gt;&lt;label</span> <span class="na">for=</span><span class="s">"lastName"</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.person.lastName<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/label&gt;&lt;/dt&gt;</span>
+			<span class="nt">&lt;dd&gt;</span>
+				<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"lastName"</span> <span class="na">name=</span><span class="s">"lastName"</span> <span class="na">value=</span><span class="s">"</span><span class="k">{</span><span class="nv">$lastName</span><span class="k">}</span><span class="s">"</span> <span class="na">required</span> <span class="na">maxlength=</span><span class="s">"255"</span> <span class="na">class=</span><span class="s">"long"</span><span class="nt">&gt;</span>
+				<span class="k">{</span><span class="nb">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">'lastName'</span><span class="k">}</span>
+					<span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"innerError"</span><span class="nt">&gt;</span>
+						<span class="k">{</span><span class="nb">if</span> <span class="nv">$errorType</span> <span class="o">==</span> <span class="s1">'empty'</span><span class="k">}</span>
+							<span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.global.form.error.empty<span class="k">{/</span><span class="na">lang</span><span class="k">}</span>
+						<span class="k">{</span><span class="nb">else</span><span class="k">}</span>
+							<span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.acp.person.lastName.error.<span class="k">{</span><span class="nv">$errorType</span><span class="k">}{/</span><span class="na">lang</span><span class="k">}</span>
+						<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+					<span class="nt">&lt;/small&gt;</span>
+				<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+			<span class="nt">&lt;/dd&gt;</span>
+		<span class="nt">&lt;/dl&gt;</span>
+		
+		<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'dataFields'</span><span class="k">}</span>
+	<span class="nt">&lt;/div&gt;</span>
+	
+	<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'sections'</span><span class="k">}</span>
+	
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"formSubmit"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span><span class="s">wcf.global.button.submit</span><span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="s">"</span> <span class="na">accesskey=</span><span class="s">"s"</span><span class="nt">&gt;</span>
+		{@SECURITY_TOKEN_INPUT_TAG}
+	<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+
+<span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'footer'</span><span class="k">}</span></code></pre></figure>
+
+<p>We will now only concentrate on the new parts compared to <code class="language-plaintext highlighter-rouge">personList.tpl</code>:</p>
+
+<ol>
+  <li>We use the <code class="language-plaintext highlighter-rouge">$action</code> variable to distinguish between the languages items used for adding a person and for creating a person.</li>
+  <li>Including the <code class="language-plaintext highlighter-rouge">formError</code> template automatically shows an error message if the validation failed.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">.success</code> element is shown after successful saving the data and, again, shows different a text depending on the executed action.</li>
+  <li>The main part is the <code class="language-plaintext highlighter-rouge">form</code> element which has a common structure you will find in many forms in WoltLab Suite Core.
+The notable parts here are:
+    <ul>
+      <li>The <code class="language-plaintext highlighter-rouge">action</code> attribute of the <code class="language-plaintext highlighter-rouge">form</code> element is set depending on which controller will handle the request.
+In the link for the edit controller, we can now simply pass the edited <code class="language-plaintext highlighter-rouge">Person</code> object directly as the <code class="language-plaintext highlighter-rouge">Person</code> class implements the <code class="language-plaintext highlighter-rouge">IRouteController</code> interface.</li>
+      <li>The field that caused the validation error can be accessed via <code class="language-plaintext highlighter-rouge">$errorField</code>.</li>
+      <li>The type of the validation error can be accessed via <code class="language-plaintext highlighter-rouge">$errorType</code>.
+For an empty input field, we show the generic <code class="language-plaintext highlighter-rouge">wcf.global.form.error.empty</code> language item.
+In all other cases, we use the error type to determine the object- and property-specific language item to show.
+The approach used here allows plugins to easily add further validation error messages by simply using a different error type and providing the associated language item.</li>
+      <li>Input fields can be grouped into different <code class="language-plaintext highlighter-rouge">.section</code> elements.
+At the end of each <code class="language-plaintext highlighter-rouge">.section</code> element, there should be an template event whose name ends with <code class="language-plaintext highlighter-rouge">Fields</code>.
+The first part of the event name should reflect the type of fields in the particular <code class="language-plaintext highlighter-rouge">.section</code> element.
+Here, the input fields are just general “data” fields so that the event is called <code class="language-plaintext highlighter-rouge">dataFields</code>.</li>
+      <li>After the last <code class="language-plaintext highlighter-rouge">.section</code> element, fire a <code class="language-plaintext highlighter-rouge">section</code> event so that plugins can add further sections.</li>
+      <li>Lastly, the <code class="language-plaintext highlighter-rouge">.formSubmit</code> shows the submit button and <code class="language-plaintext highlighter-rouge">{@SECURITY_TOKEN_INPUT_TAG}</code> contains a CSRF token that is automatically validated after the form is submitted.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="person-edit-form">Person Edit Form</h3>
+
+<p>As mentioned before, for the form to edit existing people, we only need a new controller as the template has already been implemented in a way that it handles both, adding and editing.</p>
+
+<h4 id="personeditform"><code class="language-plaintext highlighter-rouge">PersonEditForm</code></h4>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\acp\form</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\person\Person</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\person\PersonAction</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\form\AbstractForm</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\exception\IllegalLinkException</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\WCF</span><span class="p">;</span>
+
+<span class="cd">/**
+ * Shows the form to edit an existing person.
+ * 
+ * @author	Matthias Schmidt
+ * @copyright	2001-2019 WoltLab GmbH
+ * @license	GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;
+ * @package	WoltLabSuite\Core\Acp\Form
+ */</span>
+<span class="kd">class</span> <span class="nc">PersonEditForm</span> <span class="k">extends</span> <span class="nx">PersonAddForm</span> <span class="p">{</span>
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="nv">$activeMenuItem</span> <span class="o">=</span> <span class="s1">'wcf.acp.menu.link.person'</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * edited person object
+	 * @var	Person
+	 */</span>
+	<span class="k">public</span> <span class="nv">$person</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * id of the edited person
+	 * @var	integer
+	 */</span>
+	<span class="k">public</span> <span class="nv">$personID</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">assignVariables</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">parent</span><span class="o">::</span><span class="na">assignVariables</span><span class="p">();</span>
+		
+		<span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
+			<span class="s1">'action'</span> <span class="o">=&gt;</span> <span class="s1">'edit'</span><span class="p">,</span>
+			<span class="s1">'person'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span>
+		<span class="p">]);</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">readData</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">parent</span><span class="o">::</span><span class="na">readData</span><span class="p">();</span>
+		
+		<span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">))</span> <span class="p">{</span>
+			<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">firstName</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span><span class="o">-&gt;</span><span class="na">firstName</span><span class="p">;</span>
+			<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lastName</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span><span class="o">-&gt;</span><span class="na">lastName</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">readParameters</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">parent</span><span class="o">::</span><span class="na">readParameters</span><span class="p">();</span>
+		
+		<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]))</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">personID</span> <span class="o">=</span> <span class="nb">intval</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]);</span>
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">personID</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span><span class="o">-&gt;</span><span class="na">personID</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nx">IllegalLinkException</span><span class="p">();</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">save</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">AbstractForm</span><span class="o">::</span><span class="na">save</span><span class="p">();</span>
+		
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">objectAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PersonAction</span><span class="p">([</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span><span class="p">],</span> <span class="s1">'update'</span><span class="p">,</span> <span class="p">[</span>
+			<span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="nb">array_merge</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">additionalFields</span><span class="p">,</span> <span class="p">[</span>
+				<span class="s1">'firstName'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">firstName</span><span class="p">,</span>
+				<span class="s1">'lastName'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lastName</span>
+			<span class="p">])</span>
+		<span class="p">]);</span>
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">objectAction</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">();</span>
+		
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">saved</span><span class="p">();</span>
+		
+		<span class="c1">// show success message</span>
+		<span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">(</span><span class="s1">'success'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>In general, edit forms extend the associated add form so that the code to read and to validate the input data is simply inherited.</p>
+
+<p>After setting a different active menu item, we declare two new properties for the edited person:
+the id of the person passed in the URL is stored in <code class="language-plaintext highlighter-rouge">$personID</code> and based on this ID, a <code class="language-plaintext highlighter-rouge">Person</code> object is created that is stored in the <code class="language-plaintext highlighter-rouge">$person</code> property.</p>
+
+<p>Now let use go through the different methods in chronological order again:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">readParameters()</code> reads the passed ID of the edited person and creates a <code class="language-plaintext highlighter-rouge">Person</code> object based on this ID.
+If the ID is invalid, <code class="language-plaintext highlighter-rouge">$this-&gt;person-&gt;personID</code> is <code class="language-plaintext highlighter-rouge">null</code> and an <code class="language-plaintext highlighter-rouge">IllegalLinkException</code> is thrown.</li>
+  <li><code class="language-plaintext highlighter-rouge">readData()</code> only executes additional code in the case if <code class="language-plaintext highlighter-rouge">$_POST</code> is empty, thus only for the initial request before the form has been submitted.
+The data properties of <code class="language-plaintext highlighter-rouge">PersonAddForm</code> are populated with the data of the edited person so that this data is shown in the form for the initial request.</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">save()</code> handles saving the changed data.</p>
+
+    <div class="bs-callout bs-callout-warning">Do not call <code class="language-plaintext highlighter-rouge">parent::save()</code> because that would cause <code class="language-plaintext highlighter-rouge">PersonAddForm::save()</code> to be executed and thus a new person would to be created! In order for the <code class="language-plaintext highlighter-rouge">save</code> event to be fired, call <code class="language-plaintext highlighter-rouge">AbstractForm::save()</code> instead!</div>
+
+    <p>The only differences compared to <code class="language-plaintext highlighter-rouge">PersonAddForm::save()</code> are that we pass the edited object to the <code class="language-plaintext highlighter-rouge">PersonAction</code> constructor, execute the <code class="language-plaintext highlighter-rouge">update</code> action instead of the <code class="language-plaintext highlighter-rouge">create</code> action and do not clear the input fields after saving the changes.</p>
+  </li>
+  <li>
+    <p>In <code class="language-plaintext highlighter-rouge">assignVariables()</code>, we assign the edited <code class="language-plaintext highlighter-rouge">Person</code> object to the template, which is required to create the link in the form’s action property.
+Furthermore, we assign the template variable <code class="language-plaintext highlighter-rouge">$action</code> <code class="language-plaintext highlighter-rouge">edit</code> as value.</p>
+
+    <div class="bs-callout bs-callout-info">After calling <code class="language-plaintext highlighter-rouge">parent::assignVariables()</code>, the template variable <code class="language-plaintext highlighter-rouge">$action</code> actually has the value <code class="language-plaintext highlighter-rouge">add</code> so that here, we are overwriting this already assigned value.</div>
+  </li>
+</ol>
+
+<h2 id="frontend">Frontend</h2>
+
+<p>For the front end, that means the part with which the visitors of a website interact, we want to implement a simple sortable page that lists the people.
+This page should also be directly linked in the main menu.</p>
+
+<h3 id="pagexml"><code class="language-plaintext highlighter-rouge">page.xml</code></h3>
+
+<p>First, let us register the page with the system because every front end page or form needs to be explicitly registered using the <a href="package_pip_page.html">page package installation plugin</a>:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/tornado/page.xsd"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;import&gt;</span>
+		<span class="nt">&lt;page</span> <span class="na">identifier=</span><span class="s">"com.woltlab.wcf.people.PersonList"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;pageType&gt;</span>system<span class="nt">&lt;/pageType&gt;</span>
+			<span class="nt">&lt;controller&gt;</span>wcf\page\PersonListPage<span class="nt">&lt;/controller&gt;</span>
+			<span class="nt">&lt;name</span> <span class="na">language=</span><span class="s">"de"</span><span class="nt">&gt;</span>Personen-Liste<span class="nt">&lt;/name&gt;</span>
+			<span class="nt">&lt;name</span> <span class="na">language=</span><span class="s">"en"</span><span class="nt">&gt;</span>Person List<span class="nt">&lt;/name&gt;</span>
+			
+			<span class="nt">&lt;content</span> <span class="na">language=</span><span class="s">"de"</span><span class="nt">&gt;</span>
+				<span class="nt">&lt;title&gt;</span>Personen<span class="nt">&lt;/title&gt;</span>
+			<span class="nt">&lt;/content&gt;</span>
+			<span class="nt">&lt;content</span> <span class="na">language=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+				<span class="nt">&lt;title&gt;</span>People<span class="nt">&lt;/title&gt;</span>
+			<span class="nt">&lt;/content&gt;</span>
+		<span class="nt">&lt;/page&gt;</span>
+	<span class="nt">&lt;/import&gt;</span>
+<span class="nt">&lt;/data&gt;</span></code></pre></figure>
+
+<p>For more information about what each of the elements means, please refer to the <a href="package_pip_page.html">page package installation plugin page</a>.</p>
+
+<h3 id="menuitemxml"><code class="language-plaintext highlighter-rouge">menuItem.xml</code></h3>
+
+<p>Next, we register the menu item using the <a href="package_pip_menuItem.html">menuItem package installation plugin</a>:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/tornado/menuItem.xsd"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;import&gt;</span>
+		<span class="nt">&lt;item</span> <span class="na">identifier=</span><span class="s">"com.woltlab.wcf.people.PersonList"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;menu&gt;</span>com.woltlab.wcf.MainMenu<span class="nt">&lt;/menu&gt;</span>
+			<span class="nt">&lt;title</span> <span class="na">language=</span><span class="s">"de"</span><span class="nt">&gt;</span>Personen<span class="nt">&lt;/title&gt;</span>
+			<span class="nt">&lt;title</span> <span class="na">language=</span><span class="s">"en"</span><span class="nt">&gt;</span>People<span class="nt">&lt;/title&gt;</span>
+			<span class="nt">&lt;page&gt;</span>com.woltlab.wcf.people.PersonList<span class="nt">&lt;/page&gt;</span>
+		<span class="nt">&lt;/item&gt;</span>
+	<span class="nt">&lt;/import&gt;</span>
+<span class="nt">&lt;/data&gt;</span></code></pre></figure>
+
+<p>Here, the import parts are that we register the menu item for the main menu <code class="language-plaintext highlighter-rouge">com.woltlab.wcf.MainMenu</code> and link the menu item with the page <code class="language-plaintext highlighter-rouge">com.woltlab.wcf.people.PersonList</code>, which we just registered.</p>
+
+<h3 id="people-list-1">People List</h3>
+
+<p>As in the ACP, we need a controller and a template.
+You might notice that both the controller’s (unqualified) class name and the template name are the same for the ACP and the front end.
+This is no problem because the qualified names of the classes differ and the files are stored in different directories and because the templates are installed by different package installation plugins and are also stored in different directories.</p>
+
+<h4 id="personlistpage-1"><code class="language-plaintext highlighter-rouge">PersonListPage</code></h4>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\page</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\person\PersonList</span><span class="p">;</span>
+
+<span class="cd">/**
+ * Shows the list of people.
+ * 
+ * @author	Matthias Schmidt
+ * @copyright	2001-2019 WoltLab GmbH
+ * @license	GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;
+ * @package	WoltLabSuite\Core\Page
+ */</span>
+<span class="kd">class</span> <span class="nc">PersonListPage</span> <span class="k">extends</span> <span class="nx">SortablePage</span> <span class="p">{</span>
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="nv">$defaultSortField</span> <span class="o">=</span> <span class="s1">'lastName'</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="nv">$objectListClassName</span> <span class="o">=</span> <span class="nx">PersonList</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="nv">$validSortFields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'personID'</span><span class="p">,</span> <span class="s1">'firstName'</span><span class="p">,</span> <span class="s1">'lastName'</span><span class="p">];</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>This class is almost identical to the ACP version.
+In the front end, we do not need to set the active menu item manually because the system determines the active menu item automatically based on the requested page.
+Furthermore, <code class="language-plaintext highlighter-rouge">$neededPermissions</code> has not been set because in the front end, users do not need any special permission to access the page.
+In the front end, we explicitly set the <code class="language-plaintext highlighter-rouge">$defaultSortField</code> so that the people listed on the page are sorted by their last name (in ascending order) by default.</p>
+
+<h4 id="personlisttpl-1"><code class="language-plaintext highlighter-rouge">personList.tpl</code></h4>
+
+<figure class="highlight"><pre><code class="language-smarty" data-lang="smarty"><span class="k">{</span><span class="nb">capture</span> <span class="nb">assign</span><span class="o">=</span><span class="s1">'contentTitle'</span><span class="k">}{</span><span class="na">lang</span><span class="k">}</span>wcf.person.list<span class="k">{/</span><span class="na">lang</span><span class="k">}</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge"</span><span class="nt">&gt;</span><span class="k">{</span><span class="err">#</span><span class="nv">$items</span><span class="k">}</span><span class="nt">&lt;/span&gt;</span><span class="k">{/</span><span class="nb">capture</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nb">capture</span> <span class="nb">assign</span><span class="o">=</span><span class="s1">'headContent'</span><span class="k">}</span>
+	<span class="k">{</span><span class="nb">if</span> <span class="nv">$pageNo</span> <span class="o">&lt;</span> <span class="nv">$pages</span><span class="k">}</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"next"</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonList'</span><span class="k">}</span><span class="s">pageNo={@$pageNo+1}</span><span class="k">{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;</span>
+	<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+	<span class="k">{</span><span class="nb">if</span> <span class="nv">$pageNo</span> <span class="o">&gt;</span> <span class="m">1</span><span class="k">}</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"prev"</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonList'</span><span class="k">}{</span><span class="nb">if</span> <span class="nv">$pageNo</span> <span class="o">&gt;</span> <span class="m">2</span><span class="k">}</span><span class="s">pageNo={@$pageNo-1}</span><span class="k">{/</span><span class="nb">if</span><span class="k">}{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;</span>
+	<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+	<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"canonical"</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonList'</span><span class="k">}{</span><span class="nb">if</span> <span class="nv">$pageNo</span> <span class="o">&gt;</span> <span class="m">1</span><span class="k">}</span><span class="s">pageNo={@$pageNo}</span><span class="k">{/</span><span class="nb">if</span><span class="k">}{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;</span>
+<span class="k">{/</span><span class="nb">capture</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nb">capture</span> <span class="nb">assign</span><span class="o">=</span><span class="s1">'sidebarRight'</span><span class="k">}</span>
+	<span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"box"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">"post"</span> <span class="na">action=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonList'</span><span class="k">}{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"boxTitle"</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.global.sorting<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/h2&gt;</span>
+			
+			<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"boxContent"</span><span class="nt">&gt;</span>
+				<span class="nt">&lt;dl&gt;</span>
+					<span class="nt">&lt;dt&gt;&lt;/dt&gt;</span>
+					<span class="nt">&lt;dd&gt;</span>
+						<span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">"sortField"</span> <span class="na">name=</span><span class="s">"sortField"</span><span class="nt">&gt;</span>
+							<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"firstName"</span><span class="k">{</span><span class="nb">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">'firstName'</span><span class="k">}</span> <span class="na">selected</span><span class="k">{/</span><span class="nb">if</span><span class="k">}</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.person.firstName<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/option&gt;</span>
+							<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"lastName"</span><span class="k">{</span><span class="nb">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">'lastName'</span><span class="k">}</span> <span class="na">selected</span><span class="k">{/</span><span class="nb">if</span><span class="k">}</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.person.lastName<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/option&gt;</span>
+							<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'sortField'</span><span class="k">}</span>
+						<span class="nt">&lt;/select&gt;</span>
+						<span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"sortOrder"</span><span class="nt">&gt;</span>
+							<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"ASC"</span><span class="k">{</span><span class="nb">if</span> <span class="nv">$sortOrder</span> <span class="o">==</span> <span class="s1">'ASC'</span><span class="k">}</span> <span class="na">selected</span><span class="k">{/</span><span class="nb">if</span><span class="k">}</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.global.sortOrder.ascending<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/option&gt;</span>
+							<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"DESC"</span><span class="k">{</span><span class="nb">if</span> <span class="nv">$sortOrder</span> <span class="o">==</span> <span class="s1">'DESC'</span><span class="k">}</span> <span class="na">selected</span><span class="k">{/</span><span class="nb">if</span><span class="k">}</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.global.sortOrder.descending<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/option&gt;</span>
+						<span class="nt">&lt;/select&gt;</span>
+					<span class="nt">&lt;/dd&gt;</span>
+				<span class="nt">&lt;/dl&gt;</span>
+				
+				<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"formSubmit"</span><span class="nt">&gt;</span>
+					<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span><span class="s">wcf.global.button.submit</span><span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="s">"</span> <span class="na">accesskey=</span><span class="s">"s"</span><span class="nt">&gt;</span>
+				<span class="nt">&lt;/div&gt;</span>
+			<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;/form&gt;</span>
+	<span class="nt">&lt;/section&gt;</span>
+<span class="k">{/</span><span class="nb">capture</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'header'</span><span class="k">}</span>
+
+<span class="k">{</span><span class="na">hascontent</span><span class="k">}</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"paginationTop"</span><span class="nt">&gt;</span>
+		<span class="k">{</span><span class="na">content</span><span class="k">}</span>
+			<span class="k">{</span><span class="na">pages</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span> <span class="nb">assign</span><span class="o">=</span><span class="na">pagesLinks</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'PersonList'</span> <span class="na">link</span><span class="o">=</span><span class="s2">"pageNo=%d&amp;sortField=$sortField&amp;sortOrder=$sortOrder"</span><span class="k">}</span>
+		<span class="k">{/</span><span class="na">content</span><span class="k">}</span>
+	<span class="nt">&lt;/div&gt;</span>
+<span class="k">{/</span><span class="na">hascontent</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nb">if</span> <span class="nv">$items</span><span class="k">}</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section sectionContainerList"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"containerList personList"</span><span class="nt">&gt;</span>
+			<span class="k">{</span><span class="nb">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$objects</span> <span class="na">item</span><span class="o">=</span><span class="na">person</span><span class="k">}</span>
+				<span class="nt">&lt;li&gt;</span>
+					<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box48"</span><span class="nt">&gt;</span>
+						<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon icon48 fa-user"</span><span class="nt">&gt;&lt;/span&gt;</span>
+						
+						<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"details personInformation"</span><span class="nt">&gt;</span>
+							<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"containerHeadline"</span><span class="nt">&gt;</span>
+								<span class="nt">&lt;h3&gt;</span><span class="k">{</span><span class="nv">$person</span><span class="k">}</span><span class="nt">&lt;/h3&gt;</span>
+							<span class="nt">&lt;/div&gt;</span>
+							
+							<span class="k">{</span><span class="na">hascontent</span><span class="k">}</span>
+								<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"inlineList commaSeparated"</span><span class="nt">&gt;</span>
+									<span class="k">{</span><span class="na">content</span><span class="k">}{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'personData'</span><span class="k">}{/</span><span class="na">content</span><span class="k">}</span>
+								<span class="nt">&lt;/ul&gt;</span>
+							<span class="k">{/</span><span class="na">hascontent</span><span class="k">}</span>
+							
+							<span class="k">{</span><span class="na">hascontent</span><span class="k">}</span>
+								<span class="nt">&lt;dl</span> <span class="na">class=</span><span class="s">"plain inlineDataList small"</span><span class="nt">&gt;</span>
+									<span class="k">{</span><span class="na">content</span><span class="k">}{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'personStatistics'</span><span class="k">}{/</span><span class="na">content</span><span class="k">}</span>
+								<span class="nt">&lt;/dl&gt;</span>
+							<span class="k">{/</span><span class="na">hascontent</span><span class="k">}</span>
+						<span class="nt">&lt;/div&gt;</span>
+					<span class="nt">&lt;/div&gt;</span>
+				<span class="nt">&lt;/li&gt;</span>
+			<span class="k">{/</span><span class="nb">foreach</span><span class="k">}</span>
+		<span class="nt">&lt;/ol&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+<span class="k">{</span><span class="nb">else</span><span class="k">}</span>
+	<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"info"</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.global.noItems<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/p&gt;</span>
+<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+
+<span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"contentFooter"</span><span class="nt">&gt;</span>
+	<span class="k">{</span><span class="na">hascontent</span><span class="k">}</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"paginationBottom"</span><span class="nt">&gt;</span>
+			<span class="k">{</span><span class="na">content</span><span class="k">}{</span><span class="o">@</span><span class="nv">$pagesLinks</span><span class="k">}{/</span><span class="na">content</span><span class="k">}</span>
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="k">{/</span><span class="na">hascontent</span><span class="k">}</span>
+	
+	<span class="k">{</span><span class="na">hascontent</span><span class="k">}</span>
+		<span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"contentFooterNavigation"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;ul&gt;</span>
+				<span class="k">{</span><span class="na">content</span><span class="k">}{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'contentFooterNavigation'</span><span class="k">}{/</span><span class="na">content</span><span class="k">}</span>
+			<span class="nt">&lt;/ul&gt;</span>
+		<span class="nt">&lt;/nav&gt;</span>
+	<span class="k">{/</span><span class="na">hascontent</span><span class="k">}</span>
+<span class="nt">&lt;/footer&gt;</span>
+
+<span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'footer'</span><span class="k">}</span></code></pre></figure>
+
+<p>If you compare this template to the one used in the ACP, you will recognize similar elements like the <code class="language-plaintext highlighter-rouge">.paginationTop</code> element, the <code class="language-plaintext highlighter-rouge">p.info</code> element if no people exist, and the <code class="language-plaintext highlighter-rouge">.contentFooter</code> element.
+Furthermore, we include a template called <code class="language-plaintext highlighter-rouge">header</code> before actually showing any of the page contents and terminate the template by including the <code class="language-plaintext highlighter-rouge">footer</code> template.</p>
+
+<p>Now, let us take a closer look at the differences:</p>
+
+<ul>
+  <li>We do not explicitly create a <code class="language-plaintext highlighter-rouge">.contentHeader</code> element but simply assign the title to the <code class="language-plaintext highlighter-rouge">contentTitle</code> variable.
+The value of the assignment is simply the title of the page and a badge showing the number of listed people.
+The <code class="language-plaintext highlighter-rouge">header</code> template that we include later will handle correctly displaying the content header on its own based on the <code class="language-plaintext highlighter-rouge">$contentTitle</code> variable.</li>
+  <li>Next, we create additional element for the HTML document’s <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> element.
+In this case, we define the <a href="https://en.wikipedia.org/wiki/Canonical_link_element">canonical link of the page</a> and, because we are showing paginated content, add links to the previous and next page (if they exist).</li>
+  <li>We want the page to be sortable but as we will not be using a table for listing the people like in the ACP, we are not able to place links to sort the people into the table head.
+Instead, usually a box is created in the sidebar on the right-hand side that contains <code class="language-plaintext highlighter-rouge">select</code> elements to determine sort field and sort order.</li>
+  <li>The main part of the page is the listing of the people.
+We use a structure similar to the one used for displaying registered users.
+Here, for each person, we simply display a FontAwesome icon representing a person and show the person’s full name relying on <code class="language-plaintext highlighter-rouge">Person::__toString()</code>.
+Additionally, like in the user list, we provide the initially empty <code class="language-plaintext highlighter-rouge">ul.inlineList.commaSeparated</code> and <code class="language-plaintext highlighter-rouge">dl.plain.inlineDataList.small</code> elements that can be filled by plugins using the templates events.</li>
+</ul>
+
+<h2 id="usergroupoptionxml"><code class="language-plaintext highlighter-rouge">userGroupOption.xml</code></h2>
+
+<p>We have already used the <code class="language-plaintext highlighter-rouge">admin.content.canManagePeople</code> permissions several times, now we need to install it using the <a href="package_pip_user-group-option.html">userGroupOption package installation plugin</a>:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/tornado/userGroupOption.xsd"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;import&gt;</span>
+		<span class="nt">&lt;options&gt;</span>
+			<span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">"admin.content.canManagePeople"</span><span class="nt">&gt;</span>
+				<span class="nt">&lt;categoryname&gt;</span>admin.content<span class="nt">&lt;/categoryname&gt;</span>
+				<span class="nt">&lt;optiontype&gt;</span>boolean<span class="nt">&lt;/optiontype&gt;</span>
+				<span class="nt">&lt;defaultvalue&gt;</span>0<span class="nt">&lt;/defaultvalue&gt;</span>
+				<span class="nt">&lt;admindefaultvalue&gt;</span>1<span class="nt">&lt;/admindefaultvalue&gt;</span>
+				<span class="nt">&lt;usersonly&gt;</span>1<span class="nt">&lt;/usersonly&gt;</span>
+			<span class="nt">&lt;/option&gt;</span>
+		<span class="nt">&lt;/options&gt;</span>
+	<span class="nt">&lt;/import&gt;</span>
+<span class="nt">&lt;/data&gt;</span></code></pre></figure>
+
+<p>We use the existing <code class="language-plaintext highlighter-rouge">admin.content</code> user group option category for the permission as the people are “content” (similar the the ACP menu item).
+As the permission is for administrators only, we set <code class="language-plaintext highlighter-rouge">defaultvalue</code> to <code class="language-plaintext highlighter-rouge">0</code> and <code class="language-plaintext highlighter-rouge">admindefaultvalue</code> to <code class="language-plaintext highlighter-rouge">1</code>.
+This permission is only relevant for registered users so that it should not be visible when editing the guest user group.
+This is achieved by setting <code class="language-plaintext highlighter-rouge">usersonly</code> to <code class="language-plaintext highlighter-rouge">1</code>.</p>
+
+<h2 id="packagexml"><code class="language-plaintext highlighter-rouge">package.xml</code></h2>
+
+<p>Lastly, we need to create the <code class="language-plaintext highlighter-rouge">package.xml</code> file.
+For more information about this kind of file, please refer to <a href="package_package-xml.html">the <code class="language-plaintext highlighter-rouge">package.xml</code> page</a>.</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">"com.woltlab.wcf.people"</span> <span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/tornado/package.xsd"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;packageinformation&gt;</span>
+		<span class="nt">&lt;packagename&gt;</span>WoltLab Suite Core Tutorial: People<span class="nt">&lt;/packagename&gt;</span>
+		<span class="nt">&lt;packagedescription&gt;</span>Adds a simple management system for people as part of a tutorial to create packages.<span class="nt">&lt;/packagedescription&gt;</span>
+		<span class="nt">&lt;version&gt;</span>3.1.0<span class="nt">&lt;/version&gt;</span>
+		<span class="nt">&lt;date&gt;</span>2018-03-30<span class="nt">&lt;/date&gt;</span>
+	<span class="nt">&lt;/packageinformation&gt;</span>
+	
+	<span class="nt">&lt;authorinformation&gt;</span>
+		<span class="nt">&lt;author&gt;</span>WoltLab GmbH<span class="nt">&lt;/author&gt;</span>
+		<span class="nt">&lt;authorurl&gt;</span>http://www.woltlab.com<span class="nt">&lt;/authorurl&gt;</span>
+	<span class="nt">&lt;/authorinformation&gt;</span>
+	
+	<span class="nt">&lt;requiredpackages&gt;</span>
+		<span class="nt">&lt;requiredpackage</span> <span class="na">minversion=</span><span class="s">"3.1.0"</span><span class="nt">&gt;</span>com.woltlab.wcf<span class="nt">&lt;/requiredpackage&gt;</span>
+	<span class="nt">&lt;/requiredpackages&gt;</span>
+	
+	<span class="nt">&lt;excludedpackages&gt;</span>
+		<span class="nt">&lt;excludedpackage</span> <span class="na">version=</span><span class="s">"3.2.0 Alpha 1"</span><span class="nt">&gt;</span>com.woltlab.wcf<span class="nt">&lt;/excludedpackage&gt;</span>
+	<span class="nt">&lt;/excludedpackages&gt;</span>
+
+	<span class="nt">&lt;compatibility&gt;</span>
+		<span class="nt">&lt;api</span> <span class="na">version=</span><span class="s">"2018"</span> <span class="nt">/&gt;</span>
+	<span class="nt">&lt;/compatibility&gt;</span>
+	
+	<span class="nt">&lt;instructions</span> <span class="na">type=</span><span class="s">"install"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">"acpTemplate"</span> <span class="nt">/&gt;</span>
+		<span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">"file"</span> <span class="nt">/&gt;</span>
+		<span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">"sql"</span> <span class="nt">/&gt;</span>
+		<span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">"template"</span> <span class="nt">/&gt;</span>
+		<span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">"language"</span> <span class="nt">/&gt;</span>
+		
+		<span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">"acpMenu"</span> <span class="nt">/&gt;</span>
+		<span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">"page"</span> <span class="nt">/&gt;</span>
+		<span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">"menuItem"</span> <span class="nt">/&gt;</span>
+		<span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">"userGroupOption"</span> <span class="nt">/&gt;</span>
+	<span class="nt">&lt;/instructions&gt;</span>
+<span class="nt">&lt;/package&gt;</span></code></pre></figure>
+
+<p>As this is a package for WoltLab Suite Core 3, we need to require it using <code class="language-plaintext highlighter-rouge">&lt;requiredpackage&gt;</code>.
+We require the latest version (when writing this tutorial) <code class="language-plaintext highlighter-rouge">3.0.0 RC 4</code>.
+Additionally, we disallow installation of the package in the next major version <code class="language-plaintext highlighter-rouge">3.1</code> by excluding the <code class="language-plaintext highlighter-rouge">3.1.0 Alpha 1</code> version.
+This ensures that if changes from WoltLab Suite Core 3.0 to 3.1 require changing some parts of the package, it will not break the instance in which the package is installed.</p>
+
+<p>The most important part are to installation instructions.
+First, we install the ACP templates, files and templates, create the database table and import the language item.
+Afterwards, the ACP menu items and the permission are added.
+Now comes the part of the instructions where the order of the instructions is crucial:
+In <code class="language-plaintext highlighter-rouge">menuItem.xml</code>, we refer to the <code class="language-plaintext highlighter-rouge">com.woltlab.wcf.people.PersonList</code> page that is delivered by <code class="language-plaintext highlighter-rouge">page.xml</code>.
+As the menu item package installation plugin validates the given page and throws an exception if the page does not exist, we need to install the page before the menu item!</p>
+
+<hr />
+
+<p>This concludes the first part of our tutorial series after which you now have a working simple package with which you can manage people in the ACP and show the visitors of your website a simple list of all created people in the front end.</p>
+
+<p>The complete source code of this part can be found on <a href="https://github.com/WoltLab/woltlab.github.io/tree/master/_includes/tutorial/tutorial-series/part-1">GitHub</a>.</p>
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footerBox">
+    <div class="container">
+      <div class="footerBoxLeft">
+        
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master/pages/tutorial/tutorial-series/tutorial_tutorial-series_part-1-base-structure.md" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <p>Site last generated: Mar 2, 2021</p>
+      </div>
+      <div class="footerBoxRight">
+        <a class="no_icon" href="https://www.woltlab.com"><img src="https://docs.woltlab.com/images/woltlab-black.png" srcset="https://docs.woltlab.com/images/woltlab-black@2x.png 2x" height="40" width="204" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pageFooter">
+    <div class="container">
+      &copy; 2001 ‐ 2021 <a class="no_icon" href="https://www.woltlab.com">WoltLab GmbH</a>. All rights reserved. | <a class="no_icon" href="https://www.woltlab.com/legal-notice/">Legal Notice</a> | <a class="no_icon" href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+
+</html>

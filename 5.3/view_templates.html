@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Templates | WoltLab Suite 5.3 Documentation</title>
+
+<link rel="stylesheet" href="https://docs.woltlab.com/css/syntax.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://docs.woltlab.com/css/modern-business.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/customstyles.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/theme-blue.css?v=3">
+
+<script src="https://docs.woltlab.com/js/jquery.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.cookie.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.navgoco.min.js"></script>
+<script src="https://docs.woltlab.com/js/bootstrap.min.js"></script>
+<script src="https://docs.woltlab.com/js/anchor.min.js"></script>
+<script src="https://docs.woltlab.com/js/toc.js"></script>
+<script src="https://docs.woltlab.com/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="https://docs.woltlab.com/images/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" title="mike-test" href="https://docs.woltlab.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> WoltLab Suite 5.3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://www.woltlab.com" target="_blank">woltlab.com</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/WoltLab/WCF/" target="_blank">Code on github.com</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="https://docs.woltlab.com/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'https://docs.woltlab.com/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Templates">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">WoltLab Suite 5.3</li>
+
+    
+        
+            <li>
+                <a href="#">Getting Started</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="index"><a href="index.html">Introduction</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="getting-started_quick-start"><a href="getting-started_quick-start.html">Quick Start</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">PHP API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_pages"><a href="php_pages.html">Pages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-objects"><a href="php_database-objects.html">Database Objects</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-access"><a href="php_database-access.html">Database Access</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_exceptions"><a href="php_exceptions.html">Exceptions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_caches"><a href="php_api_caches.html">Caches</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_comments"><a href="php_api_comments.html">Comments</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_cronjobs"><a href="php_api_cronjobs.html">Cronjobs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_events"><a href="php_api_events.html">Events</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_form_builder"><a href="php_api_form_builder.html">Form Builder</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_package_installation_plugins"><a href="php_api_package_installation_plugins.html">Package Installation Plugins</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_activity_points"><a href="php_api_user_activity_points.html">User Activity Points</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_notifications"><a href="php_api_user_notifications.html">User Notifications</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_sitemaps"><a href="php_api_sitemaps.html">Sitemaps</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_code-style"><a href="php_code-style.html">Code Style</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_apps"><a href="php_apps.html">Apps</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_gdpr"><a href="php_gdpr.html">GDPR</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Languages, Templates & CSS</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_languages"><a href="view_languages.html">Languages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li class="active" data-identifier="view_templates"><a href="view_templates.html">Templates</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_css"><a href="view_css.html">CSS</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">JavaScript API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_general-usage"><a href="javascript_general-usage.html">General Usage</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">New API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_writing-a-module"><a href="javascript_new-api_writing-a-module.html">Writing a module</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_data-structures"><a href="javascript_new-api_data-structures.html">Data Structures</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_core"><a href="javascript_new-api_core.html">Core Functions</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dom"><a href="javascript_new-api_dom.html">DOM</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_events"><a href="javascript_new-api_events.html">Event Handling</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ajax"><a href="javascript_new-api_ajax.html">Ajax</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dialogs"><a href="javascript_new-api_dialogs.html">Dialogs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_browser"><a href="javascript_new-api_browser.html">Browser and Screen Sizes</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ui"><a href="javascript_new-api_ui.html">User Interface</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_legacy-api"><a href="javascript_legacy-api.html">Legacy API</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_helper-functions"><a href="javascript_helper-functions.html">Helper Functions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_code-snippets"><a href="javascript_code-snippets.html">Code Snippets</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Package Components</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_package-xml"><a href="package_package-xml.html">package.xml</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_pip"><a href="package_pip.html">PIPs</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Migration</a>
+                <ul>
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 5.2</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_php"><a href="migration_wsc-52_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_templates"><a href="migration_wsc-52_templates.html">Templates and Languages</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_libraries"><a href="migration_wsc-52_libraries.html">Third Party Libraries</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-31_php"><a href="migration_wsc-31_php.html">PHP API</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.0</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_php"><a href="migration_wsc-30_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_javascript"><a href="migration_wsc-30_javascript.html">JavaScript API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_templates"><a href="migration_wsc-30_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_css"><a href="migration_wsc-30_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_package"><a href="migration_wsc-30_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WCF 2.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_php"><a href="migration_wcf-21_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_templates"><a href="migration_wcf-21_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_css"><a href="migration_wcf-21_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_package"><a href="migration_wcf-21_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Tutorials</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="tutorial_tutorial-series"><a href="tutorial_tutorial-series.html">Tutorial Series</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+    
+</ul>
+
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = 'view';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Templates</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+  <p>Templates are responsible for the output a user sees when requesting a page (while the PHP code is responsible for providing the data that will be shown).
+Templates are text files with <code class="language-plaintext highlighter-rouge">.tpl</code> as the file extension.
+WoltLab Suite Core compiles the template files once into a PHP file that is executed when a user requests the page.
+In subsequent request, as the PHP file containing the compiled template already exists, compiling the template is not necessary anymore.</p>
+
+<h2 id="template-types-and-conventions">Template Types and Conventions</h2>
+
+<p>WoltLab Suite Core supports two types of templates:
+frontend templates (or simply <em>templates</em>) and backend templates (<em>ACP templates</em>).
+Each type of template is only available in its respective domain, thus frontend templates cannot be included or used in the ACP and vice versa.</p>
+
+<p>For pages and forms, the name of the template matches the unqualified name of the PHP class except for the <code class="language-plaintext highlighter-rouge">Page</code> or <code class="language-plaintext highlighter-rouge">Form</code> suffix:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">RegisterForm.class.php</code> → <code class="language-plaintext highlighter-rouge">register.tpl</code></li>
+  <li><code class="language-plaintext highlighter-rouge">UserPage.class.php</code> → <code class="language-plaintext highlighter-rouge">user.tpl</code></li>
+</ul>
+
+<p>If you follow this convention, WoltLab Suite Core will automatically determine the template name so that you do not have to explicitly set it.</p>
+
+<div class="bs-callout bs-callout-info">For forms that handle creating and editing objects, in general, there are two form classes: <code class="language-plaintext highlighter-rouge">FooAddForm</code> and <code class="language-plaintext highlighter-rouge">FooEditForm</code>. WoltLab Suite Core, however, generally only uses one template <code class="language-plaintext highlighter-rouge">fooAdd.tpl</code> and the template variable <code class="language-plaintext highlighter-rouge">$action</code> to distinguish between creating a new object (<code class="language-plaintext highlighter-rouge">$action = 'add'</code>) and editing an existing object (<code class="language-plaintext highlighter-rouge">$action = 'edit'</code>) as the differences between templates for adding and editing an object are minimal.</div>
+
+<h2 id="installing-templates">Installing Templates</h2>
+
+<p>Templates and ACP templates are installed by two different package installation plugins:
+the <a href="package_pip_template.html">template PIP</a> and the <a href="package_pip_acp-template.html">ACP template PIP</a>.
+More information about installing templates can be found on those pages.</p>
+
+<h2 id="base-templates">Base Templates</h2>
+
+<h3 id="frontend">Frontend</h3>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'header'</span><span class="k">}</span>
+
+<span class="c">{* content *}</span>
+
+<span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'footer'</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h3 id="backend">Backend</h3>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'header'</span> <span class="na">pageTitle</span><span class="o">=</span><span class="s1">'foo.bar.baz'</span><span class="k">}</span>
+
+<span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"contentHeader"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"contentHeaderTitle"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"contentTitle"</span><span class="nt">&gt;</span>Title<span class="nt">&lt;/h1&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	
+	<span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"contentHeaderNavigation"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;ul&gt;</span>
+			<span class="c">{* your default content header navigation buttons *}</span>
+			
+			<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'contentHeaderNavigation'</span><span class="k">}</span>
+		<span class="nt">&lt;/ul&gt;</span>
+	<span class="nt">&lt;/nav&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+
+<span class="c">{* content *}</span>
+
+<span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'footer'</span><span class="k">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">foo.bar.baz</code> is the language item that contains the title of the page.</p>
+
+<h2 id="common-template-components">Common Template Components</h2>
+
+<h3 id="forms">Forms</h3>
+
+<div class="bs-callout bs-callout-info">For new forms, use the new <a href="php_api_form_builder.html">form builder API</a> introduced with WoltLab Suite 5.2.</div>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">"post"</span> <span class="na">action=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'FooBar'</span><span class="k">}{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;dl</span><span class="k">{</span><span class="nb">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">'baz'</span><span class="k">}</span> <span class="na">class=</span><span class="s">"formError"</span><span class="k">{/</span><span class="nb">if</span><span class="k">}</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;dt&gt;&lt;label</span> <span class="na">for=</span><span class="s">"baz"</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>foo.bar.baz<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/label&gt;&lt;/dt&gt;</span>
+			<span class="nt">&lt;dd&gt;</span>
+				<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"baz"</span> <span class="na">name=</span><span class="s">"baz"</span> <span class="na">value=</span><span class="s">"</span><span class="k">{</span><span class="nv">$baz</span><span class="k">}</span><span class="s">"</span> <span class="na">class=</span><span class="s">"long"</span> <span class="na">required</span> <span class="na">autofocus</span><span class="nt">&gt;</span>
+				<span class="k">{</span><span class="nb">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">'baz'</span><span class="k">}</span>
+					<span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"innerError"</span><span class="nt">&gt;</span>
+						<span class="k">{</span><span class="nb">if</span> <span class="nv">$errorType</span> <span class="o">==</span> <span class="s1">'empty'</span><span class="k">}</span>
+							<span class="k">{</span><span class="na">lang</span><span class="k">}</span>wcf.global.form.error.empty<span class="k">{/</span><span class="na">lang</span><span class="k">}</span>
+						<span class="k">{</span><span class="nb">else</span><span class="k">}</span>
+							<span class="k">{</span><span class="na">lang</span><span class="k">}</span>foo.bar.baz.error.{@$errorType}<span class="k">{/</span><span class="na">lang</span><span class="k">}</span>
+						<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+					<span class="nt">&lt;/small&gt;</span>
+				<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+			<span class="nt">&lt;/dd&gt;</span>
+		<span class="nt">&lt;/dl&gt;</span>
+		
+		<span class="nt">&lt;dl&gt;</span>
+			<span class="nt">&lt;dt&gt;&lt;label</span> <span class="na">for=</span><span class="s">"bar"</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>foo.bar.bar<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/label&gt;&lt;/dt&gt;</span>
+			<span class="nt">&lt;dd&gt;</span>
+				<span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">"bar"</span> <span class="na">id=</span><span class="s">"bar"</span> <span class="na">cols=</span><span class="s">"40"</span> <span class="na">rows=</span><span class="s">"10"</span><span class="nt">&gt;</span><span class="k">{</span><span class="nv">$bar</span><span class="k">}</span><span class="nt">&lt;/textarea&gt;</span>
+				<span class="k">{</span><span class="nb">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">'bar'</span><span class="k">}</span>
+					<span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"innerError"</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>foo.bar.bar.error.{@$errorType}<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/small&gt;</span>
+				<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+			<span class="nt">&lt;/dd&gt;</span>
+		<span class="nt">&lt;/dl&gt;</span>
+		
+		<span class="c">{* other fields *}</span>
+		
+		<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'dataFields'</span><span class="k">}</span>
+	<span class="nt">&lt;/div&gt;</span>
+	
+	<span class="c">{* other sections *}</span>
+	
+	<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'sections'</span><span class="k">}</span>
+	
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"formSubmit"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span><span class="s">wcf.global.button.submit</span><span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="s">"</span> <span class="na">accesskey=</span><span class="s">"s"</span><span class="nt">&gt;</span>
+		{@SECURITY_TOKEN_INPUT_TAG}
+	<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<h3 id="tab-menus">Tab Menus</h3>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section tabMenuContainer"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"tabMenu"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;ul&gt;</span>
+			<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{@$__wcf-&gt;getAnchor('tab1')}"</span><span class="nt">&gt;</span>Tab 1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+			<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{@$__wcf-&gt;getAnchor('tab2')}"</span><span class="nt">&gt;</span>Tab 2<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+			
+			<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'tabMenuTabs'</span><span class="k">}</span>
+		<span class="nt">&lt;/ul&gt;</span>
+	<span class="nt">&lt;/nav&gt;</span>
+	
+	<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"tab1"</span> <span class="na">class=</span><span class="s">"tabMenuContent"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section"</span><span class="nt">&gt;</span>
+			<span class="c">{* contents of first tab *}</span>
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	
+	<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"tab2"</span> <span class="na">class=</span><span class="s">"tabMenuContainer tabMenuContent"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"menu"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;ul&gt;</span>
+				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{@$__wcf-&gt;getAnchor('tab2A')}"</span><span class="nt">&gt;</span>Tab 2A<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{@$__wcf-&gt;getAnchor('tab2B')}"</span><span class="nt">&gt;</span>Tab 2B<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+				
+				<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'tabMenuTab2Subtabs'</span><span class="k">}</span>
+			<span class="nt">&lt;/ul&gt;</span>
+		<span class="nt">&lt;/nav&gt;</span>
+		
+		<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"tab2A"</span> <span class="na">class=</span><span class="s">"tabMenuContent"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section"</span><span class="nt">&gt;</span>
+				<span class="c">{* contents of first subtab for second tab *}</span>
+			<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+		
+		<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"tab2B"</span> <span class="na">class=</span><span class="s">"tabMenuContent"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section"</span><span class="nt">&gt;</span>
+				<span class="c">{* contents of second subtab for second tab *}</span>
+			<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+		
+		<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'tabMenuTab2Contents'</span><span class="k">}</span>
+	<span class="nt">&lt;/div&gt;</span>
+	
+	<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'tabMenuContents'</span><span class="k">}</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h2 id="template-scripting">Template Scripting</h2>
+
+<h3 id="template-variables">Template Variables</h3>
+
+<p>Template variables can be assigned via <code class="language-plaintext highlighter-rouge">WCF::getTPL()-&gt;assign('foo', 'bar')</code> and accessed in templates via <code class="language-plaintext highlighter-rouge">$foo</code>:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">{$foo}</code> will result in the contents of <code class="language-plaintext highlighter-rouge">$foo</code> to be passed to <code class="language-plaintext highlighter-rouge">StringUtil::encodeHTML()</code> before being printed.</li>
+  <li><code class="language-plaintext highlighter-rouge">{#$foo}</code> will result in the contents of <code class="language-plaintext highlighter-rouge">$foo</code> to be passed to <code class="language-plaintext highlighter-rouge">StringUtil::formatNumeric()</code> before being printed.
+Thus, this method is relevant when printing numbers and having them formatted correctly according the the user’s language.</li>
+  <li><code class="language-plaintext highlighter-rouge">{@$foo}</code> will result in the contents of <code class="language-plaintext highlighter-rouge">$foo</code> to be printed directly.
+In general, this method should not be used for user-generated input.</li>
+</ul>
+
+<p>Multiple template variables can be assigned by passing an array:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
+	<span class="s1">'foo'</span> <span class="o">=&gt;</span> <span class="s1">'bar'</span><span class="p">,</span>
+	<span class="s1">'baz'</span> <span class="o">=&gt;</span> <span class="kc">false</span> 
+<span class="p">]);</span>
+</code></pre></div></div>
+
+<h4 id="modifiers">Modifiers</h4>
+
+<p>If you want to call a function on a variable, you can use the modifier syntax:
+<code class="language-plaintext highlighter-rouge">{@$foo|trim}</code>, for example, results in the trimmed contents of <code class="language-plaintext highlighter-rouge">$foo</code> to be printed.</p>
+
+<h4 id="system-template-variable">System Template Variable</h4>
+
+<p>The template variable <code class="language-plaintext highlighter-rouge">$tpl</code> is automatically assigned and is an array containing different data:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">$tpl[get]</code> contains <code class="language-plaintext highlighter-rouge">$_GET</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">$tpl[post]</code> contains <code class="language-plaintext highlighter-rouge">$_POST</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">$tpl[cookie]</code> contains <code class="language-plaintext highlighter-rouge">$_COOKIE</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">$tpl[server]</code> contains <code class="language-plaintext highlighter-rouge">$_SERVER</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">$tpl[env]</code> contains <code class="language-plaintext highlighter-rouge">$_ENV</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">$tpl[now]</code> contains <code class="language-plaintext highlighter-rouge">TIME_NOW</code> (current timestamp).</li>
+</ul>
+
+<p>Furthermore, the following template variables are also automatically assigned:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">$__wcf</code> contains the <code class="language-plaintext highlighter-rouge">WCF</code> object (or <code class="language-plaintext highlighter-rouge">WCFACP</code> object in the backend).</li>
+</ul>
+
+<h3 id="comments">Comments</h3>
+
+<p>Comments are wrapped in <code class="language-plaintext highlighter-rouge">{*</code> and <code class="language-plaintext highlighter-rouge">*}</code> and can span multiple lines:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">{* some
+   comment *}</span>
+</code></pre></div></div>
+
+<div class="bs-callout bs-callout-info">The template compiler discards the comments, so that they not included in the compiled template.</div>
+
+<h3 id="conditions">Conditions</h3>
+
+<p>Conditions follow a similar syntax to PHP code:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">if</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">'bar'</span><span class="k">}</span>
+	foo is bar
+<span class="k">{</span><span class="nb">elseif</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">'baz'</span><span class="k">}</span>
+	foo is baz
+<span class="k">{</span><span class="nb">else</span><span class="k">}</span>
+	foo is neither bar nor baz
+<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+</code></pre></div></div>
+
+<p>The supported operators in conditions are <code class="language-plaintext highlighter-rouge">===</code>, <code class="language-plaintext highlighter-rouge">!==</code>, <code class="language-plaintext highlighter-rouge">==</code>, <code class="language-plaintext highlighter-rouge">!=</code>, <code class="language-plaintext highlighter-rouge">&lt;=</code>, <code class="language-plaintext highlighter-rouge">&lt;</code>, <code class="language-plaintext highlighter-rouge">&gt;=</code>, <code class="language-plaintext highlighter-rouge">&gt;</code>, <code class="language-plaintext highlighter-rouge">||</code>, <code class="language-plaintext highlighter-rouge">&amp;&amp;</code>, <code class="language-plaintext highlighter-rouge">!</code>, and <code class="language-plaintext highlighter-rouge">=</code>.</p>
+
+<p>More examples:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">if</span> <span class="nv">$bar</span><span class="o">|</span><span class="na">isset</span><span class="k">}</span>…<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nb">if</span> <span class="nv">$bar</span><span class="o">|</span><span class="na">count</span> <span class="o">&gt;</span> <span class="m">3</span> <span class="o">&amp;&amp;</span> <span class="nv">$bar</span><span class="o">|</span><span class="na">count</span> <span class="o">&lt;</span> <span class="m">100</span><span class="k">}</span>…<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h3 id="foreach-loops">Foreach Loops</h3>
+
+<p>Foreach loops allow to iterate over arrays or iterable objects:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
+	<span class="k">{</span><span class="nb">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$array</span> <span class="na">key</span><span class="o">=</span><span class="na">key</span> <span class="na">item</span><span class="o">=</span><span class="na">value</span><span class="k">}</span>
+		<span class="nt">&lt;li&gt;</span><span class="k">{</span><span class="nv">$key</span><span class="k">}</span>: <span class="k">{</span><span class="nv">$value</span><span class="k">}</span><span class="nt">&lt;/li&gt;</span>
+	<span class="k">{/</span><span class="nb">foreach</span><span class="k">}</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+
+<p>While the <code class="language-plaintext highlighter-rouge">from</code> attribute containing the iterated structure and the <code class="language-plaintext highlighter-rouge">item</code> attribute containg the current value are mandatory, the <code class="language-plaintext highlighter-rouge">key</code> attribute is optional.
+If the foreach loop has a name assigned to it via the <code class="language-plaintext highlighter-rouge">name</code> attribute, the <code class="language-plaintext highlighter-rouge">$tpl</code> template variable provides additional data about the loop:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
+	<span class="k">{</span><span class="nb">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$array</span> <span class="na">key</span><span class="o">=</span><span class="na">key</span> <span class="na">item</span><span class="o">=</span><span class="na">value</span> <span class="na">name</span><span class="o">=</span><span class="na">foo</span><span class="k">}</span>
+		<span class="k">{</span><span class="nb">if</span> <span class="nv">$tpl</span><span class="o">[</span><span class="nb">foreach</span><span class="o">][</span><span class="na">foo</span><span class="o">][</span><span class="na">first</span><span class="o">]</span><span class="k">}</span>
+			something special for the first iteration
+		<span class="k">{</span><span class="nb">elseif</span> <span class="nv">$tpl</span><span class="o">[</span><span class="nb">foreach</span><span class="o">][</span><span class="na">foo</span><span class="o">][</span><span class="na">last</span><span class="o">]</span><span class="k">}</span>
+			something special for the last iteration
+		<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+		
+		<span class="nt">&lt;li&gt;</span>iteration <span class="k">{</span><span class="err">#</span><span class="nv">$tpl</span><span class="o">[</span><span class="nb">foreach</span><span class="o">][</span><span class="na">foo</span><span class="o">][</span><span class="na">iteration</span><span class="o">]+</span><span class="m">1</span><span class="k">}</span> out of <span class="k">{</span><span class="err">#</span><span class="nv">$tpl</span><span class="o">[</span><span class="nb">foreach</span><span class="o">][</span><span class="na">foo</span><span class="o">][</span><span class="na">total</span><span class="o">]</span><span class="k">}</span> <span class="k">{</span><span class="nv">$key</span><span class="k">}</span>: <span class="k">{</span><span class="nv">$value</span><span class="k">}</span><span class="nt">&lt;/li&gt;</span>
+	<span class="k">{/</span><span class="nb">foreach</span><span class="k">}</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+
+<p>In contrast to PHP’s foreach loop, templates also support <code class="language-plaintext highlighter-rouge">foreachelse</code>:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$array</span> <span class="na">item</span><span class="o">=</span><span class="na">value</span><span class="k">}</span>
+	…
+<span class="k">{</span><span class="nb">foreachelse</span><span class="k">}</span>
+	there is nothing to iterate over
+<span class="k">{/</span><span class="nb">foreach</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h3 id="including-other-templates">Including Other Templates</h3>
+
+<p>To include template named <code class="language-plaintext highlighter-rouge">foo</code> from the same domain (frontend/backend), you can use</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'foo'</span><span class="k">}</span>
+</code></pre></div></div>
+
+<p>If the template belongs to an application, you have to specify that application using the <code class="language-plaintext highlighter-rouge">application</code> attribute:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'foo'</span> <span class="na">application</span><span class="o">=</span><span class="s1">'app'</span><span class="k">}</span>
+</code></pre></div></div>
+
+<p>Additional template variables can be passed to the included template as additional attributes:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'foo'</span> <span class="na">application</span><span class="o">=</span><span class="s1">'app'</span> <span class="na">var1</span><span class="o">=</span><span class="s1">'foo1'</span> <span class="na">var2</span><span class="o">=</span><span class="s1">'foo2'</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h3 id="template-plugins">Template Plugins</h3>
+
+<p>An overview of all available template plugins can be found <a href="view_template-plugins.html">here</a>.</p>
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footerBox">
+    <div class="container">
+      <div class="footerBoxLeft">
+        
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master/pages/view/view_templates.md" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <p>Site last generated: Mar 2, 2021</p>
+      </div>
+      <div class="footerBoxRight">
+        <a class="no_icon" href="https://www.woltlab.com"><img src="https://docs.woltlab.com/images/woltlab-black.png" srcset="https://docs.woltlab.com/images/woltlab-black@2x.png 2x" height="40" width="204" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pageFooter">
+    <div class="container">
+      &copy; 2001 ‐ 2021 <a class="no_icon" href="https://www.woltlab.com">WoltLab GmbH</a>. All rights reserved. | <a class="no_icon" href="https://www.woltlab.com/legal-notice/">Legal Notice</a> | <a class="no_icon" href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+
+</html>

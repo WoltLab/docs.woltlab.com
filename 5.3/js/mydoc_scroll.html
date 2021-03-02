@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="This page demonstrates how you the integration of a script called ScrollTo, which is used here to link definitions of a JSON code sample to a list of definit...">
+<meta name="keywords" content="special_layouts,  json, scrolling, scrollto, jquery plugin">
+<title>Scroll layout | WoltLab Suite 5.3 Documentation</title>
+
+<link rel="stylesheet" href="https://docs.woltlab.com/css/syntax.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://docs.woltlab.com/css/modern-business.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/customstyles.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/theme-blue.css?v=3">
+
+<script src="https://docs.woltlab.com/js/jquery.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.cookie.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.navgoco.min.js"></script>
+<script src="https://docs.woltlab.com/js/bootstrap.min.js"></script>
+<script src="https://docs.woltlab.com/js/anchor.min.js"></script>
+<script src="https://docs.woltlab.com/js/toc.js"></script>
+<script src="https://docs.woltlab.com/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="https://docs.woltlab.com/images/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" title="mike-test" href="https://docs.woltlab.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> WoltLab Suite 5.3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://www.woltlab.com" target="_blank">woltlab.com</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/WoltLab/WCF/" target="_blank">Code on github.com</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="https://docs.woltlab.com/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'https://docs.woltlab.com/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Scroll layout">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">WoltLab Suite 5.3</li>
+
+    
+        
+            <li>
+                <a href="#">Getting Started</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="index"><a href="index.html">Introduction</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="getting-started_quick-start"><a href="getting-started_quick-start.html">Quick Start</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">PHP API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_pages"><a href="php_pages.html">Pages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-objects"><a href="php_database-objects.html">Database Objects</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-access"><a href="php_database-access.html">Database Access</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_exceptions"><a href="php_exceptions.html">Exceptions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_caches"><a href="php_api_caches.html">Caches</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_comments"><a href="php_api_comments.html">Comments</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_cronjobs"><a href="php_api_cronjobs.html">Cronjobs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_events"><a href="php_api_events.html">Events</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_form_builder"><a href="php_api_form_builder.html">Form Builder</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_package_installation_plugins"><a href="php_api_package_installation_plugins.html">Package Installation Plugins</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_activity_points"><a href="php_api_user_activity_points.html">User Activity Points</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_notifications"><a href="php_api_user_notifications.html">User Notifications</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_sitemaps"><a href="php_api_sitemaps.html">Sitemaps</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_code-style"><a href="php_code-style.html">Code Style</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_apps"><a href="php_apps.html">Apps</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_gdpr"><a href="php_gdpr.html">GDPR</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Languages, Templates & CSS</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_languages"><a href="view_languages.html">Languages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_templates"><a href="view_templates.html">Templates</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_css"><a href="view_css.html">CSS</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">JavaScript API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_general-usage"><a href="javascript_general-usage.html">General Usage</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">New API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_writing-a-module"><a href="javascript_new-api_writing-a-module.html">Writing a module</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_data-structures"><a href="javascript_new-api_data-structures.html">Data Structures</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_core"><a href="javascript_new-api_core.html">Core Functions</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dom"><a href="javascript_new-api_dom.html">DOM</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_events"><a href="javascript_new-api_events.html">Event Handling</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ajax"><a href="javascript_new-api_ajax.html">Ajax</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dialogs"><a href="javascript_new-api_dialogs.html">Dialogs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_browser"><a href="javascript_new-api_browser.html">Browser and Screen Sizes</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ui"><a href="javascript_new-api_ui.html">User Interface</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_legacy-api"><a href="javascript_legacy-api.html">Legacy API</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_helper-functions"><a href="javascript_helper-functions.html">Helper Functions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_code-snippets"><a href="javascript_code-snippets.html">Code Snippets</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Package Components</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_package-xml"><a href="package_package-xml.html">package.xml</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_pip"><a href="package_pip.html">PIPs</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Migration</a>
+                <ul>
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 5.2</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_php"><a href="migration_wsc-52_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_templates"><a href="migration_wsc-52_templates.html">Templates and Languages</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_libraries"><a href="migration_wsc-52_libraries.html">Third Party Libraries</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-31_php"><a href="migration_wsc-31_php.html">PHP API</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.0</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_php"><a href="migration_wsc-30_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_javascript"><a href="migration_wsc-30_javascript.html">JavaScript API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_templates"><a href="migration_wsc-30_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_css"><a href="migration_wsc-30_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_package"><a href="migration_wsc-30_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WCF 2.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_php"><a href="migration_wcf-21_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_templates"><a href="migration_wcf-21_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_css"><a href="migration_wcf-21_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_package"><a href="migration_wcf-21_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Tutorials</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="tutorial_tutorial-series"><a href="tutorial_tutorial-series.html">Tutorial Series</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+    
+</ul>
+
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = '';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Scroll layout</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+    <div class="summary">This page demonstrates how you the integration of a script called ScrollTo, which is used here to link definitions of a JSON code sample to a list of definitions for that particular term. The scenario here is that the JSON blocks are really long, with extensive nesting and subnesting, which makes it difficult for tables below the JSON to adequately explain the term in a usable way.</div>
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+  
+
+
+ <script src="../js/jquery.scrollTo.min.js"></script>
+    <!-- local scroll must come after scrollTo, because localScroll is based on scrollTo, which is based on jQuery -->
+<script src="../js/jquery.localScroll.min.js"></script>
+
+<script>
+
+$( document ).ready(function() {
+$('#small-box-links').localScroll({
+           target:'#definition-box-container',
+           showSpeed: 1000,
+           hash: true,
+           easing: 'swing',
+           onAfter:function(){
+          $("#definition-box-container div a").addClass("active");
+          $("#definition-box-container div a").removeClass("active");
+          $("#definition-box-container div").removeClass("active");
+           $(window.location.hash).addClass("active");
+  }
+});
+
+
+});
+</script>
+
+<!-- documentation for localScroll function: http://flesler.blogspot.com/2007/10/jquerylocalscroll-10.html -->
+    <style type="text/css">
+ 
+   #definition-box-container {
+        border: 0px solid #dedede;
+        border-radius: 4px;
+        max-height: 500px;
+        overflow: scroll;
+        padding-left:5px;
+        border-radius:5px;
+    }
+
+    #json-box-container {
+
+      border: 1px solid #dedede;
+      border-radius: 4px;
+      max-height:500px;
+      overflow: scroll;
+    }
+
+    #small-box-links {
+      float: left;
+    }
+
+    #definition-box-container .active {
+     background-color: #FFFBCC;
+    }
+    
+    div#definition-box-container div {
+      padding: 10px;
+}
+
+    @media (min-height: 700px)  {
+       #json-box-container {
+           max-height:500px;
+         }
+           #definition-box-container  {
+          max-height: 500px;
+  }
+    }
+
+     @media (min-height: 800px)  {
+       #json-box-container {
+           max-height:600px;
+    }
+        #definition-box-container  {
+          max-height: 600px;
+  }
+  }
+
+    @media (min-height: 900px)  {
+       #json-box-container {
+           max-height:700px;
+    }
+        #definition-box-container  {
+          max-height: 700px;
+  }
+  }
+
+     @media (min-height: 1000px)  {
+       #json-box-container {
+           max-height:800px;
+    }
+        #definition-box-container  {
+          max-height: 800px;
+  }
+  }
+
+    @media (min-height: 1100px)  {
+       #json-box-container {
+           max-height:900px;
+    }
+        #definition-box-container  {
+          max-height: 900px;
+  }
+  }
+
+
+    </style>
+
+
+<div class="container">
+<div class="row">
+ 
+<div id="small-box-links">
+
+<div class="col-md-6">
+<div id="json-box-container">
+<pre>
+{
+  <a href="#apples">"apples"</a>: "red fruit at the store",
+  <a href="#bananas">"bananas"</a>: "yellow bananas in a bunch",
+  <a href="#carrots">"carrots"</a>: "orange vegetables that grow in the ground",
+  <a href="#dingbats">"dingbats"</a>: "a type of character symbol on a computer",
+  <a href="#eggs">"eggs"</a>: "chickens lay them, and people eat them",
+  <a href="#falafel">"falafel"</a>: "a Mediterranean sandwich consisting of lots of different stuff i don't know much about",
+  <a href="#giraffe">"giraffe"</a>: "tall animal, has purple tongue",
+  <a href="#hippo">"hippo"</a>: "surprisingly dangerous amphibian",
+  <a href="#igloo">"igloo"</a>: "an ice shelter made by eskimos",
+  <a href="#jeep">"jeep</a>: "the only car that starts with a j",
+  <a href="#kilt">"kilt"</a>: "something worn by scottish people, not a dress",
+  <a href="#lamp">"lamp"</a>: "you use it to read by your bedside at night"
+  <a href="#manifold">"manifold"</a>: "an intake mechanism on a car, like a valve, i think",
+  <a href="#octopus">"octopus"</a>: "eight tentacles, shoots ink, lives in dark caves, very mysterious",
+  <a href="#paranoia">"paranoia"</a>: "the constant feeling that others are out to get you, conspiring against your success",
+  <a href="#qui">"qui"</a>: "a life force that runs through your body",
+  <a href="#radical">"radical"</a>: "someone who opposes the status quo in major ways",
+  <a href="#silly">"silly"</a>: "how I feel writing this dummy copy",
+  <a href="#taffy">"taffy"</a>: "the sweets children like the most and dentists hate the worst",
+  <a href="#umbrella">"umbrella"</a>: "an invention that has not had any advancements in 200 years",
+  <a href="#vampire">"vampire"</a>: "a paranormal figure that is surprisingly in vogue despite its basic nature",
+  <a href="#washington">"washington"</a>: "the place where tom was born",
+  <a href="#xylophone">"xylophone"</a>: "some kind of pinging instrument used to sound chime-like notes",
+  <a href="#yahoo">"yahoo"</a>: "an expression of exuberance, said under breath when something works right",
+  <a href="#zeta">"zeta"</a>: "the way british people pronounce z",
+  <a href="#alpha">"alpha"</a>: "the original letter of the alphabet, which has since come to mean the first. however, i think the original symbol of alpha is actually an ox. it is somewhat of a mystery to linquists as to the exact origin of the letter alpha, but it basically represents the dawn of the alphabet, which proved to be a huge step forward for human thought and expression.",
+  <a href="#beta">"beta"</a>: "the period of time when something is finished but undergoing testing by a group of people.",
+  <a href="#cappa">"cappa"</a>: "how italians refer to their baseball caps",
+  <a href="#dunno">"dunno"</a>: "informal expression for 'don't know'"
+  }
+      
+</pre>
+
+</div><!-- end json-box-container-->
+</div> <!-- end col-md-6-->
+
+<div class="col-md-3">
+
+<div id="definition-box-container">
+
+
+    <div id="apples"><h5>apples</h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer magna massa, euismod sed rutrum at, ullamcorper quis tellus. Vestibulum erat purus, aliquet sit amet pellentesque eget, tempus at ante. Nulla justo nisi, elementum nec nisi eget, consectetur varius tortor. </div>
+
+    <div id="bananas"><h5>bananas</h5>Curabitur quis nibh sed eros viverra tempus et quis lorem. Nulla convallis sit amet risus vitae rutrum. Nulla at faucibus lectus. Pellentesque tortor nisl, interdum ac quam non, egestas congue massa. Vestibulum non porttitor lacus. Nam tincidunt arcu lectus. Donec eget ornare neque, hendrerit ornare lectus. In ac pretium odio.</div>
+
+    <div id="carrots"><h5>carrots</h5>Vivamus pulvinar vestibulum pharetra. Vivamus vitae diam iaculis, posuere mi sed, dignissim massa. Nunc vitae aliquet urna. Proin sed pulvinar ex. Maecenas nisl lorem, rutrum sit amet hendrerit sed, posuere at odio. Sed consectetur semper tristique. Vivamus finibus varius felis at convallis. Fusce in dictum nunc.</div>
+
+    <div id="dingbats"><h5>dingbats</h5>Curabitur feugiat lorem eget elit ullamcorper tincidunt. In euismod diam aliquet tortor fermentum tempor. Fusce quam felis, commodo viverra orci vitae, scelerisque aliquet risus. </div>
+
+    <div id="eggs"><h5>eggs</h5>Duis est nunc, fringilla eu ligula et, varius dignissim dui. Vivamus in tellus vitae ipsum vehicula fermentum at congue tellus. Suspendisse fermentum, magna vitae aliquet sodales, tellus nisi rutrum arcu, vitae auctor dolor quam ac tellus. Cras posuere augue erat, in sagittis quam lacinia id.</div>
+
+    <div id="falafel"><h5>falafel</h5>Praesent auctor a enim non lacinia. Integer sodales aliquet mi vel dapibus. Donec consequat justo eget nisi lacinia, eu sodales ligula molestie. Sed sapien nulla, rhoncus at elementum a, </div>
+
+    <div id="giraffe"><h5>giraffe</h5>Nullam venenatis at lectus sed pharetra. Sed hendrerit ligula lectus, non pellentesque diam faucibus sit amet. Aliquam dictum hendrerit pellentesque. Cras eu nisl sagittis, faucibus velit sit amet, sagittis odio. Donec vulputate ex vitae purus</div>
+
+    <div id="hippo"><h5>hippo</h5>Cras nec pretium nulla. Suspendisse tempus tortor vel venenatis pulvinar. Integer varius tempor enim fringilla tincidunt. Phasellus magna turpis, auctor vitae elit eget, fringilla pellentesque est. Phasellus ut porta risus. Curabitur iaculis sapien sed venenatis auctor. Integer eu orci at lectus eleifend auctor id rutrum urna.</div>
+
+    <div id="igloo"><h5>igloo</h5>Suspendisse tempus tortor vel venenatis pulvinar. Integer varius tempor enim fringilla tincidunt. Phasellus magna turpis, auctor vitae elit eget, fringilla pellentesque est. Phasellus ut porta risus.  </div>
+
+    <div id="jeep"><h5>jeep</h5>Nulla vitae metus rutrum, condimentum orci nec, maximus est. Aenean sit amet ante nec elit dignissim faucibus eget quis quam. </div>
+
+    <div id="kilt"><h5>kilt</h5>Morbi maximus, erat vel rhoncus sagittis, dolor purus dignissim ante, sit amet pharetra ex justo vitae ipsum. Nulla consequat interdum neque</div>
+
+    <div id="lamp"><h5>lamp</h5>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquam dapibus blandit. Donec porta, enim hendrerit venenatis vulputate, orci diam lacinia nibh, faucibus rutrum dolor dui ut quam.</div>
+
+    <div id="manifold"><h5>manifold</h5>Donec finibus massa vel nisi ullamcorper, vitae ornare enim euismod. Aliquam auctor quam erat. Duis interdum rutrum orci, ac interdum urna pharetra eget.</div>
+
+    <div id="octopus"><h5>octopus</h5>Nulla id egestas enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Curabitur eu lobortis ligula.</div>
+
+    <div id="paranoia"><h5>paranoia</h5>Aenean hendrerit mauris ipsum, non laoreet ipsum luctus vel. Curabitur tristique auctor elit ut pulvinar. Quisque arcu arcu, condimentum aliquam sodales nec, dignissim nec justo. Nunc tristique sem felis, pharetra euismod lorem volutpat sed. Ut porttitor metus sit amet elit rhoncus semper.</div>
+
+    <div id="qui"><h5>qui</h5>Quisque rhoncus cursus felis vel elementum. Vestibulum dignissim molestie tortor nec facilisis. Praesent a nibh condimentum, porta nulla egestas, auctor eros</div>
+
+    <div id="radical"><h5>radical</h5>Etiam hendrerit interdum tellus, at aliquet sapien egestas in. Aenean eu urna nisl. Cras vitae risus pharetra, elementum mauris nec, auctor lectus. Fusce pellentesque venenatis dictum. Proin at augue at mauris finibus semper ultricies sed eros.</div>
+
+    <div id="silly"><h5>silly</h5>Praesent pulvinar consequat posuere. Morbi egestas rhoncus felis, id fermentum metus lobortis in. Vestibulum nibh orci, euismod eget vestibulum nec, vehicula vitae tortor. Aenean ullamcorper enim nunc, eu auctor ligula auctor eget.</div>
+
+    <div id="taffy"><h5>taffy</h5>Etiam et arcu vel lacus aliquet lobortis in in massa. Nunc non mollis elit. Aenean accumsan orci quis risus aliquam, non gravida nulla molestie. Mauris pharetra libero et magna aliquam aliquam. Integer quis luctus dolor. </div>
+
+    <div id="umbrella"><h5>umbrella</h5>Fusce molestie finibus malesuada. Nullam ac egestas quam, id venenatis ligula. Pellentesque pulvinar elit et vestibulum fringilla. Cras volutpat sed quam ornare scelerisque. Vivamus volutpat ante pretium scelerisque tempus. Etiam venenatis tempor nisl dignissim sollicitudin. Curabitur ac risus vitae dolor pretium posuere vel vitae diam. Donec in odio arcu.</div>
+
+    <div id="vampire"><h5>vampire</h5>Vestibulum pretium condimentum commodo. Integer placerat leo non ipsum ultrices, ac convallis elit varius. Vestibulum ultricies, justo eu rutrum molestie, quam arcu euismod sapien, vel gravida ipsum nulla eget erat. </div>
+
+    <div id="washington"><h5>washington</h5>Nunc ac quam eu risus dictum sodales. Nam ac risus iaculis, aliquet sem eu, mollis mauris. Curabitur pretium facilisis orci ut lacinia. Sed fermentum leo a odio blandit rutrum. Phasellus at nibh vel odio interdum vulputate ac eget urna. Nam eu arcu dapibus, sodales ligula nec, volutpat ipsum. Suspendisse auctor tellus vitae libero euismod venenatis. </div>
+
+    <div id="xylophone"><h5>xylophone</h5>Sed molestie lobortis ante sit amet hendrerit. Sed pharetra nisi sed interdum pulvinar. Nunc efficitur erat non aliquam mattis. Sed id nisl mattis lacus vehicula volutpat vitae vel massa. Curabitur interdum velit odio, vitae sollicitudin nunc rutrum non. </div>
+
+    <div id="yahoo"><h5>yahoo</h5>Nunc commodo consectetur scelerisque. Proin fermentum ligula ac quam finibus tincidunt. Aenean venenatis nisi et semper semper. Nunc sodales velit ipsum, ac pellentesque augue placerat eu.</div>
+
+    <div id="zeta"><h5>zeta</h5>Nullam ac suscipit odio. Curabitur viverra arcu ut egestas sollicitudin. Fusce sodales varius lectus ut tristique. Etiam eget nunc ornare, aliquet tortor eget, consequat mauris. Integer sit amet fermentum augue. </div>
+
+    <div id="alpha"><h5>alpha</h5>Praesent nec neque ac tellus sodales eleifend nec vel ipsum. Cras et semper risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer mattis leo nisl, a tincidunt lectus tristique eget. Donec finibus lobortis viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus egestas pulvinar odio non vehicula. Morbi malesuada leo eget nisl sagittis aliquet.</div>
+
+
+    <div id="beta"><h5>beta</h5>Mauris a libero vel enim pharetra interdum non a quam. Sed tincidunt ut elit sed dignissim. Suspendisse vitae tellus dapibus, fermentum lacus ac, fermentum lacus. Nam ante odio, fringilla ac elementum a, mollis sed tellus.</div>
+
+    <div id="cappa"><h5>cappa</h5>Nam molestie semper nulla et molestie. Ut facilisis, ipsum sed convallis posuere, mi mauris bibendum erat, nec egestas ipsum est nec dolor. </div>
+
+    <div id="dunno"><h5>dunno</h5>Etiam et metus congue, commodo libero et, accumsan sem. Aliquam erat volutpat. Quisque tincidunt, tortor non blandit ullamcorper, orci mauris dignissim augue, eget vehicula nulla justo sed dolor. Nunc ac urna quis nisi maximus pharetra in a mauris. Proin metus mi, venenatis vitae tristique sed, fermentum at purus. Aliquam erat volutpat. Maecenas efficitur sodales nibh, ac hendrerit felis facilisis et. Interdum et malesuada fames ac ante ipsum primis in faucibus.</div>
+
+
+</div> <!-- end definition-box-container -->
+</div> <!-- end col-md-3-->
+</div> <!-- end small-box-links -->
+</div> <!-- end row -->
+</div> <!-- end container -->
+
+
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note: </b> This was mostly an experiment to see if there was a better way to document a long JSON code example. I haven't actually used this approach in my own documentation.</div>
+
+
+
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_special_layouts.html" class="btn btn-default navbar-btn cursorNorm" role="button">special_layouts</a>
+        
+        
+        
+    </div>
+
+    
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footerBox">
+    <div class="container">
+      <div class="footerBoxLeft">
+        
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master/js/mydoc_scroll.md" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <p>Site last generated: Mar 2, 2021</p>
+      </div>
+      <div class="footerBoxRight">
+        <a class="no_icon" href="https://www.woltlab.com"><img src="https://docs.woltlab.com/images/woltlab-black.png" srcset="https://docs.woltlab.com/images/woltlab-black@2x.png 2x" height="40" width="204" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pageFooter">
+    <div class="container">
+      &copy; 2001 ‐ 2021 <a class="no_icon" href="https://www.woltlab.com">WoltLab GmbH</a>. All rights reserved. | <a class="no_icon" href="https://www.woltlab.com/legal-notice/">Legal Notice</a> | <a class="no_icon" href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+
+</html>

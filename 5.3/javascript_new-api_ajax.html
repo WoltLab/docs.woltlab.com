@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Ajax Requests - JavaScript API | WoltLab Suite 5.3 Documentation</title>
+
+<link rel="stylesheet" href="https://docs.woltlab.com/css/syntax.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://docs.woltlab.com/css/modern-business.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/customstyles.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/theme-blue.css?v=3">
+
+<script src="https://docs.woltlab.com/js/jquery.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.cookie.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.navgoco.min.js"></script>
+<script src="https://docs.woltlab.com/js/bootstrap.min.js"></script>
+<script src="https://docs.woltlab.com/js/anchor.min.js"></script>
+<script src="https://docs.woltlab.com/js/toc.js"></script>
+<script src="https://docs.woltlab.com/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="https://docs.woltlab.com/images/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" title="mike-test" href="https://docs.woltlab.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> WoltLab Suite 5.3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://www.woltlab.com" target="_blank">woltlab.com</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/WoltLab/WCF/" target="_blank">Code on github.com</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="https://docs.woltlab.com/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'https://docs.woltlab.com/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Ajax Requests - JavaScript API">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">WoltLab Suite 5.3</li>
+
+    
+        
+            <li>
+                <a href="#">Getting Started</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="index"><a href="index.html">Introduction</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="getting-started_quick-start"><a href="getting-started_quick-start.html">Quick Start</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">PHP API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_pages"><a href="php_pages.html">Pages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-objects"><a href="php_database-objects.html">Database Objects</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-access"><a href="php_database-access.html">Database Access</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_exceptions"><a href="php_exceptions.html">Exceptions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_caches"><a href="php_api_caches.html">Caches</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_comments"><a href="php_api_comments.html">Comments</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_cronjobs"><a href="php_api_cronjobs.html">Cronjobs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_events"><a href="php_api_events.html">Events</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_form_builder"><a href="php_api_form_builder.html">Form Builder</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_package_installation_plugins"><a href="php_api_package_installation_plugins.html">Package Installation Plugins</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_activity_points"><a href="php_api_user_activity_points.html">User Activity Points</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_notifications"><a href="php_api_user_notifications.html">User Notifications</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_sitemaps"><a href="php_api_sitemaps.html">Sitemaps</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_code-style"><a href="php_code-style.html">Code Style</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_apps"><a href="php_apps.html">Apps</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_gdpr"><a href="php_gdpr.html">GDPR</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Languages, Templates & CSS</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_languages"><a href="view_languages.html">Languages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_templates"><a href="view_templates.html">Templates</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_css"><a href="view_css.html">CSS</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">JavaScript API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_general-usage"><a href="javascript_general-usage.html">General Usage</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">New API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_writing-a-module"><a href="javascript_new-api_writing-a-module.html">Writing a module</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_data-structures"><a href="javascript_new-api_data-structures.html">Data Structures</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_core"><a href="javascript_new-api_core.html">Core Functions</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dom"><a href="javascript_new-api_dom.html">DOM</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_events"><a href="javascript_new-api_events.html">Event Handling</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li class="active" data-identifier="javascript_new-api_ajax"><a href="javascript_new-api_ajax.html">Ajax</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dialogs"><a href="javascript_new-api_dialogs.html">Dialogs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_browser"><a href="javascript_new-api_browser.html">Browser and Screen Sizes</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ui"><a href="javascript_new-api_ui.html">User Interface</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_legacy-api"><a href="javascript_legacy-api.html">Legacy API</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_helper-functions"><a href="javascript_helper-functions.html">Helper Functions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_code-snippets"><a href="javascript_code-snippets.html">Code Snippets</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Package Components</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_package-xml"><a href="package_package-xml.html">package.xml</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_pip"><a href="package_pip.html">PIPs</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Migration</a>
+                <ul>
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 5.2</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_php"><a href="migration_wsc-52_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_templates"><a href="migration_wsc-52_templates.html">Templates and Languages</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_libraries"><a href="migration_wsc-52_libraries.html">Third Party Libraries</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-31_php"><a href="migration_wsc-31_php.html">PHP API</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.0</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_php"><a href="migration_wsc-30_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_javascript"><a href="migration_wsc-30_javascript.html">JavaScript API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_templates"><a href="migration_wsc-30_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_css"><a href="migration_wsc-30_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_package"><a href="migration_wsc-30_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WCF 2.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_php"><a href="migration_wcf-21_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_templates"><a href="migration_wcf-21_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_css"><a href="migration_wcf-21_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_package"><a href="migration_wcf-21_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Tutorials</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="tutorial_tutorial-series"><a href="tutorial_tutorial-series.html">Tutorial Series</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+    
+</ul>
+
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = '';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Ajax Requests - JavaScript API</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+  <h2 id="ajax-inside-modules">Ajax inside Modules</h2>
+
+<p>The Ajax component was designed to be used from inside modules where an object
+reference is used to delegate request callbacks. This is acomplished through
+a set of magic methods that are automatically called when the request is created
+or its state has changed.</p>
+
+<h3 id="_ajaxsetup"><code class="language-plaintext highlighter-rouge">_ajaxSetup()</code></h3>
+
+<p>The lazy initialization is performed upon the first invocation from the callee,
+using the magic <code class="language-plaintext highlighter-rouge">_ajaxSetup()</code> method to retrieve the basic configuration for
+this and any future requests.</p>
+
+<p>The data returned by <code class="language-plaintext highlighter-rouge">_ajaxSetup()</code> is cached and the data will be used to
+pre-populate the request data before sending it. The callee can overwrite any of
+these properties. It is intended to reduce the overhead when issuing request
+when these requests share the same properties, such as accessing the same endpoint.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// App/Foo.js</span>
+<span class="nx">define</span><span class="p">([</span><span class="dl">"</span><span class="s2">Ajax</span><span class="dl">"</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Ajax</span><span class="p">)</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">use strict</span><span class="dl">"</span><span class="p">;</span>
+
+  <span class="kd">function</span> <span class="nx">Foo</span><span class="p">()</span> <span class="p">{};</span>
+  <span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">one</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// this will issue an ajax request with the parameter `value` set to `1`</span>
+      <span class="nx">Ajax</span><span class="p">.</span><span class="nx">api</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="p">},</span>
+
+    <span class="na">two</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// this request is almost identical to the one issued with `.one()`, but</span>
+      <span class="c1">// the value is now set to `2` for this invocation only.</span>
+      <span class="nx">Ajax</span><span class="p">.</span><span class="nx">api</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="p">{</span>
+        <span class="na">parameters</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">value</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+    <span class="p">},</span>
+
+    <span class="na">_ajaxSetup</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">actionName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">makeSnafucated</span><span class="dl">"</span><span class="p">,</span>
+          <span class="na">className</span><span class="p">:</span> <span class="dl">"</span><span class="s2">app</span><span class="se">\\</span><span class="s2">data</span><span class="se">\\</span><span class="s2">foo</span><span class="se">\\</span><span class="s2">FooAction</span><span class="dl">"</span><span class="p">,</span>
+          <span class="na">parameters</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">value</span><span class="p">:</span> <span class="mi">1</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="k">return</span> <span class="nx">Foo</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="request-settings">Request Settings</h3>
+
+<p>The object returned by the aforementioned <code class="language-plaintext highlighter-rouge">_ajaxSetup()</code> callback can contain these
+values:</p>
+
+<h4 id="data"><code class="language-plaintext highlighter-rouge">data</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">{}</code>.</em></p>
+
+<p>A plain JavaScript object that contains the request data that represents the form
+data of the request. The <code class="language-plaintext highlighter-rouge">parameters</code> key is recognized by the PHP Ajax API and
+becomes accessible through <code class="language-plaintext highlighter-rouge">$this-&gt;parameters</code>.</p>
+
+<h4 id="contenttype"><code class="language-plaintext highlighter-rouge">contentType</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">application/x-www-form-urlencoded; charset=UTF-8</code>.</em></p>
+
+<p>The request content type, sets the <code class="language-plaintext highlighter-rouge">Content-Type</code> HTTP header if it is not empty.</p>
+
+<h4 id="responsetype"><code class="language-plaintext highlighter-rouge">responseType</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">application/json</code>.</em></p>
+
+<p>The server must respond with the <code class="language-plaintext highlighter-rouge">Content-Type</code> HTTP header set to this value,
+otherwise the request will be treated as failed. Requests for <code class="language-plaintext highlighter-rouge">application/json</code>
+will have the return body attempted to be evaluated as JSON.</p>
+
+<p>Other content types will only be validated based on the HTTP header, but no
+additional transformation is performed. For example, setting the <code class="language-plaintext highlighter-rouge">responseType</code>
+to <code class="language-plaintext highlighter-rouge">application/xml</code> will check the HTTP header, but will not transform the
+<code class="language-plaintext highlighter-rouge">data</code> parameter, you’ll still receive a string in <code class="language-plaintext highlighter-rouge">_ajaxSuccess</code>!</p>
+
+<h4 id="type"><code class="language-plaintext highlighter-rouge">type</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">POST</code>.</em></p>
+
+<p>The HTTP Verb used for this request.</p>
+
+<h4 id="url"><code class="language-plaintext highlighter-rouge">url</code></h4>
+
+<p><em>Defaults to an empty string.</em></p>
+
+<p>Manual override for the request endpoint, it will be automatically set to the
+Core API endpoint if left empty. If the Core API endpoint is used, the options
+<code class="language-plaintext highlighter-rouge">includeRequestedWith</code> and <code class="language-plaintext highlighter-rouge">withCredentials</code> will be force-set to true.</p>
+
+<h4 id="withcredentials"><code class="language-plaintext highlighter-rouge">withCredentials</code></h4>
+
+<div class="bs-callout bs-callout-warning">Enabling this parameter for any domain other than the current will trigger a CORS preflight request.</div>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">false</code>.</em></p>
+
+<p>Include cookies with this requested, is always true when <code class="language-plaintext highlighter-rouge">url</code> is (implicitly)
+set to the Core API endpoint.</p>
+
+<h4 id="autoabort"><code class="language-plaintext highlighter-rouge">autoAbort</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">false</code>.</em></p>
+
+<p>When set to <code class="language-plaintext highlighter-rouge">true</code>, any pending responses to earlier requests will be silently
+discarded when issuing a new request. This only makes sense if the new request
+is meant to completely replace the result of the previous one, regardless of its
+reponse body.</p>
+
+<p>Typical use-cases include input field with suggestions, where possible values
+are requested from the server, but the input changed faster than the server was
+able to reply. In this particular case the client is not interested in the result
+for an earlier value, auto-aborting these requests avoids implementing this logic
+in the requesting code.</p>
+
+<h4 id="ignoreerror"><code class="language-plaintext highlighter-rouge">ignoreError</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">false</code>.</em></p>
+
+<p>Any failing request will invoke the <code class="language-plaintext highlighter-rouge">failure</code>-callback to check if an error
+message should be displayed. Enabling this option will suppress the general
+error overlay that reports a failed request.</p>
+
+<p>You can achieve the same result by returning <code class="language-plaintext highlighter-rouge">false</code> in the <code class="language-plaintext highlighter-rouge">failure</code>-callback.</p>
+
+<h4 id="silent"><code class="language-plaintext highlighter-rouge">silent</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">false</code>.</em></p>
+
+<p>Enabling this option will suppress the loading indicator overlay for this request,
+other non-“silent” requests will still trigger the loading indicator.</p>
+
+<h4 id="includerequestedwith"><code class="language-plaintext highlighter-rouge">includeRequestedWith</code></h4>
+
+<div class="bs-callout bs-callout-warning">Enabling this parameter for any domain other than the current will trigger a CORS preflight request.</div>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">true</code>.</em></p>
+
+<p>Sets the custom HTTP header <code class="language-plaintext highlighter-rouge">X-Requested-With: XMLHttpRequest</code> for the request,
+it is automatically set to <code class="language-plaintext highlighter-rouge">true</code> when <code class="language-plaintext highlighter-rouge">url</code> is pointing at the WSC API endpoint.</p>
+
+<h4 id="failure"><code class="language-plaintext highlighter-rouge">failure</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">null</code>.</em></p>
+
+<p>Optional callback function that will be invoked for requests that have failed
+for one of these reasons:</p>
+<ol>
+  <li>The request timed out.</li>
+  <li>The HTTP status is not <code class="language-plaintext highlighter-rouge">2xx</code> or <code class="language-plaintext highlighter-rouge">304</code>.</li>
+  <li>A <code class="language-plaintext highlighter-rouge">responseType</code> was set, but the response HTTP header <code class="language-plaintext highlighter-rouge">Content-Type</code> did not match the expected value.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">responseType</code> was set to <code class="language-plaintext highlighter-rouge">application/json</code>, but the response body was not valid JSON.</li>
+</ol>
+
+<p>The callback function receives the parameter <code class="language-plaintext highlighter-rouge">xhr</code> (the <code class="language-plaintext highlighter-rouge">XMLHttpRequest</code> object)
+and <code class="language-plaintext highlighter-rouge">options</code> (deep clone of the request parameters). If the callback returns
+<code class="language-plaintext highlighter-rouge">false</code>, the general error overlay for failed requests will be suppressed.</p>
+
+<p>There will be no error overlay if <code class="language-plaintext highlighter-rouge">ignoreError</code> is set to <code class="language-plaintext highlighter-rouge">true</code> or if the
+request failed while attempting to evaluate the response body as JSON.</p>
+
+<h4 id="finalize"><code class="language-plaintext highlighter-rouge">finalize</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">null</code>.</em></p>
+
+<p>Optional callback function that will be invoked once the request has completed,
+regardless if it succeeded or failed. The only parameter it receives is
+<code class="language-plaintext highlighter-rouge">options</code> (the request parameters object), but it does not receive the request’s
+<code class="language-plaintext highlighter-rouge">XMLHttpRequest</code>.</p>
+
+<h4 id="success"><code class="language-plaintext highlighter-rouge">success</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">null</code>.</em></p>
+
+<p>This semi-optional callback function will always be set to <code class="language-plaintext highlighter-rouge">_ajaxSuccess()</code> when
+invoking <code class="language-plaintext highlighter-rouge">Ajax.api()</code>. It receives four parameters:</p>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">data</code> - The request’s response body as a string, or a JavaScript object if
+<code class="language-plaintext highlighter-rouge">contentType</code> was set to <code class="language-plaintext highlighter-rouge">application/json</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">responseText</code> - The unmodified response body, it equals the value for <code class="language-plaintext highlighter-rouge">data</code>
+for non-JSON requests.</li>
+  <li><code class="language-plaintext highlighter-rouge">xhr</code> - The underlying <code class="language-plaintext highlighter-rouge">XMLHttpRequest</code> object.</li>
+  <li><code class="language-plaintext highlighter-rouge">requestData</code> - The request parameters that were supplied when the request
+was issued.</li>
+</ol>
+
+<h3 id="_ajaxsuccess"><code class="language-plaintext highlighter-rouge">_ajaxSuccess()</code></h3>
+
+<p>This callback method is automatically called for successful AJAX requests, it
+receives four parameters, with the first one containing either the response body
+as a string, or a JavaScript object for JSON requests.</p>
+
+<h3 id="_ajaxfailure"><code class="language-plaintext highlighter-rouge">_ajaxFailure()</code></h3>
+
+<p>Optional callback function that is invoked for failed requests, it will be
+automatically called if the callee implements it, otherwise the global error
+handler will be executed.</p>
+
+<h2 id="single-requests-without-a-module">Single Requests Without a Module</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">Ajax.api()</code> method expects an object that is used to extract the request
+configuration as well as providing the callback functions when the request state
+changes.</p>
+
+<p>You can issue a simple Ajax request without object binding through <code class="language-plaintext highlighter-rouge">Ajax.apiOnce()</code>
+that will destroy the instance after the request was finalized. This method is
+significantly more expensive for repeated requests and does not offer deriving
+modules from altering the behavior. It is strongly  recommended to always use
+<code class="language-plaintext highlighter-rouge">Ajax.api()</code> for requests to the WSC API endpoint.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">data-relocate=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+  <span class="nx">require</span><span class="p">([</span><span class="dl">"</span><span class="s2">Ajax</span><span class="dl">"</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Ajax</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Ajax</span><span class="p">.</span><span class="nx">apiOnce</span><span class="p">({</span>
+      <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">actionName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">makeSnafucated</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">className</span><span class="p">:</span> <span class="dl">"</span><span class="s2">app</span><span class="se">\\</span><span class="s2">data</span><span class="se">\\</span><span class="s2">foo</span><span class="se">\\</span><span class="s2">FooAction</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">parameters</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">value</span><span class="p">:</span> <span class="mi">3</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">elBySel</span><span class="p">(</span><span class="dl">"</span><span class="s2">.some-element</span><span class="dl">"</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">bar</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">})</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footerBox">
+    <div class="container">
+      <div class="footerBoxLeft">
+        
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master/pages/javascript/javascript_new-api_ajax.md" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <p>Site last generated: Mar 2, 2021</p>
+      </div>
+      <div class="footerBoxRight">
+        <a class="no_icon" href="https://www.woltlab.com"><img src="https://docs.woltlab.com/images/woltlab-black.png" srcset="https://docs.woltlab.com/images/woltlab-black@2x.png 2x" height="40" width="204" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pageFooter">
+    <div class="container">
+      &copy; 2001 ‐ 2021 <a class="no_icon" href="https://www.woltlab.com">WoltLab GmbH</a>. All rights reserved. | <a class="no_icon" href="https://www.woltlab.com/legal-notice/">Legal Notice</a> | <a class="no_icon" href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+
+</html>

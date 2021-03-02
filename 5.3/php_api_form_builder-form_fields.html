@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Form Builder Fields | WoltLab Suite 5.3 Documentation</title>
+
+<link rel="stylesheet" href="https://docs.woltlab.com/css/syntax.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://docs.woltlab.com/css/modern-business.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/customstyles.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/theme-blue.css?v=3">
+
+<script src="https://docs.woltlab.com/js/jquery.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.cookie.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.navgoco.min.js"></script>
+<script src="https://docs.woltlab.com/js/bootstrap.min.js"></script>
+<script src="https://docs.woltlab.com/js/anchor.min.js"></script>
+<script src="https://docs.woltlab.com/js/toc.js"></script>
+<script src="https://docs.woltlab.com/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="https://docs.woltlab.com/images/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" title="mike-test" href="https://docs.woltlab.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> WoltLab Suite 5.3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://www.woltlab.com" target="_blank">woltlab.com</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/WoltLab/WCF/" target="_blank">Code on github.com</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="https://docs.woltlab.com/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'https://docs.woltlab.com/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Form Builder Fields">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">WoltLab Suite 5.3</li>
+
+    
+        
+            <li>
+                <a href="#">Getting Started</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="index"><a href="index.html">Introduction</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="getting-started_quick-start"><a href="getting-started_quick-start.html">Quick Start</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">PHP API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_pages"><a href="php_pages.html">Pages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-objects"><a href="php_database-objects.html">Database Objects</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-access"><a href="php_database-access.html">Database Access</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_exceptions"><a href="php_exceptions.html">Exceptions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_caches"><a href="php_api_caches.html">Caches</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_comments"><a href="php_api_comments.html">Comments</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_cronjobs"><a href="php_api_cronjobs.html">Cronjobs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_events"><a href="php_api_events.html">Events</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_form_builder"><a href="php_api_form_builder.html">Form Builder</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_package_installation_plugins"><a href="php_api_package_installation_plugins.html">Package Installation Plugins</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_activity_points"><a href="php_api_user_activity_points.html">User Activity Points</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_notifications"><a href="php_api_user_notifications.html">User Notifications</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_sitemaps"><a href="php_api_sitemaps.html">Sitemaps</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_code-style"><a href="php_code-style.html">Code Style</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_apps"><a href="php_apps.html">Apps</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_gdpr"><a href="php_gdpr.html">GDPR</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Languages, Templates & CSS</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_languages"><a href="view_languages.html">Languages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_templates"><a href="view_templates.html">Templates</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_css"><a href="view_css.html">CSS</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">JavaScript API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_general-usage"><a href="javascript_general-usage.html">General Usage</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">New API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_writing-a-module"><a href="javascript_new-api_writing-a-module.html">Writing a module</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_data-structures"><a href="javascript_new-api_data-structures.html">Data Structures</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_core"><a href="javascript_new-api_core.html">Core Functions</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dom"><a href="javascript_new-api_dom.html">DOM</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_events"><a href="javascript_new-api_events.html">Event Handling</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ajax"><a href="javascript_new-api_ajax.html">Ajax</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dialogs"><a href="javascript_new-api_dialogs.html">Dialogs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_browser"><a href="javascript_new-api_browser.html">Browser and Screen Sizes</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ui"><a href="javascript_new-api_ui.html">User Interface</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_legacy-api"><a href="javascript_legacy-api.html">Legacy API</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_helper-functions"><a href="javascript_helper-functions.html">Helper Functions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_code-snippets"><a href="javascript_code-snippets.html">Code Snippets</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Package Components</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_package-xml"><a href="package_package-xml.html">package.xml</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_pip"><a href="package_pip.html">PIPs</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Migration</a>
+                <ul>
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 5.2</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_php"><a href="migration_wsc-52_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_templates"><a href="migration_wsc-52_templates.html">Templates and Languages</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_libraries"><a href="migration_wsc-52_libraries.html">Third Party Libraries</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-31_php"><a href="migration_wsc-31_php.html">PHP API</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.0</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_php"><a href="migration_wsc-30_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_javascript"><a href="migration_wsc-30_javascript.html">JavaScript API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_templates"><a href="migration_wsc-30_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_css"><a href="migration_wsc-30_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_package"><a href="migration_wsc-30_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WCF 2.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_php"><a href="migration_wcf-21_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_templates"><a href="migration_wcf-21_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_css"><a href="migration_wcf-21_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_package"><a href="migration_wcf-21_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Tutorials</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="tutorial_tutorial-series"><a href="tutorial_tutorial-series.html">Tutorial Series</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+    
+</ul>
+
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = 'php_api_form_builder';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Form Builder Fields</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+  <h2 id="abstract-form-fields">Abstract Form Fields</h2>
+
+<p>The following form field classes cannot be instantiated directly because they are abstract, but they can/must be used when creating own form field classes.</p>
+
+<h3 id="abstractformfield"><code class="language-plaintext highlighter-rouge">AbstractFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">AbstractFormField</code> is the abstract default implementation of the <code class="language-plaintext highlighter-rouge">IFormField</code> interface and it is expected that every implementation of <code class="language-plaintext highlighter-rouge">IFormField</code> implements the interface by extending this class.</p>
+
+<h3 id="abstractnumericformfield"><code class="language-plaintext highlighter-rouge">AbstractNumericFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">AbstractNumericFormField</code> is the abstract implementation of a form field handling a single numeric value.
+The class implements <code class="language-plaintext highlighter-rouge">IImmutableFormField</code>, <code class="language-plaintext highlighter-rouge">IMaximumFormField</code>, <code class="language-plaintext highlighter-rouge">IMinimumFormField</code>, <code class="language-plaintext highlighter-rouge">INullableFormField</code>, <code class="language-plaintext highlighter-rouge">IPlaceholderFormField</code> and <code class="language-plaintext highlighter-rouge">ISuffixedFormField</code>.
+If the property <code class="language-plaintext highlighter-rouge">$integerValues</code> is <code class="language-plaintext highlighter-rouge">true</code>, the form field works with integer values, otherwise it works with floating point numbers.
+The methods <code class="language-plaintext highlighter-rouge">step($step = null)</code> and <code class="language-plaintext highlighter-rouge">getStep()</code> can be used to set and get the step attribute of the <code class="language-plaintext highlighter-rouge">input</code> element.
+The default step for form fields with integer values is <code class="language-plaintext highlighter-rouge">1</code>.
+Otherwise, the default step is <code class="language-plaintext highlighter-rouge">any</code>.</p>
+
+<h2 id="general-form-fields">General Form Fields</h2>
+
+<p>The following form fields are general reusable fields without any underlying context.</p>
+
+<h3 id="booleanformfield"><code class="language-plaintext highlighter-rouge">BooleanFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">BooleanFormField</code> is used for boolean (<code class="language-plaintext highlighter-rouge">0</code> or <code class="language-plaintext highlighter-rouge">1</code>, <code class="language-plaintext highlighter-rouge">yes</code> or <code class="language-plaintext highlighter-rouge">no</code>) values.
+Objects of this class require a label.
+The return value of <code class="language-plaintext highlighter-rouge">getSaveValue()</code> is the integer representation of the boolean value, i.e. <code class="language-plaintext highlighter-rouge">0</code> or <code class="language-plaintext highlighter-rouge">1</code>.</p>
+
+<h3 id="532-checkboxformfield"><span class="label label-info">5.3.2+</span> <code class="language-plaintext highlighter-rouge">CheckboxFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">CheckboxFormField</code> extends <code class="language-plaintext highlighter-rouge">BooleanFormField</code> and offers a simple HTML checkbox.</p>
+
+<h3 id="classnameformfield"><code class="language-plaintext highlighter-rouge">ClassNameFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">ClassNameFormField</code> is a <a href="#textformfield">text form field</a> that supports additional settings, specific to entering a PHP class name:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">classExists($classExists = true)</code> and <code class="language-plaintext highlighter-rouge">getClassExists()</code> can be used to ensure that the entered class currently exists in the installation.
+By default, the existance of the entered class is required.</li>
+  <li><code class="language-plaintext highlighter-rouge">implementedInterface($interface)</code> and <code class="language-plaintext highlighter-rouge">getImplementedInterface()</code> can be used to ensure that the entered class implements the specified interface.
+By default, no interface is required.</li>
+  <li><code class="language-plaintext highlighter-rouge">parentClass($parentClass)</code> and <code class="language-plaintext highlighter-rouge">getParentClass()</code> can be used to ensure that the entered class extends the specified class.
+By default, no parent class is required.</li>
+  <li><code class="language-plaintext highlighter-rouge">instantiable($instantiable = true)</code> and <code class="language-plaintext highlighter-rouge">isInstantiable()</code> can be used to ensure that the entered class is instantiable.
+By default, entered classes have to instantiable.</li>
+</ul>
+
+<p>Additionally, the default id of a <code class="language-plaintext highlighter-rouge">ClassNameFormField</code> object is <code class="language-plaintext highlighter-rouge">className</code>, the default label is <code class="language-plaintext highlighter-rouge">wcf.form.field.className</code>, and if either an interface or a parent class is required, a default description is set if no description has already been set (<code class="language-plaintext highlighter-rouge">wcf.form.field.className.description.interface</code> and <code class="language-plaintext highlighter-rouge">wcf.form.field.className.description.parentClass</code>, respectively).</p>
+
+<h3 id="dateformfield"><code class="language-plaintext highlighter-rouge">DateFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">DateFormField</code> is a form field to enter a date (and optionally a time).
+The following methods are specific to this form field class:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">earliestDate($earliestDate)</code> and <code class="language-plaintext highlighter-rouge">getEarliestDate()</code> can be used to get and set the earliest selectable/valid date and <code class="language-plaintext highlighter-rouge">latestDate($latestDate)</code> and <code class="language-plaintext highlighter-rouge">getLatestDate()</code> can be used to get and set the latest selectable/valid date.
+The date passed to the setters must have the same format as set via <code class="language-plaintext highlighter-rouge">saveValueFormat()</code>.
+If a custom format is used, that format has to be set via <code class="language-plaintext highlighter-rouge">saveValueFormat()</code> before calling any of the setters.</li>
+  <li><code class="language-plaintext highlighter-rouge">saveValueFormat($saveValueFormat)</code> and <code class="language-plaintext highlighter-rouge">getSaveValueFormat()</code> can be used to specify the date format of the value returned by <code class="language-plaintext highlighter-rouge">getSaveValue()</code>.
+By default, <code class="language-plaintext highlighter-rouge">U</code> is used as format.
+The <a href="https://secure.php.net/manual/en/function.date.php">PHP manual</a> provides an overview of supported formats.</li>
+  <li><code class="language-plaintext highlighter-rouge">supportTime($supportsTime = true)</code> and <code class="language-plaintext highlighter-rouge">supportsTime()</code> can be used to toggle whether, in addition to a date, a time can also be specified.
+By default, specifying a time is disabled.</li>
+</ul>
+
+<h3 id="descriptionformfield"><code class="language-plaintext highlighter-rouge">DescriptionFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">DescriptionFormField</code> is a <a href="#multilinetextformfield">multi-line text form field</a> with <code class="language-plaintext highlighter-rouge">description</code> as the default id and <code class="language-plaintext highlighter-rouge">wcf.global.description</code> as the default label.</p>
+
+<h3 id="floatformfield"><code class="language-plaintext highlighter-rouge">FloatFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">FloatFormField</code> is an implementation of <a href="#abstractnumericformfield">AbstractNumericFormField</a> for floating point numbers.</p>
+
+<h3 id="iconformfield"><code class="language-plaintext highlighter-rouge">IconFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">IconFormField</code> is a form field to select a FontAwesome icon.</p>
+
+<h3 id="integerformfield"><code class="language-plaintext highlighter-rouge">IntegerFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">IntegerFormField</code> is an implementation of <a href="#abstractnumericformfield">AbstractNumericFormField</a> for integers.</p>
+
+<h3 id="isdisabledformfield"><code class="language-plaintext highlighter-rouge">IsDisabledFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">IsDisabledFormField</code> is a <a href="#booleanformfield">boolean form field</a> with <code class="language-plaintext highlighter-rouge">isDisabled</code> as the default id.</p>
+
+<h3 id="itemlistformfield"><code class="language-plaintext highlighter-rouge">ItemListFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">ItemListFormField</code> is a form field in which multiple values can be entered and returned in different formats as save value.
+The <code class="language-plaintext highlighter-rouge">saveValueType($saveValueType)</code> and <code class="language-plaintext highlighter-rouge">getSaveValueType()</code> methods are specific to this form field class and determine the format of the save value.
+The following save value types are supported:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ItemListFormField::SAVE_VALUE_TYPE_ARRAY</code> adds a custom data processor that writes the form field data directly in the parameters array and not in the data sub-array of the parameters array.</li>
+  <li><code class="language-plaintext highlighter-rouge">ItemListFormField::SAVE_VALUE_TYPE_CSV</code> lets the value be returned as a string in which the values are concatenated by commas.</li>
+  <li><code class="language-plaintext highlighter-rouge">ItemListFormField::SAVE_VALUE_TYPE_NSV</code> lets the value be returned as a string in which the values are concatenated by <code class="language-plaintext highlighter-rouge">\n</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">ItemListFormField::SAVE_VALUE_TYPE_SSV</code> lets the value be returned as a string in which the values are concatenated by spaces.</li>
+</ul>
+
+<p>By default, <code class="language-plaintext highlighter-rouge">ItemListFormField::SAVE_VALUE_TYPE_CSV</code> is used.</p>
+
+<p>If <code class="language-plaintext highlighter-rouge">ItemListFormField::SAVE_VALUE_TYPE_ARRAY</code> is used as save value type, <code class="language-plaintext highlighter-rouge">ItemListFormField</code> objects register a <a href="php_api_form_builder-validation_data.html#customformfielddataprocessor">custom form field data processor</a> to add the relevant array into the <code class="language-plaintext highlighter-rouge">$parameters</code> array directly using the object property as the array key.</p>
+
+<h3 id="multilinetextformfield"><code class="language-plaintext highlighter-rouge">MultilineTextFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">MultilineTextFormField</code> is a <a href="#textformfield">text form field</a> that supports multiple rows of text.
+The methods <code class="language-plaintext highlighter-rouge">rows($rows)</code> and <code class="language-plaintext highlighter-rouge">getRows()</code> can be used to set and get the number of rows of the <code class="language-plaintext highlighter-rouge">textarea</code> elements.
+The default number of rows is <code class="language-plaintext highlighter-rouge">10</code>.
+These methods do <strong>not</strong>, however, restrict the number of text rows that canbe entered.</p>
+
+<h3 id="multipleselectionformfield"><code class="language-plaintext highlighter-rouge">MultipleSelectionFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">MultipleSelectionFormField</code> is a form fields that allows the selection of multiple options out of a predefined list of available options.
+The class implements <code class="language-plaintext highlighter-rouge">IFilterableSelectionFormField</code>, <code class="language-plaintext highlighter-rouge">IImmutableFormField</code>, and <code class="language-plaintext highlighter-rouge">INullableFormField</code>.
+If the field is nullable and no option is selected, <code class="language-plaintext highlighter-rouge">null</code> is returned as the save value.</p>
+
+<h3 id="radiobuttonformfield"><code class="language-plaintext highlighter-rouge">RadioButtonFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">RadioButtonFormField</code> is a form fields that allows the selection of a single option out of a predefined list of available options using radiobuttons.
+The class implements <code class="language-plaintext highlighter-rouge">IImmutableFormField</code> and <code class="language-plaintext highlighter-rouge">ISelectionFormField</code>.</p>
+
+<h3 id="ratingformfield"><code class="language-plaintext highlighter-rouge">RatingFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">RatingFormField</code> is a form field to set a rating for an object.
+The class implements <code class="language-plaintext highlighter-rouge">IImmutableFormField</code>, <code class="language-plaintext highlighter-rouge">IMaximumFormField</code>, <code class="language-plaintext highlighter-rouge">IMinimumFormField</code>, and <code class="language-plaintext highlighter-rouge">INullableFormField</code>.
+Form fields of this class have <code class="language-plaintext highlighter-rouge">rating</code> as their default id, <code class="language-plaintext highlighter-rouge">wcf.form.field.rating</code> as their default label, <code class="language-plaintext highlighter-rouge">1</code> as their default minimum, and <code class="language-plaintext highlighter-rouge">5</code> as their default maximum.
+For this field, the minimum and maximum refer to the minimum and maximum rating an object can get.
+When the field is shown, there will be <code class="language-plaintext highlighter-rouge">maximum() - minimum() + 1</code> icons be shown with additional CSS classes that can be set and gotten via <code class="language-plaintext highlighter-rouge">defaultCssClasses(array $cssClasses)</code> and <code class="language-plaintext highlighter-rouge">getDefaultCssClasses()</code>.
+If a rating values is set, the first <code class="language-plaintext highlighter-rouge">getValue()</code> icons will instead use the classes that can be set and gotten via <code class="language-plaintext highlighter-rouge">activeCssClasses(array $cssClasses)</code> and <code class="language-plaintext highlighter-rouge">getActiveCssClasses()</code>.
+By default, the only default class is <code class="language-plaintext highlighter-rouge">fa-star-o</code> and the active classes are <code class="language-plaintext highlighter-rouge">fa-star</code> and <code class="language-plaintext highlighter-rouge">orange</code>.</p>
+
+<h3 id="showorderformfield"><code class="language-plaintext highlighter-rouge">ShowOrderFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">ShowOrderFormField</code> is a <a href="#singleselectionformfield">single selection form field</a> for which the selected value determines the position at which an object is shown.
+The show order field provides a list of all siblings and the object will be positioned <strong>after</strong> the selected sibling.
+To insert objects at the very beginning, the <code class="language-plaintext highlighter-rouge">options()</code> automatically method prepends an additional option for that case so that only the existing siblings need to be passed.
+The default id of instances of this class is <code class="language-plaintext highlighter-rouge">showOrder</code> and their default label is <code class="language-plaintext highlighter-rouge">wcf.form.field.showOrder</code>.</p>
+
+<div class="bs-callout bs-callout-info">It is important that the relevant object property is always kept updated. Whenever a new object is added or an existing object is edited or delete, the values of the other objects have to be adjusted to ensure consecutive numbering.</div>
+
+<h3 id="singleselectionformfield"><code class="language-plaintext highlighter-rouge">SingleSelectionFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">SingleSelectionFormField</code> is a form fields that allows the selection of a single option out of a predefined list of available options.
+The class implements <code class="language-plaintext highlighter-rouge">IFilterableSelectionFormField</code>, <code class="language-plaintext highlighter-rouge">IImmutableFormField</code>, and <code class="language-plaintext highlighter-rouge">INullableFormField</code>.
+If the field is nullable and the current form field value is considered <code class="language-plaintext highlighter-rouge">empty</code> by PHP, <code class="language-plaintext highlighter-rouge">null</code> is returned as the save value.</p>
+
+<h3 id="sortorderformfield"><code class="language-plaintext highlighter-rouge">SortOrderFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">SingleSelectionFormField</code> is a <a href="#singleselectionformfield">single selection form field</a> with default id <code class="language-plaintext highlighter-rouge">sortOrder</code>, default label <code class="language-plaintext highlighter-rouge">wcf.global.showOrder</code> and default options <code class="language-plaintext highlighter-rouge">ASC: wcf.global.sortOrder.ascending</code> and <code class="language-plaintext highlighter-rouge">DESC: wcf.global.sortOrder.descending</code>.</p>
+
+<h3 id="textformfield"><code class="language-plaintext highlighter-rouge">TextFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">TextFormField</code> is a form field that allows entering a single line of text.
+The class implements <code class="language-plaintext highlighter-rouge">IImmutableFormField</code>, <code class="language-plaintext highlighter-rouge">II18nFormField</code>, <code class="language-plaintext highlighter-rouge">IMaximumLengthFormField</code>, <code class="language-plaintext highlighter-rouge">IMinimumLengthFormField</code>, and <code class="language-plaintext highlighter-rouge">IPlaceholderFormField</code>.</p>
+
+<h3 id="titleformfield"><code class="language-plaintext highlighter-rouge">TitleFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">TitleFormField</code> is a <a href="#textformfield">text form field</a> with <code class="language-plaintext highlighter-rouge">title</code> as the default id and <code class="language-plaintext highlighter-rouge">wcf.global.title</code> as the default label.</p>
+
+<h3 id="urlformfield"><code class="language-plaintext highlighter-rouge">UrlFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">UrlFormField</code> is a <a href="#textformfield">text form field</a> whose values are checked via <code class="language-plaintext highlighter-rouge">Url::is()</code>.</p>
+
+<h2 id="specific-fields">Specific Fields</h2>
+
+<p>The following form fields are reusable fields that generally are bound to a certain API or <code class="language-plaintext highlighter-rouge">DatabaseObject</code> implementation.</p>
+
+<h3 id="aclformfield"><code class="language-plaintext highlighter-rouge">AclFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">AclFormField</code> is used for setting up acl values for specific objects.
+The class implements <code class="language-plaintext highlighter-rouge">IObjectTypeFormField</code> and requires an object type of the object type definition <code class="language-plaintext highlighter-rouge">com.woltlab.wcf.acl</code>.
+Additionally, the class provides the methods <code class="language-plaintext highlighter-rouge">categoryName($categoryName)</code> and <code class="language-plaintext highlighter-rouge">getCategoryName()</code> that allow setting a specific name or filter for the acl option categories whose acl options are shown.
+A category name of <code class="language-plaintext highlighter-rouge">null</code> signals that no category filter is used.</p>
+
+<p><code class="language-plaintext highlighter-rouge">AclFormField</code> objects register a <a href="php_api_form_builder-validation_data.html#customformfielddataprocessor">custom form field data processor</a> to add the relevant ACL object type id into the <code class="language-plaintext highlighter-rouge">$parameters</code> array directly using <code class="language-plaintext highlighter-rouge">{$objectProperty}_aclObjectTypeID</code> as the array key.
+The relevant database object action method is expected, based on the given ACL object type id, to save the ACL option values appropriately.</p>
+
+<h3 id="captchaformfield"><code class="language-plaintext highlighter-rouge">CaptchaFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">CaptchaFormField</code> is used to add captcha protection to the form.</p>
+
+<p>You must specify a captcha object type (<code class="language-plaintext highlighter-rouge">com.woltlab.wcf.captcha</code>) using the <code class="language-plaintext highlighter-rouge">objectType()</code> method.</p>
+
+<h3 id="contentlanguageformfield"><code class="language-plaintext highlighter-rouge">ContentLanguageFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">ContentLanguageFormField</code> is used to select the content language of an object.
+Fields of this class are only available if multilingualism is enabled and if there are content languages. 
+The class implements <code class="language-plaintext highlighter-rouge">IImmutableFormField</code>.</p>
+
+<h3 id="labelformfield"><code class="language-plaintext highlighter-rouge">LabelFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">LabelFormField</code> is used to select a label from a specific label group.
+The class implements <code class="language-plaintext highlighter-rouge">IObjectTypeFormNode</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">labelGroup(ViewableLabelGroup $labelGroup)</code> and <code class="language-plaintext highlighter-rouge">getLabelGroup()</code> methods are specific to this form field class and can be used to set and get the label group whose labels can be selected.
+Additionally, there is the static method <code class="language-plaintext highlighter-rouge">createFields($objectType, array $labelGroups, $objectProperty = 'labelIDs)</code> that can be used to create all relevant label form fields for a given list of label groups.
+In most cases, <code class="language-plaintext highlighter-rouge">LabelFormField::createFields()</code> should be used.</p>
+
+<h3 id="optionformfield"><code class="language-plaintext highlighter-rouge">OptionFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">OptionFormField</code> is an <a href="#itemlistformfield">item list form field</a> to set a list of options.
+The class implements <code class="language-plaintext highlighter-rouge">IPackagesFormField</code> and only options of the set packages are considered available.
+The default label of instances of this class is <code class="language-plaintext highlighter-rouge">wcf.form.field.option</code> and their default id is <code class="language-plaintext highlighter-rouge">options</code>.</p>
+
+<h3 id="simpleaclformfield"><code class="language-plaintext highlighter-rouge">SimpleAclFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">SimpleAclFormField</code> is used for setting up simple acl values (one <code class="language-plaintext highlighter-rouge">yes</code>/<code class="language-plaintext highlighter-rouge">no</code> option per user and user group) for specific objects.</p>
+
+<p><code class="language-plaintext highlighter-rouge">SimpleAclFormField</code> objects register a <a href="php_api_form_builder-validation_data.html#customformfielddataprocessor">custom form field data processor</a> to add the relevant simple ACL data array into the <code class="language-plaintext highlighter-rouge">$parameters</code> array directly using the object property as the array key.</p>
+
+<h3 id="singlemediaselectionformfield"><code class="language-plaintext highlighter-rouge">SingleMediaSelectionFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">SingleMediaSelectionFormField</code> is used to select a specific media file.
+The class implements <code class="language-plaintext highlighter-rouge">IImmutableFormField</code>.</p>
+
+<p>The following methods are specific to this form field class:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">imageOnly($imageOnly = true)</code> and <code class="language-plaintext highlighter-rouge">isImageOnly()</code> can be used to set and check if only images may be selected.</li>
+  <li><code class="language-plaintext highlighter-rouge">getMedia()</code> returns the media file based on the current field value if a field is set.</li>
+</ul>
+
+<h3 id="tagformfield"><code class="language-plaintext highlighter-rouge">TagFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">TagFormField</code> is a form field to enter tags.
+Arrays passed to <code class="language-plaintext highlighter-rouge">TagFormField::values()</code> can contain tag names as strings and <code class="language-plaintext highlighter-rouge">Tag</code> objects.
+The default label of instances of this class is <code class="language-plaintext highlighter-rouge">wcf.tagging.tags</code> and their default description is <code class="language-plaintext highlighter-rouge">wcf.tagging.tags.description</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">TagFormField</code> objects register a <a href="php_api_form_builder-validation_data.html#customformfielddataprocessor">custom form field data processor</a> to add the array with entered tag names into the <code class="language-plaintext highlighter-rouge">$parameters</code> array directly using the object property as the array key.</p>
+
+<h3 id="uploadformfield"><code class="language-plaintext highlighter-rouge">UploadFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">UploadFormField</code> is a form field that allows uploading files by the user.</p>
+
+<p><code class="language-plaintext highlighter-rouge">UploadFormField</code> objects register a <a href="php_api_form_builder-validation_data.html#customformfielddataprocessor">custom form field data processor</a> to add the array of <code class="language-plaintext highlighter-rouge">wcf\system\file\upload\UploadFile\UploadFile</code> into the <code class="language-plaintext highlighter-rouge">$parameters</code> array directly using the object property as the array key. Also it registers the removed files as an array of <code class="language-plaintext highlighter-rouge">wcf\system\file\upload\UploadFile\UploadFile</code> into the <code class="language-plaintext highlighter-rouge">$parameters</code> array directly using the object property with the suffix <code class="language-plaintext highlighter-rouge">_removedFiles</code> as the array key.</p>
+
+<p>The field supports additional settings:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">imageOnly($imageOnly = true)</code> and <code class="language-plaintext highlighter-rouge">isImageOnly()</code> can be used to ensure that the uploaded files are only images.</li>
+  <li><code class="language-plaintext highlighter-rouge">allowSvgImage($allowSvgImages = true)</code> and <code class="language-plaintext highlighter-rouge">svgImageAllowed()</code> can be used to allow SVG images, if the image only mode is enabled (otherwise, the method will throw an exception). By default, SVG images are not allowed.</li>
+</ul>
+
+<h4 id="provide-value-from-database-object">Provide value from database object</h4>
+
+<p>To provide values from a database object, you should implement the method <code class="language-plaintext highlighter-rouge">get{$objectProperty}UploadFileLocations()</code> to your database object class. This method must return an array of strings with the locations of the files.</p>
+
+<h4 id="process-files">Process files</h4>
+
+<p>To process files in the database object action class, you must <a href="https://secure.php.net/manual/en/function.rename.php"><code class="language-plaintext highlighter-rouge">rename</code></a> the file to the final destination. You get the temporary location, by calling the method <code class="language-plaintext highlighter-rouge">getLocation()</code> on the given <code class="language-plaintext highlighter-rouge">UploadFile</code> objects. After that, you call <code class="language-plaintext highlighter-rouge">setProcessed($location)</code> with <code class="language-plaintext highlighter-rouge">$location</code> contains the new file location. This method sets the <code class="language-plaintext highlighter-rouge">isProcessed</code> flag to true and saves the new location. For updating files, it is relevant, whether a given file is already processed or not. For this case, the <code class="language-plaintext highlighter-rouge">UploadFile</code> object has an method <code class="language-plaintext highlighter-rouge">isProcessed()</code> which indicates, whether a file is already processed or new uploaded.</p>
+
+<h3 id="userformfield"><code class="language-plaintext highlighter-rouge">UserFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">UserFormField</code> is a form field to enter existing users.
+The class implements <code class="language-plaintext highlighter-rouge">IAutoFocusFormField</code>, <code class="language-plaintext highlighter-rouge">IImmutableFormField</code>, <code class="language-plaintext highlighter-rouge">IMultipleFormField</code>, and <code class="language-plaintext highlighter-rouge">INullableFormField</code>.
+While the user is presented the names of the specified users in the user interface, the field returns the ids of the users as data.
+The relevant <code class="language-plaintext highlighter-rouge">UserProfile</code> objects can be accessed via the <code class="language-plaintext highlighter-rouge">getUsers()</code> method.</p>
+
+<h3 id="usergroupoptionformfield"><code class="language-plaintext highlighter-rouge">UserGroupOptionFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">UserGroupOptionFormField</code> is an <a href="#itemlistformfield">item list form field</a> to set a list of user group options/permissions.
+The class implements <code class="language-plaintext highlighter-rouge">IPackagesFormField</code> and only user group options of the set packages are considered available.
+The default label of instances of this class is <code class="language-plaintext highlighter-rouge">wcf.form.field.userGroupOption</code> and their default id is <code class="language-plaintext highlighter-rouge">permissions</code>.</p>
+
+<h3 id="usernameformfield"><code class="language-plaintext highlighter-rouge">UsernameFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">UsernameFormField</code> is used for entering one non-existing username.
+The class implements <code class="language-plaintext highlighter-rouge">IImmutableFormField</code>, <code class="language-plaintext highlighter-rouge">IMaximumLengthFormField</code>, <code class="language-plaintext highlighter-rouge">IMinimumLengthFormField</code>, <code class="language-plaintext highlighter-rouge">INullableFormField</code>, and <code class="language-plaintext highlighter-rouge">IPlaceholderFormField</code>.
+As usernames have a system-wide restriction of a minimum length of 3 and a maximum length of 100 characters, these values are also used as the default value for the field’s minimum and maximum length.</p>
+
+<h2 id="wysiwyg-form-container">Wysiwyg form container</h2>
+
+<p>To integrate a wysiwyg editor into a form, you have to create a <code class="language-plaintext highlighter-rouge">WysiwygFormContainer</code> object.
+This container takes care of creating all necessary form nodes listed below for a wysiwyg editor.</p>
+
+<div class="bs-callout bs-callout-warning">When creating the container object, its id has to be the id of the form field that will manage the actual text.</div>
+
+<p>The following methods are specific to this form container class:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">addSettingsNode(IFormChildNode $settingsNode)</code> and <code class="language-plaintext highlighter-rouge">addSettingsNodes(array $settingsNodes)</code> can be used to add nodes to the settings tab container.</li>
+  <li><code class="language-plaintext highlighter-rouge">attachmentData($objectType, $parentObjectID)</code> can be used to set the data relevant for attachment support.
+By default, not attachment data is set, thus attachments are not supported.</li>
+  <li><code class="language-plaintext highlighter-rouge">getAttachmentField()</code>, <code class="language-plaintext highlighter-rouge">getPollContainer()</code>, <code class="language-plaintext highlighter-rouge">getSettingsContainer()</code>, <code class="language-plaintext highlighter-rouge">getSmiliesContainer()</code>, and <code class="language-plaintext highlighter-rouge">getWysiwygField()</code> can be used to get the different components of the wysiwyg form container once the form has been built.</li>
+  <li><code class="language-plaintext highlighter-rouge">enablePreviewButton($enablePreviewButton)</code> can be used to set whether the preview button for the message is shown or not.
+By default, the preview button is shown.
+This method is only relevant before the form is built.
+Afterwards, the preview button availability can not be changed.
+Only available since WoltLab Suite Core 5.3.</li>
+  <li><code class="language-plaintext highlighter-rouge">getObjectId()</code> returns the id of the edited object or <code class="language-plaintext highlighter-rouge">0</code> if no object is edited.</li>
+  <li><code class="language-plaintext highlighter-rouge">getPreselect()</code>, <code class="language-plaintext highlighter-rouge">preselect($preselect)</code> can be used to set the value of the wysiwyg tab menu’s <code class="language-plaintext highlighter-rouge">data-preselect</code> attribute used to determine which tab is preselected.
+By default, the preselect is <code class="language-plaintext highlighter-rouge">'true'</code> which is used to pre-select the first tab.</li>
+  <li><code class="language-plaintext highlighter-rouge">messageObjectType($messageObjectType)</code> can be used to set the message object type.</li>
+  <li><code class="language-plaintext highlighter-rouge">pollObjectType($pollObjectType)</code> can be used to set the poll object type.
+By default, no poll object type is set, thus the poll form field container is not available.</li>
+  <li><code class="language-plaintext highlighter-rouge">supportMentions($supportMentions)</code> can be used to set if mentions are supported.
+By default, mentions are not supported.
+This method is only relevant before the form is built.
+Afterwards, mention support can only be changed via the wysiwyg form field.</li>
+  <li><code class="language-plaintext highlighter-rouge">supportSmilies($supportSmilies)</code> can be used to set if smilies are supported.
+By default, smilies are supported.
+This method is only relevant before the form is built.
+Afterwards, smiley availability can only be changed via changing the availability of the smilies form container.</li>
+</ul>
+
+<h3 id="wysiwygattachmentformfield"><code class="language-plaintext highlighter-rouge">WysiwygAttachmentFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">WysiwygAttachmentFormField</code> provides attachment support for a wysiwyg editor via a tab in the menu below the editor.
+This class should not be used directly but only via <code class="language-plaintext highlighter-rouge">WysiwygFormContainer</code>.
+The methods <code class="language-plaintext highlighter-rouge">attachmentHandler(AttachmentHandler $attachmentHandler)</code> and <code class="language-plaintext highlighter-rouge">getAttachmentHandler()</code> can be used to set and get the <code class="language-plaintext highlighter-rouge">AttachmentHandler</code> object that is used for uploaded attachments.</p>
+
+<h3 id="wysiwygpollformcontainer"><code class="language-plaintext highlighter-rouge">WysiwygPollFormContainer</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">WysiwygPollFormContainer</code> provides poll support for a wysiwyg editor via a tab in the menu below the editor.
+This class should not be used directly but only via <code class="language-plaintext highlighter-rouge">WysiwygFormContainer</code>.
+<code class="language-plaintext highlighter-rouge">WysiwygPollFormContainer</code> contains all form fields that are required to create polls and requires edited objects to implement <code class="language-plaintext highlighter-rouge">IPollContainer</code>.</p>
+
+<p>The following methods are specific to this form container class:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">getEndTimeField()</code> returns the form field to set the end time of the poll once the form has been built.</li>
+  <li><code class="language-plaintext highlighter-rouge">getIsChangeableField()</code> returns the form field to set if poll votes can be changed once the form has been built.</li>
+  <li><code class="language-plaintext highlighter-rouge">getIsPublicField()</code> returns the form field to set if poll results are public once the form has been built.</li>
+  <li><code class="language-plaintext highlighter-rouge">getMaxVotesField()</code> returns the form field to set the maximum number of votes once the form has been built.</li>
+  <li><code class="language-plaintext highlighter-rouge">getOptionsField()</code> returns the form field to set the poll options once the form has been built.</li>
+  <li><code class="language-plaintext highlighter-rouge">getQuestionField()</code> returns the form field to set the poll question once the form has been built.</li>
+  <li><code class="language-plaintext highlighter-rouge">getResultsRequireVoteField()</code> returns the form field to set if viewing the poll results requires voting once the form has been built.</li>
+  <li><code class="language-plaintext highlighter-rouge">getSortByVotesField()</code> returns the form field to set if the results are sorted by votes once the form has been built.</li>
+</ul>
+
+<h3 id="wysiwygsmileyformcontainer"><code class="language-plaintext highlighter-rouge">WysiwygSmileyFormContainer</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">WysiwygSmileyFormContainer</code> provides smiley support for a wysiwyg editor via a tab in the menu below the editor.
+This class should not be used directly but only via <code class="language-plaintext highlighter-rouge">WysiwygFormContainer</code>.
+<code class="language-plaintext highlighter-rouge">WysiwygSmileyFormContainer</code> creates a sub-tab for each smiley category.</p>
+
+<h4 id="wysiwygsmileyformnode"><code class="language-plaintext highlighter-rouge">WysiwygSmileyFormNode</code></h4>
+
+<p><code class="language-plaintext highlighter-rouge">WysiwygSmileyFormNode</code> is contains the smilies of a specific category.
+This class should not be used directly but only via <code class="language-plaintext highlighter-rouge">WysiwygSmileyFormContainer</code>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>The following code creates a WYSIWYG editor component for a <code class="language-plaintext highlighter-rouge">message</code> object property.
+As smilies are supported by default and an attachment object type is given, the tab menu below the editor has two tabs: “Smilies” and “Attachments”.
+Additionally, mentions and quotes are supported.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">WysiwygFormContainer</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'message'</span><span class="p">)</span>
+	<span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">'foo.bar.message'</span><span class="p">)</span>
+	<span class="o">-&gt;</span><span class="na">messageObjectType</span><span class="p">(</span><span class="s1">'com.example.foo.bar'</span><span class="p">)</span>
+	<span class="o">-&gt;</span><span class="na">attachmentData</span><span class="p">(</span><span class="s1">'com.example.foo.bar'</span><span class="p">)</span>
+	<span class="o">-&gt;</span><span class="na">supportMentions</span><span class="p">()</span>
+	<span class="o">-&gt;</span><span class="na">supportQuotes</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="wysiwygformfield"><code class="language-plaintext highlighter-rouge">WysiwygFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">WysiwygFormField</code> is used for wysiwyg editor form fields.
+This class should, in general, not be used directly but only via <code class="language-plaintext highlighter-rouge">WysiwygFormContainer</code>.
+The class implements <code class="language-plaintext highlighter-rouge">IMaximumLengthFormField</code>, <code class="language-plaintext highlighter-rouge">IMinimumLengthFormField</code>, and <code class="language-plaintext highlighter-rouge">IObjectTypeFormNode</code> and requires an object type of the object type definition <code class="language-plaintext highlighter-rouge">com.woltlab.wcf.message</code>.
+The following methods are specific to this form field class:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">autosaveId($autosaveId)</code> and <code class="language-plaintext highlighter-rouge">getAutosaveId()</code> can be used enable automatically saving the current editor contents in the browser using the given id.
+An empty string signals that autosaving is disabled.</li>
+  <li><code class="language-plaintext highlighter-rouge">lastEditTime($lastEditTime)</code> and <code class="language-plaintext highlighter-rouge">getLastEditTime()</code> can be used to set the last time the contents have been edited and saved so that the JavaScript can determine if the contents stored in the browser are older or newer.
+<code class="language-plaintext highlighter-rouge">0</code> signals that no last edit time has been set.</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">supportAttachments($supportAttachments)</code> and <code class="language-plaintext highlighter-rouge">supportsAttachments()</code> can be used to set and check if the form field supports attachments.</p>
+
+    <div class="bs-callout bs-callout-warning">It is not sufficient to simply signal attachment support via these methods for attachments to work. These methods are relevant internally to signal the Javascript code that the editor supports attachments. Actual attachment support is provided by <code class="language-plaintext highlighter-rouge">WysiwygAttachmentFormField</code>.</div>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">supportMentions($supportMentions)</code> and <code class="language-plaintext highlighter-rouge">supportsMentions()</code> can be used to set and check if the form field supports mentions of other users.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">WysiwygFormField</code> objects register a <a href="php_api_form_builder-validation_data.html#customformfielddataprocessor">custom form field data processor</a> to add the relevant simple ACL data array into the <code class="language-plaintext highlighter-rouge">$parameters</code> array directly using the object property as the array key.</p>
+
+<h3 id="twysiwygformnode"><code class="language-plaintext highlighter-rouge">TWysiwygFormNode</code></h3>
+
+<p>All form nodes that need to know the id of the <code class="language-plaintext highlighter-rouge">WysiwygFormField</code> field should use <code class="language-plaintext highlighter-rouge">TWysiwygFormNode</code>.
+This trait provides <code class="language-plaintext highlighter-rouge">getWysiwygId()</code> and <code class="language-plaintext highlighter-rouge">wysiwygId($wysiwygId)</code> to get and set the relevant wysiwyg editor id.</p>
+
+<h2 id="single-use-form-fields">Single-Use Form Fields</h2>
+
+<p>The following form fields are specific for certain forms and hardly reusable in other contexts.</p>
+
+<h3 id="bbcodeattributesformfield"><code class="language-plaintext highlighter-rouge">BBCodeAttributesFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">DevtoolsProjectExcludedPackagesFormField</code> is a form field for setting the attributes of a BBCode.</p>
+
+<h3 id="devtoolsprojectexcludedpackagesformfield"><code class="language-plaintext highlighter-rouge">DevtoolsProjectExcludedPackagesFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">DevtoolsProjectExcludedPackagesFormField</code> is a form field for setting the excluded packages of a devtools project.</p>
+
+<h3 id="devtoolsprojectinstructionsformfield"><code class="language-plaintext highlighter-rouge">DevtoolsProjectInstructionsFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">DevtoolsProjectExcludedPackagesFormField</code> is a form field for setting the installation and update instructions of a devtools project.</p>
+
+<h3 id="devtoolsprojectoptionalpackagesformfield"><code class="language-plaintext highlighter-rouge">DevtoolsProjectOptionalPackagesFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">DevtoolsProjectExcludedPackagesFormField</code> is a form field for setting the optional packages of a devtools project.</p>
+
+<h3 id="devtoolsprojectrequiredpackagesformfield"><code class="language-plaintext highlighter-rouge">DevtoolsProjectRequiredPackagesFormField</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">DevtoolsProjectExcludedPackagesFormField</code> is a form field for setting the required packages of a devtools project.</p>
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footerBox">
+    <div class="container">
+      <div class="footerBoxLeft">
+        
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master/pages/php/api/formBuilder/php_api_form_builder-form_fields.md" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <p>Site last generated: Mar 2, 2021</p>
+      </div>
+      <div class="footerBoxRight">
+        <a class="no_icon" href="https://www.woltlab.com"><img src="https://docs.woltlab.com/images/woltlab-black.png" srcset="https://docs.woltlab.com/images/woltlab-black@2x.png 2x" height="40" width="204" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pageFooter">
+    <div class="container">
+      &copy; 2001 ‐ 2021 <a class="no_icon" href="https://www.woltlab.com">WoltLab GmbH</a>. All rights reserved. | <a class="no_icon" href="https://www.woltlab.com/legal-notice/">Legal Notice</a> | <a class="no_icon" href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+
+</html>

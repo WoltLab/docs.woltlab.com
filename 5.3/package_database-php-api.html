@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Database PHP API | WoltLab Suite 5.3 Documentation</title>
+
+<link rel="stylesheet" href="https://docs.woltlab.com/css/syntax.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://docs.woltlab.com/css/modern-business.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/customstyles.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/theme-blue.css?v=3">
+
+<script src="https://docs.woltlab.com/js/jquery.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.cookie.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.navgoco.min.js"></script>
+<script src="https://docs.woltlab.com/js/bootstrap.min.js"></script>
+<script src="https://docs.woltlab.com/js/anchor.min.js"></script>
+<script src="https://docs.woltlab.com/js/toc.js"></script>
+<script src="https://docs.woltlab.com/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="https://docs.woltlab.com/images/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" title="mike-test" href="https://docs.woltlab.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> WoltLab Suite 5.3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://www.woltlab.com" target="_blank">woltlab.com</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/WoltLab/WCF/" target="_blank">Code on github.com</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="https://docs.woltlab.com/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'https://docs.woltlab.com/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Database PHP API">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">WoltLab Suite 5.3</li>
+
+    
+        
+            <li>
+                <a href="#">Getting Started</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="index"><a href="index.html">Introduction</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="getting-started_quick-start"><a href="getting-started_quick-start.html">Quick Start</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">PHP API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_pages"><a href="php_pages.html">Pages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-objects"><a href="php_database-objects.html">Database Objects</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-access"><a href="php_database-access.html">Database Access</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_exceptions"><a href="php_exceptions.html">Exceptions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_caches"><a href="php_api_caches.html">Caches</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_comments"><a href="php_api_comments.html">Comments</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_cronjobs"><a href="php_api_cronjobs.html">Cronjobs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_events"><a href="php_api_events.html">Events</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_form_builder"><a href="php_api_form_builder.html">Form Builder</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_package_installation_plugins"><a href="php_api_package_installation_plugins.html">Package Installation Plugins</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_activity_points"><a href="php_api_user_activity_points.html">User Activity Points</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_notifications"><a href="php_api_user_notifications.html">User Notifications</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_sitemaps"><a href="php_api_sitemaps.html">Sitemaps</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_code-style"><a href="php_code-style.html">Code Style</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_apps"><a href="php_apps.html">Apps</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_gdpr"><a href="php_gdpr.html">GDPR</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Languages, Templates & CSS</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_languages"><a href="view_languages.html">Languages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_templates"><a href="view_templates.html">Templates</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_css"><a href="view_css.html">CSS</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">JavaScript API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_general-usage"><a href="javascript_general-usage.html">General Usage</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">New API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_writing-a-module"><a href="javascript_new-api_writing-a-module.html">Writing a module</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_data-structures"><a href="javascript_new-api_data-structures.html">Data Structures</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_core"><a href="javascript_new-api_core.html">Core Functions</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dom"><a href="javascript_new-api_dom.html">DOM</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_events"><a href="javascript_new-api_events.html">Event Handling</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ajax"><a href="javascript_new-api_ajax.html">Ajax</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dialogs"><a href="javascript_new-api_dialogs.html">Dialogs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_browser"><a href="javascript_new-api_browser.html">Browser and Screen Sizes</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ui"><a href="javascript_new-api_ui.html">User Interface</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_legacy-api"><a href="javascript_legacy-api.html">Legacy API</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_helper-functions"><a href="javascript_helper-functions.html">Helper Functions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_code-snippets"><a href="javascript_code-snippets.html">Code Snippets</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Package Components</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_package-xml"><a href="package_package-xml.html">package.xml</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_pip"><a href="package_pip.html">PIPs</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Migration</a>
+                <ul>
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 5.2</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_php"><a href="migration_wsc-52_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_templates"><a href="migration_wsc-52_templates.html">Templates and Languages</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_libraries"><a href="migration_wsc-52_libraries.html">Third Party Libraries</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-31_php"><a href="migration_wsc-31_php.html">PHP API</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.0</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_php"><a href="migration_wsc-30_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_javascript"><a href="migration_wsc-30_javascript.html">JavaScript API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_templates"><a href="migration_wsc-30_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_css"><a href="migration_wsc-30_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_package"><a href="migration_wsc-30_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WCF 2.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_php"><a href="migration_wcf-21_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_templates"><a href="migration_wcf-21_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_css"><a href="migration_wcf-21_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_package"><a href="migration_wcf-21_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Tutorials</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="tutorial_tutorial-series"><a href="tutorial_tutorial-series.html">Tutorial Series</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+    
+</ul>
+
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = 'package_pip';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Database PHP API</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+  <div class="bs-callout bs-callout-info">Available since WoltLab Suite 5.2.</div>
+
+<p>While the <a href="package_pip_sql.html">sql</a> package installation plugin supports adding and removing tables, columns, and indices, it is not able to handle cases where the added table, column, or index already exist.
+We have added a new PHP-based API to manipulate the database scheme which can be used in combination with the <a href="package_pip_script.html">script</a> package installation plugin that skips parts that already exist:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$tables</span> <span class="o">=</span> <span class="p">[</span>
+	<span class="c1">// TODO</span>
+<span class="p">];</span>
+
+<span class="p">(</span><span class="k">new</span> <span class="nx">DatabaseTableChangeProcessor</span><span class="p">(</span>
+	<span class="cd">/** @var ScriptPackageInstallationPlugin $this */</span>
+	<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">installation</span><span class="o">-&gt;</span><span class="na">getPackage</span><span class="p">(),</span>
+	<span class="nv">$tables</span><span class="p">,</span>
+	<span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getEditor</span><span class="p">())</span>
+<span class="p">)</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>All of the relevant components can be found in the <code class="language-plaintext highlighter-rouge">wcf\system\database\table</code> namespace.</p>
+
+<h2 id="database-tables">Database Tables</h2>
+
+<p>There are two classes representing database tables: <code class="language-plaintext highlighter-rouge">DatabaseTable</code> and <code class="language-plaintext highlighter-rouge">PartialDatabaseTable</code>.
+If a new table should be created, use <code class="language-plaintext highlighter-rouge">DatabaseTable</code>.
+In all other cases, <code class="language-plaintext highlighter-rouge">PartialDatabaseTable</code> should be used as it provides an additional save-guard against accidentally creating a new table by having a typo in the table name:
+If the tables does not already exist, a table represented by <code class="language-plaintext highlighter-rouge">PartialDatabaseTable</code> will cause an exception (while a <code class="language-plaintext highlighter-rouge">DatabaseTable</code> table will simply be created).</p>
+
+<p>To create a table, a <code class="language-plaintext highlighter-rouge">DatabaseTable</code> object with the table’s name as to be created and table’s columns, foreign keys and indices have to be specified:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DatabaseTable</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'foo1_bar'</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">columns</span><span class="p">([</span>
+        <span class="c1">// columns</span>
+    <span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">foreignKeys</span><span class="p">([</span>
+        <span class="c1">// foreign keys</span>
+    <span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">indices</span><span class="p">([</span>
+        <span class="c1">// indices</span>
+    <span class="p">])</span>
+</code></pre></div></div>
+
+<p>To update a table, the same code as above can be used, except for <code class="language-plaintext highlighter-rouge">PartialDatabaseTable</code> being used instead of <code class="language-plaintext highlighter-rouge">DatabaseTable</code>.</p>
+
+<p>To drop a table, only the <code class="language-plaintext highlighter-rouge">drop()</code> method has to be called:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">PartialDatabaseTable</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'foo1_bar'</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">drop</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="columns">Columns</h2>
+
+<p>To represent a column of a database table, you have to create an instance of the relevant column class found in the <code class="language-plaintext highlighter-rouge">wcf\system\database\table\column</code> namespace.
+Such instances are created similarly to database table objects using the <code class="language-plaintext highlighter-rouge">create()</code> factory method and passing the column name as the parameter.</p>
+
+<p>Every column type supports the following methods:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">defaultValue($defaultValue)</code> sets the default value of the column (default: none).</li>
+  <li><code class="language-plaintext highlighter-rouge">drop()</code> to drop the column.</li>
+  <li><code class="language-plaintext highlighter-rouge">notNull($notNull = true)</code> sets if the value of the column can be <code class="language-plaintext highlighter-rouge">NULL</code> (default: <code class="language-plaintext highlighter-rouge">false</code>).</li>
+</ul>
+
+<p>Depending on the specific column class implementing additional interfaces, the following methods are also available:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">IAutoIncrementDatabaseTableColumn::autoIncrement($autoIncrement = true)</code> sets if the value of the colum is auto-incremented.</li>
+  <li><code class="language-plaintext highlighter-rouge">IDecimalsDatabaseTableColumn::decimals($decimals)</code> sets the number of decimals the column supports.</li>
+  <li><code class="language-plaintext highlighter-rouge">IEnumDatabaseTableColumn::enumValues(array $values)</code> sets the predetermined set of valid values of the column.</li>
+  <li><code class="language-plaintext highlighter-rouge">ILengthDatabaseTableColumn::length($length)</code> sets the (maximum) length of the column.</li>
+</ul>
+
+<p>Additionally, there are some additionally classes of commonly used columns with specific properties:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">DefaultFalseBooleanDatabaseTableColumn</code> (a <code class="language-plaintext highlighter-rouge">tinyint</code> column with length <code class="language-plaintext highlighter-rouge">1</code>, default value <code class="language-plaintext highlighter-rouge">0</code> and whose values cannot be <code class="language-plaintext highlighter-rouge">null</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">DefaultTrueBooleanDatabaseTableColumn</code> (a <code class="language-plaintext highlighter-rouge">tinyint</code> column with length <code class="language-plaintext highlighter-rouge">0</code>, default value <code class="language-plaintext highlighter-rouge">0</code> and whose values cannot be <code class="language-plaintext highlighter-rouge">null</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">NotNullInt10DatabaseTableColumn</code> (a <code class="language-plaintext highlighter-rouge">int</code> column with length <code class="language-plaintext highlighter-rouge">10</code> and whose values cannot be <code class="language-plaintext highlighter-rouge">null</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">NotNullVarchar191DatabaseTableColumn</code> (a <code class="language-plaintext highlighter-rouge">varchar</code> column with length <code class="language-plaintext highlighter-rouge">191</code> and whose values cannot be <code class="language-plaintext highlighter-rouge">null</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">NotNullVarchar255DatabaseTableColumn</code> (a <code class="language-plaintext highlighter-rouge">varchar</code> column with length <code class="language-plaintext highlighter-rouge">255</code> and whose values cannot be <code class="language-plaintext highlighter-rouge">null</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">ObjectIdDatabaseTableColumn</code> (a <code class="language-plaintext highlighter-rouge">int</code> column with length <code class="language-plaintext highlighter-rouge">10</code>, whose values cannot be <code class="language-plaintext highlighter-rouge">null</code>, and whose values are auto-incremented)</li>
+</ul>
+
+<p>Examples:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DefaultFalseBooleanDatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'isDisabled'</span><span class="p">)</span>
+
+<span class="nx">NotNullInt10DatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'fooTypeID'</span><span class="p">)</span>
+
+<span class="nx">SmallintDatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'bar'</span><span class="p">)</span>
+	<span class="o">-&gt;</span><span class="na">length</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+	<span class="o">-&gt;</span><span class="na">notNull</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="foreign-keys">Foreign Keys</h2>
+
+<p>Foreign keys are represented by <code class="language-plaintext highlighter-rouge">DatabaseTableForeignKey</code> objects:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DatabaseTableForeignKey</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
+	<span class="o">-&gt;</span><span class="na">columns</span><span class="p">([</span><span class="s1">'fooID'</span><span class="p">])</span>
+	<span class="o">-&gt;</span><span class="na">referencedTable</span><span class="p">(</span><span class="s1">'wcf1_foo'</span><span class="p">)</span>
+	<span class="o">-&gt;</span><span class="na">referencedColumns</span><span class="p">([</span><span class="s1">'fooID'</span><span class="p">])</span>
+	<span class="o">-&gt;</span><span class="na">onDelete</span><span class="p">(</span><span class="s1">'CASCADE'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The supported actions for <code class="language-plaintext highlighter-rouge">onDelete()</code> and <code class="language-plaintext highlighter-rouge">onUpdate()</code> are <code class="language-plaintext highlighter-rouge">CASCADE</code>, <code class="language-plaintext highlighter-rouge">NO ACTION</code>, and <code class="language-plaintext highlighter-rouge">SET NULL</code>.
+To drop a foreign key, all of the relevant data to create the foreign key has to be present and the <code class="language-plaintext highlighter-rouge">drop()</code> method has to be called.</p>
+
+<p><code class="language-plaintext highlighter-rouge">DatabaseTableForeignKey::create()</code> also supports the foreign key name as a parameter.
+If it is not present, <code class="language-plaintext highlighter-rouge">DatabaseTable::foreignKeys()</code> will automatically set one based on the foreign key’s data.</p>
+
+<h2 id="indices">Indices</h2>
+
+<p>Indices are represented by <code class="language-plaintext highlighter-rouge">DatabaseTableIndex</code> objects:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DatabaseTableIndex</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
+	<span class="o">-&gt;</span><span class="na">type</span><span class="p">(</span><span class="nx">DatabaseTableIndex</span><span class="o">::</span><span class="na">UNIQUE_TYPE</span><span class="p">)</span>
+	<span class="o">-&gt;</span><span class="na">columns</span><span class="p">([</span><span class="s1">'fooID'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>There are four different types: <code class="language-plaintext highlighter-rouge">DatabaseTableIndex::DEFAULT_TYPE</code> (default), <code class="language-plaintext highlighter-rouge">DatabaseTableIndex::PRIMARY_TYPE</code>, <code class="language-plaintext highlighter-rouge">DatabaseTableIndex::UNIQUE_TYPE</code>, and <code class="language-plaintext highlighter-rouge">DatabaseTableIndex::FULLTEXT_TYPE</code>.
+For primary keys, there is also the <code class="language-plaintext highlighter-rouge">DatabaseTablePrimaryIndex</code> class which automatically sets the type to <code class="language-plaintext highlighter-rouge">DatabaseTableIndex::PRIMARY_TYPE</code>.
+To drop a index, all of the relevant data to create the index has to be present and the <code class="language-plaintext highlighter-rouge">drop()</code> method has to be called.</p>
+
+<p><code class="language-plaintext highlighter-rouge">DatabaseTableIndex::create()</code> also supports the index name as a parameter.
+If it is not present, <code class="language-plaintext highlighter-rouge">DatabaseTable::indices()</code> will automatically set one based on the index data.</p>
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footerBox">
+    <div class="container">
+      <div class="footerBoxLeft">
+        
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master/pages/package/package_database-php-api.md" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <p>Site last generated: Mar 2, 2021</p>
+      </div>
+      <div class="footerBoxRight">
+        <a class="no_icon" href="https://www.woltlab.com"><img src="https://docs.woltlab.com/images/woltlab-black.png" srcset="https://docs.woltlab.com/images/woltlab-black@2x.png 2x" height="40" width="204" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pageFooter">
+    <div class="container">
+      &copy; 2001 ‐ 2021 <a class="no_icon" href="https://www.woltlab.com">WoltLab GmbH</a>. All rights reserved. | <a class="no_icon" href="https://www.woltlab.com/legal-notice/">Legal Notice</a> | <a class="no_icon" href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+
+</html>

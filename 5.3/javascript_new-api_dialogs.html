@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Dialogs - JavaScript API | WoltLab Suite 5.3 Documentation</title>
+
+<link rel="stylesheet" href="https://docs.woltlab.com/css/syntax.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://docs.woltlab.com/css/modern-business.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/customstyles.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/theme-blue.css?v=3">
+
+<script src="https://docs.woltlab.com/js/jquery.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.cookie.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.navgoco.min.js"></script>
+<script src="https://docs.woltlab.com/js/bootstrap.min.js"></script>
+<script src="https://docs.woltlab.com/js/anchor.min.js"></script>
+<script src="https://docs.woltlab.com/js/toc.js"></script>
+<script src="https://docs.woltlab.com/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="https://docs.woltlab.com/images/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" title="mike-test" href="https://docs.woltlab.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> WoltLab Suite 5.3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://www.woltlab.com" target="_blank">woltlab.com</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/WoltLab/WCF/" target="_blank">Code on github.com</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="https://docs.woltlab.com/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'https://docs.woltlab.com/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Dialogs - JavaScript API">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">WoltLab Suite 5.3</li>
+
+    
+        
+            <li>
+                <a href="#">Getting Started</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="index"><a href="index.html">Introduction</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="getting-started_quick-start"><a href="getting-started_quick-start.html">Quick Start</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">PHP API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_pages"><a href="php_pages.html">Pages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-objects"><a href="php_database-objects.html">Database Objects</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-access"><a href="php_database-access.html">Database Access</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_exceptions"><a href="php_exceptions.html">Exceptions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_caches"><a href="php_api_caches.html">Caches</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_comments"><a href="php_api_comments.html">Comments</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_cronjobs"><a href="php_api_cronjobs.html">Cronjobs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_events"><a href="php_api_events.html">Events</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_form_builder"><a href="php_api_form_builder.html">Form Builder</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_package_installation_plugins"><a href="php_api_package_installation_plugins.html">Package Installation Plugins</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_activity_points"><a href="php_api_user_activity_points.html">User Activity Points</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_notifications"><a href="php_api_user_notifications.html">User Notifications</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_sitemaps"><a href="php_api_sitemaps.html">Sitemaps</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_code-style"><a href="php_code-style.html">Code Style</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_apps"><a href="php_apps.html">Apps</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_gdpr"><a href="php_gdpr.html">GDPR</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Languages, Templates & CSS</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_languages"><a href="view_languages.html">Languages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_templates"><a href="view_templates.html">Templates</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_css"><a href="view_css.html">CSS</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">JavaScript API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_general-usage"><a href="javascript_general-usage.html">General Usage</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">New API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_writing-a-module"><a href="javascript_new-api_writing-a-module.html">Writing a module</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_data-structures"><a href="javascript_new-api_data-structures.html">Data Structures</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_core"><a href="javascript_new-api_core.html">Core Functions</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dom"><a href="javascript_new-api_dom.html">DOM</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_events"><a href="javascript_new-api_events.html">Event Handling</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ajax"><a href="javascript_new-api_ajax.html">Ajax</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li class="active" data-identifier="javascript_new-api_dialogs"><a href="javascript_new-api_dialogs.html">Dialogs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_browser"><a href="javascript_new-api_browser.html">Browser and Screen Sizes</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ui"><a href="javascript_new-api_ui.html">User Interface</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_legacy-api"><a href="javascript_legacy-api.html">Legacy API</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_helper-functions"><a href="javascript_helper-functions.html">Helper Functions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_code-snippets"><a href="javascript_code-snippets.html">Code Snippets</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Package Components</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_package-xml"><a href="package_package-xml.html">package.xml</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_pip"><a href="package_pip.html">PIPs</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Migration</a>
+                <ul>
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 5.2</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_php"><a href="migration_wsc-52_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_templates"><a href="migration_wsc-52_templates.html">Templates and Languages</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_libraries"><a href="migration_wsc-52_libraries.html">Third Party Libraries</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-31_php"><a href="migration_wsc-31_php.html">PHP API</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.0</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_php"><a href="migration_wsc-30_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_javascript"><a href="migration_wsc-30_javascript.html">JavaScript API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_templates"><a href="migration_wsc-30_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_css"><a href="migration_wsc-30_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_package"><a href="migration_wsc-30_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WCF 2.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_php"><a href="migration_wcf-21_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_templates"><a href="migration_wcf-21_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_css"><a href="migration_wcf-21_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_package"><a href="migration_wcf-21_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Tutorials</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="tutorial_tutorial-series"><a href="tutorial_tutorial-series.html">Tutorial Series</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+    
+</ul>
+
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = '';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Dialogs - JavaScript API</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+  <h2 id="introduction">Introduction</h2>
+
+<p>Dialogs are full screen overlays that cover the currently visible window area
+using a semi-opague backdrop and a prominently placed dialog window in the
+foreground. They shift the attention away from the original content towards the
+dialog and usually contain additional details and/or dedicated form inputs.</p>
+
+<h2 id="_dialogsetup"><code class="language-plaintext highlighter-rouge">_dialogSetup()</code></h2>
+
+<p>The lazy initialization is performed upon the first invocation from the callee,
+using the magic <code class="language-plaintext highlighter-rouge">_dialogSetup()</code> method to retrieve the basic configuration for
+the dialog construction and any event callbacks.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// App/Foo.js</span>
+<span class="nx">define</span><span class="p">([</span><span class="dl">"</span><span class="s2">Ui/Dialog</span><span class="dl">"</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">UiDialog</span><span class="p">)</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">use strict</span><span class="dl">"</span><span class="p">;</span>
+
+  <span class="kd">function</span> <span class="nx">Foo</span><span class="p">()</span> <span class="p">{};</span>
+  <span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">bar</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// this will open the dialog constructed by _dialogSetup</span>
+      <span class="nx">UiDialog</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="p">},</span>
+
+    <span class="na">_dialogSetup</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">"</span><span class="s2">myDialog</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">source</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;p&gt;Hello World!&lt;/p&gt;</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">onClose</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="c1">// the fancy dialog was closed!</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="k">return</span> <span class="nx">Foo</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="id-string"><code class="language-plaintext highlighter-rouge">id: string</code></h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">id</code> is used to identify a dialog on runtime, but is also part of the first-
+time setup when the dialog has not been opened before. If <code class="language-plaintext highlighter-rouge">source</code> is <code class="language-plaintext highlighter-rouge">undefined</code>,
+the module attempts to construct the dialog using an element with the same id.</p>
+
+<h3 id="source-any"><code class="language-plaintext highlighter-rouge">source: any</code></h3>
+
+<p>There are six different types of value that <code class="language-plaintext highlighter-rouge">source</code> does allow and each of them
+changes how the initial dialog is constructed:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">undefined</code><br />
+  The dialog exists already and the value of <code class="language-plaintext highlighter-rouge">id</code> should be used to identify the
+  element.</li>
+  <li><code class="language-plaintext highlighter-rouge">null</code><br />
+  The HTML is provided using the second argument of <code class="language-plaintext highlighter-rouge">.open()</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">() =&gt; void</code><br />
+  If the <code class="language-plaintext highlighter-rouge">source</code> is a function, it is executed and is expected to start the
+  dialog initialization itself.</li>
+  <li><code class="language-plaintext highlighter-rouge">Object</code><br />
+  Plain objects are interpreted as parameters for an Ajax request, in particular
+  <code class="language-plaintext highlighter-rouge">source.data</code> will be used to issue the request. It is possible to specify the
+  key <code class="language-plaintext highlighter-rouge">source.after</code> as a callback <code class="language-plaintext highlighter-rouge">(content: Element, responseData: Object) =&gt; void</code>
+  that is executed after the dialog was opened.</li>
+  <li><code class="language-plaintext highlighter-rouge">string</code><br />
+  The string is expected to be plain HTML that should be used to construct the
+  dialog.</li>
+  <li><code class="language-plaintext highlighter-rouge">DocumentFragment</code><br />
+  A new container <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code> with the provided <code class="language-plaintext highlighter-rouge">id</code> is created and the contents of
+  the <code class="language-plaintext highlighter-rouge">DocumentFragment</code> is appended to it. This container is then used for the
+  dialog.</li>
+</ol>
+
+<h3 id="options-object"><code class="language-plaintext highlighter-rouge">options: Object</code></h3>
+
+<p>All configuration options and callbacks are handled through this object.</p>
+
+<h4 id="optionsbackdropcloseonclick-boolean"><code class="language-plaintext highlighter-rouge">options.backdropCloseOnClick: boolean</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">true</code>.</em></p>
+
+<p>Clicks on the dialog backdrop will close the top-most dialog. This option will
+be force-disabled if the option <code class="language-plaintext highlighter-rouge">closeable</code> is set to <code class="language-plaintext highlighter-rouge">false</code>.</p>
+
+<h4 id="optionsclosable-boolean"><code class="language-plaintext highlighter-rouge">options.closable: boolean</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">true</code>.</em></p>
+
+<p>Enables the close button in the dialog title, when disabled the dialog can be
+closed through the <code class="language-plaintext highlighter-rouge">.close()</code> API call only.</p>
+
+<h4 id="optionsclosebuttonlabel-string"><code class="language-plaintext highlighter-rouge">options.closeButtonLabel: string</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">Language.get("wcf.global.button.close")</code>.</em></p>
+
+<p>The phrase that is displayed in the tooltip for the close button.</p>
+
+<h4 id="optionscloseconfirmmessage-string"><code class="language-plaintext highlighter-rouge">options.closeConfirmMessage: string</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">""</code>.</em></p>
+
+<p>Shows a <a href="javascript_new-api_ui.html">confirmation dialog</a> using the configured message
+before closing the dialog. The dialog will not be closed if the dialog is
+rejected by the user.</p>
+
+<h4 id="optionstitle-string"><code class="language-plaintext highlighter-rouge">options.title: string</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">""</code>.</em></p>
+
+<p>The phrase that is displayed in the dialog title.</p>
+
+<h4 id="optionsonbeforeclose-id-string--void"><code class="language-plaintext highlighter-rouge">options.onBeforeClose: (id: string) =&gt; void</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">null</code>.</em></p>
+
+<p>The callback is executed when the user clicks on the close button or, if enabled,
+on the backdrop. The callback is responsible to close the dialog by itself, the
+default close behavior is automatically prevented.</p>
+
+<h4 id="optionsonclose-id-string--void"><code class="language-plaintext highlighter-rouge">options.onClose: (id: string) =&gt; void</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">null</code>.</em></p>
+
+<p>The callback is notified once the dialog is about to be closed, but is still
+visible at this point. It is not possible to abort the close operation at this
+point.</p>
+
+<h4 id="optionsonshow-content-element--void"><code class="language-plaintext highlighter-rouge">options.onShow: (content: Element) =&gt; void</code></h4>
+
+<p><em>Defaults to <code class="language-plaintext highlighter-rouge">null</code>.</em></p>
+
+<p>Receives the dialog content element as its only argument, allowing the callback
+to modify the DOM or to register event listeners before the dialog is presented
+to the user. The dialog is already visible at call time, but the dialog has not
+been finalized yet.</p>
+
+<h2 id="settitleid-string--object-title-string"><code class="language-plaintext highlighter-rouge">setTitle(id: string | Object, title: string)</code></h2>
+
+<p>Sets the title of a dialog.</p>
+
+<h2 id="setcallbackid-string--object-key-string-value-data-any--void--null"><code class="language-plaintext highlighter-rouge">setCallback(id: string | Object, key: string, value: (data: any) =&gt; void | null)</code></h2>
+
+<p>Sets a callback function after the dialog initialization, the special value
+<code class="language-plaintext highlighter-rouge">null</code> will remove a previously set callback. Valid values for <code class="language-plaintext highlighter-rouge">key</code> are
+<code class="language-plaintext highlighter-rouge">onBeforeClose</code>, <code class="language-plaintext highlighter-rouge">onClose</code> and <code class="language-plaintext highlighter-rouge">onShow</code>.</p>
+
+<h2 id="rebuildid-string--object"><code class="language-plaintext highlighter-rouge">rebuild(id: string | Object)</code></h2>
+
+<p>Rebuilds a dialog by performing various calculations on the maximum dialog
+height in regards to the overflow handling and adjustments for embedded forms.
+This method is automatically invoked whenever a dialog is shown, after invoking
+the <code class="language-plaintext highlighter-rouge">options.onShow</code> callback.</p>
+
+<h2 id="closeid-string--object"><code class="language-plaintext highlighter-rouge">close(id: string | Object)</code></h2>
+
+<p>Closes an open dialog, this will neither trigger a confirmation dialog, nor does
+it invoke the <code class="language-plaintext highlighter-rouge">options.onBeforeClose</code> callback. The <code class="language-plaintext highlighter-rouge">options.onClose</code> callback
+will always be invoked, but it cannot abort the close operation.</p>
+
+<h2 id="getdialogid-string--object-object"><code class="language-plaintext highlighter-rouge">getDialog(id: string | Object): Object</code></h2>
+
+<div class="bs-callout bs-callout-warning">This method returns an internal data object by reference, any modifications made do have an effect on the dialogs behavior and in particular no validation is performed on the modification. It is strongly recommended to use the <code class="language-plaintext highlighter-rouge">.set*()</code> methods only.</div>
+
+<p>Returns the internal dialog data that is attached to a dialog. The most important
+key is <code class="language-plaintext highlighter-rouge">.content</code> which holds a reference to the dialog’s inner content element.</p>
+
+<h2 id="isopenid-string--object-boolean"><code class="language-plaintext highlighter-rouge">isOpen(id: string | Object): boolean</code></h2>
+
+<p>Returns true if the dialog exists and is open.</p>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footerBox">
+    <div class="container">
+      <div class="footerBoxLeft">
+        
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master/pages/javascript/javascript_new-api_dialogs.md" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <p>Site last generated: Mar 2, 2021</p>
+      </div>
+      <div class="footerBoxRight">
+        <a class="no_icon" href="https://www.woltlab.com"><img src="https://docs.woltlab.com/images/woltlab-black.png" srcset="https://docs.woltlab.com/images/woltlab-black@2x.png 2x" height="40" width="204" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pageFooter">
+    <div class="container">
+      &copy; 2001 ‐ 2021 <a class="no_icon" href="https://www.woltlab.com">WoltLab GmbH</a>. All rights reserved. | <a class="no_icon" href="https://www.woltlab.com/legal-notice/">Legal Notice</a> | <a class="no_icon" href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+
+</html>

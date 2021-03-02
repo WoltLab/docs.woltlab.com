@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Template Plugins | WoltLab Suite 5.3 Documentation</title>
+
+<link rel="stylesheet" href="https://docs.woltlab.com/css/syntax.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://docs.woltlab.com/css/modern-business.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/customstyles.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/theme-blue.css?v=3">
+
+<script src="https://docs.woltlab.com/js/jquery.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.cookie.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.navgoco.min.js"></script>
+<script src="https://docs.woltlab.com/js/bootstrap.min.js"></script>
+<script src="https://docs.woltlab.com/js/anchor.min.js"></script>
+<script src="https://docs.woltlab.com/js/toc.js"></script>
+<script src="https://docs.woltlab.com/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="https://docs.woltlab.com/images/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" title="mike-test" href="https://docs.woltlab.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> WoltLab Suite 5.3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://www.woltlab.com" target="_blank">woltlab.com</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/WoltLab/WCF/" target="_blank">Code on github.com</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="https://docs.woltlab.com/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'https://docs.woltlab.com/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Template Plugins">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">WoltLab Suite 5.3</li>
+
+    
+        
+            <li>
+                <a href="#">Getting Started</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="index"><a href="index.html">Introduction</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="getting-started_quick-start"><a href="getting-started_quick-start.html">Quick Start</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">PHP API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_pages"><a href="php_pages.html">Pages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-objects"><a href="php_database-objects.html">Database Objects</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-access"><a href="php_database-access.html">Database Access</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_exceptions"><a href="php_exceptions.html">Exceptions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_caches"><a href="php_api_caches.html">Caches</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_comments"><a href="php_api_comments.html">Comments</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_cronjobs"><a href="php_api_cronjobs.html">Cronjobs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_events"><a href="php_api_events.html">Events</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_form_builder"><a href="php_api_form_builder.html">Form Builder</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_package_installation_plugins"><a href="php_api_package_installation_plugins.html">Package Installation Plugins</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_activity_points"><a href="php_api_user_activity_points.html">User Activity Points</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_notifications"><a href="php_api_user_notifications.html">User Notifications</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_sitemaps"><a href="php_api_sitemaps.html">Sitemaps</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_code-style"><a href="php_code-style.html">Code Style</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_apps"><a href="php_apps.html">Apps</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_gdpr"><a href="php_gdpr.html">GDPR</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Languages, Templates & CSS</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_languages"><a href="view_languages.html">Languages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_templates"><a href="view_templates.html">Templates</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_css"><a href="view_css.html">CSS</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">JavaScript API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_general-usage"><a href="javascript_general-usage.html">General Usage</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">New API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_writing-a-module"><a href="javascript_new-api_writing-a-module.html">Writing a module</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_data-structures"><a href="javascript_new-api_data-structures.html">Data Structures</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_core"><a href="javascript_new-api_core.html">Core Functions</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dom"><a href="javascript_new-api_dom.html">DOM</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_events"><a href="javascript_new-api_events.html">Event Handling</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ajax"><a href="javascript_new-api_ajax.html">Ajax</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dialogs"><a href="javascript_new-api_dialogs.html">Dialogs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_browser"><a href="javascript_new-api_browser.html">Browser and Screen Sizes</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ui"><a href="javascript_new-api_ui.html">User Interface</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_legacy-api"><a href="javascript_legacy-api.html">Legacy API</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_helper-functions"><a href="javascript_helper-functions.html">Helper Functions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_code-snippets"><a href="javascript_code-snippets.html">Code Snippets</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Package Components</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_package-xml"><a href="package_package-xml.html">package.xml</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_pip"><a href="package_pip.html">PIPs</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Migration</a>
+                <ul>
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 5.2</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_php"><a href="migration_wsc-52_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_templates"><a href="migration_wsc-52_templates.html">Templates and Languages</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_libraries"><a href="migration_wsc-52_libraries.html">Third Party Libraries</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-31_php"><a href="migration_wsc-31_php.html">PHP API</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.0</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_php"><a href="migration_wsc-30_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_javascript"><a href="migration_wsc-30_javascript.html">JavaScript API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_templates"><a href="migration_wsc-30_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_css"><a href="migration_wsc-30_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_package"><a href="migration_wsc-30_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WCF 2.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_php"><a href="migration_wcf-21_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_templates"><a href="migration_wcf-21_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_css"><a href="migration_wcf-21_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_package"><a href="migration_wcf-21_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Tutorials</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="tutorial_tutorial-series"><a href="tutorial_tutorial-series.html">Tutorial Series</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+    
+</ul>
+
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = 'view_templates';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Template Plugins</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+  <h2 id="53-anchor"><span class="label label-info">5.3+</span> <code class="language-plaintext highlighter-rouge">anchor</code></h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">anchor</code> template plugin creates <code class="language-plaintext highlighter-rouge">a</code> HTML elements.
+The easiest way to use the template plugin is to pass it an instance of <code class="language-plaintext highlighter-rouge">ITitledLinkObject</code>:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">anchor</span> <span class="na">object</span><span class="o">=</span><span class="nv">$object</span><span class="k">}</span>
+</code></pre></div></div>
+
+<p>generates the same output as</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="o">()</span><span class="k">}</span><span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<p>Instead of an <code class="language-plaintext highlighter-rouge">object</code> parameter, a <code class="language-plaintext highlighter-rouge">link</code> and <code class="language-plaintext highlighter-rouge">content</code> parameter can be used:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">anchor</span> <span class="na">link</span><span class="o">=</span><span class="nv">$linkObject</span> <span class="na">content</span><span class="o">=</span><span class="nv">$content</span><span class="k">}</span>
+</code></pre></div></div>
+
+<p>where <code class="language-plaintext highlighter-rouge">$linkObject</code> implements <code class="language-plaintext highlighter-rouge">ILinkableObject</code> and <code class="language-plaintext highlighter-rouge">$content</code> is either an object implementing <code class="language-plaintext highlighter-rouge">ITitledObject</code> or having a <code class="language-plaintext highlighter-rouge">__toString()</code> method or <code class="language-plaintext highlighter-rouge">$content</code> is a string or a number.</p>
+
+<p>The last special attribute is <code class="language-plaintext highlighter-rouge">append</code> whose contents are appended to the <code class="language-plaintext highlighter-rouge">href</code> attribute of the generated anchor element.</p>
+
+<p>All of the other attributes matching <code class="language-plaintext highlighter-rouge">~^[a-z]+([A-z]+)+$~</code>, expect for <code class="language-plaintext highlighter-rouge">href</code> which is disallowed, are added as attributes to the anchor element.</p>
+
+<p>If an <code class="language-plaintext highlighter-rouge">object</code> attribute is present, the object also implements <code class="language-plaintext highlighter-rouge">IPopoverObject</code> and if the return value of <code class="language-plaintext highlighter-rouge">IPopoverObject::getPopoverLinkClass()</code> is included in the <code class="language-plaintext highlighter-rouge">class</code> attribute of the <code class="language-plaintext highlighter-rouge">anchor</code> tag, <code class="language-plaintext highlighter-rouge">data-object-id</code> is automatically added.
+This functionality makes it easy to generate links with popover support.
+Instead of</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="k">}</span><span class="s">"</span> <span class="na">class=</span><span class="s">"blogEntryLink"</span> <span class="na">data-object-id=</span><span class="s">"{@$entry-&gt;entryID}"</span><span class="nt">&gt;</span><span class="k">{</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">subject</span><span class="k">}</span><span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<p>using</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">anchor</span> <span class="na">object</span><span class="o">=</span><span class="nv">$entry</span> <span class="na">class</span><span class="o">=</span><span class="s1">'blogEntryLink'</span><span class="k">}</span>
+</code></pre></div></div>
+
+<p>is sufficient if <code class="language-plaintext highlighter-rouge">Entry::getPopoverLinkClass()</code> returns <code class="language-plaintext highlighter-rouge">blogEntryLink</code>.</p>
+
+<h2 id="53-anchorattributes"><span class="label label-info">5.3+</span> <code class="language-plaintext highlighter-rouge">anchorAttributes</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">anchorAttributes</code> compliments the <code class="language-plaintext highlighter-rouge">StringUtil::getAnchorTagAttributes(string, bool): string</code> method.
+It allows to easily generate the necessary attributes for an anchor tag based off the destination URL.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://www.example.com"</span> <span class="k">{</span><span class="na">anchorAttributes</span> <span class="na">url</span><span class="o">=</span><span class="s1">'https://www.example.com'</span> <span class="na">appendHref</span><span class="o">=</span><span class="kc">false</span> <span class="na">appendClassname</span><span class="o">=</span><span class="kc">true</span> <span class="na">isUgc</span><span class="o">=</span><span class="kc">true</span><span class="k">}</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">url</code></td>
+      <td>destination URL</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">appendHref</code></td>
+      <td>whether the <code class="language-plaintext highlighter-rouge">href</code> attribute should be generated; <code class="language-plaintext highlighter-rouge">true</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">isUgc</code></td>
+      <td>whether the <code class="language-plaintext highlighter-rouge">rel="ugc"</code> attribute should be generated; <code class="language-plaintext highlighter-rouge">false</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">appendClassname</code></td>
+      <td>whether the <code class="language-plaintext highlighter-rouge">class="externalURL"</code> attribute should be generated; <code class="language-plaintext highlighter-rouge">true</code> by default</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="append"><code class="language-plaintext highlighter-rouge">append</code></h2>
+
+<p>If a string should be appended to the value of a variable, <code class="language-plaintext highlighter-rouge">append</code> can be used:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">'newValue'</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nv">$templateVariable</span><span class="k">}</span> <span class="c">{* prints 'newValue *}</span>
+
+<span class="k">{</span><span class="nb">append</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">'2'</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nv">$templateVariable</span><span class="k">}</span> <span class="c">{* now prints 'newValue2 *}</span>
+</code></pre></div></div>
+
+<p>If the variables does not exist yet, <code class="language-plaintext highlighter-rouge">append</code> creates a new one with the given value.
+If <code class="language-plaintext highlighter-rouge">append</code> is used on an array as the variable, the value is appended to all elements of the array.</p>
+
+<h2 id="assign"><code class="language-plaintext highlighter-rouge">assign</code></h2>
+
+<p>New template variables can be declared and new values can be assigned to existing template variables using <code class="language-plaintext highlighter-rouge">assign</code>:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">'newValue'</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nv">$templateVariable</span><span class="k">}</span> <span class="c">{* prints 'newValue *}</span>
+</code></pre></div></div>
+
+<h2 id="capture"><code class="language-plaintext highlighter-rouge">capture</code></h2>
+
+<p>In some situations, <code class="language-plaintext highlighter-rouge">assign</code> is not sufficient to assign values to variables in templates if the value is complex.
+Instead, <code class="language-plaintext highlighter-rouge">capture</code> can be used:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">capture</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span><span class="k">}</span>
+	<span class="k">{</span><span class="nb">if</span> <span class="nv">$foo</span><span class="k">}</span>
+		<span class="nt">&lt;p&gt;</span><span class="k">{</span><span class="nv">$bar</span><span class="k">}</span><span class="nt">&lt;/p&gt;</span>
+	<span class="k">{</span><span class="nb">else</span><span class="k">}</span>
+		<span class="nt">&lt;small&gt;</span><span class="k">{</span><span class="nv">$baz</span><span class="k">}</span><span class="nt">&lt;/small&gt;</span>
+	<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+<span class="k">{/</span><span class="nb">capture</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h2 id="concat"><code class="language-plaintext highlighter-rouge">concat</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">concat</code> is a modifier used to concatenate multiple strings:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">foo</span> <span class="na">value</span><span class="o">=</span><span class="s1">'foo'</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nb">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">'bar'</span><span class="o">|</span><span class="na">concat</span><span class="o">:</span><span class="nv">$foo</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nv">$templateVariable</span><span class="k">}</span> <span class="c">{* prints 'foobar *}</span>
+</code></pre></div></div>
+
+<h2 id="counter"><code class="language-plaintext highlighter-rouge">counter</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">counter</code> can be used to generate and optionally print a counter:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">counter</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCounter</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span><span class="k">}</span> <span class="c">{* prints '1' *}</span>
+
+<span class="k">{</span><span class="nb">counter</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCounter</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span><span class="k">}</span> <span class="c">{* prints '2' now *}</span>
+
+<span class="k">{</span><span class="nb">counter</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCounter</span><span class="k">}</span> <span class="c">{* prints nothing, but counter value is '3' now internally *}</span>
+
+<span class="k">{</span><span class="nb">counter</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCounter</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span><span class="k">}</span> <span class="c">{* prints '4' *}</span>
+</code></pre></div></div>
+
+<p>Counter supports the following attributes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">assign</code></td>
+      <td>optional name of the template variable the current counter value is assigned to</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">direction</code></td>
+      <td>counting direction, either <code class="language-plaintext highlighter-rouge">up</code> or <code class="language-plaintext highlighter-rouge">down</code>; <code class="language-plaintext highlighter-rouge">up</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td>name of the counter, relevant if multiple counters are used simultaneously</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">print</code></td>
+      <td>if <code class="language-plaintext highlighter-rouge">true</code>, the current counter value is printed; <code class="language-plaintext highlighter-rouge">false</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">skip</code></td>
+      <td>positive counting increment; <code class="language-plaintext highlighter-rouge">1</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">start</code></td>
+      <td>start counter value; <code class="language-plaintext highlighter-rouge">1</code> by default</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="currency"><code class="language-plaintext highlighter-rouge">currency</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">currency</code> is a modifier used to format currency values with two decimals using language dependent thousands separators and decimal point:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">currencyValue</span> <span class="na">value</span><span class="o">=</span><span class="m">12.345</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nv">$currencyValue</span><span class="o">|</span><span class="na">currency</span><span class="k">}</span> <span class="c">{* prints '12.34' *}</span>
+</code></pre></div></div>
+
+<h2 id="cycle"><code class="language-plaintext highlighter-rouge">cycle</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">cycle</code> can be used to cycle between different values:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">cycle</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCycle</span> <span class="na">values</span><span class="o">=</span><span class="s1">'bar,baz'</span><span class="k">}</span> <span class="c">{* prints 'bar' *}</span>
+
+<span class="k">{</span><span class="nb">cycle</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCycle</span><span class="k">}</span> <span class="c">{* prints 'baz' *}</span>
+
+<span class="k">{</span><span class="nb">cycle</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCycle</span> <span class="na">advance</span><span class="o">=</span><span class="kc">false</span><span class="k">}</span> <span class="c">{* prints 'baz' again *}</span>
+
+<span class="k">{</span><span class="nb">cycle</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCycle</span><span class="k">}</span> <span class="c">{* prints 'bar' *}</span>
+</code></pre></div></div>
+
+<div class="bs-callout bs-callout-info">The values attribute only has to be present for the first call. If <code class="language-plaintext highlighter-rouge">cycle</code> is used in a loop, the presence of the same values in consecutive calls has no effect. Only once the values change, the cycle is reset.</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">advance</code></td>
+      <td>if <code class="language-plaintext highlighter-rouge">true</code>, the current cycle value is advanced to the next value; <code class="language-plaintext highlighter-rouge">true</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">assign</code></td>
+      <td>optional name of the template variable the current cycle value is assigned to; if used, <code class="language-plaintext highlighter-rouge">print</code> is set to <code class="language-plaintext highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">delimiter</code></td>
+      <td>delimiter between the different cycle values; <code class="language-plaintext highlighter-rouge">,</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td>name of the cycle, relevant if multiple cycles are used simultaneously</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">print</code></td>
+      <td>if <code class="language-plaintext highlighter-rouge">true</code>, the current cycle value is printed, <code class="language-plaintext highlighter-rouge">false</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">reset</code></td>
+      <td>if <code class="language-plaintext highlighter-rouge">true</code>, the current cycle value is set to the first value, <code class="language-plaintext highlighter-rouge">false</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">values</code></td>
+      <td>string containing the different cycles values, also see <code class="language-plaintext highlighter-rouge">delimiter</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="date"><code class="language-plaintext highlighter-rouge">date</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">date</code> generated a formatted date using <code class="language-plaintext highlighter-rouge">wcf\util\DateUtil::format()</code> with <code class="language-plaintext highlighter-rouge">DateUtil::DATE_FORMAT</code> internally.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nv">$timestamp</span><span class="o">|</span><span class="na">date</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h2 id="31-dateinterval"><span class="label label-info">3.1+</span> <code class="language-plaintext highlighter-rouge">dateInterval</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">dateInterval</code> calculates the difference between two unix timestamps and generated a textual date interval.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">dateInterval</span> <span class="na">start</span><span class="o">=</span><span class="nv">$startTimestamp</span> <span class="na">end</span><span class="o">=</span><span class="nv">$endTimestamp</span> <span class="na">full</span><span class="o">=</span><span class="kc">true</span> <span class="na">format</span><span class="o">=</span><span class="s1">'sentence'</span><span class="k">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">end</code></td>
+      <td>end of the time interval; current timestamp by default (though either <code class="language-plaintext highlighter-rouge">start</code> or <code class="language-plaintext highlighter-rouge">end</code> has to be set)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">format</code></td>
+      <td>output format, either <code class="language-plaintext highlighter-rouge">default</code>, <code class="language-plaintext highlighter-rouge">sentence</code>, or <code class="language-plaintext highlighter-rouge">plain</code>; defaults to <code class="language-plaintext highlighter-rouge">default</code>, see <code class="language-plaintext highlighter-rouge">wcf\util\DateUtil::FORMAT_*</code> constants</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">full</code></td>
+      <td>if <code class="language-plaintext highlighter-rouge">true</code>, full difference in minutes is shown; if <code class="language-plaintext highlighter-rouge">false</code>, only the longest time interval is shown; <code class="language-plaintext highlighter-rouge">false</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">start</code></td>
+      <td>start of the time interval; current timestamp by default (though either <code class="language-plaintext highlighter-rouge">start</code> or <code class="language-plaintext highlighter-rouge">end</code> has to be set)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="encodejs"><code class="language-plaintext highlighter-rouge">encodeJS</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">encodeJS</code> encodes a string to be used as a single-quoted string in JavaScript by replacing <code class="language-plaintext highlighter-rouge">\\</code> with <code class="language-plaintext highlighter-rouge">\\\\</code>, <code class="language-plaintext highlighter-rouge">'</code> with <code class="language-plaintext highlighter-rouge">\'</code>, linebreaks with <code class="language-plaintext highlighter-rouge">\n</code>, and <code class="language-plaintext highlighter-rouge">/</code> with <code class="language-plaintext highlighter-rouge">\/</code>.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span>
+	<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">{@$foo|encodeJS}</span><span class="dl">'</span><span class="p">;</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<h2 id="encodejson"><code class="language-plaintext highlighter-rouge">encodeJSON</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">encodeJSON</code> encodes a JSON string to be used as a single-quoted string in JavaScript by replacing <code class="language-plaintext highlighter-rouge">\\</code> with <code class="language-plaintext highlighter-rouge">\\\\</code>, <code class="language-plaintext highlighter-rouge">'</code> with <code class="language-plaintext highlighter-rouge">&amp;#39;</code>, linebreaks with <code class="language-plaintext highlighter-rouge">\n</code>, and <code class="language-plaintext highlighter-rouge">/</code> with <code class="language-plaintext highlighter-rouge">\/</code>.
+Additionally, <code class="language-plaintext highlighter-rouge">htmlspecialchars</code> is applied to the string.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'{@$foo|encodeJSON}'
+</code></pre></div></div>
+
+<h2 id="escapecdata"><code class="language-plaintext highlighter-rouge">escapeCDATA</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">escapeCDATA</code> encodes a string to be used in a <code class="language-plaintext highlighter-rouge">CDATA</code> element by replacing <code class="language-plaintext highlighter-rouge">]]&gt;</code> with <code class="language-plaintext highlighter-rouge">]]]]&gt;&lt;![CDATA[&gt;</code>.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;![CDATA[{@$foo|encodeCDATA}]]&gt;</span>
+</code></pre></div></div>
+
+<h2 id="event"><code class="language-plaintext highlighter-rouge">event</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">event</code> provides extension points in templates that <a href="package_pip_template-listener.html">template listeners</a> can use.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'foo'</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h2 id="fetch"><code class="language-plaintext highlighter-rouge">fetch</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">fetch</code> fetches the contents of a file using <code class="language-plaintext highlighter-rouge">file_get_contents</code>.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">fetch</span> <span class="na">file</span><span class="o">=</span><span class="s1">'foo.html'</span><span class="k">}</span> <span class="c">{* prints the contents of `foo.html` *}</span>
+
+<span class="k">{</span><span class="nb">fetch</span> <span class="na">file</span><span class="o">=</span><span class="s1">'bar.html'</span> <span class="nb">assign</span><span class="o">=</span><span class="na">bar</span><span class="k">}</span> <span class="c">{* assigns the contents of `foo.html` to `$bar`; does not print the contents *}</span>
+</code></pre></div></div>
+
+<h2 id="filesizebinary"><code class="language-plaintext highlighter-rouge">filesizeBinary</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">filesizeBinary</code> formats the filesize using binary filesize (in bytes).</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nv">$filesize</span><span class="o">|</span><span class="na">filesizeBinary</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h2 id="filesize"><code class="language-plaintext highlighter-rouge">filesize</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">filesize</code> formats the filesize using filesize (in bytes).</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nv">$filesize</span><span class="o">|</span><span class="na">filesize</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h2 id="hascontent"><code class="language-plaintext highlighter-rouge">hascontent</code></h2>
+
+<p>In many cases, conditional statements can be used to determine if a certain section of a template is shown:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">if</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">'bar'</span><span class="k">}</span>
+	only shown if $foo is bar
+<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+</code></pre></div></div>
+
+<p>In some situations, however, such conditional statements are not sufficient.
+One prominent example is a template event:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">if</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">'bar'</span><span class="k">}</span>
+	<span class="nt">&lt;ul&gt;</span>
+		<span class="k">{</span><span class="nb">if</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">'bar'</span><span class="k">}</span>
+			<span class="nt">&lt;li&gt;</span>Bar<span class="nt">&lt;/li&gt;</span>
+		<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+		
+		<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'listItems'</span><span class="k">}</span>
+	<span class="nt">&lt;/li&gt;</span>
+<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+</code></pre></div></div>
+
+<p>In this example, if <code class="language-plaintext highlighter-rouge">$foo !== 'bar'</code>, the list will not be shown, regardless of the additional template code provided by template listeners.
+In such a situation, <code class="language-plaintext highlighter-rouge">hascontent</code> has to be used:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">hascontent</span><span class="k">}</span>
+	<span class="nt">&lt;ul&gt;</span>
+		<span class="k">{</span><span class="na">content</span><span class="k">}</span>
+			<span class="k">{</span><span class="nb">if</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">'bar'</span><span class="k">}</span>
+				<span class="nt">&lt;li&gt;</span>Bar<span class="nt">&lt;/li&gt;</span>
+			<span class="k">{/</span><span class="nb">if</span><span class="k">}</span>
+			
+			<span class="k">{</span><span class="na">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'listItems'</span><span class="k">}</span>
+		<span class="k">{/</span><span class="na">content</span><span class="k">}</span>
+	<span class="nt">&lt;/ul&gt;</span>
+<span class="k">{/</span><span class="na">hascontent</span><span class="k">}</span>
+</code></pre></div></div>
+
+<p>If the part of the template wrapped in the <code class="language-plaintext highlighter-rouge">content</code> tags has any (trimmed) content, the part of the template wrapped by <code class="language-plaintext highlighter-rouge">hascontent</code> tags is shown (including the part wrapped by the <code class="language-plaintext highlighter-rouge">content</code> tags), otherwise nothing is shown.
+Thus, this construct avoids an empty list compared to the <code class="language-plaintext highlighter-rouge">if</code> solution above.</p>
+
+<p>Like <code class="language-plaintext highlighter-rouge">foreach</code>, <code class="language-plaintext highlighter-rouge">hascontent</code> also supports an <code class="language-plaintext highlighter-rouge">else</code> part:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">hascontent</span><span class="k">}</span>
+	<span class="nt">&lt;ul&gt;</span>
+		<span class="k">{</span><span class="na">content</span><span class="k">}</span>
+			<span class="c">{* … *}</span>
+		<span class="k">{/</span><span class="na">content</span><span class="k">}</span>
+	<span class="nt">&lt;/ul&gt;</span>
+<span class="k">{</span><span class="na">hascontentelse</span><span class="k">}</span>
+	no list
+<span class="k">{/</span><span class="na">hascontent</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h2 id="htmlcheckboxes"><code class="language-plaintext highlighter-rouge">htmlCheckboxes</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">htmlCheckboxes</code> generates a list of HTML checkboxes.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">htmlCheckboxes</span> <span class="na">name</span><span class="o">=</span><span class="na">foo</span> <span class="na">options</span><span class="o">=</span><span class="nv">$fooOptions</span> <span class="na">selected</span><span class="o">=</span><span class="nv">$currentFoo</span><span class="k">}</span>
+
+<span class="k">{</span><span class="na">htmlCheckboxes</span> <span class="na">name</span><span class="o">=</span><span class="na">bar</span> <span class="na">output</span><span class="o">=</span><span class="nv">$barLabels</span> <span class="na">values</span><span class="o">=</span><span class="nv">$barValues</span> <span class="na">selected</span><span class="o">=</span><span class="nv">$currentBar</span><span class="k">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="label label-info">5.2+</span> <code class="language-plaintext highlighter-rouge">disabled</code></td>
+      <td>if <code class="language-plaintext highlighter-rouge">true</code>, all checkboxes are disabled</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">disableEncoding</code></td>
+      <td>if <code class="language-plaintext highlighter-rouge">true</code>, the values are not passed through <code class="language-plaintext highlighter-rouge">wcf\util\StringUtil::encodeHTML()</code>; <code class="language-plaintext highlighter-rouge">false</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">name</code> attribute of the <code class="language-plaintext highlighter-rouge">input</code> checkbox element</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">output</code></td>
+      <td>array used as keys and values for <code class="language-plaintext highlighter-rouge">options</code> if present; not present by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">options</code></td>
+      <td>array selectable options with the key used as <code class="language-plaintext highlighter-rouge">value</code> attribute and the value as the checkbox label</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">selected</code></td>
+      <td>current selected value(s)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">separator</code></td>
+      <td>separator between the different checkboxes in the generated output; empty string by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">values</code></td>
+      <td>array with values used in combination with <code class="language-plaintext highlighter-rouge">output</code>, where <code class="language-plaintext highlighter-rouge">output</code> is only used as keys for <code class="language-plaintext highlighter-rouge">options</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="htmloptions"><code class="language-plaintext highlighter-rouge">htmlOptions</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">htmlOptions</code> generates an <code class="language-plaintext highlighter-rouge">select</code> HTML element.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">htmlOptions</span> <span class="na">name</span><span class="o">=</span><span class="s1">'foo'</span> <span class="na">options</span><span class="o">=</span><span class="nv">$options</span> <span class="na">selected</span><span class="o">=</span><span class="nv">$selected</span><span class="k">}</span>
+
+<span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"bar"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">""</span><span class="k">{</span><span class="nb">if</span> <span class="o">!</span><span class="nv">$selected</span><span class="k">}</span> <span class="na">selected</span><span class="k">{/</span><span class="nb">if</span><span class="k">}</span><span class="nt">&gt;</span><span class="k">{</span><span class="na">lang</span><span class="k">}</span>foo.bar.default<span class="k">{/</span><span class="na">lang</span><span class="k">}</span><span class="nt">&lt;/option&gt;</span>
+	<span class="k">{</span><span class="na">htmlOptions</span> <span class="na">options</span><span class="o">=</span><span class="nv">$options</span> <span class="na">selected</span><span class="o">=</span><span class="nv">$selected</span><span class="k">}</span> <span class="c">{* no `name` attribute *}</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">disableEncoding</code></td>
+      <td>if <code class="language-plaintext highlighter-rouge">true</code>, the values are not passed through <code class="language-plaintext highlighter-rouge">wcf\util\StringUtil::encodeHTML()</code>; <code class="language-plaintext highlighter-rouge">false</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">object</code></td>
+      <td>optional instance of <code class="language-plaintext highlighter-rouge">wcf\data\DatabaseObjectList</code> that provides the selectable options (overwrites <code class="language-plaintext highlighter-rouge">options</code> attribute internally)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">name</code> attribute of the <code class="language-plaintext highlighter-rouge">select</code> element; if not present, only the <strong>contents</strong> of the <code class="language-plaintext highlighter-rouge">select</code> element are printed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">output</code></td>
+      <td>array used as keys and values for <code class="language-plaintext highlighter-rouge">options</code> if present; not present by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">values</code></td>
+      <td>array with values used in combination with <code class="language-plaintext highlighter-rouge">output</code>, where <code class="language-plaintext highlighter-rouge">output</code> is only used as keys for <code class="language-plaintext highlighter-rouge">options</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">options</code></td>
+      <td>array selectable options with the key used as <code class="language-plaintext highlighter-rouge">value</code> attribute and the value as the option label; if a value is an array, an <code class="language-plaintext highlighter-rouge">optgroup</code> is generated with the array key as the <code class="language-plaintext highlighter-rouge">optgroup</code> label</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">selected</code></td>
+      <td>current selected value(s)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>All additional attributes are added as attributes of the <code class="language-plaintext highlighter-rouge">select</code> HTML element.</p>
+
+<h2 id="implode"><code class="language-plaintext highlighter-rouge">implode</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">implodes</code> transforms an array into a string and prints it.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">implode</span> <span class="na">from</span><span class="o">=</span><span class="nv">$array</span> <span class="na">key</span><span class="o">=</span><span class="na">key</span> <span class="na">item</span><span class="o">=</span><span class="na">item</span> <span class="na">glue</span><span class="o">=</span><span class="s2">";"</span><span class="k">}{</span><span class="nv">$key</span><span class="k">}</span>: <span class="k">{</span><span class="nv">$value</span><span class="k">}{/</span><span class="na">implode</span><span class="k">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">from</code></td>
+      <td>array with the imploded values</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">glue</code></td>
+      <td>separator between the different array values; <code class="language-plaintext highlighter-rouge">', '</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">item</code></td>
+      <td>template variable name where the current array value is stored during the iteration</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">key</code></td>
+      <td>optional template variable name where the current array key is stored during the iteration</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="52-ipsearch"><span class="label label-info">5.2+</span> <code class="language-plaintext highlighter-rouge">ipSearch</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">ipSearch</code> generates a link to search for an IP address.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="s2">"127.0.0.1"</span><span class="o">|</span><span class="na">ipSearch</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h2 id="30-js"><span class="label label-info">3.0+</span> <code class="language-plaintext highlighter-rouge">js</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">js</code> generates script tags based on whether <code class="language-plaintext highlighter-rouge">ENABLE_DEBUG_MODE</code> and <code class="language-plaintext highlighter-rouge">VISITOR_USE_TINY_BUILD</code> are enabled.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">js</span> <span class="na">application</span><span class="o">=</span><span class="s1">'wbb'</span> <span class="na">file</span><span class="o">=</span><span class="s1">'WBB'</span><span class="k">}</span> <span class="c">{* generates 'http://example.com/js/WBB.js' *}</span>
+
+<span class="k">{</span><span class="na">js</span> <span class="na">application</span><span class="o">=</span><span class="s1">'wcf'</span> <span class="na">file</span><span class="o">=</span><span class="s1">'WCF.Like'</span> <span class="na">bundle</span><span class="o">=</span><span class="s1">'WCF.Combined'</span><span class="k">}</span>
+	<span class="c">{* generates 'http://example.com/wcf/js/WCF.Like.js' if ENABLE_DEBUG_MODE=1 *}</span>
+	<span class="c">{* generates 'http://example.com/wcf/js/WCF.Combined.min.js' if ENABLE_DEBUG_MODE=0 *}</span>
+
+<span class="k">{</span><span class="na">js</span> <span class="na">application</span><span class="o">=</span><span class="s1">'wcf'</span> <span class="na">lib</span><span class="o">=</span><span class="s1">'jquery'</span><span class="k">}</span>
+	<span class="c">{* generates 'http://example.com/wcf/js/3rdParty/jquery.js' *}</span>
+
+<span class="k">{</span><span class="na">js</span> <span class="na">application</span><span class="o">=</span><span class="s1">'wcf'</span> <span class="na">lib</span><span class="o">=</span><span class="s1">'jquery-ui'</span> <span class="na">file</span><span class="o">=</span><span class="s1">'awesomeWidget'</span><span class="k">}</span>
+	<span class="c">{* generates 'http://example.com/wcf/js/3rdParty/jquery-ui/awesomeWidget.js' *}</span>
+
+<span class="k">{</span><span class="na">js</span> <span class="na">application</span><span class="o">=</span><span class="s1">'wcf'</span> <span class="na">file</span><span class="o">=</span><span class="s1">'WCF.Like'</span> <span class="na">bundle</span><span class="o">=</span><span class="s1">'WCF.Combined'</span> <span class="na">hasTiny</span><span class="o">=</span><span class="kc">true</span><span class="k">}</span>
+	<span class="c">{* generates 'http://example.com/wcf/js/WCF.Like.js' if ENABLE_DEBUG_MODE=1 *}</span>
+	<span class="c">{* generates 'http://example.com/wcf/js/WCF.Combined.min.js' (ENABLE_DEBUG_MODE=0 *}</span>
+	<span class="c">{* generates 'http://example.com/wcf/js/WCF.Combined.tiny.min.js' if ENABLE_DEBUG_MODE=0 and VISITOR_USE_TINY_BUILD=1 *}</span>
+</code></pre></div></div>
+
+<h2 id="53-jslang"><span class="label label-info">5.3+</span> <code class="language-plaintext highlighter-rouge">jslang</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">jslang</code> works like <a href="#lang"><code class="language-plaintext highlighter-rouge">lang</code></a> with the difference that the resulting string is automatically passed through <a href="#encodejs"><code class="language-plaintext highlighter-rouge">encodeJS</code></a>.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require(['Language', /* … */], function(Language, /* … */) {
+    Language.addObject({
+        'app.foo.bar': '<span class="k">{</span><span class="na">jslang</span><span class="k">}</span>app.foo.bar<span class="k">{/</span><span class="na">jslang</span><span class="k">}</span>',
+    });
+
+    // …
+});
+</code></pre></div></div>
+
+<h2 id="lang"><code class="language-plaintext highlighter-rouge">lang</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">lang</code> replaces a language items with its value.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">lang</span><span class="k">}</span>foo.bar.baz<span class="k">{/</span><span class="na">lang</span><span class="k">}</span>
+
+<span class="k">{</span><span class="na">lang</span> <span class="na">__literal</span><span class="o">=</span><span class="kc">true</span><span class="k">}</span>foo.bar.baz<span class="k">{/</span><span class="na">lang</span><span class="k">}</span>
+
+<span class="k">{</span><span class="na">lang</span> <span class="na">foo</span><span class="o">=</span><span class="s1">'baz'</span><span class="k">}</span>foo.bar.baz<span class="k">{/</span><span class="na">lang</span><span class="k">}</span>
+
+<span class="k">{</span><span class="na">lang</span><span class="k">}</span>foo.bar.baz.<span class="k">{</span><span class="nv">$action</span><span class="k">}{/</span><span class="na">lang</span><span class="k">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">__encode</code></td>
+      <td>if <code class="language-plaintext highlighter-rouge">true</code>, the output will be passed through <code class="language-plaintext highlighter-rouge">StringUtil::encodeHTML()</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">__literal</code></td>
+      <td>if <code class="language-plaintext highlighter-rouge">true</code>, template variables will not resolved but printed as they are in the language item; <code class="language-plaintext highlighter-rouge">false</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">__optional</code></td>
+      <td>if <code class="language-plaintext highlighter-rouge">true</code> and the language item does not exist, an empty string is printed; <code class="language-plaintext highlighter-rouge">false</code> by default</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>All additional attributes are available when parsing the language item.</p>
+
+<h2 id="language"><code class="language-plaintext highlighter-rouge">language</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">language</code> replaces a language items with its value.
+If the template variable <code class="language-plaintext highlighter-rouge">__language</code> exists, this language object will be used instead of <code class="language-plaintext highlighter-rouge">WCF::getLanguage()</code>.
+This modifier is useful when assigning the value directly to a variable.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nv">$languageItem</span><span class="o">|</span><span class="na">language</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nb">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">foo</span> <span class="na">value</span><span class="o">=</span><span class="nv">$languageItem</span><span class="o">|</span><span class="na">language</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h2 id="link"><code class="language-plaintext highlighter-rouge">link</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">link</code> generates internal links using <code class="language-plaintext highlighter-rouge">LinkHandler</code>.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="na">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'FooList'</span> <span class="na">application</span><span class="o">=</span><span class="s1">'bar'</span><span class="k">}</span><span class="s">param1=2&amp;param2=A</span><span class="k">{/</span><span class="na">link</span><span class="k">}</span><span class="s">"</span><span class="nt">&gt;</span>Foo<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">application</code></td>
+      <td>abbreviation of the application the controller belongs to; <code class="language-plaintext highlighter-rouge">wcf</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">controller</code></td>
+      <td>name of the controller; if not present, the landing page is linked in the frontend and the index page in the ACP</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">encode</code></td>
+      <td>if <code class="language-plaintext highlighter-rouge">true</code>, the generated link is passed through <code class="language-plaintext highlighter-rouge">wcf\util\StringUtil::encodeHTML()</code>; <code class="language-plaintext highlighter-rouge">true</code> by default</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">isEmail</code></td>
+      <td>sets <code class="language-plaintext highlighter-rouge">encode=false</code> and forces links to link to the frontend</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Additional attributes are passed to <code class="language-plaintext highlighter-rouge">LinkHandler::getLink()</code>.</p>
+
+<h2 id="newlinetobreak"><code class="language-plaintext highlighter-rouge">newlineToBreak</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">newlineToBreak</code> transforms newlines into HTML <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code> elements after encoding the content via <code class="language-plaintext highlighter-rouge">wcf\util\StringUtil::encodeHTML()</code>.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">newlineToBreak</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h2 id="30-page"><span class="label label-info">3.0+</span> <code class="language-plaintext highlighter-rouge">page</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">page</code> generates an internal link to a CMS page.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">page</span><span class="k">}</span>com.woltlab.wcf.CookiePolicy<span class="k">{/</span><span class="na">page</span><span class="k">}</span>
+
+<span class="k">{</span><span class="na">page</span> <span class="na">pageID</span><span class="o">=</span><span class="m">1</span><span class="k">}{/</span><span class="na">page</span><span class="k">}</span>
+
+<span class="k">{</span><span class="na">page</span> <span class="na">language</span><span class="o">=</span><span class="s1">'de'</span><span class="k">}</span>com.woltlab.wcf.CookiePolicy<span class="k">{/</span><span class="na">page</span><span class="k">}</span>
+
+<span class="k">{</span><span class="na">page</span> <span class="na">languageID</span><span class="o">=</span><span class="m">2</span><span class="k">}</span>com.woltlab.wcf.CookiePolicy<span class="k">{/</span><span class="na">page</span><span class="k">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pageID</code></td>
+      <td>unique id of the page (cannot be used together with a page identifier as value)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">languageID</code></td>
+      <td>id of the page language (cannot be used together with <code class="language-plaintext highlighter-rouge">language</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">language</code></td>
+      <td>language code of the page language (cannot be used together with <code class="language-plaintext highlighter-rouge">languageID</code>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="pages"><code class="language-plaintext highlighter-rouge">pages</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">pages</code> generates a pagination.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">pages</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'FooList'</span> <span class="na">link</span><span class="o">=</span><span class="s2">"pageNo=%d"</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span> <span class="nb">assign</span><span class="o">=</span><span class="na">pagesLinks</span><span class="k">}</span> <span class="c">{* prints pagination *}</span>
+
+{@$pagesLinks} <span class="c">{* prints same pagination again *}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">assign</code></td>
+      <td>optional name of the template variable the pagination is assigned to</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">controller</code></td>
+      <td>controller name of the generated links</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">link</code></td>
+      <td>additional link parameter where <code class="language-plaintext highlighter-rouge">%d</code> will be replaced with the relevant page number</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pages</code></td>
+      <td>maximum number of of pages; by default, the template variable <code class="language-plaintext highlighter-rouge">$pages</code> is used</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">print</code></td>
+      <td>if <code class="language-plaintext highlighter-rouge">false</code> and <code class="language-plaintext highlighter-rouge">assign=true</code>, the pagination is not printed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">application</code>, <code class="language-plaintext highlighter-rouge">id</code>, <code class="language-plaintext highlighter-rouge">object</code>, <code class="language-plaintext highlighter-rouge">title</code></td>
+      <td>additional parameters passed to <code class="language-plaintext highlighter-rouge">LinkHandler::getLink()</code> to generate page links</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="plaintime"><code class="language-plaintext highlighter-rouge">plainTime</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">plainTime</code> formats a timestamp to include year, month, day, hour, and minutes.
+The exact formatting depends on the current language (via the language items <code class="language-plaintext highlighter-rouge">wcf.date.dateTimeFormat</code>, <code class="language-plaintext highlighter-rouge">wcf.date.dateFormat</code>, and <code class="language-plaintext highlighter-rouge">wcf.date.timeFormat</code>).</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nv">$timestamp</span><span class="o">|</span><span class="na">plainTime</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h2 id="53-plural"><span class="label label-info">5.3+</span> <code class="language-plaintext highlighter-rouge">plural</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">plural</code> allows to easily select the correct plural form of a phrase based on a given <code class="language-plaintext highlighter-rouge">value</code>.
+The pluralization logic follows the <a href="https://unicode-org.github.io/cldr-staging/charts/37/supplemental/language_plural_rules.html">Unicode Language Plural Rules</a> for cardinal numbers.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">#</code> placeholder within the resulting phrase is replaced by the <code class="language-plaintext highlighter-rouge">value</code>.
+It is automatically formatted using <code class="language-plaintext highlighter-rouge">StringUtil::formatNumeric</code>.</p>
+
+<p>English:</p>
+
+<p>Note the use of <code class="language-plaintext highlighter-rouge">1</code> if the number (<code class="language-plaintext highlighter-rouge">#</code>) is not used within the phrase and the use of <code class="language-plaintext highlighter-rouge">one</code> otherwise.
+They are equivalent for English, but following this rule generalizes better to other languages, helping the translator.</p>
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">numberOfWorlds</span> <span class="na">value</span><span class="o">=</span><span class="m">2</span><span class="k">}</span>
+<span class="nt">&lt;h1&gt;</span>Hello <span class="k">{</span><span class="na">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="m">1</span><span class="o">=</span><span class="s1">'World'</span> <span class="na">other</span><span class="o">=</span><span class="s1">'Worlds'</span><span class="k">}</span>!<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>There <span class="k">{</span><span class="na">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="m">1</span><span class="o">=</span><span class="s1">'is one world'</span> <span class="na">other</span><span class="o">=</span><span class="s1">'are # worlds'</span><span class="k">}</span>!<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>There <span class="k">{</span><span class="na">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="na">one</span><span class="o">=</span><span class="s1">'is # world'</span> <span class="na">other</span><span class="o">=</span><span class="s1">'are # worlds'</span><span class="k">}</span>!<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>German:</p>
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">numberOfWorlds</span> <span class="na">value</span><span class="o">=</span><span class="m">2</span><span class="k">}</span>
+<span class="nt">&lt;h1&gt;</span>Hallo <span class="k">{</span><span class="na">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="m">1</span><span class="o">=</span><span class="s1">'Welt'</span> <span class="na">other</span><span class="o">=</span><span class="s1">'Welten'</span><span class="k">}</span>!<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>Es gibt <span class="k">{</span><span class="na">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="m">1</span><span class="o">=</span><span class="s1">'eine Welt'</span> <span class="na">other</span><span class="o">=</span><span class="s1">'# Welten'</span><span class="k">}</span>!<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>Es gibt <span class="k">{</span><span class="na">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="na">one</span><span class="o">=</span><span class="s1">'# Welt'</span> <span class="na">other</span><span class="o">=</span><span class="s1">'# Welten'</span><span class="k">}</span>!<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>Romanian:</p>
+
+<p>Note the additional use of <code class="language-plaintext highlighter-rouge">few</code> which is not required in English or German.</p>
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">numberOfWorlds</span> <span class="na">value</span><span class="o">=</span><span class="m">2</span><span class="k">}</span>
+<span class="nt">&lt;h1&gt;</span>Salut <span class="k">{</span><span class="na">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="m">1</span><span class="o">=</span><span class="s1">'lume'</span> <span class="na">other</span><span class="o">=</span><span class="s1">'lumi'</span><span class="k">}</span>!<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>Există <span class="k">{</span><span class="na">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="m">1</span><span class="o">=</span><span class="s1">'o lume'</span> <span class="na">few</span><span class="o">=</span><span class="s1">'# lumi'</span> <span class="na">other</span><span class="o">=</span><span class="s1">'# de lumi'</span><span class="k">}</span>!<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>Există <span class="k">{</span><span class="na">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="na">one</span><span class="o">=</span><span class="s1">'# lume'</span> <span class="na">few</span><span class="o">=</span><span class="s1">'# lumi'</span> <span class="na">other</span><span class="o">=</span><span class="s1">'# de lumi'</span><span class="k">}</span>!<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>Russian:</p>
+
+<p>Note the difference between <code class="language-plaintext highlighter-rouge">1</code> (exactly <code class="language-plaintext highlighter-rouge">1</code>) and <code class="language-plaintext highlighter-rouge">one</code> (ending in <code class="language-plaintext highlighter-rouge">1</code>, except ending in <code class="language-plaintext highlighter-rouge">11</code>).</p>
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">numberOfWorlds</span> <span class="na">value</span><span class="o">=</span><span class="m">2</span><span class="k">}</span>
+<span class="nt">&lt;h1&gt;</span>Привет <span class="k">{</span><span class="na">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorld</span> <span class="m">1</span><span class="o">=</span><span class="s1">'мир'</span> <span class="na">other</span><span class="o">=</span><span class="s1">'миры'</span><span class="k">}</span>!<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>Есть <span class="k">{</span><span class="na">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="m">1</span><span class="o">=</span><span class="s1">'мир'</span> <span class="na">one</span><span class="o">=</span><span class="s1">'# мир'</span> <span class="na">few</span><span class="o">=</span><span class="s1">'# мира'</span> <span class="na">many</span><span class="o">=</span><span class="s1">'# миров'</span> <span class="na">other</span><span class="o">=</span><span class="s1">'# миров'</span><span class="k">}</span>!<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>value</td>
+      <td>The value that is used to select the proper phrase.</td>
+    </tr>
+    <tr>
+      <td>other</td>
+      <td>The phrase that is used when no other selector matches.</td>
+    </tr>
+    <tr>
+      <td>Any Category Name</td>
+      <td>The phrase that is used when <code class="language-plaintext highlighter-rouge">value</code> belongs to the named category. Available categories depend on the language.</td>
+    </tr>
+    <tr>
+      <td>Any Integer</td>
+      <td>The phrase that is used when <code class="language-plaintext highlighter-rouge">value</code> is that exact integer.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="prepend"><code class="language-plaintext highlighter-rouge">prepend</code></h2>
+
+<p>If a string should be prepended to the value of a variable, <code class="language-plaintext highlighter-rouge">prepend</code> can be used:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nb">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">'newValue'</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nv">$templateVariable</span><span class="k">}</span> <span class="c">{* prints 'newValue *}</span>
+
+<span class="k">{</span><span class="na">prepend</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">'2'</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nv">$templateVariable</span><span class="k">}</span> <span class="c">{* now prints '2newValue' *}</span>
+</code></pre></div></div>
+
+<p>If the variables does not exist yet, <code class="language-plaintext highlighter-rouge">prepend</code> creates a new one with the given value.
+If <code class="language-plaintext highlighter-rouge">prepend</code> is used on an array as the variable, the value is prepended to all elements of the array.</p>
+
+<h2 id="shortunit"><code class="language-plaintext highlighter-rouge">shortUnit</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">shortUnit</code> shortens numbers larger than 1000 by using unit suffixes:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="m">10000</span><span class="o">|</span><span class="na">shortUnit</span><span class="k">}</span> <span class="c">{* prints 10k *}</span>
+<span class="k">{</span><span class="m">5400000</span><span class="o">|</span><span class="na">shortUnit</span><span class="k">}</span> <span class="c">{* prints 5.4M *}</span>
+</code></pre></div></div>
+
+<h2 id="smallpages"><code class="language-plaintext highlighter-rouge">smallpages</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">smallpages</code> generates a smaller version of <code class="language-plaintext highlighter-rouge">pages</code> by using adding the <code class="language-plaintext highlighter-rouge">small</code> CSS class to the generated <code class="language-plaintext highlighter-rouge">&lt;nav&gt;</code> element and only showing 7 instead of 9 links.</p>
+
+<h2 id="tablewordwrap"><code class="language-plaintext highlighter-rouge">tableWordwrap</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">tableWordwrap</code> inserts zero width spaces every 30 characters in words longer than 30 characters.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">tableWordwrap</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h2 id="time"><code class="language-plaintext highlighter-rouge">time</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">time</code> generates an HTML <code class="language-plaintext highlighter-rouge">time</code> elements based on a timestamp that shows a relative time or the absolute time if the timestamp more than six days ago.</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nv">$timestamp</span><span class="o">|</span><span class="na">time</span><span class="k">}</span> <span class="c">{* prints a '&lt;time&gt;' element *}</span>
+</code></pre></div></div>
+
+<h2 id="truncate"><code class="language-plaintext highlighter-rouge">truncate</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">truncate</code> truncates a long string into a shorter one:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="nv">$foo</span><span class="o">|</span><span class="nb">truncate</span><span class="o">:</span><span class="m">35</span><span class="k">}</span>
+
+<span class="k">{</span><span class="nv">$foo</span><span class="o">|</span><span class="nb">truncate</span><span class="o">:</span><span class="m">35</span><span class="o">:</span><span class="s1">'_'</span><span class="o">:</span><span class="kc">true</span><span class="k">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter Number</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>truncated string</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>truncated length; <code class="language-plaintext highlighter-rouge">80</code> by default</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>ellipsis symbol; <code class="language-plaintext highlighter-rouge">wcf\util\StringUtil::HELLIP</code> by default</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>if <code class="language-plaintext highlighter-rouge">true</code>, words can be broken up in the middle; <code class="language-plaintext highlighter-rouge">false</code> by default</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="53-user"><span class="label label-info">5.3+</span> <code class="language-plaintext highlighter-rouge">user</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">user</code> generates links to user profiles.
+The mandatory <code class="language-plaintext highlighter-rouge">object</code> parameter requires an instances of <code class="language-plaintext highlighter-rouge">UserProfile</code>.
+The optional <code class="language-plaintext highlighter-rouge">type</code> parameter is responsible for what the generated link contains:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">type='default'</code> (also applies if no <code class="language-plaintext highlighter-rouge">type</code> is given) outputs the formatted username relying on the “User Marking” setting of the relevant user group.
+Additionally, the user popover card will be shown when hovering over the generated link.</li>
+  <li><code class="language-plaintext highlighter-rouge">type='plain'</code> outputs the username without additional formatting.</li>
+  <li><code class="language-plaintext highlighter-rouge">type='avatar(\d+)'</code> outputs the user’s avatar in the specified size, i.e., <code class="language-plaintext highlighter-rouge">avatar48</code> outputs the avatar with a width and height of 48 pixels.</li>
+</ul>
+
+<p>The last special attribute is <code class="language-plaintext highlighter-rouge">append</code> whose contents are appended to the <code class="language-plaintext highlighter-rouge">href</code> attribute of the generated anchor element.</p>
+
+<p>All of the other attributes matching <code class="language-plaintext highlighter-rouge">~^[a-z]+([A-z]+)+$~</code>, except for <code class="language-plaintext highlighter-rouge">href</code> which may not be added, are added as attributes to the anchor element.</p>
+
+<p>Examples:</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">user</span> <span class="na">object</span><span class="o">=</span><span class="nv">$user</span><span class="k">}</span>
+</code></pre></div></div>
+
+<p>generates</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="k">}</span><span class="s">"</span> <span class="na">data-object-id=</span><span class="s">"</span><span class="k">{</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">userID</span><span class="k">}</span><span class="s">"</span> <span class="na">class=</span><span class="s">"userLink"</span><span class="nt">&gt;</span>{@$user-&gt;getFormattedUsername()}<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">{</span><span class="na">user</span> <span class="na">object</span><span class="o">=</span><span class="nv">$user</span> <span class="na">type</span><span class="o">=</span><span class="s1">'avatar48'</span> <span class="na">foo</span><span class="o">=</span><span class="s1">'bar'</span><span class="k">}</span>
+</code></pre></div></div>
+
+<p>generates</p>
+
+<div class="language-smarty highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="k">}</span><span class="s">"</span> <span class="na">foo=</span><span class="s">"bar"</span><span class="nt">&gt;</span>{@$object-&gt;getAvatar()-&gt;getImageTag(48)}<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footerBox">
+    <div class="container">
+      <div class="footerBoxLeft">
+        
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master/pages/view/view_template-plugins.md" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <p>Site last generated: Mar 2, 2021</p>
+      </div>
+      <div class="footerBoxRight">
+        <a class="no_icon" href="https://www.woltlab.com"><img src="https://docs.woltlab.com/images/woltlab-black.png" srcset="https://docs.woltlab.com/images/woltlab-black@2x.png 2x" height="40" width="204" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pageFooter">
+    <div class="container">
+      &copy; 2001 ‐ 2021 <a class="no_icon" href="https://www.woltlab.com">WoltLab GmbH</a>. All rights reserved. | <a class="no_icon" href="https://www.woltlab.com/legal-notice/">Legal Notice</a> | <a class="no_icon" href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+
+</html>

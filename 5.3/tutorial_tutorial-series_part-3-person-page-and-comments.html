@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Tutorial Series Part 3: Person Page and Comments | WoltLab Suite 5.3 Documentation</title>
+
+<link rel="stylesheet" href="https://docs.woltlab.com/css/syntax.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://docs.woltlab.com/css/modern-business.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/customstyles.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/theme-blue.css?v=3">
+
+<script src="https://docs.woltlab.com/js/jquery.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.cookie.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.navgoco.min.js"></script>
+<script src="https://docs.woltlab.com/js/bootstrap.min.js"></script>
+<script src="https://docs.woltlab.com/js/anchor.min.js"></script>
+<script src="https://docs.woltlab.com/js/toc.js"></script>
+<script src="https://docs.woltlab.com/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="https://docs.woltlab.com/images/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" title="mike-test" href="https://docs.woltlab.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> WoltLab Suite 5.3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://www.woltlab.com" target="_blank">woltlab.com</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/WoltLab/WCF/" target="_blank">Code on github.com</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="https://docs.woltlab.com/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'https://docs.woltlab.com/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Tutorial Series Part 3: Person Page and Comments">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">WoltLab Suite 5.3</li>
+
+    
+        
+            <li>
+                <a href="#">Getting Started</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="index"><a href="index.html">Introduction</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="getting-started_quick-start"><a href="getting-started_quick-start.html">Quick Start</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">PHP API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_pages"><a href="php_pages.html">Pages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-objects"><a href="php_database-objects.html">Database Objects</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-access"><a href="php_database-access.html">Database Access</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_exceptions"><a href="php_exceptions.html">Exceptions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_caches"><a href="php_api_caches.html">Caches</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_comments"><a href="php_api_comments.html">Comments</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_cronjobs"><a href="php_api_cronjobs.html">Cronjobs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_events"><a href="php_api_events.html">Events</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_form_builder"><a href="php_api_form_builder.html">Form Builder</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_package_installation_plugins"><a href="php_api_package_installation_plugins.html">Package Installation Plugins</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_activity_points"><a href="php_api_user_activity_points.html">User Activity Points</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_notifications"><a href="php_api_user_notifications.html">User Notifications</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_sitemaps"><a href="php_api_sitemaps.html">Sitemaps</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_code-style"><a href="php_code-style.html">Code Style</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_apps"><a href="php_apps.html">Apps</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_gdpr"><a href="php_gdpr.html">GDPR</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Languages, Templates & CSS</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_languages"><a href="view_languages.html">Languages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_templates"><a href="view_templates.html">Templates</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_css"><a href="view_css.html">CSS</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">JavaScript API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_general-usage"><a href="javascript_general-usage.html">General Usage</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">New API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_writing-a-module"><a href="javascript_new-api_writing-a-module.html">Writing a module</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_data-structures"><a href="javascript_new-api_data-structures.html">Data Structures</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_core"><a href="javascript_new-api_core.html">Core Functions</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dom"><a href="javascript_new-api_dom.html">DOM</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_events"><a href="javascript_new-api_events.html">Event Handling</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ajax"><a href="javascript_new-api_ajax.html">Ajax</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dialogs"><a href="javascript_new-api_dialogs.html">Dialogs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_browser"><a href="javascript_new-api_browser.html">Browser and Screen Sizes</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ui"><a href="javascript_new-api_ui.html">User Interface</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_legacy-api"><a href="javascript_legacy-api.html">Legacy API</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_helper-functions"><a href="javascript_helper-functions.html">Helper Functions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_code-snippets"><a href="javascript_code-snippets.html">Code Snippets</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Package Components</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_package-xml"><a href="package_package-xml.html">package.xml</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_pip"><a href="package_pip.html">PIPs</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Migration</a>
+                <ul>
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 5.2</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_php"><a href="migration_wsc-52_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_templates"><a href="migration_wsc-52_templates.html">Templates and Languages</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_libraries"><a href="migration_wsc-52_libraries.html">Third Party Libraries</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-31_php"><a href="migration_wsc-31_php.html">PHP API</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.0</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_php"><a href="migration_wsc-30_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_javascript"><a href="migration_wsc-30_javascript.html">JavaScript API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_templates"><a href="migration_wsc-30_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_css"><a href="migration_wsc-30_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_package"><a href="migration_wsc-30_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WCF 2.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_php"><a href="migration_wcf-21_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_templates"><a href="migration_wcf-21_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_css"><a href="migration_wcf-21_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_package"><a href="migration_wcf-21_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Tutorials</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="tutorial_tutorial-series"><a href="tutorial_tutorial-series.html">Tutorial Series</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+    
+</ul>
+
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = 'tutorial_tutorial-series';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Tutorial Series Part 3: Person Page and Comments</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+  <p>In this part of our tutorial series, we will add a new front end page to our package that is dedicated to each person and shows their personal details.
+To make good use of this new page and introduce a new API of WoltLab Suite, we will add the opportunity for users to comment on the person using WoltLab Suite’s reusable comment functionality.</p>
+
+<h2 id="package-functionality">Package Functionality</h2>
+
+<p>In addition to the existing functions from <a href="tutorial_tutorial-series_part-1-base-structure.html">part 1</a>, the package will provide the following possibilities/functions after this part of the tutorial:</p>
+
+<ul>
+  <li>Details page for each person linked in the front end person list</li>
+  <li>Comment on people on their respective page (can be disabled per person)</li>
+  <li>User online location for person details page with name and link to person details page</li>
+  <li>Create menu items linking to specific person details pages</li>
+</ul>
+
+<h2 id="used-components">Used Components</h2>
+
+<p>In addition to the components used in <a href="tutorial_tutorial-series_part-1-base-structure.html">part 1</a>, we will use the <a href="package_pip_object-type.html">objectType package installation plugin</a>, use the <a href="php_api_comments.html">comment API</a>, create a <a href="php_api_caches_runtime-caches.html">runtime cache</a>, and create a page handler.</p>
+
+<h2 id="package-structure">Package Structure</h2>
+
+<p>The complete package will have the following file structure (including the files from <a href="tutorial_tutorial-series_part-1-base-structure.html">part 1</a>):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── acpMenu.xml
+├── acptemplates
+│   ├── personAdd.tpl
+│   └── personList.tpl
+├── files
+│   └── lib
+│       ├── acp
+│       │   ├── form
+│       │   │   ├── PersonAddForm.class.php
+│       │   │   └── PersonEditForm.class.php
+│       │   └── page
+│       │       └── PersonListPage.class.php
+│       ├── data
+│       │   └── person
+│       │       ├── Person.class.php
+│       │       ├── PersonAction.class.php
+│       │       ├── PersonEditor.class.php
+│       │       └── PersonList.class.php
+│       ├── page
+│       │   ├── PersonListPage.class.php
+│       │   └── PersonPage.class.php
+│       └── system
+│           ├── cache
+│           │   └── runtime
+│           │       └── PersonRuntimeCache.class.php
+│           ├── comment
+│           │   └── manager
+│           │       └── PersonCommentManager.class.php
+│           └── page
+│               └── handler
+│                   └── PersonPageHandler.class.php
+├── install.sql
+├── language
+│   ├── de.xml
+│   └── en.xml
+├── menuItem.xml
+├── objectType.xml
+├── package.xml
+├── page.xml
+├── templates
+│   ├── person.tpl
+│   └── personList.tpl
+└── userGroupOption.xml
+</code></pre></div></div>
+
+<div class="bs-callout bs-callout-warning">We will not mention every code change between the first part and this part, as we only want to focus on the important, new parts of the code. For example, there is a new <code class="language-plaintext highlighter-rouge">Person::getLink()</code> method and new language items have been added. For all changes, please refer to the <a href="https://github.com/WoltLab/woltlab.github.io/tree/master/_includes/tutorial/tutorial-series/part-3">source code on GitHub</a>.</div>
+
+<h2 id="runtime-cache">Runtime Cache</h2>
+
+<p>To reduce the number of database queries when different APIs require person objects, we implement a <a href="php_api_caches_runtime-caches.html">runtime cache</a> for people:</p>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\system\cache\runtime</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\person\Person</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\person\PersonList</span><span class="p">;</span>
+
+<span class="cd">/**
+ * Runtime cache implementation for people.
+ *
+ * @author	Matthias Schmidt
+ * @copyright	2001-2019 WoltLab GmbH
+ * @license	GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;
+ * @package	WoltLabSuite\Core\System\Cache\Runtime
+ * @since	3.0
+ *
+ * @method	Person[]	getCachedObjects()
+ * @method	Person		getObject($objectID)
+ * @method	Person[]	getObjects(array $objectIDs)
+ */</span>
+<span class="kd">class</span> <span class="nc">PersonRuntimeCache</span> <span class="k">extends</span> <span class="nx">AbstractRuntimeCache</span> <span class="p">{</span>
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="nv">$listClassName</span> <span class="o">=</span> <span class="nx">PersonList</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h2 id="comments">Comments</h2>
+
+<p>To allow users to comment on people, we need to tell the system that people support comments.
+This is done by registering a <code class="language-plaintext highlighter-rouge">com.woltlab.wcf.comment.commentableContent</code> object type whose processor implements <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/comment/manager/ICommentManager.class.php">ICommentManager</a>:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/tornado/objectType.xsd"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;import&gt;</span>
+		<span class="nt">&lt;type&gt;</span>
+			<span class="nt">&lt;name&gt;</span>com.woltlab.wcf.person.personComment<span class="nt">&lt;/name&gt;</span>
+			<span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.comment.commentableContent<span class="nt">&lt;/definitionname&gt;</span>
+			<span class="nt">&lt;classname&gt;</span>wcf\system\comment\manager\PersonCommentManager<span class="nt">&lt;/classname&gt;</span>
+		<span class="nt">&lt;/type&gt;</span>
+	<span class="nt">&lt;/import&gt;</span>
+<span class="nt">&lt;/data&gt;</span></code></pre></figure>
+
+<p>The <code class="language-plaintext highlighter-rouge">PersonCommentManager</code> class extended <code class="language-plaintext highlighter-rouge">ICommentManager</code>’s default implementation <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/comment/manager/AbstractCommentManager.class.php">AbstractCommentManager</a>:</p>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\system\comment\manager</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\person\Person</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\person\PersonEditor</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\cache\runtime\PersonRuntimeCache</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\WCF</span><span class="p">;</span>
+
+<span class="cd">/**
+ * Comment manager implementation for people.
+ *
+ * @author	Matthias Schmidt
+ * @copyright	2001-2019 WoltLab GmbH
+ * @license	GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;
+ * @package	WoltLabSuite\Core\System\Comment\Manager
+ */</span>
+<span class="kd">class</span> <span class="nc">PersonCommentManager</span> <span class="k">extends</span> <span class="nx">AbstractCommentManager</span> <span class="p">{</span>
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="nv">$permissionAdd</span> <span class="o">=</span> <span class="s1">'user.person.canAddComment'</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="nv">$permissionAddWithoutModeration</span> <span class="o">=</span> <span class="s1">'user.person.canAddCommentWithoutModeration'</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="nv">$permissionCanModerate</span> <span class="o">=</span> <span class="s1">'mod.person.canModerateComment'</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="nv">$permissionDelete</span> <span class="o">=</span> <span class="s1">'user.person.canDeleteComment'</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="nv">$permissionEdit</span> <span class="o">=</span> <span class="s1">'user.person.canEditComment'</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="nv">$permissionModDelete</span> <span class="o">=</span> <span class="s1">'mod.person.canDeleteComment'</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="nv">$permissionModEdit</span> <span class="o">=</span> <span class="s1">'mod.person.canEditComment'</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getLink</span><span class="p">(</span><span class="nv">$objectTypeID</span><span class="p">,</span> <span class="nv">$objectID</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">PersonRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">();</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">isAccessible</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">,</span> <span class="nv">$validateWritePermission</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">PersonRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">)</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getTitle</span><span class="p">(</span><span class="nv">$objectTypeID</span><span class="p">,</span> <span class="nv">$objectID</span><span class="p">,</span> <span class="nv">$isResponse</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nv">$isResponse</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'wcf.person.commentResponse'</span><span class="p">);</span>
+		<span class="p">}</span>
+		
+		<span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">'wcf.person.comment'</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">updateCounter</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+		<span class="p">(</span><span class="k">new</span> <span class="nx">PersonEditor</span><span class="p">(</span><span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">)))</span><span class="o">-&gt;</span><span class="na">updateCounters</span><span class="p">([</span><span class="s1">'comments'</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">]);</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<ul>
+  <li>First, the system is told the names of the permissions via the <code class="language-plaintext highlighter-rouge">$permission*</code> properties.
+More information about comment permissions can be found <a href="php_api_comments.html#user-group-options">here</a>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">getLink()</code> method returns the link to the person with the passed comment id.
+As in <code class="language-plaintext highlighter-rouge">isAccessible()</code>, <code class="language-plaintext highlighter-rouge">PersonRuntimeCache</code> is used to potentially save database queries.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">isAccessible()</code> method checks if the active user can access the relevant person.
+As we do not have any special restrictions for accessing people, we only need to check if the person exists.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">getTitle()</code> method returns the title used for comments and responses, which is just a generic language item in this case.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">updateCounter()</code> updates the comments’ counter of the person.
+We have added a new <code class="language-plaintext highlighter-rouge">comments</code> database table column to the <code class="language-plaintext highlighter-rouge">wcf1_person</code> database table in order to keep track on the number of comments.</li>
+</ul>
+
+<p>Additionally, we have added a new <code class="language-plaintext highlighter-rouge">enableComments</code> database table column to the <code class="language-plaintext highlighter-rouge">wcf1_person</code> database table whose value can be set when creating or editing a person in the ACP.
+With this option, comments on individual people can be disabled.</p>
+
+<div class="bs-callout bs-callout-info">Liking comments is already built-in and only requires some extra code in the <code class="language-plaintext highlighter-rouge">PersonPage</code> class for showing the likes of pre-loaded comments.</div>
+
+<h2 id="person-page">Person Page</h2>
+
+<h3 id="personpage"><code class="language-plaintext highlighter-rouge">PersonPage</code></h3>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\page</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\person\Person</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\comment\CommentHandler</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\comment\manager\PersonCommentManager</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\exception\IllegalLinkException</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\WCF</span><span class="p">;</span>
+
+<span class="cd">/**
+ * Shows the details of a certain person.
+ * 
+ * @author	Matthias Schmidt
+ * @copyright	2001-2019 WoltLab GmbH
+ * @license	GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;
+ * @package	WoltLabSuite\Core\Page
+ */</span>
+<span class="kd">class</span> <span class="nc">PersonPage</span> <span class="k">extends</span> <span class="nx">AbstractPage</span> <span class="p">{</span>
+	<span class="cd">/**
+	 * list of comments
+	 * @var	StructuredCommentList
+	 */</span>
+	<span class="k">public</span> <span class="nv">$commentList</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * person comment manager object
+	 * @var	PersonCommentManager
+	 */</span>
+	<span class="k">public</span> <span class="nv">$commentManager</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * id of the person comment object type
+	 * @var	integer
+	 */</span>
+	<span class="k">public</span> <span class="nv">$commentObjectTypeID</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * shown person
+	 * @var	Person
+	 */</span>
+	<span class="k">public</span> <span class="nv">$person</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * id of the shown person
+	 * @var	integer
+	 */</span>
+	<span class="k">public</span> <span class="nv">$personID</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">assignVariables</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">parent</span><span class="o">::</span><span class="na">assignVariables</span><span class="p">();</span>
+		
+		<span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
+			<span class="s1">'commentCanAdd'</span> <span class="o">=&gt;</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">'user.person.canAddComment'</span><span class="p">),</span>
+			<span class="s1">'commentList'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentList</span><span class="p">,</span>
+			<span class="s1">'commentObjectTypeID'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentObjectTypeID</span><span class="p">,</span>
+			<span class="s1">'lastCommentTime'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentList</span> <span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentList</span><span class="o">-&gt;</span><span class="na">getMinCommentTime</span><span class="p">()</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+			<span class="s1">'likeData'</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">MODULE_LIKE</span> <span class="o">&amp;&amp;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentList</span><span class="p">)</span> <span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentList</span><span class="o">-&gt;</span><span class="na">getLikeData</span><span class="p">()</span> <span class="o">:</span> <span class="p">[],</span>
+			<span class="s1">'person'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span>
+		<span class="p">]);</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">readData</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">parent</span><span class="o">::</span><span class="na">readData</span><span class="p">();</span>
+		
+		<span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span><span class="o">-&gt;</span><span class="na">enableComments</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentObjectTypeID</span> <span class="o">=</span> <span class="nx">CommentHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObjectTypeID</span><span class="p">(</span><span class="s1">'com.woltlab.wcf.person.personComment'</span><span class="p">);</span>
+			<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentManager</span> <span class="o">=</span> <span class="nx">CommentHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObjectType</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentObjectTypeID</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getProcessor</span><span class="p">();</span>
+			<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentList</span> <span class="o">=</span> <span class="nx">CommentHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getCommentList</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentManager</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentObjectTypeID</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span><span class="o">-&gt;</span><span class="na">personID</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">readParameters</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">parent</span><span class="o">::</span><span class="na">readParameters</span><span class="p">();</span>
+		
+		<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]))</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">personID</span> <span class="o">=</span> <span class="nb">intval</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]);</span>
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">personID</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span><span class="o">-&gt;</span><span class="na">personID</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nx">IllegalLinkException</span><span class="p">();</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The <code class="language-plaintext highlighter-rouge">PersonPage</code> class is similar to the <code class="language-plaintext highlighter-rouge">PersonEditForm</code> in the ACP in that it reads the id of the requested person from the request data and validates the id in <code class="language-plaintext highlighter-rouge">readParameters()</code>.
+The rest of the code only handles fetching the list of comments on the requested person.
+In <code class="language-plaintext highlighter-rouge">readData()</code>, this list is fetched using <code class="language-plaintext highlighter-rouge">CommentHandler::getCommentList()</code> if comments are enabled for the person.
+The <code class="language-plaintext highlighter-rouge">assignVariables()</code> method assigns some additional template variables like <code class="language-plaintext highlighter-rouge">$commentCanAdd</code>, which is <code class="language-plaintext highlighter-rouge">1</code> if the active person can add comments and is <code class="language-plaintext highlighter-rouge">0</code> otherwise, <code class="language-plaintext highlighter-rouge">$lastCommentTime</code>, which contains the UNIX timestamp of the last comment, and <code class="language-plaintext highlighter-rouge">$likeData</code>, which contains data related to the likes for the disabled comments.</p>
+
+<h3 id="persontpl"><code class="language-plaintext highlighter-rouge">person.tpl</code></h3>
+
+<figure class="highlight"><pre><code class="language-tpl" data-lang="tpl">{capture assign='pageTitle'}{$person} - {lang}wcf.person.list{/lang}{/capture}
+
+{capture assign='contentTitle'}{$person}{/capture}
+
+{include file='header'}
+
+{if $person-&gt;enableComments}
+	{if $commentList|count || $commentCanAdd}
+		&lt;section id="comments" class="section sectionContainerList"&gt;
+			&lt;header class="sectionHeader"&gt;
+				&lt;h2 class="sectionTitle"&gt;{lang}wcf.person.comments{/lang}{if $person-&gt;comments} &lt;span class="badge"&gt;{#$person-&gt;comments}&lt;/span&gt;{/if}&lt;/h2&gt;
+			&lt;/header&gt;
+			
+			{include file='__commentJavaScript' commentContainerID='personCommentList'}
+			
+			&lt;div class="personComments"&gt;
+				&lt;ul id="personCommentList" class="commentList containerList"
+					data-can-add="{if $commentCanAdd}true{else}false{/if}" 
+					data-object-id="{@$person-&gt;personID}"
+					data-object-type-id="{@$commentObjectTypeID}"
+					data-comments="{if $person-&gt;comments}{@$commentList-&gt;countObjects()}{else}0{/if}"
+					data-last-comment-time="{@$lastCommentTime}"
+				&gt;
+					{include file='commentListAddComment' wysiwygSelector='personCommentListAddComment'}
+					{include file='commentList'}
+				&lt;/ul&gt;
+			&lt;/div&gt;
+		&lt;/section&gt;
+	{/if}
+{/if}
+
+&lt;footer class="contentFooter"&gt;
+	{hascontent}
+		&lt;nav class="contentFooterNavigation"&gt;
+			&lt;ul&gt;
+				{content}{event name='contentFooterNavigation'}{/content}
+			&lt;/ul&gt;
+		&lt;/nav&gt;
+	{/hascontent}
+&lt;/footer&gt;
+
+{include file='footer'}</code></pre></figure>
+
+<p>For now, the <code class="language-plaintext highlighter-rouge">person</code> template is still very empty and only shows the comments in the content area.
+The template code shown for comments is very generic and used in this form in many locations as it only sets the header of the comment list and the container <code class="language-plaintext highlighter-rouge">ul#personCommentList</code> element for the comments shown by <code class="language-plaintext highlighter-rouge">commentList</code> template.
+The <code class="language-plaintext highlighter-rouge">ul#personCommentList</code> elements has five additional <code class="language-plaintext highlighter-rouge">data-</code> attributes required by the JavaScript API for comments for loading more comments or creating new ones.
+The <code class="language-plaintext highlighter-rouge">commentListAddComment</code> template adds the WYSIWYG support.
+The attribute <code class="language-plaintext highlighter-rouge">wysiwygSelector</code> should be the id of the comment list <code class="language-plaintext highlighter-rouge">personCommentList</code> with an additional <code class="language-plaintext highlighter-rouge">AddComment</code> suffix.</p>
+
+<h3 id="pagexml"><code class="language-plaintext highlighter-rouge">page.xml</code></h3>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/tornado/page.xsd"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;import&gt;</span>
+		<span class="nt">&lt;page</span> <span class="na">identifier=</span><span class="s">"com.woltlab.wcf.people.PersonList"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;pageType&gt;</span>system<span class="nt">&lt;/pageType&gt;</span>
+			<span class="nt">&lt;controller&gt;</span>wcf\page\PersonListPage<span class="nt">&lt;/controller&gt;</span>
+			<span class="nt">&lt;name</span> <span class="na">language=</span><span class="s">"de"</span><span class="nt">&gt;</span>Personen-Liste<span class="nt">&lt;/name&gt;</span>
+			<span class="nt">&lt;name</span> <span class="na">language=</span><span class="s">"en"</span><span class="nt">&gt;</span>Person List<span class="nt">&lt;/name&gt;</span>
+			
+			<span class="nt">&lt;content</span> <span class="na">language=</span><span class="s">"de"</span><span class="nt">&gt;</span>
+				<span class="nt">&lt;title&gt;</span>Personen<span class="nt">&lt;/title&gt;</span>
+			<span class="nt">&lt;/content&gt;</span>
+			<span class="nt">&lt;content</span> <span class="na">language=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+				<span class="nt">&lt;title&gt;</span>People<span class="nt">&lt;/title&gt;</span>
+			<span class="nt">&lt;/content&gt;</span>
+		<span class="nt">&lt;/page&gt;</span>
+		<span class="nt">&lt;page</span> <span class="na">identifier=</span><span class="s">"com.woltlab.wcf.people.Person"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;pageType&gt;</span>system<span class="nt">&lt;/pageType&gt;</span>
+			<span class="nt">&lt;controller&gt;</span>wcf\page\PersonPage<span class="nt">&lt;/controller&gt;</span>
+			<span class="nt">&lt;handler&gt;</span>wcf\system\page\handler\PersonPageHandler<span class="nt">&lt;/handler&gt;</span>
+			<span class="nt">&lt;name</span> <span class="na">language=</span><span class="s">"de"</span><span class="nt">&gt;</span>Person<span class="nt">&lt;/name&gt;</span>
+			<span class="nt">&lt;name</span> <span class="na">language=</span><span class="s">"en"</span><span class="nt">&gt;</span>Person<span class="nt">&lt;/name&gt;</span>
+			<span class="nt">&lt;requireObjectID&gt;</span>1<span class="nt">&lt;/requireObjectID&gt;</span>
+			<span class="nt">&lt;parent&gt;</span>com.woltlab.wcf.people.PersonList<span class="nt">&lt;/parent&gt;</span>
+		<span class="nt">&lt;/page&gt;</span>
+	<span class="nt">&lt;/import&gt;</span>
+<span class="nt">&lt;/data&gt;</span></code></pre></figure>
+
+<p>The <code class="language-plaintext highlighter-rouge">page.xml</code> file has been extended for the new person page with identifier <code class="language-plaintext highlighter-rouge">com.woltlab.wcf.people.Person</code>.
+Compared to the pre-existing <code class="language-plaintext highlighter-rouge">com.woltlab.wcf.people.PersonList</code> page, there are four differences:</p>
+
+<ol>
+  <li>It has a <code class="language-plaintext highlighter-rouge">&lt;handler&gt;</code> element with a class name as value.
+This aspect will be discussed in more detail in the next section.</li>
+  <li>There are no <code class="language-plaintext highlighter-rouge">&lt;content&gt;</code> elements because, both, the title and the content of the page are dynamically generated in the template.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">&lt;requireObjectID&gt;</code> tells the system that this page requires an object id to properly work, in this case a valid person id.</li>
+  <li>This page has a <code class="language-plaintext highlighter-rouge">&lt;parent&gt;</code> page, the person list page.
+In general, the details page for any type of object that is listed on a different page has the list page as its parent.</li>
+</ol>
+
+<h3 id="personpagehandler"><code class="language-plaintext highlighter-rouge">PersonPageHandler</code></h3>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\system\page\handler</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\page\Page</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\person\PersonList</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\user\online\UserOnline</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\cache\runtime\PersonRuntimeCache</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\database\util\PreparedStatementConditionBuilder</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\WCF</span><span class="p">;</span>
+
+<span class="cd">/**
+ * Page handler implementation for person page.
+ * 
+ * @author	Matthias Schmidt
+ * @copyright	2001-2019 WoltLab GmbH
+ * @license	GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;
+ * @package	WoltLabSuite\Core\System\Page\Handler
+ */</span>
+<span class="kd">class</span> <span class="nc">PersonPageHandler</span> <span class="k">extends</span> <span class="nx">AbstractLookupPageHandler</span> <span class="k">implements</span> <span class="nx">IOnlineLocationPageHandler</span> <span class="p">{</span>
+	<span class="kn">use</span> <span class="nn">TOnlineLocationPageHandler</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getLink</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">PersonRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">();</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * Returns the textual description if a user is currently online viewing this page.
+	 *
+	 * @see	IOnlineLocationPageHandler::getOnlineLocation()
+	 *
+	 * @param	Page		$page		visited page
+	 * @param	UserOnline	$user		user online object with request data
+	 * @return	string
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getOnlineLocation</span><span class="p">(</span><span class="nx">Page</span> <span class="nv">$page</span><span class="p">,</span> <span class="nx">UserOnline</span> <span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">pageObjectID</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="s1">''</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="nv">$person</span> <span class="o">=</span> <span class="nx">PersonRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">pageObjectID</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nv">$person</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="s1">''</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">'wcf.page.onlineLocation.'</span><span class="o">.</span><span class="nv">$page</span><span class="o">-&gt;</span><span class="na">identifier</span><span class="p">,</span> <span class="p">[</span><span class="s1">'person'</span> <span class="o">=&gt;</span> <span class="nv">$person</span><span class="p">]);</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">isValid</span><span class="p">(</span><span class="nv">$objectID</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">PersonRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">)</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">lookup</span><span class="p">(</span><span class="nv">$searchString</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nv">$conditionBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PreparedStatementConditionBuilder</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="s1">'OR'</span><span class="p">);</span>
+		<span class="nv">$conditionBuilder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'person.firstName LIKE ?'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'%'</span> <span class="o">.</span> <span class="nv">$searchString</span> <span class="o">.</span> <span class="s1">'%'</span><span class="p">]);</span>
+		<span class="nv">$conditionBuilder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'person.lastName LIKE ?'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'%'</span> <span class="o">.</span> <span class="nv">$searchString</span> <span class="o">.</span> <span class="s1">'%'</span><span class="p">]);</span>
+		
+		<span class="nv">$personList</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PersonList</span><span class="p">();</span>
+		<span class="nv">$personList</span><span class="o">-&gt;</span><span class="na">getConditionBuilder</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="nv">$conditionBuilder</span><span class="p">,</span> <span class="nv">$conditionBuilder</span><span class="o">-&gt;</span><span class="na">getParameters</span><span class="p">());</span>
+		<span class="nv">$personList</span><span class="o">-&gt;</span><span class="na">readObjects</span><span class="p">();</span>
+		
+		<span class="nv">$results</span> <span class="o">=</span> <span class="p">[];</span>
+		<span class="k">foreach</span> <span class="p">(</span><span class="nv">$personList</span> <span class="k">as</span> <span class="nv">$person</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nv">$results</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span>
+				<span class="s1">'image'</span> <span class="o">=&gt;</span> <span class="s1">'fa-user'</span><span class="p">,</span>
+				<span class="s1">'link'</span> <span class="o">=&gt;</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">(),</span>
+				<span class="s1">'objectID'</span> <span class="o">=&gt;</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">personID</span><span class="p">,</span>
+				<span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="p">()</span>
+			<span class="p">];</span>
+		<span class="p">}</span>
+		
+		<span class="k">return</span> <span class="nv">$results</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * Prepares fetching all necessary data for the textual description if a user is currently online
+	 * viewing this page.
+	 * 
+	 * @see	IOnlineLocationPageHandler::prepareOnlineLocation()
+	 *
+	 * @param	Page		$page		visited page
+	 * @param	UserOnline	$user		user online object with request data
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">prepareOnlineLocation</span><span class="p">(</span><span class="cd">/** @noinspection PhpUnusedParameterInspection */</span><span class="nx">Page</span> <span class="nv">$page</span><span class="p">,</span> <span class="nx">UserOnline</span> <span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">pageObjectID</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">PersonRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">cacheObjectID</span><span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">pageObjectID</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Like any page handler, the <code class="language-plaintext highlighter-rouge">PersonPageHandler</code> class has to implement the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/IMenuPageHandler.class.php">IMenuPageHandler</a> interface, which should be done by extending the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/AbstractMenuPageHandler.class.php">AbstractMenuPageHandler</a> class.
+As we want  administrators to link to specific people in menus, for example, we have to also implement the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/ILookupPageHandler.class.php">ILookupPageHandler</a> interface by extending the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/AbstractLookupPageHandler.class.php">AbstractLookupPageHandler</a> class.</p>
+
+<p>For the <code class="language-plaintext highlighter-rouge">ILookupPageHandler</code> interface, we need to implement three methods:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">getLink($objectID)</code> returns the link to the person page with the given id.
+In this case, we simply delegate this method call to the <code class="language-plaintext highlighter-rouge">Person</code> object returned by <code class="language-plaintext highlighter-rouge">PersonRuntimeCache::getObject()</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">isValid($objectID)</code> returns <code class="language-plaintext highlighter-rouge">true</code> if the person with the given id exists, otherwise <code class="language-plaintext highlighter-rouge">false</code>.
+Here, we use <code class="language-plaintext highlighter-rouge">PersonRuntimeCache::getObject()</code> again and check if the return value is <code class="language-plaintext highlighter-rouge">null</code>, which is the case for non-existing people.</li>
+  <li><code class="language-plaintext highlighter-rouge">lookup($searchString)</code> is used when setting up an internal link and when searching for the linked person.
+This method simply searches the first and last name of the people and returns an array with the person data.
+While the <code class="language-plaintext highlighter-rouge">link</code>, the <code class="language-plaintext highlighter-rouge">objectID</code>, and the <code class="language-plaintext highlighter-rouge">title</code> element are self-explanatory, the <code class="language-plaintext highlighter-rouge">image</code> element can either contain an HTML <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> tag, which is displayed next to the search result (WoltLab Suite uses an image tag for users showing their avatar, for example), or a FontAwesome icon class (starting with <code class="language-plaintext highlighter-rouge">fa-</code>).</li>
+</ol>
+
+<p>Additionally, the class also implements <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/IOnlineLocationPageHandler.class.php">IOnlineLocationPageHandler</a> which is used to determine the online location of users.
+To ensure upwards-compatibility if the <code class="language-plaintext highlighter-rouge">IOnlineLocationPageHandler</code> interface changes, the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/TOnlineLocationPageHandler.class.php">TOnlineLocationPageHandler</a> trait is used.
+The <code class="language-plaintext highlighter-rouge">IOnlineLocationPageHandler</code> interface requires two methods to be implemented:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">getOnlineLocation(Page $page, UserOnline $user)</code> returns the textual description of the online location.
+The language item for the user online locations should use the pattern <code class="language-plaintext highlighter-rouge">wcf.page.onlineLocation.{page identifier}</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">prepareOnlineLocation(Page $page, UserOnline $user)</code> is called for each user online before the <code class="language-plaintext highlighter-rouge">getOnlineLocation()</code> calls.
+In this case, calling <code class="language-plaintext highlighter-rouge">prepareOnlineLocation()</code> first enables us to add all relevant person ids to the person runtime cache so that for all <code class="language-plaintext highlighter-rouge">getOnlineLocation()</code> calls combined, only one database query is necessary to fetch all person objects.</li>
+</ol>
+
+<hr />
+
+<p>This concludes the third part of our tutorial series after which each person has a dedicated page on which people can comment on the person.</p>
+
+<p>The complete source code of this part can be found on <a href="https://github.com/WoltLab/woltlab.github.io/tree/master/_includes/tutorial/tutorial-series/part-3">GitHub</a>.</p>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footerBox">
+    <div class="container">
+      <div class="footerBoxLeft">
+        
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master/pages/tutorial/tutorial-series/tutorial_tutorial-series_part-3-person-page-and-comments.md" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <p>Site last generated: Mar 2, 2021</p>
+      </div>
+      <div class="footerBoxRight">
+        <a class="no_icon" href="https://www.woltlab.com"><img src="https://docs.woltlab.com/images/woltlab-black.png" srcset="https://docs.woltlab.com/images/woltlab-black@2x.png 2x" height="40" width="204" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pageFooter">
+    <div class="container">
+      &copy; 2001 ‐ 2021 <a class="no_icon" href="https://www.woltlab.com">WoltLab GmbH</a>. All rights reserved. | <a class="no_icon" href="https://www.woltlab.com/legal-notice/">Legal Notice</a> | <a class="no_icon" href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+
+</html>

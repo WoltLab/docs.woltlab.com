@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>JavaScript Helper Functions | WoltLab Suite 5.3 Documentation</title>
+
+<link rel="stylesheet" href="https://docs.woltlab.com/css/syntax.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://docs.woltlab.com/css/modern-business.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/customstyles.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/theme-blue.css?v=3">
+
+<script src="https://docs.woltlab.com/js/jquery.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.cookie.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.navgoco.min.js"></script>
+<script src="https://docs.woltlab.com/js/bootstrap.min.js"></script>
+<script src="https://docs.woltlab.com/js/anchor.min.js"></script>
+<script src="https://docs.woltlab.com/js/toc.js"></script>
+<script src="https://docs.woltlab.com/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="https://docs.woltlab.com/images/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" title="mike-test" href="https://docs.woltlab.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> WoltLab Suite 5.3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://www.woltlab.com" target="_blank">woltlab.com</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/WoltLab/WCF/" target="_blank">Code on github.com</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="https://docs.woltlab.com/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'https://docs.woltlab.com/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="JavaScript Helper Functions">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">WoltLab Suite 5.3</li>
+
+    
+        
+            <li>
+                <a href="#">Getting Started</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="index"><a href="index.html">Introduction</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="getting-started_quick-start"><a href="getting-started_quick-start.html">Quick Start</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">PHP API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_pages"><a href="php_pages.html">Pages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-objects"><a href="php_database-objects.html">Database Objects</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-access"><a href="php_database-access.html">Database Access</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_exceptions"><a href="php_exceptions.html">Exceptions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_caches"><a href="php_api_caches.html">Caches</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_comments"><a href="php_api_comments.html">Comments</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_cronjobs"><a href="php_api_cronjobs.html">Cronjobs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_events"><a href="php_api_events.html">Events</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_form_builder"><a href="php_api_form_builder.html">Form Builder</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_package_installation_plugins"><a href="php_api_package_installation_plugins.html">Package Installation Plugins</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_activity_points"><a href="php_api_user_activity_points.html">User Activity Points</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_notifications"><a href="php_api_user_notifications.html">User Notifications</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_sitemaps"><a href="php_api_sitemaps.html">Sitemaps</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_code-style"><a href="php_code-style.html">Code Style</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_apps"><a href="php_apps.html">Apps</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_gdpr"><a href="php_gdpr.html">GDPR</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Languages, Templates & CSS</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_languages"><a href="view_languages.html">Languages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_templates"><a href="view_templates.html">Templates</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_css"><a href="view_css.html">CSS</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">JavaScript API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_general-usage"><a href="javascript_general-usage.html">General Usage</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">New API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_writing-a-module"><a href="javascript_new-api_writing-a-module.html">Writing a module</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_data-structures"><a href="javascript_new-api_data-structures.html">Data Structures</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_core"><a href="javascript_new-api_core.html">Core Functions</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dom"><a href="javascript_new-api_dom.html">DOM</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_events"><a href="javascript_new-api_events.html">Event Handling</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ajax"><a href="javascript_new-api_ajax.html">Ajax</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dialogs"><a href="javascript_new-api_dialogs.html">Dialogs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_browser"><a href="javascript_new-api_browser.html">Browser and Screen Sizes</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ui"><a href="javascript_new-api_ui.html">User Interface</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_legacy-api"><a href="javascript_legacy-api.html">Legacy API</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li class="active" data-identifier="javascript_helper-functions"><a href="javascript_helper-functions.html">Helper Functions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_code-snippets"><a href="javascript_code-snippets.html">Code Snippets</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Package Components</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_package-xml"><a href="package_package-xml.html">package.xml</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_pip"><a href="package_pip.html">PIPs</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Migration</a>
+                <ul>
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 5.2</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_php"><a href="migration_wsc-52_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_templates"><a href="migration_wsc-52_templates.html">Templates and Languages</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_libraries"><a href="migration_wsc-52_libraries.html">Third Party Libraries</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-31_php"><a href="migration_wsc-31_php.html">PHP API</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.0</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_php"><a href="migration_wsc-30_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_javascript"><a href="migration_wsc-30_javascript.html">JavaScript API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_templates"><a href="migration_wsc-30_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_css"><a href="migration_wsc-30_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_package"><a href="migration_wsc-30_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WCF 2.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_php"><a href="migration_wcf-21_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_templates"><a href="migration_wcf-21_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_css"><a href="migration_wcf-21_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_package"><a href="migration_wcf-21_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Tutorials</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="tutorial_tutorial-series"><a href="tutorial_tutorial-series.html">Tutorial Series</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+    
+</ul>
+
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = '';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">JavaScript Helper Functions</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+  <h2 id="introduction">Introduction</h2>
+
+<p>Since version 3.0, WoltLab Suite ships with a set of global helper functions that are
+exposed on the <code class="language-plaintext highlighter-rouge">window</code>-object and thus are available regardless of the context.
+They are meant to reduce code repetition and to increase readability by moving
+potentially relevant parts to the front of an instruction.</p>
+
+<h2 id="elements">Elements</h2>
+
+<h3 id="elcreatetagname-string-element"><code class="language-plaintext highlighter-rouge">elCreate(tagName: string): Element</code></h3>
+
+<p>Creates a new element with the provided tag name.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">elCreate</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="elremoveelement-element"><code class="language-plaintext highlighter-rouge">elRemove(element: Element)</code></h3>
+
+<p>Removes an element from its parent without returning it. This function will throw
+an error if the <code class="language-plaintext highlighter-rouge">element</code> doesn’t have a parent node.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">elRemove</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="elshowelement-element"><code class="language-plaintext highlighter-rouge">elShow(element: Element)</code></h3>
+
+<p>Attempts to show an element by removing the <code class="language-plaintext highlighter-rouge">display</code> CSS-property, usually used
+in conjunction with the <code class="language-plaintext highlighter-rouge">elHide()</code> function.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">elShow</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">removeProperty</span><span class="p">(</span><span class="dl">"</span><span class="s2">display</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="elhideelement-element"><code class="language-plaintext highlighter-rouge">elHide(element: Element)</code></h3>
+
+<p>Attempts to hide an element by setting the <code class="language-plaintext highlighter-rouge">display</code> CSS-property to <code class="language-plaintext highlighter-rouge">none</code>, this
+is intended to be used with <code class="language-plaintext highlighter-rouge">elShow()</code> that relies on this behavior.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">elHide</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">setProperty</span><span class="p">(</span><span class="dl">"</span><span class="s2">display</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">none</span><span class="dl">"</span><span class="p">,</span> <span class="dl">""</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="eltoggleelement-element"><code class="language-plaintext highlighter-rouge">elToggle(element: Element)</code></h3>
+
+<p>Attempts to toggle the visibility of an element by examining the value of the
+<code class="language-plaintext highlighter-rouge">display</code> CSS-property and calls either <code class="language-plaintext highlighter-rouge">elShow()</code> or <code class="language-plaintext highlighter-rouge">elHide()</code>.</p>
+
+<h2 id="attributes">Attributes</h2>
+
+<h3 id="elattrelement-element-attribute-string-value-string-string"><code class="language-plaintext highlighter-rouge">elAttr(element: Element, attribute: string, value?: string): string</code></h3>
+
+<p>Sets or reads an attribute value, value are implicitly casted into strings and
+reading non-existing attributes will always yield an empty string. If you want
+to test for attribute existence, you’ll have to fall-back to the native
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/hasAttribute"><code class="language-plaintext highlighter-rouge">Element.hasAttribute()</code></a>
+method.</p>
+
+<p>You should read and set native attributes directly, such as <code class="language-plaintext highlighter-rouge">img.src</code> rather
+than <code class="language-plaintext highlighter-rouge">img.getAttribute("src");</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">elAttr</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="dl">"</span><span class="s2">some-attribute</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">some-attribute</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">elAttr</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="dl">"</span><span class="s2">some-attribute</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">some value</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">some-attribute</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">some value</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="elattrboolelement-element-attribute-string-boolean"><code class="language-plaintext highlighter-rouge">elAttrBool(element: Element, attribute: string): boolean</code></h3>
+
+<p>Reads an attribute and converts it value into a boolean value, the strings <code class="language-plaintext highlighter-rouge">"1"</code>
+and <code class="language-plaintext highlighter-rouge">"true"</code> will evaluate to <code class="language-plaintext highlighter-rouge">true</code>. All other values, including a missing attribute,
+will return <code class="language-plaintext highlighter-rouge">false</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">elAttrBool</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="dl">"</span><span class="s2">some-attribute</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+  <span class="c1">// attribute is true-ish</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="eldataelement-element-attribute-string-value-string-string"><code class="language-plaintext highlighter-rouge">elData(element: Element, attribute: string, value?: string): string</code></h3>
+
+<p>Short-hand function to read or set HTML5 <code class="language-plaintext highlighter-rouge">data-*</code>-attributes, it essentially
+prepends the <code class="language-plaintext highlighter-rouge">data-</code> prefix before forwarding the call to <code class="language-plaintext highlighter-rouge">elAttr()</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">elData</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="dl">"</span><span class="s2">some-attribute</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">elAttr</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="dl">"</span><span class="s2">data-some-attribute</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">elData</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="dl">"</span><span class="s2">some-attribute</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">some value</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="nx">elAttr</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="dl">"</span><span class="s2">data-some-attribute</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">some value</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="eldataboolelement-element-attribute-string-boolean"><code class="language-plaintext highlighter-rouge">elDataBool(element: Element, attribute: string): boolean</code></h3>
+
+<p>Short-hand function to convert a HTML5 <code class="language-plaintext highlighter-rouge">data-*</code>-attribute into a boolean value. It
+prepends the <code class="language-plaintext highlighter-rouge">data-</code> prefix before forwarding the call to <code class="language-plaintext highlighter-rouge">elAttrBool()</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">elDataBool</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="dl">"</span><span class="s2">some-attribute</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+  <span class="c1">// attribute is true-ish</span>
+<span class="p">}</span>
+<span class="c1">// equals</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">elAttrBool</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="dl">"</span><span class="s2">data-some-attribute</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+  <span class="c1">// attribute is true-ish</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="selecting-elements">Selecting Elements</h2>
+
+<div class="bs-callout bs-callout-warning">Unlike libraries like jQuery, these functions will return <code class="language-plaintext highlighter-rouge">null</code> if an element is not found. You are responsible to validate if the element exist and to branch accordingly, invoking methods on the return value without checking for <code class="language-plaintext highlighter-rouge">null</code> will yield an error.</div>
+
+<h3 id="elbyidid-string-element--null"><code class="language-plaintext highlighter-rouge">elById(id: string): Element | null</code></h3>
+
+<p>Selects an element by its <code class="language-plaintext highlighter-rouge">id</code>-attribute value.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">elById</span><span class="p">(</span><span class="dl">"</span><span class="s2">my-awesome-element</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">my-awesome-element</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="elbyselselector-string-context-element-element--null"><code class="language-plaintext highlighter-rouge">elBySel(selector: string, context?: Element): Element | null</code></h3>
+
+<div class="bs-callout bs-callout-danger">The underlying <code class="language-plaintext highlighter-rouge">querySelector()</code>-method works on the entire DOM hierarchy and can yield results outside of your context element! Please read and understand the MDN article on <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector#The_entire_hierarchy_counts"><code class="language-plaintext highlighter-rouge">Element.querySelector()</code></a> to learn more about this.</div>
+
+<p>Select a single element based on a CSS selector, optionally limiting the results
+to be a direct or indirect children of the context element.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">elBySel</span><span class="p">(</span><span class="dl">"</span><span class="s2">.some-element</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.some-element</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// limiting the scope to a context element:</span>
+<span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">elBySel</span><span class="p">(</span><span class="dl">"</span><span class="s2">.some-element</span><span class="dl">"</span><span class="p">,</span> <span class="nx">context</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.some-element</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="elbyselallselector-string-context-element-callback-element-element--void-nodelist"><code class="language-plaintext highlighter-rouge">elBySelAll(selector: string, context?: Element, callback: (element: Element) =&gt; void): NodeList</code></h3>
+
+<div class="bs-callout bs-callout-danger">The underlying <code class="language-plaintext highlighter-rouge">querySelector()</code>-method works on the entire DOM hierarchy and can yield results outside of your context element! Please read and understand the MDN article on <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector#The_entire_hierarchy_counts"><code class="language-plaintext highlighter-rouge">Element.querySelector()</code></a> to learn more about this.</div>
+
+<p>Finds and returns a <code class="language-plaintext highlighter-rouge">NodeList</code> containing all elements that match the provided
+CSS selector. Although <code class="language-plaintext highlighter-rouge">NodeList</code> is an array-like structure, it is not possible
+to iterate over it using array functions, including <code class="language-plaintext highlighter-rouge">.forEach()</code> which is not
+available in Internet Explorer 11.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nx">elBySelAll</span><span class="p">(</span><span class="dl">"</span><span class="s2">.some-element</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="dl">"</span><span class="s2">.some-element</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// limiting the scope to a context element:</span>
+<span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nx">elBySelAll</span><span class="p">(</span><span class="dl">"</span><span class="s2">.some-element</span><span class="dl">"</span><span class="p">,</span> <span class="nx">context</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="dl">"</span><span class="s2">.some-element</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="callback-to-iterate-over-elements">Callback to Iterate Over Elements</h4>
+
+<p><code class="language-plaintext highlighter-rouge">elBySelAll()</code> supports an optional third parameter that expects a callback function
+that is invoked for every element in the list.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// set the 2nd parameter to `undefined` or `null` to query the whole document</span>
+<span class="nx">elBySelAll</span><span class="p">(</span><span class="dl">"</span><span class="s2">.some-element</span><span class="dl">"</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// is called for each element</span>
+<span class="p">});</span>
+
+<span class="c1">// limiting the scope to a context element:</span>
+<span class="nx">elBySelAll</span><span class="p">(</span><span class="dl">"</span><span class="s2">.some-element</span><span class="dl">"</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// is called for each element</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="elclosestelement-element-selector-string-element--null"><code class="language-plaintext highlighter-rouge">elClosest(element: Element, selector: string): Element | null</code></h3>
+
+<p>Returns the first <code class="language-plaintext highlighter-rouge">Element</code> that matches the provided CSS selector, this will
+return the provided element itself if it matches the selector.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">elClosest</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="dl">"</span><span class="s2">.some-element</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">closest</span><span class="p">(</span><span class="dl">"</span><span class="s2">.some-element</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="text-nodes">Text Nodes</h4>
+
+<p>If the provided context is a <code class="language-plaintext highlighter-rouge">Text</code>-node, the function will move the context to
+the parent element before applying the CSS selector. If the <code class="language-plaintext highlighter-rouge">Text</code> has no parent,
+<code class="language-plaintext highlighter-rouge">null</code> is returned without evaluating the selector.</p>
+
+<h3 id="elbyclassclassname-string-context-element-nodelist"><code class="language-plaintext highlighter-rouge">elByClass(className: string, context?: Element): NodeList</code></h3>
+
+<p>Returns a live <code class="language-plaintext highlighter-rouge">NodeList</code> containing all elements that match the provided CSS
+class now <em>and</em> in the future! The collection is automatically updated whenever
+an element with that class is added or removed from the DOM, it will also include
+elements that get dynamically assigned or removed this CSS class.</p>
+
+<p>You absolutely need to understand that this collection is dynamic, that means that
+elements can and will be added and removed from the collection <em>even while</em> you
+iterate over it. There are only very few cases where you would need such a collection,
+almost always <code class="language-plaintext highlighter-rouge">elBySelAll()</code> is what you’re looking for.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// no leading dot!</span>
+<span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nx">elByClass</span><span class="p">(</span><span class="dl">"</span><span class="s2">some-element</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="dl">"</span><span class="s2">some-element</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// limiting the scope to a context element:</span>
+<span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nx">elByClass</span><span class="p">(</span><span class="dl">"</span><span class="s2">some-element</span><span class="dl">"</span><span class="p">,</span> <span class="nx">context</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="dl">"</span><span class="s2">.some-element</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="elbytagtagname-string-context-element-nodelist"><code class="language-plaintext highlighter-rouge">elByTag(tagName: string, context?: Element): NodeList</code></h3>
+
+<p>Returns a live <code class="language-plaintext highlighter-rouge">NodeList</code> containing all elements with the provided tag name now
+<em>and</em> in the future! Please read the remarks on <code class="language-plaintext highlighter-rouge">elByClass()</code> above to understand
+the implications of this.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nx">elByTag</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// limiting the scope to a context element:</span>
+<span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nx">elByTag</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">,</span> <span class="nx">context</span><span class="p">);</span>
+<span class="c1">// equals</span>
+<span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="utility-functions">Utility Functions</h2>
+
+<h3 id="elinnererrorelement-element-errormessage-string-ishtml-boolean-element--null"><code class="language-plaintext highlighter-rouge">elInnerError(element: Element, errorMessage?: string, isHtml?: boolean): Element | null</code>`</h3>
+
+<p>Unified function to display and remove inline error messages for input elements,
+please read the <a href="migration_wsc-30_javascript.html#helper-function-for-inline-error-messages">section in the migration docs</a>
+to learn more about this function.</p>
+
+<h2 id="string-extensions">String Extensions</h2>
+
+<h3 id="hashcode-string"><code class="language-plaintext highlighter-rouge">hashCode(): string</code></h3>
+
+<p>Computes a numeric hash value of a string similar to Java’s <code class="language-plaintext highlighter-rouge">String.hashCode()</code> method.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello World</span><span class="dl">"</span><span class="p">.</span><span class="nx">hashCode</span><span class="p">());</span>
+<span class="c1">// outputs: -862545276</span>
+</code></pre></div></div>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footerBox">
+    <div class="container">
+      <div class="footerBoxLeft">
+        
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master/pages/javascript/javascript_helper-functions.md" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <p>Site last generated: Mar 2, 2021</p>
+      </div>
+      <div class="footerBoxRight">
+        <a class="no_icon" href="https://www.woltlab.com"><img src="https://docs.woltlab.com/images/woltlab-black.png" srcset="https://docs.woltlab.com/images/woltlab-black@2x.png 2x" height="40" width="204" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pageFooter">
+    <div class="container">
+      &copy; 2001 ‐ 2021 <a class="no_icon" href="https://www.woltlab.com">WoltLab GmbH</a>. All rights reserved. | <a class="no_icon" href="https://www.woltlab.com/legal-notice/">Legal Notice</a> | <a class="no_icon" href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+
+</html>

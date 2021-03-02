@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Events | WoltLab Suite 5.3 Documentation</title>
+
+<link rel="stylesheet" href="https://docs.woltlab.com/css/syntax.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://docs.woltlab.com/css/modern-business.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/customstyles.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/theme-blue.css?v=3">
+
+<script src="https://docs.woltlab.com/js/jquery.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.cookie.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.navgoco.min.js"></script>
+<script src="https://docs.woltlab.com/js/bootstrap.min.js"></script>
+<script src="https://docs.woltlab.com/js/anchor.min.js"></script>
+<script src="https://docs.woltlab.com/js/toc.js"></script>
+<script src="https://docs.woltlab.com/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="https://docs.woltlab.com/images/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" title="mike-test" href="https://docs.woltlab.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> WoltLab Suite 5.3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://www.woltlab.com" target="_blank">woltlab.com</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/WoltLab/WCF/" target="_blank">Code on github.com</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="https://docs.woltlab.com/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'https://docs.woltlab.com/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Events">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">WoltLab Suite 5.3</li>
+
+    
+        
+            <li>
+                <a href="#">Getting Started</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="index"><a href="index.html">Introduction</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="getting-started_quick-start"><a href="getting-started_quick-start.html">Quick Start</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">PHP API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_pages"><a href="php_pages.html">Pages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-objects"><a href="php_database-objects.html">Database Objects</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-access"><a href="php_database-access.html">Database Access</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_exceptions"><a href="php_exceptions.html">Exceptions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_caches"><a href="php_api_caches.html">Caches</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_comments"><a href="php_api_comments.html">Comments</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_cronjobs"><a href="php_api_cronjobs.html">Cronjobs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li class="active" data-identifier="php_api_events"><a href="php_api_events.html">Events</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_form_builder"><a href="php_api_form_builder.html">Form Builder</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_package_installation_plugins"><a href="php_api_package_installation_plugins.html">Package Installation Plugins</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_activity_points"><a href="php_api_user_activity_points.html">User Activity Points</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_notifications"><a href="php_api_user_notifications.html">User Notifications</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_sitemaps"><a href="php_api_sitemaps.html">Sitemaps</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_code-style"><a href="php_code-style.html">Code Style</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_apps"><a href="php_apps.html">Apps</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_gdpr"><a href="php_gdpr.html">GDPR</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Languages, Templates & CSS</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_languages"><a href="view_languages.html">Languages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_templates"><a href="view_templates.html">Templates</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_css"><a href="view_css.html">CSS</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">JavaScript API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_general-usage"><a href="javascript_general-usage.html">General Usage</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">New API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_writing-a-module"><a href="javascript_new-api_writing-a-module.html">Writing a module</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_data-structures"><a href="javascript_new-api_data-structures.html">Data Structures</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_core"><a href="javascript_new-api_core.html">Core Functions</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dom"><a href="javascript_new-api_dom.html">DOM</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_events"><a href="javascript_new-api_events.html">Event Handling</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ajax"><a href="javascript_new-api_ajax.html">Ajax</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dialogs"><a href="javascript_new-api_dialogs.html">Dialogs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_browser"><a href="javascript_new-api_browser.html">Browser and Screen Sizes</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ui"><a href="javascript_new-api_ui.html">User Interface</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_legacy-api"><a href="javascript_legacy-api.html">Legacy API</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_helper-functions"><a href="javascript_helper-functions.html">Helper Functions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_code-snippets"><a href="javascript_code-snippets.html">Code Snippets</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Package Components</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_package-xml"><a href="package_package-xml.html">package.xml</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_pip"><a href="package_pip.html">PIPs</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Migration</a>
+                <ul>
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 5.2</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_php"><a href="migration_wsc-52_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_templates"><a href="migration_wsc-52_templates.html">Templates and Languages</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_libraries"><a href="migration_wsc-52_libraries.html">Third Party Libraries</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-31_php"><a href="migration_wsc-31_php.html">PHP API</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.0</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_php"><a href="migration_wsc-30_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_javascript"><a href="migration_wsc-30_javascript.html">JavaScript API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_templates"><a href="migration_wsc-30_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_css"><a href="migration_wsc-30_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_package"><a href="migration_wsc-30_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WCF 2.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_php"><a href="migration_wcf-21_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_templates"><a href="migration_wcf-21_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_css"><a href="migration_wcf-21_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_package"><a href="migration_wcf-21_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Tutorials</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="tutorial_tutorial-series"><a href="tutorial_tutorial-series.html">Tutorial Series</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+    
+</ul>
+
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = '';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Events</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+  <p>WoltLab Suite’s event system allows manipulation of program flows and data without having to change any of the original source code.
+At many locations throughout the PHP code of WoltLab Suite Core and mainly through inheritance also in the applications and plugins, so called <em>events</em> are fired which trigger registered <em>event listeners</em> that get access to the object firing the event (or at least the class name if the event has been fired in a static method).</p>
+
+<p>This page focuses on the technical aspects of events and event listeners, <a href="package_pip_event-listener.html">the eventListener package installation plugin page</a> covers how you can actually register an event listener.
+A comprehensive list of all available events is provided <a href="php_api_event_list.html">here</a>.</p>
+
+<h2 id="introductory-example">Introductory Example</h2>
+
+<p>Let’s start with a simple example to illustrate how the event system works.
+Consider this pre-existing class:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\system\example</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\event\EventHandler</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">ExampleComponent</span> <span class="p">{</span>
+	<span class="k">public</span> <span class="nv">$var</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getVar</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">'getVar'</span><span class="p">);</span>
+		
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>where an event with event name <code class="language-plaintext highlighter-rouge">getVar</code> is fired in the <code class="language-plaintext highlighter-rouge">getVar()</code> method.</p>
+
+<p>If you create an object of this class and call the <code class="language-plaintext highlighter-rouge">getVar()</code> method, the return value will be <code class="language-plaintext highlighter-rouge">1</code>, of course:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$example</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">wcf\system\example\ExampleComponent</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$example</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">echo</span> <span class="s2">"var is 1!"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$example</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">echo</span> <span class="s2">"var is 2!"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+	<span class="k">echo</span> <span class="s2">"No, var is neither 1 nor 2."</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// output: var is 1!</span>
+</code></pre></div></div>
+
+<p>Now, consider that we have registered the following event listener to this event:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\system\event\listener</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">ExampleEventListener</span> <span class="k">implements</span> <span class="nx">IParameterizedEventListener</span> <span class="p">{</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">var</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Whenever the event in the <code class="language-plaintext highlighter-rouge">getVar()</code> method is called, this method (of the same event listener object) is called.
+In this case, the value of the method’s first parameter is the <code class="language-plaintext highlighter-rouge">ExampleComponent</code> object passed as the first argument of the <code class="language-plaintext highlighter-rouge">EventHandler::fireAction()</code> call in <code class="language-plaintext highlighter-rouge">ExampleComponent::getVar()</code>.
+As <code class="language-plaintext highlighter-rouge">ExampleComponent::$var</code> is a public property, the event listener code can change it and set it to <code class="language-plaintext highlighter-rouge">2</code>.</p>
+
+<p>If you now execute the example code from above again, the output will change from <code class="language-plaintext highlighter-rouge">var is 1!</code> to <code class="language-plaintext highlighter-rouge">var is 2!</code> because prior to returning the value, the event listener code changes the value from <code class="language-plaintext highlighter-rouge">1</code> to <code class="language-plaintext highlighter-rouge">2</code>.</p>
+
+<p>This introductory example illustrates how event listeners can change data in a non-intrusive way.
+Program flow can be changed, for example, by throwing a <code class="language-plaintext highlighter-rouge">wcf\system\exception\PermissionDeniedException</code> if some additional constraint to access a page is not fulfilled.</p>
+
+<h2 id="listening-to-events">Listening to Events</h2>
+
+<p>In order to listen to events, you need to register the event listener and the event listener itself needs to implement the interface <code class="language-plaintext highlighter-rouge">wcf\system\event\listener\IParameterizedEventListener</code> which only contains the <code class="language-plaintext highlighter-rouge">execute</code> method (see example above).</p>
+
+<p>The first parameter <code class="language-plaintext highlighter-rouge">$eventObj</code> of the method contains the passed object where the event is fired or the name of the class in which the event is fired if it is fired from a static method.
+The second parameter <code class="language-plaintext highlighter-rouge">$className</code> always contains the name of the class where the event has been fired.
+The third parameter <code class="language-plaintext highlighter-rouge">$eventName</code> provides the name of the event within a class to uniquely identify the exact location in the class where the event has been fired.
+The last parameter <code class="language-plaintext highlighter-rouge">$parameters</code> is a reference to the array which contains additional data passed by the method firing the event.
+If no additional data is passed, <code class="language-plaintext highlighter-rouge">$parameters</code> is empty.</p>
+
+<h2 id="firing-events">Firing Events</h2>
+
+<p>If you write code and want plugins to have access at certain points, you can fire an event on your own.
+The only thing to do is to call the <code class="language-plaintext highlighter-rouge">wcf\system\event\EventHandler::fireAction($eventObj, $eventName, array &amp;$parameters = [])</code> method and pass the following parameters:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">$eventObj</code> should be <code class="language-plaintext highlighter-rouge">$this</code> if you fire from an object context, otherwise pass the class name <code class="language-plaintext highlighter-rouge">static::class</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">$eventName</code> identifies the event within the class and generally has the same name as the method.
+In cases, were you might fire more than one event in a method, for example before and after a certain piece of code, you can use the prefixes <code class="language-plaintext highlighter-rouge">before*</code> and <code class="language-plaintext highlighter-rouge">after*</code> in your event names.</li>
+  <li><code class="language-plaintext highlighter-rouge">$parameters</code> is an optional array which allows you to pass additional data to the event listeners without having to make this data accessible via a property explicitly only created for this purpose.
+This additional data can either be just additional information for the event listeners about the context of the method call or allow the event listener to manipulate local data if the code, where the event has been fired, uses the passed data afterwards.</li>
+</ol>
+
+<h3 id="example-using-parameters-argument">Example: Using <code class="language-plaintext highlighter-rouge">$parameters</code> argument</h3>
+
+<p>Consider the following method which gets some text that the methods parses.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\system\example</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\event\EventHandler</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">ExampleParser</span> <span class="p">{</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">parse</span><span class="p">(</span><span class="nv">$text</span><span class="p">)</span> <span class="p">{</span>
+		<span class="c1">// [some parsing done by default]</span>
+		
+		<span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'text'</span> <span class="o">=&gt;</span> <span class="nv">$text</span><span class="p">];</span>
+		<span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">'parse'</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
+		
+		<span class="k">return</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">'text'</span><span class="p">];</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>After the default parsing by the method itself, the author wants to enable plugins to do additional parsing and thus fires an event and passes the parsed text as an additional parameter.
+Then, a plugin can deliver the following event listener</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\system\event\listener</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">ExampleParserEventListener</span> <span class="k">implements</span> <span class="nx">IParameterizedEventListener</span> <span class="p">{</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nv">$text</span> <span class="o">=</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">'text'</span><span class="p">];</span>
+		
+		<span class="c1">// [some additional parsing which changes $text]</span>
+		
+		<span class="nv">$parameters</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$text</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>which can access the text via <code class="language-plaintext highlighter-rouge">$parameters['text']</code>.</p>
+
+<p>This example can also be perfectly used to illustrate how to name multiple events in the same method.
+Let’s assume that the author wants to enable plugins to change the text before and after the method does its own parsing and thus fires two events:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\system\example</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\event\EventHandler</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">ExampleParser</span> <span class="p">{</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">parse</span><span class="p">(</span><span class="nv">$text</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'text'</span> <span class="o">=&gt;</span> <span class="nv">$text</span><span class="p">];</span>
+		<span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">'beforeParsing'</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
+		<span class="nv">$text</span> <span class="o">=</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">'text'</span><span class="p">];</span>
+		
+		<span class="c1">// [some parsing done by default]</span>
+		
+		<span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'text'</span> <span class="o">=&gt;</span> <span class="nv">$text</span><span class="p">];</span>
+		<span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">'afterParsing'</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
+		
+		<span class="k">return</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">'text'</span><span class="p">];</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="advanced-example-additional-form-field">Advanced Example: Additional Form Field</h2>
+
+<p>One common reason to use event listeners is to add an additional field to a pre-existing form (in combination with template listeners, which we will not cover here).
+We will assume that users are able to do both, create and edit the objects via this form.
+The points in the program flow of <a href="php_pages.html#abstractform">AbstractForm</a> that are relevant here are:</p>
+
+<ul>
+  <li>adding object (after the form has been submitted):
+    <ol>
+      <li>reading the value of the field</li>
+      <li>validating the read value</li>
+      <li>saving the additional value after successful validation and resetting locally stored value or assigning the current value of the field to the template after unsuccessful validation</li>
+    </ol>
+  </li>
+  <li>editing object:
+    <ul>
+      <li>on initial form request:
+        <ol>
+          <li>reading the pre-existing value of the edited object</li>
+          <li>assigning the field value to the template</li>
+        </ol>
+      </li>
+      <li>after the form has been submitted:
+        <ol>
+          <li>reading the value of the field</li>
+          <li>validating the read value</li>
+          <li>saving the additional value after successful validation</li>
+          <li>assigning the current value of the field to the template</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>All of these cases can be covered the by following code in which we assume that <code class="language-plaintext highlighter-rouge">wcf\form\ExampleAddForm</code> is the form to create example objects and that <code class="language-plaintext highlighter-rouge">wcf\form\ExampleEditForm</code> extends <code class="language-plaintext highlighter-rouge">wcf\form\ExampleAddForm</code> and is used for editing existing example objects.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">wcf\system\event\listener</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\form\ExampleAddForm</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\form\ExampleEditForm</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\exception\UserInputException</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\WCF</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">ExampleAddFormListener</span> <span class="k">implements</span> <span class="nx">IParameterizedEventListener</span> <span class="p">{</span>
+	<span class="k">protected</span> <span class="nv">$var</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$eventName</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="k">protected</span> <span class="k">function</span> <span class="nf">assignVariables</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">(</span><span class="s1">'var'</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="k">protected</span> <span class="k">function</span> <span class="nf">readData</span><span class="p">(</span><span class="nx">ExampleEditForm</span> <span class="nv">$eventObj</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">))</span> <span class="p">{</span>
+			<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span> <span class="o">=</span> <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">example</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="k">protected</span> <span class="k">function</span> <span class="nf">readFormParameters</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'var'</span><span class="p">]))</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span> <span class="o">=</span> <span class="nb">intval</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'var'</span><span class="p">]);</span>
+	<span class="p">}</span>
+	
+	<span class="k">protected</span> <span class="k">function</span> <span class="nf">save</span><span class="p">(</span><span class="nx">ExampleAddForm</span> <span class="nv">$eventObj</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">additionalFields</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">(</span><span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">additionalFields</span><span class="p">,</span> <span class="p">[</span><span class="s1">'var'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">]);</span>
+	<span class="p">}</span>
+	
+	<span class="k">protected</span> <span class="k">function</span> <span class="nf">saved</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="k">protected</span> <span class="k">function</span> <span class="nf">validate</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nx">UserInputException</span><span class="p">(</span><span class="s1">'var'</span><span class="p">,</span> <span class="s1">'isNegative'</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">execute</code> method in this example just delegates the call to a method with the same name as the event so that this class mimics the structure of a form class itself.
+The form object is passed to the methods but is only given in the method signatures as a parameter here whenever the form object is actually used.
+Furthermore, the type-hinting of the parameter illustrates in which contexts the method is actually called which will become clear in the following discussion of the individual methods:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">assignVariables()</code> is called for the add and the edit form and simply assigns the current value of the variable to the template.</li>
+  <li><code class="language-plaintext highlighter-rouge">readData()</code> reads the pre-existing value of <code class="language-plaintext highlighter-rouge">$var</code> if the form has not been submitted and thus is only relevant when editing objects which is illustrated by the explicit type-hint of <code class="language-plaintext highlighter-rouge">ExampleEditForm</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">readFormParameters()</code> reads the value for both, the add and the edit form.</li>
+  <li><code class="language-plaintext highlighter-rouge">save()</code> is, of course, also relevant in both cases but requires the form object to store the additional value in the <code class="language-plaintext highlighter-rouge">wcf\form\AbstractForm::$additionalFields</code> array which can be used if a <code class="language-plaintext highlighter-rouge">var</code> column has been added to the database table in which the example objects are stored.</li>
+  <li><code class="language-plaintext highlighter-rouge">saved()</code> is only called for the add form as it clears the internal value so that in the <code class="language-plaintext highlighter-rouge">assignVariables()</code> call, the default value will be assigned to the template to create an “empty” form.
+During edits, this current value is the actual value that should be shown.</li>
+  <li><code class="language-plaintext highlighter-rouge">validate()</code> also needs to be called in both cases as the input data always has to be validated.</li>
+</ul>
+
+<p>Lastly, the following XML file has to be used to register the event listeners (you can find more information about how to register event listeners on <a href="package_pip_event-listener.html">the eventListener package installation plugin page</a>):</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/2019/eventListener.xsd"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;import&gt;</span>
+		<span class="nt">&lt;eventlistener</span> <span class="na">name=</span><span class="s">"exampleAddInherited"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;eventclassname&gt;</span>wcf\form\ExampleAddForm<span class="nt">&lt;/eventclassname&gt;</span>
+			<span class="nt">&lt;eventname&gt;</span>assignVariables,readFormParameters,save,validate<span class="nt">&lt;/eventname&gt;</span>
+			<span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\ExampleAddFormListener<span class="nt">&lt;/listenerclassname&gt;</span>
+			<span class="nt">&lt;inherit&gt;</span>1<span class="nt">&lt;/inherit&gt;</span>
+		<span class="nt">&lt;/eventlistener&gt;</span>
+		
+		<span class="nt">&lt;eventlistener</span> <span class="na">name=</span><span class="s">"exampleAdd"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;eventclassname&gt;</span>wcf\form\ExampleAddForm<span class="nt">&lt;/eventclassname&gt;</span>
+			<span class="nt">&lt;eventname&gt;</span>saved<span class="nt">&lt;/eventname&gt;</span>
+			<span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\ExampleAddFormListener<span class="nt">&lt;/listenerclassname&gt;</span>
+		<span class="nt">&lt;/eventlistener&gt;</span>
+		
+		<span class="nt">&lt;eventlistener</span> <span class="na">name=</span><span class="s">"exampleEdit"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;eventclassname&gt;</span>wcf\form\ExampleEditForm<span class="nt">&lt;/eventclassname&gt;</span>
+			<span class="nt">&lt;eventname&gt;</span>readData<span class="nt">&lt;/eventname&gt;</span>
+			<span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\ExampleAddFormListener<span class="nt">&lt;/listenerclassname&gt;</span>
+		<span class="nt">&lt;/eventlistener&gt;</span>
+	<span class="nt">&lt;/import&gt;</span>
+<span class="nt">&lt;/data&gt;</span>
+</code></pre></div></div>
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footerBox">
+    <div class="container">
+      <div class="footerBoxLeft">
+        
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master/pages/php/api/php_api_events.md" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <p>Site last generated: Mar 2, 2021</p>
+      </div>
+      <div class="footerBoxRight">
+        <a class="no_icon" href="https://www.woltlab.com"><img src="https://docs.woltlab.com/images/woltlab-black.png" srcset="https://docs.woltlab.com/images/woltlab-black@2x.png 2x" height="40" width="204" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pageFooter">
+    <div class="container">
+      &copy; 2001 ‐ 2021 <a class="no_icon" href="https://www.woltlab.com">WoltLab GmbH</a>. All rights reserved. | <a class="no_icon" href="https://www.woltlab.com/legal-notice/">Legal Notice</a> | <a class="no_icon" href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+
+</html>

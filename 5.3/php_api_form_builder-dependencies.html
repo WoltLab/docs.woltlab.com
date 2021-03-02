@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Form Node Dependencies | WoltLab Suite 5.3 Documentation</title>
+
+<link rel="stylesheet" href="https://docs.woltlab.com/css/syntax.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://docs.woltlab.com/css/modern-business.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/customstyles.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/theme-blue.css?v=3">
+
+<script src="https://docs.woltlab.com/js/jquery.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.cookie.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.navgoco.min.js"></script>
+<script src="https://docs.woltlab.com/js/bootstrap.min.js"></script>
+<script src="https://docs.woltlab.com/js/anchor.min.js"></script>
+<script src="https://docs.woltlab.com/js/toc.js"></script>
+<script src="https://docs.woltlab.com/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="https://docs.woltlab.com/images/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" title="mike-test" href="https://docs.woltlab.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> WoltLab Suite 5.3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://www.woltlab.com" target="_blank">woltlab.com</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/WoltLab/WCF/" target="_blank">Code on github.com</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="https://docs.woltlab.com/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'https://docs.woltlab.com/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Form Node Dependencies">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">WoltLab Suite 5.3</li>
+
+    
+        
+            <li>
+                <a href="#">Getting Started</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="index"><a href="index.html">Introduction</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="getting-started_quick-start"><a href="getting-started_quick-start.html">Quick Start</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">PHP API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_pages"><a href="php_pages.html">Pages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-objects"><a href="php_database-objects.html">Database Objects</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-access"><a href="php_database-access.html">Database Access</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_exceptions"><a href="php_exceptions.html">Exceptions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_caches"><a href="php_api_caches.html">Caches</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_comments"><a href="php_api_comments.html">Comments</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_cronjobs"><a href="php_api_cronjobs.html">Cronjobs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_events"><a href="php_api_events.html">Events</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_form_builder"><a href="php_api_form_builder.html">Form Builder</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_package_installation_plugins"><a href="php_api_package_installation_plugins.html">Package Installation Plugins</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_activity_points"><a href="php_api_user_activity_points.html">User Activity Points</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_notifications"><a href="php_api_user_notifications.html">User Notifications</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_sitemaps"><a href="php_api_sitemaps.html">Sitemaps</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_code-style"><a href="php_code-style.html">Code Style</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_apps"><a href="php_apps.html">Apps</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_gdpr"><a href="php_gdpr.html">GDPR</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Languages, Templates & CSS</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_languages"><a href="view_languages.html">Languages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_templates"><a href="view_templates.html">Templates</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_css"><a href="view_css.html">CSS</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">JavaScript API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_general-usage"><a href="javascript_general-usage.html">General Usage</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">New API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_writing-a-module"><a href="javascript_new-api_writing-a-module.html">Writing a module</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_data-structures"><a href="javascript_new-api_data-structures.html">Data Structures</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_core"><a href="javascript_new-api_core.html">Core Functions</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dom"><a href="javascript_new-api_dom.html">DOM</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_events"><a href="javascript_new-api_events.html">Event Handling</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ajax"><a href="javascript_new-api_ajax.html">Ajax</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dialogs"><a href="javascript_new-api_dialogs.html">Dialogs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_browser"><a href="javascript_new-api_browser.html">Browser and Screen Sizes</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ui"><a href="javascript_new-api_ui.html">User Interface</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_legacy-api"><a href="javascript_legacy-api.html">Legacy API</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_helper-functions"><a href="javascript_helper-functions.html">Helper Functions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_code-snippets"><a href="javascript_code-snippets.html">Code Snippets</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Package Components</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_package-xml"><a href="package_package-xml.html">package.xml</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_pip"><a href="package_pip.html">PIPs</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Migration</a>
+                <ul>
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 5.2</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_php"><a href="migration_wsc-52_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_templates"><a href="migration_wsc-52_templates.html">Templates and Languages</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_libraries"><a href="migration_wsc-52_libraries.html">Third Party Libraries</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-31_php"><a href="migration_wsc-31_php.html">PHP API</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.0</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_php"><a href="migration_wsc-30_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_javascript"><a href="migration_wsc-30_javascript.html">JavaScript API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_templates"><a href="migration_wsc-30_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_css"><a href="migration_wsc-30_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_package"><a href="migration_wsc-30_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WCF 2.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_php"><a href="migration_wcf-21_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_templates"><a href="migration_wcf-21_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_css"><a href="migration_wcf-21_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_package"><a href="migration_wcf-21_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Tutorials</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="tutorial_tutorial-series"><a href="tutorial_tutorial-series.html">Tutorial Series</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+    
+</ul>
+
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = 'php_api_form_builder';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Form Node Dependencies</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+  <p>Form node dependencies allow to make parts of a form dynamically available or unavailable depending on the values of form fields.
+Dependencies are always added to the object whose visibility is determined by certain form fields.
+They are <strong>not</strong> added to the form field’s whose values determine the visibility!
+An example is a text form field that should only be available if a certain option from a single selection form field is selected.
+Form builder’s dependency system supports such scenarios and also automatically making form containers unavailable once all of its children are unavailable.</p>
+
+<p>If a form node has multiple dependencies and one of them is not met, the form node is unavailable.
+A form node not being available due to dependencies has to the following consequences:</p>
+
+<ul>
+  <li>The form field value is not validated. It is, however, read from the request data as all request data needs to be read first so that the dependencies can determine whether they are met or not.</li>
+  <li>No data is collected for the form field and returned by <code class="language-plaintext highlighter-rouge">IFormDocument::getData()</code>.</li>
+  <li>In the actual form, the form field will be hidden via JavaScript.</li>
+</ul>
+
+<h2 id="iformfielddependency"><code class="language-plaintext highlighter-rouge">IFormFieldDependency</code></h2>
+
+<p>The basis of the dependencies is the <code class="language-plaintext highlighter-rouge">IFormFieldDependency</code> interface that has to be implemented by every dependency class.
+The interface requires the following methods:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">checkDependency()</code> checks if the dependency is met, thus if the dependant form field should be considered available.</li>
+  <li><code class="language-plaintext highlighter-rouge">dependentNode(IFormNode $node)</code> and <code class="language-plaintext highlighter-rouge">getDependentNode()</code> can be used to set and get the node whose availability depends on the referenced form field.
+<code class="language-plaintext highlighter-rouge">TFormNode::addDependency()</code> automatically calls <code class="language-plaintext highlighter-rouge">dependentNode(IFormNode $node)</code> with itself as the dependent node, thus the dependent node is automatically set by the API.</li>
+  <li><code class="language-plaintext highlighter-rouge">field(IFormField $field)</code> and <code class="language-plaintext highlighter-rouge">getField()</code> can be used to set and get the form field that influences the availability of the dependent node.</li>
+  <li><code class="language-plaintext highlighter-rouge">fieldId($fieldId)</code> and <code class="language-plaintext highlighter-rouge">getFieldId()</code> can be used to set and get the id of the form field that influences the availability of the dependent node.</li>
+  <li><code class="language-plaintext highlighter-rouge">getHtml()</code> returns JavaScript code required to ensure the dependency in the form output.</li>
+  <li><code class="language-plaintext highlighter-rouge">getId()</code> returns the id of the dependency used to identify multiple dependencies of the same form node.</li>
+  <li><code class="language-plaintext highlighter-rouge">static create($id)</code> is the factory method that has to be used to create new dependencies with the given id.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">AbstractFormFieldDependency</code> provides default implementations for all methods except for <code class="language-plaintext highlighter-rouge">checkDependency()</code>.</p>
+
+<p>Using <code class="language-plaintext highlighter-rouge">fieldId($fieldId)</code> instead of <code class="language-plaintext highlighter-rouge">field(IFormField $field)</code> makes sense when adding the dependency directly when setting up the form:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$container</span><span class="o">-&gt;</span><span class="na">appendChildren</span><span class="p">([</span>
+	<span class="nx">FooField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'a'</span><span class="p">),</span>
+	
+	<span class="nx">BarField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'b'</span><span class="p">)</span>
+		<span class="o">-&gt;</span><span class="na">addDependency</span><span class="p">(</span>
+			<span class="nx">BazDependency</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span>
+				<span class="o">-&gt;</span><span class="na">fieldId</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span>
+		<span class="p">)</span>
+<span class="p">]);</span>
+</code></pre></div></div>
+
+<p>Here, without an additional assignment, the first field with id <code class="language-plaintext highlighter-rouge">a</code> cannot be accessed thus <code class="language-plaintext highlighter-rouge">fieldId($fieldId)</code> should be used as the id of the relevant field is known.
+When the form is built, all dependencies that only know the id of the relevant field and do not have a reference for the actual object are populated with the actual form field objects.</p>
+
+<h2 id="default-dependencies">Default Dependencies</h2>
+
+<p>WoltLab Suite Core delivers the following two default dependency classes by default:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">NonEmptyFormFieldDependency</code> can be used to ensure that a node is only shown if the value of the referenced form field is not empty (being empty is determined using PHP’s <code class="language-plaintext highlighter-rouge">empty</code> function).</li>
+  <li><code class="language-plaintext highlighter-rouge">ValueFormFieldDependency</code> can be used to ensure that a node is only shown if the value of the referenced form field is from a specified list of of values (see methods <code class="language-plaintext highlighter-rouge">values($values)</code> and <code class="language-plaintext highlighter-rouge">getValues()</code>).
+Additionally, via <code class="language-plaintext highlighter-rouge">negate($negate = true)</code> and <code class="language-plaintext highlighter-rouge">isNegated()</code>, the locic can also be inverted by requiring the value of the referenced form field not to be from a specified list of values.</li>
+</ul>
+
+<h2 id="javascript-implementation">JavaScript Implementation</h2>
+
+<p>To ensure that dependent node are correctly shown and hidden when changing the value of referenced form fields, every PHP dependency class has a corresponding JavaScript module that checks the dependency in the browser.
+Every JavaScript dependency has to extend <code class="language-plaintext highlighter-rouge">WoltLabSuite/Core/Form/Builder/Field/Dependency/Abstract</code> and implement the <code class="language-plaintext highlighter-rouge">checkDependency()</code> function, the JavaScript version of <code class="language-plaintext highlighter-rouge">IFormFieldDependency::checkDependency()</code>.</p>
+
+<p>All of the JavaScript dependency objects automatically register themselves during initialization with the <code class="language-plaintext highlighter-rouge">WoltLabSuite/Core/Form/Builder/Field/Dependency/Manager</code> which takes care of checking the dependencies at the correct points in time.</p>
+
+<p>Additionally, the dependency manager also ensures that form containers in which all children are hidden due to dependencies are also hidden and, once any child becomes available again, makes the container also available again.
+Every form container has to create a matching form container dependency object from a module based on <code class="language-plaintext highlighter-rouge">WoltLabSuite/Core/Form/Builder/Field/Dependency/Abstract</code>.</p>
+
+<h2 id="examples">Examples</h2>
+
+<p>If <code class="language-plaintext highlighter-rouge">$booleanFormField</code> is an instance of <code class="language-plaintext highlighter-rouge">BooleanFormField</code> and the text form field <code class="language-plaintext highlighter-rouge">$textFormField</code> should only be available if “Yes” has been selected, the following condition has to be set up:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$textFormField</span><span class="o">-&gt;</span><span class="na">addDependency</span><span class="p">(</span>
+	<span class="nx">NonEmptyFormFieldDependency</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'booleanFormField'</span><span class="p">)</span>
+		<span class="o">-&gt;</span><span class="na">field</span><span class="p">(</span><span class="nv">$booleanFormField</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p>If <code class="language-plaintext highlighter-rouge">$singleSelectionFormField</code> is an instance of <code class="language-plaintext highlighter-rouge">SingleSelectionFormField</code> that offers the options <code class="language-plaintext highlighter-rouge">1</code>, <code class="language-plaintext highlighter-rouge">2</code>, and <code class="language-plaintext highlighter-rouge">3</code> and <code class="language-plaintext highlighter-rouge">$textFormField</code> should only be available if <code class="language-plaintext highlighter-rouge">1</code> or <code class="language-plaintext highlighter-rouge">3</code> is selected, the following condition has to be set up:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$textFormField</span><span class="o">-&gt;</span><span class="na">addDependency</span><span class="p">(</span>
+	<span class="nx">NonEmptyFormFieldDependency</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'singleSelectionFormField'</span><span class="p">)</span>
+		<span class="o">-&gt;</span><span class="na">field</span><span class="p">(</span><span class="nv">$singleSelectionFormField</span><span class="p">)</span>
+		<span class="o">-&gt;</span><span class="na">values</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p>If, in contrast, <code class="language-plaintext highlighter-rouge">$singleSelectionFormField</code> has many available options and <code class="language-plaintext highlighter-rouge">7</code> is the only option for which <code class="language-plaintext highlighter-rouge">$textFormField</code> should <strong>not</strong> be available, <code class="language-plaintext highlighter-rouge">negate()</code> should be used:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$textFormField</span><span class="o">-&gt;</span><span class="na">addDependency</span><span class="p">(</span>
+	<span class="nx">NonEmptyFormFieldDependency</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'singleSelectionFormField'</span><span class="p">)</span>
+		<span class="o">-&gt;</span><span class="na">field</span><span class="p">(</span><span class="nv">$singleSelectionFormField</span><span class="p">)</span>
+		<span class="o">-&gt;</span><span class="na">values</span><span class="p">([</span><span class="mi">7</span><span class="p">])</span>
+		<span class="o">-&gt;</span><span class="na">negate</span><span class="p">()</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footerBox">
+    <div class="container">
+      <div class="footerBoxLeft">
+        
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master/pages/php/api/formBuilder/php_api_form_builder-dependencies.md" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <p>Site last generated: Mar 2, 2021</p>
+      </div>
+      <div class="footerBoxRight">
+        <a class="no_icon" href="https://www.woltlab.com"><img src="https://docs.woltlab.com/images/woltlab-black.png" srcset="https://docs.woltlab.com/images/woltlab-black@2x.png 2x" height="40" width="204" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pageFooter">
+    <div class="container">
+      &copy; 2001 ‐ 2021 <a class="no_icon" href="https://www.woltlab.com">WoltLab GmbH</a>. All rights reserved. | <a class="no_icon" href="https://www.woltlab.com/legal-notice/">Legal Notice</a> | <a class="no_icon" href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>User Notifications | WoltLab Suite 5.3 Documentation</title>
+
+<link rel="stylesheet" href="https://docs.woltlab.com/css/syntax.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://docs.woltlab.com/css/modern-business.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/customstyles.css">
+<link rel="stylesheet" href="https://docs.woltlab.com/css/theme-blue.css?v=3">
+
+<script src="https://docs.woltlab.com/js/jquery.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.cookie.min.js"></script>
+<script src="https://docs.woltlab.com/js/jquery.navgoco.min.js"></script>
+<script src="https://docs.woltlab.com/js/bootstrap.min.js"></script>
+<script src="https://docs.woltlab.com/js/anchor.min.js"></script>
+<script src="https://docs.woltlab.com/js/toc.js"></script>
+<script src="https://docs.woltlab.com/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="https://docs.woltlab.com/images/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" title="mike-test" href="https://docs.woltlab.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> WoltLab Suite 5.3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://www.woltlab.com" target="_blank">woltlab.com</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/WoltLab/WCF/" target="_blank">Code on github.com</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="https://docs.woltlab.com/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'https://docs.woltlab.com/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="User Notifications">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">WoltLab Suite 5.3</li>
+
+    
+        
+            <li>
+                <a href="#">Getting Started</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="index"><a href="index.html">Introduction</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="getting-started_quick-start"><a href="getting-started_quick-start.html">Quick Start</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">PHP API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_pages"><a href="php_pages.html">Pages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-objects"><a href="php_database-objects.html">Database Objects</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_database-access"><a href="php_database-access.html">Database Access</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_exceptions"><a href="php_exceptions.html">Exceptions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_caches"><a href="php_api_caches.html">Caches</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_comments"><a href="php_api_comments.html">Comments</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_cronjobs"><a href="php_api_cronjobs.html">Cronjobs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_events"><a href="php_api_events.html">Events</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_form_builder"><a href="php_api_form_builder.html">Form Builder</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_package_installation_plugins"><a href="php_api_package_installation_plugins.html">Package Installation Plugins</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_user_activity_points"><a href="php_api_user_activity_points.html">User Activity Points</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li class="active" data-identifier="php_api_user_notifications"><a href="php_api_user_notifications.html">User Notifications</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="php_api_sitemaps"><a href="php_api_sitemaps.html">Sitemaps</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_code-style"><a href="php_code-style.html">Code Style</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_apps"><a href="php_apps.html">Apps</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="php_gdpr"><a href="php_gdpr.html">GDPR</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Languages, Templates & CSS</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_languages"><a href="view_languages.html">Languages</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_templates"><a href="view_templates.html">Templates</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="view_css"><a href="view_css.html">CSS</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">JavaScript API</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_general-usage"><a href="javascript_general-usage.html">General Usage</a></li>
+                            
+                        
+
+                        
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">New API</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_writing-a-module"><a href="javascript_new-api_writing-a-module.html">Writing a module</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_data-structures"><a href="javascript_new-api_data-structures.html">Data Structures</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_core"><a href="javascript_new-api_core.html">Core Functions</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dom"><a href="javascript_new-api_dom.html">DOM</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_events"><a href="javascript_new-api_events.html">Event Handling</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ajax"><a href="javascript_new-api_ajax.html">Ajax</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_dialogs"><a href="javascript_new-api_dialogs.html">Dialogs</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_browser"><a href="javascript_new-api_browser.html">Browser and Screen Sizes</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="javascript_new-api_ui"><a href="javascript_new-api_ui.html">User Interface</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_legacy-api"><a href="javascript_legacy-api.html">Legacy API</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_helper-functions"><a href="javascript_helper-functions.html">Helper Functions</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="javascript_code-snippets"><a href="javascript_code-snippets.html">Code Snippets</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Package Components</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_package-xml"><a href="package_package-xml.html">package.xml</a></li>
+                            
+                        
+
+                        
+                    
+                        
+                            
+                            
+                                <li data-identifier="package_pip"><a href="package_pip.html">PIPs</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Migration</a>
+                <ul>
+                    
+                        
+
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 5.2</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_php"><a href="migration_wsc-52_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_templates"><a href="migration_wsc-52_templates.html">Templates and Languages</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-52_libraries"><a href="migration_wsc-52_libraries.html">Third Party Libraries</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-31_php"><a href="migration_wsc-31_php.html">PHP API</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WSC 3.0</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_php"><a href="migration_wsc-30_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_javascript"><a href="migration_wsc-30_javascript.html">JavaScript API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_templates"><a href="migration_wsc-30_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_css"><a href="migration_wsc-30_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wsc-30_package"><a href="migration_wsc-30_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                            <li class="subfolders">
+                                <a href="#">Migrating from WCF 2.1</a>
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_php"><a href="migration_wcf-21_php.html">PHP API</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_templates"><a href="migration_wcf-21_templates.html">Templates</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_css"><a href="migration_wcf-21_css.html">CSS</a></li>
+                                        
+                                    
+                                        
+                                        
+                                            <li data-identifier="migration_wcf-21_package"><a href="migration_wcf-21_package.html">Package Components</a></li>
+                                        
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                </ul>
+            </li>
+        
+            <li>
+                <a href="#">Tutorials</a>
+                <ul>
+                    
+                        
+                            
+                            
+                                <li data-identifier="tutorial_tutorial-series"><a href="tutorial_tutorial-series.html">Tutorial Series</a></li>
+                            
+                        
+
+                        
+                    
+                </ul>
+            </li>
+        
+    
+</ul>
+
+<script>
+(function() {
+    var sidebar = $('#mysidebar');
+    var item = sidebar.find('.active');
+    if (item.length === 0) {
+        var parent = '';
+        if (parent) {
+            sidebar.find('li[data-identifier="' + parent + '"]').addClass('active');
+        }
+    }
+
+    sidebar.find(".active").parents('li').toggleClass("active");
+})();
+</script>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">User Notifications</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+    
+  <p>WoltLab Suite includes a powerful user notification system that supports notifications directly shown on the website and emails sent immediately or on a daily basis.</p>
+
+<h2 id="objecttypexml"><code class="language-plaintext highlighter-rouge">objectType.xml</code></h2>
+
+<p>For any type of object related to events, you have to define an object type for the object type definition <code class="language-plaintext highlighter-rouge">com.woltlab.wcf.notification.objectType</code>:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/2019/objectType.xsd"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;import&gt;</span>
+		<span class="nt">&lt;type&gt;</span>
+			<span class="nt">&lt;name&gt;</span>com.woltlab.example.foo<span class="nt">&lt;/name&gt;</span>
+			<span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.notification.objectType<span class="nt">&lt;/definitionname&gt;</span>
+			<span class="nt">&lt;classname&gt;</span>example\system\user\notification\object\type\FooUserNotificationObjectType<span class="nt">&lt;/classname&gt;</span>
+			<span class="nt">&lt;category&gt;</span>com.woltlab.example<span class="nt">&lt;/category&gt;</span>
+		<span class="nt">&lt;/type&gt;</span>
+	<span class="nt">&lt;/import&gt;</span>
+<span class="nt">&lt;/data&gt;</span>
+</code></pre></div></div>
+
+<p>The referenced class <code class="language-plaintext highlighter-rouge">FooUserNotificationObjectType</code> has to implement the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/type/IUserNotificationObjectType.class.php">IUserNotificationObjectType</a> interface, which should be done by extending <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/type/AbstractUserNotificationObjectType.class.php">AbstractUserNotificationObjectType</a>.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">example\system\user\notification\object\type</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">example\data\foo\Foo</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">example\data\foo\FooList</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">example\system\user\notification\object\FooUserNotificationObject</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\user\notification\object\type\AbstractUserNotificationObjectType</span><span class="p">;</span>
+
+<span class="cd">/**
+ * Represents a foo as a notification object type.
+ * 
+ * @author	Matthias Schmidt
+ * @copyright	2001-2017 WoltLab GmbH
+ * @license	WoltLab License &lt;http://www.woltlab.com/license-agreement.html&gt;
+ * @package	WoltLabSuite\Example\System\User\Notification\Object\Type
+ */</span>
+<span class="kd">class</span> <span class="nc">FooUserNotificationObjectType</span> <span class="k">extends</span> <span class="nx">AbstractUserNotificationObjectType</span> <span class="p">{</span>
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="k">static</span> <span class="nv">$decoratorClassName</span> <span class="o">=</span> <span class="nx">FooUserNotificationObject</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="k">static</span> <span class="nv">$objectClassName</span> <span class="o">=</span> <span class="nx">Foo</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="k">static</span> <span class="nv">$objectListClassName</span> <span class="o">=</span> <span class="nx">FooList</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>You have to set the class names of the database object (<code class="language-plaintext highlighter-rouge">$objectClassName</code>) and the related list (<code class="language-plaintext highlighter-rouge">$objectListClassName</code>).
+Additionally, you have to create a class that implements the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/IUserNotificationObject.class.php">IUserNotificationObject</a> whose name you have to set as the value of the <code class="language-plaintext highlighter-rouge">$decoratorClassName</code> property.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">example\system\user\notification\object</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">example\data\foo\Foo</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\data\DatabaseObjectDecorator</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\user\notification\object\IUserNotificationObject</span><span class="p">;</span>
+
+<span class="cd">/**
+ * Represents a foo as a notification object.
+ * 
+ * @author	Matthias Schmidt
+ * @copyright	2001-2017 WoltLab GmbH
+ * @license	WoltLab License &lt;http://www.woltlab.com/license-agreement.html&gt;
+ * @package	WoltLabSuite\Example\System\User\Notification\Object
+ * 
+ * @method	Foo	getDecoratedObject()
+ * @mixin	Foo
+ */</span>
+<span class="kd">class</span> <span class="nc">FooUserNotificationObject</span> <span class="k">extends</span> <span class="nx">DatabaseObjectDecorator</span> <span class="k">implements</span> <span class="nx">IUserNotificationObject</span> <span class="p">{</span>
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="k">static</span> <span class="nv">$baseClass</span> <span class="o">=</span> <span class="nx">Foo</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getTitle</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDecoratedObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="p">();</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getURL</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDecoratedObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">();</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getAuthorID</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDecoratedObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">userID</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">getTitle()</code> method returns the title of the object.
+In this case, we assume that the <code class="language-plaintext highlighter-rouge">Foo</code> class has implemented the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/data/ITitledObject.class.php">ITitledObject</a> interface so that the decorated <code class="language-plaintext highlighter-rouge">Foo</code> can handle this method call itself.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">getURL()</code> method returns the link to the object.
+As for the <code class="language-plaintext highlighter-rouge">getTitle()</code>, we assume that the <code class="language-plaintext highlighter-rouge">Foo</code> class has implemented the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/data/ILinkableObject.class.php">ILinkableObject</a> interface so that the decorated <code class="language-plaintext highlighter-rouge">Foo</code> can also handle this method call itself.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">getAuthorID()</code> method returns the id of the user who created the decorated <code class="language-plaintext highlighter-rouge">Foo</code> object.
+We assume that <code class="language-plaintext highlighter-rouge">Foo</code> objects have a <code class="language-plaintext highlighter-rouge">userID</code> property that contains this id.</li>
+</ul>
+
+<h2 id="usernotificationeventxml"><code class="language-plaintext highlighter-rouge">userNotificationEvent.xml</code></h2>
+
+<p>Each event that you fire in your package needs to be registered using the <a href="package_pip_user-notification-event.html">user notification event package installation plugin</a>.
+An example file might look like this:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/2019/userNotificationEvent.xsd"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;import&gt;</span>
+		<span class="nt">&lt;event&gt;</span>
+			<span class="nt">&lt;name&gt;</span>bar<span class="nt">&lt;/name&gt;</span>
+			<span class="nt">&lt;objecttype&gt;</span>com.woltlab.example.foo<span class="nt">&lt;/objecttype&gt;</span>
+			<span class="nt">&lt;classname&gt;</span>example\system\user\notification\event\FooUserNotificationEvent<span class="nt">&lt;/classname&gt;</span>
+			<span class="nt">&lt;preset&gt;</span>1<span class="nt">&lt;/preset&gt;</span>
+		<span class="nt">&lt;/event&gt;</span>
+	<span class="nt">&lt;/import&gt;</span>
+<span class="nt">&lt;/data&gt;</span>
+</code></pre></div></div>
+
+<p>Here, you reference the user notification object type created via <code class="language-plaintext highlighter-rouge">objectType.xml</code>.
+The referenced class in the <code class="language-plaintext highlighter-rouge">&lt;classname&gt;</code> element has to implement the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/event/IUserNotificationEvent.class.php">IUserNotificationEvent</a> interface by extending the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/event/AbstractUserNotificationEvent.class.php">AbstractUserNotificationEvent</a> class or the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/event/AbstractSharedUserNotificationEvent.class.php">AbstractSharedUserNotificationEvent</a> class if you want to pre-load additional data before processing notifications.
+In <code class="language-plaintext highlighter-rouge">AbstractSharedUserNotificationEvent::prepare()</code>, you can, for example, tell runtime caches to prepare to load certain objects which then are loaded all at once when the objects are needed.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">example\system\user\notification\event</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">example\system\cache\runtime\BazRuntimeCache</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">example\system\user\notification\object\FooUserNotificationObject</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\email\Email</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\request\LinkHandler</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">wcf\system\user\notification\event\AbstractSharedUserNotificationEvent</span><span class="p">;</span>
+
+<span class="cd">/**
+ * Notification event for foos.
+ * 
+ * @author	Matthias Schmidt
+ * @copyright	2001-2017 WoltLab GmbH
+ * @license	WoltLab License &lt;http://www.woltlab.com/license-agreement.html&gt;
+ * @package	WoltLabSuite\Example\System\User\Notification\Event
+ * 
+ * @method	FooUserNotificationObject	getUserNotificationObject()
+ */</span>
+<span class="kd">class</span> <span class="nc">FooUserNotificationEvent</span> <span class="k">extends</span> <span class="nx">AbstractSharedUserNotificationEvent</span> <span class="p">{</span>
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="nv">$stackable</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+	
+	<span class="cd">/** @noinspection PhpMissingParentCallCommonInspection */</span>
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">checkAccess</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">setBaz</span><span class="p">(</span><span class="nx">BazRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">bazID</span><span class="p">));</span>
+		
+		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">isAccessible</span><span class="p">())</span> <span class="p">{</span>
+			<span class="c1">// do some cleanup, if necessary</span>
+			
+			<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/** @noinspection PhpMissingParentCallCommonInspection */</span>
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getEmailMessage</span><span class="p">(</span><span class="nv">$notificationType</span> <span class="o">=</span> <span class="s1">'instant'</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">setBaz</span><span class="p">(</span><span class="nx">BazRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">bazID</span><span class="p">));</span>
+		
+		<span class="nv">$messageID</span> <span class="o">=</span> <span class="s1">'&lt;com.woltlab.example.baz/'</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">bazID</span><span class="o">.</span><span class="s1">'@'</span><span class="o">.</span><span class="nx">Email</span><span class="o">::</span><span class="na">getHost</span><span class="p">()</span><span class="o">.</span><span class="s1">'&gt;'</span><span class="p">;</span>
+		
+		<span class="k">return</span> <span class="p">[</span>
+			<span class="s1">'application'</span> <span class="o">=&gt;</span> <span class="s1">'example'</span><span class="p">,</span>
+			<span class="s1">'in-reply-to'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nv">$messageID</span><span class="p">],</span>
+			<span class="s1">'message-id'</span> <span class="o">=&gt;</span> <span class="s1">'com.woltlab.example.foo/'</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fooID</span><span class="p">,</span>
+			<span class="s1">'references'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nv">$messageID</span><span class="p">],</span>
+			<span class="s1">'template'</span> <span class="o">=&gt;</span> <span class="s1">'email_notification_foo'</span>
+		<span class="p">];</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 * @since	5.0
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getEmailTitle</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">setBaz</span><span class="p">(</span><span class="nx">BazRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">bazID</span><span class="p">));</span>
+		
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">'example.foo.notification.mail.title'</span><span class="p">,</span> <span class="p">[</span>
+			<span class="s1">'userNotificationObject'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span>
+		<span class="p">]);</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/** @noinspection PhpMissingParentCallCommonInspection */</span>
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getEventHash</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nb">sha1</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">eventID</span> <span class="o">.</span> <span class="s1">'-'</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">bazID</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getLink</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">(</span><span class="s1">'Foo'</span><span class="p">,</span> <span class="p">[</span>
+			<span class="s1">'application'</span> <span class="o">=&gt;</span> <span class="s1">'example'</span><span class="p">,</span>
+			<span class="s1">'object'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDecoratedObject</span><span class="p">()</span>
+		<span class="p">]);</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getMessage</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nv">$authors</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getAuthors</span><span class="p">();</span>
+		<span class="nv">$count</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$authors</span><span class="p">);</span>
+		
+		<span class="k">if</span> <span class="p">(</span><span class="nv">$count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$authors</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="p">{</span>
+				<span class="nb">unset</span><span class="p">(</span><span class="nv">$authors</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+			<span class="p">}</span>
+			<span class="nv">$count</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$authors</span><span class="p">);</span>
+			
+			<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">'example.foo.notification.message.stacked'</span><span class="p">,</span> <span class="p">[</span>
+				<span class="s1">'author'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">author</span><span class="p">,</span>
+				<span class="s1">'authors'</span> <span class="o">=&gt;</span> <span class="nb">array_values</span><span class="p">(</span><span class="nv">$authors</span><span class="p">),</span>
+				<span class="s1">'count'</span> <span class="o">=&gt;</span> <span class="nv">$count</span><span class="p">,</span>
+				<span class="s1">'guestTimesTriggered'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">notification</span><span class="o">-&gt;</span><span class="na">guestTimesTriggered</span><span class="p">,</span>
+				<span class="s1">'message'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">(),</span>
+				<span class="s1">'others'</span> <span class="o">=&gt;</span> <span class="nv">$count</span> <span class="o">-</span> <span class="mi">1</span>
+			<span class="p">]);</span>
+		<span class="p">}</span>
+		
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">'example.foo.notification.message'</span><span class="p">,</span> <span class="p">[</span>
+			<span class="s1">'author'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">author</span><span class="p">,</span>
+			<span class="s1">'userNotificationObject'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span>
+		<span class="p">]);</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getTitle</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nv">$count</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getAuthors</span><span class="p">());</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nv">$count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">'example.foo.notification.title.stacked'</span><span class="p">,</span> <span class="p">[</span>
+				<span class="s1">'count'</span> <span class="o">=&gt;</span> <span class="nv">$count</span><span class="p">,</span>
+				<span class="s1">'timesTriggered'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">notification</span><span class="o">-&gt;</span><span class="na">timesTriggered</span>
+			<span class="p">]);</span>
+		<span class="p">}</span>
+		
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'example.foo.notification.title'</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="cd">/**
+	 * @inheritDoc
+	 */</span>
+	<span class="k">protected</span> <span class="k">function</span> <span class="nf">prepare</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">BazRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">cacheObjectID</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">bazID</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">$stackable</code> property is <code class="language-plaintext highlighter-rouge">false</code> by default and has to be explicitly set to <code class="language-plaintext highlighter-rouge">true</code> if stacking of notifications should be enabled.
+Stacking of notification does not create new notifications for the same event for a certain object if the related action as been triggered by different users.
+For example, if something is liked by one user and then liked again by another user before the recipient of the notification has confirmed it, the existing notification will be amended to include both users who liked the content.
+Stacking can thus be used to avoid cluttering the notification list of users.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">checkAccess()</code> method makes sure that the active user still has access to the object related to the notification.
+If that is not the case, the user notification system will automatically deleted the user notification based on the return value of the method.
+If you have any cached values related to notifications, you should also reset these values here.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">getEmailMessage()</code> method return data to create the instant email or the daily summary email.
+For instant emails (<code class="language-plaintext highlighter-rouge">$notificationType = 'instant'</code>), you have to return an array like the one shown in the code above with the following components:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">application</code>:
+abbreviation of application</li>
+      <li><code class="language-plaintext highlighter-rouge">in-reply-to</code> (optional):
+message id of the notification for the parent item and used to improve the ordering in threaded email clients</li>
+      <li><code class="language-plaintext highlighter-rouge">message-id</code> (optional):
+message id of the notification mail and has to be used in <code class="language-plaintext highlighter-rouge">in-reply-to</code> and <code class="language-plaintext highlighter-rouge">references</code> for follow up mails</li>
+      <li><code class="language-plaintext highlighter-rouge">references</code> (optional):
+all of the message ids of parent items (i.e. recursive in-reply-to)</li>
+      <li><code class="language-plaintext highlighter-rouge">template</code>:
+name of the template used to render the email body, should start with <code class="language-plaintext highlighter-rouge">email_</code></li>
+      <li><code class="language-plaintext highlighter-rouge">variables</code> (optional):
+template variables passed to the email template where they can be accessed via <code class="language-plaintext highlighter-rouge">$notificationContent[variables]</code></li>
+    </ul>
+
+    <p>For daily emails (<code class="language-plaintext highlighter-rouge">$notificationType = 'daily'</code>), only <code class="language-plaintext highlighter-rouge">application</code>, <code class="language-plaintext highlighter-rouge">template</code>, and <code class="language-plaintext highlighter-rouge">variables</code> are supported.</p>
+  </li>
+  <li>The <code class="language-plaintext highlighter-rouge">getEmailTitle()</code> returns the title of the instant email sent to the user.
+By default, <code class="language-plaintext highlighter-rouge">getEmailTitle()</code> simply calls <code class="language-plaintext highlighter-rouge">getTitle()</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">getEventHash()</code> method returns a hash by which user notifications are grouped.
+Here, we want to group them not by the actual <code class="language-plaintext highlighter-rouge">Foo</code> object but by its parent <code class="language-plaintext highlighter-rouge">Baz</code> object and thus overwrite the default implementation provided by <code class="language-plaintext highlighter-rouge">AbstractUserNotificationEvent</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">getLink()</code> returns the link to the <code class="language-plaintext highlighter-rouge">Foo</code> object the notification belongs to.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">getMessage()</code> method and the <code class="language-plaintext highlighter-rouge">getTitle()</code> return the message and the title of the user notification respectively.
+By checking the value of <code class="language-plaintext highlighter-rouge">count($this-&gt;getAuthors())</code>, we check if the notification is stacked, thus if the event has been triggered for multiple users so that different languages items are used.
+If your notification event does not support stacking, this distinction is not necessary.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">prepare()</code> method is called for each user notification before all user notifications are rendered.
+This allows to tell runtime caches to prepare to load objects later on (see <a href="php_api_caches_runtime-caches.html">Runtime Caches</a>).</li>
+</ul>
+
+<h2 id="firing-events">Firing Events</h2>
+
+<p>When the action related to a user notification is executed, you can use <code class="language-plaintext highlighter-rouge">UserNotificationHandler::fireEvent()</code> to create the notifications:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$recipientIDs</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// fill with user ids of the recipients of the notification</span>
+<span class="nx">UserNotificationHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireEvent</span><span class="p">(</span>
+	<span class="s1">'bar'</span><span class="p">,</span> <span class="c1">// event name</span>
+	<span class="s1">'com.woltlab.example.foo'</span><span class="p">,</span> <span class="c1">// event object type name</span>
+	<span class="k">new</span> <span class="nx">FooUserNotificationObject</span><span class="p">(</span><span class="k">new</span> <span class="nx">Foo</span><span class="p">(</span><span class="nv">$fooID</span><span class="p">)),</span> <span class="c1">// object related to the event</span>
+	<span class="nv">$recipientIDs</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="marking-notifications-as-confirmed">Marking Notifications as Confirmed</h2>
+
+<p>In some instances, you might want to manually mark user notifications as confirmed without the user manually confirming them, for example when they visit the page that is related to the user notification.
+In this case, you can use <code class="language-plaintext highlighter-rouge">UserNotificationHandler::markAsConfirmed()</code>:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$recipientIDs</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// fill with user ids of the recipients of the notification</span>
+<span class="nv">$fooIDs</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// fill with ids of related foo objects</span>
+<span class="nx">UserNotificationHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">markAsConfirmed</span><span class="p">(</span>
+	<span class="s1">'bar'</span><span class="p">,</span> <span class="c1">// event name</span>
+	<span class="s1">'com.woltlab.example.foo'</span><span class="p">,</span> <span class="c1">// event object type name</span>
+	<span class="nv">$recipientIDs</span><span class="p">,</span>
+	<span class="nv">$fooIDs</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footerBox">
+    <div class="container">
+      <div class="footerBoxLeft">
+        
+        <a target="_blank" href="https://github.com/woltlab/woltlab.github.io/blob/master/pages/php/api/php_api_user_notifications.md" class="btn btn-default githubEditButton no_icon" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <p>Site last generated: Mar 2, 2021</p>
+      </div>
+      <div class="footerBoxRight">
+        <a class="no_icon" href="https://www.woltlab.com"><img src="https://docs.woltlab.com/images/woltlab-black.png" srcset="https://docs.woltlab.com/images/woltlab-black@2x.png 2x" height="40" width="204" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pageFooter">
+    <div class="container">
+      &copy; 2001 ‐ 2021 <a class="no_icon" href="https://www.woltlab.com">WoltLab GmbH</a>. All rights reserved. | <a class="no_icon" href="https://www.woltlab.com/legal-notice/">Legal Notice</a> | <a class="no_icon" href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+
+</html>
