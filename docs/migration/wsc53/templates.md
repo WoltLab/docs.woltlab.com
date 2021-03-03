@@ -21,4 +21,4 @@ After:
 ```
 
 The `{csrfToken}` plugin was backported to WoltLab Suite 5.2 and higher, allowing compatibility with a large range of WoltLab Suite branches.
-See [WoltLab/WCF #3612](https://github.com/WoltLab/WCF/pull/3612) for details.
+See [WoltLab/WCF#3612](https://github.com/WoltLab/WCF/pull/3612) for details.
