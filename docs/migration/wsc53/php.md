@@ -21,25 +21,26 @@ Leveraging this API is easily done.
 
 1. Register an object type for the definition `com.woltlab.wcf.floodControl`: `com.example.foo.myContent`.
 2. Whenever the active user creates content of this type, call
-   ```php
-   FloodControl::getInstance()->registerContent('com.example.foo.myContent');
-   ```
-   You should only call this method if the user creates the content themselves.
-   If the content is automatically created by the system, for example when copying / duplicating existing content, no activity should be registered.
+    ```php
+    FloodControl::getInstance()->registerContent('com.example.foo.myContent');
+    ```
+    You should only call this method if the user creates the content themselves.
+    If the content is automatically created by the system, for example when copying / duplicating existing content, no activity should be registered.
 3. To check the last time when the active user created content of the relevant type, use
-   ```php
-   FloodControl::getInstance()->getLastTime('com.example.foo.myContent');
-   ```
-   If you want to limit the number of content items created within a certain period of time, for example within one day, use
-   ```php
-   $data = FloodControl::getInstance()->countContent('com.example.foo.myContent', new \DateInterval('P1D'));
-   // number of content items created within the last day
-   $count = $data['count'];
-   // timestamp when the earliest content item was created within the last day
-   $earliestTime = $data['earliestTime'];
-   ```
-   The method also returns `earliestTime` so that you can tell the user in the error message when they are able again to create new content of the relevant type.
-   !!! info "Flood control entries are only stored for 31 days and older entries are cleaned up daily."
+    ```php
+    FloodControl::getInstance()->getLastTime('com.example.foo.myContent');
+    ```
+    If you want to limit the number of content items created within a certain period of time, for example within one day, use
+    ```php
+    $data = FloodControl::getInstance()->countContent('com.example.foo.myContent', new \DateInterval('P1D'));
+    // number of content items created within the last day
+    $count = $data['count'];
+    // timestamp when the earliest content item was created within the last day
+    $earliestTime = $data['earliestTime'];
+    ```
+    The method also returns `earliestTime` so that you can tell the user in the error message when they are able again to create new content of the relevant type.
+
+    !!! info "Flood control entries are only stored for 31 days and older entries are cleaned up daily."
 
 The previously mentioned methods of `FloodControl` use the active user and the current timestamp as reference point.
 `FloodControl` also provides methods to register content or check flood control for other registered users or for guests via their IP address.
