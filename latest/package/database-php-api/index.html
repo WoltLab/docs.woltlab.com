@@ -1883,7 +1883,6 @@ We have added a new PHP-based API to manipulate the database scheme which can be
     <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getEditor</span><span class="p">())</span>
 <span class="p">)</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">();</span>
 </code></pre></div>
-
 <p>All of the relevant components can be found in the <code>wcf\system\database\table</code> namespace.</p>
 <h2 id="database-tables">Database Tables<a class="headerlink" href="#database-tables" title="Permanent link">#</a></h2>
 <p>There are two classes representing database tables: <code>DatabaseTable</code> and <code>PartialDatabaseTable</code>.
@@ -1902,13 +1901,11 @@ If the tables does not already exist, a table represented by <code>PartialDataba
         <span class="c1">// indices</span>
     <span class="p">])</span>
 </code></pre></div>
-
 <p>To update a table, the same code as above can be used, except for <code>PartialDatabaseTable</code> being used instead of <code>DatabaseTable</code>.</p>
 <p>To drop a table, only the <code>drop()</code> method has to be called:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">PartialDatabaseTable</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;foo1_bar&#39;</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">drop</span><span class="p">()</span>
 </code></pre></div>
-
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">#</a></h2>
 <p>To represent a column of a database table, you have to create an instance of the relevant column class found in the <code>wcf\system\database\table\column</code> namespace.
 Such instances are created similarly to database table objects using the <code>create()</code> factory method and passing the column name as the parameter.</p>
@@ -1943,7 +1940,6 @@ Such instances are created similarly to database table objects using the <code>c
     <span class="o">-&gt;</span><span class="na">length</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">notNull</span><span class="p">()</span>
 </code></pre></div>
-
 <h2 id="foreign-keys">Foreign Keys<a class="headerlink" href="#foreign-keys" title="Permanent link">#</a></h2>
 <p>Foreign keys are represented by <code>DatabaseTableForeignKey</code> objects: </p>
 <div class="highlight"><pre><span></span><code><span class="nx">DatabaseTableForeignKey</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
@@ -1952,7 +1948,6 @@ Such instances are created similarly to database table objects using the <code>c
     <span class="o">-&gt;</span><span class="na">referencedColumns</span><span class="p">([</span><span class="s1">&#39;fooID&#39;</span><span class="p">])</span>
     <span class="o">-&gt;</span><span class="na">onDelete</span><span class="p">(</span><span class="s1">&#39;CASCADE&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>The supported actions for <code>onDelete()</code> and <code>onUpdate()</code> are <code>CASCADE</code>, <code>NO ACTION</code>, and <code>SET NULL</code>.
 To drop a foreign key, all of the relevant data to create the foreign key has to be present and the <code>drop()</code> method has to be called.</p>
 <p><code>DatabaseTableForeignKey::create()</code> also supports the foreign key name as a parameter.
@@ -1963,7 +1958,6 @@ If it is not present, <code>DatabaseTable::foreignKeys()</code> will automatical
     <span class="o">-&gt;</span><span class="na">type</span><span class="p">(</span><span class="nx">DatabaseTableIndex</span><span class="o">::</span><span class="na">UNIQUE_TYPE</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">columns</span><span class="p">([</span><span class="s1">&#39;fooID&#39;</span><span class="p">])</span>
 </code></pre></div>
-
 <p>There are four different types: <code>DatabaseTableIndex::DEFAULT_TYPE</code> (default), <code>DatabaseTableIndex::PRIMARY_TYPE</code>, <code>DatabaseTableIndex::UNIQUE_TYPE</code>, and <code>DatabaseTableIndex::FULLTEXT_TYPE</code>.
 For primary keys, there is also the <code>DatabaseTablePrimaryIndex</code> class which automatically sets the type to <code>DatabaseTableIndex::PRIMARY_TYPE</code>.
 To drop a index, all of the relevant data to create the index has to be present and the <code>drop()</code> method has to be called.</p>

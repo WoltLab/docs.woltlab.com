@@ -1834,13 +1834,11 @@ To reference the CSRF token (“Security Token”) within templates, the <code>{
 <div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="o">@</span><span class="na">SECURITY_TOKEN_INPUT_TAG</span><span class="cp">}</span><span class="x"></span>
 <span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s2">&quot;Foo&quot;</span><span class="cp">}</span><span class="x">t=</span><span class="cp">{</span><span class="o">@</span><span class="na">SECURITY_TOKEN</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
-
 <p>After:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">csrfToken</span><span class="cp">}</span><span class="x"></span>
 <span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s2">&quot;Foo&quot;</span><span class="cp">}</span><span class="x">t=</span><span class="cp">{</span><span class="nf">csrfToken</span> <span class="na">type</span><span class="o">=</span><span class="na">url</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* The use of the CSRF token in URLs is discouraged.</span>
 <span class="c">                                                        Modifications should happen by means of a POST request. *</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
-
 <p>The <code>{csrfToken}</code> plugin was backported to WoltLab Suite 5.2 and higher, allowing compatibility with a large range of WoltLab Suite branches.
 See <a href="https://github.com/WoltLab/WCF/pull/3612">WoltLab/WCF#3612</a> for details.</p>
                 

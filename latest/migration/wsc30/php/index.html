@@ -1996,7 +1996,6 @@
   <span class="k">protected</span> <span class="nv">$permissionAddWithoutModeration</span> <span class="o">=</span> <span class="s1">&#39;foo.bar.example.canAddCommentWithoutModeration&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h2 id="raw-html-in-user-activity-events">Raw HTML in User Activity Events<a class="headerlink" href="#raw-html-in-user-activity-events" title="Permanent link">#</a></h2>
 <p>User activity events were previously encapsulated inside <code>&lt;div class="htmlContent"&gt;…&lt;/div&gt;</code>, with impacts on native elements such as lists. You can now disable the class usage by defining your event as raw HTML:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
@@ -2005,7 +2004,6 @@
   <span class="k">protected</span> <span class="nv">$isRawHtml</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h2 id="permission-to-view-likes-of-an-object">Permission to View Likes of an Object<a class="headerlink" href="#permission-to-view-likes-of-an-object" title="Permanent link">#</a></h2>
 <p>Being able to view the like summary of an object was restricted to users that were able to like the object itself. This creates situations where the object type in general is likable, but the particular object cannot be liked by the current users, while also denying them to view the like summary (but it gets partly exposed through the footer note/summary!).</p>
 <p>Implement the interface <code>\wcf\data\like\IRestrictedLikeObjectTypeProvider</code> in your object provider to add support for this new permission check.</p>
@@ -2017,7 +2015,6 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h2 id="developer-tools-sync-feature">Developer Tools: Sync Feature<a class="headerlink" href="#developer-tools-sync-feature" title="Permanent link">#</a></h2>
 <p>The synchronization feature of the newly added developer tools works by invoking a package installation plugin (PIP) outside of a regular installation, while simulating the basic environment that is already exposed by the API.</p>
 <p>However, not all PIPs qualify for this kind of execution, especially because it could be invoked multiple times in a row by the user. This is solved by requiring a special marking for PIPs that have no side-effects (= idempotent) when invoked any amount of times with the same arguments.</p>
@@ -2030,7 +2027,6 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h2 id="media-providers">Media Providers<a class="headerlink" href="#media-providers" title="Permanent link">#</a></h2>
 <p>Media providers were added through regular SQL queries in earlier versions, but this is neither convenient, nor did it offer a reliable method to update an existing provider. WoltLab Suite 3.1 adds a new <code>mediaProvider</code>-PIP that also offers a <code>className</code> parameter to off-load the result evaluation and HTML generation.</p>
 <h3 id="example-implementation">Example Implementation<a class="headerlink" href="#example-implementation" title="Permanent link">#</a></h3>
@@ -2046,7 +2042,6 @@
   <span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div>
-
 <h4 id="php-callback">PHP Callback<a class="headerlink" href="#php-callback" title="Permanent link">#</a></h4>
 <p>The full match is provided for <code>$url</code>, while any capture groups from the regular expression are assigned to <code>$matches</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
@@ -2056,7 +2051,6 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h2 id="re-evaluate-html-messages">Re-Evaluate HTML Messages<a class="headerlink" href="#re-evaluate-html-messages" title="Permanent link">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">You need to manually set the disallowed bbcodes in order to avoid unintentional bbcode evaluation. Please see <a href="https://github.com/WoltLab/WCF/commit/7e058783da1378dda5393a9bb4df9cfe94e5b394">this commit</a> for a reference implementation inside worker processes.</p>

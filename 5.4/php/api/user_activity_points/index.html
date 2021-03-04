@@ -1792,12 +1792,10 @@ Activity points are used to determine the rank of a user and can also be used fo
     <span class="nt">&lt;points&gt;</span>10<span class="nt">&lt;/points&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 </code></pre></div>
-
 <p>The number of points awarded for this type of activity point event can be changed by the administrator in the admin control panel.
 For this form and the user activity point list shown in the frontend, you have to provide the language item</p>
 <div class="highlight"><pre><span></span><code>wcf.user.activityPoint.objectType.com.example.foo.activityPointEvent.bar
 </code></pre></div>
-
 <p>that contains the name of the content for which the activity points are awarded.</p>
 <p>If a relevant object is created, you have to use <code>UserActivityPointHandler::fireEvent()</code> which expects the name of the activity point event object type, the id of the object for which the points are awarded (though the object id is not used at the moment) and the user who gets the points:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">UserActivityPointHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireEvent</span><span class="p">(</span>
@@ -1806,7 +1804,6 @@ For this form and the user activity point list shown in the frontend, you have t
         <span class="nv">$bar</span><span class="o">-&gt;</span><span class="na">userID</span>
 <span class="p">);</span>
 </code></pre></div>
-
 <p>To remove activity points once objects are deleted, you have to use <code>UserActivityPointHandler::removeEvents()</code> which also expects the name of the activity point event object type and additionally an array mapping the id of the user whose activity points will be reduced to the number of objects that are removed for the relevant user:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">UserActivityPointHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">removeEvents</span><span class="p">(</span>
         <span class="s1">&#39;com.example.foo.activityPointEvent.bar&#39;</span><span class="p">,</span>

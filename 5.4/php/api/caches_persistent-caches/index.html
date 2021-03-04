@@ -1855,7 +1855,6 @@ that already implements the mandatory interface <a href="https://github.com/Wolt
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Reading data from your cache builder is quite simple and follows a consistent
 pattern. The callee only needs to know the name of the cache builder, which
 parameters it requires and how the returned data looks like. It does not need
@@ -1866,7 +1865,6 @@ rebuild due to the maximum lifetime.</p>
 
 <span class="nv">$data</span> <span class="o">=</span> <span class="nx">ExampleCacheBuilder</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">(</span><span class="nv">$parameters</span><span class="p">);</span>
 </code></pre></div>
-
 <h3 id="getdataarray-parameters-string-arrayindex-array"><code>getData(array $parameters = [], string $arrayIndex = ''): array</code><a class="headerlink" href="#getdataarray-parameters-string-arrayindex-array" title="Permanent link">#</a></h3>
 <p>Retrieves the data from the cache builder, the <code>$parameters</code> array is automatically
 sorted to allow sub-sequent requests for the same parameters to be recognized,

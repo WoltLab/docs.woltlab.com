@@ -2001,13 +2001,11 @@ As in the first part, we will not bother with careful validation of the entered 
     ├── __personListBirthday.tpl
     └── __personListBirthdaySortField.tpl
 </code></pre></div>
-
 <h2 id="extending-person-model-installsql">Extending Person Model (<code>install.sql</code>)<a class="headerlink" href="#extending-person-model-installsql" title="Permanent link">#</a></h2>
 <p>The existing model of a person only contains the person’s first name and their last name (in additional to the id used to identify created people).
 To add the birthday to the model, we need to create an additional database table column using the <a href="../../../package/pip/sql/">sql package installation plugin</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">wcf1_person</span> <span class="k">ADD</span> <span class="n">birthday</span> <span class="nb">DATE</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">;</span>
 </code></pre></div>
-
 <p>If we have a <a href="../part_1/#person">Person object</a>, this new property can be accessed the same way as the <code>personID</code> property, the <code>firstName</code> property, or the <code>lastName</code> property from the base package: <code>$person-&gt;birthday</code>.</p>
 <h2 id="setting-birthday-in-acp">Setting Birthday in ACP<a class="headerlink" href="#setting-birthday-in-acp" title="Permanent link">#</a></h2>
 <p>To set the birthday of a person, we need to extend the <code>personAdd</code> template to add an additional birthday field.
@@ -2028,7 +2026,6 @@ This can be achieved using the <code>dataFields</code> template event at whose p
     <span class="o">&lt;/</span><span class="n">dd</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">dl</span><span class="o">&gt;</span>
 </code></pre></div>
-
 <p>which we store in a <code>__personAddBirthday.tpl</code> template file.
 The used language item <code>wcf.person.birthday</code> is actually the only new one for this package:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="n">xml</span> <span class="k">version</span><span class="o">=</span><span class="ss">&quot;1.0&quot;</span> <span class="k">encoding</span><span class="o">=</span><span class="ss">&quot;UTF-8&quot;</span><span class="o">?&gt;</span>
@@ -2038,7 +2035,6 @@ The used language item <code>wcf.person.birthday</code> is actually the only new
     <span class="o">&lt;/</span><span class="n">category</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="k">language</span><span class="o">&gt;</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="n">xml</span> <span class="k">version</span><span class="o">=</span><span class="ss">&quot;1.0&quot;</span> <span class="k">encoding</span><span class="o">=</span><span class="ss">&quot;UTF-8&quot;</span><span class="o">?&gt;</span>
 <span class="o">&lt;</span><span class="k">language</span> <span class="n">xmlns</span><span class="o">=</span><span class="ss">&quot;http://www.woltlab.com&quot;</span> <span class="n">xmlns</span><span class="p">:</span><span class="n">xsi</span><span class="o">=</span><span class="ss">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="n">xsi</span><span class="p">:</span><span class="n">schemaLocation</span><span class="o">=</span><span class="ss">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/tornado/language.xsd&quot;</span> <span class="n">languagecode</span><span class="o">=</span><span class="ss">&quot;en&quot;</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">category</span> <span class="n">name</span><span class="o">=</span><span class="ss">&quot;wcf.person&quot;</span><span class="o">&gt;</span>
@@ -2046,7 +2042,6 @@ The used language item <code>wcf.person.birthday</code> is actually the only new
     <span class="o">&lt;/</span><span class="n">category</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="k">language</span><span class="o">&gt;</span>
 </code></pre></div>
-
 <p>The template listener needs to be registered using the <a href="../../../package/pip/template-listener/">templateListener package installation plugin</a>.
 The corresponding complete <code>templateListener.xml</code> file is included <a href="#templatelistenerxml">below</a>.</p>
 <p>The template code alone is not sufficient because the <code>birthday</code> field is, at the moment, neither read, nor processed, nor saved by any PHP code.
@@ -2152,7 +2147,6 @@ Before we take a look at the event listener code, we need to identify exactly wh
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Some notes on the code:</p>
 <ul>
 <li>We are inheriting from <code>AbstractEventListener</code>, instead of just implementing the <code>IParameterizedEventListener</code> interface.
@@ -2197,7 +2191,6 @@ Before we take a look at the event listener code, we need to identify exactly wh
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <div class="admonition info">
 <p class="admonition-title">We use <code>SortablePage</code> as a type hint instead of <code>wcf\acp\page\PersonListPage</code> because we will be using the same event listener class in the front end to also allow sorting that list by birthday.</p>
 </div>
@@ -2205,18 +2198,15 @@ Before we take a look at the event listener code, we need to identify exactly wh
 The code for the table head is similar to the other <code>th</code> elements:</p>
 <div class="highlight"><pre><span></span><code><span class="x">&lt;th class=&quot;columnDate columnBirthday</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">&#39;birthday&#39;</span><span class="cp">}</span><span class="x"> active </span><span class="cp">{</span><span class="o">@</span><span class="nv">$sortOrder</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&quot;&gt;&lt;a href=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;PersonList&#39;</span><span class="cp">}</span><span class="x">pageNo=</span><span class="cp">{</span><span class="o">@</span><span class="nv">$pageNo</span><span class="cp">}</span><span class="x">&amp;sortField=birthday&amp;sortOrder=</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">&#39;birthday&#39;</span> <span class="o">&amp;&amp;</span> <span class="nv">$sortOrder</span> <span class="o">==</span> <span class="s1">&#39;ASC&#39;</span><span class="cp">}</span><span class="x">DESC</span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x">ASC</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot;&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.birthday</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/a&gt;&lt;/th&gt;</span>
 </code></pre></div>
-
 <p>For the table body’s column, we need to make sure that the birthday is only show if it is actually set:</p>
 <div class="highlight"><pre><span></span><code><span class="x">&lt;td class=&quot;columnDate columnBirthday&quot;&gt;</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">birthday</span> <span class="o">!==</span> <span class="s1">&#39;0000-00-00&#39;</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$person</span><span class="o">-&gt;</span><span class="na">birthday</span><span class="o">|</span><span class="na">strtotime</span><span class="o">|</span><span class="na">date</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&lt;/td&gt;</span>
 </code></pre></div>
-
 <h2 id="adding-birthday-in-front-end">Adding Birthday in Front End<a class="headerlink" href="#adding-birthday-in-front-end" title="Permanent link">#</a></h2>
 <p>In the front end, we also want to make the list sortable by birthday and show the birthday as part of each person’s “statistics”.</p>
 <p>To add the birthday as a valid sort field, we use <code>BirthdaySortFieldPersonListPageListener</code> just as in the ACP.
 In the front end, we will now use a template (<code>__personListBirthdaySortField.tpl</code>) instead of a directly putting the template code in the <code>templateListener.xml</code> file:</p>
 <div class="highlight"><pre><span></span><code><span class="x">&lt;option value=&quot;birthday&quot;</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">&#39;birthday&#39;</span><span class="cp">}</span><span class="x"> selected</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.birthday</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/option&gt;</span>
 </code></pre></div>
-
 <div class="admonition info">
 <p class="admonition-title">You might have noticed the two underscores at the beginning of the template file. For templates that are included via template listeners, this is the naming convention we use.</p>
 </div>
@@ -2227,7 +2217,6 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
 <span class="x">    &lt;dd&gt;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$person</span><span class="o">-&gt;</span><span class="na">birthday</span><span class="o">|</span><span class="na">strtotime</span><span class="o">|</span><span class="na">date</span><span class="cp">}</span><span class="x">&lt;/dd&gt;</span>
 <span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
-
 <h2 id="templatelistenerxml"><code>templateListener.xml</code><a class="headerlink" href="#templatelistenerxml" title="Permanent link">#</a></h2>
 <p>The following code shows the <code>templateListener.xml</code> file used to install all mentioned template listeners:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -2271,7 +2260,6 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
     <span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div>
-
 <p>In cases where a template is used, we simply use the <code>include</code> syntax to load the template.</p>
 <h2 id="eventlistenerxml"><code>eventListener.xml</code><a class="headerlink" href="#eventlistenerxml" title="Permanent link">#</a></h2>
 <p>There are two event listeners, <code>birthdaySortFieldAdminPersonList</code> and <code>birthdaySortFieldPersonList</code>, that make <code>birthday</code> a valid sort field in the ACP and the front end, respectively, and the rest takes care of setting the birthday.
@@ -2319,7 +2307,6 @@ In contrast, reading the existing birthday from a person is only relevant for ed
     <span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div>
-
 <h2 id="packagexml"><code>package.xml</code><a class="headerlink" href="#packagexml" title="Permanent link">#</a></h2>
 <p>The only relevant difference between the <code>package.xml</code> file of the base page from part 1 and the <code>package.xml</code> file of this package is that this package requires the base package <code>com.woltlab.wcf.people</code> (see <code>&lt;requiredpackages&gt;</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -2361,7 +2348,6 @@ In contrast, reading the existing birthday from a person is only relevant for ed
     <span class="nt">&lt;/instructions&gt;</span>
 <span class="nt">&lt;/package&gt;</span>
 </code></pre></div>
-
 <hr />
 <p>This concludes the second part of our tutorial series after which you now have extended the base package using event listeners and template listeners that allow you to enter the birthday of the people.</p>
 <p>The complete source code of this part can be found on <a href="https://github.com/WoltLab/woltlab.github.io/tree/master/_includes/tutorial/tutorial-series/part-2">GitHub</a>.</p>

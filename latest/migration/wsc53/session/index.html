@@ -2181,7 +2181,6 @@ If you perform authentication yourself and do not trust the authentication sourc
 <p>Previously:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">changeUser</span><span class="p">(</span><span class="nv">$targetUser</span><span class="p">);</span>
 </code></pre></div>
-
 <p>Now:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$isPending</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">changeUserAfterMultifactorAuthentication</span><span class="p">(</span><span class="nv">$targetUser</span><span class="p">);</span>
 <span class="k">if</span> <span class="p">(</span><span class="nv">$isPending</span><span class="p">)</span> <span class="p">{</span>
@@ -2194,7 +2193,6 @@ If you perform authentication yourself and do not trust the authentication sourc
 <span class="p">}</span>
 <span class="c1">// Proceed as usual. The user will be logged in.</span>
 </code></pre></div>
-
 <h4 id="adding-multi-factor-methods">Adding Multi-factor Methods<a class="headerlink" href="#adding-multi-factor-methods" title="Permanent link">#</a></h4>
 <p>Adding your own multi-factor method requires the implementation of a single object type:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
@@ -2205,7 +2203,6 @@ If you perform authentication yourself and do not trust the authentication sourc
     <span class="nt">&lt;classname&gt;</span>wcf\system\user\multifactor\FoobarMultifactorMethod<span class="nt">&lt;/classname&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 </code></pre></div>
-
 <p>The given classname must implement the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/multifactor/IMultifactorMethod.class.php"><code>IMultifactorMethod</code></a> interface.</p>
 <p>As a self-contained example, you can find the initial implementation of the email multi-factor method in <a href="https://github.com/WoltLab/WCF/pull/3729">WoltLab/WCF#3729</a>.
 Please check <a href="https://github.com/WoltLab/WCF/commits/master/wcfsetup/install/files/lib/system/user/multifactor/EmailMultifactorMethod.class.php">the version history</a> of the PHP class to make sure you do not miss important changes that were added later.</p>

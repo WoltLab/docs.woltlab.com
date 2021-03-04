@@ -1883,7 +1883,6 @@
 <span class="cp">}</span><span class="x">);</span>
 <span class="x">&lt;/script&gt;</span>
 </code></pre></div>
-
 <p>After:</p>
 <div class="highlight"><pre><span></span><code><span class="x">&lt;script&gt;</span>
 <span class="x">require([&#39;Language&#39;, /* … */], function(Language, /* … */) </span><span class="cp">{</span>
@@ -1895,7 +1894,6 @@
 <span class="cp">}</span><span class="x">);</span>
 <span class="x">&lt;/script&gt;</span>
 </code></pre></div>
-
 <h2 id="template-plugins">Template Plugins<a class="headerlink" href="#template-plugins" title="Permanent link">#</a></h2>
 <p>The <a href="../../../view/template-plugins/#53-anchor"><code>{anchor}</code></a>, <a href="../../../view/template-plugins/#53-plural"><code>{plural}</code></a>, and <a href="../../../view/template-plugins/#53-user"><code>{user}</code></a> template plugins have been added.</p>
 <h2 id="notification-language-items">Notification Language Items<a class="headerlink" href="#notification-language-items" title="Permanent link">#</a></h2>
@@ -1912,22 +1910,18 @@
 <span class="cp">{</span><span class="c">* new *</span><span class="cp">}</span><span class="x"></span>
 <span class="cp">{</span><span class="o">@</span><span class="nv">$like</span><span class="o">-&gt;</span><span class="na">render</span><span class="o">()</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
-
 <p>Similarly, showing labels is now also easier due to the new <code>render</code> method:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="c">* old *</span><span class="cp">}</span><span class="x"></span>
 <span class="x">&lt;span class=&quot;label badge</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$label</span><span class="o">-&gt;</span><span class="na">getClassNames</span><span class="o">()</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="nv">$label</span><span class="o">-&gt;</span><span class="na">getClassNames</span><span class="o">()</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&quot;&gt;</span><span class="cp">{</span><span class="nv">$label</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="o">()</span><span class="cp">}</span><span class="x">&lt;/span&gt;</span>
 <span class="cp">{</span><span class="c">* new *</span><span class="cp">}</span><span class="x"></span>
 <span class="cp">{</span><span class="o">@</span><span class="nv">$label</span><span class="o">-&gt;</span><span class="na">render</span><span class="o">()</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
-
 <p>The commonly used template code</p>
 <div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">if</span> <span class="nv">$count</span> <span class="o">&lt;</span> <span class="m">4</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$authors</span><span class="o">[</span><span class="m">0</span><span class="o">]-&gt;</span><span class="na">getAnchorTag</span><span class="o">()</span><span class="cp">}{</span><span class="nf">if</span> <span class="nv">$count</span> <span class="o">!=</span> <span class="m">1</span><span class="cp">}{</span><span class="nf">if</span> <span class="nv">$count</span> <span class="o">==</span> <span class="m">2</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$guestTimesTriggered</span><span class="cp">}</span><span class="x"> and </span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x">, </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$authors</span><span class="o">[</span><span class="m">1</span><span class="o">]-&gt;</span><span class="na">getAnchorTag</span><span class="o">()</span><span class="cp">}{</span><span class="nf">if</span> <span class="nv">$count</span> <span class="o">==</span> <span class="m">3</span><span class="cp">}{</span><span class="nf">if</span> <span class="o">!</span><span class="nv">$guestTimesTriggered</span><span class="cp">}</span><span class="x"> and </span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x">, </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="o">@</span><span class="nv">$authors</span><span class="o">[</span><span class="m">2</span><span class="o">]-&gt;</span><span class="na">getAnchorTag</span><span class="o">()</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">if</span> <span class="nv">$guestTimesTriggered</span><span class="cp">}</span><span class="x"> and </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$guestTimesTriggered</span> <span class="o">==</span> <span class="m">1</span><span class="cp">}</span><span class="x">a guest</span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x">guests</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">else</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$authors</span><span class="o">[</span><span class="m">0</span><span class="o">]-&gt;</span><span class="na">getAnchorTag</span><span class="o">()</span><span class="cp">}{</span><span class="nf">if</span> <span class="nv">$guestTimesTriggered</span><span class="cp">}</span><span class="x">,</span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x"> and</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="err">#</span><span class="nv">$others</span><span class="cp">}</span><span class="x"> other users </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$guestTimesTriggered</span><span class="cp">}</span><span class="x">and </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$guestTimesTriggered</span> <span class="o">==</span> <span class="m">1</span><span class="cp">}</span><span class="x">a guest</span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x">guests</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
-
 <p>in stacked notification messages can be replaced with a new language item:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="o">@</span><span class="s1">&#39;wcf.user.notification.stacked.authorList&#39;</span><span class="o">|</span><span class="na">language</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
-
 <h2 id="popovers">Popovers<a class="headerlink" href="#popovers" title="Permanent link">#</a></h2>
 <p>Popovers provide additional information of the linked object when a user hovers over a link.
 We unified the approach for such links:</p>
@@ -1956,7 +1950,6 @@ We unified the approach for such links:</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s1">&#39;WoltLabSuite/Core/Controller/Popover&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ControllerPopover</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">ControllerPopover</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
         <span class="nx">className</span><span class="o">:</span> <span class="s1">&#39;fooLink&#39;</span><span class="p">,</span>
@@ -1965,7 +1958,6 @@ We unified the approach for such links:</p>
     <span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">anchor</span> <span class="na">object</span><span class="o">=</span><span class="nv">$foo</span> <span class="na">class</span><span class="o">=</span><span class="s1">&#39;fooLink&#39;</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
                 

@@ -1844,7 +1844,6 @@ The <code>DatabaseObject</code> class must implement the interface <code>wcf\dat
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Next, the sitemap object must be registered as an object type:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
         <span class="nt">&lt;name&gt;</span>com.example.plugin.sitemap.object.user<span class="nt">&lt;/name&gt;</span>
@@ -1855,7 +1854,6 @@ The <code>DatabaseObject</code> class must implement the interface <code>wcf\dat
         <span class="nt">&lt;rebuildTime&gt;</span>259200<span class="nt">&lt;/rebuildTime&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 </code></pre></div>
-
 <p>In addition to the fully qualified class name, the object type definition <code>com.woltlab.wcf.sitemap.object</code> and the object type name, the parameters <code>priority</code>, <code>changeFreq</code> and <code>rebuildTime</code> must also be specified.
 <code>priority</code> (<a href="https://www.sitemaps.org/protocol.html#prioritydef">https://www.sitemaps.org/protocol.html#prioritydef</a>) and <code>changeFreq</code> (<a href="https://www.sitemaps.org/protocol.html#changefreqdef">https://www.sitemaps.org/protocol.html#changefreqdef</a>) are specifications in the sitemaps protocol and can be changed by the user in the ACP.
 The <code>priority</code> should be <code>0.5</code> by default, unless there is an important reason to change it.

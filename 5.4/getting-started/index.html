@@ -2043,7 +2043,6 @@ to start with.</p>
     <span class="nt">&lt;/instructions&gt;</span>
 <span class="nt">&lt;/package&gt;</span>
 </code></pre></div>
-
 <p>There is an <a href="../package/package-xml/">entire chapter</a> on the package system that explains what the code above
 does and how you can adjust it to fit your needs. For now we'll keep it as it is.</p>
 <h2 id="the-php-class">The PHP Class<a class="headerlink" href="#the-php-class" title="Permanent link">#</a></h2>
@@ -2103,7 +2102,6 @@ does and how you can adjust it to fit your needs. For now we'll keep it as it is
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>The class inherits from <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/page/AbstractPage.class.php">wcf\page\AbstractPage</a>, the default implementation of pages without form controls. It
 defines quite a few methods that will be automatically invoked in a specific order, for example <code>readParameters()</code> before <code>readData()</code> and finally <code>assignVariables()</code> to pass arbitrary values to the template.</p>
 <p>The property <code>$greet</code> is defined as <code>World</code>, but can optionally be populated through a GET variable (<code>index.php?test/&amp;greet=You</code> would output <code>Hello You!</code>). This extra code illustrates the separation of data
@@ -2122,7 +2120,6 @@ namespace and class name, you can <a href="#template-guessing">read more about i
 
 <span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;footer&#39;</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
-
 <p>Templates are a mixture of HTML and Smarty-like template scripting to overcome the static nature of raw HTML. The above code will display the phrase <code>Hello World!</code> in the application frame, just as any other
 page would render. The included templates <code>header</code> and <code>footer</code> are responsible for the majority of the overall page functionality, but offer a whole lot of customization abilities to influence their behavior and appearance.</p>
 <h2 id="the-page-definition">The Page Definition<a class="headerlink" href="#the-page-definition" title="Permanent link">#</a></h2>
@@ -2138,7 +2135,6 @@ page would render. The included templates <code>header</code> and <code>footer</
     <span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div>
-
 <p>You can provide a lot more data for a page, including logical nesting and dedicated handler classes for display in menus.</p>
 <h2 id="building-the-package">Building the Package<a class="headerlink" href="#building-the-package" title="Permanent link">#</a></h2>
 <p>If you have followed the above guidelines carefully, your package directory should now look like this:</p>
@@ -2151,7 +2147,6 @@ page would render. The included templates <code>header</code> and <code>footer</
 ├── templates
 │   └── test.tpl
 </code></pre></div>
-
 <p>Both files and templates are archive-based package components, that deploy their payload using tar archives rather than adding the raw files to the package file. Please create the archive <code>files.tar</code> and add the contents of the <code>files/*</code> directory, but not the directory <code>files/</code> itself. Repeat the same process for the <code>templates</code> directory, but this time with the file name <code>templates.tar</code>. Place both files in the root of your project.</p>
 <p>Last but not least, create the package archive <code>com.example.test.tar</code> and add all the files listed below.</p>
 <ul>

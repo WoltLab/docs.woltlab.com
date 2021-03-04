@@ -1945,7 +1945,6 @@ as jQuery) are moved to the bottom anyway.</p>
   <span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
-
 <h2 id="including-external-javascript-files">Including External JavaScript Files<a class="headerlink" href="#including-external-javascript-files" title="Permanent link">#</a></h2>
 <p>The AMD-Modules used in the new API are automatically recognized and lazy-loaded
 on demand, so unless you have a rather large and pre-compiled code-base, there
@@ -1959,7 +1958,6 @@ and thus avoid outdated caches by relying on a unique value, without invalidatin
 the cache more often that it needs to be.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{@$__wcf-&gt;getPath(&#39;app&#39;)}js/App.js?t={@LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
-
 <p>For small scripts you can simply serve the full, non-minified version to the user
 at all times, the differences in size and execution speed are insignificant and
 are very unlikely to offer any benefits. They might even yield a worse performance,
@@ -1971,7 +1969,6 @@ the minified and optimized file to the average visitor. You should use the
 <code>ENABLE_DEBUG_MODE</code> constant to decide which version should be loaded.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{@$__wcf-&gt;getPath(&#39;app&#39;)}js/App{if !ENABLE_DEBUG_MODE}.min{/if}.js?t={@LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
-
 <h3 id="the-accelerated-guest-view-tiny-builds">The Accelerated Guest View ("Tiny Builds")<a class="headerlink" href="#the-accelerated-guest-view-tiny-builds" title="Permanent link">#</a></h3>
 <div class="admonition info">
 <p class="admonition-title">You can learn more on the <a href="../../migration/wsc30/javascript/">Accelerated Guest View</a> in the migration docs.</p>
@@ -1982,13 +1979,11 @@ for visitors. If you are providing a separate compiled build for this mode, you'
 need to include yet another switch to serve the right version to the visitor.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{@$__wcf-&gt;getPath(&#39;app&#39;)}js/App{if !ENABLE_DEBUG_MODE}{if VISITOR_USE_TINY_BUILD}.tiny{/if}.min{/if}.js?t={@LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
-
 <h3 id="the-js-template-plugin">The <code>{js}</code> Template Plugin<a class="headerlink" href="#the-js-template-plugin" title="Permanent link">#</a></h3>
 <p>The <code>{js}</code> template plugin exists solely to provide a much easier and less error-prone
 method to include external JavaScript files.</p>
 <div class="highlight"><pre><span></span><code>{js application=&#39;app&#39; file=&#39;App&#39; hasTiny=true}
 </code></pre></div>
-
 <p>The <code>hasTiny</code> attribute is optional, you can set it to <code>false</code> or just omit it
 entirely if you do not provide a tiny build for your file.</p>
                 

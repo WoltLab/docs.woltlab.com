@@ -2066,7 +2066,6 @@
 <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span> <span class="nv">$messageObjectType</span><span class="p">,</span> <span class="nv">$messageObjectID</span><span class="p">);</span>
 <span class="nv">$html</span> <span class="o">=</span> <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">getHtml</span><span class="p">();</span>
 </code></pre></div>
-
 <p>The <code>$messageObjectID</code> can be zero if the element did not exist before, but it should be non-zero when saving an edited message.</p>
 <h3 id="embedded-objects">Embedded Objects<a class="headerlink" href="#embedded-objects" title="Permanent link">#</a></h3>
 <p>Embedded objects need to be registered after saving the message, but once again you can use the processor instance to do the job.</p>
@@ -2085,7 +2084,6 @@
     <span class="p">(</span><span class="k">new</span> <span class="nx">\wcf\data\example\ExampleEditor</span><span class="p">(</span><span class="nv">$example</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span><span class="s1">&#39;hasEmbeddedObjects&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">]);</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h3 id="rendering-the-message">Rendering the Message<a class="headerlink" href="#rendering-the-message" title="Permanent link">#</a></h3>
 <p>The output processor will parse the intermediate HTML and finalize the output for display. This step is highly dynamic and allows for bbcode evaluation and contextual output based on the viewer's permissions.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
@@ -2093,7 +2091,6 @@
 <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">(</span><span class="nv">$html</span><span class="p">,</span> <span class="nv">$messageObjectType</span><span class="p">,</span> <span class="nv">$messageObjectID</span><span class="p">);</span>
 <span class="nv">$renderedHtml</span> <span class="o">=</span> <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">getHtml</span><span class="p">();</span>
 </code></pre></div>
-
 <h4 id="simplified-output">Simplified Output<a class="headerlink" href="#simplified-output" title="Permanent link">#</a></h4>
 <p>At some point there can be the need of a simplified output HTML that includes only basic HTML formatting and reduces more sophisticated bbcodes into a simpler representation.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
@@ -2101,7 +2098,6 @@
 <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">setOutputType</span><span class="p">(</span><span class="s1">&#39;text/simplified-html&#39;</span><span class="p">);</span>
 <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">(</span><span class="nx">…</span><span class="p">);</span>
 </code></pre></div>
-
 <h4 id="plaintext-output">Plaintext Output<a class="headerlink" href="#plaintext-output" title="Permanent link">#</a></h4>
 <p>The <code>text/plain</code> output type will strip down the simplified HTML into pure text, suitable for text-only output such as the plaintext representation of an email.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
@@ -2109,7 +2105,6 @@
 <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">setOutputType</span><span class="p">(</span><span class="s1">&#39;text/plain&#39;</span><span class="p">);</span>
 <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">(</span><span class="nx">…</span><span class="p">);</span>
 </code></pre></div>
-
 <h3 id="rebuilding-data">Rebuilding Data<a class="headerlink" href="#rebuilding-data" title="Permanent link">#</a></h3>
 <h4 id="converting-from-bbcode">Converting from BBCode<a class="headerlink" href="#converting-from-bbcode" title="Permanent link">#</a></h4>
 <div class="admonition warning">
@@ -2121,7 +2116,6 @@
 <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">(</span><span class="nv">$html</span><span class="p">,</span> <span class="nv">$messageObjectType</span><span class="p">,</span> <span class="nv">$messageObjectID</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
 <span class="nv">$renderedHtml</span> <span class="o">=</span> <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">getHtml</span><span class="p">();</span>
 </code></pre></div>
-
 <h4 id="extracting-embedded-objects">Extracting Embedded Objects<a class="headerlink" href="#extracting-embedded-objects" title="Permanent link">#</a></h4>
 <p>The <code>process()</code> method of the input processor is quite expensive, as it runs through the full message validation including the invocation of HTMLPurifier. This is perfectly fine when dealing with single messages, but when you're handling messages in bulk to extract their embedded objects, you're better of with <code>processEmbeddedContent()</code>. This method deconstructs the message, but skips all validation and expects the input to be perfectly valid, that is the output of a previous run of <code>process()</code> saved to storage.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
@@ -2130,7 +2124,6 @@
 
 <span class="c1">// invoke `MessageEmbeddedObjectManager::registerObjects` here</span>
 </code></pre></div>
-
 <h2 id="breadcrumbs-page-location">Breadcrumbs / Page Location<a class="headerlink" href="#breadcrumbs-page-location" title="Permanent link">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Breadcrumbs used to be added left to right, but parent locations are added from the bottom to the top, starting with the first ancestor and going upwards. In most cases you simply need to reverse the order.</p>
@@ -2143,7 +2136,6 @@
 <span class="c1">// after</span>
 <span class="nx">\wcf\system\page\PageLocationManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">addParentLocation</span><span class="p">(</span><span class="nv">$pageIdentifier</span><span class="p">,</span> <span class="nv">$pageObjectID</span><span class="p">,</span> <span class="nv">$object</span><span class="p">);</span>
 </code></pre></div>
-
 <h2 id="pages-and-forms">Pages and Forms<a class="headerlink" href="#pages-and-forms" title="Permanent link">#</a></h2>
 <p>The property <code>$activeMenuItem</code> has been deprecated for the front end and is no longer evaluated at runtime. Recognition of the active item is entirely based around the invoked controller class name and its definition in the page table. You need to properly <a href="../../../package/pip/page/">register your pages</a> for this feature to work.</p>
 <h2 id="search">Search<a class="headerlink" href="#search" title="Permanent link">#</a></h2>

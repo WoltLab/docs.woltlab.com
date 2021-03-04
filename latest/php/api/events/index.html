@@ -1916,7 +1916,6 @@ Consider this pre-existing class:</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>where an event with event name <code>getVar</code> is fired in the <code>getVar()</code> method.</p>
 <p>If you create an object of this class and call the <code>getVar()</code> method, the return value will be <code>1</code>, of course:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
@@ -1934,7 +1933,6 @@ Consider this pre-existing class:</p>
 
 <span class="c1">// output: var is 1!</span>
 </code></pre></div>
-
 <p>Now, consider that we have registered the following event listener to this event:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">namespace</span> <span class="nx">wcf\system\event\listener</span><span class="p">;</span>
@@ -1945,7 +1943,6 @@ Consider this pre-existing class:</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Whenever the event in the <code>getVar()</code> method is called, this method (of the same event listener object) is called.
 In this case, the value of the method's first parameter is the <code>ExampleComponent</code> object passed as the first argument of the <code>EventHandler::fireAction()</code> call in <code>ExampleComponent::getVar()</code>.
 As <code>ExampleComponent::$var</code> is a public property, the event listener code can change it and set it to <code>2</code>.</p>
@@ -1986,7 +1983,6 @@ The only thing to do is to call the <code>wcf\system\event\EventHandler::fireAct
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>After the default parsing by the method itself, the author wants to enable plugins to do additional parsing and thus fires an event and passes the parsed text as an additional parameter.
 Then, a plugin can deliver the following event listener</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
@@ -2002,7 +1998,6 @@ Then, a plugin can deliver the following event listener</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>which can access the text via <code>$parameters['text']</code>.</p>
 <p>This example can also be perfectly used to illustrate how to name multiple events in the same method.
 Let's assume that the author wants to enable plugins to change the text before and after the method does its own parsing and thus fires two events:</p>
@@ -2025,7 +2020,6 @@ Let's assume that the author wants to enable plugins to change the text before a
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h2 id="advanced-example-additional-form-field">Advanced Example: Additional Form Field<a class="headerlink" href="#advanced-example-additional-form-field" title="Permanent link">#</a></h2>
 <p>One common reason to use event listeners is to add an additional field to a pre-existing form (in combination with template listeners, which we will not cover here).
 We will assume that users are able to do both, create and edit the objects via this form.
@@ -2097,7 +2091,6 @@ The points in the program flow of <a href="../../pages/#abstractform">AbstractFo
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>The <code>execute</code> method in this example just delegates the call to a method with the same name as the event so that this class mimics the structure of a form class itself.
 The form object is passed to the methods but is only given in the method signatures as a parameter here whenever the form object is actually used.
 Furthermore, the type-hinting of the parameter illustrates in which contexts the method is actually called which will become clear in the following discussion of the individual methods:</p>

@@ -2053,7 +2053,6 @@
 
 <span class="k">class</span> <span class="nc">Example</span> <span class="k">extends</span> <span class="nx">DatabaseObject</span> <span class="p">{}</span>
 </code></pre></div>
-
 <p>The class is intended to be empty by default and there only needs to be code if you want to add additional logic to your model. Both the class name and primary key are determined by <code>DatabaseObject</code> using the namespace and class name of the derived class. The example above uses the namespace <code>wcf\…</code> which is used as table prefix and the class name <code>Example</code> is converted into <code>exampleID</code>, resulting in the database table name <code>wcfN_example</code> with the primary key <code>exampleID</code>.</p>
 <p>You can prevent this automatic guessing by setting the class properties <code>$databaseTableName</code> and <code>$databaseTableIndexName</code> manually.</p>
 <h2 id="databaseobjectdecorator">DatabaseObjectDecorator<a class="headerlink" href="#databaseobjectdecorator" title="Permanent link">#</a></h2>
@@ -2074,7 +2073,6 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>It is mandatory to set the static <code>$baseClass</code> property to the name of the decorated class.</p>
 <p>Like for any decorator, you can directly access the decorated object's properties and methods for a decorated object by accessing the property or calling the method on the decorated object.
 You can access the decorated objects directly via <code>DatabaseObjectDecorator::getDecoratedObject()</code>.</p>
@@ -2091,7 +2089,6 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
     <span class="k">protected</span> <span class="k">static</span> <span class="nv">$baseClass</span> <span class="o">=</span> <span class="nx">Example</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>The editor class requires you to provide the fully qualified name of the model, that is the class name including the complete namespace. Database table name and index key will be pulled directly from the model.</p>
 <h3 id="create-a-new-row">Create a new row<a class="headerlink" href="#create-a-new-row" title="Permanent link">#</a></h3>
 <p>Inserting a new row into the database table is provided through <code>DatabaseObjectEditor::create()</code> which yields a <code>DatabaseObject</code> instance after creation.</p>
@@ -2103,7 +2100,6 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <span class="c1">// output: Hello World!</span>
 <span class="k">echo</span> <span class="nv">$example</span><span class="o">-&gt;</span><span class="na">bar</span><span class="p">;</span>
 </code></pre></div>
-
 <h3 id="updating-an-existing-row">Updating an existing row<a class="headerlink" href="#updating-an-existing-row" title="Permanent link">#</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">The internal state of the decorated <code>DatabaseObject</code> is not altered at any point, the values will still be the same after editing or deleting the represented row. If you need an object with the latest data, you'll have to discard the current object and refetch the data from database.</p>
@@ -2124,7 +2120,6 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <span class="c1">// output: baz</span>
 <span class="k">echo</span> <span class="nv">$example</span><span class="o">-&gt;</span><span class="na">bar</span><span class="p">;</span>
 </code></pre></div>
-
 <h3 id="deleting-a-row">Deleting a row<a class="headerlink" href="#deleting-a-row" title="Permanent link">#</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Similar to the update process, the decorated <code>DatabaseObject</code> is not altered and will then point to an inexistent row.</p>
@@ -2134,7 +2129,6 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <span class="nv">$exampleEditor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\ExampleEditor</span><span class="p">(</span><span class="nv">$example</span><span class="p">);</span>
 <span class="nv">$exampleEditor</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
 </code></pre></div>
-
 <h2 id="databaseobjectlist">DatabaseObjectList<a class="headerlink" href="#databaseobjectlist" title="Permanent link">#</a></h2>
 <p>Every row is represented as a single instance of the model, but the instance creation deals with single rows only. Retrieving larger sets of rows would be quite inefficient due to the large amount of queries that will be dispatched. This is solved with the <code>DatabaseObjectList</code> object that exposes an interface to query the database table using arbitrary conditions for data selection. All rows will be fetched using a single query and the resulting rows are automatically loaded into separate models.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
@@ -2145,7 +2139,6 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
     <span class="k">public</span> <span class="nv">$className</span> <span class="o">=</span> <span class="nx">Example</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>The following code listing illustrates loading a large set of examples and iterating over the list to retrieve the objects.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$exampleList</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\ExampleList</span><span class="p">();</span>
@@ -2163,7 +2156,6 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <span class="c1">// just retrieve the number of rows</span>
 <span class="nv">$exampleCount</span> <span class="o">=</span> <span class="nv">$exampleList</span><span class="o">-&gt;</span><span class="na">countObjects</span><span class="p">();</span>
 </code></pre></div>
-
 <p><code>DatabaseObjectList</code> implements both <a href="https://secure.php.net/manual/en/class.seekableiterator.php">SeekableIterator</a> and <a href="https://secure.php.net/manual/en/class.countable.php">Countable</a>.</p>
 <p>Additionally, <code>DatabaseObjectList</code> objects has the following three public properties that are useful when fetching data with lists:</p>
 <ul>
@@ -2191,7 +2183,6 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
 <span class="nv">$exampleList</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\ExampleList</span><span class="p">();</span>
 <span class="nv">$exampleList</span><span class="o">-&gt;</span><span class="na">decoratorClassName</span> <span class="o">=</span> <span class="nx">\wcf\data\example\ViewableExample</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
 </code></pre></div>
-
 <p>Of course, you do not have to set the property after creating the list object, you can also set it by creating a dedicated class:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">namespace</span> <span class="nx">wcf\data\example</span><span class="p">;</span>
@@ -2200,7 +2191,6 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
     <span class="k">public</span> <span class="nv">$decoratorClassName</span> <span class="o">=</span> <span class="nx">ViewableExample</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h2 id="abstractdatabaseobjectaction">AbstractDatabaseObjectAction<a class="headerlink" href="#abstractdatabaseobjectaction" title="Permanent link">#</a></h2>
 <p>Row creation and manipulation can be performed using the aforementioned <code>DatabaseObjectEditor</code> class, but this approach has two major issues:</p>
 <ol>
@@ -2216,7 +2206,6 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
     <span class="k">public</span> <span class="nv">$className</span> <span class="o">=</span> <span class="nx">ExampleEditor</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h3 id="executing-an-action">Executing an Action<a class="headerlink" href="#executing-an-action" title="Permanent link">#</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">The method <code>AbstractDatabaseObjectAction::validateAction()</code> is internally used for AJAX method invocation and must not be called programmatically.</p>
@@ -2241,7 +2230,6 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
 <span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([</span><span class="nv">$example</span><span class="p">],</span> <span class="s1">&#39;delete&#39;</span><span class="p">);</span>
 <span class="nv">$exampleAction</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">();</span>
 </code></pre></div>
-
 <p>You can access the return values both by storing the return value of <code>executeAction()</code> or by retrieving it via <code>getReturnValues()</code>.</p>
 <p><span class="label label-info">Events</span> <code>initializeAction</code>, <code>validateAction</code> and <code>finalizeAction</code></p>
 <h3 id="custom-method-with-ajax-support">Custom Method with AJAX Support<a class="headerlink" href="#custom-method-with-ajax-support" title="Permanent link">#</a></h3>
@@ -2268,7 +2256,6 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h4 id="allow-invokation-by-guests">Allow Invokation by Guests<a class="headerlink" href="#allow-invokation-by-guests" title="Permanent link">#</a></h4>
 <p>Invoking methods is restricted to logged-in users by default and the only way to override this behavior is to alter the property <code>$allowGuestAccess</code>. It is a simple string array that is expected to hold all methods that should be accessible by users, excluding their companion validation methods.</p>
 <h4 id="acp-access-only">ACP Access Only<a class="headerlink" href="#acp-access-only" title="Permanent link">#</a></h4>

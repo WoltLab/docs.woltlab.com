@@ -2035,7 +2035,6 @@
   <span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h4 id="requirejs-modules">require.js Modules<a class="headerlink" href="#requirejs-modules" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nx">define</span><span class="p">([</span><span class="s2">&quot;some&quot;</span><span class="p">,</span> <span class="s2">&quot;fancy&quot;</span><span class="p">,</span> <span class="s2">&quot;dependencies&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Some</span><span class="p">,</span> <span class="nx">Fancy</span><span class="p">,</span> <span class="nx">Dependencies</span><span class="p">)</span> <span class="p">{</span>
   <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
@@ -2065,12 +2064,10 @@
   <span class="k">return</span> <span class="nx">MyAwesomeClass</span><span class="p">;</span>
 <span class="p">});</span>
 </code></pre></div>
-
 <h3 id="including-tinified-builds-through-js">Including tinified builds through <code>{js}</code><a class="headerlink" href="#including-tinified-builds-through-js" title="Permanent link">#</a></h3>
 <p>The <code>{js}</code> template-plugin has been updated to include support for tiny builds controlled through the optional flag <code>hasTiny=true</code>:</p>
 <div class="highlight"><pre><span></span><code>{js application=&#39;wcf&#39; file=&#39;WCF.Example&#39; hasTiny=true}
 </code></pre></div>
-
 <p>This line generates a different output depending on the debug mode and the user login-state.</p>
 <h2 id="real-error-messages-for-ajax-responses">Real Error Messages for AJAX Responses<a class="headerlink" href="#real-error-messages-for-ajax-responses" title="Permanent link">#</a></h2>
 <p>The <code>errorMessage</code> property in the returned response object for failed AJAX requests contained an exception-specific but still highly generic error message. This issue has been around for quite a long time and countless of implementations are relying on this false behavior, eventually forcing us to leave the value unchanged.</p>
@@ -2086,7 +2083,6 @@
   <span class="p">};</span>
 <span class="p">});</span>
 </code></pre></div>
-
 <h2 id="simplified-form-submit-in-dialogs">Simplified Form Submit in Dialogs<a class="headerlink" href="#simplified-form-submit-in-dialogs" title="Permanent link">#</a></h2>
 <p>Forms embedded in dialogs often do not contain the HTML <code>&lt;form&gt;</code>-element and instead rely on JavaScript click- and key-handlers to emulate a <code>&lt;form&gt;</code>-like submit behavior. This has spawned a great amount of nearly identical implementations that all aim to handle the form submit through the <code>Enter</code>-key, still leaving some dialogs behind.</p>
 <p>WoltLab Suite 3.1 offers automatic form submit that is enabled through a set of specific conditions and data attributes:</p>

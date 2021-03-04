@@ -1822,14 +1822,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#english" class="md-nav__link">
+  <a href="#english_1" class="md-nav__link">
     English
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#german" class="md-nav__link">
+  <a href="#german_1" class="md-nav__link">
     German
   </a>
   
@@ -1886,39 +1886,35 @@
 <h4 id="language-variables">Language Variables<a class="headerlink" href="#language-variables" title="Permanent link">#</a></h4>
 <p>Next, to display all reactions for the current notification in the notification text, we include the trait <code>\wcf\system\user\notification\event\TReactionUserNotificationEvent</code> in the user notification event class (typically named like <code>*LikeUserNotificationEvent</code>). These trait provides a new function that reads out and groups the reactions. The result of this function must now only be passed to the language variable. The name "reactions" is typically used as the variable name for the language variable. </p>
 <p>As a final step, we only need to change the language variables themselves. To ensure a consistent usability, the same formulations should be used as in the WoltLab Suite Core. </p>
-<h5>English</h5>
+<h5 id="english">English<a class="headerlink" href="#english" title="Permanent link">#</a></h5>
 <p><code>{prefix}.like.title</code>
 <div class="highlight"><pre><span></span><code>Reaction to a {objectName}
 </code></pre></div></p>
 <p><code>{prefix}.like.title.stacked</code></p>
 <div class="highlight"><pre><span></span><code>{#$count} users reacted to your {objectName}
 </code></pre></div>
-
 <p><code>{prefix}.like.message</code>
 <div class="highlight"><pre><span></span><code>{@$author-&gt;getAnchorTag()} reacted to your {objectName} ({implode from=$reactions key=reactionID item=count}{@$__wcf-&gt;getReactionHandler()-&gt;getReactionTypeByID($reactionID)-&gt;renderIcon()}×{#$count}{/implode}).
 </code></pre></div></p>
 <p><code>{prefix}.like.message.stacked</code></p>
 <div class="highlight"><pre><span></span><code>{if $count &lt; 4}{@$authors[0]-&gt;getAnchorTag()}{if $count == 2} and {else}, {/if}{@$authors[1]-&gt;getAnchorTag()}{if $count == 3} and {@$authors[2]-&gt;getAnchorTag()}{/if}{else}{@$authors[0]-&gt;getAnchorTag()} and {#$others} others{/if} reacted to your {objectName} ({implode from=$reactions key=reactionID item=count}{@$__wcf-&gt;getReactionHandler()-&gt;getReactionTypeByID($reactionID)-&gt;renderIcon()}×{#$count}{/implode}).
 </code></pre></div>
-
 <p><code>wcf.user.notification.{objectTypeName}.like.notification.like</code>
 <div class="highlight"><pre><span></span><code>Notify me when someone reacted to my {objectName}
 </code></pre></div></p>
-<h5>German</h5>
+<h5 id="german">German<a class="headerlink" href="#german" title="Permanent link">#</a></h5>
 <p><code>{prefix}.like.title</code>
 <div class="highlight"><pre><span></span><code>Reaktion auf einen {objectName}
 </code></pre></div></p>
 <p><code>{prefix}.like.title.stacked</code></p>
 <div class="highlight"><pre><span></span><code>{#$count} Benutzern haben auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert
 </code></pre></div>
-
 <p><code>{prefix}.like.message</code>
 <div class="highlight"><pre><span></span><code>{@$author-&gt;getAnchorTag()} hat auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert ({implode from=$reactions key=reactionID item=count}{@$__wcf-&gt;getReactionHandler()-&gt;getReactionTypeByID($reactionID)-&gt;renderIcon()}×{#$count}{/implode}).
 </code></pre></div></p>
 <p><code>{prefix}.like.message.stacked</code></p>
 <div class="highlight"><pre><span></span><code>{if $count &lt; 4}{@$authors[0]-&gt;getAnchorTag()}{if $count == 2} und {else}, {/if}{@$authors[1]-&gt;getAnchorTag()}{if $count == 3} und {@$authors[2]-&gt;getAnchorTag()}{/if}{else}{@$authors[0]-&gt;getAnchorTag()} und {#$others} weitere{/if} haben auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert ({implode from=$reactions key=reactionID item=count}{@$__wcf-&gt;getReactionHandler()-&gt;getReactionTypeByID($reactionID)-&gt;renderIcon()}×{#$count}{/implode}).
 </code></pre></div>
-
 <p><code>wcf.user.notification.{object_type_name}.like.notification.like</code>
 <div class="highlight"><pre><span></span><code>Jemandem hat auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert
 </code></pre></div></p>
@@ -1931,16 +1927,15 @@
     <span class="nt">&lt;supportsReactions&gt;</span>1<span class="nt">&lt;/supportsReactions&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 </code></pre></div>
-
 <p>Finally we modify our language variable. To ensure a consistent usability, the same formulations should be used as in the WoltLab Suite Core.</p>
-<h4 id="english">English<a class="headerlink" href="#english" title="Permanent link">#</a></h4>
+<h4 id="english_1">English<a class="headerlink" href="#english_1" title="Permanent link">#</a></h4>
 <p><code>wcf.user.recentActivity.{object_type_name}.recentActivityEvent</code>
 <div class="highlight"><pre><span></span><code>Reaction ({objectName})
 </code></pre></div></p>
 <p><em>Your language variable for the recent activity text</em>
 <div class="highlight"><pre><span></span><code>Reacted with &lt;span title=&quot;{$reactionType-&gt;getTitle()}&quot; class=&quot;jsTooltip&quot;&gt;{@$reactionType-&gt;renderIcon()}&lt;/span&gt; to the {objectName}.
 </code></pre></div></p>
-<h4 id="german">German<a class="headerlink" href="#german" title="Permanent link">#</a></h4>
+<h4 id="german_1">German<a class="headerlink" href="#german_1" title="Permanent link">#</a></h4>
 <p><code>wcf.user.recentActivity.{objectTypeName}.recentActivityEvent</code>
 <div class="highlight"><pre><span></span><code>Reaktion ({objectName})
 </code></pre></div></p>
@@ -1957,7 +1952,6 @@
     <span class="nt">&lt;supportsReactions&gt;</span>1<span class="nt">&lt;/supportsReactions&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 </code></pre></div>
-
 <h2 id="forward-compatibility">Forward Compatibility<a class="headerlink" href="#forward-compatibility" title="Permanent link">#</a></h2>
 <p>So that these changes also work in older versions of WoltLab Suite Core, the used classes and traits were backported with WoltLab Suite Core 3.0.22 and WoltLab Suite Core 3.1.10.</p>
                 

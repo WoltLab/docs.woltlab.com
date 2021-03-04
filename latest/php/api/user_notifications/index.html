@@ -1884,7 +1884,6 @@
     <span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div>
-
 <p>The referenced class <code>FooUserNotificationObjectType</code> has to implement the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/type/IUserNotificationObjectType.class.php">IUserNotificationObjectType</a> interface, which should be done by extending <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/type/AbstractUserNotificationObjectType.class.php">AbstractUserNotificationObjectType</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">namespace</span> <span class="nx">example\system\user\notification\object\type</span><span class="p">;</span>
@@ -1918,7 +1917,6 @@
     <span class="k">protected</span> <span class="k">static</span> <span class="nv">$objectListClassName</span> <span class="o">=</span> <span class="nx">FooList</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>You have to set the class names of the database object (<code>$objectClassName</code>) and the related list (<code>$objectListClassName</code>).
 Additionally, you have to create a class that implements the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/IUserNotificationObject.class.php">IUserNotificationObject</a> whose name you have to set as the value of the <code>$decoratorClassName</code> property. </p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
@@ -1966,7 +1964,6 @@ Additionally, you have to create a class that implements the <a href="https://gi
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <ul>
 <li>The <code>getTitle()</code> method returns the title of the object.
   In this case, we assume that the <code>Foo</code> class has implemented the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/data/ITitledObject.class.php">ITitledObject</a> interface so that the decorated <code>Foo</code> can handle this method call itself.</li>
@@ -1990,7 +1987,6 @@ An example file might look like this:</p>
     <span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div>
-
 <p>Here, you reference the user notification object type created via <code>objectType.xml</code>.
 The referenced class in the <code>&lt;classname&gt;</code> element has to implement the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/event/IUserNotificationEvent.class.php">IUserNotificationEvent</a> interface by extending the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/event/AbstractUserNotificationEvent.class.php">AbstractUserNotificationEvent</a> class or the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/event/AbstractSharedUserNotificationEvent.class.php">AbstractSharedUserNotificationEvent</a> class if you want to pre-load additional data before processing notifications.
 In <code>AbstractSharedUserNotificationEvent::prepare()</code>, you can, for example, tell runtime caches to prepare to load certain objects which then are loaded all at once when the objects are needed.</p>
@@ -2134,7 +2130,6 @@ In <code>AbstractSharedUserNotificationEvent::prepare()</code>, you can, for exa
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <ul>
 <li>The <code>$stackable</code> property is <code>false</code> by default and has to be explicitly set to <code>true</code> if stacking of notifications should be enabled.
   Stacking of notification does not create new notifications for the same event for a certain object if the related action as been triggered by different users.
@@ -2179,7 +2174,6 @@ In <code>AbstractSharedUserNotificationEvent::prepare()</code>, you can, for exa
     <span class="nv">$recipientIDs</span>
 <span class="p">);</span>
 </code></pre></div>
-
 <h2 id="marking-notifications-as-confirmed">Marking Notifications as Confirmed<a class="headerlink" href="#marking-notifications-as-confirmed" title="Permanent link">#</a></h2>
 <p>In some instances, you might want to manually mark user notifications as confirmed without the user manually confirming them, for example when they visit the page that is related to the user notification.
 In this case, you can use <code>UserNotificationHandler::markAsConfirmed()</code>:</p>
