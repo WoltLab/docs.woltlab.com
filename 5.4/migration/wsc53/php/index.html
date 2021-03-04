@@ -1928,22 +1928,26 @@ Leveraging this API is easily done.</p>
 <ol>
 <li>Register an object type for the definition <code>com.woltlab.wcf.floodControl</code>: <code>com.example.foo.myContent</code>.</li>
 <li>Whenever the active user creates content of this type, call
-   <div class="highlight"><pre><span></span><code><span class="nx">FloodControl</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">registerContent</span><span class="p">(</span><span class="s1">&#39;com.example.foo.myContent&#39;</span><span class="p">);</span>
+    <div class="highlight"><pre><span></span><code><span class="nx">FloodControl</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">registerContent</span><span class="p">(</span><span class="s1">&#39;com.example.foo.myContent&#39;</span><span class="p">);</span>
 </code></pre></div>
-   You should only call this method if the user creates the content themselves.
-   If the content is automatically created by the system, for example when copying / duplicating existing content, no activity should be registered.</li>
-<li>To check the last time when the active user created content of the relevant type, use
-   <div class="highlight"><pre><span></span><code><span class="nx">FloodControl</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLastTime</span><span class="p">(</span><span class="s1">&#39;com.example.foo.myContent&#39;</span><span class="p">);</span>
+    You should only call this method if the user creates the content themselves.
+    If the content is automatically created by the system, for example when copying / duplicating existing content, no activity should be registered.</li>
+<li>
+<p>To check the last time when the active user created content of the relevant type, use
+    <div class="highlight"><pre><span></span><code><span class="nx">FloodControl</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLastTime</span><span class="p">(</span><span class="s1">&#39;com.example.foo.myContent&#39;</span><span class="p">);</span>
 </code></pre></div>
-   If you want to limit the number of content items created within a certain period of time, for example within one day, use
-   <div class="highlight"><pre><span></span><code><span class="nv">$data</span> <span class="o">=</span> <span class="nx">FloodControl</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">countContent</span><span class="p">(</span><span class="s1">&#39;com.example.foo.myContent&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">\DateInterval</span><span class="p">(</span><span class="s1">&#39;P1D&#39;</span><span class="p">));</span>
+    If you want to limit the number of content items created within a certain period of time, for example within one day, use
+    <div class="highlight"><pre><span></span><code><span class="nv">$data</span> <span class="o">=</span> <span class="nx">FloodControl</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">countContent</span><span class="p">(</span><span class="s1">&#39;com.example.foo.myContent&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">\DateInterval</span><span class="p">(</span><span class="s1">&#39;P1D&#39;</span><span class="p">));</span>
 <span class="c1">// number of content items created within the last day</span>
 <span class="nv">$count</span> <span class="o">=</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">];</span>
 <span class="c1">// timestamp when the earliest content item was created within the last day</span>
 <span class="nv">$earliestTime</span> <span class="o">=</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;earliestTime&#39;</span><span class="p">];</span>
 </code></pre></div>
-   The method also returns <code>earliestTime</code> so that you can tell the user in the error message when they are able again to create new content of the relevant type.
-   !!! info "Flood control entries are only stored for 31 days and older entries are cleaned up daily."</li>
+    The method also returns <code>earliestTime</code> so that you can tell the user in the error message when they are able again to create new content of the relevant type.</p>
+<div class="admonition info">
+<p class="admonition-title">Flood control entries are only stored for 31 days and older entries are cleaned up daily.</p>
+</div>
+</li>
 </ol>
 <p>The previously mentioned methods of <code>FloodControl</code> use the active user and the current timestamp as reference point.
 <code>FloodControl</code> also provides methods to register content or check flood control for other registered users or for guests via their IP address.
