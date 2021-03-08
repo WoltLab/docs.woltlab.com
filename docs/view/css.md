@@ -53,3 +53,31 @@ Media breakpoints instruct the browser to apply different CSS depending on the v
 | `screen-md-down` | Smartphones and Tablets | `(max-width: 1024px)` |
 | `screen-md-up` | Tablets (landscape) and desktop PC | `(min-width: 769px)` |
 | `screen-lg` | Desktop PC | `(min-width: 1025px)` |
+
+## Asset Preloading
+
+WoltLab Suite’s SCSS compiler supports adding [preloading](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content) metadata to the CSS.
+To communicate the preloading intent to the compiler the `--woltlab-suite-preload` CSS variable is set to the result of the `preload()` function:
+
+```scss
+body {
+    --woltlab-suite-preload:    #{preload(
+                                    '#{$style_image_path}custom/background.png',
+                                    $as: "image",
+                                    $crossorigin: false,
+                                    $type: "image/png"
+                                )};
+
+    background: url('#{$style_image_path}custom/background.png');
+}
+```
+
+The parameters of the `preload()` function map directly to the preloading properties that are used within the `<link>` tag and the `link:` HTTP response header.
+
+The above example will result in a `<link>` similar to the following being added to the generated HTML:
+
+```
+<link rel="preload" href="https://example.com/images/style-1/custom/background.png" as="image" type="image/png">
+```
+
+!!! info "Use preloading sparingly for the most important resources where you can be certain that the browser will need them. Unused preloaded resources will unnecessarily waste bandwidth."
