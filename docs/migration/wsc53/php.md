@@ -99,3 +99,10 @@ With WoltLab Suite 5.4, it will no longer be part of any indices, allowing more 
 If you need to filter the contents of `wcf1_tag_to_object` by language, you should perform an `INNER JOIN wcf1_tag tag ON tag.tagID = tag_to_object.tagID` and filter on `wcf1_tag.languageID`.
 
 See [WoltLab/WCF#3904](https://github.com/WoltLab/WCF/pull/3904) for details.
+
+## Avatars
+
+The `ISafeFormatAvatar` interface was added to properly support fallback image types for use in emails.
+If your custom `IUserAvatar` implementation supports image types without broad support (i.e. anything other than PNG, JPEG, and GIF), then you should implement the `ISafeFormatAvatar` interface to return a fallback PNG, JPEG, or GIF image.
+
+See [WoltLab/WCF#4001](https://github.com/WoltLab/WCF/pull/4001) for details.
