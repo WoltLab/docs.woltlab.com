@@ -102,6 +102,6 @@ See [WoltLab/WCF#3904](https://github.com/WoltLab/WCF/pull/3904) for details.
 ## Avatars
 
 The `ISafeFormatAvatar` interface was added to properly support fallback image types for use in emails.
-If your custom `IUserAvatar` supports image types without broad support (i.e. anything other than PNG, JPEG, and GIF) then you should implement the `ISafeFormatAvatar` interface to return a fallback image.
+If your custom `IUserAvatar` implementation supports image types without broad support (i.e. anything other than PNG, JPEG, and GIF), then you should implement the `ISafeFormatAvatar` interface to return a fallback PNG, JPEG, or GIF image.
 
 See [WoltLab/WCF#4001](https://github.com/WoltLab/WCF/pull/4001) for details.
