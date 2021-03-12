@@ -22,4 +22,4 @@ jobs:
         git config user.name "WoltLab GmbH"
         git config user.email "woltlab@woltlab.com"
     - name: Deploy documentation
-      run: mike deploy --push "${GITHUB_REF#refs/heads/}"
+      run: mike deploy --branch "target" --push "${GITHUB_REF#refs/heads/}"
