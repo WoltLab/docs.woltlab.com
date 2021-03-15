@@ -48,6 +48,13 @@ For further details on these methods, please refer to the [documentation in the 
 
 !!! warning "Do not interact directly with the flood control database table but only via the `FloodControl` class!"
 
+## DatabasePackageInstallationPlugin
+
+`DatabasePackageInstallationPlugin` is a new idempotent package installation plugin (thus it is available in the sync function in the devtools) to update the database schema using the PHP-based database API.
+`DatabasePackageInstallationPlugin` is similar to `ScriptPackageInstallationPlugin` by requiring a PHP script that is included during the execution of the script.
+The script is expected to return an array of `DatabaseTable` objects representing the schema changes so that in contrast to using `ScriptPackageInstallationPlugin`, no `DatabaseTableChangeProcessor` object has to be created.
+The PHP file must be located in the `acp/database/` directory for the devtools sync function to recognize the file.
+
 ## PHP Database API
 
 The PHP API to add and change database tables during package installations and updates in the `wcf\system\database\table` namespace now also supports renaming existing table columns with the new `IDatabaseTableColumn::renameTo()` method:

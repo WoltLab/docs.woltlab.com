@@ -17,6 +17,7 @@ Package Installation Plugins (PIPs) are interfaces to deploy and edit content as
 | [clipboardAction](pip/clipboard-action.md) | Perform bulk operations on marked objects |
 | [coreObject](pip/core-object.md) | Access Singletons from within the template |
 | [cronjob](pip/cronjob.md) | Periodically execute code with customizable intervals |
+| [database](pip/database.md) | Updates the database layout using [the PHP API](database-php-api.md) |
 | [eventListener](pip/event-listener.md) | Register listeners for the event system |
 | [file](pip/file.md) | Deploy any type of files with the exception of templates |
 | [language](pip/language.md) | Language items |
