@@ -1354,6 +1354,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#databasepackageinstallationplugin" class="md-nav__link">
+    DatabasePackageInstallationPlugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#php-database-api" class="md-nav__link">
     PHP Database API
   </a>
@@ -1871,6 +1878,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#databasepackageinstallationplugin" class="md-nav__link">
+    DatabasePackageInstallationPlugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#php-database-api" class="md-nav__link">
     PHP Database API
   </a>
@@ -1970,6 +1984,11 @@ For further details on these methods, please refer to the <a href="https://githu
 <div class="admonition warning">
 <p class="admonition-title">Do not interact directly with the flood control database table but only via the <code>FloodControl</code> class!</p>
 </div>
+<h2 id="databasepackageinstallationplugin">DatabasePackageInstallationPlugin<a class="headerlink" href="#databasepackageinstallationplugin" title="Permanent link">#</a></h2>
+<p><code>DatabasePackageInstallationPlugin</code> is a new idempotent package installation plugin (thus it is available in the sync function in the devtools) to update the database schema using the PHP-based database API.
+<code>DatabasePackageInstallationPlugin</code> is similar to <code>ScriptPackageInstallationPlugin</code> by requiring a PHP script that is included during the execution of the script.
+The script is expected to return an array of <code>DatabaseTable</code> objects representing the schema changes so that in contrast to using <code>ScriptPackageInstallationPlugin</code>, no <code>DatabaseTableChangeProcessor</code> object has to be created.
+The PHP file must be located in the <code>acp/database/</code> directory for the devtools sync function to recognize the file.</p>
 <h2 id="php-database-api">PHP Database API<a class="headerlink" href="#php-database-api" title="Permanent link">#</a></h2>
 <p>The PHP API to add and change database tables during package installations and updates in the <code>wcf\system\database\table</code> namespace now also supports renaming existing table columns with the new <code>IDatabaseTableColumn::renameTo()</code> method:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">PartialDatabaseTable</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;wcf1_test&#39;</span><span class="p">)</span>
