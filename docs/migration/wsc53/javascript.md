@@ -20,7 +20,7 @@ Previously, `WCF.Table.EmptyTableHandler` had to be explicitly used in each temp
 As a TypeScript-based replacement for `WCF.Table.EmptyTableHandler` that is only initialized once globally, `WoltLabSuite/Core/Ui/Empty` was added.
 To use this new module, you only have to add the CSS class `jsReloadPageWhenEmpty` to the relevant HTML element.
 Once this HTML element no longer has child elements, the page is reloaded.
-To also cover scenarios in which there are fixed child elements that should not be considered when determining if there are no child elements, the `data-reload-page-when-empty="ignore"` can be set for this element.
+To also cover scenarios in which there are fixed child elements that should not be considered when determining if there are no child elements, the `data-reload-page-when-empty="ignore"` can be set for these elements.
 
 Examples:
 
