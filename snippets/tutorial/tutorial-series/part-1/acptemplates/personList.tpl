@@ -33,7 +33,7 @@
 				</tr>
 			</thead>
 			
-			<tbody>
+			<tbody class="jsReloadPageWhenEmpty">
 				{foreach from=$objects item=person}
 					<tr class="jsPersonRow">
 						<td class="columnIcon">
@@ -75,18 +75,6 @@
 <script data-relocate="true">
 	$(function() {
 		new WCF.Action.Delete('wcf\\data\\person\\PersonAction', '.jsPersonRow');
-		
-		var options = { };
-		{if $pages > 1}
-			options.refreshPage = true;
-			{if $pages == $pageNo}
-				options.updatePageNumber = -1;
-			{/if}
-		{else}
-			options.emptyMessage = '{lang}wcf.global.noItems{/lang}';
-		{/if}
-		
-		new WCF.Table.EmptyTableHandler($('#personTableContainer'), 'jsPersonRow', options);
 	});
 </script>
 
