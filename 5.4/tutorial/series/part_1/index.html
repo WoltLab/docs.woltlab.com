@@ -2619,7 +2619,7 @@ The fourth level menu item <code>wcf.acp.menu.link.person.add</code> will only b
 <span class="x">                &lt;/tr&gt;</span>
 <span class="x">            &lt;/thead&gt;</span>
 
-<span class="x">            &lt;tbody&gt;</span>
+<span class="x">            &lt;tbody class=&quot;jsReloadPageWhenEmpty&quot;&gt;</span>
 <span class="x">                </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$objects</span> <span class="na">item</span><span class="o">=</span><span class="na">person</span><span class="cp">}</span><span class="x"></span>
 <span class="x">                    &lt;tr class=&quot;jsPersonRow&quot;&gt;</span>
 <span class="x">                        &lt;td class=&quot;columnIcon&quot;&gt;</span>
@@ -2661,18 +2661,6 @@ The fourth level menu item <code>wcf.acp.menu.link.person.add</code> will only b
 <span class="x">&lt;script data-relocate=&quot;true&quot;&gt;</span>
 <span class="x">    $(function() </span><span class="cp">{</span>
         <span class="na">new</span> <span class="na">WCF</span><span class="o">.</span><span class="na">Action</span><span class="o">.</span><span class="na">Delete</span><span class="o">(</span><span class="s1">&#39;wcf\\data\\person\\PersonAction&#39;</span><span class="o">,</span> <span class="s1">&#39;.jsPersonRow&#39;</span><span class="o">);</span>
-
-        <span class="na">var</span> <span class="na">options</span> <span class="o">=</span> <span class="cp">{</span> <span class="cp">}</span><span class="o">;</span>
-        <span class="cp">{</span><span class="na">if</span> <span class="nv">$pages</span> <span class="o">&gt;</span> <span class="m">1</span><span class="cp">}</span>
-            <span class="na">options</span><span class="o">.</span><span class="na">refreshPage</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-            <span class="cp">{</span><span class="na">if</span> <span class="nv">$pages</span> <span class="o">==</span> <span class="nv">$pageNo</span><span class="cp">}</span>
-                <span class="na">options</span><span class="o">.</span><span class="na">updatePageNumber</span> <span class="o">=</span> <span class="o">-</span><span class="m">1</span><span class="o">;</span>
-            <span class="cp">{</span><span class="o">/</span><span class="na">if</span><span class="cp">}</span>
-        <span class="cp">{</span><span class="na">else</span><span class="cp">}</span>
-            <span class="na">options</span><span class="o">.</span><span class="na">emptyMessage</span> <span class="o">=</span> <span class="s1">&#39;{lang}wcf.global.noItems{/lang}&#39;</span><span class="o">;</span>
-        <span class="cp">{</span><span class="o">/</span><span class="na">if</span><span class="cp">}</span>
-
-        <span class="na">new</span> <span class="na">WCF</span><span class="o">.</span><span class="na">Table</span><span class="o">.</span><span class="na">EmptyTableHandler</span><span class="o">(</span><span class="err">$</span><span class="o">(</span><span class="s1">&#39;#personTableContainer&#39;</span><span class="o">),</span> <span class="s1">&#39;jsPersonRow&#39;</span><span class="o">,</span> <span class="na">options</span><span class="o">);</span>
     <span class="cp">}</span><span class="x">);</span>
 <span class="x">&lt;/script&gt;</span>
 
