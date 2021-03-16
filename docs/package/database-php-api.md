@@ -7,7 +7,7 @@ We have added a new PHP-based API to manipulate the database scheme which can be
 
 ```php
 $tables = [
-	// TODO
+	// list of `DatabaseTable` objects
 ];
 
 (new DatabaseTableChangeProcessor(
@@ -19,6 +19,14 @@ $tables = [
 ```
 
 All of the relevant components can be found in the `wcf\system\database\table` namespace.
+
+With WoltLab Suite 5.4, you should use the new [database](pip/database.md) package installation plugin for which you only have to return the array of affected database tables:
+
+```php
+return [
+	// list of `DatabaseTable` objects
+];
+```
 
 
 ## Database Tables
