@@ -13,6 +13,58 @@ element.addEventListener(WCF_CLICK_EVENT, this._click.bind(this));
 element.addEventListener('click', (ev) => this._click(ev));
 ```
 
+## `WCF.Action.Delete` and `WCF.Action.Toggle`
+
+`WCF.Action.Delete` and `WCF.Action.Toggle` were used for buttons to delete or enable/disable objects via JavaScript.
+In each template, `WCF.Action.Delete` or `WCF.Action.Toggle` instances had to be manually created for each object listing.
+
+With version 5.4 of WoltLab Suite, we have added a CSS selector-based global TypeScript module that only requires specific CSS classes to be added to the HTML structure for these buttons to work.
+Additionally, we have added a new `{objectAction}` template plugin, which generates these buttons reducing the amount of boilerplate template code.
+
+The required base HTML structure is as follows:
+
+1. A `.jsObjectActionContainer` element with a `data-object-action-class-name` attribute that contains the name of PHP class that executes the actions.
+2. `.jsObjectActionObject` elements within `.jsObjectActionContainer` that represent the objects for which actions can be executed.
+   Each `.jsObjectActionObject` element must have a `data-object-id` attribute with the id of the object.
+3. `.jsObjectAction` elements within `.jsObjectActionObject` for each action with a `data-object-action` attribute with the name of the action.
+   These elements can be generated with the `{objectAction}` template plugin for the `delete` and `toggle` action.
+
+Example:
+
+```
+<table class="table jsObjectActionContainer" {*
+    *}data-object-action-class-name="wcf\data\foo\FooAction">
+    <thead>
+        <tr>
+            {* … *}
+        </tr>
+    </thead>
+    
+    <tbody>
+        {foreach from=$objects item=foo}
+            <tr class="jsObjectActionObject" data-object-id="{@$foo->getObjectID()}">
+                <td class="columnIcon">
+                    {objectAction action="toggle" isDisabled=$foo->isDisabled}
+                    {objectAction action="delete" objectTitle=$foo->getTitle()}
+                    {* … *}
+                </td>
+                {* … *}
+            </tr>
+        {/foreach}
+    </tbody>
+</table>
+```
+
+Please refer to the documentation in [`ObjectActionFunctionTemplatePlugin`](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/template/plugin/ObjectActionFunctionTemplatePlugin.class.php) for details and examples on how to use this template plugin.
+
+The relevant TypeScript module registering the event listeners on the object action buttons is [`Ui/Object/Action`](https://github.com/WoltLab/WCF/blob/master/ts/WoltLabSuite/Core/Ui/Object/Action.ts).
+When an action button is clicked, an AJAX request is sent using the PHP class name and action name.
+After the successful execution of the action, the page is either reloaded if the action button has a `data-object-action-success="reload"` attribute or an event using the `EventHandler` module is fired using `WoltLabSuite/Core/Ui/Object/Action` as the identifier and the object action name.
+[`Ui/Object/Action/Delete`](https://github.com/WoltLab/WCF/blob/master/ts/WoltLabSuite/Core/Ui/Object/Action/Delete.ts) and [`Ui/Object/Action/Toggle`](https://github.com/WoltLab/WCF/blob/master/ts/WoltLabSuite/Core/Ui/Object/Action/Toggle.ts) listen to these events and update the user interface depending on the execute action by removing the object or updating the toggle button, respectively.
+
+Converting from `WCF.Action.*` to the new approach requires minimal changes per template, as shown in the relevant pull request [#4080](https://github.com/WoltLab/WCF/pull/4080).
+
+
 ## `WCF.Table.EmptyTableHandler`
 
 When all objects in a table or list are deleted via their delete button or clipboard actions, an empty table or list can remain.
