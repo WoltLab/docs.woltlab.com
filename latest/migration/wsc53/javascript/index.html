@@ -1397,6 +1397,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#wcfactiondelete-and-wcfactiontoggle" class="md-nav__link">
+    WCF.Action.Delete and WCF.Action.Toggle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#wcftableemptytablehandler" class="md-nav__link">
     WCF.Table.EmptyTableHandler
   </a>
@@ -1848,6 +1855,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#wcfactiondelete-and-wcfactiontoggle" class="md-nav__link">
+    WCF.Action.Delete and WCF.Action.Toggle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#wcftableemptytablehandler" class="md-nav__link">
     WCF.Table.EmptyTableHandler
   </a>
@@ -1881,6 +1895,48 @@ Instead, use <code>click</code> directly:</p>
 <span class="c1">// after</span>
 <span class="nx">element</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">_click</span><span class="p">(</span><span class="nx">ev</span><span class="p">));</span>
 </code></pre></div>
+<h2 id="wcfactiondelete-and-wcfactiontoggle"><code>WCF.Action.Delete</code> and <code>WCF.Action.Toggle</code><a class="headerlink" href="#wcfactiondelete-and-wcfactiontoggle" title="Permanent link">#</a></h2>
+<p><code>WCF.Action.Delete</code> and <code>WCF.Action.Toggle</code> were used for buttons to delete or enable/disable objects via JavaScript.
+In each template, <code>WCF.Action.Delete</code> or <code>WCF.Action.Toggle</code> instances had to be manually created for each object listing.</p>
+<p>With version 5.4 of WoltLab Suite, we have added a CSS selector-based global TypeScript module that only requires specific CSS classes to be added to the HTML structure for these buttons to work.
+Additionally, we have added a new <code>{objectAction}</code> template plugin, which generates these buttons reducing the amount of boilerplate template code.</p>
+<p>The required base HTML structure is as follows:</p>
+<ol>
+<li>A <code>.jsObjectActionContainer</code> element with a <code>data-object-action-class-name</code> attribute that contains the name of PHP class that executes the actions.</li>
+<li><code>.jsObjectActionObject</code> elements within <code>.jsObjectActionContainer</code> that represent the objects for which actions can be executed.
+   Each <code>.jsObjectActionObject</code> element must have a <code>data-object-id</code> attribute with the id of the object.</li>
+<li><code>.jsObjectAction</code> elements within <code>.jsObjectActionObject</code> for each action with a <code>data-object-action</code> attribute with the name of the action.
+   These elements can be generated with the <code>{objectAction}</code> template plugin for the <code>delete</code> and <code>toggle</code> action.</li>
+</ol>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>&lt;table class=&quot;table jsObjectActionContainer&quot; {*
+    *}data-object-action-class-name=&quot;wcf\data\foo\FooAction&quot;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            {* … *}
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+        {foreach from=$objects item=foo}
+            &lt;tr class=&quot;jsObjectActionObject&quot; data-object-id=&quot;{@$foo-&gt;getObjectID()}&quot;&gt;
+                &lt;td class=&quot;columnIcon&quot;&gt;
+                    {objectAction action=&quot;toggle&quot; isDisabled=$foo-&gt;isDisabled}
+                    {objectAction action=&quot;delete&quot; objectTitle=$foo-&gt;getTitle()}
+                    {* … *}
+                &lt;/td&gt;
+                {* … *}
+            &lt;/tr&gt;
+        {/foreach}
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre></div>
+<p>Please refer to the documentation in <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/template/plugin/ObjectActionFunctionTemplatePlugin.class.php"><code>ObjectActionFunctionTemplatePlugin</code></a> for details and examples on how to use this template plugin.</p>
+<p>The relevant TypeScript module registering the event listeners on the object action buttons is <a href="https://github.com/WoltLab/WCF/blob/master/ts/WoltLabSuite/Core/Ui/Object/Action.ts"><code>Ui/Object/Action</code></a>.
+When an action button is clicked, an AJAX request is sent using the PHP class name and action name.
+After the successful execution of the action, the page is either reloaded if the action button has a <code>data-object-action-success="reload"</code> attribute or an event using the <code>EventHandler</code> module is fired using <code>WoltLabSuite/Core/Ui/Object/Action</code> as the identifier and the object action name.
+<a href="https://github.com/WoltLab/WCF/blob/master/ts/WoltLabSuite/Core/Ui/Object/Action/Delete.ts"><code>Ui/Object/Action/Delete</code></a> and <a href="https://github.com/WoltLab/WCF/blob/master/ts/WoltLabSuite/Core/Ui/Object/Action/Toggle.ts"><code>Ui/Object/Action/Toggle</code></a> listen to these events and update the user interface depending on the execute action by removing the object or updating the toggle button, respectively.</p>
+<p>Converting from <code>WCF.Action.*</code> to the new approach requires minimal changes per template, as shown in the relevant pull request <a href="https://github.com/WoltLab/WCF/pull/4080">#4080</a>.</p>
 <h2 id="wcftableemptytablehandler"><code>WCF.Table.EmptyTableHandler</code><a class="headerlink" href="#wcftableemptytablehandler" title="Permanent link">#</a></h2>
 <p>When all objects in a table or list are deleted via their delete button or clipboard actions, an empty table or list can remain.
 Previously, <code>WCF.Table.EmptyTableHandler</code> had to be explicitly used in each template for these tables and lists to reload the page.
@@ -1927,7 +1983,7 @@ To also cover scenarios in which there are fixed child elements that should not 
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-03-16
+      Last update: 2021-03-24
     
   </small>
 </div>
