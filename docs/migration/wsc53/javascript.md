@@ -31,7 +31,7 @@ The required base HTML structure is as follows:
 
 Example:
 
-```
+```smarty
 <table class="table jsObjectActionContainer" {*
     *}data-object-action-class-name="wcf\data\foo\FooAction">
     <thead>
