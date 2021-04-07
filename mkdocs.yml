@@ -132,6 +132,11 @@ nav:
 plugins:
   - git-revision-date
   - search
+  - markdownextradata:
+      jinja_options:
+        block_start_string: "{jinja%"
+        comment_start_string: "{jinja#"
+        variable_start_string: "{jinja{"
 
 markdown_extensions:
   - toc:
@@ -155,3 +160,4 @@ extra_css:
 extra:
   version:
     provider: mike
+  gitbranch: 5.4
