@@ -1,5 +1,7 @@
 # General JavaScript Usage
 
+!!! info "WoltLab Suite 5.4 introduced support for TypeScript, migrating all existing modules to TypeScript. The JavaScript section of the documentation is not yet updated to account for the changes, possibly explaining concepts that cannot be applied as-is when writing TypeScript. You can learn about basic TypeScript use in WoltLab Suite, such as consuming WoltLab Suite’s types in own packages, within in [the TypeScript section](typescript.md)."
+
 ## The History of the Legacy API
 
 The WoltLab Suite 3.0 [introduced a new API](new-api_writing-a-module.md) based on AMD-Modules
