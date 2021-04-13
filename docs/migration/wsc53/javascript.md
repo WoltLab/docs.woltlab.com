@@ -1,4 +1,15 @@
-# Migrating from WSC 5.3 - JavaScript
+# Migrating from WSC 5.3 - TypeScript and JavaScript
+
+## TypeScript
+
+WoltLab Suite 5.4 introduces TypeScript support.
+Learn about consuming WoltLab Suite’s types in [the TypeScript section](../../javascript/typescript.md) of the JavaScript API documentation.
+
+The JavaScript API documentation will be updated to properly take into account the changes that came with the new TypeScript support in the future.
+Existing AMD based modules have been migrated to TypeScript, but will expose the existing and known API.
+
+It is recommended that you migrate your custom packages to make use of TypeScript.
+It will make consuming newly written modules that properly leverage TypeScript’s features much more pleasant and will also ease using existing modules due to proper autocompletion and type checking.
 
 ## `WCF_CLICK_EVENT`
 
