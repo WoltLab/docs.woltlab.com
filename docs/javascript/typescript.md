@@ -137,7 +137,7 @@ After completing this initial set-up you can start writing your first TypeScript
 The TypeScript compiler can be launched in Watch Mode by running `npx tsc -w`.
 
 WoltLab Suite’s modules can be imported using the standard ECMAScript module import syntax by specifying the full module name.
-The public API of the module can also be exported using the standard ECMASCript module export syntax.
+The public API of the module can also be exported using the standard ECMAScript module export syntax.
 
 ```typescript
 import * as Language from "WoltLabSuite/Core/Language";
