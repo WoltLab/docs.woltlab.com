@@ -2,7 +2,7 @@
 
 ## Consuming WoltLab Suite’s Types
 
-To consume the types of WoltLab Suite, you will need to install the [WoltLab/WCF](https://github.com/WoltLab/WCF) using npm using a git URL that refers to the appropriate branch.
+To consume the types of WoltLab Suite, you will need to install the `@woltlab/wcf` npm package using a git URL that refers to the appropriate branch of [WoltLab/WCF](https://github.com/WoltLab/WCF).
 
 A full `package.json` that includes WoltLab Suite, TypeScript, eslint and Prettier could look like the following.
 
