@@ -2,7 +2,7 @@
 
 ## Consuming WoltLab Suite’s Types
 
-To consume the types of WoltLab Suite you will need to install the [WoltLab/WCF](https://github.com/WoltLab/WCF) using npm using a git URL that refers to the appropriate branch.
+To consume the types of WoltLab Suite, you will need to install the [WoltLab/WCF](https://github.com/WoltLab/WCF) using npm using a git URL that refers to the appropriate branch.
 
 A full `package.json` that includes WoltLab Suite, TypeScript, eslint and Prettier could look like the following.
 
@@ -23,9 +23,9 @@ A full `package.json` that includes WoltLab Suite, TypeScript, eslint and Pretti
 }
 ```
 
-After installing the types using npm you will also need to configure tsconfig.json to take the types into account.
-To do so you will need to add them to the `compilerOptions.paths` option.
-A full `tsconfig.json` that matches the configuration of WoltLab Suite could look like the following.
+After installing the types using npm, you will also need to configure `tsconfig.json` to take the types into account.
+To do so, you will need to add them to the `compilerOptions.paths` option.
+A complete `tsconfig.json` file that matches the configuration of WoltLab Suite could look like the following.
 
 ```json
 {
@@ -58,7 +58,7 @@ A full `tsconfig.json` that matches the configuration of WoltLab Suite could loo
 }
 ```
 
-After this initial set-up you would place your TypeScript source files into the `ts/` folder of your project.
+After this initial set-up, you would place your TypeScript source files into the `ts/` folder of your project.
 The generated JavaScript target files will be placed into `files/js/` and thus will be installed by the [file PIP](../package/pip/file.md).
 
 ## Additional Tools
