@@ -166,7 +166,7 @@ Within templates it can be consumed as follows.
 
 ```html
 <script data-relocate="true">
-  require(["Example"], function (Example) {
+  require(["Example"], (Example) => {
     Example.run(); // Alerts the contents of the `wcf.foo.bar` phrase.
   });
 </script>
