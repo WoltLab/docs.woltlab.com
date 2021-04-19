@@ -113,3 +113,8 @@ The `ISafeFormatAvatar` interface was added to properly support fallback image t
 If your custom `IUserAvatar` implementation supports image types without broad support (i.e. anything other than PNG, JPEG, and GIF), then you should implement the `ISafeFormatAvatar` interface to return a fallback PNG, JPEG, or GIF image.
 
 See [WoltLab/WCF#4001](https://github.com/WoltLab/WCF/pull/4001) for details.
+
+## `lineBreakSeparatedText` Option Type
+
+Currently, several of the (user group) options installed by our packages use the `textarea` option type and split its value by linebreaks to get a list of items, for example for allowed file extensions.
+To improve the user interface when setting up the value of such options, we have added the `lineBreakSeparatedText` option type as a drop-in replacement where the individual items are explicitly represented as distinct items in the user interface.
