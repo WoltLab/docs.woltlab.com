@@ -14,51 +14,6 @@
 	</nav>
 </header>
 
-{include file='formNotice'}
-
-<form method="post" action="{if $action == 'add'}{link controller='PersonAdd'}{/link}{else}{link controller='PersonEdit' object=$person}{/link}{/if}">
-	<div class="section">
-		<dl{if $errorField == 'firstName'} class="formError"{/if}>
-			<dt><label for="firstName">{lang}wcf.person.firstName{/lang}</label></dt>
-			<dd>
-				<input type="text" id="firstName" name="firstName" value="{$firstName}" required autofocus maxlength="255" class="long">
-				{if $errorField == 'firstName'}
-					<small class="innerError">
-						{if $errorType == 'empty'}
-							{lang}wcf.global.form.error.empty{/lang}
-						{else}
-							{lang}wcf.acp.person.firstName.error.{$errorType}{/lang}
-						{/if}
-					</small>
-				{/if}
-			</dd>
-		</dl>
-		
-		<dl{if $errorField == 'lastName'} class="formError"{/if}>
-			<dt><label for="lastName">{lang}wcf.person.lastName{/lang}</label></dt>
-			<dd>
-				<input type="text" id="lastName" name="lastName" value="{$lastName}" required maxlength="255" class="long">
-				{if $errorField == 'lastName'}
-					<small class="innerError">
-						{if $errorType == 'empty'}
-							{lang}wcf.global.form.error.empty{/lang}
-						{else}
-							{lang}wcf.acp.person.lastName.error.{$errorType}{/lang}
-						{/if}
-					</small>
-				{/if}
-			</dd>
-		</dl>
-		
-		{event name='dataFields'}
-	</div>
-	
-	{event name='sections'}
-	
-	<div class="formSubmit">
-		<input type="submit" value="{lang}wcf.global.button.submit{/lang}" accesskey="s">
-		{csrfToken}
-	</div>
-</form>
+{@$form->getHtml()}
 
 {include file='footer'}
