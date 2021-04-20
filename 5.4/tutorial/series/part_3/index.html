@@ -2094,9 +2094,6 @@
                 
                 
                 <h1 id="part-3-person-page-and-comments">Part 3: Person Page and Comments<a class="headerlink" href="#part-3-person-page-and-comments" title="Permanent link">#</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">This part of the tutorial series is currently outdated while the tutorial series is updated.</p>
-</div>
 <p>In this part of our tutorial series, we will add a new front end page to our package that is dedicated to each person and shows their personal details.
 To make good use of this new page and introduce a new API of WoltLab Suite, we will add the opportunity for users to comment on the person using WoltLab Suite’s reusable comment functionality.</p>
 <h2 id="package-functionality">Package Functionality<a class="headerlink" href="#package-functionality" title="Permanent link">#</a></h2>
@@ -2116,6 +2113,9 @@ To make good use of this new page and introduce a new API of WoltLab Suite, we w
 │   ├── personAdd.tpl
 │   └── personList.tpl
 ├── files
+│   ├── acp
+│   │   └── database
+│   │       └── install_com.woltlab.wcf.people.php
 │   └── lib
 │       ├── acp
 │       │   ├── form
@@ -2142,7 +2142,6 @@ To make good use of this new page and introduce a new API of WoltLab Suite, we w
 │           └── page
 │               └── handler
 │                   └── PersonPageHandler.class.php
-├── install.sql
 ├── language
 │   ├── de.xml
 │   └── en.xml
@@ -2161,7 +2160,9 @@ To make good use of this new page and introduce a new API of WoltLab Suite, we w
 <h2 id="runtime-cache">Runtime Cache<a class="headerlink" href="#runtime-cache" title="Permanent link">#</a></h2>
 <p>To reduce the number of database queries when different APIs require person objects, we implement a <a href="../../../php/api/caches_runtime-caches/">runtime cache</a> for people:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
 <span class="k">namespace</span> <span class="nx">wcf\system\cache\runtime</span><span class="p">;</span>
+
 <span class="k">use</span> <span class="nx">wcf\data\person\Person</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\data\person\PersonList</span><span class="p">;</span>
 
@@ -2169,16 +2170,16 @@ To make good use of this new page and introduce a new API of WoltLab Suite, we w
 <span class="sd"> * Runtime cache implementation for people.</span>
 <span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2019 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\Cache\Runtime</span>
-<span class="sd"> * @since   3.0</span>
 <span class="sd"> *</span>
 <span class="sd"> * @method  Person[]    getCachedObjects()</span>
 <span class="sd"> * @method  Person      getObject($objectID)</span>
 <span class="sd"> * @method  Person[]    getObjects(array $objectIDs)</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonRuntimeCache</span> <span class="k">extends</span> <span class="nx">AbstractRuntimeCache</span> <span class="p">{</span>
+<span class="k">class</span> <span class="nc">PersonRuntimeCache</span> <span class="k">extends</span> <span class="nx">AbstractRuntimeCache</span>
+<span class="p">{</span>
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
 <span class="sd">     */</span>
@@ -2189,7 +2190,7 @@ To make good use of this new page and introduce a new API of WoltLab Suite, we w
 <p>To allow users to comment on people, we need to tell the system that people support comments.
 This is done by registering a <code>com.woltlab.wcf.comment.commentableContent</code> object type whose processor implements <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/comment/manager/ICommentManager.class.php">ICommentManager</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/tornado/objectType.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/objectType.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;import&gt;</span>
         <span class="nt">&lt;type&gt;</span>
             <span class="nt">&lt;name&gt;</span>com.woltlab.wcf.person.personComment<span class="nt">&lt;/name&gt;</span>
@@ -2201,7 +2202,9 @@ This is done by registering a <code>com.woltlab.wcf.comment.commentableContent</
 </code></pre></div>
 <p>The <code>PersonCommentManager</code> class extended <code>ICommentManager</code>’s default implementation <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/comment/manager/AbstractCommentManager.class.php">AbstractCommentManager</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
 <span class="k">namespace</span> <span class="nx">wcf\system\comment\manager</span><span class="p">;</span>
+
 <span class="k">use</span> <span class="nx">wcf\data\person\Person</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\data\person\PersonEditor</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\system\cache\runtime\PersonRuntimeCache</span><span class="p">;</span>
@@ -2211,11 +2214,12 @@ This is done by registering a <code>com.woltlab.wcf.comment.commentableContent</
 <span class="sd"> * Comment manager implementation for people.</span>
 <span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2019 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\Comment\Manager</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonCommentManager</span> <span class="k">extends</span> <span class="nx">AbstractCommentManager</span> <span class="p">{</span>
+<span class="k">class</span> <span class="nc">PersonCommentManager</span> <span class="k">extends</span> <span class="nx">AbstractCommentManager</span>
+<span class="p">{</span>
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
 <span class="sd">     */</span>
@@ -2254,21 +2258,24 @@ This is done by registering a <code>com.woltlab.wcf.comment.commentableContent</
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
 <span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">getLink</span><span class="p">(</span><span class="nv">$objectTypeID</span><span class="p">,</span> <span class="nv">$objectID</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getLink</span><span class="p">(</span><span class="nv">$objectTypeID</span><span class="p">,</span> <span class="nv">$objectID</span><span class="p">)</span>
+    <span class="p">{</span>
         <span class="k">return</span> <span class="nx">PersonRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">();</span>
     <span class="p">}</span>
 
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
 <span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">isAccessible</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">,</span> <span class="nv">$validateWritePermission</span> <span class="o">=</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">isAccessible</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">,</span> <span class="nv">$validateWritePermission</span> <span class="o">=</span> <span class="k">false</span><span class="p">)</span>
+    <span class="p">{</span>
         <span class="k">return</span> <span class="nx">PersonRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">)</span> <span class="o">!==</span> <span class="k">null</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
 <span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">getTitle</span><span class="p">(</span><span class="nv">$objectTypeID</span><span class="p">,</span> <span class="nv">$objectID</span><span class="p">,</span> <span class="nv">$isResponse</span> <span class="o">=</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getTitle</span><span class="p">(</span><span class="nv">$objectTypeID</span><span class="p">,</span> <span class="nv">$objectID</span><span class="p">,</span> <span class="nv">$isResponse</span> <span class="o">=</span> <span class="k">false</span><span class="p">)</span>
+    <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$isResponse</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;wcf.person.commentResponse&#39;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -2279,7 +2286,8 @@ This is done by registering a <code>com.woltlab.wcf.comment.commentableContent</
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
 <span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">updateCounter</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">updateCounter</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
         <span class="p">(</span><span class="k">new</span> <span class="nx">PersonEditor</span><span class="p">(</span><span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">)))</span><span class="o">-&gt;</span><span class="na">updateCounters</span><span class="p">([</span><span class="s1">&#39;comments&#39;</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">]);</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -2303,7 +2311,9 @@ With this option, comments on individual people can be disabled.</p>
 <h2 id="person-page">Person Page<a class="headerlink" href="#person-page" title="Permanent link">#</a></h2>
 <h3 id="personpage"><code>PersonPage</code><a class="headerlink" href="#personpage" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
 <span class="k">namespace</span> <span class="nx">wcf\page</span><span class="p">;</span>
+
 <span class="k">use</span> <span class="nx">wcf\data\person\Person</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\system\comment\CommentHandler</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\system\comment\manager\PersonCommentManager</span><span class="p">;</span>
@@ -2312,13 +2322,14 @@ With this option, comments on individual people can be disabled.</p>
 
 <span class="sd">/**</span>
 <span class="sd"> * Shows the details of a certain person.</span>
-<span class="sd"> * </span>
+<span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2019 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\Page</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonPage</span> <span class="k">extends</span> <span class="nx">AbstractPage</span> <span class="p">{</span>
+<span class="k">class</span> <span class="nc">PersonPage</span> <span class="k">extends</span> <span class="nx">AbstractPage</span>
+<span class="p">{</span>
     <span class="sd">/**</span>
 <span class="sd">     * list of comments</span>
 <span class="sd">     * @var StructuredCommentList</span>
@@ -2352,7 +2363,8 @@ With this option, comments on individual people can be disabled.</p>
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
 <span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">assignVariables</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">assignVariables</span><span class="p">()</span>
+    <span class="p">{</span>
         <span class="k">parent</span><span class="o">::</span><span class="na">assignVariables</span><span class="p">();</span>
 
         <span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
@@ -2360,31 +2372,43 @@ With this option, comments on individual people can be disabled.</p>
             <span class="s1">&#39;commentList&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentList</span><span class="p">,</span>
             <span class="s1">&#39;commentObjectTypeID&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentObjectTypeID</span><span class="p">,</span>
             <span class="s1">&#39;lastCommentTime&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentList</span> <span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentList</span><span class="o">-&gt;</span><span class="na">getMinCommentTime</span><span class="p">()</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="s1">&#39;likeData&#39;</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">MODULE_LIKE</span> <span class="o">&amp;&amp;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentList</span><span class="p">)</span> <span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentList</span><span class="o">-&gt;</span><span class="na">getLikeData</span><span class="p">()</span> <span class="o">:</span> <span class="p">[],</span>
-            <span class="s1">&#39;person&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span>
+            <span class="s1">&#39;likeData&#39;</span> <span class="o">=&gt;</span> <span class="nx">MODULE_LIKE</span> <span class="o">&amp;&amp;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentList</span> <span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentList</span><span class="o">-&gt;</span><span class="na">getLikeData</span><span class="p">()</span> <span class="o">:</span> <span class="p">[],</span>
+            <span class="s1">&#39;person&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span><span class="p">,</span>
         <span class="p">]);</span>
     <span class="p">}</span>
 
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
 <span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">readData</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">readData</span><span class="p">()</span>
+    <span class="p">{</span>
         <span class="k">parent</span><span class="o">::</span><span class="na">readData</span><span class="p">();</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span><span class="o">-&gt;</span><span class="na">enableComments</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentObjectTypeID</span> <span class="o">=</span> <span class="nx">CommentHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObjectTypeID</span><span class="p">(</span><span class="s1">&#39;com.woltlab.wcf.person.personComment&#39;</span><span class="p">);</span>
-            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentManager</span> <span class="o">=</span> <span class="nx">CommentHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObjectType</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentObjectTypeID</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getProcessor</span><span class="p">();</span>
-            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentList</span> <span class="o">=</span> <span class="nx">CommentHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getCommentList</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentManager</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentObjectTypeID</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span><span class="o">-&gt;</span><span class="na">personID</span><span class="p">);</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentObjectTypeID</span> <span class="o">=</span> <span class="nx">CommentHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObjectTypeID</span><span class="p">(</span>
+                <span class="s1">&#39;com.woltlab.wcf.person.personComment&#39;</span>
+            <span class="p">);</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentManager</span> <span class="o">=</span> <span class="nx">CommentHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObjectType</span><span class="p">(</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentObjectTypeID</span>
+            <span class="p">)</span><span class="o">-&gt;</span><span class="na">getProcessor</span><span class="p">();</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentList</span> <span class="o">=</span> <span class="nx">CommentHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getCommentList</span><span class="p">(</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentManager</span><span class="p">,</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">commentObjectTypeID</span><span class="p">,</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span><span class="o">-&gt;</span><span class="na">personID</span>
+            <span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
 <span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">readParameters</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">readParameters</span><span class="p">()</span>
+    <span class="p">{</span>
         <span class="k">parent</span><span class="o">::</span><span class="na">readParameters</span><span class="p">();</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]))</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">personID</span> <span class="o">=</span> <span class="nb">intval</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">personID</span> <span class="o">=</span> <span class="nx">\intval</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]);</span>
+        <span class="p">}</span>
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">personID</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">person</span><span class="o">-&gt;</span><span class="na">personID</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">throw</span> <span class="k">new</span> <span class="nx">IllegalLinkException</span><span class="p">();</span>
@@ -2407,19 +2431,22 @@ The <code>assignVariables()</code> method assigns some additional template varia
     {if $commentList|count || $commentCanAdd}
         &lt;section id=&quot;comments&quot; class=&quot;section sectionContainerList&quot;&gt;
             &lt;header class=&quot;sectionHeader&quot;&gt;
-                &lt;h2 class=&quot;sectionTitle&quot;&gt;{lang}wcf.person.comments{/lang}{if $person-&gt;comments} &lt;span class=&quot;badge&quot;&gt;{#$person-&gt;comments}&lt;/span&gt;{/if}&lt;/h2&gt;
+                &lt;h2 class=&quot;sectionTitle&quot;&gt;
+                    {lang}wcf.person.comments{/lang}
+                    {if $person-&gt;comments}&lt;span class=&quot;badge&quot;&gt;{#$person-&gt;comments}&lt;/span&gt;{/if}
+                &lt;/h2&gt;
             &lt;/header&gt;
 
             {include file=&#39;__commentJavaScript&#39; commentContainerID=&#39;personCommentList&#39;}
 
             &lt;div class=&quot;personComments&quot;&gt;
-                &lt;ul id=&quot;personCommentList&quot; class=&quot;commentList containerList&quot;
-                    data-can-add=&quot;{if $commentCanAdd}true{else}false{/if}&quot; 
-                    data-object-id=&quot;{@$person-&gt;personID}&quot;
-                    data-object-type-id=&quot;{@$commentObjectTypeID}&quot;
-                    data-comments=&quot;{if $person-&gt;comments}{@$commentList-&gt;countObjects()}{else}0{/if}&quot;
-                    data-last-comment-time=&quot;{@$lastCommentTime}&quot;
-                &gt;
+                &lt;ul id=&quot;personCommentList&quot; class=&quot;commentList containerList&quot; {*
+                    *}data-can-add=&quot;{if $commentCanAdd}true{else}false{/if}&quot; {*
+                    *}data-object-id=&quot;{@$person-&gt;personID}&quot; {*
+                    *}data-object-type-id=&quot;{@$commentObjectTypeID}&quot; {*
+                    *}data-comments=&quot;{if $person-&gt;comments}{@$commentList-&gt;countObjects()}{else}0{/if}&quot; {*
+                    *}data-last-comment-time=&quot;{@$lastCommentTime}&quot; {*
+                *}&gt;
                     {include file=&#39;commentListAddComment&#39; wysiwygSelector=&#39;personCommentListAddComment&#39;}
                     {include file=&#39;commentList&#39;}
                 &lt;/ul&gt;
@@ -2447,7 +2474,7 @@ The <code>commentListAddComment</code> template adds the WYSIWYG support.
 The attribute <code>wysiwygSelector</code> should be the id of the comment list <code>personCommentList</code> with an additional <code>AddComment</code> suffix.</p>
 <h3 id="pagexml"><code>page.xml</code><a class="headerlink" href="#pagexml" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/tornado/page.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/page.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;import&gt;</span>
         <span class="nt">&lt;page</span> <span class="na">identifier=</span><span class="s">&quot;com.woltlab.wcf.people.PersonList&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;pageType&gt;</span>system<span class="nt">&lt;/pageType&gt;</span>
@@ -2486,7 +2513,9 @@ Compared to the pre-existing <code>com.woltlab.wcf.people.PersonList</code> page
 </ol>
 <h3 id="personpagehandler"><code>PersonPageHandler</code><a class="headerlink" href="#personpagehandler" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
 <span class="k">namespace</span> <span class="nx">wcf\system\page\handler</span><span class="p">;</span>
+
 <span class="k">use</span> <span class="nx">wcf\data\page\Page</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\data\person\PersonList</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\data\user\online\UserOnline</span><span class="p">;</span>
@@ -2496,19 +2525,21 @@ Compared to the pre-existing <code>com.woltlab.wcf.people.PersonList</code> page
 
 <span class="sd">/**</span>
 <span class="sd"> * Page handler implementation for person page.</span>
-<span class="sd"> * </span>
+<span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
 <span class="sd"> * @copyright   2001-2019 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\Page\Handler</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonPageHandler</span> <span class="k">extends</span> <span class="nx">AbstractLookupPageHandler</span> <span class="k">implements</span> <span class="nx">IOnlineLocationPageHandler</span> <span class="p">{</span>
+<span class="k">class</span> <span class="nc">PersonPageHandler</span> <span class="k">extends</span> <span class="nx">AbstractLookupPageHandler</span> <span class="k">implements</span> <span class="nx">IOnlineLocationPageHandler</span>
+<span class="p">{</span>
     <span class="k">use</span> <span class="nx">TOnlineLocationPageHandler</span><span class="p">;</span>
 
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
 <span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">getLink</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getLink</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">)</span>
+    <span class="p">{</span>
         <span class="k">return</span> <span class="nx">PersonRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">();</span>
     <span class="p">}</span>
 
@@ -2521,7 +2552,8 @@ Compared to the pre-existing <code>com.woltlab.wcf.people.PersonList</code> page
 <span class="sd">     * @param   UserOnline  $user       user online object with request data</span>
 <span class="sd">     * @return  string</span>
 <span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">getOnlineLocation</span><span class="p">(</span><span class="nx">Page</span> <span class="nv">$page</span><span class="p">,</span> <span class="nx">UserOnline</span> <span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getOnlineLocation</span><span class="p">(</span><span class="nx">Page</span> <span class="nv">$page</span><span class="p">,</span> <span class="nx">UserOnline</span> <span class="nv">$user</span><span class="p">)</span>
+    <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">pageObjectID</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
         <span class="p">}</span>
@@ -2531,20 +2563,22 @@ Compared to the pre-existing <code>com.woltlab.wcf.people.PersonList</code> page
             <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
         <span class="p">}</span>
 
-        <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">&#39;wcf.page.onlineLocation.&#39;</span><span class="o">.</span><span class="nv">$page</span><span class="o">-&gt;</span><span class="na">identifier</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;person&#39;</span> <span class="o">=&gt;</span> <span class="nv">$person</span><span class="p">]);</span>
+        <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">&#39;wcf.page.onlineLocation.&#39;</span> <span class="o">.</span> <span class="nv">$page</span><span class="o">-&gt;</span><span class="na">identifier</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;person&#39;</span> <span class="o">=&gt;</span> <span class="nv">$person</span><span class="p">]);</span>
     <span class="p">}</span>
 
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
 <span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">isValid</span><span class="p">(</span><span class="nv">$objectID</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">isValid</span><span class="p">(</span><span class="nv">$objectID</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
         <span class="k">return</span> <span class="nx">PersonRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(</span><span class="nv">$objectID</span><span class="p">)</span> <span class="o">!==</span> <span class="k">null</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
 <span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">lookup</span><span class="p">(</span><span class="nv">$searchString</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">lookup</span><span class="p">(</span><span class="nv">$searchString</span><span class="p">)</span>
+    <span class="p">{</span>
         <span class="nv">$conditionBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PreparedStatementConditionBuilder</span><span class="p">(</span><span class="k">false</span><span class="p">,</span> <span class="s1">&#39;OR&#39;</span><span class="p">);</span>
         <span class="nv">$conditionBuilder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;person.firstName LIKE ?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;%&#39;</span> <span class="o">.</span> <span class="nv">$searchString</span> <span class="o">.</span> <span class="s1">&#39;%&#39;</span><span class="p">]);</span>
         <span class="nv">$conditionBuilder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;person.lastName LIKE ?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;%&#39;</span> <span class="o">.</span> <span class="nv">$searchString</span> <span class="o">.</span> <span class="s1">&#39;%&#39;</span><span class="p">]);</span>
@@ -2559,7 +2593,7 @@ Compared to the pre-existing <code>com.woltlab.wcf.people.PersonList</code> page
                 <span class="s1">&#39;image&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;fa-user&#39;</span><span class="p">,</span>
                 <span class="s1">&#39;link&#39;</span> <span class="o">=&gt;</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">(),</span>
                 <span class="s1">&#39;objectID&#39;</span> <span class="o">=&gt;</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">personID</span><span class="p">,</span>
-                <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="p">()</span>
+                <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="p">(),</span>
             <span class="p">];</span>
         <span class="p">}</span>
 
@@ -2569,13 +2603,14 @@ Compared to the pre-existing <code>com.woltlab.wcf.people.PersonList</code> page
     <span class="sd">/**</span>
 <span class="sd">     * Prepares fetching all necessary data for the textual description if a user is currently online</span>
 <span class="sd">     * viewing this page.</span>
-<span class="sd">     * </span>
+<span class="sd">     *</span>
 <span class="sd">     * @see IOnlineLocationPageHandler::prepareOnlineLocation()</span>
 <span class="sd">     *</span>
 <span class="sd">     * @param   Page        $page       visited page</span>
 <span class="sd">     * @param   UserOnline  $user       user online object with request data</span>
 <span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">prepareOnlineLocation</span><span class="p">(</span><span class="sd">/** @noinspection PhpUnusedParameterInspection */</span><span class="nx">Page</span> <span class="nv">$page</span><span class="p">,</span> <span class="nx">UserOnline</span> <span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">prepareOnlineLocation</span><span class="p">(</span><span class="nx">Page</span> <span class="nv">$page</span><span class="p">,</span> <span class="nx">UserOnline</span> <span class="nv">$user</span><span class="p">)</span>
+    <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">pageObjectID</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">PersonRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">cacheObjectID</span><span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">pageObjectID</span><span class="p">);</span>
         <span class="p">}</span>
