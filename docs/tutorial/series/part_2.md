@@ -1,6 +1,4 @@
-# Part 2: Event Listeners and Template Listeners
-
-!!! warning "This part of the tutorial series is currently outdated while the tutorial series is updated."
+# Part 2: Event and Template Listeners
 
 In the [first part](part_1.md) of this tutorial series, we have created the base structure of our people management package.
 In further parts, we will use the package of the first part as a basis to directly add new features.
@@ -25,11 +23,10 @@ The package should provide the following possibilities/functions:
 
 We will use the following package installation plugins:
 
-- [acpTemplate package installation plugin](../../package/pip/acp-template.md),
+- [database package installation plugin](../../package/pip/database.md),
 - [eventListener package installation plugin](../../package/pip/event-listener.md),
 - [file package installation plugin](../../package/pip/file.md),
 - [language package installation plugin](../../package/pip/language.md),
-- [sql package installation plugin](../../package/pip/sql.md),
 - [template package installation plugin](../../package/pip/template.md),
 - [templateListener package installation plugin](../../package/pip/template-listener.md).
 
@@ -41,17 +38,17 @@ For more information about the event system, please refer to the [dedicated page
 The package will have the following file structure:
 
 ```
-├── acptemplates
-│   └── __personAddBirthday.tpl
 ├── eventListener.xml
 ├── files
+│   ├── acp
+│   │   └── database
+│   │       └── install_com.woltlab.wcf.people.birthday.php
 │   └── lib
 │       └── system
 │           └── event
 │               └── listener
 │                   ├── BirthdayPersonAddFormListener.class.php
 │                   └── BirthdaySortFieldPersonListPageListener.class.php
-├── install.sql
 ├── language
 │   ├── de.xml
 │   └── en.xml
@@ -63,29 +60,44 @@ The package will have the following file structure:
 ```
 
 
-## Extending Person Model (`install.sql`)
+## Extending Person Model
 
 The existing model of a person only contains the person’s first name and their last name (in additional to the id used to identify created people).
-To add the birthday to the model, we need to create an additional database table column using the [sql package installation plugin](../../package/pip/sql.md):
+To add the birthday to the model, we need to create an additional database table column using the [`database` package installation plugin](../../package/pip/database.md):
 
 ```sql
---8<-- "tutorial/tutorial-series/part-2/install.sql"
+--8<-- "tutorial/tutorial-series/part-2/files/acp/database/install_com.woltlab.wcf.people.birthday.php"
 ```
 
-If we have a [Person object](part_1.md#person), this new property can be accessed the same way as the `personID` property, the `firstName` property, or the `lastName` property from the base package: `$person->birthday`.
+If we have a [`Person` object](part_1.md#person), this new property can be accessed the same way as the `personID` property, the `firstName` property, or the `lastName` property from the base package: `$person->birthday`.
 
 
 ## Setting Birthday in ACP
 
-To set the birthday of a person, we need to extend the `personAdd` template to add an additional birthday field.
-This can be achieved using the `dataFields` template event at whose position we inject the following template code:
+To set the birthday of a person, we only have to add another form field with an event listener:
 
-```sql
---8<-- "tutorial/tutorial-series/part-2/acptemplates/__personAddBirthday.tpl"
+```php
+--8<-- "tutorial/tutorial-series/part-2/files/lib/system/event/listener/BirthdayPersonAddFormListener.class.php"
 ```
 
-which we store in a `__personAddBirthday.tpl` template file.
-The used language item `wcf.person.birthday` is actually the only new one for this package:
+registered via
+
+```xml
+<eventlistener name="createForm@wcf\acp\form\PersonAddForm">
+  <environment>admin</environment>
+  <eventclassname>wcf\acp\form\PersonAddForm</eventclassname>
+  <eventname>createForm</eventname>
+  <listenerclassname>wcf\system\event\listener\BirthdayPersonAddFormListener</listenerclassname>
+  <inherit>1</inherit>
+</eventlistener>
+```
+
+in `eventListener.xml`, [see below](#eventlistenerxml).
+
+As `BirthdayPersonAddFormListener` extends `AbstractEventListener` and as the name of relevant event is `createForm`, `AbstractEventListener` internally automatically calls `onCreateForm()` with the event object as the parameter.
+It is important to set `<inherit>1</inherit>` so that the event listener is also executed for `PersonEditForm`, which extends `PersonAddForm`.
+
+The language item `wcf.person.birthday` used in the label is the only new one for this package:
 
 ```sql
 --8<-- "tutorial/tutorial-series/part-2/language/de.xml"
@@ -94,40 +106,6 @@ The used language item `wcf.person.birthday` is actually the only new one for th
 ```sql
 --8<-- "tutorial/tutorial-series/part-2/language/en.xml"
 ```
-
-The template listener needs to be registered using the [templateListener package installation plugin](../../package/pip/template-listener.md).
-The corresponding complete `templateListener.xml` file is included [below](#templatelistenerxml).
-
-The template code alone is not sufficient because the `birthday` field is, at the moment, neither read, nor processed, nor saved by any PHP code.
-This can be be achieved, however, by adding event listeners to `PersonAddForm` and `PersonEditForm` which allow us to execute further code at specific location of the program.
-Before we take a look at the event listener code, we need to identify exactly which additional steps we need to undertake:
-
-1. If a person is edited and the form has not been submitted, the existing birthday of that person needs to be read.
-1. If a person is added or edited and the form has been submitted, the new birthday value needs to be read.
-1. If a person is added or edited and the form has been submitted, the new birthday value needs to be validated.
-1. If a person is added or edited and the new birthday value has been successfully validated, the new birthday value needs to be saved.
-1. If a person is added and the new birthday value has been successfully saved, the internally stored birthday needs to be reset so that the birthday field is empty when the form is shown again.
-1. The internally stored birthday value needs to be assigned to the template.
-
-The following event listeners achieves these requirements:
-
-```php
---8<-- "tutorial/tutorial-series/part-2/files/lib/system/event/listener/BirthdayPersonAddFormListener.class.php"
-```
-
-Some notes on the code:
-
-- We are inheriting from `AbstractEventListener`, instead of just implementing the `IParameterizedEventListener` interface.
-  The `execute()` method of `AbstractEventListener` contains a dispatcher that automatically calls methods called `on` followed by the event name with the first character uppercased, passing the event object and the `$parameters` array.
-  This simple pattern results in the event `foo` being forwarded to the method `onFoo($eventObj, $parameters)`.
-- The `birthday` column has a default value of `0000-00-00`, which we interpret as “birthday not set”.
-  To show an empty input field in this case, we empty the `birthday` property after reading such a value in `readData()`.
-- The validation of the date is, as mentioned before, very basic and just checks the form of the string and uses PHP’s [checkdate](https://secure.php.net/manual/en/function.checkdate.php) function to validate the components.
-- The `save` needs to make sure that the passed date is actually a valid date and set it to `0000-00-00` if no birthday is given.
-  To actually save the birthday in the database, we do not directly manipulate the database but can add an additional field to the data array passed to `PersonAction::create()` via `AbstractForm::$additionalFields`.
-  As the `save` event is the last event fired before the actual save process happens, this is the perfect event to set this array element.
-
-The event listeners are installed using the `eventListener.xml` file shown [below](#eventlistenerxml).
 
 
 ## Adding Birthday Table Column in ACP
@@ -156,7 +134,7 @@ The code for the table head is similar to the other `th` elements:
 For the table body’s column, we need to make sure that the birthday is only show if it is actually set:
 
 ```smarty
-<td class="columnDate columnBirthday">{if $person->birthday !== '0000-00-00'}{@$person->birthday|strtotime|date}{/if}</td>
+<td class="columnDate columnBirthday">{if $person->birthday}{@$person->birthday|strtotime|date}{/if}</td>
 ```
 
 
@@ -195,9 +173,7 @@ In cases where a template is used, we simply use the `include` syntax to load th
 
 ## `eventListener.xml`
 
-There are two event listeners, `birthdaySortFieldAdminPersonList` and `birthdaySortFieldPersonList`, that make `birthday` a valid sort field in the ACP and the front end, respectively, and the rest takes care of setting the birthday.
-The event listener `birthdayPersonAddFormInherited` takes care of the events that are relevant for both adding and editing people, thus it listens to the `PersonAddForm` class but has `inherit` set to `1` so that it also listens to the events of the `PersonEditForm` class.
-In contrast, reading the existing birthday from a person is only relevant for editing so that the event listener `birthdayPersonEditForm` only listens to that class.
+There are two event listeners that make `birthday` a valid sort field in the ACP and the front end, respectively, and the third event listener takes care of setting the birthday.
 
 ```xml
 --8<-- "tutorial/tutorial-series/part-2/eventListener.xml"
