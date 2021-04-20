@@ -525,6 +525,12 @@ Additional attributes are passed to `LinkHandler::getLink()`.
 ```
 
 
+## <span class="label label-info">5.4+</span> `objectAction`
+
+`objectAction` generates action buttons to be used in combination with the [`WoltLabSuite/Core/Ui/Object/Action` API](../migration/wsc53/javascript.md#wcfactiondelete-and-wcfactiontoggle).
+For detailed information on its usage, we refer to the extensive documentation in the [`ObjectActionFunctionTemplatePlugin` class](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/template/plugin/ObjectActionFunctionTemplatePlugin.class.php) itself.
+
+
 ## <span class="label label-info">3.0+</span> `page`
 
 `page` generates an internal link to a CMS page.
