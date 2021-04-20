@@ -59,7 +59,7 @@
 						
 						<div class="details personInformation">
 							<div class="containerHeadline">
-								<h3><a href="{$person->getLink()}">{$person}</a></h3>
+								<h3>{anchor object=$boxPerson}</h3>
 							</div>
 							
 							{hascontent}
