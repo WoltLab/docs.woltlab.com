@@ -19,11 +19,11 @@ We will use the following package installation plugins:
 
 - [acpTemplate package installation plugin](../../package/pip/acp-template.md),
 - [acpMenu package installation plugin](../../package/pip/acp-menu.md),
+- [database package installation plugin](../../package/pip/database.md),
 - [file package installation plugin](../../package/pip/file.md),
 - [language package installation plugin](../../package/pip/language.md),
 - [menuItem package installation plugin](../../package/pip/menu-item.md),
 - [page package installation plugin](../../package/pip/page.md),
-- [sql package installation plugin](../../package/pip/sql.md),
 - [template package installation plugin](../../package/pip/template.md),
 - [userGroupOption package installation plugin](../../package/pip/user-group-option.md),
 
@@ -40,6 +40,9 @@ The package will have the following file structure:
 │   ├── personAdd.tpl
 │   └── personList.tpl
 ├── files
+│   ├── acp
+│   │   └── database
+│   │       └── install_com.woltlab.wcf.people.php
 │   └── lib
 │       ├── acp
 │       │   ├── form
@@ -49,13 +52,12 @@ The package will have the following file structure:
 │       │       └── PersonListPage.class.php
 │       ├── data
 │       │   └── person
-│       │       ├── PersonAction.class.php
 │       │       ├── Person.class.php
+│       │       ├── PersonAction.class.php
 │       │       ├── PersonEditor.class.php
 │       │       └── PersonList.class.php
 │       └── page
 │           └── PersonListPage.class.php
-├── install.sql
 ├── language
 │   ├── de.xml
 │   └── en.xml
@@ -80,10 +82,10 @@ Thus, the database table we will store the people in only contains three columns
 1. `firstName` contains the first name of the person,
 1. `lastName` contains the last name of the person.
 
-The first file for our package is the `install.sql` file used to create such a database table during package installation:
+The first file for our package is the `install_com.woltlab.wcf.people.php` file used to create such a database table during package installation:
 
 ```sql
---8<-- "tutorial/tutorial-series/part-1/install.sql"
+--8<-- "tutorial/tutorial-series/part-1/files/acp/database/install_com.woltlab.wcf.people.php"
 ```
 
 ### Database Object
@@ -192,15 +194,14 @@ We will go piece by piece through the template code:
 1. Now comes the main part of the page, the list of the people, which will only be displayed if any people exist.
    Otherwise, an info box is displayed using the generic `wcf.global.noItems` language item.
    The `$objects` template variable is automatically assigned by `wcf\page\MultipleLinkPage` and contains the `PersonList` object used to read the people from database.
-   
    The table itself consists of a `thead` and a `tbody` element and is extendable with more columns using the template events `columnHeads` and `columns`.
    In general, every table should provide these events.
    The default structure of a table is used here so that the first column of the content rows contains icons to edit and to delete the row (and provides another standard event `rowButtons`) and that the second column contains the ID of the person.
    The table can be sorted by clicking on the head of each column.
    The used variables `$sortField` and `$sortOrder` are automatically assigned to the template by `SortablePage`.
 1. The `.contentFooter` element is only shown if people exist as it basically repeats the `.contentHeaderNavigation` and `.paginationTop` element.
-1. The JavaScript code here fulfills two duties:
-   Handling clicks on the delete icons and forwarding the requests via AJAX to the `PersonAction` class, and setting up some code that triggers if all people shown on the current page are deleted via JavaScript to either reload the page or show the `wcf.global.noItems` info box. 
+1. The delete button for each person shown in the `.columnIcon` element relies on the global [`WoltLabSuite/Core/Ui/Object/Action`](../../migration/wsc53/javascript.md#wcfactiondelete-and-wcfactiontoggle) module which only requires the `jsObjectActionContainer` CSS class in combination with the `data-object-action-class-name` attribute for the `table` element, the `jsObjectActionObject` CSS class for each person's `tr` element in combination with the `data-object-id` attribute, and lastly the delete button itself, which is created with the [`objectAction` template plugin](../../view/template-plugins.md#view/template-plugins/#54-objectaction).
+1. The [`.jsReloadPageWhenEmpty` CSS class](../../migration/wsc53/javascript.md#wcftableemptytablehandler) on the `tbody` element ensures that once all persons on the page have been deleted, the page is reloaded.
 1. Lastly, the `footer` template is included that terminates the page.
    You also have to include this template for every page!
 
@@ -216,22 +217,16 @@ Like the person list, the form to add new people requires a controller class and
 --8<-- "tutorial/tutorial-series/part-1/files/lib/acp/form/PersonAddForm.class.php"
 ```
 
-The properties here consist of two types:
-the “housekeeping” properties `$activeMenuItem` and `$neededPermissions`, which fulfill the same roles as for `PersonListPage`, and the “data” properties `$firstName` and `$lastName`, which will contain the data entered by the user of the person to be created.
+The properties here consist of three types:
+the “housekeeping” properties `$activeMenuItem` and `$neededPermissions`, which fulfill the same roles as for `PersonListPage`, and the [`$objectEditLinkController` property](../../migration/wsc52/php.md#addform), which is used to generate a link to edit the newly created person after submitting the form, and finally `$formAction` and `$objectActionClass` required by the [PHP form builder API](../../php/api/form_builder/overview.md) used to generate the form.
 
-Now, let's go through each method in execution order:
+Because of using form builder, we only have to set up the two form fields for entering the first and last name, respectively:
 
-1. `readFormParameters()` is called after the form has been submitted and reads the entered first and last name and sanitizes the values by calling `StringUtil::trim()`.
-1. `validate()` is called after the form has been submitted and is used to validate the input data.
-   In case of invalid data, the method is expected to throw a `UserInputException`.
-   Here, the validation for first and last name is the same and quite basic:
-   We check that any name has been entered and that it is not longer than the database table column permits.
-1. `save()` is called after the form has been submitted and the entered data has been validated and it creates the new person via `PersonAction`.
-   Please note that we do not just pass the first and last name to the action object but merge them with the `$this->additionalFields` array which can be used by event listeners of plugins to add additional data.
-   After creating the object, the `saved()` method is called which fires an event for plugins and the data properties are cleared so that the input fields on the page are empty so that another new person can be created.
-   Lastly, a `success` variable is assigned to the template which will show a message that the person has been successfully created.
-1. `assignVariables()` assigns the values of the “data” properties to the template and additionally assigns an `action` variable.
-   This `action` variable will be used in the template to distinguish between adding a new person and editing an existing person so that which minimal adjustments, we can use the template for both cases.
+1. Each field is a simple single-line text field, thus we use [`TextFormField`](../../php/api/form_builder/form_fields.md#textformfield).
+1. The parameter of the `create()` method expects the id of the field/name of the database object property, which is `firstName` and `lastName`, respectively, here.
+1. The language item of the label shown in the ouput above the input field is set via the `label()` method.
+1. As both fields have to be filled out, `required()` is called, and the maximum length is set via `maximumLength()`.
+1. Lastly, to make it easier to fill out the form more quickly, the first field is auto-focused by calling `autoFocus()`.
 
 #### `personAdd.tpl`
 
@@ -242,23 +237,7 @@ Now, let's go through each method in execution order:
 We will now only concentrate on the new parts compared to `personList.tpl`:
 
 1. We use the `$action` variable to distinguish between the languages items used for adding a person and for creating a person.
-1. Including the `formError` template automatically shows an error message if the validation failed.
-1. The `.success` element is shown after successful saving the data and, again, shows different a text depending on the executed action.
-1. The main part is the `form` element which has a common structure you will find in many forms in WoltLab Suite Core.
-   The notable parts here are:
-   - The `action` attribute of the `form` element is set depending on which controller will handle the request.
-     In the link for the edit controller, we can now simply pass the edited `Person` object directly as the `Person` class implements the `IRouteController` interface.
-   - The field that caused the validation error can be accessed via `$errorField`.
-   - The type of the validation error can be accessed via `$errorType`.
-     For an empty input field, we show the generic `wcf.global.form.error.empty` language item.
-     In all other cases, we use the error type to determine the object- and property-specific language item to show.
-     The approach used here allows plugins to easily add further validation error messages by simply using a different error type and providing the associated language item.
-   - Input fields can be grouped into different `.section` elements.
-     At the end of each `.section` element, there should be an template event whose name ends with `Fields`.
-     The first part of the event name should reflect the type of fields in the particular `.section` element.
-     Here, the input fields are just general “data” fields so that the event is called `dataFields`.
-   - After the last `.section` element, fire a `section` event so that plugins can add further sections.
-   - Lastly, the `.formSubmit` shows the submit button and `{csrfToken}` contains a CSRF token that is automatically validated after the form is submitted.
+1. Because of form builder, we only have to call `{@$form->getHtml()}` to generate all relevant output for the form.
 
 ### Person Edit Form
 
@@ -272,24 +251,9 @@ As mentioned before, for the form to edit existing people, we only need a new co
 
 In general, edit forms extend the associated add form so that the code to read and to validate the input data is simply inherited.
 
-After setting a different active menu item, we declare two new properties for the edited person:
-the id of the person passed in the URL is stored in `$personID` and based on this ID, a `Person` object is created that is stored in the `$person` property.
+After setting a different active menu item, we have to change the value of `$formAction` because this form, in contrast to `PersonAddForm`, does not create but update existing persons.
 
-Now let use go through the different methods in chronological order again:
-
-1. `readParameters()` reads the passed ID of the edited person and creates a `Person` object based on this ID.
-   If the ID is invalid, `$this->person->personID` is `null` and an `IllegalLinkException` is thrown.
-1. `readData()` only executes additional code in the case if `$_POST` is empty, thus only for the initial request before the form has been submitted.
-   The data properties of `PersonAddForm` are populated with the data of the edited person so that this data is shown in the form for the initial request.
-1. `save()` handles saving the changed data.
-   
-   !!! warning "Do not call `parent::save()` because that would cause `PersonAddForm::save()` to be executed and thus a new person would to be created! In order for the `save` event to be fired, call `AbstractForm::save()` instead!"
-   
-   The only differences compared to `PersonAddForm::save()` are that we pass the edited object to the `PersonAction` constructor, execute the `update` action instead of the `create` action and do not clear the input fields after saving the changes.
-1. In `assignVariables()`, we assign the edited `Person` object to the template, which is required to create the link in the form’s action property.
-   Furthermore, we assign the template variable `$action` `edit` as value.
-   
-   !!! info "After calling `parent::assignVariables()`, the template variable `$action` actually has the value `add` so that here, we are overwriting this already assigned value."
+As we rely on form builder, the only thing necessary in this controller is to read and validate the edit object, i.e. the edited person, which is done in `readParameters()`.
 
 
 ## Frontend
@@ -382,9 +346,8 @@ For more information about this kind of file, please refer to [the `package.xml`
 ```
 
 As this is a package for WoltLab Suite Core 3, we need to require it using `<requiredpackage>`.
-We require the latest version (when writing this tutorial) `3.0.0 RC 4`.
-Additionally, we disallow installation of the package in the next major version `3.1` by excluding the `3.1.0 Alpha 1` version.
-This ensures that if changes from WoltLab Suite Core 3.0 to 3.1 require changing some parts of the package, it will not break the instance in which the package is installed.
+We require the latest version (when writing this tutorial) `5.4.0 Alpha 1`.
+Additionally, we disallow installation of the package in the next major version `6.0` by excluding the `6.0.0 Alpha 1` version.
 
 The most important part are to installation instructions.
 First, we install the ACP templates, files and templates, create the database table and import the language item.

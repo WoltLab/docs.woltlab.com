@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package name="com.woltlab.wcf.people" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/tornado/package.xsd">
+<package name="com.woltlab.wcf.people" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/5.4/package.xsd">
 	<packageinformation>
 		<packagename>WoltLab Suite Core Tutorial: People</packagename>
 		<packagedescription>Adds a simple management system for people as part of a tutorial to create packages.</packagedescription>
-		<version>3.1.0</version>
-		<date>2018-03-30</date>
+		<version>5.4.0</version>
+		<date>2021-04-16</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -13,21 +13,17 @@
 	</authorinformation>
 	
 	<requiredpackages>
-		<requiredpackage minversion="3.1.0">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="5.4.0 Alpha 1">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 	
 	<excludedpackages>
-		<excludedpackage version="3.2.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+		<excludedpackage version="6.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
 	</excludedpackages>
-
-	<compatibility>
-		<api version="2018" />
-	</compatibility>
 	
 	<instructions type="install">
 		<instruction type="acpTemplate" />
 		<instruction type="file" />
-		<instruction type="sql" />
+		<instruction type="database">acp/database/install_com.woltlab.wcf.people.php</instruction>
 		<instruction type="template" />
 		<instruction type="language" />
 		
