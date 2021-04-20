@@ -4,7 +4,7 @@ In this part of our tutorial series, we add support for creating boxes listing p
 
 ## Package Functionality
 
-In addition to the existing functions from [part 3](part_3.md), the package will provide the following possibilities/functions after this part of the tutorial:
+In addition to the existing functions from [part 3](part_3.md), the package will provide the following functionality after this part of the tutorial:
 
 - Creating boxes dynamically listing people
 - Filtering the people listed in boxes using conditions
