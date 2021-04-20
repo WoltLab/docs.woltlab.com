@@ -21,8 +21,8 @@
 {/hascontent}
 
 {if $objects|count}
-	<div class="section tabularBox" id="personTableContainer">
-		<table class="table">
+	<div class="section tabularBox">
+		<table class="table jsObjectActionContainer" data-object-action-class-name="wcf\data\person\PersonAction">
 			<thead>
 				<tr>
 					<th class="columnID columnPersonID{if $sortField == 'personID'} active {@$sortOrder}{/if}" colspan="2"><a href="{link controller='PersonList'}pageNo={@$pageNo}&sortField=personID&sortOrder={if $sortField == 'personID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.objectID{/lang}</a></th>
@@ -35,10 +35,10 @@
 			
 			<tbody class="jsReloadPageWhenEmpty">
 				{foreach from=$objects item=person}
-					<tr class="jsPersonRow">
+					<tr class="jsObjectActionObject" data-object-id="{@$person->getObjectID()}">
 						<td class="columnIcon">
 							<a href="{link controller='PersonEdit' object=$person}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip"><span class="icon icon16 fa-pencil"></span></a>
-							<span class="icon icon16 fa-times jsDeleteButton jsTooltip pointer" title="{lang}wcf.global.button.delete{/lang}" data-object-id="{@$person->personID}" data-confirm-message-html="{lang __encode=true}wcf.acp.person.delete.confirmMessage{/lang}"></span>
+							{objectAction action="delete" objectTitle=$person->getTitle()}
 							
 							{event name='rowButtons'}
 						</td>
@@ -71,11 +71,5 @@
 {else}
 	<p class="info">{lang}wcf.global.noItems{/lang}</p>
 {/if}
-
-<script data-relocate="true">
-	$(function() {
-		new WCF.Action.Delete('wcf\\data\\person\\PersonAction', '.jsPersonRow');
-	});
-</script>
 
 {include file='footer'}

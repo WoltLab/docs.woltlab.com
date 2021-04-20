@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/tornado/language.xsd" languagecode="de">
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd" languagecode="de">
 	<category name="wcf.acp.group">
 		<item name="wcf.acp.group.option.admin.content.canManagePeople"><![CDATA[Kann Personen verwalten]]></item>
-		
 		<item name="wcf.acp.group.option.category.mod.person"><![CDATA[Personen]]></item>
 		<item name="wcf.acp.group.option.category.user.person"><![CDATA[Personen]]></item>
-		
 		<item name="wcf.acp.group.option.mod.person.canDeleteComment"><![CDATA[Kann Kommentare löschen]]></item>
 		<item name="wcf.acp.group.option.mod.person.canEditComment"><![CDATA[Kann Kommentare bearbeiten]]></item>
 		<item name="wcf.acp.group.option.mod.person.canModerateComment"><![CDATA[Kann Kommentare moderieren]]></item>
-		
 		<item name="wcf.acp.group.option.user.person.canAddComment"><![CDATA[Kann Kommentare erstellen]]></item>
 		<item name="wcf.acp.group.option.user.person.canDeleteComment"><![CDATA[Kann eigene Kommentare löschen]]></item>
 		<item name="wcf.acp.group.option.user.person.canEditComment"><![CDATA[Kann eigene Kommentare bearbeiten]]></item>
@@ -23,15 +20,12 @@
 	
 	<category name="wcf.acp.person">
 		<item name="wcf.acp.person.add"><![CDATA[Person hinzufügen]]></item>
-		<item name="wcf.acp.person.delete.confirmMessage"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Willst du{else}Wollen Sie{/if} die Person <span class="confirmationObject">{$person}</span> wirklich löschen?]]></item>
 		<item name="wcf.acp.person.edit"><![CDATA[Person bearbeiten]]></item>
-		<item name="wcf.acp.person.firstName.error.tooLong"><![CDATA[Der Vorname darf nicht länger als 255 Zeichen sein.]]></item>
-		<item name="wcf.acp.person.lastName.error.tooLong"><![CDATA[Der Nachname darf nicht länger als 255 Zeichen sein.]]></item>
 		<item name="wcf.acp.person.list"><![CDATA[Personen]]></item>
 	</category>
 	
 	<category name="wcf.page">
-		<item name="wcf.page.onlineLocation.com.woltlab.wcf.people.Person"><![CDATA[Person <a href="{$person->getLink()}">{$person}</a>]]></item>
+		<item name="wcf.page.onlineLocation.com.woltlab.wcf.people.Person"><![CDATA[Person {anchor object=$person}]]></item>
 	</category>
 	
 	<category name="wcf.person">
