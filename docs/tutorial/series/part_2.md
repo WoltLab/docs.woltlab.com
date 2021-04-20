@@ -1,5 +1,7 @@
 # Part 2: Event Listeners and Template Listeners
 
+!!! warning "This part of the tutorial series is currently outdated while the tutorial series is updated."
+
 In the [first part](part_1.md) of this tutorial series, we have created the base structure of our people management package.
 In further parts, we will use the package of the first part as a basis to directly add new features.
 In order to explain how event listeners and template works, however, we will not directly adding a new feature to the package by altering it in this part, but we will assume that somebody else created the package and that we want to extend it the “correct” way by creating a plugin.
