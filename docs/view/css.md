@@ -50,9 +50,12 @@ Media breakpoints instruct the browser to apply different CSS depending on the v
 | `screen-sm-up` | Tablets and desktop PC | `(min-width: 545px)` |
 | `screen-sm-md` | Tablets only | `(min-width: 545px) and (max-width: 1024px)` |
 | `screen-md` | Tablets (landscape) | `(min-width: 769px) and (max-width: 1024px)` |
-| `screen-md-down` | Smartphones and Tablets | `(max-width: 1024px)` |
+| `screen-md-down` | Smartphones and tablets | `(max-width: 1024px)` |
 | `screen-md-up` | Tablets (landscape) and desktop PC | `(min-width: 769px)` |
 | `screen-lg` | Desktop PC | `(min-width: 1025px)` |
+| `screen-lg-only` | Desktop PC | `(min-width: 1025px) and (max-width: 1280px)` |
+| `screen-lg-down` | Smartphones, tablets, and desktop PC | `(max-width: 1280px)` |
+| `screen-xl` | Desktop PC | `(min-width: 1281px) ` |
 
 ## Asset Preloading
 
