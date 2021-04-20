@@ -43,7 +43,7 @@ The default display position of this box, can be any of the following:
 
 #### Placeholder Positions
 
---8<-- "image.html file="boxPlaceholders.png" alt="Visual illustration of placeholder positions""
+![Visual illustration of placeholder positions](../../assets/boxPlaceholders.png)
 
 ### `<showHeader>`
 
