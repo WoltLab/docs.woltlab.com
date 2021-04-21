@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/5.4/eventListener.xsd">
+	<import>
+		<eventlistener name="rename@wcf\data\user\UserAction">
+			<eventclassname>wcf\data\user\UserAction</eventclassname>
+			<eventname>rename</eventname>
+			<listenerclassname>wcf\system\event\listener\PersonUserActionRenameListener</listenerclassname>
+			<environment>all</environment>
+		</eventlistener>
+		<eventlistener name="save@wcf\acp\form\UserMergeForm">
+			<eventclassname>wcf\acp\form\UserMergeForm</eventclassname>
+			<eventname>save</eventname>
+			<listenerclassname>wcf\system\event\listener\PersonUserMergeListener</listenerclassname>
+			<environment>admin</environment>
+		</eventlistener>
+		<eventlistener name="execute@wcf\system\cronjob\PruneIpAddressesCronjob">
+			<eventclassname>wcf\system\cronjob\PruneIpAddressesCronjob</eventclassname>
+			<eventname>execute</eventname>
+			<listenerclassname>wcf\system\event\listener\PersonPruneIpAddressesCronjobListener</listenerclassname>
+			<environment>all</environment>
+		</eventlistener>
+		<eventlistener name="export@wcf\acp\action\UserExportGdprAction">
+			<eventclassname>wcf\acp\action\UserExportGdprAction</eventclassname>
+			<eventname>export</eventname>
+			<listenerclassname>wcf\system\event\listener\PersonUserExportGdprListener</listenerclassname>
+			<environment>admin</environment>
+		</eventlistener>
+	</import>
+</data>
