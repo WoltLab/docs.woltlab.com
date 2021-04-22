@@ -10,3 +10,4 @@ Note that in the context of this example, not every added feature might make per
 - [Part 2: Event and Template Listeners](part_2.md)
 - [Part 3: Person Page and Comments](part_3.md)
 - [Part 4: Box and Box Conditions](part_4.md)
+- [Part 5: Person Information](part_5.md)
