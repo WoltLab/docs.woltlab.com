@@ -2039,7 +2039,15 @@ The interface requires the following methods:</p>
 </ul>
 <p><code>AbstractFormFieldDependency</code> provides default implementations for all methods except for <code>checkDependency()</code>.</p>
 <p>Using <code>fieldId($fieldId)</code> instead of <code>field(IFormField $field)</code> makes sense when adding the dependency directly when setting up the form:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$container</span><span class="o">-&gt;</span><span class="na">appendChildren</span><span class="p">([</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nv">$container</span><span class="o">-&gt;</span><span class="na">appendChildren</span><span class="p">([</span>
     <span class="nx">FooField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">),</span>
 
     <span class="nx">BarField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
@@ -2049,6 +2057,7 @@ The interface requires the following methods:</p>
         <span class="p">)</span>
 <span class="p">]);</span>
 </code></pre></div>
+</td></tr></table>
 <p>Here, without an additional assignment, the first field with id <code>a</code> cannot be accessed thus <code>fieldId($fieldId)</code> should be used as the id of the relevant field is known.
 When the form is built, all dependencies that only know the id of the relevant field and do not have a reference for the actual object are populated with the actual form field objects.</p>
 <h2 id="default-dependencies">Default Dependencies<a class="headerlink" href="#default-dependencies" title="Permanent link">#</a></h2>
@@ -2066,26 +2075,41 @@ Every JavaScript dependency has to extend <code>WoltLabSuite/Core/Form/Builder/F
 Every form container has to create a matching form container dependency object from a module based on <code>WoltLabSuite/Core/Form/Builder/Field/Dependency/Abstract</code>.</p>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">#</a></h2>
 <p>If <code>$booleanFormField</code> is an instance of <code>BooleanFormField</code> and the text form field <code>$textFormField</code> should only be available if “Yes” has been selected, the following condition has to be set up:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$textFormField</span><span class="o">-&gt;</span><span class="na">addDependency</span><span class="p">(</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nv">$textFormField</span><span class="o">-&gt;</span><span class="na">addDependency</span><span class="p">(</span>
     <span class="nx">NonEmptyFormFieldDependency</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;booleanFormField&#39;</span><span class="p">)</span>
         <span class="o">-&gt;</span><span class="na">field</span><span class="p">(</span><span class="nv">$booleanFormField</span><span class="p">)</span>
 <span class="p">);</span>
 </code></pre></div>
+</td></tr></table>
 <p>If <code>$singleSelectionFormField</code> is an instance of <code>SingleSelectionFormField</code> that offers the options <code>1</code>, <code>2</code>, and <code>3</code> and <code>$textFormField</code> should only be available if <code>1</code> or <code>3</code> is selected, the following condition has to be set up:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$textFormField</span><span class="o">-&gt;</span><span class="na">addDependency</span><span class="p">(</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nv">$textFormField</span><span class="o">-&gt;</span><span class="na">addDependency</span><span class="p">(</span>
     <span class="nx">NonEmptyFormFieldDependency</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;singleSelectionFormField&#39;</span><span class="p">)</span>
         <span class="o">-&gt;</span><span class="na">field</span><span class="p">(</span><span class="nv">$singleSelectionFormField</span><span class="p">)</span>
         <span class="o">-&gt;</span><span class="na">values</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="p">);</span>
 </code></pre></div>
+</td></tr></table>
 <p>If, in contrast, <code>$singleSelectionFormField</code> has many available options and <code>7</code> is the only option for which <code>$textFormField</code> should <strong>not</strong> be available, <code>negate()</code> should be used:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$textFormField</span><span class="o">-&gt;</span><span class="na">addDependency</span><span class="p">(</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nv">$textFormField</span><span class="o">-&gt;</span><span class="na">addDependency</span><span class="p">(</span>
     <span class="nx">NonEmptyFormFieldDependency</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;singleSelectionFormField&#39;</span><span class="p">)</span>
         <span class="o">-&gt;</span><span class="na">field</span><span class="p">(</span><span class="nv">$singleSelectionFormField</span><span class="p">)</span>
         <span class="o">-&gt;</span><span class="na">values</span><span class="p">([</span><span class="mi">7</span><span class="p">])</span>
         <span class="o">-&gt;</span><span class="na">negate</span><span class="p">()</span>
 <span class="p">);</span>
 </code></pre></div>
+</td></tr></table>
                 
                   
                     

@@ -1986,20 +1986,47 @@
 <p>Going forward, any uses of the <code>SECURITY_TOKEN_*</code> constants should be avoided.
 To reference the CSRF token (“Security Token”) within templates, the <code>{csrfToken}</code> template plugin was added.</p>
 <p>Before:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="o">@</span><span class="na">SECURITY_TOKEN_INPUT_TAG</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="o">@</span><span class="na">SECURITY_TOKEN_INPUT_TAG</span><span class="cp">}</span><span class="x"></span>
 <span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s2">&quot;Foo&quot;</span><span class="cp">}</span><span class="x">t=</span><span class="cp">{</span><span class="o">@</span><span class="na">SECURITY_TOKEN</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>After:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">csrfToken</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">csrfToken</span><span class="cp">}</span><span class="x"></span>
 <span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s2">&quot;Foo&quot;</span><span class="cp">}</span><span class="x">t=</span><span class="cp">{</span><span class="nf">csrfToken</span> <span class="na">type</span><span class="o">=</span><span class="na">url</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* The use of the CSRF token in URLs is discouraged.</span>
 <span class="c">                                                        Modifications should happen by means of a POST request. *</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>The <code>{csrfToken}</code> plugin was backported to WoltLab Suite 5.2 and higher, allowing compatibility with a large range of WoltLab Suite branches.
 See <a href="https://github.com/WoltLab/WCF/pull/3612">WoltLab/WCF#3612</a> for details.</p>
 <h2 id="rss-feed-links">RSS Feed Links<a class="headerlink" href="#rss-feed-links" title="Permanent link">#</a></h2>
 <p>Prior to version 5.4 of WoltLab Suite, all RSS feed links contained the access token for logged-in users so that the feed shows all contents the specific user has access to.
 With version 5.4, links with the CSS class <code>rssFeed</code> will open a dialog when clicked that offers the feed link with the access token for personal use and an anonymous feed link that can be shared with others.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="c">* before *</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="c">* before *</span><span class="cp">}</span><span class="x"></span>
 <span class="x">&lt;li&gt;</span>
 <span class="x">    &lt;a rel=&quot;alternate&quot; </span><span class="cp">{</span><span class="c">*</span>
 <span class="c">        *</span><span class="cp">}</span><span class="x">href=&quot;</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$__wcf</span><span class="o">-&gt;</span><span class="na">getUser</span><span class="o">()-&gt;</span><span class="na">userID</span><span class="cp">}{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;ArticleFeed&#39;</span><span class="cp">}</span><span class="x">at=</span><span class="cp">{</span><span class="o">@</span><span class="nv">$__wcf</span><span class="o">-&gt;</span><span class="na">getUser</span><span class="o">()-&gt;</span><span class="na">userID</span><span class="cp">}</span><span class="x">-</span><span class="cp">{</span><span class="o">@</span><span class="nv">$__wcf</span><span class="o">-&gt;</span><span class="na">getUser</span><span class="o">()-&gt;</span><span class="na">accessToken</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}{</span><span class="nf">else</span><span class="cp">}{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;ArticleFeed&#39;</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&quot; </span><span class="cp">{</span><span class="c">*</span>
@@ -2023,6 +2050,7 @@ With version 5.4, links with the CSS class <code>rssFeed</code> will open a dial
 <span class="x">    &lt;/a&gt;</span>
 <span class="x">&lt;/li&gt;</span>
 </code></pre></div>
+</td></tr></table>
                 
                   
                     

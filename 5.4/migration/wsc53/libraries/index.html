@@ -2035,11 +2035,20 @@ It is recommended to use this library to perform encoding and decoding of secret
 Refer to <a href="https://paragonie.com/blog/2016/06/constant-time-encoding-boring-cryptography-rfc-4648-and-you">the library author’s blog post</a> for more background detail.</p>
 <p>For the common case of encoding the bytes taken from a CSPRNG in hexadecimal form, the required change would look like the following:</p>
 <p>Previously:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$encoded</span> <span class="o">=</span> <span class="nb">hex2bin</span><span class="p">(</span><span class="nx">random_bytes</span><span class="p">(</span><span class="mi">16</span><span class="p">));</span>
 </code></pre></div>
+</td></tr></table>
 <p>Now:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">use</span> <span class="nx">ParagonIE\ConstantTime\Hex</span><span class="p">;</span>
 
 <span class="c1">// For security reasons you should add the backslash</span>
@@ -2048,6 +2057,7 @@ Refer to <a href="https://paragonie.com/blog/2016/06/constant-time-encoding-bori
 <span class="c1">// defined in the current namespace.</span>
 <span class="nv">$encoded</span> <span class="o">=</span> <span class="nx">Hex</span><span class="o">::</span><span class="na">encode</span><span class="p">(</span><span class="nx">\random_bytes</span><span class="p">(</span><span class="mi">16</span><span class="p">));</span>
 </code></pre></div>
+</td></tr></table>
 <p>Please refer to the documentation and source code of the <code>paragonie/constant_time_encoding</code> library to learn how to use the library with different encodings (e.g. base64).</p>
                 
                   

@@ -2404,18 +2404,30 @@ boundaries in the instructed direction.</p>
 <h2 id="uicloseoverlay"><code>Ui/CloseOverlay</code><a class="headerlink" href="#uicloseoverlay" title="Permanent link">#</a></h2>
 <p>Register elements that should be closed when the user clicks anywhere else, such
 as drop-down menus or tooltips.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Ui/CloseOverlay&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">UiCloseOverlay</span><span class="p">)</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Ui/CloseOverlay&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">UiCloseOverlay</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">UiCloseOverlay</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;App/Foo&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// invoked, close something</span>
   <span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div>
+</td></tr></table>
 <h3 id="addidentifier-string-callback-void"><code>add(identifier: string, callback: () =&gt; void)</code><a class="headerlink" href="#addidentifier-string-callback-void" title="Permanent link">#</a></h3>
 <p>Adds a callback that will be invoked when the user clicks anywhere else.</p>
 <h2 id="uiconfirmation"><code>Ui/Confirmation</code><a class="headerlink" href="#uiconfirmation" title="Permanent link">#</a></h2>
 <p>Prompt the user to make a decision before carrying out an action, such as a safety
 warning before permanently deleting content.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Ui/Confirmation&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">UiConfirmation</span><span class="p">)</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Ui/Confirmation&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">UiConfirmation</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">UiConfirmation</span><span class="p">.</span><span class="nx">show</span><span class="p">({</span>
     <span class="nx">confirm</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="c1">// the user has confirmed the dialog</span>
@@ -2424,6 +2436,7 @@ warning before permanently deleting content.</p>
   <span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div>
+</td></tr></table>
 <h3 id="showoptions-object"><code>show(options: Object)</code><a class="headerlink" href="#showoptions-object" title="Permanent link">#</a></h3>
 <p>Displays a dialog overlay with actions buttons to confirm or reject the dialog.</p>
 <h4 id="cancel-parameters-object-void"><code>cancel: (parameters: Object) =&gt; void</code><a class="headerlink" href="#cancel-parameters-object-void" title="Permanent link">#</a></h4>
@@ -2449,7 +2462,15 @@ but after the <code>message</code> section.</p>
 <h2 id="uinotification"><code>Ui/Notification</code><a class="headerlink" href="#uinotification" title="Permanent link">#</a></h2>
 <p>Displays a simple notification at the very top of the window, such as a success
 message for Ajax based actions.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Ui/Notification&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">UiNotification</span><span class="p">)</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Ui/Notification&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">UiNotification</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">UiNotification</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span>
     <span class="s2">&quot;Your changes have been saved.&quot;</span><span class="p">,</span>
     <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -2459,6 +2480,7 @@ message for Ajax based actions.</p>
   <span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
+</td></tr></table>
 <h3 id="showmessage-string-callback-void-cssclassname-string"><code>show(message: string, callback?: () =&gt; void, cssClassName?: string)</code><a class="headerlink" href="#showmessage-string-callback-void-cssclassname-string" title="Permanent link">#</a></h3>
 <p>Shows the notification and executes the callback after 2 seconds.</p>
                 

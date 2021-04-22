@@ -2014,7 +2014,15 @@
 <p>Starting with WoltLab Suite 5.3 the <code>{jslang}</code> template plugin is available.
 <code>{jslang}</code> works like <code>{lang}</code>, with the difference that the result is automatically encoded for use within a single quoted JavaScript string.</p>
 <p>Before:</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;script&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;script&gt;</span>
 <span class="x">require([&#39;Language&#39;, /* … */], function(Language, /* … */) </span><span class="cp">{</span>
     <span class="na">Language</span><span class="o">.</span><span class="na">addObject</span><span class="o">(</span><span class="cp">{</span>
         <span class="s1">&#39;app.foo.bar&#39;</span><span class="o">:</span> <span class="s1">&#39;{lang}app.foo.bar{/lang}&#39;</span><span class="o">,</span>
@@ -2024,8 +2032,17 @@
 <span class="cp">}</span><span class="x">);</span>
 <span class="x">&lt;/script&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <p>After:</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;script&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;script&gt;</span>
 <span class="x">require([&#39;Language&#39;, /* … */], function(Language, /* … */) </span><span class="cp">{</span>
     <span class="na">Language</span><span class="o">.</span><span class="na">addObject</span><span class="o">(</span><span class="cp">{</span>
         <span class="s1">&#39;app.foo.bar&#39;</span><span class="o">:</span> <span class="s1">&#39;{jslang}app.foo.bar{/jslang}&#39;</span><span class="o">,</span>
@@ -2035,13 +2052,22 @@
 <span class="cp">}</span><span class="x">);</span>
 <span class="x">&lt;/script&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="template-plugins">Template Plugins<a class="headerlink" href="#template-plugins" title="Permanent link">#</a></h2>
 <p>The <a href="../../../view/template-plugins/#53-anchor"><code>{anchor}</code></a>, <a href="../../../view/template-plugins/#53-plural"><code>{plural}</code></a>, and <a href="../../../view/template-plugins/#53-user"><code>{user}</code></a> template plugins have been added.</p>
 <h2 id="notification-language-items">Notification Language Items<a class="headerlink" href="#notification-language-items" title="Permanent link">#</a></h2>
 <p>In addition to using the new template plugins mentioned above, language items for notifications have been further simplified.</p>
 <p>As the whole notification is clickable now, all <code>a</code> elements have been replaced with <code>strong</code> elements in notification messages.</p>
 <p>The template code to output reactions has been simplified by introducing helper methods:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="c">* old *</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="c">* old *</span><span class="cp">}</span><span class="x"></span>
 <span class="cp">{</span><span class="nf">implode</span> <span class="na">from</span><span class="o">=</span><span class="nv">$reactions</span> <span class="na">key</span><span class="o">=</span><span class="na">reactionID</span> <span class="na">item</span><span class="o">=</span><span class="na">count</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$__wcf</span><span class="o">-&gt;</span><span class="na">getReactionHandler</span><span class="o">()-&gt;</span><span class="na">getReactionTypeByID</span><span class="o">(</span><span class="nv">$reactionID</span><span class="o">)-&gt;</span><span class="na">renderIcon</span><span class="o">()</span><span class="cp">}</span><span class="x">×</span><span class="cp">{</span><span class="err">#</span><span class="nv">$count</span><span class="cp">}{</span><span class="nf">/implode</span><span class="cp">}</span><span class="x"></span>
 <span class="cp">{</span><span class="c">* new *</span><span class="cp">}</span><span class="x"></span>
 <span class="cp">{</span><span class="o">@</span><span class="nv">$__wcf</span><span class="o">-&gt;</span><span class="na">getReactionHandler</span><span class="o">()-&gt;</span><span class="na">renderInlineList</span><span class="o">(</span><span class="nv">$reactions</span><span class="o">)</span><span class="cp">}</span><span class="x"></span>
@@ -2051,18 +2077,25 @@
 <span class="cp">{</span><span class="c">* new *</span><span class="cp">}</span><span class="x"></span>
 <span class="cp">{</span><span class="o">@</span><span class="nv">$like</span><span class="o">-&gt;</span><span class="na">render</span><span class="o">()</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>Similarly, showing labels is now also easier due to the new <code>render</code> method:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="c">* old *</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="c">* old *</span><span class="cp">}</span><span class="x"></span>
 <span class="x">&lt;span class=&quot;label badge</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$label</span><span class="o">-&gt;</span><span class="na">getClassNames</span><span class="o">()</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="nv">$label</span><span class="o">-&gt;</span><span class="na">getClassNames</span><span class="o">()</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&quot;&gt;</span><span class="cp">{</span><span class="nv">$label</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="o">()</span><span class="cp">}</span><span class="x">&lt;/span&gt;</span>
 <span class="cp">{</span><span class="c">* new *</span><span class="cp">}</span><span class="x"></span>
 <span class="cp">{</span><span class="o">@</span><span class="nv">$label</span><span class="o">-&gt;</span><span class="na">render</span><span class="o">()</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>The commonly used template code</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">if</span> <span class="nv">$count</span> <span class="o">&lt;</span> <span class="m">4</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$authors</span><span class="o">[</span><span class="m">0</span><span class="o">]-&gt;</span><span class="na">getAnchorTag</span><span class="o">()</span><span class="cp">}{</span><span class="nf">if</span> <span class="nv">$count</span> <span class="o">!=</span> <span class="m">1</span><span class="cp">}{</span><span class="nf">if</span> <span class="nv">$count</span> <span class="o">==</span> <span class="m">2</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$guestTimesTriggered</span><span class="cp">}</span><span class="x"> and </span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x">, </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$authors</span><span class="o">[</span><span class="m">1</span><span class="o">]-&gt;</span><span class="na">getAnchorTag</span><span class="o">()</span><span class="cp">}{</span><span class="nf">if</span> <span class="nv">$count</span> <span class="o">==</span> <span class="m">3</span><span class="cp">}{</span><span class="nf">if</span> <span class="o">!</span><span class="nv">$guestTimesTriggered</span><span class="cp">}</span><span class="x"> and </span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x">, </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="o">@</span><span class="nv">$authors</span><span class="o">[</span><span class="m">2</span><span class="o">]-&gt;</span><span class="na">getAnchorTag</span><span class="o">()</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">if</span> <span class="nv">$guestTimesTriggered</span><span class="cp">}</span><span class="x"> and </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$guestTimesTriggered</span> <span class="o">==</span> <span class="m">1</span><span class="cp">}</span><span class="x">a guest</span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x">guests</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">else</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$authors</span><span class="o">[</span><span class="m">0</span><span class="o">]-&gt;</span><span class="na">getAnchorTag</span><span class="o">()</span><span class="cp">}{</span><span class="nf">if</span> <span class="nv">$guestTimesTriggered</span><span class="cp">}</span><span class="x">,</span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x"> and</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="err">#</span><span class="nv">$others</span><span class="cp">}</span><span class="x"> other users </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$guestTimesTriggered</span><span class="cp">}</span><span class="x">and </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$guestTimesTriggered</span> <span class="o">==</span> <span class="m">1</span><span class="cp">}</span><span class="x">a guest</span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x">guests</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">if</span> <span class="nv">$count</span> <span class="o">&lt;</span> <span class="m">4</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$authors</span><span class="o">[</span><span class="m">0</span><span class="o">]-&gt;</span><span class="na">getAnchorTag</span><span class="o">()</span><span class="cp">}{</span><span class="nf">if</span> <span class="nv">$count</span> <span class="o">!=</span> <span class="m">1</span><span class="cp">}{</span><span class="nf">if</span> <span class="nv">$count</span> <span class="o">==</span> <span class="m">2</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$guestTimesTriggered</span><span class="cp">}</span><span class="x"> and </span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x">, </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$authors</span><span class="o">[</span><span class="m">1</span><span class="o">]-&gt;</span><span class="na">getAnchorTag</span><span class="o">()</span><span class="cp">}{</span><span class="nf">if</span> <span class="nv">$count</span> <span class="o">==</span> <span class="m">3</span><span class="cp">}{</span><span class="nf">if</span> <span class="o">!</span><span class="nv">$guestTimesTriggered</span><span class="cp">}</span><span class="x"> and </span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x">, </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="o">@</span><span class="nv">$authors</span><span class="o">[</span><span class="m">2</span><span class="o">]-&gt;</span><span class="na">getAnchorTag</span><span class="o">()</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">if</span> <span class="nv">$guestTimesTriggered</span><span class="cp">}</span><span class="x"> and </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$guestTimesTriggered</span> <span class="o">==</span> <span class="m">1</span><span class="cp">}</span><span class="x">a guest</span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x">guests</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">else</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$authors</span><span class="o">[</span><span class="m">0</span><span class="o">]-&gt;</span><span class="na">getAnchorTag</span><span class="o">()</span><span class="cp">}{</span><span class="nf">if</span> <span class="nv">$guestTimesTriggered</span><span class="cp">}</span><span class="x">,</span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x"> and</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="err">#</span><span class="nv">$others</span><span class="cp">}</span><span class="x"> other users </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$guestTimesTriggered</span><span class="cp">}</span><span class="x">and </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$guestTimesTriggered</span> <span class="o">==</span> <span class="m">1</span><span class="cp">}</span><span class="x">a guest</span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x">guests</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>in stacked notification messages can be replaced with a new language item:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="o">@</span><span class="s1">&#39;wcf.user.notification.stacked.authorList&#39;</span><span class="o">|</span><span class="na">language</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="o">@</span><span class="s1">&#39;wcf.user.notification.stacked.authorList&#39;</span><span class="o">|</span><span class="na">language</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="popovers">Popovers<a class="headerlink" href="#popovers" title="Permanent link">#</a></h2>
 <p>Popovers provide additional information of the linked object when a user hovers over a link.
 We unified the approach for such links:</p>
@@ -2073,7 +2106,23 @@ We unified the approach for such links:</p>
 <li>Links are created with the <code>anchor</code> template plugin with an additional <code>class</code> attribute whose value is the return value of <code>IPopoverObject::getPopoverLinkClass()</code>.</li>
 </ol>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Foo</span> <span class="k">extends</span> <span class="nx">DatabaseObject</span> <span class="k">implements</span> <span class="nx">IPopoverObject</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Foo</span> <span class="k">extends</span> <span class="nx">DatabaseObject</span> <span class="k">implements</span> <span class="nx">IPopoverObject</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getPopoverLinkClass</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="s1">&#39;fooLink&#39;</span><span class="p">;</span>
     <span class="p">}</span>
@@ -2091,7 +2140,14 @@ We unified the approach for such links:</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s1">&#39;WoltLabSuite/Core/Controller/Popover&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ControllerPopover</span><span class="p">)</span> <span class="p">{</span>
+</td></tr></table>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s1">&#39;WoltLabSuite/Core/Controller/Popover&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ControllerPopover</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">ControllerPopover</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
         <span class="nx">className</span><span class="o">:</span> <span class="s1">&#39;fooLink&#39;</span><span class="p">,</span>
         <span class="nx">dboAction</span><span class="o">:</span> <span class="s1">&#39;wcf\\data\\foo\\FooAction&#39;</span><span class="p">,</span>
@@ -2099,8 +2155,10 @@ We unified the approach for such links:</p>
     <span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">anchor</span> <span class="na">object</span><span class="o">=</span><span class="nv">$foo</span> <span class="na">class</span><span class="o">=</span><span class="s1">&#39;fooLink&#39;</span><span class="cp">}</span><span class="x"></span>
+</td></tr></table>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">anchor</span> <span class="na">object</span><span class="o">=</span><span class="nv">$foo</span> <span class="na">class</span><span class="o">=</span><span class="s1">&#39;fooLink&#39;</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
                 
                   
                     

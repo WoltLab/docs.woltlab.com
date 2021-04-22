@@ -2150,7 +2150,31 @@
 <p>The following examples assume that you use the virtual constant <code>COMPILER_TARGET_DEFAULT</code> as a switch for the optimized code path. This is also the constant used by the official <a href="https://github.com/WoltLab/WCF/tree/master/extra">build scripts for JavaScript files</a>.</p>
 <p>We recommend that you provide a mock implementation for existing code to ensure 3rd party compatibility. It is enough to provide a bare object or class that exposes the original properties using the same primitive data types. This is intended to provide a soft-fail for implementations that are not aware of the tiny mode yet, but is not required for classes that did not exist until now.</p>
 <h4 id="legacy-javascript">Legacy JavaScript<a class="headerlink" href="#legacy-javascript" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nx">COMPILER_TARGET_DEFAULT</span><span class="p">)</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nx">COMPILER_TARGET_DEFAULT</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">WCF</span><span class="p">.</span><span class="nx">Example</span><span class="p">.</span><span class="nx">Foo</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">makeSnafucated</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
@@ -2176,8 +2200,35 @@
   <span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div>
+</td></tr></table>
 <h4 id="requirejs-modules">require.js Modules<a class="headerlink" href="#requirejs-modules" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code><span class="nx">define</span><span class="p">([</span><span class="s2">&quot;some&quot;</span><span class="p">,</span> <span class="s2">&quot;fancy&quot;</span><span class="p">,</span> <span class="s2">&quot;dependencies&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Some</span><span class="p">,</span> <span class="nx">Fancy</span><span class="p">,</span> <span class="nx">Dependencies</span><span class="p">)</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">define</span><span class="p">([</span><span class="s2">&quot;some&quot;</span><span class="p">,</span> <span class="s2">&quot;fancy&quot;</span><span class="p">,</span> <span class="s2">&quot;dependencies&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Some</span><span class="p">,</span> <span class="nx">Fancy</span><span class="p">,</span> <span class="nx">Dependencies</span><span class="p">)</span> <span class="p">{</span>
   <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
 
   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">COMPILER_TARGET_DEFAULT</span><span class="p">)</span> <span class="p">{</span>
@@ -2205,16 +2256,26 @@
   <span class="k">return</span> <span class="nx">MyAwesomeClass</span><span class="p">;</span>
 <span class="p">});</span>
 </code></pre></div>
+</td></tr></table>
 <h3 id="including-tinified-builds-through-js">Including tinified builds through <code>{js}</code><a class="headerlink" href="#including-tinified-builds-through-js" title="Permanent link">#</a></h3>
 <p>The <code>{js}</code> template-plugin has been updated to include support for tiny builds controlled through the optional flag <code>hasTiny=true</code>:</p>
-<div class="highlight"><pre><span></span><code>{js application=&#39;wcf&#39; file=&#39;WCF.Example&#39; hasTiny=true}
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>{js application=&#39;wcf&#39; file=&#39;WCF.Example&#39; hasTiny=true}
 </code></pre></div>
+</td></tr></table>
 <p>This line generates a different output depending on the debug mode and the user login-state.</p>
 <h2 id="real-error-messages-for-ajax-responses">Real Error Messages for AJAX Responses<a class="headerlink" href="#real-error-messages-for-ajax-responses" title="Permanent link">#</a></h2>
 <p>The <code>errorMessage</code> property in the returned response object for failed AJAX requests contained an exception-specific but still highly generic error message. This issue has been around for quite a long time and countless of implementations are relying on this false behavior, eventually forcing us to leave the value unchanged.</p>
 <p>This problem is solved by adding the new property <code>realErrorMessage</code> that exposes the message exactly as it was provided and now matches the value that would be displayed to users in traditional forms.</p>
 <h3 id="example-code">Example Code<a class="headerlink" href="#example-code" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nx">define</span><span class="p">([</span><span class="s1">&#39;Ajax&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Ajax</span><span class="p">)</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">define</span><span class="p">([</span><span class="s1">&#39;Ajax&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Ajax</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span>
     <span class="c1">// ...</span>
     <span class="nx">_ajaxFailure</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">responseData</span><span class="p">,</span> <span class="nx">responseText</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">,</span> <span class="nx">requestData</span><span class="p">)</span> <span class="p">{</span>
@@ -2224,6 +2285,7 @@
   <span class="p">};</span>
 <span class="p">});</span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="simplified-form-submit-in-dialogs">Simplified Form Submit in Dialogs<a class="headerlink" href="#simplified-form-submit-in-dialogs" title="Permanent link">#</a></h2>
 <p>Forms embedded in dialogs often do not contain the HTML <code>&lt;form&gt;</code>-element and instead rely on JavaScript click- and key-handlers to emulate a <code>&lt;form&gt;</code>-like submit behavior. This has spawned a great amount of nearly identical implementations that all aim to handle the form submit through the <code>Enter</code>-key, still leaving some dialogs behind.</p>
 <p>WoltLab Suite 3.1 offers automatic form submit that is enabled through a set of specific conditions and data attributes:</p>
@@ -2248,7 +2310,20 @@
 <li><code>elInnerError(elementRef)</code></li>
 </ul>
 <h3 id="example-code_1">Example Code<a class="headerlink" href="#example-code_1" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s1">&#39;Language&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Language</span><span class="p">))</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s1">&#39;Language&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Language</span><span class="p">))</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">elBySel</span><span class="p">(</span><span class="s1">&#39;input[type=&quot;text&quot;]&#39;</span><span class="p">);</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// displays a new inline error or replaces the message if there is one already</span>
@@ -2263,6 +2338,7 @@
   <span class="nx">elInnerError</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="o">?</span> <span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;wcf.global.form.error.empty&#39;</span><span class="p">)</span> <span class="o">:</span> <span class="kc">false</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
+</td></tr></table>
                 
                   
                     

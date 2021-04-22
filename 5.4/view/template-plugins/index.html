@@ -2543,31 +2543,37 @@
 <h2 id="53-anchor"><span class="label label-info">5.3+</span> <code>anchor</code><a class="headerlink" href="#53-anchor" title="Permanent link">#</a></h2>
 <p>The <code>anchor</code> template plugin creates <code>a</code> HTML elements.
 The easiest way to use the template plugin is to pass it an instance of <code>ITitledLinkObject</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">anchor</span> <span class="na">object</span><span class="o">=</span><span class="nv">$object</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">anchor</span> <span class="na">object</span><span class="o">=</span><span class="nv">$object</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>generates the same output as</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot;&gt;</span><span class="cp">{</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="o">()</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot;&gt;</span><span class="cp">{</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="o">()</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <p>Instead of an <code>object</code> parameter, a <code>link</code> and <code>content</code> parameter can be used:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">anchor</span> <span class="na">link</span><span class="o">=</span><span class="nv">$linkObject</span> <span class="na">content</span><span class="o">=</span><span class="nv">$content</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">anchor</span> <span class="na">link</span><span class="o">=</span><span class="nv">$linkObject</span> <span class="na">content</span><span class="o">=</span><span class="nv">$content</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>where <code>$linkObject</code> implements <code>ILinkableObject</code> and <code>$content</code> is either an object implementing <code>ITitledObject</code> or having a <code>__toString()</code> method or <code>$content</code> is a string or a number.</p>
 <p>The last special attribute is <code>append</code> whose contents are appended to the <code>href</code> attribute of the generated anchor element.</p>
 <p>All of the other attributes matching <code>~^[a-z]+([A-z]+)+$~</code>, expect for <code>href</code> which is disallowed, are added as attributes to the anchor element.</p>
 <p>If an <code>object</code> attribute is present, the object also implements <code>IPopoverObject</code> and if the return value of <code>IPopoverObject::getPopoverLinkClass()</code> is included in the <code>class</code> attribute of the <code>anchor</code> tag, <code>data-object-id</code> is automatically added.
 This functionality makes it easy to generate links with popover support.
 Instead of</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot; class=&quot;blogEntryLink&quot; data-object-id=&quot;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">entryID</span><span class="cp">}</span><span class="x">&quot;&gt;</span><span class="cp">{</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">subject</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot; class=&quot;blogEntryLink&quot; data-object-id=&quot;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">entryID</span><span class="cp">}</span><span class="x">&quot;&gt;</span><span class="cp">{</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">subject</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <p>using</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">anchor</span> <span class="na">object</span><span class="o">=</span><span class="nv">$entry</span> <span class="na">class</span><span class="o">=</span><span class="s1">&#39;blogEntryLink&#39;</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">anchor</span> <span class="na">object</span><span class="o">=</span><span class="nv">$entry</span> <span class="na">class</span><span class="o">=</span><span class="s1">&#39;blogEntryLink&#39;</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>is sufficient if <code>Entry::getPopoverLinkClass()</code> returns <code>blogEntryLink</code>.</p>
 <h2 id="53-anchorattributes"><span class="label label-info">5.3+</span> <code>anchorAttributes</code><a class="headerlink" href="#53-anchorattributes" title="Permanent link">#</a></h2>
 <p><code>anchorAttributes</code> compliments the <code>StringUtil::getAnchorTagAttributes(string, bool): string</code> method.
 It allows to easily generate the necessary attributes for an anchor tag based off the destination URL.</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;a href=&quot;https://www.example.com&quot; </span><span class="cp">{</span><span class="nf">anchorAttributes</span> <span class="na">url</span><span class="o">=</span><span class="s1">&#39;https://www.example.com&#39;</span> <span class="na">appendHref</span><span class="o">=</span><span class="kc">false</span> <span class="na">appendClassname</span><span class="o">=</span><span class="kc">true</span> <span class="na">isUgc</span><span class="o">=</span><span class="kc">true</span><span class="cp">}</span><span class="x">&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;a href=&quot;https://www.example.com&quot; </span><span class="cp">{</span><span class="nf">anchorAttributes</span> <span class="na">url</span><span class="o">=</span><span class="s1">&#39;https://www.example.com&#39;</span> <span class="na">appendHref</span><span class="o">=</span><span class="kc">false</span> <span class="na">appendClassname</span><span class="o">=</span><span class="kc">true</span> <span class="na">isUgc</span><span class="o">=</span><span class="kc">true</span><span class="cp">}</span><span class="x">&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <table>
 <thead>
 <tr>
@@ -2596,7 +2602,13 @@ It allows to easily generate the necessary attributes for an anchor tag based of
 </table>
 <h2 id="append"><code>append</code><a class="headerlink" href="#append" title="Permanent link">#</a></h2>
 <p>If a string should be appended to the value of a variable, <code>append</code> can be used:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">&#39;newValue&#39;</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">&#39;newValue&#39;</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nv">$templateVariable</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;newValue *</span><span class="cp">}</span><span class="x"></span>
 
@@ -2604,18 +2616,28 @@ It allows to easily generate the necessary attributes for an anchor tag based of
 
 <span class="cp">{</span><span class="nv">$templateVariable</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* now prints &#39;newValue2 *</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>If the variables does not exist yet, <code>append</code> creates a new one with the given value.
 If <code>append</code> is used on an array as the variable, the value is appended to all elements of the array.</p>
 <h2 id="assign"><code>assign</code><a class="headerlink" href="#assign" title="Permanent link">#</a></h2>
 <p>New template variables can be declared and new values can be assigned to existing template variables using <code>assign</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">&#39;newValue&#39;</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">&#39;newValue&#39;</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nv">$templateVariable</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;newValue *</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="capture"><code>capture</code><a class="headerlink" href="#capture" title="Permanent link">#</a></h2>
 <p>In some situations, <code>assign</code> is not sufficient to assign values to variables in templates if the value is complex.
 Instead, <code>capture</code> can be used:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">capture</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">capture</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span><span class="cp">}</span><span class="x"></span>
 <span class="x">    </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$foo</span><span class="cp">}</span><span class="x"></span>
 <span class="x">        &lt;p&gt;</span><span class="cp">{</span><span class="nv">$bar</span><span class="cp">}</span><span class="x">&lt;/p&gt;</span>
 <span class="x">    </span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x"></span>
@@ -2623,17 +2645,29 @@ Instead, <code>capture</code> can be used:</p>
 <span class="x">    </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
 <span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="concat"><code>concat</code><a class="headerlink" href="#concat" title="Permanent link">#</a></h2>
 <p><code>concat</code> is a modifier used to concatenate multiple strings:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">foo</span> <span class="na">value</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">foo</span> <span class="na">value</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="o">|</span><span class="na">concat</span><span class="o">:</span><span class="nv">$foo</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nv">$templateVariable</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;foobar *</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="counter"><code>counter</code><a class="headerlink" href="#counter" title="Permanent link">#</a></h2>
 <p><code>counter</code> can be used to generate and optionally print a counter:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">counter</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCounter</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;1&#39; *</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">counter</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCounter</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;1&#39; *</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nf">counter</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCounter</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;2&#39; now *</span><span class="cp">}</span><span class="x"></span>
 
@@ -2641,6 +2675,7 @@ Instead, <code>capture</code> can be used:</p>
 
 <span class="cp">{</span><span class="nf">counter</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCounter</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;4&#39; *</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>Counter supports the following attributes:</p>
 <table>
 <thead>
@@ -2678,24 +2713,38 @@ Instead, <code>capture</code> can be used:</p>
 </table>
 <h2 id="54-csrftoken"><span class="label label-info">5.4+</span> <code>csrfToken</code><a class="headerlink" href="#54-csrftoken" title="Permanent link">#</a></h2>
 <p><code>{csrfToken}</code> prints out the session's CSRF token (“Security Token”).</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;form action=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s2">&quot;Foo&quot;</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot; method=&quot;post&quot;&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;form action=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s2">&quot;Foo&quot;</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot; method=&quot;post&quot;&gt;</span>
 <span class="x">    </span><span class="cp">{</span><span class="c">* snip *</span><span class="cp">}</span><span class="x"></span>
 
 <span class="x">    </span><span class="cp">{</span><span class="nf">csrfToken</span><span class="cp">}</span><span class="x"></span>
 <span class="x">&lt;/form&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <p>The <code>{csrfToken}</code> template plugin supports a <code>type</code> parameter.
 Specifying this parameter might be required in rare situations.
 Please <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/template/plugin/CsrfTokenFunctionTemplatePlugin.class.php">check the implementation</a> for details.</p>
 <h2 id="currency"><code>currency</code><a class="headerlink" href="#currency" title="Permanent link">#</a></h2>
 <p><code>currency</code> is a modifier used to format currency values with two decimals using language dependent thousands separators and decimal point:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">currencyValue</span> <span class="na">value</span><span class="o">=</span><span class="m">12.345</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">currencyValue</span> <span class="na">value</span><span class="o">=</span><span class="m">12.345</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nv">$currencyValue</span><span class="o">|</span><span class="na">currency</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;12.34&#39; *</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="cycle"><code>cycle</code><a class="headerlink" href="#cycle" title="Permanent link">#</a></h2>
 <p><code>cycle</code> can be used to cycle between different values:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">cycle</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCycle</span> <span class="na">values</span><span class="o">=</span><span class="s1">&#39;bar,baz&#39;</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;bar&#39; *</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">cycle</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCycle</span> <span class="na">values</span><span class="o">=</span><span class="s1">&#39;bar,baz&#39;</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;bar&#39; *</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nf">cycle</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCycle</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;baz&#39; *</span><span class="cp">}</span><span class="x"></span>
 
@@ -2703,6 +2752,7 @@ Please <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/file
 
 <span class="cp">{</span><span class="nf">cycle</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCycle</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;bar&#39; *</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <div class="admonition info">
 <p class="admonition-title">The values attribute only has to be present for the first call. If <code>cycle</code> is used in a loop, the presence of the same values in consecutive calls has no effect. Only once the values change, the cycle is reset.</p>
 </div>
@@ -2746,12 +2796,14 @@ Please <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/file
 </table>
 <h2 id="date"><code>date</code><a class="headerlink" href="#date" title="Permanent link">#</a></h2>
 <p><code>date</code> generated a formatted date using <code>wcf\util\DateUtil::format()</code> with <code>DateUtil::DATE_FORMAT</code> internally.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$timestamp</span><span class="o">|</span><span class="na">date</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$timestamp</span><span class="o">|</span><span class="na">date</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="31-dateinterval"><span class="label label-info">3.1+</span> <code>dateInterval</code><a class="headerlink" href="#31-dateinterval" title="Permanent link">#</a></h2>
 <p><code>dateInterval</code> calculates the difference between two unix timestamps and generated a textual date interval.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">dateInterval</span> <span class="na">start</span><span class="o">=</span><span class="nv">$startTimestamp</span> <span class="na">end</span><span class="o">=</span><span class="nv">$endTimestamp</span> <span class="na">full</span><span class="o">=</span><span class="kc">true</span> <span class="na">format</span><span class="o">=</span><span class="s1">&#39;sentence&#39;</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">dateInterval</span> <span class="na">start</span><span class="o">=</span><span class="nv">$startTimestamp</span> <span class="na">end</span><span class="o">=</span><span class="nv">$endTimestamp</span> <span class="na">full</span><span class="o">=</span><span class="kc">true</span> <span class="na">format</span><span class="o">=</span><span class="s1">&#39;sentence&#39;</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <table>
 <thead>
 <tr>
@@ -2780,46 +2832,68 @@ Please <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/file
 </table>
 <h2 id="encodejs"><code>encodeJS</code><a class="headerlink" href="#encodejs" title="Permanent link">#</a></h2>
 <p><code>encodeJS</code> encodes a string to be used as a single-quoted string in JavaScript by replacing <code>\\</code> with <code>\\\\</code>, <code>'</code> with <code>\'</code>, linebreaks with <code>\n</code>, and <code>/</code> with <code>\/</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;script&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;script&gt;</span>
 <span class="x">    var foo = &#39;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$foo</span><span class="o">|</span><span class="na">encodeJS</span><span class="cp">}</span><span class="x">&#39;;</span>
 <span class="x">&lt;/script&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="encodejson"><code>encodeJSON</code><a class="headerlink" href="#encodejson" title="Permanent link">#</a></h2>
 <p><code>encodeJSON</code> encodes a JSON string to be used as a single-quoted string in JavaScript by replacing <code>\\</code> with <code>\\\\</code>, <code>'</code> with <code>&amp;#39;</code>, linebreaks with <code>\n</code>, and <code>/</code> with <code>\/</code>.
 Additionally, <code>htmlspecialchars</code> is applied to the string.</p>
-<div class="highlight"><pre><span></span><code><span class="x">&#39;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$foo</span><span class="o">|</span><span class="na">encodeJSON</span><span class="cp">}</span><span class="x">&#39;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&#39;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$foo</span><span class="o">|</span><span class="na">encodeJSON</span><span class="cp">}</span><span class="x">&#39;</span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="escapecdata"><code>escapeCDATA</code><a class="headerlink" href="#escapecdata" title="Permanent link">#</a></h2>
 <p><code>escapeCDATA</code> encodes a string to be used in a <code>CDATA</code> element by replacing <code>]]&gt;</code> with <code>]]]]&gt;&lt;![CDATA[&gt;</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;![CDATA[</span><span class="cp">{</span><span class="o">@</span><span class="nv">$foo</span><span class="o">|</span><span class="na">encodeCDATA</span><span class="cp">}</span><span class="x">]]&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;![CDATA[</span><span class="cp">{</span><span class="o">@</span><span class="nv">$foo</span><span class="o">|</span><span class="na">encodeCDATA</span><span class="cp">}</span><span class="x">]]&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="event"><code>event</code><a class="headerlink" href="#event" title="Permanent link">#</a></h2>
 <p><code>event</code> provides extension points in templates that <a href="../../package/pip/template-listener/">template listeners</a> can use.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="fetch"><code>fetch</code><a class="headerlink" href="#fetch" title="Permanent link">#</a></h2>
 <p><code>fetch</code> fetches the contents of a file using <code>file_get_contents</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">fetch</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;foo.html&#39;</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints the contents of `foo.html` *</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">fetch</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;foo.html&#39;</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints the contents of `foo.html` *</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nf">fetch</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;bar.html&#39;</span> <span class="na">assign</span><span class="o">=</span><span class="na">bar</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* assigns the contents of `foo.html` to `$bar`; does not print the contents *</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="filesizebinary"><code>filesizeBinary</code><a class="headerlink" href="#filesizebinary" title="Permanent link">#</a></h2>
 <p><code>filesizeBinary</code> formats the filesize using binary filesize (in bytes).</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$filesize</span><span class="o">|</span><span class="na">filesizeBinary</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$filesize</span><span class="o">|</span><span class="na">filesizeBinary</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="filesize"><code>filesize</code><a class="headerlink" href="#filesize" title="Permanent link">#</a></h2>
 <p><code>filesize</code> formats the filesize using filesize (in bytes).</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$filesize</span><span class="o">|</span><span class="na">filesize</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$filesize</span><span class="o">|</span><span class="na">filesize</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="hascontent"><code>hascontent</code><a class="headerlink" href="#hascontent" title="Permanent link">#</a></h2>
 <p>In many cases, conditional statements can be used to determine if a certain section of a template is shown:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">if</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">&#39;bar&#39;</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">if</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">&#39;bar&#39;</span><span class="cp">}</span><span class="x"></span>
 <span class="x">    only shown if $foo is bar</span>
 <span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>In some situations, however, such conditional statements are not sufficient.
 One prominent example is a template event:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">if</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">&#39;bar&#39;</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">if</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">&#39;bar&#39;</span><span class="cp">}</span><span class="x"></span>
 <span class="x">    &lt;ul&gt;</span>
 <span class="x">        </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">&#39;bar&#39;</span><span class="cp">}</span><span class="x"></span>
 <span class="x">            &lt;li&gt;Bar&lt;/li&gt;</span>
@@ -2829,9 +2903,20 @@ One prominent example is a template event:</p>
 <span class="x">    &lt;/li&gt;</span>
 <span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>In this example, if <code>$foo !== 'bar'</code>, the list will not be shown, regardless of the additional template code provided by template listeners.
 In such a situation, <code>hascontent</code> has to be used:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">hascontent</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">hascontent</span><span class="cp">}</span><span class="x"></span>
 <span class="x">    &lt;ul&gt;</span>
 <span class="x">        </span><span class="cp">{</span><span class="nf">content</span><span class="cp">}</span><span class="x"></span>
 <span class="x">            </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">&#39;bar&#39;</span><span class="cp">}</span><span class="x"></span>
@@ -2843,10 +2928,19 @@ In such a situation, <code>hascontent</code> has to be used:</p>
 <span class="x">    &lt;/ul&gt;</span>
 <span class="cp">{</span><span class="nf">/hascontent</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>If the part of the template wrapped in the <code>content</code> tags has any (trimmed) content, the part of the template wrapped by <code>hascontent</code> tags is shown (including the part wrapped by the <code>content</code> tags), otherwise nothing is shown.
 Thus, this construct avoids an empty list compared to the <code>if</code> solution above.</p>
 <p>Like <code>foreach</code>, <code>hascontent</code> also supports an <code>else</code> part:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">hascontent</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">hascontent</span><span class="cp">}</span><span class="x"></span>
 <span class="x">    &lt;ul&gt;</span>
 <span class="x">        </span><span class="cp">{</span><span class="nf">content</span><span class="cp">}</span><span class="x"></span>
 <span class="x">            </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span><span class="x"></span>
@@ -2856,12 +2950,16 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 <span class="x">    no list</span>
 <span class="cp">{</span><span class="nf">/hascontent</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="htmlcheckboxes"><code>htmlCheckboxes</code><a class="headerlink" href="#htmlcheckboxes" title="Permanent link">#</a></h2>
 <p><code>htmlCheckboxes</code> generates a list of HTML checkboxes.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">htmlCheckboxes</span> <span class="na">name</span><span class="o">=</span><span class="na">foo</span> <span class="na">options</span><span class="o">=</span><span class="nv">$fooOptions</span> <span class="na">selected</span><span class="o">=</span><span class="nv">$currentFoo</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">htmlCheckboxes</span> <span class="na">name</span><span class="o">=</span><span class="na">foo</span> <span class="na">options</span><span class="o">=</span><span class="nv">$fooOptions</span> <span class="na">selected</span><span class="o">=</span><span class="nv">$currentFoo</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nf">htmlCheckboxes</span> <span class="na">name</span><span class="o">=</span><span class="na">bar</span> <span class="na">output</span><span class="o">=</span><span class="nv">$barLabels</span> <span class="na">values</span><span class="o">=</span><span class="nv">$barValues</span> <span class="na">selected</span><span class="o">=</span><span class="nv">$currentBar</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <table>
 <thead>
 <tr>
@@ -2906,13 +3004,19 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 </table>
 <h2 id="htmloptions"><code>htmlOptions</code><a class="headerlink" href="#htmloptions" title="Permanent link">#</a></h2>
 <p><code>htmlOptions</code> generates an <code>select</code> HTML element.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">htmlOptions</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span> <span class="na">options</span><span class="o">=</span><span class="nv">$options</span> <span class="na">selected</span><span class="o">=</span><span class="nv">$selected</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">htmlOptions</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span> <span class="na">options</span><span class="o">=</span><span class="nv">$options</span> <span class="na">selected</span><span class="o">=</span><span class="nv">$selected</span><span class="cp">}</span><span class="x"></span>
 
 <span class="x">&lt;select name=&quot;bar&quot;&gt;</span>
 <span class="x">    &lt;option value=&quot;&quot;</span><span class="cp">{</span><span class="nf">if</span> <span class="o">!</span><span class="nv">$selected</span><span class="cp">}</span><span class="x"> selected</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.default</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/option&gt;</span>
 <span class="x">    </span><span class="cp">{</span><span class="nf">htmlOptions</span> <span class="na">options</span><span class="o">=</span><span class="nv">$options</span> <span class="na">selected</span><span class="o">=</span><span class="nv">$selected</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* no `name` attribute *</span><span class="cp">}</span><span class="x"></span>
 <span class="x">&lt;/select&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <table>
 <thead>
 <tr>
@@ -2954,8 +3058,9 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 <p>All additional attributes are added as attributes of the <code>select</code> HTML element.</p>
 <h2 id="implode"><code>implode</code><a class="headerlink" href="#implode" title="Permanent link">#</a></h2>
 <p><code>implodes</code> transforms an array into a string and prints it.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">implode</span> <span class="na">from</span><span class="o">=</span><span class="nv">$array</span> <span class="na">key</span><span class="o">=</span><span class="na">key</span> <span class="na">item</span><span class="o">=</span><span class="na">item</span> <span class="na">glue</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="cp">}{</span><span class="nv">$key</span><span class="cp">}</span><span class="x">: </span><span class="cp">{</span><span class="nv">$value</span><span class="cp">}{</span><span class="nf">/implode</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">implode</span> <span class="na">from</span><span class="o">=</span><span class="nv">$array</span> <span class="na">key</span><span class="o">=</span><span class="na">key</span> <span class="na">item</span><span class="o">=</span><span class="na">item</span> <span class="na">glue</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="cp">}{</span><span class="nv">$key</span><span class="cp">}</span><span class="x">: </span><span class="cp">{</span><span class="nv">$value</span><span class="cp">}{</span><span class="nf">/implode</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <table>
 <thead>
 <tr>
@@ -2984,11 +3089,27 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 </table>
 <h2 id="52-ipsearch"><span class="label label-info">5.2+</span> <code>ipSearch</code><a class="headerlink" href="#52-ipsearch" title="Permanent link">#</a></h2>
 <p><code>ipSearch</code> generates a link to search for an IP address.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="o">|</span><span class="na">ipSearch</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="o">|</span><span class="na">ipSearch</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="30-js"><span class="label label-info">3.0+</span> <code>js</code><a class="headerlink" href="#30-js" title="Permanent link">#</a></h2>
 <p><code>js</code> generates script tags based on whether <code>ENABLE_DEBUG_MODE</code> and <code>VISITOR_USE_TINY_BUILD</code> are enabled.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">js</span> <span class="na">application</span><span class="o">=</span><span class="s1">&#39;wbb&#39;</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;WBB&#39;</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* generates &#39;http://example.com/js/WBB.js&#39; *</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">js</span> <span class="na">application</span><span class="o">=</span><span class="s1">&#39;wbb&#39;</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;WBB&#39;</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* generates &#39;http://example.com/js/WBB.js&#39; *</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nf">js</span> <span class="na">application</span><span class="o">=</span><span class="s1">&#39;wcf&#39;</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;WCF.Like&#39;</span> <span class="na">bundle</span><span class="o">=</span><span class="s1">&#39;WCF.Combined&#39;</span><span class="cp">}</span><span class="x"></span>
 <span class="x">    </span><span class="cp">{</span><span class="c">* generates &#39;http://example.com/wcf/js/WCF.Like.js&#39; if ENABLE_DEBUG_MODE=1 *</span><span class="cp">}</span><span class="x"></span>
@@ -3005,9 +3126,16 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 <span class="x">    </span><span class="cp">{</span><span class="c">* generates &#39;http://example.com/wcf/js/WCF.Combined.min.js&#39; (ENABLE_DEBUG_MODE=0 *</span><span class="cp">}</span><span class="x"></span>
 <span class="x">    </span><span class="cp">{</span><span class="c">* generates &#39;http://example.com/wcf/js/WCF.Combined.tiny.min.js&#39; if ENABLE_DEBUG_MODE=0 and VISITOR_USE_TINY_BUILD=1 *</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="53-jslang"><span class="label label-info">5.3+</span> <code>jslang</code><a class="headerlink" href="#53-jslang" title="Permanent link">#</a></h2>
 <p><code>jslang</code> works like <a href="#lang"><code>lang</code></a> with the difference that the resulting string is automatically passed through <a href="#encodejs"><code>encodeJS</code></a>.</p>
-<div class="highlight"><pre><span></span><code><span class="x">require([&#39;Language&#39;, /* … */], function(Language, /* … */) </span><span class="cp">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">require([&#39;Language&#39;, /* … */], function(Language, /* … */) </span><span class="cp">{</span>
     <span class="na">Language</span><span class="o">.</span><span class="na">addObject</span><span class="o">(</span><span class="cp">{</span>
         <span class="s1">&#39;app.foo.bar&#39;</span><span class="o">:</span> <span class="s1">&#39;{jslang}app.foo.bar{/jslang}&#39;</span><span class="o">,</span>
     <span class="cp">}</span><span class="o">);</span>
@@ -3015,9 +3143,16 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
     <span class="o">//</span> <span class="err">…</span>
 <span class="cp">}</span><span class="x">);</span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="lang"><code>lang</code><a class="headerlink" href="#lang" title="Permanent link">#</a></h2>
 <p><code>lang</code> replaces a language items with its value.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.baz</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.baz</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nf">lang</span> <span class="na">__literal</span><span class="o">=</span><span class="kc">true</span><span class="cp">}</span><span class="x">foo.bar.baz</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x"></span>
 
@@ -3025,6 +3160,7 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 
 <span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.baz.</span><span class="cp">{</span><span class="nv">$action</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <table>
 <thead>
 <tr>
@@ -3052,14 +3188,18 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 <p><code>language</code> replaces a language items with its value.
 If the template variable <code>__language</code> exists, this language object will be used instead of <code>WCF::getLanguage()</code>.
 This modifier is useful when assigning the value directly to a variable.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$languageItem</span><span class="o">|</span><span class="na">language</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$languageItem</span><span class="o">|</span><span class="na">language</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">foo</span> <span class="na">value</span><span class="o">=</span><span class="nv">$languageItem</span><span class="o">|</span><span class="na">language</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="link"><code>link</code><a class="headerlink" href="#link" title="Permanent link">#</a></h2>
 <p><code>link</code> generates internal links using <code>LinkHandler</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;FooList&#39;</span> <span class="na">application</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="cp">}</span><span class="x">param1=2&amp;param2=A</span><span class="cp">{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot;&gt;Foo&lt;/a&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;FooList&#39;</span> <span class="na">application</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="cp">}</span><span class="x">param1=2&amp;param2=A</span><span class="cp">{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot;&gt;Foo&lt;/a&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <table>
 <thead>
 <tr>
@@ -3089,14 +3229,21 @@ This modifier is useful when assigning the value directly to a variable.</p>
 <p>Additional attributes are passed to <code>LinkHandler::getLink()</code>.</p>
 <h2 id="newlinetobreak"><code>newlineToBreak</code><a class="headerlink" href="#newlinetobreak" title="Permanent link">#</a></h2>
 <p><code>newlineToBreak</code> transforms newlines into HTML <code>&lt;br&gt;</code> elements after encoding the content via <code>wcf\util\StringUtil::encodeHTML()</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">newlineToBreak</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">newlineToBreak</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="54-objectaction"><span class="label label-info">5.4+</span> <code>objectAction</code><a class="headerlink" href="#54-objectaction" title="Permanent link">#</a></h2>
 <p><code>objectAction</code> generates action buttons to be used in combination with the <a href="../../migration/wsc53/javascript/#wcfactiondelete-and-wcfactiontoggle"><code>WoltLabSuite/Core/Ui/Object/Action</code> API</a>.
 For detailed information on its usage, we refer to the extensive documentation in the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/template/plugin/ObjectActionFunctionTemplatePlugin.class.php"><code>ObjectActionFunctionTemplatePlugin</code> class</a> itself.</p>
 <h2 id="30-page"><span class="label label-info">3.0+</span> <code>page</code><a class="headerlink" href="#30-page" title="Permanent link">#</a></h2>
 <p><code>page</code> generates an internal link to a CMS page.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">page</span><span class="cp">}</span><span class="x">com.woltlab.wcf.CookiePolicy</span><span class="cp">{</span><span class="nf">/page</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">page</span><span class="cp">}</span><span class="x">com.woltlab.wcf.CookiePolicy</span><span class="cp">{</span><span class="nf">/page</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nf">page</span> <span class="na">pageID</span><span class="o">=</span><span class="m">1</span><span class="cp">}{</span><span class="nf">/page</span><span class="cp">}</span><span class="x"></span>
 
@@ -3104,6 +3251,7 @@ For detailed information on its usage, we refer to the extensive documentation i
 
 <span class="cp">{</span><span class="nf">page</span> <span class="na">languageID</span><span class="o">=</span><span class="m">2</span><span class="cp">}</span><span class="x">com.woltlab.wcf.CookiePolicy</span><span class="cp">{</span><span class="nf">/page</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <table>
 <thead>
 <tr>
@@ -3128,10 +3276,13 @@ For detailed information on its usage, we refer to the extensive documentation i
 </table>
 <h2 id="pages"><code>pages</code><a class="headerlink" href="#pages" title="Permanent link">#</a></h2>
 <p><code>pages</code> generates a pagination.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">pages</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;FooList&#39;</span> <span class="na">link</span><span class="o">=</span><span class="s2">&quot;pageNo=%d&quot;</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span> <span class="na">assign</span><span class="o">=</span><span class="na">pagesLinks</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints pagination *</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">pages</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;FooList&#39;</span> <span class="na">link</span><span class="o">=</span><span class="s2">&quot;pageNo=%d&quot;</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span> <span class="na">assign</span><span class="o">=</span><span class="na">pagesLinks</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints pagination *</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="o">@</span><span class="nv">$pagesLinks</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints same pagination again *</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <table>
 <thead>
 <tr>
@@ -3169,8 +3320,9 @@ For detailed information on its usage, we refer to the extensive documentation i
 <h2 id="plaintime"><code>plainTime</code><a class="headerlink" href="#plaintime" title="Permanent link">#</a></h2>
 <p><code>plainTime</code> formats a timestamp to include year, month, day, hour, and minutes.
 The exact formatting depends on the current language (via the language items <code>wcf.date.dateTimeFormat</code>, <code>wcf.date.dateFormat</code>, and <code>wcf.date.timeFormat</code>).</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$timestamp</span><span class="o">|</span><span class="na">plainTime</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$timestamp</span><span class="o">|</span><span class="na">plainTime</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="53-plural"><span class="label label-info">5.3+</span> <code>plural</code><a class="headerlink" href="#53-plural" title="Permanent link">#</a></h2>
 <p><code>plural</code> allows to easily select the correct plural form of a phrase based on a given <code>value</code>.
 The pluralization logic follows the <a href="https://unicode-org.github.io/cldr-staging/charts/37/supplemental/language_plural_rules.md">Unicode Language Plural Rules</a> for cardinal numbers.</p>
@@ -3179,30 +3331,45 @@ It is automatically formatted using <code>StringUtil::formatNumeric</code>.</p>
 <p>English:</p>
 <p>Note the use of <code>1</code> if the number (<code>#</code>) is not used within the phrase and the use of <code>one</code> otherwise.
 They are equivalent for English, but following this rule generalizes better to other languages, helping the translator.
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">numberOfWorlds</span> <span class="na">value</span><span class="o">=</span><span class="m">2</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">numberOfWorlds</span> <span class="na">value</span><span class="o">=</span><span class="m">2</span><span class="cp">}</span><span class="x"></span>
 <span class="x">&lt;h1&gt;Hello </span><span class="cp">{</span><span class="nf">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="m">1</span><span class="o">=</span><span class="s1">&#39;World&#39;</span> <span class="na">other</span><span class="o">=</span><span class="s1">&#39;Worlds&#39;</span><span class="cp">}</span><span class="x">!&lt;/h1&gt;</span>
 <span class="x">&lt;p&gt;There </span><span class="cp">{</span><span class="nf">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="m">1</span><span class="o">=</span><span class="s1">&#39;is one world&#39;</span> <span class="na">other</span><span class="o">=</span><span class="s1">&#39;are # worlds&#39;</span><span class="cp">}</span><span class="x">!&lt;/p&gt;</span>
 <span class="x">&lt;p&gt;There </span><span class="cp">{</span><span class="nf">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="na">one</span><span class="o">=</span><span class="s1">&#39;is # world&#39;</span> <span class="na">other</span><span class="o">=</span><span class="s1">&#39;are # worlds&#39;</span><span class="cp">}</span><span class="x">!&lt;/p&gt;</span>
-</code></pre></div></p>
+</code></pre></div>
+</td></tr></table></p>
 <p>German:
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">numberOfWorlds</span> <span class="na">value</span><span class="o">=</span><span class="m">2</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">numberOfWorlds</span> <span class="na">value</span><span class="o">=</span><span class="m">2</span><span class="cp">}</span><span class="x"></span>
 <span class="x">&lt;h1&gt;Hallo </span><span class="cp">{</span><span class="nf">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="m">1</span><span class="o">=</span><span class="s1">&#39;Welt&#39;</span> <span class="na">other</span><span class="o">=</span><span class="s1">&#39;Welten&#39;</span><span class="cp">}</span><span class="x">!&lt;/h1&gt;</span>
 <span class="x">&lt;p&gt;Es gibt </span><span class="cp">{</span><span class="nf">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="m">1</span><span class="o">=</span><span class="s1">&#39;eine Welt&#39;</span> <span class="na">other</span><span class="o">=</span><span class="s1">&#39;# Welten&#39;</span><span class="cp">}</span><span class="x">!&lt;/p&gt;</span>
 <span class="x">&lt;p&gt;Es gibt </span><span class="cp">{</span><span class="nf">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="na">one</span><span class="o">=</span><span class="s1">&#39;# Welt&#39;</span> <span class="na">other</span><span class="o">=</span><span class="s1">&#39;# Welten&#39;</span><span class="cp">}</span><span class="x">!&lt;/p&gt;</span>
-</code></pre></div></p>
+</code></pre></div>
+</td></tr></table></p>
 <p>Romanian:</p>
 <p>Note the additional use of <code>few</code> which is not required in English or German.
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">numberOfWorlds</span> <span class="na">value</span><span class="o">=</span><span class="m">2</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">numberOfWorlds</span> <span class="na">value</span><span class="o">=</span><span class="m">2</span><span class="cp">}</span><span class="x"></span>
 <span class="x">&lt;h1&gt;Salut </span><span class="cp">{</span><span class="nf">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="m">1</span><span class="o">=</span><span class="s1">&#39;lume&#39;</span> <span class="na">other</span><span class="o">=</span><span class="s1">&#39;lumi&#39;</span><span class="cp">}</span><span class="x">!&lt;/h1&gt;</span>
 <span class="x">&lt;p&gt;Există </span><span class="cp">{</span><span class="nf">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="m">1</span><span class="o">=</span><span class="s1">&#39;o lume&#39;</span> <span class="na">few</span><span class="o">=</span><span class="s1">&#39;# lumi&#39;</span> <span class="na">other</span><span class="o">=</span><span class="s1">&#39;# de lumi&#39;</span><span class="cp">}</span><span class="x">!&lt;/p&gt;</span>
 <span class="x">&lt;p&gt;Există </span><span class="cp">{</span><span class="nf">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="na">one</span><span class="o">=</span><span class="s1">&#39;# lume&#39;</span> <span class="na">few</span><span class="o">=</span><span class="s1">&#39;# lumi&#39;</span> <span class="na">other</span><span class="o">=</span><span class="s1">&#39;# de lumi&#39;</span><span class="cp">}</span><span class="x">!&lt;/p&gt;</span>
-</code></pre></div></p>
+</code></pre></div>
+</td></tr></table></p>
 <p>Russian:</p>
 <p>Note the difference between <code>1</code> (exactly <code>1</code>) and <code>one</code> (ending in <code>1</code>, except ending in <code>11</code>).
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">numberOfWorlds</span> <span class="na">value</span><span class="o">=</span><span class="m">2</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">numberOfWorlds</span> <span class="na">value</span><span class="o">=</span><span class="m">2</span><span class="cp">}</span><span class="x"></span>
 <span class="x">&lt;h1&gt;Привет </span><span class="cp">{</span><span class="nf">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorld</span> <span class="m">1</span><span class="o">=</span><span class="s1">&#39;мир&#39;</span> <span class="na">other</span><span class="o">=</span><span class="s1">&#39;миры&#39;</span><span class="cp">}</span><span class="x">!&lt;/h1&gt;</span>
 <span class="x">&lt;p&gt;Есть </span><span class="cp">{</span><span class="nf">plural</span> <span class="na">value</span><span class="o">=</span><span class="nv">$numberOfWorlds</span> <span class="m">1</span><span class="o">=</span><span class="s1">&#39;мир&#39;</span> <span class="na">one</span><span class="o">=</span><span class="s1">&#39;# мир&#39;</span> <span class="na">few</span><span class="o">=</span><span class="s1">&#39;# мира&#39;</span> <span class="na">many</span><span class="o">=</span><span class="s1">&#39;# миров&#39;</span> <span class="na">other</span><span class="o">=</span><span class="s1">&#39;# миров&#39;</span><span class="cp">}</span><span class="x">!&lt;/p&gt;</span>
-</code></pre></div></p>
+</code></pre></div>
+</td></tr></table></p>
 <table>
 <thead>
 <tr>
@@ -3231,7 +3398,13 @@ They are equivalent for English, but following this rule generalizes better to o
 </table>
 <h2 id="prepend"><code>prepend</code><a class="headerlink" href="#prepend" title="Permanent link">#</a></h2>
 <p>If a string should be prepended to the value of a variable, <code>prepend</code> can be used:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">&#39;newValue&#39;</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">&#39;newValue&#39;</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nv">$templateVariable</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;newValue *</span><span class="cp">}</span><span class="x"></span>
 
@@ -3239,29 +3412,37 @@ They are equivalent for English, but following this rule generalizes better to o
 
 <span class="cp">{</span><span class="nv">$templateVariable</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* now prints &#39;2newValue&#39; *</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>If the variables does not exist yet, <code>prepend</code> creates a new one with the given value.
 If <code>prepend</code> is used on an array as the variable, the value is prepended to all elements of the array.</p>
 <h2 id="shortunit"><code>shortUnit</code><a class="headerlink" href="#shortunit" title="Permanent link">#</a></h2>
 <p><code>shortUnit</code> shortens numbers larger than 1000 by using unit suffixes:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="m">10000</span><span class="o">|</span><span class="na">shortUnit</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints 10k *</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="m">10000</span><span class="o">|</span><span class="na">shortUnit</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints 10k *</span><span class="cp">}</span><span class="x"></span>
 <span class="cp">{</span><span class="m">5400000</span><span class="o">|</span><span class="na">shortUnit</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints 5.4M *</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="smallpages"><code>smallpages</code><a class="headerlink" href="#smallpages" title="Permanent link">#</a></h2>
 <p><code>smallpages</code> generates a smaller version of <code>pages</code> by using adding the <code>small</code> CSS class to the generated <code>&lt;nav&gt;</code> element and only showing 7 instead of 9 links. </p>
 <h2 id="tablewordwrap"><code>tableWordwrap</code><a class="headerlink" href="#tablewordwrap" title="Permanent link">#</a></h2>
 <p><code>tableWordwrap</code> inserts zero width spaces every 30 characters in words longer than 30 characters.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">tableWordwrap</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">tableWordwrap</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="time"><code>time</code><a class="headerlink" href="#time" title="Permanent link">#</a></h2>
 <p><code>time</code> generates an HTML <code>time</code> elements based on a timestamp that shows a relative time or the absolute time if the timestamp more than six days ago.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$timestamp</span><span class="o">|</span><span class="na">time</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints a &#39;&lt;time&gt;&#39; element *</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$timestamp</span><span class="o">|</span><span class="na">time</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints a &#39;&lt;time&gt;&#39; element *</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="truncate"><code>truncate</code><a class="headerlink" href="#truncate" title="Permanent link">#</a></h2>
 <p><code>truncate</code> truncates a long string into a shorter one:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">truncate</span><span class="o">:</span><span class="m">35</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">truncate</span><span class="o">:</span><span class="m">35</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">truncate</span><span class="o">:</span><span class="m">35</span><span class="o">:</span><span class="s1">&#39;_&#39;</span><span class="o">:</span><span class="kc">true</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <table>
 <thead>
 <tr>
@@ -3301,17 +3482,21 @@ The optional <code>type</code> parameter is responsible for what the generated l
 <p>The last special attribute is <code>append</code> whose contents are appended to the <code>href</code> attribute of the generated anchor element.</p>
 <p>All of the other attributes matching <code>~^[a-z]+([A-z]+)+$~</code>, except for <code>href</code> which may not be added, are added as attributes to the anchor element.</p>
 <p>Examples:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">user</span> <span class="na">object</span><span class="o">=</span><span class="nv">$user</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">user</span> <span class="na">object</span><span class="o">=</span><span class="nv">$user</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>generates</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot; data-object-id=&quot;</span><span class="cp">{</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">userID</span><span class="cp">}</span><span class="x">&quot; class=&quot;userLink&quot;&gt;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getFormattedUsername</span><span class="o">()</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot; data-object-id=&quot;</span><span class="cp">{</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">userID</span><span class="cp">}</span><span class="x">&quot; class=&quot;userLink&quot;&gt;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getFormattedUsername</span><span class="o">()</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <p>and</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">user</span> <span class="na">object</span><span class="o">=</span><span class="nv">$user</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;avatar48&#39;</span> <span class="na">foo</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="cp">}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">user</span> <span class="na">object</span><span class="o">=</span><span class="nv">$user</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;avatar48&#39;</span> <span class="na">foo</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
+</td></tr></table>
 <p>generates</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot; foo=&quot;bar&quot;&gt;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getAvatar</span><span class="o">()-&gt;</span><span class="na">getImageTag</span><span class="o">(</span><span class="m">48</span><span class="o">)</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot; foo=&quot;bar&quot;&gt;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getAvatar</span><span class="o">()-&gt;</span><span class="na">getImageTag</span><span class="o">(</span><span class="m">48</span><span class="o">)</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
 </code></pre></div>
+</td></tr></table>
                 
                   
                     

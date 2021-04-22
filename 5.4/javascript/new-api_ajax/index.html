@@ -2257,7 +2257,42 @@ this and any future requests.</p>
 pre-populate the request data before sending it. The callee can overwrite any of
 these properties. It is intended to reduce the overhead when issuing request
 when these requests share the same properties, such as accessing the same endpoint.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// App/Foo.js</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// App/Foo.js</span>
 <span class="nx">define</span><span class="p">([</span><span class="s2">&quot;Ajax&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Ajax</span><span class="p">)</span> <span class="p">{</span>
   <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
 
@@ -2294,6 +2329,7 @@ when these requests share the same properties, such as accessing the same endpoi
   <span class="k">return</span> <span class="nx">Foo</span><span class="p">;</span>
 <span class="p">});</span>
 </code></pre></div>
+</td></tr></table>
 <h3 id="request-settings">Request Settings<a class="headerlink" href="#request-settings" title="Permanent link">#</a></h3>
 <p>The object returned by the aforementioned <code>_ajaxSetup()</code> callback can contain these
 values:</p>
@@ -2404,7 +2440,22 @@ that will destroy the instance after the request was finalized. This method is
 significantly more expensive for repeated requests and does not offer deriving
 modules from altering the behavior. It is strongly  recommended to always use
 <code>Ajax.api()</code> for requests to the WSC API endpoint.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
   <span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Ajax&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Ajax</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">Ajax</span><span class="p">.</span><span class="nx">apiOnce</span><span class="p">({</span>
       <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
@@ -2421,6 +2472,7 @@ modules from altering the behavior. It is strongly  recommended to always use
   <span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
+</td></tr></table>
                 
                   
                     

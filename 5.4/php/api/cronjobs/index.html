@@ -2002,7 +2002,35 @@
 </div>
 <p>This page focuses on the technical aspects of cronjobs, <a href="../../../package/pip/cronjob/">the cronjob package installation plugin page</a> covers how you can actually register a cronjob.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">namespace</span> <span class="nx">wcf\system\cronjob</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\data\cronjob\Cronjob</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\system\WCF</span><span class="p">;</span>
@@ -2032,18 +2060,24 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="icronjob-interface"><code>ICronjob</code> Interface<a class="headerlink" href="#icronjob-interface" title="Permanent link">#</a></h2>
 <p>Every cronjob needs to implement the <code>wcf\system\cronjob\ICronjob</code> interface which requires the <code>execute(Cronjob $cronjob)</code> method to be implemented.
 This method is called by <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/cronjob/CronjobScheduler.class.php">wcf\system\cronjob\CronjobScheduler</a> when executing the cronjobs.</p>
 <p>In practice, however, you should extend the <code>AbstractCronjob</code> class and also call the <code>AbstractCronjob::execute()</code> method as it fires an event which makes cronjobs extendable by plugins (see <a href="../events/">event documentation</a>).</p>
 <h2 id="executing-cronjobs-through-cli">Executing Cronjobs Through CLI<a class="headerlink" href="#executing-cronjobs-through-cli" title="Permanent link">#</a></h2>
 <p>Cronjobs can be executed through the command-line interface (CLI):</p>
-<div class="highlight"><pre><span></span><code>php /path/to/wcf/cli.php &lt;&lt; &#39;EOT&#39;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>php /path/to/wcf/cli.php &lt;&lt; &#39;EOT&#39;
 USERNAME
 PASSWORD
 cronjob execute
 EOT
 </code></pre></div>
+</td></tr></table>
                 
                   
                     

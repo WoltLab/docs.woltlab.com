@@ -2036,7 +2036,22 @@
 <p>To pre-install a specific person list box, we refer to the documentation of the <a href="../../../package/pip/box/"><code>box</code> package installation plugin</a>.</p>
 <h2 id="package-structure">Package Structure<a class="headerlink" href="#package-structure" title="Permanent link">#</a></h2>
 <p>The complete package will have the following file structure (<em>excluding</em> unchanged files from <a href="../part_3/">part 3</a>):</p>
-<div class="highlight"><pre><span></span><code>├── files
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>├── files
 │   └── lib
 │       └── system
 │           ├── box
@@ -2053,19 +2068,93 @@
 └── templates
     └── boxPersonList.tpl
 </code></pre></div>
+</td></tr></table>
 <p>For all changes, please refer to the <a href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-4">source code on GitHub</a>.</p>
 <h2 id="box-controller">Box Controller<a class="headerlink" href="#box-controller" title="Permanent link">#</a></h2>
 <p>In addition to static boxes with fixed contents, administrators are able to create dynamic boxes with contents from the database.
 In our case here, we want administrators to be able to create boxes listing people.
 To do so, we first have to register a new object type for this person list box controller for the object type definition <code>com.woltlab.wcf.boxController</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
     <span class="nt">&lt;name&gt;</span>com.woltlab.wcf.personList<span class="nt">&lt;/name&gt;</span>
     <span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.boxController<span class="nt">&lt;/definitionname&gt;</span>
     <span class="nt">&lt;classname&gt;</span>wcf\system\box\PersonListBoxController<span class="nt">&lt;/classname&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <p>The <code>com.woltlab.wcf.boxController</code> object type definition requires the provided class to implement <code>wcf\system\box\IBoxController</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">wcf\system\box</span><span class="p">;</span>
 
@@ -2135,6 +2224,7 @@ To do so, we first have to register a new object type for this person list box c
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+</td></tr></table>
 <p>By extending <code>AbstractDatabaseObjectListBoxController</code>, we only have to provide minimal data ourself and rely mostly on the default implementation provided by <code>AbstractDatabaseObjectListBoxController</code>:</p>
 <ol>
 <li>As we will support <a href="#conditions">conditions</a> for the listed people, we have to set the relevant condition definition via <code>$conditionDefinition</code>.</li>
@@ -2148,7 +2238,21 @@ To do so, we first have to register a new object type for this person list box c
 <li><code>getObjectList()</code> returns an instance of <code>DatabaseObjectList</code> that is used to read the listed objects.
    <code>getObjectList()</code> itself must not call <code>readObjects()</code>, as <code>AbstractDatabaseObjectListBoxController</code> takes care of calling the method after adding the conditions and setting the sort order.</li>
 <li><code>getTemplate()</code> returns the contents of the box relying on the <code>boxPersonList</code> template here:
-   <div class="highlight"><pre><span></span><code><span class="x">&lt;ul class=&quot;sidebarItemList&quot;&gt;</span>
+   <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;ul class=&quot;sidebarItemList&quot;&gt;</span>
 <span class="x">    </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$boxPersonList</span> <span class="na">item</span><span class="o">=</span><span class="na">boxPerson</span><span class="cp">}</span><span class="x"></span>
 <span class="x">        &lt;li class=&quot;box24&quot;&gt;</span>
 <span class="x">            &lt;span class=&quot;icon icon24 fa-user&quot;&gt;&lt;/span&gt;</span>
@@ -2164,6 +2268,7 @@ To do so, we first have to register a new object type for this person list box c
 <span class="x">    </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span><span class="x"></span>
 <span class="x">&lt;/ul&gt;</span>
 </code></pre></div>
+</td></tr></table>
    The template relies on a <code>.sidebarItemList</code> element, which is generally used for sidebar listings.
    (If different box positions were supported, we either have to generate different output by considering the value of <code>$boxPosition</code> in the template or by using different templates in <code>getTemplate()</code>.)
    One specific piece of code is the <code>$__boxPersonDescription</code> variable, which supports an optional description below the person's name relying on the optional language item <code>wcf.person.boxList.description.{$boxSortField}</code>.
@@ -2178,7 +2283,15 @@ In our case, the box system supports conditions to filter the objects shown in a
 Admittedly, our current person implementation only contains minimal data so that filtering might not make the most sense here but it will still show how to use the condition system for boxes.
 We will support filtering the people by their first and last name so that, for example, a box can be created listing all people with a specific first name.</p>
 <p>The first step for condition support is to register a object type definition for the relevant conditions requiring the <code>IObjectListCondition</code> interface:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/objectTypeDefinition.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;import&gt;</span>
         <span class="nt">&lt;definition&gt;</span>
@@ -2188,8 +2301,18 @@ We will support filtering the people by their first and last name so that, for e
     <span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <p>Next, we register the specific conditions for filtering by the first and last name using this object type condition:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
    <span class="nt">&lt;name&gt;</span>com.woltlab.wcf.people.firstName<span class="nt">&lt;/name&gt;</span>
    <span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.box.personList.condition<span class="nt">&lt;/definitionname&gt;</span>
    <span class="nt">&lt;classname&gt;</span>wcf\system\condition\person\PersonFirstNameTextPropertyCondition<span class="nt">&lt;/classname&gt;</span>
@@ -2200,8 +2323,55 @@ We will support filtering the people by their first and last name so that, for e
    <span class="nt">&lt;classname&gt;</span>wcf\system\condition\person\PersonLastNameTextPropertyCondition<span class="nt">&lt;/classname&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <p><code>PersonFirstNameTextPropertyCondition</code> and <code>PersonLastNameTextPropertyCondition</code> only differ minimally so that we only focus on <code>PersonFirstNameTextPropertyCondition</code> here, which relies on the default implementation <code>AbstractObjectTextPropertyCondition</code> and only requires specifying different object properties:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">wcf\system\condition\person</span><span class="p">;</span>
 
@@ -2249,6 +2419,7 @@ We will support filtering the people by their first and last name so that, for e
     <span class="k">protected</span> <span class="nv">$supportsMultipleValues</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+</td></tr></table>
 <ol>
 <li><code>$className</code> contains the class name of the relevant database object from which the class name of the database object list is derived and <code>$propertyName</code> is the name of the database object's property that contains the value used for filtering.</li>
 <li>By setting <code>$supportsMultipleValues</code> to <code>true</code>, multiple comma-separated values can be specified so that, for example, a box can also only list people with either of two specific first names.</li>

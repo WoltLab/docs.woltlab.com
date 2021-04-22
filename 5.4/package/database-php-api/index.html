@@ -2013,7 +2013,16 @@
 </div>
 <p>While the <a href="../pip/sql/">sql</a> package installation plugin supports adding and removing tables, columns, and indices, it is not able to handle cases where the added table, column, or index already exist.
 We have added a new PHP-based API to manipulate the database scheme which can be used in combination with the <a href="../pip/script/">script</a> package installation plugin that skips parts that already exist:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$tables</span> <span class="o">=</span> <span class="p">[</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nv">$tables</span> <span class="o">=</span> <span class="p">[</span>
     <span class="c1">// list of `DatabaseTable` objects</span>
 <span class="p">];</span>
 
@@ -2024,19 +2033,32 @@ We have added a new PHP-based API to manipulate the database scheme which can be
     <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getEditor</span><span class="p">())</span>
 <span class="p">)</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">();</span>
 </code></pre></div>
+</td></tr></table>
 <p>All of the relevant components can be found in the <code>wcf\system\database\table</code> namespace.</p>
 <p>With WoltLab Suite 5.4, you should use the new <a href="../pip/database/">database</a> package installation plugin for which you only have to return the array of affected database tables:</p>
-<div class="highlight"><pre><span></span><code><span class="k">return</span> <span class="p">[</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">return</span> <span class="p">[</span>
     <span class="c1">// list of `DatabaseTable` objects</span>
 <span class="p">];</span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="database-tables">Database Tables<a class="headerlink" href="#database-tables" title="Permanent link">#</a></h2>
 <p>There are two classes representing database tables: <code>DatabaseTable</code> and <code>PartialDatabaseTable</code>.
 If a new table should be created, use <code>DatabaseTable</code>.
 In all other cases, <code>PartialDatabaseTable</code> should be used as it provides an additional save-guard against accidentally creating a new table by having a typo in the table name:
 If the tables does not already exist, a table represented by <code>PartialDatabaseTable</code> will cause an exception (while a <code>DatabaseTable</code> table will simply be created).</p>
 <p>To create a table, a <code>DatabaseTable</code> object with the table's name as to be created and table's columns, foreign keys and indices have to be specified:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">DatabaseTable</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;foo1_bar&#39;</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">DatabaseTable</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;foo1_bar&#39;</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">columns</span><span class="p">([</span>
         <span class="c1">// columns</span>
     <span class="p">])</span>
@@ -2047,11 +2069,14 @@ If the tables does not already exist, a table represented by <code>PartialDataba
         <span class="c1">// indices</span>
     <span class="p">])</span>
 </code></pre></div>
+</td></tr></table>
 <p>To update a table, the same code as above can be used, except for <code>PartialDatabaseTable</code> being used instead of <code>DatabaseTable</code>.</p>
 <p>To drop a table, only the <code>drop()</code> method has to be called:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">PartialDatabaseTable</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;foo1_bar&#39;</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">PartialDatabaseTable</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;foo1_bar&#39;</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">drop</span><span class="p">()</span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">#</a></h2>
 <p>To represent a column of a database table, you have to create an instance of the relevant column class found in the <code>wcf\system\database\table\column</code> namespace.
 Such instances are created similarly to database table objects using the <code>create()</code> factory method and passing the column name as the parameter.</p>
@@ -2078,7 +2103,13 @@ Such instances are created similarly to database table objects using the <code>c
 <li><code>ObjectIdDatabaseTableColumn</code> (a <code>int</code> column with length <code>10</code>, whose values cannot be <code>null</code>, and whose values are auto-incremented)</li>
 </ul>
 <p>Examples:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">DefaultFalseBooleanDatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;isDisabled&#39;</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">DefaultFalseBooleanDatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;isDisabled&#39;</span><span class="p">)</span>
 
 <span class="nx">NotNullInt10DatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;fooTypeID&#39;</span><span class="p">)</span>
 
@@ -2086,24 +2117,33 @@ Such instances are created similarly to database table objects using the <code>c
     <span class="o">-&gt;</span><span class="na">length</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">notNull</span><span class="p">()</span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="foreign-keys">Foreign Keys<a class="headerlink" href="#foreign-keys" title="Permanent link">#</a></h2>
 <p>Foreign keys are represented by <code>DatabaseTableForeignKey</code> objects: </p>
-<div class="highlight"><pre><span></span><code><span class="nx">DatabaseTableForeignKey</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">DatabaseTableForeignKey</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
     <span class="o">-&gt;</span><span class="na">columns</span><span class="p">([</span><span class="s1">&#39;fooID&#39;</span><span class="p">])</span>
     <span class="o">-&gt;</span><span class="na">referencedTable</span><span class="p">(</span><span class="s1">&#39;wcf1_foo&#39;</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">referencedColumns</span><span class="p">([</span><span class="s1">&#39;fooID&#39;</span><span class="p">])</span>
     <span class="o">-&gt;</span><span class="na">onDelete</span><span class="p">(</span><span class="s1">&#39;CASCADE&#39;</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 <p>The supported actions for <code>onDelete()</code> and <code>onUpdate()</code> are <code>CASCADE</code>, <code>NO ACTION</code>, and <code>SET NULL</code>.
 To drop a foreign key, all of the relevant data to create the foreign key has to be present and the <code>drop()</code> method has to be called.</p>
 <p><code>DatabaseTableForeignKey::create()</code> also supports the foreign key name as a parameter.
 If it is not present, <code>DatabaseTable::foreignKeys()</code> will automatically set one based on the foreign key's data.</p>
 <h2 id="indices">Indices<a class="headerlink" href="#indices" title="Permanent link">#</a></h2>
 <p>Indices are represented by <code>DatabaseTableIndex</code> objects: </p>
-<div class="highlight"><pre><span></span><code><span class="nx">DatabaseTableIndex</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">DatabaseTableIndex</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
     <span class="o">-&gt;</span><span class="na">type</span><span class="p">(</span><span class="nx">DatabaseTableIndex</span><span class="o">::</span><span class="na">UNIQUE_TYPE</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">columns</span><span class="p">([</span><span class="s1">&#39;fooID&#39;</span><span class="p">])</span>
 </code></pre></div>
+</td></tr></table>
 <p>There are four different types: <code>DatabaseTableIndex::DEFAULT_TYPE</code> (default), <code>DatabaseTableIndex::PRIMARY_TYPE</code>, <code>DatabaseTableIndex::UNIQUE_TYPE</code>, and <code>DatabaseTableIndex::FULLTEXT_TYPE</code>.
 For primary keys, there is also the <code>DatabaseTablePrimaryIndex</code> class which automatically sets the type to <code>DatabaseTableIndex::PRIMARY_TYPE</code>.
 To drop a index, all of the relevant data to create the index has to be present and the <code>drop()</code> method has to be called.</p>

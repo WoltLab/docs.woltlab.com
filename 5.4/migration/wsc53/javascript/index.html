@@ -2020,12 +2020,17 @@ It will make consuming newly written modules that properly leverage TypeScript�
 <h2 id="wcf_click_event"><code>WCF_CLICK_EVENT</code><a class="headerlink" href="#wcf_click_event" title="Permanent link">#</a></h2>
 <p>For event listeners on click events, <code>WCF_CLICK_EVENT</code> is deprecated and should no longer be used.
 Instead, use <code>click</code> directly:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// before</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// before</span>
 <span class="nx">element</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">WCF_CLICK_EVENT</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_click</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
 
 <span class="c1">// after</span>
 <span class="nx">element</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">_click</span><span class="p">(</span><span class="nx">ev</span><span class="p">));</span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="wcfactiondelete-and-wcfactiontoggle"><code>WCF.Action.Delete</code> and <code>WCF.Action.Toggle</code><a class="headerlink" href="#wcfactiondelete-and-wcfactiontoggle" title="Permanent link">#</a></h2>
 <p><code>WCF.Action.Delete</code> and <code>WCF.Action.Toggle</code> were used for buttons to delete or enable/disable objects via JavaScript.
 In each template, <code>WCF.Action.Delete</code> or <code>WCF.Action.Toggle</code> instances had to be manually created for each object listing.</p>
@@ -2040,7 +2045,27 @@ Additionally, we have added a new <code>{objectAction}</code> template plugin, w
    These elements can be generated with the <code>{objectAction}</code> template plugin for the <code>delete</code> and <code>toggle</code> action.</li>
 </ol>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;table class=&quot;table jsObjectActionContainer&quot; </span><span class="cp">{</span><span class="c">*</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;table class=&quot;table jsObjectActionContainer&quot; </span><span class="cp">{</span><span class="c">*</span>
 <span class="c">    *</span><span class="cp">}</span><span class="x">data-object-action-class-name=&quot;wcf\data\foo\FooAction&quot;&gt;</span>
 <span class="x">    &lt;thead&gt;</span>
 <span class="x">        &lt;tr&gt;</span>
@@ -2062,6 +2087,7 @@ Additionally, we have added a new <code>{objectAction}</code> template plugin, w
 <span class="x">    &lt;/tbody&gt;</span>
 <span class="x">&lt;/table&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <p>Please refer to the documentation in <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/template/plugin/ObjectActionFunctionTemplatePlugin.class.php"><code>ObjectActionFunctionTemplatePlugin</code></a> for details and examples on how to use this template plugin.</p>
 <p>The relevant TypeScript module registering the event listeners on the object action buttons is <a href="https://github.com/WoltLab/WCF/blob/master/ts/WoltLabSuite/Core/Ui/Object/Action.ts"><code>Ui/Object/Action</code></a>.
 When an action button is clicked, an AJAX request is sent using the PHP class name and action name.
@@ -2076,7 +2102,21 @@ To use this new module, you only have to add the CSS class <code>jsReloadPageWhe
 Once this HTML element no longer has child elements, the page is reloaded.
 To also cover scenarios in which there are fixed child elements that should not be considered when determining if there are no child elements, the <code>data-reload-page-when-empty="ignore"</code> can be set for these elements.</p>
 <p>Examples:</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;table class=&quot;table&quot;&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;table class=&quot;table&quot;&gt;</span>
 <span class="x">    &lt;thead&gt;</span>
 <span class="x">        &lt;tr&gt;</span>
 <span class="x">            </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span><span class="x"></span>
@@ -2092,7 +2132,20 @@ To also cover scenarios in which there are fixed child elements that should not 
 <span class="x">    &lt;/tbody&gt;</span>
 <span class="x">&lt;/table&gt;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;div class=&quot;section tabularBox messageGroupList&quot;&gt;</span>
+</td></tr></table>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;div class=&quot;section tabularBox messageGroupList&quot;&gt;</span>
 <span class="x">    &lt;ol class=&quot;tabularList jsReloadPageWhenEmpty&quot;&gt;</span>
 <span class="x">        &lt;li class=&quot;tabularListRow tabularListRowHead&quot; data-reload-page-when-empty=&quot;ignore&quot;&gt;</span>
 <span class="x">            </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span><span class="x"></span>
@@ -2106,6 +2159,7 @@ To also cover scenarios in which there are fixed child elements that should not 
 <span class="x">    &lt;/ol&gt;</span>
 <span class="x">&lt;/div&gt;</span>
 </code></pre></div>
+</td></tr></table>
                 
                   
                     

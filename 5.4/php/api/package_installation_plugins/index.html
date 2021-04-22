@@ -2293,13 +2293,19 @@ It handles the evaluation of the document and provide you an object-orientated a
 <p>This method should return an one-dimensional array, where each key maps to the corresponding database column name (key names are case-sensitive).
 It will be passed to either <code>DatabaseObjectEditor::create()</code> or <code>DatabaseObjectEditor::update()</code>.</p>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">return</span> <span class="p">[</span>
     <span class="s1">&#39;environment&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;environment&#39;</span><span class="o">.</span><span class="nx">md</span><span class="p">],</span>
     <span class="s1">&#39;eventName&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;eventname&#39;</span><span class="o">.</span><span class="nx">md</span><span class="p">],</span>
     <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="o">.</span><span class="nx">md</span><span class="p">]</span>
 <span class="p">];</span>
 </code></pre></div>
+</td></tr></table>
 <h4 id="validateimportarray-data"><code>validateImport(array $data)</code><a class="headerlink" href="#validateimportarray-data" title="Permanent link">#</a></h4>
 <p>The passed array <code>$data</code> equals the data returned by <a href="#prepareimportarray-data">prepareImport()</a>.
 This method has no return value, instead you should throw an exception if the passed data is invalid.</p>
@@ -2311,7 +2317,26 @@ This method is expected to return an array with two keys:</p>
 <li><code>parameters</code> contains an array with values used for the SQL query.</li>
 </ul>
 <h4 id="253-example">2.5.3. Example<a class="headerlink" href="#253-example" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  *</span>
 <span class="s2">    FROM    wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tableName</span><span class="o">.</span><span class="s2">&quot;</span>
 <span class="s2">    WHERE   packageID = ?</span>
@@ -2332,11 +2357,28 @@ This method is expected to return an array with two keys:</p>
     <span class="s1">&#39;parameters&#39;</span> <span class="o">=&gt;</span> <span class="nv">$parameters</span>
 <span class="p">];</span>
 </code></pre></div>
+</td></tr></table>
 <h4 id="handledeletearray-items"><code>handleDelete(array $items)</code><a class="headerlink" href="#handledeletearray-items" title="Permanent link">#</a></h4>
 <p>The passed array <code>$items</code> contains the original node data, similar to <a href="#prepareimportarray-data">prepareImport()</a>.
 You should make use of this data to remove the matching element from database.</p>
 <p>Example:
-<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tableName</span><span class="o">.</span><span class="s2">&quot;</span>
 <span class="s2">    WHERE       packageID = ?</span>
 <span class="s2">            AND environment = ?</span>
@@ -2353,7 +2395,8 @@ You should make use of this data to remove the matching element from database.</
         <span class="nv">$item</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;templatename&#39;</span><span class="o">.</span><span class="nx">md</span><span class="p">]</span>
     <span class="p">]);</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div>
+</td></tr></table></p>
 <h4 id="postimport"><code>postImport()</code><a class="headerlink" href="#postimport" title="Permanent link">#</a></h4>
 <p>Allows you to (optionally) run additionally actions after all elements were processed.</p>
 <h2 id="abstractoptionpackageinstallationplugin"><code>AbstractOptionPackageInstallationPlugin</code><a class="headerlink" href="#abstractoptionpackageinstallationplugin" title="Permanent link">#</a></h2>

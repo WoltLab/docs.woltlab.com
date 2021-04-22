@@ -2058,7 +2058,21 @@ of background on caches and examples that should help you in your decision.</p>
 <h2 id="abstractcachebuilder"><code>AbstractCacheBuilder</code><a class="headerlink" href="#abstractcachebuilder" title="Permanent link">#</a></h2>
 <p>Every cache builder should derive from the base class <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/cache/builder/AbstractCacheBuilder.class.php">AbstractCacheBuilder</a>
 that already implements the mandatory interface <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/cache/builder/ICacheBuilder.class.php">ICacheBuilder</a>.</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">namespace</span> <span class="nx">wcf\system\cache\builder</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">ExampleCacheBuilder</span> <span class="k">extends</span> <span class="nx">AbstractCacheBuilder</span> <span class="p">{</span>
@@ -2074,16 +2088,21 @@ that already implements the mandatory interface <a href="https://github.com/Wolt
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+</td></tr></table>
 <p>Reading data from your cache builder is quite simple and follows a consistent
 pattern. The callee only needs to know the name of the cache builder, which
 parameters it requires and how the returned data looks like. It does not need
 to know how the data is retrieve, where it was stored, nor if it had to be
 rebuild due to the maximum lifetime.</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">use</span> <span class="nx">wcf\system\cache\builder\ExampleCacheBuilder</span><span class="p">;</span>
 
 <span class="nv">$data</span> <span class="o">=</span> <span class="nx">ExampleCacheBuilder</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">(</span><span class="nv">$parameters</span><span class="p">);</span>
 </code></pre></div>
+</td></tr></table>
 <h3 id="getdataarray-parameters-string-arrayindex-array"><code>getData(array $parameters = [], string $arrayIndex = ''): array</code><a class="headerlink" href="#getdataarray-parameters-string-arrayindex-array" title="Permanent link">#</a></h3>
 <p>Retrieves the data from the cache builder, the <code>$parameters</code> array is automatically
 sorted to allow sub-sequent requests for the same parameters to be recognized,

@@ -2118,7 +2118,29 @@ include any personal data stored for your plugin or app by yourself.</p>
 <p>The event <code>export</code> is fired before any data is sent out, but after any Core data
 has been dumped to the <code>$data</code> property.</p>
 <h3 id="example-code">Example code<a class="headerlink" href="#example-code" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">namespace</span> <span class="nx">wcf\system\event\listener</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\acp\action\UserExportGdprAction</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\data\user\UserProfile</span><span class="p">;</span>
@@ -2142,6 +2164,7 @@ has been dumped to the <code>$data</code> property.</p>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+</td></tr></table>
 <h3 id="data"><code>$data</code><a class="headerlink" href="#data" title="Permanent link">#</a></h3>
 <p>Contains the entire data that will be included in the exported JSON file, some
 fields may already exist (such as <code>'com.woltlab.wcf'</code>) and while you may add or

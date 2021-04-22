@@ -2104,7 +2104,22 @@ but instead serves as a cheat sheet to convert code to use the new API.</p>
 <p>Singleton instances are designed to provide a unique "instance" of an object
 regardless of when its first instance was created. Due to the lack of a <code>class</code>
 construct in ES5, they are represented by mere objects that act as an instance.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// App.js</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// App.js</span>
 <span class="nb">window</span><span class="p">.</span><span class="nx">App</span> <span class="o">=</span> <span class="p">{};</span>
 <span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">bar</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
@@ -2121,8 +2136,27 @@ construct in ES5, they are represented by mere objects that act as an instance.<
   <span class="p">};</span>
 <span class="p">});</span>
 </code></pre></div>
+</td></tr></table>
 <h3 id="regular-classes">Regular Classes<a class="headerlink" href="#regular-classes" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// App.js</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// App.js</span>
 <span class="nb">window</span><span class="p">.</span><span class="nx">App</span> <span class="o">=</span> <span class="p">{};</span>
 <span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="nx">bar</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
@@ -2142,8 +2176,42 @@ construct in ES5, they are represented by mere objects that act as an instance.<
   <span class="k">return</span> <span class="nx">Foo</span><span class="p">;</span>
 <span class="p">});</span>
 </code></pre></div>
+</td></tr></table>
 <h4 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1">// App.js</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// App.js</span>
 <span class="nb">window</span><span class="p">.</span><span class="nx">App</span> <span class="o">=</span> <span class="p">{};</span>
 <span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="nx">bar</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
@@ -2178,8 +2246,70 @@ construct in ES5, they are represented by mere objects that act as an instance.<
   <span class="k">return</span> <span class="nx">Baz</span><span class="p">;</span>
 <span class="p">});</span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="ajax-requests">Ajax Requests<a class="headerlink" href="#ajax-requests" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1">// App.js</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// App.js</span>
 <span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="nx">_proxy</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
 
@@ -2242,8 +2372,29 @@ construct in ES5, they are represented by mere objects that act as an instance.<
   <span class="k">return</span> <span class="nx">Foo</span><span class="p">;</span>
 <span class="p">});</span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="phrases">Phrases<a class="headerlink" href="#phrases" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
 <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">WCF</span><span class="p">.</span><span class="nx">Language</span><span class="p">.</span><span class="nx">addObject</span><span class="p">({</span>
     <span class="s1">&#39;app.foo.bar&#39;</span><span class="o">:</span> <span class="s1">&#39;{lang}app.foo.bar{/lang}&#39;</span>
@@ -2265,8 +2416,29 @@ construct in ES5, they are represented by mere objects that act as an instance.<
 <span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <h2 id="event-listener">Event-Listener<a class="headerlink" href="#event-listener" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
 <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">WCF</span><span class="p">.</span><span class="nx">System</span><span class="p">.</span><span class="nx">Event</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;app.foo.bar&quot;</span><span class="p">,</span> <span class="s2">&quot;makeSnafucated&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Event was invoked.&quot;</span><span class="p">);</span>
@@ -2288,6 +2460,7 @@ construct in ES5, they are represented by mere objects that act as an instance.<
 <span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
+</td></tr></table>
                 
                   
                     

@@ -2065,7 +2065,20 @@
 <h2 id="consuming-woltlab-suites-types">Consuming WoltLab Suite’s Types<a class="headerlink" href="#consuming-woltlab-suites-types" title="Permanent link">#</a></h2>
 <p>To consume the types of WoltLab Suite, you will need to install the <code>@woltlab/wcf</code> npm package using a git URL that refers to the appropriate branch of <a href="https://github.com/WoltLab/WCF">WoltLab/WCF</a>.</p>
 <p>A full <code>package.json</code> that includes WoltLab Suite, TypeScript, eslint and Prettier could look like the following.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;@typescript-eslint/eslint-plugin&quot;</span><span class="p">:</span> <span class="s2">&quot;^4.6.1&quot;</span><span class="p">,</span>
     <span class="nt">&quot;@typescript-eslint/parser&quot;</span><span class="p">:</span> <span class="s2">&quot;^4.6.1&quot;</span><span class="p">,</span>
@@ -2080,10 +2093,38 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+</td></tr></table>
 <p>After installing the types using npm, you will also need to configure <code>tsconfig.json</code> to take the types into account.
 To do so, you will need to add them to the <code>compilerOptions.paths</code> option.
 A complete <code>tsconfig.json</code> file that matches the configuration of WoltLab Suite could look like the following.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;include&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="s2">&quot;node_modules/@woltlab/wcf/global.d.ts&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ts/**/*&quot;</span>
@@ -2112,6 +2153,7 @@ A complete <code>tsconfig.json</code> file that matches the configuration of Wol
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+</td></tr></table>
 <p>After this initial set-up, you would place your TypeScript source files into the <code>ts/</code> folder of your project.
 The generated JavaScript target files will be placed into <code>files/js/</code> and thus will be installed by the <a href="../../package/pip/file/">file PIP</a>.</p>
 <h2 id="additional-tools">Additional Tools<a class="headerlink" href="#additional-tools" title="Permanent link">#</a></h2>
@@ -2119,11 +2161,49 @@ The generated JavaScript target files will be placed into <code>files/js/</code>
 The current configuration of these tools is as follows.
 It is recommended to re-use this configuration as is.</p>
 <h3 id="prettierrc">.prettierrc<a class="headerlink" href="#prettierrc" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code>trailingComma: all
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>trailingComma: all
 printWidth: 120
 </code></pre></div>
+</td></tr></table>
 <h3 id="eslintrcjs">.eslintrc.js<a class="headerlink" href="#eslintrcjs" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">root</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">parser</span><span class="o">:</span> <span class="s2">&quot;@typescript-eslint/parser&quot;</span><span class="p">,</span>
   <span class="nx">parserOptions</span><span class="o">:</span> <span class="p">{</span>
@@ -2161,27 +2241,44 @@ printWidth: 120
   <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
+</td></tr></table>
 <h3 id="eslintignore">.eslintignore<a class="headerlink" href="#eslintignore" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code>**/*.js
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>**/*.js
 </code></pre></div>
+</td></tr></table>
 <h3 id="gitattributes">.gitattributes<a class="headerlink" href="#gitattributes" title="Permanent link">#</a></h3>
 <p>This <code>.gitattributes</code> configuration will automatically collapse the generated JavaScript target files in GitHub’s Diff view.
 You will not need it if you do not use git or GitHub.</p>
-<div class="highlight"><pre><span></span><code>files/js/**/*.js linguist-generated
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>files/js/**/*.js linguist-generated
 </code></pre></div>
+</td></tr></table>
 <h2 id="writing-a-simple-module">Writing a simple module<a class="headerlink" href="#writing-a-simple-module" title="Permanent link">#</a></h2>
 <p>After completing this initial set-up you can start writing your first TypeScript module.
 The TypeScript compiler can be launched in Watch Mode by running <code>npx tsc -w</code>.</p>
 <p>WoltLab Suite’s modules can be imported using the standard ECMAScript module import syntax by specifying the full module name.
 The public API of the module can also be exported using the standard ECMAScript module export syntax.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">Language</span> <span class="nx">from</span> <span class="s2">&quot;WoltLabSuite/Core/Language&quot;</span><span class="p">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">Language</span> <span class="nx">from</span> <span class="s2">&quot;WoltLabSuite/Core/Language&quot;</span><span class="p">;</span>
 
 <span class="k">export</span> <span class="kd">function</span> <span class="nx">run</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;wcf.foo.bar&quot;</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
+</td></tr></table>
 <p>This simple example module will compile to plain JavaScript that is compatible with the AMD loader that is used by WoltLab Suite.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">define</span><span class="p">([</span><span class="s2">&quot;require&quot;</span><span class="p">,</span> <span class="s2">&quot;exports&quot;</span><span class="p">,</span> <span class="s2">&quot;tslib&quot;</span><span class="p">,</span> <span class="s2">&quot;WoltLabSuite/Core/Language&quot;</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">tslib_1</span><span class="p">,</span> <span class="nx">Language</span><span class="p">)</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">define</span><span class="p">([</span><span class="s2">&quot;require&quot;</span><span class="p">,</span> <span class="s2">&quot;exports&quot;</span><span class="p">,</span> <span class="s2">&quot;tslib&quot;</span><span class="p">,</span> <span class="s2">&quot;WoltLabSuite/Core/Language&quot;</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">tslib_1</span><span class="p">,</span> <span class="nx">Language</span><span class="p">)</span> <span class="p">{</span>
     <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
     <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">exports</span><span class="p">,</span> <span class="s2">&quot;__esModule&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
     <span class="nx">exports</span><span class="p">.</span><span class="nx">run</span> <span class="o">=</span> <span class="k">void</span> <span class="mf">0</span><span class="p">;</span>
@@ -2192,13 +2289,19 @@ The public API of the module can also be exported using the standard ECMAScript 
     <span class="nx">exports</span><span class="p">.</span><span class="nx">run</span> <span class="o">=</span> <span class="nx">run</span><span class="p">;</span>
 <span class="p">});</span>
 </code></pre></div>
+</td></tr></table>
 <p>Within templates it can be consumed as follows.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
   <span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Example&quot;</span><span class="p">],</span> <span class="p">(</span><span class="nx">Example</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="nx">Example</span><span class="p">.</span><span class="nx">run</span><span class="p">();</span> <span class="c1">// Alerts the contents of the `wcf.foo.bar` phrase.</span>
   <span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
+</td></tr></table>
                 
                   
                     

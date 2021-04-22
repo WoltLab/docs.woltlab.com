@@ -1977,7 +1977,43 @@ The <code>DatabaseObject</code> class must implement the interface <code>wcf\dat
   You can, for example, specify additional query conditions in the method.</li>
 </ul>
 <p>As an example, the implementation for users looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">namespace</span> <span class="nx">wcf\system\sitemap\object</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\data\user\User</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\data\DatabaseObject</span><span class="p">;</span>
@@ -2015,8 +2051,16 @@ The <code>DatabaseObject</code> class must implement the interface <code>wcf\dat
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+</td></tr></table>
 <p>Next, the sitemap object must be registered as an object type:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
         <span class="nt">&lt;name&gt;</span>com.example.plugin.sitemap.object.user<span class="nt">&lt;/name&gt;</span>
         <span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.sitemap.object<span class="nt">&lt;/definitionname&gt;</span>
         <span class="nt">&lt;classname&gt;</span>wcf\system\sitemap\object\UserSitemapObject<span class="nt">&lt;/classname&gt;</span>
@@ -2025,6 +2069,7 @@ The <code>DatabaseObject</code> class must implement the interface <code>wcf\dat
         <span class="nt">&lt;rebuildTime&gt;</span>259200<span class="nt">&lt;/rebuildTime&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 </code></pre></div>
+</td></tr></table>
 <p>In addition to the fully qualified class name, the object type definition <code>com.woltlab.wcf.sitemap.object</code> and the object type name, the parameters <code>priority</code>, <code>changeFreq</code> and <code>rebuildTime</code> must also be specified.
 <code>priority</code> (<a href="https://www.sitemaps.org/protocol.html#prioritydef">https://www.sitemaps.org/protocol.html#prioritydef</a>) and <code>changeFreq</code> (<a href="https://www.sitemaps.org/protocol.html#changefreqdef">https://www.sitemaps.org/protocol.html#changefreqdef</a>) are specifications in the sitemaps protocol and can be changed by the user in the ACP.
 The <code>priority</code> should be <code>0.5</code> by default, unless there is an important reason to change it.
