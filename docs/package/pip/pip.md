@@ -10,14 +10,8 @@ Each package installation plugin is described as an `<pip>` element with a `name
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/packageInstallationPlugin.xsd">
-	<import>
-		<pip name="custom">wcf\system\package\plugin\CustomPackageInstallationPlugin</pip>
-	</import>
-	<delete>
-		<pip name="outdated" />
-	</delete>
-</data>
-```
+{jinja{ codebox(
+    "xml",
+    "package/pip/packageInstallationPlugin.xml",
+    "packageInstallationPlugin.xml"
+) }}

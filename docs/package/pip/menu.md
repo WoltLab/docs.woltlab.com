@@ -24,25 +24,8 @@ The following elements of the [box PIP](box.md) are supported, please refer to t
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/menu.xsd">
-    <import>
-        <menu identifier="com.woltlab.wcf.FooterLinks">
-            <title language="de">Footer-Links</title>
-            <title language="en">Footer Links</title>
-
-            <box>
-                <position>footer</position>
-                <cssClassName>boxMenuLinkGroup</cssClassName>
-                <showHeader>0</showHeader>
-                <visibleEverywhere>1</visibleEverywhere>
-            </box>
-        </menu>
-    </import>
-
-    <delete>
-        <menu identifier="com.woltlab.wcf.FooterLinks" />
-    </delete>
-</data>
-```
+{jinja{ codebox(
+    "xml",
+    "package/pip/menu.xml",
+    "menu.xml"
+) }}

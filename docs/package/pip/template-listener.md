@@ -56,20 +56,8 @@ The permissions element can contain a comma-separated list of permissions of whi
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/templatelistener.xsd">
-	<import>
-		<templatelistener name="example">
-			<environment>user</environment>
-			<templatename>headIncludeJavaScript</templatename>
-			<eventname>javascriptInclude</eventname>
-			<templatecode><![CDATA[{include file='__myCustomJavaScript'}]]></templatecode>
-		</templatelistener>
-	</import>
-	
-	<delete>
-		<templatelistener name="oldTemplateListenerName" />
-	</delete>
-</data>
-```
+{jinja{ codebox(
+    "xml",
+    "package/pip/templateListener.xml",
+    "templateListener.xml"
+) }}

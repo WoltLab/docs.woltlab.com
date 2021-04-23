@@ -23,11 +23,8 @@ The text content of the `<item>` node is the value of the language item. Languag
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/language.xsd" languagecode="de">
-	<category name="wcf.example">
-		<item name="wcf.example.foo"><![CDATA[<strong>Look!</strong>]]></item>
-	</category>
-</language>
-```
+{jinja{ codebox(
+    "xml",
+    "package/pip/en.xml",
+    "language/en.xml"
+) }}

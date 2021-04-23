@@ -12,21 +12,11 @@ A comprehensive list of all available events is provided [here](event_list.md).
 Let's start with a simple example to illustrate how the event system works.
 Consider this pre-existing class:
 
-```php
-<?php
-namespace wcf\system\example;
-use wcf\system\event\EventHandler;
-
-class ExampleComponent {
-	public $var = 1;
-	
-	public function getVar() {
-		EventHandler::getInstance()->fireAction($this, 'getVar');
-		
-		return $this->var;
-	}
-}
-```
+{jinja{ codebox(
+  "php",
+  "php/api/events/ExampleComponent.class.php",
+  "files/lib/system/example/ExampleComponent.class.php"
+) }}
 
 where an event with event name `getVar` is fired in the `getVar()` method.
 
@@ -51,17 +41,11 @@ else {
 
 Now, consider that we have registered the following event listener to this event:
 
-```php
-<?php
-namespace wcf\system\event\listener;
-
-class ExampleEventListener implements IParameterizedEventListener {
-	public function execute($eventObj, $className, $eventName, array &$parameters) {
-		$eventObj->var = 2;
-	}
-}
-
-```
+{jinja{ codebox(
+  "php",
+  "php/api/events/ExampleEventListener.class.php",
+  "files/lib/system/event/listener/ExampleEventListener.class.php"
+) }}
 
 Whenever the event in the `getVar()` method is called, this method (of the same event listener object) is called.
 In this case, the value of the method's first parameter is the `ExampleComponent` object passed as the first argument of the `EventHandler::fireAction()` call in `ExampleComponent::getVar()`.
@@ -99,66 +83,31 @@ The only thing to do is to call the `wcf\system\event\EventHandler::fireAction($
 
 Consider the following method which gets some text that the methods parses.
 
-```php
-<?php
-namespace wcf\system\example;
-use wcf\system\event\EventHandler;
-
-class ExampleParser {
-	public function parse($text) {
-		// [some parsing done by default]
-		
-		$parameters = ['text' => $text];
-		EventHandler::getInstance()->fireAction($this, 'parse', $parameters);
-		
-		return $parameters['text'];
-	}
-}
-```
+{jinja{ codebox(
+  "php",
+  "php/api/events/ExampleParser1.class.php",
+  "files/lib/system/example/ExampleParser.class.php"
+) }}
 
 After the default parsing by the method itself, the author wants to enable plugins to do additional parsing and thus fires an event and passes the parsed text as an additional parameter.
 Then, a plugin can deliver the following event listener
 
-```php
-<?php
-namespace wcf\system\event\listener;
-
-class ExampleParserEventListener implements IParameterizedEventListener {
-	public function execute($eventObj, $className, $eventName, array &$parameters) {
-		$text = $parameters['text'];
-		
-		// [some additional parsing which changes $text]
-		
-		$parameters['text'] = $text;
-	}
-}
-```
+{jinja{ codebox(
+  "php",
+  "php/api/events/ExampleParserEventListener.class.php",
+  "files/lib/system/event/listener/ExampleParserEventListener.class.php"
+) }}
 
 which can access the text via `$parameters['text']`.
 
 This example can also be perfectly used to illustrate how to name multiple events in the same method.
 Let's assume that the author wants to enable plugins to change the text before and after the method does its own parsing and thus fires two events:
 
-```php
-<?php
-namespace wcf\system\example;
-use wcf\system\event\EventHandler;
-
-class ExampleParser {
-	public function parse($text) {
-		$parameters = ['text' => $text];
-		EventHandler::getInstance()->fireAction($this, 'beforeParsing', $parameters);
-		$text = $parameters['text'];
-		
-		// [some parsing done by default]
-		
-		$parameters = ['text' => $text];
-		EventHandler::getInstance()->fireAction($this, 'afterParsing', $parameters);
-		
-		return $parameters['text'];
-	}
-}
-```
+{jinja{ codebox(
+  "php",
+  "php/api/events/ExampleParser2.class.php",
+  "files/lib/system/example/ExampleParser.class.php"
+) }}
 
 
 ## Advanced Example: Additional Form Field
@@ -184,50 +133,11 @@ The points in the program flow of [AbstractForm](../pages.md#abstractform) that 
 
 All of these cases can be covered the by following code in which we assume that `wcf\form\ExampleAddForm` is the form to create example objects and that `wcf\form\ExampleEditForm` extends `wcf\form\ExampleAddForm` and is used for editing existing example objects.
 
-```php
-<?php
-namespace wcf\system\event\listener;
-use wcf\form\ExampleAddForm;
-use wcf\form\ExampleEditForm;
-use wcf\system\exception\UserInputException;
-use wcf\system\WCF;
-
-class ExampleAddFormListener implements IParameterizedEventListener {
-	protected $var = 0;
-	
-	public function execute($eventObj, $className, $eventName, array &$parameters) {
-		$this->$eventName($eventObj);
-	}
-	
-	protected function assignVariables() {
-		WCF::getTPL()->assign('var', $this->var);
-	}
-	
-	protected function readData(ExampleEditForm $eventObj) {
-		if (empty($_POST)) {
-			$this->var = $eventObj->example->var;
-		}
-	}
-	
-	protected function readFormParameters() {
-		if (isset($_POST['var'])) $this->var = intval($_POST['var']);
-	}
-	
-	protected function save(ExampleAddForm $eventObj) {
-		$eventObj->additionalFields = array_merge($eventObj->additionalFields, ['var' => $this->var]);
-	}
-	
-	protected function saved() {
-		$this->var = 0;
-	}
-	
-	protected function validate() {
-		if ($this->var < 0) {
-			throw new UserInputException('var', 'isNegative');
-		}
-	}
-}
-```
+{jinja{ codebox(
+  "php",
+  "php/api/events/ExampleAddFormListener.class.php",
+  "files/lib/system/event/listener/ExampleAddFormListener.class.php"
+) }}
 
 The `execute` method in this example just delegates the call to a method with the same name as the event so that this class mimics the structure of a form class itself.
 The form object is passed to the methods but is only given in the method signatures as a parameter here whenever the form object is actually used.
@@ -243,28 +153,8 @@ Furthermore, the type-hinting of the parameter illustrates in which contexts the
 
 Lastly, the following XML file has to be used to register the event listeners (you can find more information about how to register event listeners on [the eventListener package installation plugin page](../../package/pip/event-listener.md)):
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/eventListener.xsd">
-	<import>
-		<eventlistener name="exampleAddInherited">
-			<eventclassname>wcf\form\ExampleAddForm</eventclassname>
-			<eventname>assignVariables,readFormParameters,save,validate</eventname>
-			<listenerclassname>wcf\system\event\listener\ExampleAddFormListener</listenerclassname>
-			<inherit>1</inherit>
-		</eventlistener>
-		
-		<eventlistener name="exampleAdd">
-			<eventclassname>wcf\form\ExampleAddForm</eventclassname>
-			<eventname>saved</eventname>
-			<listenerclassname>wcf\system\event\listener\ExampleAddFormListener</listenerclassname>
-		</eventlistener>
-		
-		<eventlistener name="exampleEdit">
-			<eventclassname>wcf\form\ExampleEditForm</eventclassname>
-			<eventname>readData</eventname>
-			<listenerclassname>wcf\system\event\listener\ExampleAddFormListener</listenerclassname>
-		</eventlistener>
-	</import>
-</data>
-```
+{jinja{ codebox(
+  "xml",
+  "php/api/events/eventListener.xml",
+  "eventListener.xml"
+) }}

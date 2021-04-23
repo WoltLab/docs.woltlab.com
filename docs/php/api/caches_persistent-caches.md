@@ -25,23 +25,12 @@ of background on caches and examples that should help you in your decision.
 Every cache builder should derive from the base class [AbstractCacheBuilder](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/cache/builder/AbstractCacheBuilder.class.php)
 that already implements the mandatory interface [ICacheBuilder](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/cache/builder/ICacheBuilder.class.php).
 
-```php
-<?php
-namespace wcf\system\cache\builder;
 
-class ExampleCacheBuilder extends AbstractCacheBuilder {
-  // 3600 = 1hr
-  protected $maxLifetime = 3600;
-
-  public function rebuild(array $parameters) {
-    $data = [];
-
-    // fetch and process your data and assign it to `$data`
-
-    return $data;
-  }
-}
-```
+{jinja{ codebox(
+"php",
+"php/api/caches/ExampleCacheBuilder.class.php",
+"files/lib/system/cache/builder/ExampleCacheBuilder.class.php"
+) }}
 
 Reading data from your cache builder is quite simple and follows a consistent
 pattern. The callee only needs to know the name of the cache builder, which

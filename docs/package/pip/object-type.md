@@ -25,16 +25,8 @@ Refer to the documentation of these for further explanation.
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/objectType.xsd">
-	<import>
-		<type>
-			<name>com.woltlab.wcf.example</name>
-			<definitionname>com.woltlab.wcf.rebuildData</definitionname>
-			<classname>wcf\system\worker\ExampleRebuildWorker</classname>
-			<nicevalue>130</nicevalue>
-		</type>
-	</import>
-</data>
-```
+{jinja{ codebox(
+    "xml",
+    "package/pip/objectType.xml",
+    "objectType.xml"
+) }}

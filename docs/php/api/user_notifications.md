@@ -7,106 +7,28 @@ WoltLab Suite includes a powerful user notification system that supports notific
 
 For any type of object related to events, you have to define an object type for the object type definition `com.woltlab.wcf.notification.objectType`:
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/objectType.xsd">
-	<import>
-		<type>
-			<name>com.woltlab.example.foo</name>
-			<definitionname>com.woltlab.wcf.notification.objectType</definitionname>
-			<classname>example\system\user\notification\object\type\FooUserNotificationObjectType</classname>
-			<category>com.woltlab.example</category>
-		</type>
-	</import>
-</data>
-```
+{jinja{ codebox(
+  "xml",
+  "php/api/user_notifications/objectType.xml",
+  "objectType.xml"
+) }}
 
 The referenced class `FooUserNotificationObjectType` has to implement the [IUserNotificationObjectType](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/type/IUserNotificationObjectType.class.php) interface, which should be done by extending [AbstractUserNotificationObjectType](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/type/AbstractUserNotificationObjectType.class.php).
 
-
-```php
-<?php
-namespace example\system\user\notification\object\type;
-use example\data\foo\Foo;
-use example\data\foo\FooList;
-use example\system\user\notification\object\FooUserNotificationObject;
-use wcf\system\user\notification\object\type\AbstractUserNotificationObjectType;
-
-/**
- * Represents a foo as a notification object type.
- * 
- * @author	Matthias Schmidt
- * @copyright	2001-2017 WoltLab GmbH
- * @license	WoltLab License <http://www.woltlab.com/license-agreement.html>
- * @package	WoltLabSuite\Example\System\User\Notification\Object\Type
- */
-class FooUserNotificationObjectType extends AbstractUserNotificationObjectType {
-	/**
-	 * @inheritDoc
-	 */
-	protected static $decoratorClassName = FooUserNotificationObject::class;
-	
-	/**
-	 * @inheritDoc
-	 */
-	protected static $objectClassName = Foo::class;
-	
-	/**
-	 * @inheritDoc
-	 */
-	protected static $objectListClassName = FooList::class;
-}
-```
+{jinja{ codebox(
+  "php",
+  "php/api/user_notifications/FooUserNotificationObjectType.class.php",
+  "files/lib/system/user/notification/object/type/FooUserNotificationObjectType.class.php"
+) }}
 
 You have to set the class names of the database object (`$objectClassName`) and the related list (`$objectListClassName`).
-Additionally, you have to create a class that implements the [IUserNotificationObject](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/IUserNotificationObject.class.php) whose name you have to set as the value of the `$decoratorClassName` property. 
+Additionally, you have to create a class that implements the [IUserNotificationObject](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/IUserNotificationObject.class.php) whose name you have to set as the value of the `$decoratorClassName` property.
 
-```php
-<?php
-namespace example\system\user\notification\object;
-use example\data\foo\Foo;
-use wcf\data\DatabaseObjectDecorator;
-use wcf\system\user\notification\object\IUserNotificationObject;
-
-/**
- * Represents a foo as a notification object.
- * 
- * @author	Matthias Schmidt
- * @copyright	2001-2017 WoltLab GmbH
- * @license	WoltLab License <http://www.woltlab.com/license-agreement.html>
- * @package	WoltLabSuite\Example\System\User\Notification\Object
- * 
- * @method	Foo	getDecoratedObject()
- * @mixin	Foo
- */
-class FooUserNotificationObject extends DatabaseObjectDecorator implements IUserNotificationObject {
-	/**
-	 * @inheritDoc
-	 */
-	protected static $baseClass = Foo::class;
-	
-	/**
-	 * @inheritDoc
-	 */
-	public function getTitle() {
-		return $this->getDecoratedObject()->getTitle();
-	}
-	
-	/**
-	 * @inheritDoc
-	 */
-	public function getURL() {
-		return $this->getDecoratedObject()->getLink();
-	}
-	
-	/**
-	 * @inheritDoc
-	 */
-	public function getAuthorID() {
-		return $this->getDecoratedObject()->userID;
-	}
-}
-```
+{jinja{ codebox(
+  "php",
+  "php/api/user_notifications/FooUserNotificationObject.class.php",
+  "files/lib/system/user/notification/object/FooUserNotificationObject.class.php"
+) }}
 
 - The `getTitle()` method returns the title of the object.
   In this case, we assume that the `Foo` class has implemented the [ITitledObject](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/data/ITitledObject.class.php) interface so that the decorated `Foo` can handle this method call itself.
@@ -121,165 +43,21 @@ class FooUserNotificationObject extends DatabaseObjectDecorator implements IUser
 Each event that you fire in your package needs to be registered using the [user notification event package installation plugin](../../package/pip/user-notification-event.md).
 An example file might look like this:
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/userNotificationEvent.xsd">
-	<import>
-		<event>
-			<name>bar</name>
-			<objecttype>com.woltlab.example.foo</objecttype>
-			<classname>example\system\user\notification\event\FooUserNotificationEvent</classname>
-			<preset>1</preset>
-		</event>
-	</import>
-</data>
-```
+{jinja{ codebox(
+  "xml",
+  "php/api/user_notifications/userNotificationEvent.xml",
+  "userNotificationEvent.xml"
+) }}
 
 Here, you reference the user notification object type created via `objectType.xml`.
 The referenced class in the `<classname>` element has to implement the [IUserNotificationEvent](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/event/IUserNotificationEvent.class.php) interface by extending the [AbstractUserNotificationEvent](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/event/AbstractUserNotificationEvent.class.php) class or the [AbstractSharedUserNotificationEvent](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/event/AbstractSharedUserNotificationEvent.class.php) class if you want to pre-load additional data before processing notifications.
 In `AbstractSharedUserNotificationEvent::prepare()`, you can, for example, tell runtime caches to prepare to load certain objects which then are loaded all at once when the objects are needed.
 
-```php
-<?php
-namespace example\system\user\notification\event;
-use example\system\cache\runtime\BazRuntimeCache;
-use example\system\user\notification\object\FooUserNotificationObject;
-use wcf\system\email\Email;
-use wcf\system\request\LinkHandler;
-use wcf\system\user\notification\event\AbstractSharedUserNotificationEvent;
-
-/**
- * Notification event for foos.
- * 
- * @author	Matthias Schmidt
- * @copyright	2001-2017 WoltLab GmbH
- * @license	WoltLab License <http://www.woltlab.com/license-agreement.html>
- * @package	WoltLabSuite\Example\System\User\Notification\Event
- * 
- * @method	FooUserNotificationObject	getUserNotificationObject()
- */
-class FooUserNotificationEvent extends AbstractSharedUserNotificationEvent {
-	/**
-	 * @inheritDoc
-	 */
-	protected $stackable = true;
-	
-	/** @noinspection PhpMissingParentCallCommonInspection */
-	/**
-	 * @inheritDoc
-	 */
-	public function checkAccess() {
-		$this->getUserNotificationObject()->setBaz(BazRuntimeCache::getInstance()->getObject($this->getUserNotificationObject()->bazID));
-		
-		if (!$this->getUserNotificationObject()->isAccessible()) {
-			// do some cleanup, if necessary
-			
-			return false;
-		}
-		
-		return true;
-	}
-	
-	/** @noinspection PhpMissingParentCallCommonInspection */
-	/**
-	 * @inheritDoc
-	 */
-	public function getEmailMessage($notificationType = 'instant') {
-		$this->getUserNotificationObject()->setBaz(BazRuntimeCache::getInstance()->getObject($this->getUserNotificationObject()->bazID));
-		
-		$messageID = '<com.woltlab.example.baz/'.$this->getUserNotificationObject()->bazID.'@'.Email::getHost().'>';
-		
-		return [
-			'application' => 'example',
-			'in-reply-to' => [$messageID],
-			'message-id' => 'com.woltlab.example.foo/'.$this->getUserNotificationObject()->fooID,
-			'references' => [$messageID],
-			'template' => 'email_notification_foo'
-		];
-	}
-	
-	/**
-	 * @inheritDoc
-	 * @since	5.0
-	 */
-	public function getEmailTitle() {
-		$this->getUserNotificationObject()->setBaz(BazRuntimeCache::getInstance()->getObject($this->getUserNotificationObject()->bazID));
-		
-		return $this->getLanguage()->getDynamicVariable('example.foo.notification.mail.title', [
-			'userNotificationObject' => $this->getUserNotificationObject()
-		]);
-	}
-	
-	/** @noinspection PhpMissingParentCallCommonInspection */
-	/**
-	 * @inheritDoc
-	 */
-	public function getEventHash() {
-		return sha1($this->eventID . '-' . $this->getUserNotificationObject()->bazID);
-	}
-	
-	/**
-	 * @inheritDoc
-	 */
-	public function getLink() {
-		return LinkHandler::getInstance()->getLink('Foo', [
-			'application' => 'example',
-			'object' => $this->getUserNotificationObject()->getDecoratedObject()
-		]);
-	}
-	
-	/**
-	 * @inheritDoc
-	 */
-	public function getMessage() {
-		$authors = $this->getAuthors();
-		$count = count($authors);
-		
-		if ($count > 1) {
-			if (isset($authors[0])) {
-				unset($authors[0]);
-			}
-			$count = count($authors);
-			
-			return $this->getLanguage()->getDynamicVariable('example.foo.notification.message.stacked', [
-				'author' => $this->author,
-				'authors' => array_values($authors),
-				'count' => $count,
-				'guestTimesTriggered' => $this->notification->guestTimesTriggered,
-				'message' => $this->getUserNotificationObject(),
-				'others' => $count - 1
-			]);
-		}
-		
-		return $this->getLanguage()->getDynamicVariable('example.foo.notification.message', [
-			'author' => $this->author,
-			'userNotificationObject' => $this->getUserNotificationObject()
-		]);
-	}
-	
-	/**
-	 * @inheritDoc
-	 */
-	public function getTitle() {
-		$count = count($this->getAuthors());
-		if ($count > 1) {
-			return $this->getLanguage()->getDynamicVariable('example.foo.notification.title.stacked', [
-				'count' => $count,
-				'timesTriggered' => $this->notification->timesTriggered
-			]);
-		}
-		
-		return $this->getLanguage()->get('example.foo.notification.title');
-	}
-	
-	/**
-	 * @inheritDoc
-	 */
-	protected function prepare() {
-		BazRuntimeCache::getInstance()->cacheObjectID($this->getUserNotificationObject()->bazID);
-	}
-}
-```
+{jinja{ codebox(
+  "php",
+  "php/api/user_notifications/FooUserNotificationEvent.class.php",
+  "files/lib/system/user/notification/event/FooUserNotificationEvent.class.php"
+) }}
 
 - The `$stackable` property is `false` by default and has to be explicitly set to `true` if stacking of notifications should be enabled.
   Stacking of notification does not create new notifications for the same event for a certain object if the related action as been triggered by different users.

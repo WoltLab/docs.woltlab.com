@@ -22,14 +22,8 @@ The name of the PHP interface [objectTypes](object-type.md) have to implement.
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/objectTypeDefinition.xsd">
-	<import>
-		<definition>
-			<name>com.woltlab.wcf.example</name>
-			<interfacename>wcf\system\example\IExampleObjectType</interfacename>
-		</definition>
-	</import>
-</data>
-```
+{jinja{ codebox(
+    "xml",
+    "package/pip/objectTypeDefinition.xml",
+    "objectTypeDefinition.xml"
+) }}

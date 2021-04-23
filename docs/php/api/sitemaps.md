@@ -26,45 +26,11 @@ Other optional methods are:
 
 As an example, the implementation for users looks like this:
 
-```php
-<?php
-namespace wcf\system\sitemap\object;
-use wcf\data\user\User;
-use wcf\data\DatabaseObject;
-use wcf\system\WCF;
-
-/**
- * User sitemap implementation.
- *
- * @author	Joshua Ruesweg
- * @copyright	2001-2017 WoltLab GmbH
- * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
- * @package	WoltLabSuite\Core\Sitemap\Object
- * @since	3.1
- */
-class UserSitemapObject extends AbstractSitemapObjectObjectType {
-	/**
-	 * @inheritDoc
-	 */
-	public function getObjectClass() {
-		return User::class;
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function getLastModifiedColumn() {
-		return 'lastActivityTime';
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function canView(DatabaseObject $object) {
-		return WCF::getSession()->getPermission('user.profile.canViewUserProfile');
-	}
-}
-```
+{jinja{ codebox(
+  "php",
+  "php/api/sitemaps/UserSitemapObject.class.php",
+  "files/lib/system/sitemap/object/UserSitemapObject.class.php"
+) }}
 
 Next, the sitemap object must be registered as an object type:
 

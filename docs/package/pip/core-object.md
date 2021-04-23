@@ -12,15 +12,10 @@ The fully qualified class name of the class.
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/coreObject.xsd">
-	<import>
-		<coreobject>
-			<objectname>wcf\system\example\ExampleHandler</objectname>
-		</coreobject>
-	</import>
-</data>
-```
+{jinja{ codebox(
+    "xml",
+    "package/pip/coreObject.xml",
+    "coreObject.xml"
+) }}
 
 This object can be accessed in templates via `$__wcf->getExampleHandler()` (in general: the method name begins with `get` and ends with the unqualified class name).

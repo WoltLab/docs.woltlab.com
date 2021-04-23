@@ -55,28 +55,8 @@ The permissions element can contain a comma-separated list of permissions of whi
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/eventListener.xsd">
-	<import>
-		<eventlistener name="inheritedAdminExample">
-			<eventclassname>wcf\acp\form\UserAddForm</eventclassname>
-			<eventname>assignVariables,readFormParameters,save,validate</eventname>
-			<listenerclassname>wcf\system\event\listener\InheritedAdminExampleListener</listenerclassname>
-			<inherit>1</inherit>
-			<environment>admin</environment>
-		</eventlistener>
-		
-		<eventlistener name="nonInheritedUserExample">
-			<eventclassname>wcf\form\SettingsForm</eventclassname>
-			<eventname>assignVariables</eventname>
-			<listenerclassname>wcf\system\event\listener\NonInheritedUserExampleListener</listenerclassname>
-		</eventlistener>
-	</import>
-	
-	<delete>
-		<eventlistener name="oldEventListenerName" />
-	</delete>
-</data>
-
-```
+{jinja{ codebox(
+    "xml",
+    "package/pip/eventListener.xml",
+    "eventListener.xml"
+) }}

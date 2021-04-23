@@ -145,30 +145,11 @@ $className = Example::class;
 
 Some database objects provide static getters, either if they are decorators or for a unique combination of database table columns, like `wcf\data\box\Box::getBoxByIdentifier()`:
 
-```php
-<?php
-namespace wcf\data\box;
-use wcf\data\DatabaseObject;
-use wcf\system\WCF;
-
-class Box extends DatabaseObject { 
-	/**
-	 * Returns the box with the given identifier.
-	 *
-	 * @param	string		$identifier
-	 * @return	Box|null
-	 */
-	public static function getBoxByIdentifier($identifier) {
-		$sql = "SELECT	*
-			FROM	wcf".WCF_N."_box
-			WHERE	identifier = ?";
-		$statement = WCF::getDB()->prepareStatement($sql);
-		$statement->execute([$identifier]);
-		
-		return $statement->fetchObject(self::class);
-	}
-}
-```
+{jinja{ codebox(
+  "php",
+  "php/code-style/Box.class.php",
+  "files/lib/data/box/Box.class.php"
+) }}
 
 Such methods should always either return the desired object or `null` if the object does not exist.
 `wcf\system\database\statement\PreparedStatement::fetchObject()` already takes care of this distinction so that its return value can simply be returned by such methods.

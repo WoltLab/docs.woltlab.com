@@ -31,15 +31,8 @@ The permissions element can contain a comma-separated list of permissions of whi
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/userProfileMenu.xsd">
-	<import>
-		<userprofilemenuitem name="example">
-			<classname>wcf\system\menu\user\profile\content\ExampleProfileMenuContent</classname>
-			<showorder>3</showorder>
-			<options>module_example</options>
-		</userprofilemenuitem>
-	</import>
-</data>
-```
+{jinja{ codebox(
+    "xml",
+    "package/pip/userProfileMenu.xml",
+    "userProfileMenu.xml"
+) }}

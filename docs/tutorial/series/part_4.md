@@ -58,9 +58,11 @@ To do so, we first have to register a new object type for this person list box c
 
 The `com.woltlab.wcf.boxController` object type definition requires the provided class to implement `wcf\system\box\IBoxController`:
 
-```php
---8<-- "tutorial/tutorial-series/part-4/files/lib/system/box/PersonListBoxController.class.php"
-```
+{jinja{ codebox(
+    "php",
+    "tutorial/tutorial-series/part-4/files/lib/system/box/PersonListBoxController.class.php",
+    "files/lib/system/box/PersonListBoxController.class.php"
+) }}
 
 By extending `AbstractDatabaseObjectListBoxController`, we only have to provide minimal data ourself and rely mostly on the default implementation provided by `AbstractDatabaseObjectListBoxController`:
 
@@ -97,9 +99,11 @@ We will support filtering the people by their first and last name so that, for e
 
 The first step for condition support is to register a object type definition for the relevant conditions requiring the `IObjectListCondition` interface:
 
-```xml
---8<-- "tutorial/tutorial-series/part-4/objectTypeDefinition.xml"
-```
+{jinja{ codebox(
+    "xml",
+    "tutorial/tutorial-series/part-4/objectTypeDefinition.xml",
+    "objectTypeDefinition.xml"
+) }}
 
 Next, we register the specific conditions for filtering by the first and last name using this object type condition:
 
@@ -118,9 +122,11 @@ Next, we register the specific conditions for filtering by the first and last na
 
 `PersonFirstNameTextPropertyCondition` and `PersonLastNameTextPropertyCondition` only differ minimally so that we only focus on `PersonFirstNameTextPropertyCondition` here, which relies on the default implementation `AbstractObjectTextPropertyCondition` and only requires specifying different object properties:
 
-```php
---8<-- "tutorial/tutorial-series/part-4/files/lib/system/condition/person/PersonFirstNameTextPropertyCondition.class.php"
-```
+{jinja{ codebox(
+    "php",
+    "tutorial/tutorial-series/part-4/files/lib/system/condition/person/PersonFirstNameTextPropertyCondition.class.php",
+    "files/lib/system/condition/person/PersonFirstNameTextPropertyCondition.class.php"
+) }}
 
 1. `$className` contains the class name of the relevant database object from which the class name of the database object list is derived and `$propertyName` is the name of the database object's property that contains the value used for filtering.
 1. By setting `$supportsMultipleValues` to `true`, multiple comma-separated values can be specified so that, for example, a box can also only list people with either of two specific first names.

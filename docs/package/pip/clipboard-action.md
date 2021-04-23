@@ -24,31 +24,8 @@ Determines at which position of the clipboard action list the action is shown.
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/clipboardAction.xsd">
-	<import>
-		<action name="delete">
-			<actionclassname>wcf\system\clipboard\action\ExampleClipboardAction</actionclassname>
-			<showorder>1</showorder>
-			<pages>
-				<page>wcf\acp\page\ExampleListPage</page>
-			</pages>
-		</action>
-		<action name="foo">
-			<actionclassname>wcf\system\clipboard\action\ExampleClipboardAction</actionclassname>
-			<showorder>2</showorder>
-			<pages>
-				<page>wcf\acp\page\ExampleListPage</page>
-			</pages>
-		</action>
-		<action name="bar">
-			<actionclassname>wcf\system\clipboard\action\ExampleClipboardAction</actionclassname>
-			<showorder>3</showorder>
-			<pages>
-				<page>wcf\acp\page\ExampleListPage</page>
-			</pages>
-		</action>
-	</import>
-</data>
-```
+{jinja{ codebox(
+    "xml",
+    "package/pip/clipboardAction.xml",
+    "clipboardAction.xml"
+) }}
