@@ -71,7 +71,7 @@ The complete package will have the following file structure (including the files
 └── userGroupOption.xml
 ```
 
-!!! warning "We will not mention every code change between the first part and this part, as we only want to focus on the important, new parts of the code. For example, there is a new `Person::getLink()` method and new language items have been added. For all changes, please refer to the [source code on GitHub]({jinja{ repo_url }}tree/{jinja{ edit_uri.split("/")[1] }}/snippets/tutorial/tutorial-series/part-3)."
+!!! warning "We will not mention every code change between the first part and this part, as we only want to focus on the important, new parts of the code. For example, there is a new `Person::getLink()` method and new language items have been added. For all changes, please refer to the [source code on GitHub]({jinja{ config.repo_url }}tree/{jinja{ config.edit_uri.split("/")[1] }}/snippets/tutorial/tutorial-series/part-3)."
 
 
 ## Runtime Cache
@@ -187,5 +187,5 @@ The `IOnlineLocationPageHandler` interface requires two methods to be implemente
 
 This concludes the third part of our tutorial series after which each person has a dedicated page on which people can comment on the person.
 
-The complete source code of this part can be found on [GitHub]({jinja{ repo_url }}tree/{jinja{ edit_uri.split("/")[1] }}/snippets/tutorial/tutorial-series/part-3).
+The complete source code of this part can be found on [GitHub]({jinja{ config.repo_url }}tree/{jinja{ config.edit_uri.split("/")[1] }}/snippets/tutorial/tutorial-series/part-3).
 

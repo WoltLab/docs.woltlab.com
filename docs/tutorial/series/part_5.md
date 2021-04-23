@@ -56,7 +56,7 @@ The package will have the following file structure _excluding_ unchanged files f
 └── userGroupOption.xml
 ```
 
-For all changes, please refer to the [source code on GitHub]({jinja{ repo_url }}tree/{jinja{ edit_uri.split("/")[1] }}/snippets/tutorial/tutorial-series/part-5).
+For all changes, please refer to the [source code on GitHub]({jinja{ config.repo_url }}tree/{jinja{ config.edit_uri.split("/")[1] }}/snippets/tutorial/tutorial-series/part-5).
 
 
 ## Miscellaneous
