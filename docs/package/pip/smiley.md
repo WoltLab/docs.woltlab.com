@@ -32,17 +32,8 @@ Determines at which position of the smiley list the smiley is shown.
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/smiley.xsd">
-	<import>
-		<smiley name=":example:">
-			<title>example</title>
-			<path>images/smilies/example.png</path>
-			<path2x>images/smilies/example@2x.png</path2x>
-			<aliases><![CDATA[:alias:
-:more_aliases:]]></aliases>
-		</smiley>
-	</import>
-</data>
-```
+{jinja{ codebox(
+  title="smiley.xml",
+  language="xml",
+  filepath="package/pip/smiley.xml"
+) }}

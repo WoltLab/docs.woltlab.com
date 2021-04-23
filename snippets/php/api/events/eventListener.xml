@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/eventListener.xsd">
+	<import>
+		<eventlistener name="exampleAddInherited">
+			<eventclassname>wcf\form\ExampleAddForm</eventclassname>
+			<eventname>assignVariables,readFormParameters,save,validate</eventname>
+			<listenerclassname>wcf\system\event\listener\ExampleAddFormListener</listenerclassname>
+			<inherit>1</inherit>
+		</eventlistener>
+
+		<eventlistener name="exampleAdd">
+			<eventclassname>wcf\form\ExampleAddForm</eventclassname>
+			<eventname>saved</eventname>
+			<listenerclassname>wcf\system\event\listener\ExampleAddFormListener</listenerclassname>
+		</eventlistener>
+
+		<eventlistener name="exampleEdit">
+			<eventclassname>wcf\form\ExampleEditForm</eventclassname>
+			<eventname>readData</eventname>
+			<listenerclassname>wcf\system\event\listener\ExampleAddFormListener</listenerclassname>
+		</eventlistener>
+	</import>
+</data>

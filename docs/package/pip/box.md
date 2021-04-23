@@ -75,34 +75,8 @@ The content that should be used to populate the box, only used and required if t
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/box.xsd">
-    <import>
-        <box identifier="com.woltlab.wcf.RecentActivity">
-            <name language="de">Letzte Aktivitäten</name>
-            <name language="en">Recent Activities</name>
-            <boxType>system</boxType>
-            <objectType>com.woltlab.wcf.recentActivityList</objectType>
-            <position>contentBottom</position>
-            <showHeader>0</showHeader>
-            <visibleEverywhere>0</visibleEverywhere>
-            <visibilityExceptions>
-                <page>com.woltlab.wcf.Dashboard</page>
-            </visibilityExceptions>
-            <limit>10</limit>
-
-            <content language="de">
-                <title>Letzte Aktivitäten</title>
-            </content>
-            <content language="en">
-                <title>Recent Activities</title>
-            </content>
-        </box>
-    </import>
-
-    <delete>
-        <box identifier="com.woltlab.wcf.RecentActivity" />
-    </delete>
-</data>
-```
+{jinja{ codebox(
+  title="box.xml",
+  language="xml",
+  filepath="package/pip/box.xml"
+) }}

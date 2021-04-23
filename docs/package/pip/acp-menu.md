@@ -48,27 +48,8 @@ The permissions element can contain a comma-separated list of permissions of whi
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/acpMenu.xsd">
-	<import>
-		<acpmenuitem name="foo.acp.menu.link.example">
-			<parent>wcf.acp.menu.link.application</parent>
-		</acpmenuitem>
-
-		<acpmenuitem name="foo.acp.menu.link.example.list">
-			<controller>foo\acp\page\ExampleListPage</controller>
-			<parent>foo.acp.menu.link.example</parent>
-			<permissions>admin.foo.canManageExample</permissions>
-			<showorder>1</showorder>
-		</acpmenuitem>
-
-		<acpmenuitem name="foo.acp.menu.link.example.add">
-			<controller>foo\acp\form\ExampleAddForm</controller>
-			<parent>foo.acp.menu.link.example.list</parent>
-			<permissions>admin.foo.canManageExample</permissions>
-			<icon>fa-plus</icon>
-		</acpmenuitem>
-	</import>
-</data>
-```
+{jinja{ codebox(
+  title="acpMenu.xml",
+  language="xml",
+  filepath="package/pip/acpMenu.xml"
+) }}

@@ -141,11 +141,9 @@ nav:
 plugins:
   - git-revision-date
   - search
-  - markdownextradata:
-      jinja_options:
-        block_start_string: "{jinja%"
-        comment_start_string: "{jinja#"
-        variable_start_string: "{jinja{"
+  - macros:
+      j2_comment_start_string: "{jinja#"
+      j2_variable_start_string: "{jinja{"
 
 markdown_extensions:
   - toc:

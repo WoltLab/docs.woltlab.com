@@ -85,27 +85,8 @@ Specifies whether the text content of the BBCode should become this attribute's 
 
 ## Example
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/bbcode.xsd">
-	<import>
-		<bbcode name="foo">
-			<classname>wcf\system\bbcode\FooBBCode</classname>
-			<attributes>
-				<attribute name="0">
-					<validationpattern>^\d+$</validationpattern>
-					<required>1</required>
-				</attribute>
-			</attributes>
-		</bbcode>
-		
-		<bbcode name="example">
-			<htmlopen>div</htmlopen>
-			<htmlclose>div</htmlclose>
-			<isBlockElement>1</isBlockElement>
-			<wysiwygicon>fa-bath</wysiwygicon>
-			<buttonlabel>wcf.editor.button.example</buttonlabel>
-		</bbcode>
-	</import>
-</data>
-```
+{jinja{ codebox(
+  title="bbcode.xml",
+  language="xml",
+  filepath="package/pip/bbcode.xml"
+) }}

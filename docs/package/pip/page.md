@@ -74,29 +74,8 @@ The content that should be used to populate the page, only used and required if 
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/page.xsd">
-    <import>
-        <page identifier="com.woltlab.wcf.MembersList">
-            <pageType>system</pageType>
-            <controller>wcf\page\MembersListPage</controller>
-            <name language="de">Mitglieder</name>
-            <name language="en">Members</name>
-            <permissions>user.profile.canViewMembersList</permissions>
-            <options>module_members_list</options>
-
-            <content language="en">
-                <title>Members</title>
-            </content>
-            <content language="de">
-                <title>Mitglieder</title>
-            </content>
-        </page>
-    </import>
-
-    <delete>
-        <page identifier="com.woltlab.wcf.MembersList" />
-    </delete>
-</data>
-```
+{jinja{ codebox(
+  title="page.xml",
+  language="xml",
+  filepath="package/pip/page.xml"
+) }}

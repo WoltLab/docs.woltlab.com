@@ -32,27 +32,8 @@ Replacement HTML that gets populated using the captured matches in `<regex>`, va
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/mediaProvider.xsd">
-  <import>
-    <provider name="youtube">
-      <title>YouTube</title>
-      <regex><![CDATA[https?://(?:.+?\.)?youtu(?:\.be/|be\.com/(?:#/)?watch\?(?:.*?&)?v=)(?P<ID>[a-zA-Z0-9_-]+)(?:(?:\?|&)t=(?P<start>[0-9hms]+)$)?]]></regex>
-      <!-- advanced PHP callback -->
-      <className><![CDATA[wcf\system\bbcode\media\provider\YouTubeBBCodeMediaProvider]]></className>
-    </provider>
-
-    <provider name="youtube-playlist">
-      <title>YouTube Playlist</title>
-      <regex><![CDATA[https?://(?:.+?\.)?youtu(?:\.be/|be\.com/)playlist\?(?:.*?&)?list=(?P<ID>[a-zA-Z0-9_-]+)]]></regex>
-      <!-- uses a simple HTML replacement -->
-      <html><![CDATA[<div class="videoContainer"><iframe src="https://www.youtube.com/embed/videoseries?list={$ID}" allowfullscreen></iframe></div>]]></html>
-    </provider>
-  </import>
-
-  <delete>
-    <provider identifier="example" />
-  </delete>
-</data>
-```
+{jinja{ codebox(
+  title="mediaProvider.xml",
+  language="xml",
+  filepath="package/pip/mediaProvider.xml"
+) }}

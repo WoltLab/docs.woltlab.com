@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/userMenu.xsd">
+	<import>
+		<usermenuitem name="wcf.user.menu.foo">
+			<iconclassname>fa-home</iconclassname>
+		</usermenuitem>
+
+		<usermenuitem name="wcf.user.menu.foo.bar">
+			<controller>wcf\page\FooBarListPage</controller>
+			<parent>wcf.user.menu.foo</parent>
+			<permissions>user.foo.canBar</permissions>
+			<classname>wcf\system\menu\user\FooBarMenuItemProvider</classname>
+		</usermenuitem>
+
+		<usermenuitem name="wcf.user.menu.foo.baz">
+			<controller>wcf\page\FooBazListPage</controller>
+			<parent>wcf.user.menu.foo</parent>
+			<permissions>user.foo.canBaz</permissions>
+			<options>module_foo_bar</options>
+		</usermenuitem>
+	</import>
+</data>

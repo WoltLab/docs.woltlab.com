@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/option.xsd">
+	<import>
+		<categories>
+			<category name="example" />
+			<category name="example.sub">
+				<parent>example</parent>
+				<options>module_example</options>
+			</category>
+		</categories>
+
+		<options>
+			<option name="module_example">
+				<categoryname>module.community</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+
+			<option name="example_integer">
+				<categoryname>example.sub</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>10</defaultvalue>
+				<minvalue>5</minvalue>
+				<maxvalue>40</maxvalue>
+			</option>
+
+			<option name="example_select">
+				<categoryname>example.sub</categoryname>
+				<optiontype>select</optiontype>
+				<defaultvalue>DESC</defaultvalue>
+				<selectoptions>ASC:wcf.global.sortOrder.ascending
+					DESC:wcf.global.sortOrder.descending</selectoptions>
+			</option>
+		</options>
+	</import>
+
+	<delete>
+		<option name="outdated_example" />
+	</delete>
+</data>

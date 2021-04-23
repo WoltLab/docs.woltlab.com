@@ -39,23 +39,8 @@ The options element can contain a comma-separated list of options of which at le
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/cronjob.xsd">
-	<import>
-		<cronjob name="com.example.package.example">
-			<classname>wcf\system\cronjob\ExampleCronjob</classname>
-			<description>Serves as an example</description>
-			<description language="de">Stellt ein Beispiel dar</description>
-			<startminute>0</startminute>
-			<starthour>2</starthour>
-			<startdom>*/2</startdom>
-			<startmonth>*</startmonth>
-			<startdow>*</startdow>
-			<canbeedited>1</canbeedited>
-			<canbedisabled>1</canbedisabled>
-		</cronjob>
-	</import>
-</data>
-```
-
+{jinja{ codebox(
+  title="cronjob.xml",
+  language="xml",
+  filepath="package/pip/cronjob.xml"
+) }}

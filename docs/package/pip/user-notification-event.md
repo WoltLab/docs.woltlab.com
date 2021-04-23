@@ -42,17 +42,8 @@ The permissions element can contain a comma-separated list of permissions of whi
 
 ## Example
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/userNotificationEvent.xsd">
-	<import>
-		<event>
-			<name>like</name>
-			<objecttype>com.woltlab.example.comment.like.notification</objecttype>
-			<classname>wcf\system\user\notification\event\ExampleCommentLikeUserNotificationEvent</classname>
-			<preset>1</preset>
-			<options>module_like</options>
-		</event>
-	</import>
-</data>
-```
+{jinja{ codebox(
+  title="userNotificationEvent.xml",
+  language="xml",
+  filepath="package/pip/userNotificationEvent.xml"
+) }}
