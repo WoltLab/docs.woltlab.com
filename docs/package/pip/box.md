@@ -76,7 +76,7 @@ The content that should be used to populate the box, only used and required if t
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/box.xml",
-    "box.xml"
+  title="box.xml",
+  language="xml",
+  filepath="package/pip/box.xml"
 ) }}

@@ -59,7 +59,7 @@ If you really need triggers, you should consider adding them by custom SQL queri
 Example content:
 
 {jinja{ codebox(
-    "sql",
-    "package/pip/install.sql",
-    "install.sql"
+  title="install.sql",
+  language="sql",
+  filepath="package/pip/install.sql"
 ) }}

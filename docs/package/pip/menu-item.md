@@ -23,7 +23,7 @@ The page that the link should point to, requires the internal identifier set by 
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/menuItem.xml",
-    "menuItem.xml"
+  title="menuItem.xml",
+  language="xml",
+  filepath="package/pip/menuItem.xml"
 ) }}

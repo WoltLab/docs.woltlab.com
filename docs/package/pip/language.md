@@ -24,7 +24,7 @@ The text content of the `<item>` node is the value of the language item. Languag
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/en.xml",
-    "language/en.xml"
+  title="language/en.xml",
+  language="xml",
+  filepath="package/pip/en.xml"
 ) }}

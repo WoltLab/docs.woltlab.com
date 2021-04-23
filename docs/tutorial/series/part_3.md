@@ -79,9 +79,9 @@ The complete package will have the following file structure (including the files
 To reduce the number of database queries when different APIs require person objects, we implement a [runtime cache](../../php/api/caches_runtime-caches.md) for people:
 
 {jinja{ codebox(
-    "php",
-    "tutorial/tutorial-series/part-3/files/lib/system/cache/runtime/PersonRuntimeCache.class.php",
-    "files/lib/system/cache/runtime/PersonRuntimeCache.class.php"
+  title="files/lib/system/cache/runtime/PersonRuntimeCache.class.php",
+  language="php",
+  filepath="tutorial/tutorial-series/part-3/files/lib/system/cache/runtime/PersonRuntimeCache.class.php"
 ) }}
 
 
@@ -91,17 +91,17 @@ To allow users to comment on people, we need to tell the system that people supp
 This is done by registering a `com.woltlab.wcf.comment.commentableContent` object type whose processor implements [ICommentManager](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/comment/manager/ICommentManager.class.php):
 
 {jinja{ codebox(
-    "xml",
-    "tutorial/tutorial-series/part-3/objectType.xml",
-    "objectType.xml"
+  title="objectType.xml",
+  language="xml",
+  filepath="tutorial/tutorial-series/part-3/objectType.xml"
 ) }}
 
 The `PersonCommentManager` class extended `ICommentManager`’s default implementation [AbstractCommentManager](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/comment/manager/AbstractCommentManager.class.php):
 
 {jinja{ codebox(
-    "php",
-    "tutorial/tutorial-series/part-3/files/lib/system/comment/manager/PersonCommentManager.class.php",
-    "files/lib/system/comment/manager/PersonCommentManager.class.php"
+  title="files/lib/system/comment/manager/PersonCommentManager.class.php",
+  language="php",
+  filepath="tutorial/tutorial-series/part-3/files/lib/system/comment/manager/PersonCommentManager.class.php"
 ) }}
 
 - First, the system is told the names of the permissions via the `$permission*` properties.
@@ -125,9 +125,9 @@ With this option, comments on individual people can be disabled.
 ### `PersonPage`
 
 {jinja{ codebox(
-    "php",
-    "tutorial/tutorial-series/part-3/files/lib/page/PersonPage.class.php",
-    "files/lib/page/PersonPage.class.php"
+  title="files/lib/page/PersonPage.class.php",
+  language="php",
+  filepath="tutorial/tutorial-series/part-3/files/lib/page/PersonPage.class.php"
 ) }}
 
 The `PersonPage` class is similar to the `PersonEditForm` in the ACP in that it reads the id of the requested person from the request data and validates the id in `readParameters()`.
@@ -138,9 +138,9 @@ The `assignVariables()` method assigns some additional template variables like `
 ### `person.tpl`
 
 {jinja{ codebox(
-    "tpl",
-    "tutorial/tutorial-series/part-3/templates/person.tpl",
-    "templates/person.tpl"
+  title="templates/person.tpl",
+  language="tpl",
+  filepath="tutorial/tutorial-series/part-3/templates/person.tpl"
 ) }}
 
 For now, the `person` template is still very empty and only shows the comments in the content area.
@@ -152,9 +152,9 @@ The attribute `wysiwygSelector` should be the id of the comment list `personComm
 ### `page.xml`
 
 {jinja{ codebox(
-    "xml",
-    "tutorial/tutorial-series/part-3/page.xml",
-    "page.xml"
+  title="page.xml",
+  language="xml",
+  filepath="tutorial/tutorial-series/part-3/page.xml"
 ) }}
 
 The `page.xml` file has been extended for the new person page with identifier `com.woltlab.wcf.people.Person`.
@@ -170,9 +170,9 @@ Compared to the pre-existing `com.woltlab.wcf.people.PersonList` page, there are
 ### `PersonPageHandler`
 
 {jinja{ codebox(
-    "php",
-    "tutorial/tutorial-series/part-3/files/lib/system/page/handler/PersonPageHandler.class.php",
-    "files/lib/system/page/handler/PersonPageHandler.class.php"
+  title="files/lib/system/page/handler/PersonPageHandler.class.php",
+  language="php",
+  filepath="tutorial/tutorial-series/part-3/files/lib/system/page/handler/PersonPageHandler.class.php"
 ) }}
 
 Like any page handler, the `PersonPageHandler` class has to implement the [IMenuPageHandler](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/IMenuPageHandler.class.php) interface, which should be done by extending the [AbstractMenuPageHandler](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/AbstractMenuPageHandler.class.php) class.

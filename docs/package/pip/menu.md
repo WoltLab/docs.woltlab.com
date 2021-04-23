@@ -25,7 +25,7 @@ The following elements of the [box PIP](box.md) are supported, please refer to t
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/menu.xml",
-    "menu.xml"
+  title="menu.xml",
+  language="xml",
+  filepath="package/pip/menu.xml"
 ) }}

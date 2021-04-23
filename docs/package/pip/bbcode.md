@@ -86,7 +86,7 @@ Specifies whether the text content of the BBCode should become this attribute's 
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/bbcode.xml",
-    "bbcode.xml"
+  title="bbcode.xml",
+  language="xml",
+  filepath="package/pip/bbcode.xml"
 ) }}

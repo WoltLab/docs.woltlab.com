@@ -32,7 +32,7 @@ The permissions element can contain a comma-separated list of permissions of whi
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/userProfileMenu.xml",
-    "userProfileMenu.xml"
+  title="userProfileMenu.xml",
+  language="xml",
+  filepath="package/pip/userProfileMenu.xml"
 ) }}

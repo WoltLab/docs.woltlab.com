@@ -128,7 +128,7 @@ If you want to provide an optional description of the option, you have to provid
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/option.xml",
-    "option.xml"
+  title="option.xml",
+  language="xml",
+  filepath="package/pip/option.xml"
 ) }}

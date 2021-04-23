@@ -33,7 +33,7 @@ Determines at which position of the smiley list the smiley is shown.
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/smiley.xml",
-    "smiley.xml"
+  title="smiley.xml",
+  language="xml",
+  filepath="package/pip/smiley.xml"
 ) }}

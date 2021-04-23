@@ -66,9 +66,9 @@ The existing model of a person only contains the person’s first name and their
 To add the birthday to the model, we need to create an additional database table column using the [`database` package installation plugin](../../package/pip/database.md):
 
 {jinja{ codebox(
-    "sql",
-    "tutorial/tutorial-series/part-2/files/acp/database/install_com.woltlab.wcf.people.birthday.php",
-    "files/acp/database/install_com.woltlab.wcf.people.birthday.php"
+  title="files/acp/database/install_com.woltlab.wcf.people.birthday.php",
+  language="sql",
+  filepath="tutorial/tutorial-series/part-2/files/acp/database/install_com.woltlab.wcf.people.birthday.php"
 ) }}
 
 If we have a [`Person` object](part_1.md#person), this new property can be accessed the same way as the `personID` property, the `firstName` property, or the `lastName` property from the base package: `$person->birthday`.
@@ -79,9 +79,9 @@ If we have a [`Person` object](part_1.md#person), this new property can be acces
 To set the birthday of a person, we only have to add another form field with an event listener:
 
 {jinja{ codebox(
-    "php",
-    "tutorial/tutorial-series/part-2/files/lib/system/event/listener/BirthdayPersonAddFormListener.class.php",
-    "files/lib/system/event/listener/BirthdayPersonAddFormListener.class.php"
+  title="files/lib/system/event/listener/BirthdayPersonAddFormListener.class.php",
+  language="php",
+  filepath="tutorial/tutorial-series/part-2/files/lib/system/event/listener/BirthdayPersonAddFormListener.class.php"
 ) }}
 
 registered via
@@ -104,15 +104,15 @@ It is important to set `<inherit>1</inherit>` so that the event listener is also
 The language item `wcf.person.birthday` used in the label is the only new one for this package:
 
 {jinja{ codebox(
-    "sql",
-    "tutorial/tutorial-series/part-2/language/de.xml",
-    "language/de.xml"
+  title="language/de.xml",
+  language="sql",
+  filepath="tutorial/tutorial-series/part-2/language/de.xml"
 ) }}
 
 {jinja{ codebox(
-    "sql",
-    "tutorial/tutorial-series/part-2/language/en.xml",
-    "language/en.xml"
+  title="language/en.xml",
+  language="sql",
+  filepath="tutorial/tutorial-series/part-2/language/en.xml"
 ) }}
 
 
@@ -127,9 +127,9 @@ To add a birthday column to the person list page in the ACP, we need three parts
 The first part is a very simple class:
 
 {jinja{ codebox(
-    "php",
-    "tutorial/tutorial-series/part-2/files/lib/system/event/listener/BirthdaySortFieldPersonListPageListener.class.php",
-    "files/lib/system/event/listener/BirthdaySortFieldPersonListPageListener.class.php"
+  title="files/lib/system/event/listener/BirthdaySortFieldPersonListPageListener.class.php",
+  language="php",
+  filepath="tutorial/tutorial-series/part-2/files/lib/system/event/listener/BirthdaySortFieldPersonListPageListener.class.php"
 ) }}
 
 !!! info "We use `SortablePage` as a type hint instead of `wcf\acp\page\PersonListPage` because we will be using the same event listener class in the front end to also allow sorting that list by birthday."
@@ -156,9 +156,9 @@ To add the birthday as a valid sort field, we use `BirthdaySortFieldPersonListPa
 In the front end, we will now use a template (`__personListBirthdaySortField.tpl`) instead of a directly putting the template code in the `templateListener.xml` file:
 
 {jinja{ codebox(
-    "smarty",
-    "tutorial/tutorial-series/part-2/templates/__personListBirthdaySortField.tpl",
-    "templates/__personListBirthdaySortField.tpl"
+  title="templates/__personListBirthdaySortField.tpl",
+  language="smarty",
+  filepath="tutorial/tutorial-series/part-2/templates/__personListBirthdaySortField.tpl"
 ) }}
 
 !!! info "You might have noticed the two underscores at the beginning of the template file. For templates that are included via template listeners, this is the naming convention we use."
@@ -168,9 +168,9 @@ Putting the template code into a file has the advantage that in the administrato
 To show the birthday, we use the following template code for the `personStatistics` template event, which again makes sure that the birthday is only shown if it is actually set:
 
 {jinja{ codebox(
-    "smarty",
-    "tutorial/tutorial-series/part-2/templates/__personListBirthday.tpl",
-    "templates/__personListBirthday.tpl"
+  title="templates/__personListBirthday.tpl",
+  language="smarty",
+  filepath="tutorial/tutorial-series/part-2/templates/__personListBirthday.tpl"
 ) }}
 
 
@@ -179,9 +179,9 @@ To show the birthday, we use the following template code for the `personStatisti
 The following code shows the `templateListener.xml` file used to install all mentioned template listeners:
 
 {jinja{ codebox(
-    "xml",
-    "tutorial/tutorial-series/part-2/templateListener.xml",
-    "templateListener.xml"
+  title="templateListener.xml",
+  language="xml",
+  filepath="tutorial/tutorial-series/part-2/templateListener.xml"
 ) }}
 
 In cases where a template is used, we simply use the `include` syntax to load the template.
@@ -192,9 +192,9 @@ In cases where a template is used, we simply use the `include` syntax to load th
 There are two event listeners that make `birthday` a valid sort field in the ACP and the front end, respectively, and the third event listener takes care of setting the birthday.
 
 {jinja{ codebox(
-    "xml",
-    "tutorial/tutorial-series/part-2/eventListener.xml",
-    "eventListener.xml"
+  title="eventListener.xml",
+  language="xml",
+  filepath="tutorial/tutorial-series/part-2/eventListener.xml"
 ) }}
 
 
@@ -203,9 +203,9 @@ There are two event listeners that make `birthday` a valid sort field in the ACP
 The only relevant difference between the `package.xml` file of the base page from part 1 and the `package.xml` file of this package is that this package requires the base package `com.woltlab.wcf.people` (see `<requiredpackages>`):
 
 {jinja{ codebox(
-    "xml",
-    "tutorial/tutorial-series/part-2/package.xml",
-    "package.xml"
+  title="package.xml",
+  language="xml",
+  filepath="tutorial/tutorial-series/part-2/package.xml"
 ) }}
 
 ---

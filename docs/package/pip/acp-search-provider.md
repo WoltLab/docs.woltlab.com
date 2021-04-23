@@ -20,7 +20,7 @@ Determines at which position of the search result list the provided results are 
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/acpSearchProvider.xml",
-    "acpSearchProvider.xml"
+  title="acpSearchProvider.xml",
+  language="xml",
+  filepath="package/pip/acpSearchProvider.xml"
 ) }}

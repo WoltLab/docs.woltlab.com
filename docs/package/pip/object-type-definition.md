@@ -23,7 +23,7 @@ The name of the PHP interface [objectTypes](object-type.md) have to implement.
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/objectTypeDefinition.xml",
-    "objectTypeDefinition.xml"
+  title="objectTypeDefinition.xml",
+  language="xml",
+  filepath="package/pip/objectTypeDefinition.xml"
 ) }}

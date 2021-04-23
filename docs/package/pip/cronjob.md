@@ -40,7 +40,7 @@ The options element can contain a comma-separated list of options of which at le
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/cronjob.xml",
-    "cronjob.xml"
+  title="cronjob.xml",
+  language="xml",
+  filepath="package/pip/cronjob.xml"
 ) }}

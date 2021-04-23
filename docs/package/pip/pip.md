@@ -11,7 +11,7 @@ Each package installation plugin is described as an `<pip>` element with a `name
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/packageInstallationPlugin.xml",
-    "packageInstallationPlugin.xml"
+  title="packageInstallationPlugin.xml",
+  language="xml",
+  filepath="package/pip/packageInstallationPlugin.xml"
 ) }}

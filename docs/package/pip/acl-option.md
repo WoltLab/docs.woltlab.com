@@ -29,7 +29,7 @@ The name of the acl object type (of the object type definition `com.woltlab.wcf.
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/aclOption.xml",
-    "aclOption.xml"
+  title="aclOption.xml",
+  language="xml",
+  filepath="package/pip/aclOption.xml"
 ) }}

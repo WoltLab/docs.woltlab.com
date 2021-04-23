@@ -22,9 +22,9 @@ has been dumped to the `$data` property.
 ### Example code
 
 {jinja{ codebox(
-    "php",
-    "php/gdpr/MyUserExportGdprActionListener.class.php",
-    "files/lib/system/event/listener/MyUserExportGdprActionListener.class.php"
+  title="files/lib/system/event/listener/MyUserExportGdprActionListener.class.php",
+  language="php",
+  filepath="php/gdpr/MyUserExportGdprActionListener.class.php"
 ) }}
 
 ### `$data`

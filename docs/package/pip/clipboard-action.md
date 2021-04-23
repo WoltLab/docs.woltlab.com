@@ -25,7 +25,7 @@ Determines at which position of the clipboard action list the action is shown.
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/clipboardAction.xml",
-    "clipboardAction.xml"
+  title="clipboardAction.xml",
+  language="xml",
+  filepath="package/pip/clipboardAction.xml"
 ) }}

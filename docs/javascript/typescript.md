@@ -7,9 +7,9 @@ To consume the types of WoltLab Suite, you will need to install the `@woltlab/wc
 A full `package.json` that includes WoltLab Suite, TypeScript, eslint and Prettier could look like the following.
 
 {jinja{ codebox(
-    "json",
-    "typescript/package.json",
-    "package.json"
+  title="package.json",
+  language="json",
+  filepath="typescript/package.json"
 ) }}
 
 After installing the types using npm, you will also need to configure `tsconfig.json` to take the types into account.
@@ -17,9 +17,9 @@ To do so, you will need to add them to the `compilerOptions.paths` option.
 A complete `tsconfig.json` file that matches the configuration of WoltLab Suite could look like the following.
 
 {jinja{ codebox(
-    "json",
-    "typescript/tsconfig.json",
-    "tsconfig.json"
+  title="tsconfig.json",
+  language="json",
+  filepath="typescript/tsconfig.json"
 ) }}
 
 After this initial set-up, you would place your TypeScript source files into the `ts/` folder of your project.
@@ -32,30 +32,30 @@ The current configuration of these tools is as follows.
 It is recommended to re-use this configuration as is.
 
 {jinja{ codebox(
-    "yml",
-    "typescript/.prettierrc",
-    ".prettierrc"
+  title=".prettierrc",
+  language="yml",
+  filepath="typescript/.prettierrc"
 ) }}
 
 {jinja{ codebox(
-    "javascript",
-    "typescript/.eslintrc.js",
-    ".eslintrc.js"
+  title=".eslintrc.js",
+  language="javascript",
+  filepath="typescript/.eslintrc.js"
 ) }}
 
 {jinja{ codebox(
-    "gitignore",
-    "typescript/.eslintignore",
-    ".eslintignore"
+  title=".eslintignore",
+  language="gitignore",
+  filepath="typescript/.eslintignore"
 ) }}
 
 This `.gitattributes` configuration will automatically collapse the generated JavaScript target files in GitHub’s Diff view.
 You will not need it if you do not use git or GitHub.
 
 {jinja{ codebox(
-    "gitattributes",
-    "typescript/.gitattributes",
-    ".gitattributes"
+  title=".gitattributes",
+  language="gitattributes",
+  filepath="typescript/.gitattributes"
 ) }}
 
 ## Writing a simple module
@@ -67,17 +67,17 @@ WoltLab Suite’s modules can be imported using the standard ECMAScript module i
 The public API of the module can also be exported using the standard ECMAScript module export syntax.
 
 {jinja{ codebox(
-    "typescript",
-    "typescript/Example.ts",
-    "ts/Example.ts"
+  title="ts/Example.ts",
+  language="typescript",
+  filepath="typescript/Example.ts"
 ) }}
 
 This simple example module will compile to plain JavaScript that is compatible with the AMD loader that is used by WoltLab Suite.
 
 {jinja{ codebox(
-    "javascript",
-    "typescript/Example.js",
-    "files/js/Example.js"
+  title="files/js/Example.js",
+  language="javascript",
+  filepath="typescript/Example.js"
 ) }}
 
 Within templates it can be consumed as follows.

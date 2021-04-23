@@ -56,7 +56,7 @@ the class has to implement the `wcf\system\menu\user\IUserMenuItemProvider` inte
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/userMenu.xml",
-    "userMenu.xml"
+  title="userMenu.xml",
+  language="xml",
+  filepath="package/pip/userMenu.xml"
 ) }}

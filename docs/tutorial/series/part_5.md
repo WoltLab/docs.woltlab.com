@@ -77,9 +77,9 @@ Before we focus on the main aspects of this part, we mention some minor aspects 
 The PHP file with the database layout has been updated as follows:
 
 {jinja{ codebox(
-    "php",
-    "tutorial/tutorial-series/part-5/files/acp/database/install_com.woltlab.wcf.people.php",
-    "files/acp/database/install_com.woltlab.wcf.people.php"
+  title="files/acp/database/install_com.woltlab.wcf.people.php",
+  language="php",
+  filepath="tutorial/tutorial-series/part-5/files/acp/database/install_com.woltlab.wcf.people.php"
 ) }}
 
 - The number of pieces of information per person is tracked via the new `informationCount` column.
@@ -88,9 +88,9 @@ The PHP file with the database layout has been updated as follows:
   The two foreign keys ensure that if a person is deleted, all of their information is also deleted, and that if a user is deleted, the `userID` column is set to `NULL`.
 
 {jinja{ codebox(
-    "php",
-    "tutorial/tutorial-series/part-5/files/lib/data/person/information/PersonInformation.class.php",
-    "files/lib/data/person/information/PersonInformation.class.php"
+  title="files/lib/data/person/information/PersonInformation.class.php",
+  language="php",
+  filepath="tutorial/tutorial-series/part-5/files/lib/data/person/information/PersonInformation.class.php"
 ) }}
 
 `PersonInformation` provides two methods, `canDelete()` and `canEdit()`, to check whether the active user can delete or edit a specific piece of information.
@@ -105,9 +105,9 @@ To generate such an output, `HtmlOutputProcessor::process()` is used and here is
 While `PersonInformationEditor` is simply the default implementation and thus not explicitly shown here, `PersonInformationList::readObjects()` caches the relevant ids of the associated people and users who created the pieces of information using runtime caches:
 
 {jinja{ codebox(
-    "php",
-    "tutorial/tutorial-series/part-5/files/lib/data/person/information/PersonInformationList.class.php",
-    "files/lib/data/person/information/PersonInformationList.class.php"
+  title="files/lib/data/person/information/PersonInformationList.class.php",
+  language="php",
+  filepath="tutorial/tutorial-series/part-5/files/lib/data/person/information/PersonInformationList.class.php"
 ) }}
 
 
@@ -116,9 +116,9 @@ While `PersonInformationEditor` is simply the default implementation and thus no
 The `person.tpl` template has been updated to include a block for listing the information at the beginning:
 
 {jinja{ codebox(
-    "smarty",
-    "tutorial/tutorial-series/part-5/templates/person.tpl",
-    "templates/person.tpl"
+  title="templates/person.tpl",
+  language="smarty",
+  filepath="tutorial/tutorial-series/part-5/templates/person.tpl"
 ) }}
 
 To keep things simple here, we reuse the structure and CSS classes used for comments.
@@ -142,9 +142,9 @@ To create new pieces of information or editing existing ones, we do not add new 
 When clicking on the add button or on any of the edit buttons, a dialog opens with the relevant form:
 
 {jinja{ codebox(
-    "typescript",
-    "tutorial/tutorial-series/part-5/ts/WoltLabSuite/Core/Controller/Person.ts",
-    "ts/WoltLabSuite/Core/Controller/Person.ts"
+  title="ts/WoltLabSuite/Core/Controller/Person.ts",
+  language="typescript",
+  filepath="tutorial/tutorial-series/part-5/ts/WoltLabSuite/Core/Controller/Person.ts"
 ) }}
 
 We use the [`WoltLabSuite/Core/Form/Builder/Dialog` module](https://github.com/WoltLab/WCF/blob/master/ts/WoltLabSuite/Core/Form/Builder/Dialog.ts), which takes care of the internal handling with regard to these dialogs.
@@ -168,9 +168,9 @@ Explanation of the initialization arguments for `WoltLabSuite/Core/Form/Builder/
 Next, we focus on `PersonInformationAction`, which actually provides the contents of these dialogs and creates and edits the information:
 
 {jinja{ codebox(
-    "php",
-    "tutorial/tutorial-series/part-5/files/lib/data/person/information/PersonInformationAction.class.php",
-    "files/lib/data/person/information/PersonInformationAction.class.php"
+  title="files/lib/data/person/information/PersonInformationAction.class.php",
+  language="php",
+  filepath="tutorial/tutorial-series/part-5/files/lib/data/person/information/PersonInformationAction.class.php"
 ) }}
 
 When setting up the `WoltLabSuite/Core/Form/Builder/Dialog` object for adding new pieces of information, we specified `getAddDialog` and `submitAddDialog` as the names of the dialog getter and submit handler.
@@ -228,7 +228,7 @@ As we store the name of the user who create a new piece of information and store
 Lastly, we present the updated `eventListener.xml` file with new entries for all of these event listeners:
 
 {jinja{ codebox(
-    "xml",
-    "tutorial/tutorial-series/part-5/eventListener.xml",
-    "eventListener.xml"
+  title="eventListener.xml",
+  language="xml",
+  filepath="tutorial/tutorial-series/part-5/eventListener.xml"
 ) }}

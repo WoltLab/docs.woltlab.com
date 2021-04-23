@@ -13,9 +13,9 @@ The fully qualified class name of the class.
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/coreObject.xml",
-    "coreObject.xml"
+  title="coreObject.xml",
+  language="xml",
+  filepath="package/pip/coreObject.xml"
 ) }}
 
 This object can be accessed in templates via `$__wcf->getExampleHandler()` (in general: the method name begins with `get` and ends with the unqualified class name).

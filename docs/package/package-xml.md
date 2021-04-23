@@ -6,9 +6,9 @@ It provides the meta data (e.g. package name, description, author) and the instr
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/package.xml",
-    "package.xml"
+  title="package.xml",
+  language="xml",
+  filepath="package/package.xml"
 ) }}
 
 

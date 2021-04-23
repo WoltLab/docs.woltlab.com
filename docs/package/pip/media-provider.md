@@ -33,7 +33,7 @@ Replacement HTML that gets populated using the captured matches in `<regex>`, va
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/mediaProvider.xml",
-    "mediaProvider.xml"
+  title="mediaProvider.xml",
+  language="xml",
+  filepath="package/pip/mediaProvider.xml"
 ) }}

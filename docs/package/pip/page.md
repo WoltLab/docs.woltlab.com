@@ -75,7 +75,7 @@ The content that should be used to populate the page, only used and required if 
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/page.xml",
-    "page.xml"
+  title="page.xml",
+  language="xml",
+  filepath="package/pip/page.xml"
 ) }}

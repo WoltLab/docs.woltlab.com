@@ -10,9 +10,9 @@ This page focuses on the technical aspects of cronjobs, [the cronjob package ins
 ## Example
 
 {jinja{ codebox(
-    "php",
-    "php/api/cronjobs/LastActivityCronjob.class.php",
-    "files/lib/system/cronjob/LastActivityCronjob.class.php"
+  title="files/lib/system/cronjob/LastActivityCronjob.class.php",
+  language="php",
+  filepath="php/api/cronjobs/LastActivityCronjob.class.php"
 ) }}
 
 

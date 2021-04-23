@@ -26,7 +26,7 @@ Refer to the documentation of these for further explanation.
 ## Example
 
 {jinja{ codebox(
-    "xml",
-    "package/pip/objectType.xml",
-    "objectType.xml"
+  title="objectType.xml",
+  language="xml",
+  filepath="package/pip/objectType.xml"
 ) }}
