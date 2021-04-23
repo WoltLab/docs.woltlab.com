@@ -2191,7 +2191,10 @@
 <h2 id="databaseobject">DatabaseObject<a class="headerlink" href="#databaseobject" title="Permanent link">#</a></h2>
 <p>The basic model derives from <code>wcf\data\DatabaseObject</code> and provides a convenient constructor to fetch a single row or construct an instance using pre-loaded rows.</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>php</code></div>
+    <div class="codeBoxTitle">
+        <code>php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/files/lib/data/example/Example.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     ```php/database-objects/Example.class.php
     ```
 </div>
@@ -2201,7 +2204,10 @@
 <h2 id="databaseobjectdecorator">DatabaseObjectDecorator<a class="headerlink" href="#databaseobjectdecorator" title="Permanent link">#</a></h2>
 <p>If you already have a <code>DatabaseObject</code> class and would like to extend it with additional data or methods, for example by providing a class <code>ViewableExample</code> which features view-related changes without polluting the original object, you can use <code>DatabaseObjectDecorator</code> which a default implementation of a decorator for database objects.</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>php</code></div>
+    <div class="codeBoxTitle">
+        <code>php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/files/lib/data/example/ViewableExample.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     ```php/database-objects/ViewableExample.class.php
     ```
 </div>
@@ -2215,7 +2221,10 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 </div>
 <p>Adding, editing and deleting models is done using the <code>DatabaseObjectEditor</code> class that decorates a <code>DatabaseObject</code> and uses its data to perform the actions.</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>php</code></div>
+    <div class="codeBoxTitle">
+        <code>php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/files/lib/data/example/ExampleEditor.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     ```php/database-objects/ExampleEditor.class.php
     ```
 </div>
@@ -2289,7 +2298,10 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <h2 id="databaseobjectlist">DatabaseObjectList<a class="headerlink" href="#databaseobjectlist" title="Permanent link">#</a></h2>
 <p>Every row is represented as a single instance of the model, but the instance creation deals with single rows only. Retrieving larger sets of rows would be quite inefficient due to the large amount of queries that will be dispatched. This is solved with the <code>DatabaseObjectList</code> object that exposes an interface to query the database table using arbitrary conditions for data selection. All rows will be fetched using a single query and the resulting rows are automatically loaded into separate models.</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>php</code></div>
+    <div class="codeBoxTitle">
+        <code>php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/files/lib/data/example/ExampleList.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     ```php/database-objects/ExampleList.class.php
     ```
 </div>
@@ -2358,7 +2370,10 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
 </td></tr></table>
 <p>Of course, you do not have to set the property after creating the list object, you can also set it by creating a dedicated class:</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>php</code></div>
+    <div class="codeBoxTitle">
+        <code>php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/files/lib/data/example/ViewableExampleList.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     ```php/database-objects/ViewableExampleList.class.php
     ```
 </div>
@@ -2371,7 +2386,10 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
 </ol>
 <p>The <code>AbstractDatabaseObjectAction</code> solves both problems by wrapping around the editor class and thus provide an additional layer between the action that should be taken and the actual process. The first problem is solved by a fixed set of events being fired, the second issue is addressed by having a single entry point for all data editing.</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>php</code></div>
+    <div class="codeBoxTitle">
+        <code>php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/files/lib/data/example/ExampleAction.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     ```php/database-objects/ExampleAction.class.php
     ```
 </div>

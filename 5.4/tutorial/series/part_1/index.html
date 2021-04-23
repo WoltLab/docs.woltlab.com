@@ -2546,7 +2546,10 @@ Thus, the database table we will store the people in only contains three columns
 </ol>
 <p>The first file for our package is the <code>install_com.woltlab.wcf.people.php</code> file used to create such a database table during package installation:</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>files/acp/database/install_com.woltlab.wcf.people.php</code></div>
+    <div class="codeBoxTitle">
+        <code>files/acp/database/install_com.woltlab.wcf.people.php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/files/acp/database/install_com.woltlab.wcf.people.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2582,7 +2585,10 @@ Thus, the database table we will store the people in only contains three columns
 <h4 id="person"><code>Person</code><a class="headerlink" href="#person" title="Permanent link">#</a></h4>
 <p>In our PHP code, each person will be represented by an object of the following class:</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>files/lib/data/person/Person.class.php</code></div>
+    <div class="codeBoxTitle">
+        <code>files/lib/data/person/Person.class.php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/files/lib/data/person/Person.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2670,7 +2676,10 @@ Additionally, we implement the <code>IRouteController</code> interface, which al
 an action class, an editor class and a list class.</p>
 <h4 id="personaction"><code>PersonAction</code><a class="headerlink" href="#personaction" title="Permanent link">#</a></h4>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>files/lib/data/person/PersonAction.class.php</code></div>
+    <div class="codeBoxTitle">
+        <code>files/lib/data/person/PersonAction.class.php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/files/lib/data/person/PersonAction.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2741,7 +2750,10 @@ We will later use the <a href="../../../package/pip/user-group-option/">userGrou
 <code>$requireACP</code> restricts deletion of people to the ACP.</p>
 <h4 id="personeditor"><code>PersonEditor</code><a class="headerlink" href="#personeditor" title="Permanent link">#</a></h4>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>files/lib/data/person/PersonEditor.class.php</code></div>
+    <div class="codeBoxTitle">
+        <code>files/lib/data/person/PersonEditor.class.php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/files/lib/data/person/PersonEditor.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2799,7 +2811,10 @@ We will later use the <a href="../../../package/pip/user-group-option/">userGrou
 setting the static <code>$baseClass</code> property to the database object class name.</p>
 <h4 id="personlist"><code>PersonList</code><a class="headerlink" href="#personlist" title="Permanent link">#</a></h4>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>files/lib/data/person/PersonList.class.php</code></div>
+    <div class="codeBoxTitle">
+        <code>files/lib/data/person/PersonList.class.php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/files/lib/data/person/PersonList.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2865,7 +2880,10 @@ In total, we need three each:</p>
 <li>a fourth level menu item for the form to add new people.</li>
 </ol>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>acpMenu.xml</code></div>
+    <div class="codeBoxTitle">
+        <code>acpMenu.xml</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/acpMenu.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2913,7 +2931,10 @@ The fourth level menu item <code>wcf.acp.menu.link.person.add</code> will only b
 <p>To list the people in the ACP, we need a <code>PersonListPage</code> class and a <code>personList</code> template.</p>
 <h4 id="personlistpage"><code>PersonListPage</code><a class="headerlink" href="#personlistpage" title="Permanent link">#</a></h4>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>files/lib/data/person/PersonListPage.class.php</code></div>
+    <div class="codeBoxTitle">
+        <code>files/lib/data/person/PersonListPage.class.php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/files/lib/acp/page/PersonListPage.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3001,7 +3022,10 @@ The fourth level menu item <code>wcf.acp.menu.link.person.add</code> will only b
 </ol>
 <h4 id="personlisttpl"><code>personList.tpl</code><a class="headerlink" href="#personlisttpl" title="Permanent link">#</a></h4>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>acptemplates/personList.tpl</code></div>
+    <div class="codeBoxTitle">
+        <code>acptemplates/personList.tpl</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/acptemplates/personList.tpl" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3181,7 +3205,10 @@ The fourth level menu item <code>wcf.acp.menu.link.person.add</code> will only b
 <p>Like the person list, the form to add new people requires a controller class and a template.</p>
 <h4 id="personaddform"><code>PersonAddForm</code><a class="headerlink" href="#personaddform" title="Permanent link">#</a></h4>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>files/lib/acp/form/PersonAddForm.class.php</code></div>
+    <div class="codeBoxTitle">
+        <code>files/lib/acp/form/PersonAddForm.class.php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/files/lib/acp/form/PersonAddForm.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3335,7 +3362,10 @@ the “housekeeping” properties <code>$activeMenuItem</code> and <code>$needed
 </ol>
 <h4 id="personaddtpl"><code>personAdd.tpl</code><a class="headerlink" href="#personaddtpl" title="Permanent link">#</a></h4>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>acptemplates/personAdd.tpl</code></div>
+    <div class="codeBoxTitle">
+        <code>acptemplates/personAdd.tpl</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/acptemplates/personAdd.tpl" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3386,7 +3416,10 @@ the “housekeeping” properties <code>$activeMenuItem</code> and <code>$needed
 <p>As mentioned before, for the form to edit existing people, we only need a new controller as the template has already been implemented in a way that it handles both, adding and editing.</p>
 <h4 id="personeditform"><code>PersonEditForm</code><a class="headerlink" href="#personeditform" title="Permanent link">#</a></h4>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>files/lib/acp/form/PersonEditForm.class.php</code></div>
+    <div class="codeBoxTitle">
+        <code>files/lib/acp/form/PersonEditForm.class.php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/files/lib/acp/form/PersonEditForm.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3485,7 +3518,10 @@ This page should also be directly linked in the main menu.</p>
 <h3 id="pagexml"><code>page.xml</code><a class="headerlink" href="#pagexml" title="Permanent link">#</a></h3>
 <p>First, let us register the page with the system because every front end page or form needs to be explicitly registered using the <a href="../../../package/pip/page/">page package installation plugin</a>:</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>page.xml</code></div>
+    <div class="codeBoxTitle">
+        <code>page.xml</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/page.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3529,7 +3565,10 @@ This page should also be directly linked in the main menu.</p>
 <h3 id="menuitemxml"><code>menuItem.xml</code><a class="headerlink" href="#menuitemxml" title="Permanent link">#</a></h3>
 <p>Next, we register the menu item using the <a href="../../../package/pip/menu-item/">menuItem package installation plugin</a>:</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>menuItem.xml</code></div>
+    <div class="codeBoxTitle">
+        <code>menuItem.xml</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/menuItem.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3562,7 +3601,10 @@ You might notice that both the controller’s (unqualified) class name and the t
 This is no problem because the qualified names of the classes differ and the files are stored in different directories and because the templates are installed by different package installation plugins and are also stored in different directories.</p>
 <h4 id="personlistpage_1"><code>PersonListPage</code><a class="headerlink" href="#personlistpage_1" title="Permanent link">#</a></h4>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>files/lib/page/PersonListPage.class.php</code></div>
+    <div class="codeBoxTitle">
+        <code>files/lib/page/PersonListPage.class.php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/files/lib/page/PersonListPage.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3634,7 +3676,10 @@ Furthermore, <code>$neededPermissions</code> has not been set because in the fro
 In the front end, we explicitly set the <code>$defaultSortField</code> so that the people listed on the page are sorted by their last name (in ascending order) by default.</p>
 <h4 id="personlisttpl_1"><code>personList.tpl</code><a class="headerlink" href="#personlisttpl_1" title="Permanent link">#</a></h4>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>templates/personList.tpl</code></div>
+    <div class="codeBoxTitle">
+        <code>templates/personList.tpl</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/templates/personList.tpl" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
@@ -3861,7 +3906,10 @@ Furthermore, we include a template called <code>header</code> before actually sh
 <h2 id="usergroupoptionxml"><code>userGroupOption.xml</code><a class="headerlink" href="#usergroupoptionxml" title="Permanent link">#</a></h2>
 <p>We have already used the <code>admin.content.canManagePeople</code> permissions several times, now we need to install it using the <a href="../../../package/pip/user-group-option/">userGroupOption package installation plugin</a>:</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>userGroupOption.xml</code></div>
+    <div class="codeBoxTitle">
+        <code>userGroupOption.xml</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/userGroupOption.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3901,7 +3949,10 @@ This is achieved by setting <code>usersonly</code> to <code>1</code>.</p>
 <p>Lastly, we need to create the <code>package.xml</code> file.
 For more information about this kind of file, please refer to <a href="../../../package/package-xml/">the <code>package.xml</code> page</a>.</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>package.xml</code></div>
+    <div class="codeBoxTitle">
+        <code>package.xml</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-1/package.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>

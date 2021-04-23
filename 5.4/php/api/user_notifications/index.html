@@ -2016,14 +2016,20 @@
 <h2 id="objecttypexml"><code>objectType.xml</code><a class="headerlink" href="#objecttypexml" title="Permanent link">#</a></h2>
 <p>For any type of object related to events, you have to define an object type for the object type definition <code>com.woltlab.wcf.notification.objectType</code>:</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>xml</code></div>
+    <div class="codeBoxTitle">
+        <code>xml</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/objectType.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     ```php/api/user_notifications/objectType.xml
     ```
 </div>
 
 <p>The referenced class <code>FooUserNotificationObjectType</code> has to implement the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/type/IUserNotificationObjectType.class.php">IUserNotificationObjectType</a> interface, which should be done by extending <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/type/AbstractUserNotificationObjectType.class.php">AbstractUserNotificationObjectType</a>.</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>php</code></div>
+    <div class="codeBoxTitle">
+        <code>php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/files/lib/system/user/notification/object/type/FooUserNotificationObjectType.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     ```php/api/user_notifications/FooUserNotificationObjectType.class.php
     ```
 </div>
@@ -2031,7 +2037,10 @@
 <p>You have to set the class names of the database object (<code>$objectClassName</code>) and the related list (<code>$objectListClassName</code>).
 Additionally, you have to create a class that implements the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/IUserNotificationObject.class.php">IUserNotificationObject</a> whose name you have to set as the value of the <code>$decoratorClassName</code> property.</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>php</code></div>
+    <div class="codeBoxTitle">
+        <code>php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/files/lib/system/user/notification/object/FooUserNotificationObject.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     ```php/api/user_notifications/FooUserNotificationObject.class.php
     ```
 </div>
@@ -2048,7 +2057,10 @@ Additionally, you have to create a class that implements the <a href="https://gi
 <p>Each event that you fire in your package needs to be registered using the <a href="../../../package/pip/user-notification-event/">user notification event package installation plugin</a>.
 An example file might look like this:</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>xml</code></div>
+    <div class="codeBoxTitle">
+        <code>xml</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/userNotificationEvent.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     ```php/api/user_notifications/userNotificationEvent.xml
     ```
 </div>
@@ -2057,7 +2069,10 @@ An example file might look like this:</p>
 The referenced class in the <code>&lt;classname&gt;</code> element has to implement the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/event/IUserNotificationEvent.class.php">IUserNotificationEvent</a> interface by extending the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/event/AbstractUserNotificationEvent.class.php">AbstractUserNotificationEvent</a> class or the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/event/AbstractSharedUserNotificationEvent.class.php">AbstractSharedUserNotificationEvent</a> class if you want to pre-load additional data before processing notifications.
 In <code>AbstractSharedUserNotificationEvent::prepare()</code>, you can, for example, tell runtime caches to prepare to load certain objects which then are loaded all at once when the objects are needed.</p>
 <div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>php</code></div>
+    <div class="codeBoxTitle">
+        <code>php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/files/lib/system/user/notification/event/FooUserNotificationEvent.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
     ```php/api/user_notifications/FooUserNotificationEvent.class.php
     ```
 </div>
