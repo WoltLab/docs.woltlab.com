@@ -2190,52 +2190,22 @@
 <p>Developers are required to provide the proper DatabaseObject implementations themselves, they're not automatically generated, all though the actual code that needs to be written is rather small. The following examples assume the fictional database table <code>wcf1_example</code>, <code>exampleID</code> as the auto-incrementing primary key and the column <code>bar</code> to store some text.</p>
 <h2 id="databaseobject">DatabaseObject<a class="headerlink" href="#databaseobject" title="Permanent link">#</a></h2>
 <p>The basic model derives from <code>wcf\data\DatabaseObject</code> and provides a convenient constructor to fetch a single row or construct an instance using pre-loaded rows.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="k">namespace</span> <span class="nx">wcf\data\example</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">wcf\data\DatabaseObject</span><span class="p">;</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>php</code></div>
+    ```php/database-objects/Example.class.php
+    ```
+</div>
 
-<span class="k">class</span> <span class="nc">Example</span> <span class="k">extends</span> <span class="nx">DatabaseObject</span> <span class="p">{}</span>
-</code></pre></div>
-</td></tr></table>
 <p>The class is intended to be empty by default and there only needs to be code if you want to add additional logic to your model. Both the class name and primary key are determined by <code>DatabaseObject</code> using the namespace and class name of the derived class. The example above uses the namespace <code>wcf\…</code> which is used as table prefix and the class name <code>Example</code> is converted into <code>exampleID</code>, resulting in the database table name <code>wcfN_example</code> with the primary key <code>exampleID</code>.</p>
 <p>You can prevent this automatic guessing by setting the class properties <code>$databaseTableName</code> and <code>$databaseTableIndexName</code> manually.</p>
 <h2 id="databaseobjectdecorator">DatabaseObjectDecorator<a class="headerlink" href="#databaseobjectdecorator" title="Permanent link">#</a></h2>
 <p>If you already have a <code>DatabaseObject</code> class and would like to extend it with additional data or methods, for example by providing a class <code>ViewableExample</code> which features view-related changes without polluting the original object, you can use <code>DatabaseObjectDecorator</code> which a default implementation of a decorator for database objects.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="k">namespace</span> <span class="nx">wcf\data\example</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">wcf\data\DatabaseObjectDecorator</span><span class="p">;</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>php</code></div>
+    ```php/database-objects/ViewableExample.class.php
+    ```
+</div>
 
-<span class="k">class</span> <span class="nc">ViewableExample</span> <span class="k">extends</span> <span class="nx">DatabaseObjectDecorator</span> <span class="p">{</span>
-    <span class="k">protected</span> <span class="k">static</span> <span class="nv">$baseClass</span> <span class="o">=</span> <span class="nx">Example</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">getOutput</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nv">$output</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-
-        <span class="c1">// [determine output]</span>
-
-        <span class="k">return</span> <span class="nv">$output</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
 <p>It is mandatory to set the static <code>$baseClass</code> property to the name of the decorated class.</p>
 <p>Like for any decorator, you can directly access the decorated object's properties and methods for a decorated object by accessing the property or calling the method on the decorated object.
 You can access the decorated objects directly via <code>DatabaseObjectDecorator::getDecoratedObject()</code>.</p>
@@ -2244,21 +2214,12 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <p class="admonition-title">This is the low-level interface to manipulate data rows, it is recommended to use <code>AbstractDatabaseObjectAction</code>.</p>
 </div>
 <p>Adding, editing and deleting models is done using the <code>DatabaseObjectEditor</code> class that decorates a <code>DatabaseObject</code> and uses its data to perform the actions.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="k">namespace</span> <span class="nx">wcf\data\example</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">wcf\data\DatabaseObjectEditor</span><span class="p">;</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>php</code></div>
+    ```php/database-objects/ExampleEditor.class.php
+    ```
+</div>
 
-<span class="k">class</span> <span class="nc">ExampleEditor</span> <span class="k">extends</span> <span class="nx">DatabaseObjectEditor</span> <span class="p">{</span>
-    <span class="k">protected</span> <span class="k">static</span> <span class="nv">$baseClass</span> <span class="o">=</span> <span class="nx">Example</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
 <p>The editor class requires you to provide the fully qualified name of the model, that is the class name including the complete namespace. Database table name and index key will be pulled directly from the model.</p>
 <h3 id="create-a-new-row">Create a new row<a class="headerlink" href="#create-a-new-row" title="Permanent link">#</a></h3>
 <p>Inserting a new row into the database table is provided through <code>DatabaseObjectEditor::create()</code> which yields a <code>DatabaseObject</code> instance after creation.</p>
@@ -2327,21 +2288,12 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 </td></tr></table>
 <h2 id="databaseobjectlist">DatabaseObjectList<a class="headerlink" href="#databaseobjectlist" title="Permanent link">#</a></h2>
 <p>Every row is represented as a single instance of the model, but the instance creation deals with single rows only. Retrieving larger sets of rows would be quite inefficient due to the large amount of queries that will be dispatched. This is solved with the <code>DatabaseObjectList</code> object that exposes an interface to query the database table using arbitrary conditions for data selection. All rows will be fetched using a single query and the resulting rows are automatically loaded into separate models.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="k">namespace</span> <span class="nx">wcf\data\example</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">wcf\data\DatabaseObjectList</span><span class="p">;</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>php</code></div>
+    ```php/database-objects/ExampleList.class.php
+    ```
+</div>
 
-<span class="k">class</span> <span class="nc">ExampleList</span> <span class="k">extends</span> <span class="nx">DatabaseObjectList</span> <span class="p">{</span>
-    <span class="k">public</span> <span class="nv">$className</span> <span class="o">=</span> <span class="nx">Example</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
 <p>The following code listing illustrates loading a large set of examples and iterating over the list to retrieve the objects.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2405,19 +2357,12 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
 </code></pre></div>
 </td></tr></table>
 <p>Of course, you do not have to set the property after creating the list object, you can also set it by creating a dedicated class:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="k">namespace</span> <span class="nx">wcf\data\example</span><span class="p">;</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>php</code></div>
+    ```php/database-objects/ViewableExampleList.class.php
+    ```
+</div>
 
-<span class="k">class</span> <span class="nc">ViewableExampleList</span> <span class="k">extends</span> <span class="nx">ExampleList</span> <span class="p">{</span>
-    <span class="k">public</span> <span class="nv">$decoratorClassName</span> <span class="o">=</span> <span class="nx">ViewableExample</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
 <h2 id="abstractdatabaseobjectaction">AbstractDatabaseObjectAction<a class="headerlink" href="#abstractdatabaseobjectaction" title="Permanent link">#</a></h2>
 <p>Row creation and manipulation can be performed using the aforementioned <code>DatabaseObjectEditor</code> class, but this approach has two major issues:</p>
 <ol>
@@ -2425,21 +2370,12 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
 <li>Data is passed to the database adapter without any further processing.</li>
 </ol>
 <p>The <code>AbstractDatabaseObjectAction</code> solves both problems by wrapping around the editor class and thus provide an additional layer between the action that should be taken and the actual process. The first problem is solved by a fixed set of events being fired, the second issue is addressed by having a single entry point for all data editing.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="k">namespace</span> <span class="nx">wcf\data\example</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">wcf\data\AbstractDatabaseObjectAction</span><span class="p">;</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>php</code></div>
+    ```php/database-objects/ExampleAction.class.php
+    ```
+</div>
 
-<span class="k">class</span> <span class="nc">ExampleAction</span> <span class="k">extends</span> <span class="nx">AbstractDatabaseObjectAction</span> <span class="p">{</span>
-    <span class="k">public</span> <span class="nv">$className</span> <span class="o">=</span> <span class="nx">ExampleEditor</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
 <h3 id="executing-an-action">Executing an Action<a class="headerlink" href="#executing-an-action" title="Permanent link">#</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">The method <code>AbstractDatabaseObjectAction::validateAction()</code> is internally used for AJAX method invocation and must not be called programmatically.</p>
@@ -2536,7 +2472,7 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-02-11
+      Last update: 2021-04-23
     
   </small>
 </div>

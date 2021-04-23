@@ -2165,7 +2165,9 @@ As in the first part, we will not bother with careful validation of the entered 
 <h2 id="extending-person-model">Extending Person Model<a class="headerlink" href="#extending-person-model" title="Permanent link">#</a></h2>
 <p>The existing model of a person only contains the person’s first name and their last name (in additional to the id used to identify created people).
 To add the birthday to the model, we need to create an additional database table column using the <a href="../../../package/pip/database/"><code>database</code> package installation plugin</a>:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>files/acp/database/install_com.woltlab.wcf.people.birthday.php</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2188,10 +2190,14 @@ To add the birthday to the model, we need to create an additional database table
 <span class="p">];</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <p>If we have a <a href="../part_1/#person"><code>Person</code> object</a>, this new property can be accessed the same way as the <code>personID</code> property, the <code>firstName</code> property, or the <code>lastName</code> property from the base package: <code>$person-&gt;birthday</code>.</p>
 <h2 id="setting-birthday-in-acp">Setting Birthday in ACP<a class="headerlink" href="#setting-birthday-in-acp" title="Permanent link">#</a></h2>
 <p>To set the birthday of a person, we only have to add another form field with an event listener:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>files/lib/system/event/listener/BirthdayPersonAddFormListener.class.php</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2260,6 +2266,8 @@ To add the birthday to the model, we need to create an additional database table
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <p>registered via</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2280,7 +2288,9 @@ To add the birthday to the model, we need to create an additional database table
 <p>As <code>BirthdayPersonAddFormListener</code> extends <code>AbstractEventListener</code> and as the name of relevant event is <code>createForm</code>, <code>AbstractEventListener</code> internally automatically calls <code>onCreateForm()</code> with the event object as the parameter.
 It is important to set <code>&lt;inherit&gt;1&lt;/inherit&gt;</code> so that the event listener is also executed for <code>PersonEditForm</code>, which extends <code>PersonAddForm</code>.</p>
 <p>The language item <code>wcf.person.birthday</code> used in the label is the only new one for this package:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>language/de.xml</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2293,7 +2303,11 @@ It is important to set <code>&lt;inherit&gt;1&lt;/inherit&gt;</code> so that the
 <span class="o">&lt;/</span><span class="k">language</span><span class="o">&gt;</span>
 </code></pre></div>
 </td></tr></table>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</div>
+
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>language/en.xml</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2306,6 +2320,8 @@ It is important to set <code>&lt;inherit&gt;1&lt;/inherit&gt;</code> so that the
 <span class="o">&lt;/</span><span class="k">language</span><span class="o">&gt;</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <h2 id="adding-birthday-table-column-in-acp">Adding Birthday Table Column in ACP<a class="headerlink" href="#adding-birthday-table-column-in-acp" title="Permanent link">#</a></h2>
 <p>To add a birthday column to the person list page in the ACP, we need three parts:</p>
 <ol>
@@ -2314,7 +2330,9 @@ It is important to set <code>&lt;inherit&gt;1&lt;/inherit&gt;</code> so that the
 <li>a template listener that adds the birthday column to the table’s rows.</li>
 </ol>
 <p>The first part is a very simple class:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>files/lib/system/event/listener/BirthdaySortFieldPersonListPageListener.class.php</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2363,6 +2381,8 @@ It is important to set <code>&lt;inherit&gt;1&lt;/inherit&gt;</code> so that the
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <div class="admonition info">
 <p class="admonition-title">We use <code>SortablePage</code> as a type hint instead of <code>wcf\acp\page\PersonListPage</code> because we will be using the same event listener class in the front end to also allow sorting that list by birthday.</p>
 </div>
@@ -2379,15 +2399,21 @@ The code for the table head is similar to the other <code>th</code> elements:</p
 <p>In the front end, we also want to make the list sortable by birthday and show the birthday as part of each person’s “statistics”.</p>
 <p>To add the birthday as a valid sort field, we use <code>BirthdaySortFieldPersonListPageListener</code> just as in the ACP.
 In the front end, we will now use a template (<code>__personListBirthdaySortField.tpl</code>) instead of a directly putting the template code in the <code>templateListener.xml</code> file:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;option value=&quot;birthday&quot;</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">&#39;birthday&#39;</span><span class="cp">}</span><span class="x"> selected</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.birthday</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/option&gt;</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>templates/__personListBirthdaySortField.tpl</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;option value=&quot;birthday&quot;</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">&#39;birthday&#39;</span><span class="cp">}</span><span class="x"> selected</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.birthday</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/option&gt;</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <div class="admonition info">
 <p class="admonition-title">You might have noticed the two underscores at the beginning of the template file. For templates that are included via template listeners, this is the naming convention we use.</p>
 </div>
 <p>Putting the template code into a file has the advantage that in the administrator is able to edit the code directly via a custom template group, even though in this case this might not be very probable.</p>
 <p>To show the birthday, we use the following template code for the <code>personStatistics</code> template event, which again makes sure that the birthday is only shown if it is actually set:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>templates/__personListBirthday.tpl</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">if</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">birthday</span><span class="cp">}</span><span class="x"></span>
@@ -2396,9 +2422,13 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
 <span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <h2 id="templatelistenerxml"><code>templateListener.xml</code><a class="headerlink" href="#templatelistenerxml" title="Permanent link">#</a></h2>
 <p>The following code shows the <code>templateListener.xml</code> file used to install all mentioned template listeners:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>templateListener.xml</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2467,10 +2497,14 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <p>In cases where a template is used, we simply use the <code>include</code> syntax to load the template.</p>
 <h2 id="eventlistenerxml"><code>eventListener.xml</code><a class="headerlink" href="#eventlistenerxml" title="Permanent link">#</a></h2>
 <p>There are two event listeners that make <code>birthday</code> a valid sort field in the ACP and the front end, respectively, and the third event listener takes care of setting the birthday.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>eventListener.xml</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2529,9 +2563,13 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <h2 id="packagexml"><code>package.xml</code><a class="headerlink" href="#packagexml" title="Permanent link">#</a></h2>
 <p>The only relevant difference between the <code>package.xml</code> file of the base page from part 1 and the <code>package.xml</code> file of this package is that this package requires the base package <code>com.woltlab.wcf.people</code> (see <code>&lt;requiredpackages&gt;</code>):</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>package.xml</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2598,6 +2636,8 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
 <span class="nt">&lt;/package&gt;</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <hr />
 <p>This concludes the second part of our tutorial series after which you now have extended the base package using event listeners and template listeners that allow you to enter the birthday of the people.</p>
 <p>The complete source code of this part can be found on <a href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-2">GitHub</a>.</p>
@@ -2609,7 +2649,7 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-04-20
+      Last update: 2021-04-23
     
   </small>
 </div>

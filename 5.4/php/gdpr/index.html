@@ -2120,7 +2120,9 @@ include any personal data stored for your plugin or app by yourself.</p>
 <p>The event <code>export</code> is fired before any data is sent out, but after any Core data
 has been dumped to the <code>$data</code> property.</p>
 <h3 id="example-code">Example code<a class="headerlink" href="#example-code" title="Permanent link">#</a></h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>files/lib/system/event/listener/MyUserExportGdprActionListener.class.php</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2148,25 +2150,27 @@ has been dumped to the <code>$data</code> property.</p>
 <span class="k">use</span> <span class="nx">wcf\data\user\UserProfile</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">MyUserExportGdprActionListener</span> <span class="k">implements</span> <span class="nx">IParameterizedEventListener</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="sd">/** @var UserExportGdprAction $eventObj */</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span> <span class="p">{</span>
-    <span class="sd">/** @var UserProfile $user */</span>
-    <span class="nv">$user</span> <span class="o">=</span> <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">user</span><span class="p">;</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="sd">/** @var UserExportGdprAction $eventObj */</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span> <span class="p">{</span>
+        <span class="sd">/** @var UserProfile $user */</span>
+        <span class="nv">$user</span> <span class="o">=</span> <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">user</span><span class="p">;</span>
 
-    <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="s1">&#39;my.fancy.plugin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-      <span class="s1">&#39;superPersonalData&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;This text is super personal and should be included in the output&quot;</span><span class="p">,</span>
-      <span class="s1">&#39;weirdIpAddresses&#39;</span> <span class="o">=&gt;</span> <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">exportIpAddresses</span><span class="p">(</span><span class="s1">&#39;app&#39;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s1">&#39;_non_standard_column_names_for_ip_addresses&#39;</span><span class="p">,</span> <span class="s1">&#39;ipAddressColumnName&#39;</span><span class="p">,</span> <span class="s1">&#39;timeColumnName&#39;</span><span class="p">,</span> <span class="s1">&#39;userIDColumnName&#39;</span><span class="p">)</span>
-    <span class="p">];</span>
-    <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">exportUserProperties</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;shouldAlwaysExportThisField&#39;</span><span class="p">;</span>
-    <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">exportUserPropertiesIfNotEmpty</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;myFancyField&#39;</span><span class="p">;</span>
-    <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">exportUserOptionSettings</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;thisSettingIsAlwaysExported&#39;</span><span class="p">;</span>
-    <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">exportUserOptionSettingsIfNotEmpty</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;someSettingContainingPersonalData&#39;</span><span class="p">;</span>
-    <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">ipAddresses</span><span class="p">[</span><span class="s1">&#39;my.fancy.plugin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;wcf&#39;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s1">&#39;_my_fancy_table&#39;</span><span class="p">,</span> <span class="s1">&#39;wcf&#39;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s1">&#39;_i_also_store_ipaddresses_here&#39;</span><span class="p">];</span>
-    <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">skipUserOptions</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;thisLooksLikePersonalDataButItIsNot&#39;</span><span class="p">;</span>
-    <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">skipUserOptions</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;thisIsAlsoNotPersonalDataPleaseIgnoreIt&#39;</span><span class="p">;</span>
-  <span class="p">}</span>
+        <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="s1">&#39;my.fancy.plugin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;superPersonalData&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;This text is super personal and should be included in the output&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;weirdIpAddresses&#39;</span> <span class="o">=&gt;</span> <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">exportIpAddresses</span><span class="p">(</span><span class="s1">&#39;app&#39;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s1">&#39;_non_standard_column_names_for_ip_addresses&#39;</span><span class="p">,</span> <span class="s1">&#39;ipAddressColumnName&#39;</span><span class="p">,</span> <span class="s1">&#39;timeColumnName&#39;</span><span class="p">,</span> <span class="s1">&#39;userIDColumnName&#39;</span><span class="p">)</span>
+        <span class="p">];</span>
+        <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">exportUserProperties</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;shouldAlwaysExportThisField&#39;</span><span class="p">;</span>
+        <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">exportUserPropertiesIfNotEmpty</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;myFancyField&#39;</span><span class="p">;</span>
+        <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">exportUserOptionSettings</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;thisSettingIsAlwaysExported&#39;</span><span class="p">;</span>
+        <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">exportUserOptionSettingsIfNotEmpty</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;someSettingContainingPersonalData&#39;</span><span class="p">;</span>
+        <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">ipAddresses</span><span class="p">[</span><span class="s1">&#39;my.fancy.plugin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;wcf&#39;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s1">&#39;_my_fancy_table&#39;</span><span class="p">,</span> <span class="s1">&#39;wcf&#39;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s1">&#39;_i_also_store_ipaddresses_here&#39;</span><span class="p">];</span>
+        <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">skipUserOptions</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;thisLooksLikePersonalDataButItIsNot&#39;</span><span class="p">;</span>
+        <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">skipUserOptions</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;thisIsAlsoNotPersonalDataPleaseIgnoreIt&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <h3 id="data"><code>$data</code><a class="headerlink" href="#data" title="Permanent link">#</a></h3>
 <p>Contains the entire data that will be included in the exported JSON file, some
 fields may already exist (such as <code>'com.woltlab.wcf'</code>) and while you may add or
@@ -2214,7 +2218,7 @@ because it does not contain personal data, such as internal data.</p>
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-01-08
+      Last update: 2021-04-23
     
   </small>
 </div>

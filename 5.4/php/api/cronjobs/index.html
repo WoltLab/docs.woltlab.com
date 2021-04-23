@@ -2004,7 +2004,9 @@
 </div>
 <p>This page focuses on the technical aspects of cronjobs, <a href="../../../package/pip/cronjob/">the cronjob package installation plugin page</a> covers how you can actually register a cronjob.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>files/lib/system/cronjob/LastActivityCronjob.class.php</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2039,7 +2041,7 @@
 
 <span class="sd">/**</span>
 <span class="sd"> * Updates the last activity timestamp in the user table.</span>
-<span class="sd"> * </span>
+<span class="sd"> *</span>
 <span class="sd"> * @author  Marcel Werk</span>
 <span class="sd"> * @copyright   2001-2016 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
@@ -2053,16 +2055,18 @@
         <span class="k">parent</span><span class="o">::</span><span class="na">execute</span><span class="p">(</span><span class="nv">$cronjob</span><span class="p">);</span>
 
         <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE  wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_user user_table,</span>
-<span class="s2">                wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_session session</span>
-<span class="s2">            SET user_table.lastActivityTime = session.lastActivityTime</span>
-<span class="s2">            WHERE   user_table.userID = session.userID</span>
-<span class="s2">                AND session.userID &lt;&gt; 0&quot;</span><span class="p">;</span>
+<span class="s2">                        wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_session session</span>
+<span class="s2">                SET     user_table.lastActivityTime = session.lastActivityTime</span>
+<span class="s2">                WHERE   user_table.userID = session.userID</span>
+<span class="s2">                    AND session.userID &lt;&gt; 0&quot;</span><span class="p">;</span>
         <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepareStatement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
         <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <h2 id="icronjob-interface"><code>ICronjob</code> Interface<a class="headerlink" href="#icronjob-interface" title="Permanent link">#</a></h2>
 <p>Every cronjob needs to implement the <code>wcf\system\cronjob\ICronjob</code> interface which requires the <code>execute(Cronjob $cronjob)</code> method to be implemented.
 This method is called by <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/cronjob/CronjobScheduler.class.php">wcf\system\cronjob\CronjobScheduler</a> when executing the cronjobs.</p>
@@ -2088,7 +2092,7 @@ EOT
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-01-08
+      Last update: 2021-04-23
     
   </small>
 </div>

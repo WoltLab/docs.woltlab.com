@@ -2074,7 +2074,9 @@
 </div>
 <p>Replacement HTML that gets populated using the captured matches in <code>&lt;regex&gt;</code>, variables are accessed as <code>{$VariableName}</code>. For example, the capture group <code>(?P&lt;ID&gt;...)</code> is accessed using <code>{$ID}</code>.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>mediaProvider.xml</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2097,28 +2099,29 @@
 <span class="normal">21</span>
 <span class="normal">22</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/2019/mediaProvider.xsd&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;import&gt;</span>
-    <span class="nt">&lt;provider</span> <span class="na">name=</span><span class="s">&quot;youtube&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;title&gt;</span>YouTube<span class="nt">&lt;/title&gt;</span>
-      <span class="nt">&lt;regex&gt;</span><span class="cp">&lt;![CDATA[https?://(?:.+?\.)?youtu(?:\.be/|be\.com/(?:#/)?watch\?(?:.*?&amp;)?v=)(?P&lt;ID&gt;[a-zA-Z0-9_-]+)(?:(?:\?|&amp;)t=(?P&lt;start&gt;[0-9hms]+)$)?]]&gt;</span><span class="nt">&lt;/regex&gt;</span>
-      <span class="c">&lt;!-- advanced PHP callback --&gt;</span>
-      <span class="nt">&lt;className&gt;</span><span class="cp">&lt;![CDATA[wcf\system\bbcode\media\provider\YouTubeBBCodeMediaProvider]]&gt;</span><span class="nt">&lt;/className&gt;</span>
-    <span class="nt">&lt;/provider&gt;</span>
+    <span class="nt">&lt;import&gt;</span>
+        <span class="nt">&lt;provider</span> <span class="na">name=</span><span class="s">&quot;youtube&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;title&gt;</span>YouTube<span class="nt">&lt;/title&gt;</span>
+            <span class="nt">&lt;regex&gt;</span><span class="cp">&lt;![CDATA[https?://(?:.+?\.)?youtu(?:\.be/|be\.com/(?:#/)?watch\?(?:.*?&amp;)?v=)(?P&lt;ID&gt;[a-zA-Z0-9_-]+)(?:(?:\?|&amp;)t=(?P&lt;start&gt;[0-9hms]+)$)?]]&gt;</span><span class="nt">&lt;/regex&gt;</span>
+            <span class="c">&lt;!-- advanced PHP callback --&gt;</span>
+            <span class="nt">&lt;className&gt;</span><span class="cp">&lt;![CDATA[wcf\system\bbcode\media\provider\YouTubeBBCodeMediaProvider]]&gt;</span><span class="nt">&lt;/className&gt;</span>
+        <span class="nt">&lt;/provider&gt;</span>
 
-    <span class="nt">&lt;provider</span> <span class="na">name=</span><span class="s">&quot;youtube-playlist&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;title&gt;</span>YouTube Playlist<span class="nt">&lt;/title&gt;</span>
-      <span class="nt">&lt;regex&gt;</span><span class="cp">&lt;![CDATA[https?://(?:.+?\.)?youtu(?:\.be/|be\.com/)playlist\?(?:.*?&amp;)?list=(?P&lt;ID&gt;[a-zA-Z0-9_-]+)]]&gt;</span><span class="nt">&lt;/regex&gt;</span>
-      <span class="c">&lt;!-- uses a simple HTML replacement --&gt;</span>
-      <span class="nt">&lt;html&gt;</span><span class="cp">&lt;![CDATA[&lt;div class=&quot;videoContainer&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/videoseries?list={$ID}&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;]]&gt;</span><span class="nt">&lt;/html&gt;</span>
-    <span class="nt">&lt;/provider&gt;</span>
-  <span class="nt">&lt;/import&gt;</span>
+        <span class="nt">&lt;provider</span> <span class="na">name=</span><span class="s">&quot;youtube-playlist&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;title&gt;</span>YouTube Playlist<span class="nt">&lt;/title&gt;</span>
+            <span class="nt">&lt;regex&gt;</span><span class="cp">&lt;![CDATA[https?://(?:.+?\.)?youtu(?:\.be/|be\.com/)playlist\?(?:.*?&amp;)?list=(?P&lt;ID&gt;[a-zA-Z0-9_-]+)]]&gt;</span><span class="nt">&lt;/regex&gt;</span>
+            <span class="c">&lt;!-- uses a simple HTML replacement --&gt;</span>
+            <span class="nt">&lt;html&gt;</span><span class="cp">&lt;![CDATA[&lt;div class=&quot;videoContainer&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/videoseries?list={$ID}&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;]]&gt;</span><span class="nt">&lt;/html&gt;</span>
+        <span class="nt">&lt;/provider&gt;</span>
+    <span class="nt">&lt;/import&gt;</span>
 
-  <span class="nt">&lt;delete&gt;</span>
-    <span class="nt">&lt;provider</span> <span class="na">identifier=</span><span class="s">&quot;example&quot;</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;/delete&gt;</span>
+    <span class="nt">&lt;delete&gt;</span>
+        <span class="nt">&lt;provider</span> <span class="na">name=</span><span class="s">&quot;example&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/delete&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div>
 </td></tr></table>
+</div>
                 
                   
                     
@@ -2127,7 +2130,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-01-08
+      Last update: 2021-04-23
     
   </small>
 </div>

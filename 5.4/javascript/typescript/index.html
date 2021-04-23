@@ -751,40 +751,6 @@
     Additional Tools
   </a>
   
-    <nav class="md-nav" aria-label="Additional Tools">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#prettierrc" class="md-nav__link">
-    .prettierrc
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#eslintrcjs" class="md-nav__link">
-    .eslintrc.js
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#eslintignore" class="md-nav__link">
-    .eslintignore
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gitattributes" class="md-nav__link">
-    .gitattributes
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -2003,40 +1969,6 @@
     Additional Tools
   </a>
   
-    <nav class="md-nav" aria-label="Additional Tools">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#prettierrc" class="md-nav__link">
-    .prettierrc
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#eslintrcjs" class="md-nav__link">
-    .eslintrc.js
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#eslintignore" class="md-nav__link">
-    .eslintignore
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gitattributes" class="md-nav__link">
-    .gitattributes
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -2067,7 +1999,9 @@
 <h2 id="consuming-woltlab-suites-types">Consuming WoltLab Suite’s Types<a class="headerlink" href="#consuming-woltlab-suites-types" title="Permanent link">#</a></h2>
 <p>To consume the types of WoltLab Suite, you will need to install the <code>@woltlab/wcf</code> npm package using a git URL that refers to the appropriate branch of <a href="https://github.com/WoltLab/WCF">WoltLab/WCF</a>.</p>
 <p>A full <code>package.json</code> that includes WoltLab Suite, TypeScript, eslint and Prettier could look like the following.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>package.json</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2096,10 +2030,14 @@
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <p>After installing the types using npm, you will also need to configure <code>tsconfig.json</code> to take the types into account.
 To do so, you will need to add them to the <code>compilerOptions.paths</code> option.
 A complete <code>tsconfig.json</code> file that matches the configuration of WoltLab Suite could look like the following.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>tsconfig.json</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2156,20 +2094,26 @@ A complete <code>tsconfig.json</code> file that matches the configuration of Wol
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <p>After this initial set-up, you would place your TypeScript source files into the <code>ts/</code> folder of your project.
 The generated JavaScript target files will be placed into <code>files/js/</code> and thus will be installed by the <a href="../../package/pip/file/">file PIP</a>.</p>
 <h2 id="additional-tools">Additional Tools<a class="headerlink" href="#additional-tools" title="Permanent link">#</a></h2>
 <p>WoltLab Suite uses additional tools to ensure the high quality and a consistent code style of the TypeScript modules.
 The current configuration of these tools is as follows.
 It is recommended to re-use this configuration as is.</p>
-<h3 id="prettierrc">.prettierrc<a class="headerlink" href="#prettierrc" title="Permanent link">#</a></h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>.prettierrc</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>trailingComma: all
 printWidth: 120
 </code></pre></div>
 </td></tr></table>
-<h3 id="eslintrcjs">.eslintrc.js<a class="headerlink" href="#eslintrcjs" title="Permanent link">#</a></h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+</div>
+
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>.eslintrc.js</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2206,60 +2150,70 @@ printWidth: 120
 <span class="normal">35</span>
 <span class="normal">36</span>
 <span class="normal">37</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">root</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">parser</span><span class="o">:</span> <span class="s2">&quot;@typescript-eslint/parser&quot;</span><span class="p">,</span>
-  <span class="nx">parserOptions</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">tsconfigRootDir</span><span class="o">:</span> <span class="nx">__dirname</span><span class="p">,</span>
-    <span class="nx">project</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;./tsconfig.json&quot;</span><span class="p">]</span>
-  <span class="p">},</span>
-  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;@typescript-eslint&quot;</span><span class="p">],</span>
-  <span class="k">extends</span><span class="o">:</span> <span class="p">[</span>
-    <span class="s2">&quot;eslint:recommended&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;plugin:@typescript-eslint/recommended&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;plugin:@typescript-eslint/recommended-requiring-type-checking&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;prettier&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;prettier/@typescript-eslint&quot;</span>
-  <span class="p">],</span>
-  <span class="nx">rules</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;@typescript-eslint/ban-types&quot;</span><span class="o">:</span> <span class="p">[</span>
-      <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="p">{</span>
-        <span class="nx">types</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;object&quot;</span><span class="o">:</span> <span class="kc">false</span>
-        <span class="p">},</span>
-        <span class="nx">extendDefaults</span><span class="o">:</span> <span class="kc">true</span>
-      <span class="p">}</span>
+    <span class="nx">root</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">parser</span><span class="o">:</span> <span class="s2">&quot;@typescript-eslint/parser&quot;</span><span class="p">,</span>
+    <span class="nx">parserOptions</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">tsconfigRootDir</span><span class="o">:</span> <span class="nx">__dirname</span><span class="p">,</span>
+        <span class="nx">project</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;./tsconfig.json&quot;</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;@typescript-eslint&quot;</span><span class="p">],</span>
+    <span class="k">extends</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&quot;eslint:recommended&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;plugin:@typescript-eslint/recommended&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;plugin:@typescript-eslint/recommended-requiring-type-checking&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;prettier&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;prettier/@typescript-eslint&quot;</span>
     <span class="p">],</span>
-    <span class="s2">&quot;@typescript-eslint/no-explicit-any&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
-    <span class="s2">&quot;@typescript-eslint/no-non-null-assertion&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
-    <span class="s2">&quot;@typescript-eslint/no-unsafe-assignment&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
-    <span class="s2">&quot;@typescript-eslint/no-unsafe-call&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
-    <span class="s2">&quot;@typescript-eslint/no-unsafe-member-access&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
-    <span class="s2">&quot;@typescript-eslint/no-unsafe-return&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
-    <span class="s2">&quot;@typescript-eslint/no-unused-vars&quot;</span><span class="o">:</span> <span class="p">[</span>
-      <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="p">{</span>
-        <span class="s2">&quot;argsIgnorePattern&quot;</span><span class="o">:</span> <span class="s2">&quot;^_&quot;</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">}</span>
+    <span class="nx">rules</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;@typescript-eslint/ban-types&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="p">{</span>
+                <span class="nx">types</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;object&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                <span class="p">},</span>
+                <span class="nx">extendDefaults</span><span class="o">:</span> <span class="kc">true</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;@typescript-eslint/no-explicit-any&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+        <span class="s2">&quot;@typescript-eslint/no-non-null-assertion&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+        <span class="s2">&quot;@typescript-eslint/no-unsafe-assignment&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+        <span class="s2">&quot;@typescript-eslint/no-unsafe-call&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+        <span class="s2">&quot;@typescript-eslint/no-unsafe-member-access&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+        <span class="s2">&quot;@typescript-eslint/no-unsafe-return&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+        <span class="s2">&quot;@typescript-eslint/no-unused-vars&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="p">{</span>
+                <span class="s2">&quot;argsIgnorePattern&quot;</span><span class="o">:</span> <span class="s2">&quot;^_&quot;</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
 </td></tr></table>
-<h3 id="eslintignore">.eslintignore<a class="headerlink" href="#eslintignore" title="Permanent link">#</a></h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>**/*.js
+</div>
+
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>.eslintignore</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>**/*.js
 </code></pre></div>
 </td></tr></table>
-<h3 id="gitattributes">.gitattributes<a class="headerlink" href="#gitattributes" title="Permanent link">#</a></h3>
+</div>
+
 <p>This <code>.gitattributes</code> configuration will automatically collapse the generated JavaScript target files in GitHub’s Diff view.
 You will not need it if you do not use git or GitHub.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>files/js/**/*.js linguist-generated
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>.gitattributes</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>files/js/**/*.js linguist-generated
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <h2 id="writing-a-simple-module">Writing a simple module<a class="headerlink" href="#writing-a-simple-module" title="Permanent link">#</a></h2>
 <p>After completing this initial set-up you can start writing your first TypeScript module.
 The TypeScript compiler can be launched in Watch Mode by running <code>npx tsc -w</code>.</p>
 <p>WoltLab Suite’s modules can be imported using the standard ECMAScript module import syntax by specifying the full module name.
 The public API of the module can also be exported using the standard ECMAScript module export syntax.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>ts/Example.ts</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2270,8 +2224,12 @@ The public API of the module can also be exported using the standard ECMAScript 
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <p>This simple example module will compile to plain JavaScript that is compatible with the AMD loader that is used by WoltLab Suite.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>files/js/Example.js</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2292,6 +2250,8 @@ The public API of the module can also be exported using the standard ECMAScript 
 <span class="p">});</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <p>Within templates it can be consumed as follows.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2312,7 +2272,7 @@ The public API of the module can also be exported using the standard ECMAScript 
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-04-13
+      Last update: 2021-04-23
     
   </small>
 </div>

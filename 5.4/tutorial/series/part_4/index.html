@@ -2088,7 +2088,9 @@ To do so, we first have to register a new object type for this person list box c
 </code></pre></div>
 </td></tr></table>
 <p>The <code>com.woltlab.wcf.boxController</code> object type definition requires the provided class to implement <code>wcf\system\box\IBoxController</code>:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>files/lib/system/box/PersonListBoxController.class.php</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2227,6 +2229,8 @@ To do so, we first have to register a new object type for this person list box c
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <p>By extending <code>AbstractDatabaseObjectListBoxController</code>, we only have to provide minimal data ourself and rely mostly on the default implementation provided by <code>AbstractDatabaseObjectListBoxController</code>:</p>
 <ol>
 <li>As we will support <a href="#conditions">conditions</a> for the listed people, we have to set the relevant condition definition via <code>$conditionDefinition</code>.</li>
@@ -2285,7 +2289,9 @@ In our case, the box system supports conditions to filter the objects shown in a
 Admittedly, our current person implementation only contains minimal data so that filtering might not make the most sense here but it will still show how to use the condition system for boxes.
 We will support filtering the people by their first and last name so that, for example, a box can be created listing all people with a specific first name.</p>
 <p>The first step for condition support is to register a object type definition for the relevant conditions requiring the <code>IObjectListCondition</code> interface:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>objectTypeDefinition.xml</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2304,6 +2310,8 @@ We will support filtering the people by their first and last name so that, for e
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <p>Next, we register the specific conditions for filtering by the first and last name using this object type condition:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2327,7 +2335,9 @@ We will support filtering the people by their first and last name so that, for e
 </code></pre></div>
 </td></tr></table>
 <p><code>PersonFirstNameTextPropertyCondition</code> and <code>PersonLastNameTextPropertyCondition</code> only differ minimally so that we only focus on <code>PersonFirstNameTextPropertyCondition</code> here, which relies on the default implementation <code>AbstractObjectTextPropertyCondition</code> and only requires specifying different object properties:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>files/lib/system/condition/person/PersonFirstNameTextPropertyCondition.class.php</code></div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2422,6 +2432,8 @@ We will support filtering the people by their first and last name so that, for e
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+
 <ol>
 <li><code>$className</code> contains the class name of the relevant database object from which the class name of the database object list is derived and <code>$propertyName</code> is the name of the database object's property that contains the value used for filtering.</li>
 <li>By setting <code>$supportsMultipleValues</code> to <code>true</code>, multiple comma-separated values can be specified so that, for example, a box can also only list people with either of two specific first names.</li>
@@ -2437,7 +2449,7 @@ The <code>wcf\system\condition</code> namespace also contains several other defa
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-04-20
+      Last update: 2021-04-23
     
   </small>
 </div>
