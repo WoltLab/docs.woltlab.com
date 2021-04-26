@@ -20,9 +20,12 @@ User content providers help the WoltLab Suite to find user generated content. Th
 
 First, we create the PHP class that provides our interface to provide the data. The class must implement interface `wcf\system\user\content\provider\IUserContentProvider` in any case. Mostly we process data which is based on [`wcf\data\DatabaseObject`](../../php/database-objects.md). In this case, the WoltLab Suite provides an abstract class `wcf\system\user\content\provider\AbstractDatabaseUserContentProvider` that can be used to automatically generates the standardized classes to generate the list and deletes objects via the DatabaseObjectAction. For example, if we would create a content provider for comments, the class would look like this: 
 
-```php
+{jinja{ codebox(
+language="php",
+title="files/lib/system/user/content/provider/CommentUserContentProvider.class.php",
+contents="""
 <?php
-namespace wcf\system\user\content\provider;
+namespace wcf\system\\user\content\provider;
 use wcf\data\comment\Comment;
 
 /**
@@ -31,7 +34,7 @@ use wcf\data\comment\Comment;
  * @author	Joshua Ruesweg
  * @copyright	2001-2018 WoltLab GmbH
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
- * @package	WoltLabSuite\Core\System\User\Content\Provider
+ * @package	WoltLabSuite\Core\System\\User\Content\Provider
  * @since	5.2
  */
 class CommentUserContentProvider extends AbstractDatabaseUserContentProvider {
@@ -42,7 +45,8 @@ class CommentUserContentProvider extends AbstractDatabaseUserContentProvider {
 		return Comment::class;
 	}
 }
-```
+"""
+)}}
 
 ### Object Type
 

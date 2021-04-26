@@ -81,15 +81,19 @@ Jemandem hat auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {o
 ### Recent Activity 
 
 To adjust entries in the Recent Activity, only three small steps are necessary. First we pass the concrete reaction to the language variable, so that we can use the reaction object there. To do this, we add the following variable to the text of the `\wcf\system\user\activity\event\IUserActivityEvent` object: `$event->reactionType`. Typically we name the variable `reactionType`. In the second step, we mark the event as compatible. Therefore we set the parameter `supportsReactions` in the [`objectType.xml`](../../package/pip/object-type.md) to `1`. So for example the entry looks like this:
- 
-```xml
+
+{jinja{ codebox(
+language="xml",
+title="objectType.xml",
+contents="""
 <type>
-	<name>com.woltlab.example.likeableObject.recentActivityEvent</name>
-	<definitionname>com.woltlab.wcf.user.recentActivityEvent</definitionname>
-	<classname>wcf\system\user\activity\event\LikeableObjectUserActivityEvent</classname>
-	<supportsReactions>1</supportsReactions>
+    <name>com.woltlab.example.likeableObject.recentActivityEvent</name>
+    <definitionname>com.woltlab.wcf.user.recentActivityEvent</definitionname>
+    <classname>wcf\system\\user\activity\event\LikeableObjectUserActivityEvent</classname>
+    <supportsReactions>1</supportsReactions>
 </type>
-```
+"""
+)}}
 
 Finally we modify our language variable. To ensure a consistent usability, the same formulations should be used as in the WoltLab Suite Core.
 
@@ -118,15 +122,20 @@ Hat mit <span title="{$reactionType->getTitle()}" class="jsTooltip">{@$reactionT
 ### Comments
 If comments send notifications, they must also be updated. The language variables are changed in the same way as described in the section [Notifications / Language](like.md#Language-Variables). After that comment must be marked as compatible. Therefore we set the parameter `supportsReactions` in the [`objectType.xml`](../../package/pip/object-type.md) to `1`. So for example the entry looks like this: 
 
-```xml
+
+{jinja{ codebox(
+language="xml",
+title="objectType.xml",
+contents="""
 <type>
-	<name>com.woltlab.wcf.objectComment.response.like.notification</name>
-	<definitionname>com.woltlab.wcf.notification.objectType</definitionname>
-	<classname>wcf\system\user\notification\object\type\LikeUserNotificationObjectType</classname>
-	<category>com.woltlab.example</category>
-	<supportsReactions>1</supportsReactions>
+    <name>com.woltlab.wcf.objectComment.response.like.notification</name>
+    <definitionname>com.woltlab.wcf.notification.objectType</definitionname>
+    <classname>wcf\system\\user\notification\object\type\LikeUserNotificationObjectType</classname>
+    <category>com.woltlab.example</category>
+    <supportsReactions>1</supportsReactions>
 </type>
-```
+"""
+)}}
 
 ## Forward Compatibility 
 

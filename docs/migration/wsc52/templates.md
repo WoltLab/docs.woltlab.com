@@ -90,31 +90,41 @@ We unified the approach for such links:
 
 Example:
 
-```php
+{jinja{ codebox(
+    language="php",
+    title="files/lib/data/foo/Foo.class.php",
+    contents="""
 class Foo extends DatabaseObject implements IPopoverObject {
-	public function getPopoverLinkClass() {
-		return 'fooLink';
-	}
+    public function getPopoverLinkClass() {
+        return 'fooLink';
+    }
 }
+"""
+)}}
 
+{jinja{ codebox(
+    language="php",
+    title="files/lib/data/foo/FooAction.class.php",
+    contents="""
 class FooAction extends AbstractDatabaseObjectAction implements IPopoverAction {
-	public function validateGetPopover() {
-		// …
-	}
-	
-	public function getPopover() {
-		return [
-			'template' => '…',
-		];
-	}
+    public function validateGetPopover() {
+        // …
+    }
+    
+    public function getPopover() {
+        return [
+            'template' => '…',
+        ];
+    }
 }
-```
+"""
+)}}
 
 ```js
 require(['WoltLabSuite/Core/Controller/Popover'], function(ControllerPopover) {
 	ControllerPopover.init({
 		className: 'fooLink',
-		dboAction: 'wcf\\data\\foo\\FooAction',
+		dboAction: 'wcf\\data∑foo\\FooAction',
 		identifier: 'com.woltlab.wcf.foo'
 	});
 });

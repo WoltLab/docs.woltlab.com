@@ -4,24 +4,33 @@
 
 Comments can now be set to require approval by a moderator before being published. This feature is disabled by default if you do not provide a permission in the manager class, enabling it requires a new permission that has to be provided in a special property of your manage implementation.
 
-```php
+{jinja{ codebox(
+    language="php",
+    title="files/lib/system/comment/manager/ExampleCommentManager.class.php",
+    contents="""
 <?php
 class ExampleCommentManager extends AbstractCommentManager {
   protected $permissionAddWithoutModeration = 'foo.bar.example.canAddCommentWithoutModeration';
 }
-```
+"""
+) }}
 
 ## Raw HTML in User Activity Events
 
 User activity events were previously encapsulated inside `<div class="htmlContent">…</div>`, with impacts on native elements such as lists. You can now disable the class usage by defining your event as raw HTML:
 
-```php
+
+{jinja{ codebox(
+    language="php",
+    title="files/lib/system/user/activity/event/ExampleUserActivityEvent.class.php",
+    contents="""
 <?php
 class ExampleUserActivityEvent {
   // enables raw HTML for output, defaults to `false`
   protected $isRawHtml = true;
 }
-```
+"""
+) }}
 
 ## Permission to View Likes of an Object
 
@@ -29,7 +38,10 @@ Being able to view the like summary of an object was restricted to users that we
 
 Implement the interface `\wcf\data\like\IRestrictedLikeObjectTypeProvider` in your object provider to add support for this new permission check.
 
-```php
+{jinja{ codebox(
+    language="php",
+    title="files/lib/data/example/LikeableExampleProvider.class.php",
+    contents="""
 <?php
 class LikeableExampleProvider extends ExampleProvider implements IRestrictedLikeObjectTypeProvider, IViewableLikeProvider {
   public function canViewLikes(ILikeObject $object) {
@@ -37,7 +49,8 @@ class LikeableExampleProvider extends ExampleProvider implements IRestrictedLike
     return true;
   }
 }
-```
+"""
+) }}
 
 ## Developer Tools: Sync Feature
 
@@ -47,7 +60,10 @@ However, not all PIPs qualify for this kind of execution, especially because it 
 
 There's another feature that allows all matching PIPs to be executed in a row using a single button click. In order to solve dependencies on other PIPs, any implementing PIP must also provide the method `getSyncDependencies()` that returns the dependent PIPs in an arbitrary order.
 
-```php
+{jinja{ codebox(
+    language="php",
+    title="files/lib/data/package/plugin/ExamplePackageInstallationPlugin.class.php",
+    contents="""
 <?php
 class ExamplePackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin implements IIdempotentPackageInstallationPlugin {
   public static function getSyncDependencies() {
@@ -55,7 +71,8 @@ class ExamplePackageInstallationPlugin extends AbstractXMLPackageInstallationPlu
     return [];
   }
 }
-```
+"""
+) }}
 
 ## Media Providers
 
@@ -63,20 +80,11 @@ Media providers were added through regular SQL queries in earlier versions, but 
 
 ### Example Implementation
 
-#### mediaProvider.xml
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/tornado/mediaProvider.xsd">
-  <import>
-    <provider name="example">
-      <title>Example Provider</title>
-      <regex><![CDATA[https?://example.com/watch?v=(?P<ID>[a-zA-Z0-9])]]></regex>
-      <className><![CDATA[wcf\system\bbcode\media\provider\ExampleBBCodeMediaProvider]]></className>
-    </provider>
-  </import>
-</data>
-```
+{jinja{ codebox(
+    language="xml",
+    title="mediaProvider.xml",
+    filepath="migration/wsc-30/mediaProvider.xml"
+) }}
 
 #### PHP Callback
 
