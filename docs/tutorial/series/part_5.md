@@ -218,26 +218,34 @@ As we store the name of the user who create a new piece of information and store
 
 1. If the user is renamed, the value of `username` stored with the person information has to be updated, which can be achieved by a simple event listener that only has to specify the name of relevant database table if `AbstractUserActionRenameListener` is extended:
 
-    ```php
-    --8<-- "tutorial//tutorial-series/part-5/files/lib/system/event/listener/PersonUserActionRenameListener.class.php"
-    ```
+    {jinja{ codebox(
+        title="files/lib/system/event/listener/PersonUserActionRenameListener.class.php",
+        language="php",
+        filepath="tutorial/tutorial-series/part-5/files/lib/system/event/listener/PersonUserActionRenameListener.class.php"
+    ) }}
 2. If users are merged, all pieces of information need to be assigned to the target user of the merging.
   Again, we only have to specify the name of relevant database table if `AbstractUserMergeListener` is extended:
 
-    ```php
-    --8<-- "tutorial/tutorial-series/part-5/files/lib/system/event/listener/PersonUserMergeListener.class.php"
-    ```
+   {jinja{ codebox(
+       title="files/lib/system/event/listener/PersonUserMergeListener.class.php",
+       language="php",
+       filepath="tutorial/tutorial-series/part-5/files/lib/system/event/listener/PersonUserMergeListener.class.php"
+   ) }}
 3. If the option to prune stored ip addresses after a certain period of time is enabled, we also have to prune them in the person information database table.
   Here we also only have to specify the name of the relevant database table and provide the mapping from the `ipAddress` column to the `time` column:
 
-    ```php
-    --8<-- "tutorial/tutorial-series/part-5/files/lib/system/event/listener/PersonPruneIpAddressesCronjobListener.class.php"
-    ```
-4. The ip addresses in the person information database table also have to be considered for the user data export which can also be done with minimal effort by providing the name of the relevant database table: 
+   {jinja{ codebox(
+       title="files/lib/system/event/listener/PersonPruneIpAddressesCronjobListener.class.php",
+       language="php",
+       filepath="tutorial/tutorial-series/part-5/files/lib/system/event/listener/PersonPruneIpAddressesCronjobListener.class.php"
+   ) }}
+4. The ip addresses in the person information database table also have to be considered for the user data export which can also be done with minimal effort by providing the name of the relevant database table:
 
-    ```php
-    --8<-- "tutorial/tutorial-series/part-5/files/lib/system/event/listener/PersonUserExportGdprListener.class.php"
-    ```
+   {jinja{ codebox(
+       title="files/lib/system/event/listener/PersonUserExportGdprListener.class.php",
+       language="php",
+       filepath="tutorial/tutorial-series/part-5/files/lib/system/event/listener/PersonUserExportGdprListener.class.php"
+   ) }}
 
 Lastly, we present the updated `eventListener.xml` file with new entries for all of these event listeners:
 

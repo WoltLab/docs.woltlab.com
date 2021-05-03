@@ -77,9 +77,13 @@ By extending `AbstractDatabaseObjectListBoxController`, we only have to provide 
 5. `getObjectList()` returns an instance of `DatabaseObjectList` that is used to read the listed objects.
    `getObjectList()` itself must not call `readObjects()`, as `AbstractDatabaseObjectListBoxController` takes care of calling the method after adding the conditions and setting the sort order.
 6. `getTemplate()` returns the contents of the box relying on the `boxPersonList` template here:
-   ```smarty
-   --8<-- "tutorial/tutorial-series/part-4/templates/boxPersonList.tpl"
-   ```
+   
+   {jinja{ codebox(
+       title="templates/boxPersonList.tpl",
+       language="smarty",
+       filepath="tutorial/tutorial-series/part-4/templates/boxPersonList.tpl"
+   ) }}
+   
    The template relies on a `.sidebarItemList` element, which is generally used for sidebar listings.
    (If different box positions were supported, we either have to generate different output by considering the value of `$boxPosition` in the template or by using different templates in `getTemplate()`.)
    One specific piece of code is the `$__boxPersonDescription` variable, which supports an optional description below the person's name relying on the optional language item `wcf.person.boxList.description.{$boxSortField}`.

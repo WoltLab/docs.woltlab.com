@@ -7,36 +7,48 @@ This form is the perfect first examples as it is very simple with only two text 
 
 As a reminder, here are the two relevant PHP files and the relevant template file:
 
-```php
---8<-- "migration/wsc-31/formBuilder/PersonAddForm_old.class.php"
-```
+{jinja{ codebox(
+title="files/lib/acp/form/PersonAddForm.class.php",
+language="php",
+filepath="migration/wsc-31/formBuilder/PersonAddForm_old.class.php"
+) }}
 
-```php
---8<-- "migration/wsc-31/formBuilder/PersonEditForm_old.class.php"
-```
+{jinja{ codebox(
+title="files/lib/acp/form/PersonEditForm.class.php",
+language="php",
+filepath="migration/wsc-31/formBuilder/PersonEditForm_old.class.php"
+) }}
 
-```php
---8<-- "migration/wsc-31/formBuilder/personAdd_old.tpl"
-```
+{jinja{ codebox(
+title="acptemplates/personAdd.tpl",
+language="smarty",
+filepath="migration/wsc-31/formBuilder/personAdd_old.tpl"
+) }}
 
 Updating the template is easy as the complete form is replace by a single line of code:
 
-```php
---8<-- "migration/wsc-31/formBuilder/personAdd_new.tpl"
-```
+{jinja{ codebox(
+title="acptemplates/personAdd.tpl",
+language="smarty",
+filepath="migration/wsc-31/formBuilder/personAdd_new.tpl"
+) }}
 
 `PersonEditForm` also becomes much simpler:
 only the edited `Person` object must be read:
 
-```php
---8<-- "migration/wsc-31/formBuilder/PersonEditForm_new.class.php"
-```
+{jinja{ codebox(
+title="files/lib/acp/form/PersonEditForm.class.php",
+language="php",
+filepath="migration/wsc-31/formBuilder/PersonEditForm_new.class.php"
+) }}
 
 Most of the work is done in `PersonAddForm`:
 
-```php
---8<-- "migration/wsc-31/formBuilder/PersonAddForm_new.class.php"
-```
+{jinja{ codebox(
+title="files/lib/acp/form/PersonAddForm.class.php",
+language="php",
+filepath="migration/wsc-31/formBuilder/PersonAddForm_new.class.php"
+) }}
 
 But, as you can see, the number of lines almost decreased by half.
 All changes are due to extending `AbstractFormBuilderForm`:
