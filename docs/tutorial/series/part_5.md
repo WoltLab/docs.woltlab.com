@@ -33,14 +33,17 @@ The package will have the following file structure _excluding_ unchanged files f
 │   │           └── Controller
 │   │               └── Person.js
 │   └── lib
-│       └── data
-│           └── person
-│               ├── Person.class.php
-│               └── information
-│                   ├── PersonInformation.class.php
-│                   ├── PersonInformationAction.class.php
-│                   ├── PersonInformationEditor.class.php
-│                   └── PersonInformationList.class.php
+│       ├── data
+│       │   └── person
+│       │       ├── Person.class.php
+│       │       └── information
+│       │           ├── PersonInformation.class.php
+│       │           ├── PersonInformationAction.class.php
+│       │           ├── PersonInformationEditor.class.php
+│       │           └── PersonInformationList.class.php
+│       └── system
+│           └── worker
+│               └── PersonRebuildDataWorker.class.php
 ├── language
 │   ├── de.xml
 │   └── en.xml
@@ -196,6 +199,17 @@ An alternative to reloading to the page would be dynamically inserting the new p
 The process for getting and submitting the dialog to edit existing pieces of information is similar to the process for adding new pieces of information.
 Instead of the id of the person, however, we now pass the id of the edited piece of information and in `submitEditDialog()`, we update the edited information instead of creating a new one like in `submitAddDialog()`.
 After editing a piece of information, we do not reload the page but dynamically update the text of the information in the TypeScript code so that we return the updated rendered information text and id of the edited pieced of information in `submitAddDialog()`.
+
+
+## Rebuild Data Worker
+
+To ensure the integrity of the person data, `PersonRebuildDataWorker` updates the `informationCount` counter:
+
+{jinja{ codebox(
+title="files/lib/system/worker/PersonRebuildDataWorker.class.php",
+language="php",
+filepath="tutorial/tutorial-series/part-5/files/lib/system/worker/PersonRebuildDataWorker.class.php"
+) }}
 
 
 ## Username and IP Address Event Listeners
