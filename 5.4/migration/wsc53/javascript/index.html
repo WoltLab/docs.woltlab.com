@@ -1484,8 +1484,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#wcf_click_event" class="md-nav__link">
-    WCF_CLICK_EVENT
+  <a href="#replacements-for-deprecated-components" class="md-nav__link">
+    Replacements for Deprecated Components
   </a>
   
 </li>
@@ -1974,8 +1974,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#wcf_click_event" class="md-nav__link">
-    WCF_CLICK_EVENT
+  <a href="#replacements-for-deprecated-components" class="md-nav__link">
+    Replacements for Deprecated Components
   </a>
   
 </li>
@@ -2019,7 +2019,125 @@ Learn about consuming WoltLab Suite’s types in <a href="../../../javascript/ty
 Existing AMD based modules have been migrated to TypeScript, but will expose the existing and known API.</p>
 <p>It is recommended that you migrate your custom packages to make use of TypeScript.
 It will make consuming newly written modules that properly leverage TypeScript’s features much more pleasant and will also ease using existing modules due to proper autocompletion and type checking.</p>
-<h2 id="wcf_click_event"><code>WCF_CLICK_EVENT</code><a class="headerlink" href="#wcf_click_event" title="Permanent link">#</a></h2>
+<h2 id="replacements-for-deprecated-components">Replacements for Deprecated Components<a class="headerlink" href="#replacements-for-deprecated-components" title="Permanent link">#</a></h2>
+<p>The helper functions in <code>wcf.globalHelper.js</code> should not be used anymore but replaced by their native counterpart:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Native Replacement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>elCreate(tag)</code></td>
+<td><code>document.createElement(tag)</code></td>
+</tr>
+<tr>
+<td><code>elRemove(el)</code></td>
+<td><code>el.remove()</code></td>
+</tr>
+<tr>
+<td><code>elShow(el)</code></td>
+<td><code>DomUtil.show(el)</code></td>
+</tr>
+<tr>
+<td><code>elHide(el)</code></td>
+<td><code>DomUtil.hide(el)</code></td>
+</tr>
+<tr>
+<td><code>elIsHidden(el)</code></td>
+<td><code>DomUtil.isHidden(el)</code></td>
+</tr>
+<tr>
+<td><code>elToggle(el)</code></td>
+<td><code>DomUtil.toggle(el)</code></td>
+</tr>
+<tr>
+<td><code>elAttr(el, "attr")</code></td>
+<td><code>el.attr</code> or <code>el.getAttribute("attr")</code></td>
+</tr>
+<tr>
+<td><code>elData(el, "data")</code></td>
+<td><code>el.dataset.data</code></td>
+</tr>
+<tr>
+<td><code>elDataBool(element, "data")</code></td>
+<td><code>Core.stringToBool(el.dataset.data)</code></td>
+</tr>
+<tr>
+<td><code>elById(id)</code></td>
+<td><code>document.getElementById(id)</code></td>
+</tr>
+<tr>
+<td><code>elBySel(sel)</code></td>
+<td><code>document.querySelector(sel)</code></td>
+</tr>
+<tr>
+<td><code>elBySel(sel, el)</code></td>
+<td><code>el.querySelector(sel)</code></td>
+</tr>
+<tr>
+<td><code>elBySelAll(sel)</code></td>
+<td><code>document.querySelectorAll(sel)</code></td>
+</tr>
+<tr>
+<td><code>elBySelAll(sel, el)</code></td>
+<td><code>el.querySelectorAll(sel)</code></td>
+</tr>
+<tr>
+<td><code>elBySelAll(sel, el, callback)</code></td>
+<td><code>el.querySelectorAll(sel).forEach((el) =&gt; callback(el));</code></td>
+</tr>
+<tr>
+<td><code>elClosest(el, sel)</code></td>
+<td><code>el.closest(sel)</code></td>
+</tr>
+<tr>
+<td><code>elByClass(class)</code></td>
+<td><code>document.getElementsByClassName(class)</code></td>
+</tr>
+<tr>
+<td><code>elByClass(class, el)</code></td>
+<td><code>el.getElementsByClassName(class)</code></td>
+</tr>
+<tr>
+<td><code>elByTag(tag)</code></td>
+<td><code>document.getElementsByTagName(tag)</code></td>
+</tr>
+<tr>
+<td><code>elByTag(tag, el)</code></td>
+<td><code>el.getElementsByTagName(tag)</code></td>
+</tr>
+<tr>
+<td><code>elInnerError(el, message, isHtml)</code></td>
+<td><code>DomUtil.innerError(el, message, isHtml)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Additionally, the following modules should also be replaced by their native counterpart:</p>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Native Replacement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WoltLabSuite/Core/Dictionary</code></td>
+<td><code>Map</code></td>
+</tr>
+<tr>
+<td><code>WoltLabSuite/Core/List</code></td>
+<td><code>Set</code></td>
+</tr>
+<tr>
+<td><code>WoltLabSuite/Core/ObjectMap</code></td>
+<td><code>WeakMap</code></td>
+</tr>
+</tbody>
+</table>
 <p>For event listeners on click events, <code>WCF_CLICK_EVENT</code> is deprecated and should no longer be used.
 Instead, use <code>click</code> directly:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2170,7 +2288,7 @@ To also cover scenarios in which there are fixed child elements that should not 
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-04-13
+      Last update: 2021-05-07
     
   </small>
 </div>
