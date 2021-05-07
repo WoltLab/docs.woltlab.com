@@ -11,7 +11,42 @@ Existing AMD based modules have been migrated to TypeScript, but will expose the
 It is recommended that you migrate your custom packages to make use of TypeScript.
 It will make consuming newly written modules that properly leverage TypeScript’s features much more pleasant and will also ease using existing modules due to proper autocompletion and type checking.
 
-## `WCF_CLICK_EVENT`
+
+## Replacements for Deprecated Components
+
+The helper functions in `wcf.globalHelper.js` should not be used anymore but replaced by their native counterpart:
+
+| Function | Native Replacement |
+|----------|--------------------|
+| `elCreate(tag)` | `document.createElement(tag)` |
+| `elRemove(el)` | `el.remove()` |
+| `elShow(el)` | `DomUtil.show(el)` |
+| `elHide(el)` | `DomUtil.hide(el)` |
+| `elIsHidden(el)` | `DomUtil.isHidden(el)` |
+| `elToggle(el)` | `DomUtil.toggle(el)` |
+| `elAttr(el, "attr")` | `el.attr` or `el.getAttribute("attr")` |
+| `elData(el, "data")` | `el.dataset.data` |
+| `elDataBool(element, "data")` | `Core.stringToBool(el.dataset.data)` |
+| `elById(id)` | `document.getElementById(id)` |
+| `elBySel(sel)` | `document.querySelector(sel)` |
+| `elBySel(sel, el)` | `el.querySelector(sel)` |
+| `elBySelAll(sel)` | `document.querySelectorAll(sel)` |
+| `elBySelAll(sel, el)` | `el.querySelectorAll(sel)` |
+| `elBySelAll(sel, el, callback)` | `el.querySelectorAll(sel).forEach((el) => callback(el));` |
+| `elClosest(el, sel)` | `el.closest(sel)` |
+| `elByClass(class)` | `document.getElementsByClassName(class)` |
+| `elByClass(class, el)` | `el.getElementsByClassName(class)` |
+| `elByTag(tag)` | `document.getElementsByTagName(tag)` |
+| `elByTag(tag, el)` | `el.getElementsByTagName(tag)` |
+| `elInnerError(el, message, isHtml)` | `DomUtil.innerError(el, message, isHtml)` |
+
+Additionally, the following modules should also be replaced by their native counterpart:
+
+| Module | Native Replacement |
+|--------|--------------------|
+| `WoltLabSuite/Core/Dictionary` | `Map` |
+| `WoltLabSuite/Core/List` | `Set` |
+| `WoltLabSuite/Core/ObjectMap` | `WeakMap` |
 
 For event listeners on click events, `WCF_CLICK_EVENT` is deprecated and should no longer be used.
 Instead, use `click` directly:
