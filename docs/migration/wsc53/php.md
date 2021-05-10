@@ -118,3 +118,11 @@ See [WoltLab/WCF#4001](https://github.com/WoltLab/WCF/pull/4001) for details.
 
 Currently, several of the (user group) options installed by our packages use the `textarea` option type and split its value by linebreaks to get a list of items, for example for allowed file extensions.
 To improve the user interface when setting up the value of such options, we have added the `lineBreakSeparatedText` option type as a drop-in replacement where the individual items are explicitly represented as distinct items in the user interface.
+
+## Ignoring of Users
+
+WoltLab Suite 5.4 distinguishes between blocking direct contact only and hiding all contents when ignoring users.
+To allow for detecting the difference, the `UserProfile::getIgnoredUsers()` and `UserProfile::isIgnoredUser()` methods received a new `$type` parameter.
+Pass either `UserIgnore::TYPE_BLOCK_DIRECT_CONTACT` or `UserIgnore::TYPE_HIDE_MESSAGES` depending on whether the check refers to a non-directed usage or content.
+
+See [WoltLab/WCF#4064](https://github.com/WoltLab/WCF/pull/4064) and [WoltLab/WCF#3981](https://github.com/WoltLab/WCF/issues/3981) for details.
