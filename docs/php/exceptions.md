@@ -22,3 +22,43 @@ All of the exceptions are found in the `wcf\system\exception` namespace.
 | `ParentClassException` | a class does not extend an expected (parent) class |
 | `PermissionDeniedException` | page access without permission, action execution without permission (is shown as http 403 error to the user) |
 | `UserInputException` | user input does not pass validation |
+
+## Sensitive Arguments in Stack Traces
+
+Sometimes sensitive values are passed as a function or method argument.
+If the callee throws an Exception these values will be part of the Exception’s stack trace and logged, unless the Exception is caught and ignored.
+
+WoltLab Suite will automatically suppress the values of parameters named like they might contain sensitive values, namely arguments matching the regular expression `/(?:^(?:password|passphrase|secret)|(?:Password|Passphrase|Secret))/`.
+
+If you need to suppress additional arguments from appearing in the stack trace you can add the `\wcf\SensitiveArgument` attribute to such parameters.
+Arguments are only supported as of PHP 8, but interpreted as a comment in lower PHP versions.
+In PHP 7 such arguments will not be suppressed, but the code will continue to work.
+Make sure to insert a linebreak between the attribute and the parameter name.
+
+Example:
+
+{jinja{ codebox(
+    language="php",
+    title="wcfsetup/install/files/lib/data/user/User.class.php",
+    contents="""
+<?php
+
+namespace wcf\data\user;
+
+// …
+
+final class User extends DatabaseObject implements IPopoverObject, IRouteController, IUserContent
+{
+    // …
+
+    public function checkPassword(
+        #[\wcf\SensitiveArgument()]
+        $password
+    ) {
+        // …
+    }
+
+    // …
+}
+"""
+) }}
