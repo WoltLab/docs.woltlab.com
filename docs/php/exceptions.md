@@ -26,13 +26,13 @@ All of the exceptions are found in the `wcf\system\exception` namespace.
 ## Sensitive Arguments in Stack Traces
 
 Sometimes sensitive values are passed as a function or method argument.
-If the callee throws an Exception these values will be part of the Exception’s stack trace and logged, unless the Exception is caught and ignored.
+If the callee throws an Exception, these values will be part of the Exception’s stack trace and logged, unless the Exception is caught and ignored.
 
 WoltLab Suite will automatically suppress the values of parameters named like they might contain sensitive values, namely arguments matching the regular expression `/(?:^(?:password|passphrase|secret)|(?:Password|Passphrase|Secret))/`.
 
-If you need to suppress additional arguments from appearing in the stack trace you can add the `\wcf\SensitiveArgument` attribute to such parameters.
-Arguments are only supported as of PHP 8, but interpreted as a comment in lower PHP versions.
-In PHP 7 such arguments will not be suppressed, but the code will continue to work.
+If you need to suppress additional arguments from appearing in the stack trace, you can add the `\wcf\SensitiveArgument` attribute to such parameters.
+Arguments are only supported as of PHP 8 and ignored as a comment in lower PHP versions.
+In PHP 7, such arguments will not be suppressed, but the code will continue to work.
 Make sure to insert a linebreak between the attribute and the parameter name.
 
 Example:
