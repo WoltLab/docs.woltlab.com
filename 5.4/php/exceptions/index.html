@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-rendering-error" class="md-skip">
+        <a href="#exceptions" class="md-skip">
           Skip to content
         </a>
       
@@ -287,9 +287,53 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Exceptions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Exceptions
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#spl-exceptions" class="md-nav__link">
+    SPL Exceptions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-exceptions" class="md-nav__link">
+    Custom Exceptions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensitive-arguments-in-stack-traces" class="md-nav__link">
+    Sensitive Arguments in Stack Traces
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1907,6 +1951,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#spl-exceptions" class="md-nav__link">
+    SPL Exceptions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-exceptions" class="md-nav__link">
+    Custom Exceptions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensitive-arguments-in-stack-traces" class="md-nav__link">
+    Sensitive Arguments in Stack Traces
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1922,8 +1995,68 @@
                   </a>
                 
                 
-                <h1 id="macro-rendering-error"><em>Macro Rendering Error</em><a class="headerlink" href="#macro-rendering-error" title="Permanent link">#</a></h1>
-<p><strong>TemplateSyntaxError</strong>: truncated \uXXXX escape</p>
+                <h1 id="exceptions">Exceptions<a class="headerlink" href="#exceptions" title="Permanent link">#</a></h1>
+<h2 id="spl-exceptions">SPL Exceptions<a class="headerlink" href="#spl-exceptions" title="Permanent link">#</a></h2>
+<p>The <a href="https://secure.php.net/manual/en/book.spl.php">Standard PHP Library (SPL)</a> provides some <a href="https://secure.php.net/manual/en/spl.exceptions.php">exceptions</a> that should be used whenever possible.</p>
+<h2 id="custom-exceptions">Custom Exceptions<a class="headerlink" href="#custom-exceptions" title="Permanent link">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Do not use <code>wcf\system\exception\SystemException</code> anymore, use specific exception classes!</p>
+</div>
+<p>The following table contains a list of custom exceptions that are commonly used.
+All of the exceptions are found in the <code>wcf\system\exception</code> namespace.</p>
+<table>
+<thead>
+<tr>
+<th>Class name</th>
+<th>(examples) when to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IllegalLinkException</code></td>
+<td>access to a page that belongs to a non-existing object, executing actions on specific non-existing objects (is shown as http 404 error to the user)</td>
+</tr>
+<tr>
+<td><code>ImplementationException</code></td>
+<td>a class does not implement an expected interface</td>
+</tr>
+<tr>
+<td><code>InvalidObjectArgument</code></td>
+<td><span class="label label-info">5.4+</span> API method support generic objects but specific implementation requires objects of specific (sub)class and different object is given</td>
+</tr>
+<tr>
+<td><code>InvalidObjectTypeException</code></td>
+<td>object type is not of an expected object type definition</td>
+</tr>
+<tr>
+<td><code>InvalidSecurityTokenException</code></td>
+<td>given security token does not match the security token of the active user's session</td>
+</tr>
+<tr>
+<td><code>ParentClassException</code></td>
+<td>a class does not extend an expected (parent) class</td>
+</tr>
+<tr>
+<td><code>PermissionDeniedException</code></td>
+<td>page access without permission, action execution without permission (is shown as http 403 error to the user)</td>
+</tr>
+<tr>
+<td><code>UserInputException</code></td>
+<td>user input does not pass validation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sensitive-arguments-in-stack-traces">Sensitive Arguments in Stack Traces<a class="headerlink" href="#sensitive-arguments-in-stack-traces" title="Permanent link">#</a></h2>
+<p>Sometimes sensitive values are passed as a function or method argument.
+If the callee throws an Exception, these values will be part of the Exception’s stack trace and logged, unless the Exception is caught and ignored.</p>
+<p>WoltLab Suite will automatically suppress the values of parameters named like they might contain sensitive values, namely arguments matching the regular expression <code>/(?:^(?:password|passphrase|secret)|(?:Password|Passphrase|Secret))/</code>.</p>
+<p>If you need to suppress additional arguments from appearing in the stack trace, you can add the <code>\wcf\SensitiveArgument</code> attribute to such parameters.
+Arguments are only supported as of PHP 8 and ignored as comments in lower PHP versions.
+In PHP 7, such arguments will not be suppressed, but the code will continue to work.
+Make sure to insert a linebreak between the attribute and the parameter name.</p>
+<p>Example:</p>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>wcfsetup/install/files/lib/data/user/User.class.php</code></div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1942,29 +2075,28 @@
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/jinja2/lexer.py&quot;, line 646, in wrap
-    self._normalize_newlines(value[1:-1])
-UnicodeDecodeError: &#39;unicodeescape&#39; codec can&#39;t decode bytes in position 26-27: truncated \uXXXX escape
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
-During handling of the above exception, another exception occurred:
+<span class="k">namespace</span> <span class="nx">wcf\data\user</span><span class="p">;</span>
 
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/mkdocs_macros/plugin.py&quot;, line 441, in render
-    md_template = self.env.from_string(markdown)
-  File &quot;/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/jinja2/environment.py&quot;, line 941, in from_string
-    return cls.from_code(self, self.compile(source), globals, None)
-  File &quot;/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/jinja2/environment.py&quot;, line 638, in compile
-    self.handle_exception(source=source_hint)
-  File &quot;/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/jinja2/environment.py&quot;, line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File &quot;/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/jinja2/_compat.py&quot;, line 28, in reraise
-    raise value.with_traceback(tb)
-  File &quot;&lt;unknown&gt;&quot;, line 44, in template
-jinja2.exceptions.TemplateSyntaxError: truncated \uXXXX escape
+<span class="c1">// …</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">DatabaseObject</span> <span class="k">implements</span> <span class="nx">IPopoverObject</span><span class="p">,</span> <span class="nx">IRouteController</span><span class="p">,</span> <span class="nx">IUserContent</span>
+<span class="p">{</span>
+    <span class="c1">// …</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">checkPassword</span><span class="p">(</span>
+        <span class="c1">#[\wcf\SensitiveArgument()]</span>
+        <span class="nv">$password</span>
+    <span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// …</span>
+    <span class="p">}</span>
+
+    <span class="c1">// …</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
+</div>
                 
                   
                     
