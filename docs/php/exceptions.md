@@ -31,7 +31,7 @@ If the callee throws an Exception, these values will be part of the Exception’
 WoltLab Suite will automatically suppress the values of parameters named like they might contain sensitive values, namely arguments matching the regular expression `/(?:^(?:password|passphrase|secret)|(?:Password|Passphrase|Secret))/`.
 
 If you need to suppress additional arguments from appearing in the stack trace, you can add the `\wcf\SensitiveArgument` attribute to such parameters.
-Arguments are only supported as of PHP 8 and ignored as a comment in lower PHP versions.
+Arguments are only supported as of PHP 8 and ignored as comments in lower PHP versions.
 In PHP 7, such arguments will not be suppressed, but the code will continue to work.
 Make sure to insert a linebreak between the attribute and the parameter name.
 
