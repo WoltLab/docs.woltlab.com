@@ -1,5 +1,7 @@
 # Data Structures - JavaScript API
 
+!!! danger "These data structures are deprecated since version 5.4. Refer to our [migration guide](../migration/wsc53/javascript.md#replacements-for-deprecated-components) on how to replace them."
+
 ## Introduction
 
 JavaScript offers only limited types of collections to hold and iterate over

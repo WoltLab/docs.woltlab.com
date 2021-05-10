@@ -1,5 +1,7 @@
 # JavaScript Helper Functions
 
+!!! danger "These helper functions are deprecated since version 5.4. Refer to our [migration guide](../migration/wsc53/javascript.md#replacements-for-deprecated-components) on how to replace them."
+
 ## Introduction
 
 Since version 3.0, WoltLab Suite ships with a set of global helper functions that are
