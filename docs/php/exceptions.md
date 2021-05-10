@@ -43,7 +43,7 @@ Example:
     contents="""
 <?php
 
-namespace wcf\data\user;
+namespace wcf\\data\\user;
 
 // …
 
