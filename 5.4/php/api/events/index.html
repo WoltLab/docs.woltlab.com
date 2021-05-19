@@ -2047,11 +2047,36 @@ A comprehensive list of all available events is provided <a href="../event_list/
 Consider this pre-existing class:</p>
 <div class="titledCodeBox">
     <div class="codeBoxTitle">
-        <code>php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/files/lib/system/example/ExampleComponent.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+        <code>files/lib/system/example/ExampleComponent.class.php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/php/api/events/ExampleComponent.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    ```php/api/events/ExampleComponent.class.php
-    ```
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">namespace</span> <span class="nx">wcf\system\example</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\event\EventHandler</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ExampleComponent</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$var</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getVar</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;getVar&#39;</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
 </div>
 
 <p>where an event with event name <code>getVar</code> is fired in the <code>getVar()</code> method.</p>
@@ -2088,11 +2113,26 @@ Consider this pre-existing class:</p>
 <p>Now, consider that we have registered the following event listener to this event:</p>
 <div class="titledCodeBox">
     <div class="codeBoxTitle">
-        <code>php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/files/lib/system/event/listener/ExampleEventListener.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+        <code>files/lib/system/event/listener/ExampleEventListener.class.php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/php/api/events/ExampleEventListener.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    ```php/api/events/ExampleEventListener.class.php
-    ```
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">namespace</span> <span class="nx">wcf\system\event\listener</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ExampleEventListener</span> <span class="k">implements</span> <span class="nx">IParameterizedEventListener</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">var</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
 </div>
 
 <p>Whenever the event in the <code>getVar()</code> method is called, this method (of the same event listener object) is called.
@@ -2122,22 +2162,72 @@ The only thing to do is to call the <code>wcf\system\event\EventHandler::fireAct
 <p>Consider the following method which gets some text that the methods parses.</p>
 <div class="titledCodeBox">
     <div class="codeBoxTitle">
-        <code>php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/files/lib/system/example/ExampleParser.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+        <code>files/lib/system/example/ExampleParser.class.php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/php/api/events/ExampleParser1.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    ```php/api/events/ExampleParser1.class.php
-    ```
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">namespace</span> <span class="nx">wcf\system\example</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\event\EventHandler</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ExampleParser</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">parse</span><span class="p">(</span><span class="nv">$text</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// [some parsing done by default]</span>
+
+        <span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;text&#39;</span> <span class="o">=&gt;</span> <span class="nv">$text</span><span class="p">];</span>
+        <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;parse&#39;</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
 </div>
 
 <p>After the default parsing by the method itself, the author wants to enable plugins to do additional parsing and thus fires an event and passes the parsed text as an additional parameter.
 Then, a plugin can deliver the following event listener</p>
 <div class="titledCodeBox">
     <div class="codeBoxTitle">
-        <code>php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/files/lib/system/event/listener/ExampleParserEventListener.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+        <code>files/lib/system/event/listener/ExampleParserEventListener.class.php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/php/api/events/ExampleParserEventListener.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    ```php/api/events/ExampleParserEventListener.class.php
-    ```
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">namespace</span> <span class="nx">wcf\system\event\listener</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ExampleParserEventListener</span> <span class="k">implements</span> <span class="nx">IParameterizedEventListener</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$text</span> <span class="o">=</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">];</span>
+
+        <span class="c1">// [some additional parsing which changes $text]</span>
+
+        <span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$text</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
 </div>
 
 <p>which can access the text via <code>$parameters['text']</code>.</p>
@@ -2145,11 +2235,46 @@ Then, a plugin can deliver the following event listener</p>
 Let's assume that the author wants to enable plugins to change the text before and after the method does its own parsing and thus fires two events:</p>
 <div class="titledCodeBox">
     <div class="codeBoxTitle">
-        <code>php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/files/lib/system/example/ExampleParser.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+        <code>files/lib/system/example/ExampleParser.class.php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/php/api/events/ExampleParser2.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    ```php/api/events/ExampleParser2.class.php
-    ```
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">namespace</span> <span class="nx">wcf\system\example</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\event\EventHandler</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ExampleParser</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">parse</span><span class="p">(</span><span class="nv">$text</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;text&#39;</span> <span class="o">=&gt;</span> <span class="nv">$text</span><span class="p">];</span>
+        <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;beforeParsing&#39;</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
+        <span class="nv">$text</span> <span class="o">=</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">];</span>
+
+        <span class="c1">// [some parsing done by default]</span>
+
+        <span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;text&#39;</span> <span class="o">=&gt;</span> <span class="nv">$text</span><span class="p">];</span>
+        <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;afterParsing&#39;</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
 </div>
 
 <h2 id="advanced-example-additional-form-field">Advanced Example: Additional Form Field<a class="headerlink" href="#advanced-example-additional-form-field" title="Permanent link">#</a></h2>
@@ -2182,11 +2307,94 @@ The points in the program flow of <a href="../../pages/#abstractform">AbstractFo
 <p>All of these cases can be covered the by following code in which we assume that <code>wcf\form\ExampleAddForm</code> is the form to create example objects and that <code>wcf\form\ExampleEditForm</code> extends <code>wcf\form\ExampleAddForm</code> and is used for editing existing example objects.</p>
 <div class="titledCodeBox">
     <div class="codeBoxTitle">
-        <code>php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/files/lib/system/event/listener/ExampleAddFormListener.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+        <code>files/lib/system/event/listener/ExampleAddFormListener.class.php</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/php/api/events/ExampleAddFormListener.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    ```php/api/events/ExampleAddFormListener.class.php
-    ```
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">namespace</span> <span class="nx">wcf\system\event\listener</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\form\ExampleAddForm</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\form\ExampleEditForm</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\exception\UserInputException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\WCF</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ExampleAddFormListener</span> <span class="k">implements</span> <span class="nx">IParameterizedEventListener</span> <span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$var</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$eventName</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">assignVariables</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">(</span><span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">readData</span><span class="p">(</span><span class="nx">ExampleEditForm</span> <span class="nv">$eventObj</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span> <span class="o">=</span> <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">example</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">readFormParameters</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">]))</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span> <span class="o">=</span> <span class="nb">intval</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">save</span><span class="p">(</span><span class="nx">ExampleAddForm</span> <span class="nv">$eventObj</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">additionalFields</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">(</span><span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">additionalFields</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;var&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">saved</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">validate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">UserInputException</span><span class="p">(</span><span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="s1">&#39;isNegative&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
 </div>
 
 <p>The <code>execute</code> method in this example just delegates the call to a method with the same name as the event so that this class mimics the structure of a form class itself.
@@ -2204,11 +2412,56 @@ Furthermore, the type-hinting of the parameter illustrates in which contexts the
 <p>Lastly, the following XML file has to be used to register the event listeners (you can find more information about how to register event listeners on <a href="../../../package/pip/event-listener/">the eventListener package installation plugin page</a>):</p>
 <div class="titledCodeBox">
     <div class="codeBoxTitle">
-        <code>xml</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/eventListener.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+        <code>eventListener.xml</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/php/api/events/eventListener.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    ```php/api/events/eventListener.xml
-    ```
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/2019/eventListener.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;import&gt;</span>
+        <span class="nt">&lt;eventlistener</span> <span class="na">name=</span><span class="s">&quot;exampleAddInherited&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eventclassname&gt;</span>wcf\form\ExampleAddForm<span class="nt">&lt;/eventclassname&gt;</span>
+            <span class="nt">&lt;eventname&gt;</span>assignVariables,readFormParameters,save,validate<span class="nt">&lt;/eventname&gt;</span>
+            <span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\ExampleAddFormListener<span class="nt">&lt;/listenerclassname&gt;</span>
+            <span class="nt">&lt;inherit&gt;</span>1<span class="nt">&lt;/inherit&gt;</span>
+        <span class="nt">&lt;/eventlistener&gt;</span>
+
+        <span class="nt">&lt;eventlistener</span> <span class="na">name=</span><span class="s">&quot;exampleAdd&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eventclassname&gt;</span>wcf\form\ExampleAddForm<span class="nt">&lt;/eventclassname&gt;</span>
+            <span class="nt">&lt;eventname&gt;</span>saved<span class="nt">&lt;/eventname&gt;</span>
+            <span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\ExampleAddFormListener<span class="nt">&lt;/listenerclassname&gt;</span>
+        <span class="nt">&lt;/eventlistener&gt;</span>
+
+        <span class="nt">&lt;eventlistener</span> <span class="na">name=</span><span class="s">&quot;exampleEdit&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eventclassname&gt;</span>wcf\form\ExampleEditForm<span class="nt">&lt;/eventclassname&gt;</span>
+            <span class="nt">&lt;eventname&gt;</span>readData<span class="nt">&lt;/eventname&gt;</span>
+            <span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\ExampleAddFormListener<span class="nt">&lt;/listenerclassname&gt;</span>
+        <span class="nt">&lt;/eventlistener&gt;</span>
+    <span class="nt">&lt;/import&gt;</span>
+<span class="nt">&lt;/data&gt;</span>
+</code></pre></div>
+</td></tr></table>
 </div>
                 
                   
@@ -2218,7 +2471,7 @@ Furthermore, the type-hinting of the parameter illustrates in which contexts the
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-04-23
+      Last update: 2021-05-19
     
   </small>
 </div>
