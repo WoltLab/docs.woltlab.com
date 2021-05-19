@@ -126,3 +126,8 @@ To allow for detecting the difference, the `UserProfile::getIgnoredUsers()` and 
 Pass either `UserIgnore::TYPE_BLOCK_DIRECT_CONTACT` or `UserIgnore::TYPE_HIDE_MESSAGES` depending on whether the check refers to a non-directed usage or content.
 
 See [WoltLab/WCF#4064](https://github.com/WoltLab/WCF/pull/4064) and [WoltLab/WCF#3981](https://github.com/WoltLab/WCF/issues/3981) for details.
+
+## `Database::prepare()`
+
+`Database::prepare(string $statement, int $limit = 0, int $offset = 0): PreparedStatement` works the same way as `Database::prepareStatement()` but additionally also replaces all occurences of `app1_` with `app{WCF_N}_` for all installed apps.
+This new method makes it superfluous to use `WCF_N` when builiding queries.
