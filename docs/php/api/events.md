@@ -13,9 +13,9 @@ Let's start with a simple example to illustrate how the event system works.
 Consider this pre-existing class:
 
 {jinja{ codebox(
-  "php",
-  "php/api/events/ExampleComponent.class.php",
-  "files/lib/system/example/ExampleComponent.class.php"
+  title="files/lib/system/example/ExampleComponent.class.php",
+  language="php",
+  filepath="php/api/events/ExampleComponent.class.php"
 ) }}
 
 where an event with event name `getVar` is fired in the `getVar()` method.
@@ -42,9 +42,9 @@ else {
 Now, consider that we have registered the following event listener to this event:
 
 {jinja{ codebox(
-  "php",
-  "php/api/events/ExampleEventListener.class.php",
-  "files/lib/system/event/listener/ExampleEventListener.class.php"
+  title="files/lib/system/event/listener/ExampleEventListener.class.php",
+  language="php",
+  filepath="php/api/events/ExampleEventListener.class.php"
 ) }}
 
 Whenever the event in the `getVar()` method is called, this method (of the same event listener object) is called.
@@ -84,18 +84,18 @@ The only thing to do is to call the `wcf\system\event\EventHandler::fireAction($
 Consider the following method which gets some text that the methods parses.
 
 {jinja{ codebox(
-  "php",
-  "php/api/events/ExampleParser1.class.php",
-  "files/lib/system/example/ExampleParser.class.php"
+  title="files/lib/system/example/ExampleParser.class.php",
+  language="php",
+  filepath="php/api/events/ExampleParser1.class.php"
 ) }}
 
 After the default parsing by the method itself, the author wants to enable plugins to do additional parsing and thus fires an event and passes the parsed text as an additional parameter.
 Then, a plugin can deliver the following event listener
 
 {jinja{ codebox(
-  "php",
-  "php/api/events/ExampleParserEventListener.class.php",
-  "files/lib/system/event/listener/ExampleParserEventListener.class.php"
+  title="files/lib/system/event/listener/ExampleParserEventListener.class.php",
+  language="php",
+  filepath="php/api/events/ExampleParserEventListener.class.php"
 ) }}
 
 which can access the text via `$parameters['text']`.
@@ -104,9 +104,9 @@ This example can also be perfectly used to illustrate how to name multiple event
 Let's assume that the author wants to enable plugins to change the text before and after the method does its own parsing and thus fires two events:
 
 {jinja{ codebox(
-  "php",
-  "php/api/events/ExampleParser2.class.php",
-  "files/lib/system/example/ExampleParser.class.php"
+  title="files/lib/system/example/ExampleParser.class.php",
+  language="php",
+  filepath="php/api/events/ExampleParser2.class.php"
 ) }}
 
 
@@ -134,9 +134,9 @@ The points in the program flow of [AbstractForm](../pages.md#abstractform) that 
 All of these cases can be covered the by following code in which we assume that `wcf\form\ExampleAddForm` is the form to create example objects and that `wcf\form\ExampleEditForm` extends `wcf\form\ExampleAddForm` and is used for editing existing example objects.
 
 {jinja{ codebox(
-  "php",
-  "php/api/events/ExampleAddFormListener.class.php",
-  "files/lib/system/event/listener/ExampleAddFormListener.class.php"
+  title="files/lib/system/event/listener/ExampleAddFormListener.class.php",
+  language="php",
+  filepath="php/api/events/ExampleAddFormListener.class.php"
 ) }}
 
 The `execute` method in this example just delegates the call to a method with the same name as the event so that this class mimics the structure of a form class itself.
@@ -154,7 +154,7 @@ Furthermore, the type-hinting of the parameter illustrates in which contexts the
 Lastly, the following XML file has to be used to register the event listeners (you can find more information about how to register event listeners on [the eventListener package installation plugin page](../../package/pip/event-listener.md)):
 
 {jinja{ codebox(
-  "xml",
-  "php/api/events/eventListener.xml",
-  "eventListener.xml"
+  title="eventListener.xml",
+  language="xml",
+  filepath="php/api/events/eventListener.xml",
 ) }}
