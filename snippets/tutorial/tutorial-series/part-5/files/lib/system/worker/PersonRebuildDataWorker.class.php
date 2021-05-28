@@ -47,7 +47,7 @@ class PersonRebuildDataWorker extends AbstractRebuildDataWorker
         if (!\count($this->objectList)) {
             return;
         }
-        
+
         $sql = "UPDATE  wcf" . WCF_N . "_person person
                 SET     informationCount = (
                             SELECT  COUNT(*)
@@ -56,7 +56,7 @@ class PersonRebuildDataWorker extends AbstractRebuildDataWorker
                         )
                 WHERE   person.personID = ?";
         $statement = WCF::getDB()->prepareStatement($sql);
-        
+
         WCF::getDB()->beginTransaction();
         foreach ($this->getObjectList() as $person) {
             $statement->execute([$person->personID]);

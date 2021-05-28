@@ -46,7 +46,7 @@ class PersonAddForm extends AbstractFormBuilderForm
     /**
      * @inheritDoc
      */
-    public function createForm()
+    protected function createForm()
     {
         parent::createForm();
 

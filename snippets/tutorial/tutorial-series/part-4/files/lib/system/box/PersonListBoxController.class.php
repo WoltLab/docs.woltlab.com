@@ -50,7 +50,7 @@ class PersonListBoxController extends AbstractDatabaseObjectListBoxController
     /**
      * @inheritDoc
      */
-    public function getObjectList()
+    protected function getObjectList()
     {
         return new PersonList();
     }

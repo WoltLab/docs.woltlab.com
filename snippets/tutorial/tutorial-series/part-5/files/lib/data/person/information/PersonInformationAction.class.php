@@ -14,6 +14,7 @@ use wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer;
 use wcf\system\form\builder\DialogFormDocument;
 use wcf\system\html\input\HtmlInputProcessor;
 use wcf\system\WCF;
+use wcf\util\UserUtil;
 
 /**
  * Executes person information-related actions.
@@ -53,7 +54,7 @@ class PersonInformationAction extends AbstractDatabaseObjectAction
 
         if (LOG_IP_ADDRESS) {
             if (!isset($this->parameters['data']['ipAddress'])) {
-                $this->parameters['data']['ipAddress'] = WCF::getSession()->ipAddress;
+                $this->parameters['data']['ipAddress'] = UserUtil::getIpAddress();
             }
         } else {
             unset($this->parameters['data']['ipAddress']);

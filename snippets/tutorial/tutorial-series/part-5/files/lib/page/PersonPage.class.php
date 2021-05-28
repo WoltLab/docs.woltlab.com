@@ -2,6 +2,7 @@
 
 namespace wcf\page;
 
+use wcf\data\comment\StructuredCommentList;
 use wcf\data\person\Person;
 use wcf\system\comment\CommentHandler;
 use wcf\system\comment\manager\PersonCommentManager;
@@ -32,7 +33,7 @@ class PersonPage extends AbstractPage
 
     /**
      * id of the person comment object type
-     * @var integer
+     * @var int
      */
     public $commentObjectTypeID = 0;
 
@@ -44,7 +45,7 @@ class PersonPage extends AbstractPage
 
     /**
      * id of the shown person
-     * @var integer
+     * @var int
      */
     public $personID = 0;
 

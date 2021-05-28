@@ -17,14 +17,20 @@ use wcf\system\request\LinkHandler;
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package WoltLabSuite\Core\Data\Person
  *
- * @property-read   integer     $personID   unique id of the person
- * @property-read   string      $firstName  first name of the person
- * @property-read   string      $lastName   last name of the person
- * @property-read   int         $informationCount   number of pieces of information added for the person
- * @property-read   int         $enableComments     is `1` if comments are enabled for the person, otherwise `0`
+ * @property-read   int     $personID   unique id of the person
+ * @property-read   string  $firstName  first name of the person
+ * @property-read   string  $lastName   last name of the person
+ * @property-read   int     $informationCount   number of pieces of information added for the person
+ * @property-read   int     $enableComments     is `1` if comments are enabled for the person, otherwise `0`
  */
 class Person extends DatabaseObject implements ITitledLinkObject
 {
+    /**
+     * all pieces of information added for the person.
+     * @var PersonInformation[]
+     */
+    protected $information;
+
     /**
      * Returns the first and last name of the person if a person object is treated as a string.
      *

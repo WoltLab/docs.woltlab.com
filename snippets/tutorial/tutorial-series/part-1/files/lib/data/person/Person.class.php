@@ -13,9 +13,9 @@ use wcf\system\request\IRouteController;
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package WoltLabSuite\Core\Data\Person
  *
- * @property-read   integer     $personID   unique id of the person
- * @property-read   string      $firstName  first name of the person
- * @property-read   string      $lastName   last name of the person
+ * @property-read   int     $personID   unique id of the person
+ * @property-read   string  $firstName  first name of the person
+ * @property-read   string  $lastName   last name of the person
  */
 class Person extends DatabaseObject implements IRouteController
 {

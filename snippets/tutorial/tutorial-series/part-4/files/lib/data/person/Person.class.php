@@ -15,10 +15,10 @@ use wcf\system\request\LinkHandler;
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package WoltLabSuite\Core\Data\Person
  *
- * @property-read   integer     $personID   unique id of the person
- * @property-read   string      $firstName  first name of the person
- * @property-read   string      $lastName   last name of the person
- * @property-read   int         $enableComments     is `1` if comments are enabled for the person, otherwise `0`
+ * @property-read   int     $personID   unique id of the person
+ * @property-read   string  $firstName  first name of the person
+ * @property-read   string  $lastName   last name of the person
+ * @property-read   int     $enableComments     is `1` if comments are enabled for the person, otherwise `0`
  */
 class Person extends DatabaseObject implements ITitledLinkObject
 {
