@@ -11,3 +11,4 @@ Note that in the context of this example, not every added feature might make per
 - [Part 3: Person Page and Comments](part_3.md)
 - [Part 4: Box and Box Conditions](part_4.md)
 - [Part 5: Person Information](part_5.md)
+- [Part 6: Activity Points and Activity Events](part_6.md)
