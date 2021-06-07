@@ -2,7 +2,7 @@
 
 ## Language Package Installation Plugin
 
-[WCF PR#4261](https://github.com/WoltLab/WCF/pull/4261) has added support for deleting existing phrases with the `language` package installation plugin.
+[WoltLab/WCF#4261](https://github.com/WoltLab/WCF/pull/4261) has added support for deleting existing phrases with the `language` package installation plugin.
 
 The current structure of the language XML files
 
