@@ -23,6 +23,8 @@ The text content of the `<item>` node is the value of the language item. Languag
 
 ## Example
 
+!!! info "Prior to version 5.5, there was no support for deleting language items and the `category` elements had to be placed directly as children of the `language` element, see [the migration guide to version 5.5](../../migration/wsc54/php.md#language-package-installation-plugin)."
+
 {jinja{ codebox(
   title="language/en.xml",
   language="xml",
