@@ -12,6 +12,7 @@ Package Installation Plugins (PIPs) are interfaces to deploy and edit content as
 | [acpMenu](pip/acp-menu.md) | Admin panel menu categories and items |
 | [acpSearchProvider](pip/acp-search-provider.md) | Data provider for the admin panel search |
 | [acpTemplate](pip/acp-template.md) | Admin panel templates |
+| [acpTemplateDelete](pip/acp-template-delete.md) | Deletes admin panel templates installed with [acpTemplate](pip/acp-template.md) |
 | [bbcode](pip/bbcode.md) | BBCodes for rich message formatting |
 | [box](pip/box.md) | Boxes that can be placed anywhere on a page |
 | [clipboardAction](pip/clipboard-action.md) | Perform bulk operations on marked objects |
