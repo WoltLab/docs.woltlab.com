@@ -21,6 +21,7 @@ Package Installation Plugins (PIPs) are interfaces to deploy and edit content as
 | [database](pip/database.md) | Updates the database layout using [the PHP API](database-php-api.md) |
 | [eventListener](pip/event-listener.md) | Register listeners for the event system |
 | [file](pip/file.md) | Deploy any type of files with the exception of templates |
+| [fileDelete](pip/file-delete.md) | Deletes files installed with [file](pip/file.md) |
 | [language](pip/language.md) | Language items |
 | [mediaProvider](pip/media-provider.md) | Detect and convert links to media providers |
 | [menu](pip/menu.md) | Side-wide and custom per-page menus |
