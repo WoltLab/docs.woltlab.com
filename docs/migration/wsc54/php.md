@@ -34,17 +34,17 @@ Note that when deleting phrases, the category does not have to be specified beca
 
 ## Events
 
-Historically events were tightly coupled with a single class, with the event object being an object this class, expecting the event listener to consume public properties and method of the event object.
+Historically, events were tightly coupled with a single class, with the event object being an object of this class, expecting the event listener to consume public properties and method of the event object.
 The `$parameters` array was introduced due to limitations of this pattern, avoiding moving all the values that might be of interest to the event listener into the state of the object.
 Events were still tightly coupled with the class that fired the event and using the opaque parameters array prevented IDEs from assisting with autocompletion and typing.
 
 WoltLab Suite 5.5 introduces the concept of dedicated, reusable event classes.
 Any newly introduced event will receive a dedicated class, implementing the `wcf\system\event\IEvent` interface.
 These event classes may be fired from multiple locations, making them reusable to convey that a conceptual action happened, instead of a specific class doing something.
-An example could be a user logging in.
-Instead of listening on a the login form being submitted and the Facebook login action successfully running, an event listener `UserLoggedIn` might be fired whenever a user logs in, no matter how the login is performed.
+An example for using the new event system could be a user logging in:
+Instead of listening on a the login form being submitted and the Facebook login action successfully running, an event `UserLoggedIn` might be fired whenever a user logs in, no matter how the login is performed.
 
-Additionally these dedicated event classes will benefit from full IDE support.
+Additionally, these dedicated event classes will benefit from full IDE support.
 All the relevant values may be stored as real properties on the event object.
 
 Previously:
