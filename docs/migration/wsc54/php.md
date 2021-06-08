@@ -54,20 +54,20 @@ $parameters = [
     'value' => \random_int(1, 1024),
 ];
 
-EventHandler::getInstance()->fireAction($this, 'foo', $parameters);
+EventHandler::getInstance()->fireAction($this, 'valueAvailable', $parameters);
 ```
 
 {jinja{ codebox(
     language="php",
-    title="lib/system/event/listener/FooDumpListener.class.php",
+    title="lib/system/event/listener/ValueDumpListener.class.php",
     contents="""
 <?php
 
 namespace wcf\system\event\listener;
 
-use wcf\form\FooForm;
+use wcf\form\ValueForm;
 
-final class FooDumpListener implements IParameterizedEventListener
+final class ValueDumpListener implements IParameterizedEventListener
 {
     /**
      * @inheritDoc
@@ -84,20 +84,20 @@ final class FooDumpListener implements IParameterizedEventListener
 Now:
 
 ```
-EventHandler::getInstance()->fire(new \wcf\system\foo\Event(\random_int(1, 1024)));
+EventHandler::getInstance()->fire(new \wcf\system\foo\event\ValueAvailable(\random_int(1, 1024)));
 ```
 
 {jinja{ codebox(
     language="php",
-    title="lib/system/foo/Event.class.php",
+    title="lib/system/foo/event/ValueAvailable.class.php",
     contents="""
 <?php
 
-namespace wcf\system\foo;
+namespace wcf\system\foo\event;
 
 use wcf\system\event\IEvent;
 
-final class Event implements IEvent
+final class ValueAvailable implements IEvent
 {
     /**
      * @var int
@@ -119,19 +119,19 @@ final class Event implements IEvent
 
 {jinja{ codebox(
     language="php",
-    title="lib/system/event/listener/FooDumpListener.class.php",
+    title="lib/system/event/listener/ValueDumpListener.class.php",
     contents="""
 <?php
 
 namespace wcf\system\event\listener;
 
-use wcf\system\foo\Event as FooEvent;
+use wcf\system\foo\event\ValueAvailable;
 
-final class FooDumpListener implements IParameterizedEventListener
+final class ValueDumpListener implements IParameterizedEventListener
 {
     /**
      * @inheritDoc
-     * @param FooEvent $eventObj
+     * @param ValueAvailable $eventObj
      */
     public function execute($eventObj, $className, $eventName, array &$parameters)
     {
