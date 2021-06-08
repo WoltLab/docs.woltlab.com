@@ -47,6 +47,9 @@ Instead of listening on a the login form being submitted and the Facebook login 
 Additionally, these dedicated event classes will benefit from full IDE support.
 All the relevant values may be stored as real properties on the event object.
 
+Event classes should not have an `Event` suffix and should be stored in an `event` namespace in a matching location.
+Thus the `UserLoggedIn` example might have a FQCN of `\wcf\system\user\authentication\event\UserLoggedIn`.
+
 Previously:
 
 ```php
