@@ -36,6 +36,7 @@ Package Installation Plugins (PIPs) are interfaces to deploy and edit content as
 | [sql](pip/sql.md) | Execute SQL instructions using a MySQL-flavored syntax (also see [database PHP API](database-php-api.md)) |
 | [style](pip/style.md) | Style |
 | [template](pip/template.md) | Frontend templates |
+| [templateDelete](pip/template-delete.md) | Deletes frontend templates installed with [template](pip/template.md) |
 | [templateListener](pip/template-listener.md) | Embed template code into templates without altering the original |
 | [userGroupOption](pip/user-group-option.md) | Permissions for user groups |
 | [userMenu](pip/user-menu.md) | User menu categories and items |
