@@ -1502,6 +1502,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    Events
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2053,6 +2060,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    Events
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2156,6 +2170,165 @@
 <div class="admonition warning">
 <p class="admonition-title">Mixing the old structure and the new structure is not supported and will result in an error message during the import!</p>
 </div>
+<h2 id="events">Events<a class="headerlink" href="#events" title="Permanent link">#</a></h2>
+<p>Historically, events were tightly coupled with a single class, with the event object being an object of this class, expecting the event listener to consume public properties and method of the event object.
+The <code>$parameters</code> array was introduced due to limitations of this pattern, avoiding moving all the values that might be of interest to the event listener into the state of the object.
+Events were still tightly coupled with the class that fired the event and using the opaque parameters array prevented IDEs from assisting with autocompletion and typing.</p>
+<p>WoltLab Suite 5.5 introduces the concept of dedicated, reusable event classes.
+Any newly introduced event will receive a dedicated class, implementing the <code>wcf\system\event\IEvent</code> interface.
+These event classes may be fired from multiple locations, making them reusable to convey that a conceptual action happened, instead of a specific class doing something.
+An example for using the new event system could be a user logging in:
+Instead of listening on a the login form being submitted and the Facebook login action successfully running, an event <code>UserLoggedIn</code> might be fired whenever a user logs in, no matter how the login is performed.</p>
+<p>Additionally, these dedicated event classes will benefit from full IDE support.
+All the relevant values may be stored as real properties on the event object.</p>
+<p>Event classes should not have an <code>Event</code> suffix and should be stored in an <code>event</code> namespace in a matching location.
+Thus, the <code>UserLoggedIn</code> example might have a FQCN of <code>\wcf\system\user\authentication\event\UserLoggedIn</code>.</p>
+<p>Previously:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="nx">\random_int</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1024</span><span class="p">),</span>
+<span class="p">];</span>
+
+<span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;valueAvailable&#39;</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>lib/system/event/listener/ValueDumpListener.class.php</code></div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">wcf\system\event\listener</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">wcf</span><span class="nx">orm\ValueForm</span><span class="p">;</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">ValueDumpListener</span> <span class="k">implements</span> <span class="nx">IParameterizedEventListener</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @inheritDoc</span>
+<span class="sd">     * @param FooForm $eventObj</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+
+<p>Now:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>EventHandler::getInstance()-&gt;fire(new \wcf\system\foo\event\ValueAvailable(\random_int(1, 1024)));
+</code></pre></div>
+</td></tr></table>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>lib/system/foo/event/ValueAvailable.class.php</code></div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">wcf\system</span><span class="nx">oo\event</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">wcf\system\event\IEvent</span><span class="p">;</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">ValueAvailable</span> <span class="k">implements</span> <span class="nx">IEvent</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @var int</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$value</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">value</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getValue</span><span class="p">()</span><span class="o">:</span> <span class="nx">int</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">value</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>lib/system/event/listener/ValueDumpListener.class.php</code></div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">wcf\system\event\listener</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">wcf\system</span><span class="nx">oo\event\ValueAvailable</span><span class="p">;</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">ValueDumpListener</span> <span class="k">implements</span> <span class="nx">IParameterizedEventListener</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @inheritDoc</span>
+<span class="sd">     * @param ValueAvailable $eventObj</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+
+<p>See <a href="https://github.com/WoltLab/WCF/pull/4000">WoltLab/WCF#4000</a> and <a href="https://github.com/WoltLab/WCF/pull/4265">WoltLab/WCF#4265</a> for details.</p>
                 
                   
                     
@@ -2164,7 +2337,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-06-08
+      Last update: 2021-06-09
     
   </small>
 </div>
