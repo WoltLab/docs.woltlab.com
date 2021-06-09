@@ -1,5 +1,10 @@
 # Migrating from WSC 5.4 - PHP
 
+## File Deletion Package Installation Plugin
+
+Three new package installation plugins have been added to delete ACP templates with [acpTemplateDelete](../../package/pip/acp-template-delete.md), files with [fileDelete](../../package/pip/file-delete.md), and templates with [templateDelete](../../package/pip/template-delete.md).
+
+
 ## Language Package Installation Plugin
 
 [WoltLab/WCF#4261](https://github.com/WoltLab/WCF/pull/4261) has added support for deleting existing phrases with the `language` package installation plugin.

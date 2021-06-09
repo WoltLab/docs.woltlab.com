@@ -12,6 +12,7 @@ Package Installation Plugins (PIPs) are interfaces to deploy and edit content as
 | [acpMenu](pip/acp-menu.md) | Admin panel menu categories and items |
 | [acpSearchProvider](pip/acp-search-provider.md) | Data provider for the admin panel search |
 | [acpTemplate](pip/acp-template.md) | Admin panel templates |
+| [acpTemplateDelete](pip/acp-template-delete.md) | Deletes admin panel templates installed with [acpTemplate](pip/acp-template.md) |
 | [bbcode](pip/bbcode.md) | BBCodes for rich message formatting |
 | [box](pip/box.md) | Boxes that can be placed anywhere on a page |
 | [clipboardAction](pip/clipboard-action.md) | Perform bulk operations on marked objects |
@@ -20,6 +21,7 @@ Package Installation Plugins (PIPs) are interfaces to deploy and edit content as
 | [database](pip/database.md) | Updates the database layout using [the PHP API](database-php-api.md) |
 | [eventListener](pip/event-listener.md) | Register listeners for the event system |
 | [file](pip/file.md) | Deploy any type of files with the exception of templates |
+| [fileDelete](pip/file-delete.md) | Deletes files installed with [file](pip/file.md) |
 | [language](pip/language.md) | Language items |
 | [mediaProvider](pip/media-provider.md) | Detect and convert links to media providers |
 | [menu](pip/menu.md) | Side-wide and custom per-page menus |
@@ -34,6 +36,7 @@ Package Installation Plugins (PIPs) are interfaces to deploy and edit content as
 | [sql](pip/sql.md) | Execute SQL instructions using a MySQL-flavored syntax (also see [database PHP API](database-php-api.md)) |
 | [style](pip/style.md) | Style |
 | [template](pip/template.md) | Frontend templates |
+| [templateDelete](pip/template-delete.md) | Deletes frontend templates installed with [template](pip/template.md) |
 | [templateListener](pip/template-listener.md) | Embed template code into templates without altering the original |
 | [userGroupOption](pip/user-group-option.md) | Permissions for user groups |
 | [userMenu](pip/user-menu.md) | User menu categories and items |
