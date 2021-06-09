@@ -1,5 +1,7 @@
 # ACP Template Delete Package Installation Plugin
 
+!!! info "Available since WoltLab Suite 5.5."
+
 Deletes admin panel templates installed with the [acpTemplate](pip/acp-template.md) package installation plugin.
 
 !!! warning "You cannot delete acp templates provided by other packages."
