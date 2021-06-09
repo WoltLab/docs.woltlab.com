@@ -36,3 +36,117 @@ Additionally, to now also support deleting phrases with this package installatio
 Note that when deleting phrases, the category does not have to be specified because phrase identifiers are unique globally.
 
 !!! warning "Mixing the old structure and the new structure is not supported and will result in an error message during the import!"
+
+## Events
+
+Historically, events were tightly coupled with a single class, with the event object being an object of this class, expecting the event listener to consume public properties and method of the event object.
+The `$parameters` array was introduced due to limitations of this pattern, avoiding moving all the values that might be of interest to the event listener into the state of the object.
+Events were still tightly coupled with the class that fired the event and using the opaque parameters array prevented IDEs from assisting with autocompletion and typing.
+
+WoltLab Suite 5.5 introduces the concept of dedicated, reusable event classes.
+Any newly introduced event will receive a dedicated class, implementing the `wcf\system\event\IEvent` interface.
+These event classes may be fired from multiple locations, making them reusable to convey that a conceptual action happened, instead of a specific class doing something.
+An example for using the new event system could be a user logging in:
+Instead of listening on a the login form being submitted and the Facebook login action successfully running, an event `UserLoggedIn` might be fired whenever a user logs in, no matter how the login is performed.
+
+Additionally, these dedicated event classes will benefit from full IDE support.
+All the relevant values may be stored as real properties on the event object.
+
+Event classes should not have an `Event` suffix and should be stored in an `event` namespace in a matching location.
+Thus, the `UserLoggedIn` example might have a FQCN of `\wcf\system\user\authentication\event\UserLoggedIn`.
+
+Previously:
+
+```php
+$parameters = [
+    'value' => \random_int(1, 1024),
+];
+
+EventHandler::getInstance()->fireAction($this, 'valueAvailable', $parameters);
+```
+
+{jinja{ codebox(
+    language="php",
+    title="lib/system/event/listener/ValueDumpListener.class.php",
+    contents="""
+<?php
+
+namespace wcf\system\event\listener;
+
+use wcf\form\ValueForm;
+
+final class ValueDumpListener implements IParameterizedEventListener
+{
+    /**
+     * @inheritDoc
+     * @param FooForm $eventObj
+     */
+    public function execute($eventObj, $className, $eventName, array &$parameters)
+    {
+        var_dump($parameters['value']);
+    }
+}
+"""
+) }}
+
+Now:
+
+```
+EventHandler::getInstance()->fire(new \wcf\system\foo\event\ValueAvailable(\random_int(1, 1024)));
+```
+
+{jinja{ codebox(
+    language="php",
+    title="lib/system/foo/event/ValueAvailable.class.php",
+    contents="""
+<?php
+
+namespace wcf\system\foo\event;
+
+use wcf\system\event\IEvent;
+
+final class ValueAvailable implements IEvent
+{
+    /**
+     * @var int
+     */
+    private $value;
+
+    public function __construct(int $value)
+    {
+        $this->value = $value;
+    }
+
+    public function getValue(): int
+    {
+        return $this->value;
+    }
+}
+"""
+) }}
+
+{jinja{ codebox(
+    language="php",
+    title="lib/system/event/listener/ValueDumpListener.class.php",
+    contents="""
+<?php
+
+namespace wcf\system\event\listener;
+
+use wcf\system\foo\event\ValueAvailable;
+
+final class ValueDumpListener implements IParameterizedEventListener
+{
+    /**
+     * @inheritDoc
+     * @param ValueAvailable $eventObj
+     */
+    public function execute($eventObj, $className, $eventName, array &$parameters)
+    {
+        var_dump($eventObj->getValue());
+    }
+}
+"""
+) }}
+
+See [WoltLab/WCF#4000](https://github.com/WoltLab/WCF/pull/4000) and [WoltLab/WCF#4265](https://github.com/WoltLab/WCF/pull/4265) for details.
