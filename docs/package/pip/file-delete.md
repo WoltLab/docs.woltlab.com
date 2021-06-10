@@ -2,7 +2,7 @@
 
 !!! info "Available since WoltLab Suite 5.5."
 
-Deletes files installed with the [file](pip/file.md) package installation plugin.
+Deletes files installed with the [file](file.md) package installation plugin.
 
 !!! warning "You cannot delete files provided by other packages."
 
