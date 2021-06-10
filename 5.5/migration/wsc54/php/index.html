@@ -1509,6 +1509,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#embedded-objects-in-comments" class="md-nav__link">
+    Embedded Objects in Comments
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2067,6 +2074,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#embedded-objects-in-comments" class="md-nav__link">
+    Embedded Objects in Comments
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2329,6 +2343,10 @@ Thus, the <code>UserLoggedIn</code> example might have a FQCN of <code>\wcf\syst
 </div>
 
 <p>See <a href="https://github.com/WoltLab/WCF/pull/4000">WoltLab/WCF#4000</a> and <a href="https://github.com/WoltLab/WCF/pull/4265">WoltLab/WCF#4265</a> for details.</p>
+<h2 id="embedded-objects-in-comments">Embedded Objects in Comments<a class="headerlink" href="#embedded-objects-in-comments" title="Permanent link">#</a></h2>
+<p><a href="https://github.com/WoltLab/WCF/pull/4275">WoltLab/WCF#4275</a> added support for embedded objects like mentions for comments and comment responses.
+To properly render embedded objects whenever you are using comments in your packages, you have to use <code>ViewableCommentList</code>/<code>ViewableCommentResponseList</code> in these places or <code>ViewableCommentRuntimeCache</code>/<code>ViewableCommentResponseRuntimeCache</code>.
+While these runtime caches are only available since version 5.5, the viewable list classes have always been available so that changing <code>CommentList</code> to <code>ViewableCommentList</code>, for example, is a backwards-compatible change.</p>
                 
                   
                     
@@ -2337,7 +2355,7 @@ Thus, the <code>UserLoggedIn</code> example might have a FQCN of <code>\wcf\syst
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-06-09
+      Last update: 2021-06-10
     
   </small>
 </div>
