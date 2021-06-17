@@ -2209,6 +2209,9 @@ Instead of listening on a the login form being submitted and the Facebook login 
 All the relevant values may be stored as real properties on the event object.</p>
 <p>Event classes should not have an <code>Event</code> suffix and should be stored in an <code>event</code> namespace in a matching location.
 Thus, the <code>UserLoggedIn</code> example might have a FQCN of <code>\wcf\system\user\authentication\event\UserLoggedIn</code>.</p>
+<p>Event listeners for events implementing <code>IEvent</code> need to follow <a href="https://www.php-fig.org/psr/psr-14/">PSR-14</a>, i.e. they need to be callable.
+In practice, this means that the event listener class needs to implement <code>__invoke()</code>.
+No interface has to be implemented in this case.</p>
 <p>Previously:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2329,25 +2332,17 @@ Thus, the <code>UserLoggedIn</code> example might have a FQCN of <code>\wcf\syst
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">wcf\system\event\listener</span><span class="p">;</span>
 
 <span class="k">use</span> <span class="nx">wcf\system</span><span class="nx">oo\event\ValueAvailable</span><span class="p">;</span>
 
-<span class="k">final</span> <span class="k">class</span> <span class="nc">ValueDumpListener</span> <span class="k">implements</span> <span class="nx">IParameterizedEventListener</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">ValueDumpListener</span>
 <span class="p">{</span>
-    <span class="sd">/**</span>
-<span class="sd">     * @inheritDoc</span>
-<span class="sd">     * @param ValueAvailable $eventObj</span>
-<span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__invoke</span><span class="p">(</span><span class="nx">ValueAvailable</span> <span class="nv">$event</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">());</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">());</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
