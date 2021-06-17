@@ -55,6 +55,10 @@ All the relevant values may be stored as real properties on the event object.
 Event classes should not have an `Event` suffix and should be stored in an `event` namespace in a matching location.
 Thus, the `UserLoggedIn` example might have a FQCN of `\wcf\system\user\authentication\event\UserLoggedIn`.
 
+Event listeners for events implementing `IEvent` need to follow [PSR-14](https://www.php-fig.org/psr/psr-14/), i.e. they need to be callable.
+In practice, this means that the event listener class needs to implement `__invoke()`.
+No interface has to be implemented in this case.
+
 Previously:
 
 ```php
@@ -135,15 +139,11 @@ namespace wcf\system\event\listener;
 
 use wcf\system\foo\event\ValueAvailable;
 
-final class ValueDumpListener implements IParameterizedEventListener
+final class ValueDumpListener
 {
-    /**
-     * @inheritDoc
-     * @param ValueAvailable $eventObj
-     */
-    public function execute($eventObj, $className, $eventName, array &$parameters)
+    public function __invoke(ValueAvailable $event)
     {
-        var_dump($eventObj->getValue());
+        var_dump($event->getValue());
     }
 }
 """
