@@ -79,7 +79,7 @@ final class ValueDumpListener implements IParameterizedEventListener
 {
     /**
      * @inheritDoc
-     * @param FooForm $eventObj
+     * @param ValueForm $eventObj
      */
     public function execute($eventObj, $className, $eventName, array &$parameters)
     {
