@@ -527,6 +527,33 @@
     Default Dependencies
   </a>
   
+    <nav class="md-nav" aria-label="Default Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nonemptyformfielddependency" class="md-nav__link">
+    NonEmptyFormFieldDependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valueformfielddependency" class="md-nav__link">
+    ValueFormFieldDependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valueintervalformfielddependency" class="md-nav__link">
+    ValueIntervalFormFieldDependency
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2079,6 +2106,33 @@
     Default Dependencies
   </a>
   
+    <nav class="md-nav" aria-label="Default Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nonemptyformfielddependency" class="md-nav__link">
+    NonEmptyFormFieldDependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valueformfielddependency" class="md-nav__link">
+    ValueFormFieldDependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valueintervalformfielddependency" class="md-nav__link">
+    ValueIntervalFormFieldDependency
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2162,12 +2216,17 @@ The interface requires the following methods:</p>
 <p>Here, without an additional assignment, the first field with id <code>a</code> cannot be accessed thus <code>fieldId($fieldId)</code> should be used as the id of the relevant field is known.
 When the form is built, all dependencies that only know the id of the relevant field and do not have a reference for the actual object are populated with the actual form field objects.</p>
 <h2 id="default-dependencies">Default Dependencies<a class="headerlink" href="#default-dependencies" title="Permanent link">#</a></h2>
-<p>WoltLab Suite Core delivers the following two default dependency classes by default:</p>
-<ul>
-<li><code>NonEmptyFormFieldDependency</code> can be used to ensure that a node is only shown if the value of the referenced form field is not empty (being empty is determined using PHP’s <code>empty</code> function).</li>
-<li><code>ValueFormFieldDependency</code> can be used to ensure that a node is only shown if the value of the referenced form field is from a specified list of of values (see methods <code>values($values)</code> and <code>getValues()</code>).
-  Additionally, via <code>negate($negate = true)</code> and <code>isNegated()</code>, the locic can also be inverted by requiring the value of the referenced form field not to be from a specified list of values.</li>
-</ul>
+<p>WoltLab Suite Core delivers the following default dependency classes by default:</p>
+<h3 id="nonemptyformfielddependency"><code>NonEmptyFormFieldDependency</code><a class="headerlink" href="#nonemptyformfielddependency" title="Permanent link">#</a></h3>
+<p><code>NonEmptyFormFieldDependency</code> can be used to ensure that a node is only shown if the value of the referenced form field is not empty (being empty is determined using PHP’s <code>empty</code> function).</p>
+<h3 id="valueformfielddependency"><code>ValueFormFieldDependency</code><a class="headerlink" href="#valueformfielddependency" title="Permanent link">#</a></h3>
+<p><code>ValueFormFieldDependency</code> can be used to ensure that a node is only shown if the value of the referenced form field is from a specified list of of values (see methods <code>values($values)</code> and <code>getValues()</code>).
+  Additionally, via <code>negate($negate = true)</code> and <code>isNegated()</code>, the locic can also be inverted by requiring the value of the referenced form field not to be from a specified list of values.</p>
+<h3 id="valueintervalformfielddependency"><code>ValueIntervalFormFieldDependency</code><a class="headerlink" href="#valueintervalformfielddependency" title="Permanent link">#</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Only available since version 5.5.</p>
+</div>
+<p><code>ValueIntervalFormFieldDependency</code> can be used to ensure that a node is only shown if the value of the referenced form field is in a specific interval whose boundaries are set via <code>minimum(?float $minimum = null)</code> and <code>maximum(?float $maximum = null)</code>.</p>
 <h2 id="javascript-implementation">JavaScript Implementation<a class="headerlink" href="#javascript-implementation" title="Permanent link">#</a></h2>
 <p>To ensure that dependent node are correctly shown and hidden when changing the value of referenced form fields, every PHP dependency class has a corresponding JavaScript module that checks the dependency in the browser.
 Every JavaScript dependency has to extend <code>WoltLabSuite/Core/Form/Builder/Field/Dependency/Abstract</code> and implement the <code>checkDependency()</code> function, the JavaScript version of <code>IFormFieldDependency::checkDependency()</code>.</p>
@@ -2219,7 +2278,7 @@ Every form container has to create a matching form container dependency object f
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-01-15
+      Last update: 2021-06-21
     
   </small>
 </div>
