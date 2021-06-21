@@ -430,8 +430,8 @@ All additional attributes are added as attributes of the `select` HTML element.
 ```smarty
 {js application='wbb' file='WBB'} {* generates 'http://example.com/js/WBB.js' *}
 
-{js application='wcf' file='WCF.Like' bundle='WCF.Combined'}
-	{* generates 'http://example.com/wcf/js/WCF.Like.js' if ENABLE_DEBUG_MODE=1 *}
+{js application='wcf' file='WCF.User' bundle='WCF.Combined'}
+	{* generates 'http://example.com/wcf/js/WCF.User.js' if ENABLE_DEBUG_MODE=1 *}
 	{* generates 'http://example.com/wcf/js/WCF.Combined.min.js' if ENABLE_DEBUG_MODE=0 *}
 
 {js application='wcf' lib='jquery'}
@@ -440,8 +440,8 @@ All additional attributes are added as attributes of the `select` HTML element.
 {js application='wcf' lib='jquery-ui' file='awesomeWidget'}
 	{* generates 'http://example.com/wcf/js/3rdParty/jquery-ui/awesomeWidget.js' *}
 
-{js application='wcf' file='WCF.Like' bundle='WCF.Combined' hasTiny=true}
-	{* generates 'http://example.com/wcf/js/WCF.Like.js' if ENABLE_DEBUG_MODE=1 *}
+{js application='wcf' file='WCF.User' bundle='WCF.Combined' hasTiny=true}
+	{* generates 'http://example.com/wcf/js/WCF.User.js' if ENABLE_DEBUG_MODE=1 *}
 	{* generates 'http://example.com/wcf/js/WCF.Combined.min.js' (ENABLE_DEBUG_MODE=0 *}
 	{* generates 'http://example.com/wcf/js/WCF.Combined.tiny.min.js' if ENABLE_DEBUG_MODE=0 and VISITOR_USE_TINY_BUILD=1 *}
 ```
