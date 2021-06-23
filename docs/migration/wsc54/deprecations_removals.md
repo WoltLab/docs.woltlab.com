@@ -75,6 +75,10 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 - `MODULE_SYSTEM_RECAPTCHA` ([WoltLab/WCF#4305](https://github.com/WoltLab/WCF/pull/4305))
 
+#### Files
+
+- `acp/dereferrer.php`
+
 
 ### JavaScript
 
