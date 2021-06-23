@@ -75,9 +75,9 @@ EventHandler::getInstance()->fireAction($this, 'valueAvailable', $parameters);
     contents="""
 <?php
 
-namespace wcf\system\event\listener;
+namespace wcf\\system\\event\\listener;
 
-use wcf\form\ValueForm;
+use wcf\\form\\ValueForm;
 
 final class ValueDumpListener implements IParameterizedEventListener
 {
@@ -105,9 +105,9 @@ EventHandler::getInstance()->fire(new \wcf\system\foo\event\ValueAvailable(\rand
     contents="""
 <?php
 
-namespace wcf\system\foo\event;
+namespace wcf\\system\\foo\\event;
 
-use wcf\system\event\IEvent;
+use wcf\\system\\event\\IEvent;
 
 final class ValueAvailable implements IEvent
 {
@@ -135,9 +135,9 @@ final class ValueAvailable implements IEvent
     contents="""
 <?php
 
-namespace wcf\system\event\listener;
+namespace wcf\\system\\event\\listener;
 
-use wcf\system\foo\event\ValueAvailable;
+use wcf\\system\\foo\event\\ValueAvailable;
 
 final class ValueDumpListener
 {
