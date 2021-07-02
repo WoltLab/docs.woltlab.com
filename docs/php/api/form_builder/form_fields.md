@@ -437,6 +437,30 @@ This trait provides `getWysiwygId()` and `wysiwygId($wysiwygId)` to get and set 
 
 
 
+## Application-Specific Form Fields
+
+### WoltLab Suite Forum
+
+#### `MultipleBoardSelectionFormField`
+
+!!! info "Only available since version 5.5."
+
+`MultipleBoardSelectionFormField` is used to select multiple forums.
+The class implements `IAttributeFormField`, `ICssClassFormField`, and `IImmutableFormField`.
+
+The field supports additional settings:
+
+- `boardNodeList(BoardNodeList $boardNodeList): self` and `getBoardNodeList(): BoardNodeList` are used to set and get the list of board nodes used to render the board selection.
+  `boardNodeList(BoardNodeList $boardNodeList): self` will automatically call `readNodeTree()` on the given board node list.
+- `categoriesSelectable(bool $categoriesSelectable = true): self` and `areCategoriesSelectable(): bool` are used to set and check if the categories in the board node list are selectable.
+  By default, categories are selectable.
+  This option is useful if only actual boards, in which threads can be posted, should be selectable but the categories must still be shown so that the overall forum structure is still properly shown.
+- `supportExternalLinks(bool $supportExternalLinks): self` and `supportsExternalLinks(): bool` are used to set and check if external links will be shown in the selection list.
+  By default, external links are shown.
+  Like in the example given before, in cases where only actual boards, in which threads can be posted, are relevant, this option allows to exclude external links.
+
+
+
 ## Single-Use Form Fields
 
 The following form fields are specific for certain forms and hardly reusable in other contexts.

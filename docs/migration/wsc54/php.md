@@ -162,3 +162,4 @@ While these runtime caches are only available since version 5.5, the viewable li
 ## Miscellaneous Additions
 
 - [`ValueIntervalFormFieldDependency`](../../php/api/form_builder/dependencies.md#valueintervalformfielddependency)
+- [`MultipleBoardSelectionFormField`](../../php/api/form_builder/form_fields/#multipleboardselectionformfield)
