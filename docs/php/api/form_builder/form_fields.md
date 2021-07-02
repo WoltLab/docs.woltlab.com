@@ -226,6 +226,14 @@ Specifically for this form field, there is the `IsNotClickedFormFieldDependency`
 You must specify a captcha object type (`com.woltlab.wcf.captcha`) using the `objectType()` method.
 
 
+### `ColorFormField`
+
+!!! info "Only available since version 5.5."
+
+`ColorFormField` is used to specify RGBA colors using the `rgba(r, g, b, a)` format.
+The class implements `IImmutableFormField`.
+
+
 ### `ContentLanguageFormField`
 
 `ContentLanguageFormField` is used to select the content language of an object.
