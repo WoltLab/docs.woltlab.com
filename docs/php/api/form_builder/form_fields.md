@@ -203,6 +203,8 @@ The class implements `IObjectTypeFormField` and requires an object type of the o
 Additionally, the class provides the methods `categoryName($categoryName)` and `getCategoryName()` that allow setting a specific name or filter for the acl option categories whose acl options are shown.
 A category name of `null` signals that no category filter is used.
 
+!!! info "Since version 5.5, the category name also supports filtering using a wildcard like `user.*`, see [WoltLab/WCF#4355](https://github.com/WoltLab/WCF/pull/4355)."
+
 `AclFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant ACL object type id into the `$parameters` array directly using `{$objectProperty}_aclObjectTypeID` as the array key.
 The relevant database object action method is expected, based on the given ACL object type id, to save the ACL option values appropriately.
 
