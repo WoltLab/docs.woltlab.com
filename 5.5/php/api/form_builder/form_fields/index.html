@@ -3063,6 +3063,9 @@ The class implements <code>IAttributeFormField</code>, <code>IAutoCompleteFormFi
 The class implements <code>IObjectTypeFormField</code> and requires an object type of the object type definition <code>com.woltlab.wcf.acl</code>.
 Additionally, the class provides the methods <code>categoryName($categoryName)</code> and <code>getCategoryName()</code> that allow setting a specific name or filter for the acl option categories whose acl options are shown.
 A category name of <code>null</code> signals that no category filter is used.</p>
+<div class="admonition info">
+<p class="admonition-title">Since version 5.5, the category name also supports filtering using a wildcard like <code>user.*</code>, see <a href="https://github.com/WoltLab/WCF/pull/4355">WoltLab/WCF#4355</a>.</p>
+</div>
 <p><code>AclFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the relevant ACL object type id into the <code>$parameters</code> array directly using <code>{$objectProperty}_aclObjectTypeID</code> as the array key.
 The relevant database object action method is expected, based on the given ACL object type id, to save the ACL option values appropriately.</p>
 <h3 id="buttonformfield"><code>ButtonFormField</code><a class="headerlink" href="#buttonformfield" title="Permanent link">#</a></h3>
@@ -3248,7 +3251,7 @@ This trait provides <code>getWysiwygId()</code> and <code>wysiwygId($wysiwygId)<
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-01-16
+      Last update: 2021-07-02
     
   </small>
 </div>
