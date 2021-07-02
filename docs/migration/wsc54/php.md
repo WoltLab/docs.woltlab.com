@@ -163,4 +163,4 @@ While these runtime caches are only available since version 5.5, the viewable li
 
 - [`ValueIntervalFormFieldDependency`](../../php/api/form_builder/dependencies.md#valueintervalformfielddependency)
 - [`ColorFormField`](../../php/api/form_builder/form_fields.md#colorformfield)
-- [`MultipleBoardSelectionFormField`](../../php/api/form_builder/form_fields/#multipleboardselectionformfield)
+- [`MultipleBoardSelectionFormField`](../../php/api/form_builder/form_fields.md#multipleboardselectionformfield)
