@@ -880,6 +880,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#application-specific-form-fields" class="md-nav__link">
+    Application-Specific Form Fields
+  </a>
+  
+    <nav class="md-nav" aria-label="Application-Specific Form Fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#woltlab-suite-forum" class="md-nav__link">
+    WoltLab Suite Forum
+  </a>
+  
+    <nav class="md-nav" aria-label="WoltLab Suite Forum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multipleboardselectionformfield" class="md-nav__link">
+    MultipleBoardSelectionFormField
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#single-use-form-fields" class="md-nav__link">
     Single-Use Form Fields
   </a>
@@ -2874,6 +2907,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#application-specific-form-fields" class="md-nav__link">
+    Application-Specific Form Fields
+  </a>
+  
+    <nav class="md-nav" aria-label="Application-Specific Form Fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#woltlab-suite-forum" class="md-nav__link">
+    WoltLab Suite Forum
+  </a>
+  
+    <nav class="md-nav" aria-label="WoltLab Suite Forum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multipleboardselectionformfield" class="md-nav__link">
+    MultipleBoardSelectionFormField
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#single-use-form-fields" class="md-nav__link">
     Single-Use Form Fields
   </a>
@@ -3231,6 +3297,25 @@ The following methods are specific to this form field class:</p>
 <h3 id="twysiwygformnode"><code>TWysiwygFormNode</code><a class="headerlink" href="#twysiwygformnode" title="Permanent link">#</a></h3>
 <p>All form nodes that need to know the id of the <code>WysiwygFormField</code> field should use <code>TWysiwygFormNode</code>.
 This trait provides <code>getWysiwygId()</code> and <code>wysiwygId($wysiwygId)</code> to get and set the relevant wysiwyg editor id.</p>
+<h2 id="application-specific-form-fields">Application-Specific Form Fields<a class="headerlink" href="#application-specific-form-fields" title="Permanent link">#</a></h2>
+<h3 id="woltlab-suite-forum">WoltLab Suite Forum<a class="headerlink" href="#woltlab-suite-forum" title="Permanent link">#</a></h3>
+<h4 id="multipleboardselectionformfield"><code>MultipleBoardSelectionFormField</code><a class="headerlink" href="#multipleboardselectionformfield" title="Permanent link">#</a></h4>
+<div class="admonition info">
+<p class="admonition-title">Only available since version 5.5.</p>
+</div>
+<p><code>MultipleBoardSelectionFormField</code> is used to select multiple forums.
+The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField</code>, and <code>IImmutableFormField</code>.</p>
+<p>The field supports additional settings:</p>
+<ul>
+<li><code>boardNodeList(BoardNodeList $boardNodeList): self</code> and <code>getBoardNodeList(): BoardNodeList</code> are used to set and get the list of board nodes used to render the board selection.
+  <code>boardNodeList(BoardNodeList $boardNodeList): self</code> will automatically call <code>readNodeTree()</code> on the given board node list.</li>
+<li><code>categoriesSelectable(bool $categoriesSelectable = true): self</code> and <code>areCategoriesSelectable(): bool</code> are used to set and check if the categories in the board node list are selectable.
+  By default, categories are selectable.
+  This option is useful if only actual boards, in which threads can be posted, should be selectable but the categories must still be shown so that the overall forum structure is still properly shown.</li>
+<li><code>supportExternalLinks(bool $supportExternalLinks): self</code> and <code>supportsExternalLinks(): bool</code> are used to set and check if external links will be shown in the selection list.
+  By default, external links are shown.
+  Like in the example given before, in cases where only actual boards, in which threads can be posted, are relevant, this option allows to exclude external links.</li>
+</ul>
 <h2 id="single-use-form-fields">Single-Use Form Fields<a class="headerlink" href="#single-use-form-fields" title="Permanent link">#</a></h2>
 <p>The following form fields are specific for certain forms and hardly reusable in other contexts.</p>
 <h3 id="bbcodeattributesformfield"><code>BBCodeAttributesFormField</code><a class="headerlink" href="#bbcodeattributesformfield" title="Permanent link">#</a></h3>
