@@ -1503,6 +1503,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#wcfcolorpicker" class="md-nav__link">
+    WCF.ColorPicker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#codemirror" class="md-nav__link">
     CodeMirror
   </a>
@@ -2059,6 +2066,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#wcfcolorpicker" class="md-nav__link">
+    WCF.ColorPicker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#codemirror" class="md-nav__link">
     CodeMirror
   </a>
@@ -2083,6 +2097,19 @@
                 
                 
                 <h1 id="migrating-from-wsc-54-typescript-and-javascript">Migrating from WSC 5.4 - TypeScript and JavaScript<a class="headerlink" href="#migrating-from-wsc-54-typescript-and-javascript" title="Permanent link">#</a></h1>
+<h2 id="wcfcolorpicker"><code>WCF.ColorPicker</code><a class="headerlink" href="#wcfcolorpicker" title="Permanent link">#</a></h2>
+<p>We have replaced the old jQuery-based color picker <code>WCF.ColorPicker</code> with a more lightweight replacement <code>WoltLabSuite/Core/Ui/Color/Picker</code>, which uses the build-in <code>input[type=color]</code> field.
+To support transparency, which <code>input[type=color]</code> does not, we also added a slider to set the alpha value.
+<code>WCF.ColorPicker</code> has been adjusted to internally use <code>WoltLabSuite/Core/Ui/Color/Picker</code> and it has been deprecated.</p>
+<p>Be aware that the new color picker requires the following new phrases to be available in the TypeScript/JavaScript code:</p>
+<ul>
+<li><code>wcf.style.colorPicker.alpha</code>,</li>
+<li><code>wcf.style.colorPicker.color</code>,</li>
+<li><code>wcf.style.colorPicker.error.invalidColor</code>,</li>
+<li><code>wcf.style.colorPicker.hexAlpha</code>,</li>
+<li><code>wcf.style.colorPicker.new</code>.</li>
+</ul>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/4353">WoltLab/WCF#4353</a> for more information.</p>
 <h2 id="codemirror">CodeMirror<a class="headerlink" href="#codemirror" title="Permanent link">#</a></h2>
 <p>CodeMirror, the code editor we use for editing templates and SCSS, for example, has been updated to version 5.61.1 and we now also deliver all supported languages/modes.
 To properly support all languages/modes, CodeMirror is now loaded via the AMD module loader, which requires the original structure of the CodeMirror package, i.e. <code>codemirror.js</code> being in a <code>lib</code> folder.
@@ -2097,7 +2124,7 @@ These files are, however, considered deprecated and you should migrate to using 
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-06-14
+      Last update: 2021-07-02
     
   </small>
 </div>
