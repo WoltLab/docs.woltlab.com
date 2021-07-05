@@ -84,8 +84,12 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 ### JavaScript
 
+- `Blog.Entry.QuoteHandler` (use `WoltLabSuite/Blog/Ui/Entry/Quote`)
+- `Calendar.Event.QuoteHandler` (use `WoltLabSuite/Calendar/Ui/Event/Quote`)
+- `WBB.Post.QuoteHandler` (use `WoltLabSuite/Forum/Ui/Post/Quote`)
 - `WBB.Board.MarkAsRead` (use `WoltLabSuite/Forum/Ui/Board/MarkAsRead` instead)
 - `WBB.Board.MarkAllAsRead` (use `WoltLabSuite/Forum/Ui/Board/MarkAllAsRead` instead)
+- `WCF.Conversation.Message.QuoteHandler` (use `WoltLabSuite/Core/Conversation/Ui/Message/Quote` instead, see [WoltLab/com.woltlab.wcf.conversation#155](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/155))
 - `WCF.ColorPicker` (see [migration guide for `WCF.ColorPicker`](javascript.md#wcfcolorpicker))
 - `WCF.ACP.Style.ImageUpload` ([WoltLab/WCF#4323](https://github.com/WoltLab/WCF/pull/4323))
 - `WCF.Like.js` ([WoltLab/WCF#4300](https://github.com/WoltLab/WCF/pull/4300))
