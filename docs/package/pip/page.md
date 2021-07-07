@@ -59,6 +59,29 @@ page would be presented with a permission denied message.
 
 Set this to `1` to prevent this page from becoming a landing page ever.
 
+### `<requireObjectID>`
+
+If the page requires an id of a specific object, like the user profile page requires the id of the user whose profile page is requested, `<requireObjectID>1</requireObjectID>` has to be added.
+If this item is not present, `requireObjectID` defaults to `0`.
+
+### `<availableDuringOfflineMode>`
+
+During offline mode, most pages should generally not be available.
+Certain pages, however, might still have to be accessible due to, for example, legal reasons.
+To make a page available during offline mode, `<availableDuringOfflineMode>1</availableDuringOfflineMode>` has to be added.
+If this item is not present, `availableDuringOfflineMode` defaults to `0`.
+
+### `<allowSpidersToIndex>`
+
+Administrators are able to set in the admin panel for each page, whether or not spiders are allowed to index it.
+The default value for this option can be set with the `allowSpidersToIndex` item whose value defaults to `0`.
+
+### `<cssClassName>`
+
+To add custom CSS classes to a page’s `<body>` HTML element, you can specify them via the `cssClassName` item.
+
+!!! info "If you want to add multiple CSS classes, separate them with spaces!"
+
 ### `<content>`
 
 !!! info "The `language` attribute is required and should specify the [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code."
