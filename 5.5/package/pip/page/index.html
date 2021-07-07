@@ -1345,6 +1345,34 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#requireobjectid" class="md-nav__link">
+    &lt;requireObjectID&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#availableduringofflinemode" class="md-nav__link">
+    &lt;availableDuringOfflineMode&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allowspiderstoindex" class="md-nav__link">
+    &lt;allowSpidersToIndex&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cssclassname" class="md-nav__link">
+    &lt;cssClassName&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#content" class="md-nav__link">
     &lt;content&gt;
   </a>
@@ -2273,6 +2301,34 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#requireobjectid" class="md-nav__link">
+    &lt;requireObjectID&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#availableduringofflinemode" class="md-nav__link">
+    &lt;availableDuringOfflineMode&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allowspiderstoindex" class="md-nav__link">
+    &lt;allowSpidersToIndex&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cssclassname" class="md-nav__link">
+    &lt;cssClassName&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#content" class="md-nav__link">
     &lt;content&gt;
   </a>
@@ -2366,6 +2422,22 @@ available and/or accessible to the user. For example, the account management
 page is available to logged-in users only and any guest attempting to visit that
 page would be presented with a permission denied message.</p>
 <p>Set this to <code>1</code> to prevent this page from becoming a landing page ever.</p>
+<h3 id="requireobjectid"><code>&lt;requireObjectID&gt;</code><a class="headerlink" href="#requireobjectid" title="Permanent link">#</a></h3>
+<p>If the page requires an id of a specific object, like the user profile page requires the id of the user whose profile page is requested, <code>&lt;requireObjectID&gt;1&lt;/requireObjectID&gt;</code> has to be added.
+If this item is not present, <code>requireObjectID</code> defaults to <code>0</code>.</p>
+<h3 id="availableduringofflinemode"><code>&lt;availableDuringOfflineMode&gt;</code><a class="headerlink" href="#availableduringofflinemode" title="Permanent link">#</a></h3>
+<p>During offline mode, most pages should generally not be available.
+Certain pages, however, might still have to be accessible due to, for example, legal reasons.
+To make a page available during offline mode, <code>&lt;availableDuringOfflineMode&gt;1&lt;/availableDuringOfflineMode&gt;</code> has to be added.
+If this item is not present, <code>availableDuringOfflineMode</code> defaults to <code>0</code>.</p>
+<h3 id="allowspiderstoindex"><code>&lt;allowSpidersToIndex&gt;</code><a class="headerlink" href="#allowspiderstoindex" title="Permanent link">#</a></h3>
+<p>Administrators are able to set in the admin panel for each page, whether or not spiders are allowed to index it.
+The default value for this option can be set with the <code>allowSpidersToIndex</code> item whose value defaults to <code>0</code>.</p>
+<h3 id="cssclassname"><code>&lt;cssClassName&gt;</code><a class="headerlink" href="#cssclassname" title="Permanent link">#</a></h3>
+<p>To add custom CSS classes to a page’s <code>&lt;body&gt;</code> HTML element, you can specify them via the <code>cssClassName</code> item.</p>
+<div class="admonition info">
+<p class="admonition-title">If you want to add multiple CSS classes, separate them with spaces!</p>
+</div>
 <h3 id="content"><code>&lt;content&gt;</code><a class="headerlink" href="#content" title="Permanent link">#</a></h3>
 <div class="admonition info">
 <p class="admonition-title">The <code>language</code> attribute is required and should specify the <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO-639-1</a> language code.</p>
@@ -2411,9 +2483,9 @@ page would be presented with a permission denied message.</p>
             <span class="nt">&lt;controller&gt;</span>wcf\page\MembersListPage<span class="nt">&lt;/controller&gt;</span>
             <span class="nt">&lt;name</span> <span class="na">language=</span><span class="s">&quot;de&quot;</span><span class="nt">&gt;</span>Mitglieder<span class="nt">&lt;/name&gt;</span>
             <span class="nt">&lt;name</span> <span class="na">language=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>Members<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;permissions&gt;</span>user.profile.canViewMembersList<span class="nt">&lt;/permissions&gt;</span>
             <span class="nt">&lt;options&gt;</span>module_members_list<span class="nt">&lt;/options&gt;</span>
-
+            <span class="nt">&lt;permissions&gt;</span>user.profile.canViewMembersList<span class="nt">&lt;/permissions&gt;</span>
+            <span class="nt">&lt;allowSpidersToIndex&gt;</span>1<span class="nt">&lt;/allowSpidersToIndex&gt;</span>
             <span class="nt">&lt;content</span> <span class="na">language=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
                 <span class="nt">&lt;title&gt;</span>Members<span class="nt">&lt;/title&gt;</span>
             <span class="nt">&lt;/content&gt;</span>
@@ -2438,7 +2510,7 @@ page would be presented with a permission denied message.</p>
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-04-23
+      Last update: 2021-07-07
     
   </small>
 </div>
