@@ -27,9 +27,9 @@ Other optional methods are:
 As an example, the implementation for users looks like this:
 
 {jinja{ codebox(
-  "php",
-  "php/api/sitemaps/UserSitemapObject.class.php",
-  "files/lib/system/sitemap/object/UserSitemapObject.class.php"
+  title="files/lib/system/sitemap/object/UserSitemapObject.class.php",
+  language="php",
+  filepath="php/api/sitemaps/UserSitemapObject.class.php"
 ) }}
 
 Next, the sitemap object must be registered as an object type:

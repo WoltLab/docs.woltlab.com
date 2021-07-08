@@ -8,26 +8,26 @@ WoltLab Suite includes a powerful user notification system that supports notific
 For any type of object related to events, you have to define an object type for the object type definition `com.woltlab.wcf.notification.objectType`:
 
 {jinja{ codebox(
-  "xml",
-  "php/api/user_notifications/objectType.xml",
-  "objectType.xml"
+  title="objectType.xml",
+  language="xml",
+  filepath="php/api/user_notifications/objectType.xml"
 ) }}
 
 The referenced class `FooUserNotificationObjectType` has to implement the [IUserNotificationObjectType](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/type/IUserNotificationObjectType.class.php) interface, which should be done by extending [AbstractUserNotificationObjectType](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/type/AbstractUserNotificationObjectType.class.php).
 
 {jinja{ codebox(
-  "php",
-  "php/api/user_notifications/FooUserNotificationObjectType.class.php",
-  "files/lib/system/user/notification/object/type/FooUserNotificationObjectType.class.php"
+  title="files/lib/system/user/notification/object/type/FooUserNotificationObjectType.class.php",
+  language="php",
+  filepath="php/api/user_notifications/FooUserNotificationObjectType.class.php"
 ) }}
 
 You have to set the class names of the database object (`$objectClassName`) and the related list (`$objectListClassName`).
 Additionally, you have to create a class that implements the [IUserNotificationObject](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/IUserNotificationObject.class.php) whose name you have to set as the value of the `$decoratorClassName` property.
 
 {jinja{ codebox(
-  "php",
-  "php/api/user_notifications/FooUserNotificationObject.class.php",
-  "files/lib/system/user/notification/object/FooUserNotificationObject.class.php"
+  title="files/lib/system/user/notification/object/FooUserNotificationObject.class.php",
+  language="php",
+  filepath="php/api/user_notifications/FooUserNotificationObject.class.php"
 ) }}
 
 - The `getTitle()` method returns the title of the object.
@@ -44,9 +44,9 @@ Each event that you fire in your package needs to be registered using the [user 
 An example file might look like this:
 
 {jinja{ codebox(
-  "xml",
-  "php/api/user_notifications/userNotificationEvent.xml",
-  "userNotificationEvent.xml"
+  title="userNotificationEvent.xml",
+  language="xml",
+  filepath="php/api/user_notifications/userNotificationEvent.xml"
 ) }}
 
 Here, you reference the user notification object type created via `objectType.xml`.
@@ -54,9 +54,9 @@ The referenced class in the `<classname>` element has to implement the [IUserNot
 In `AbstractSharedUserNotificationEvent::prepare()`, you can, for example, tell runtime caches to prepare to load certain objects which then are loaded all at once when the objects are needed.
 
 {jinja{ codebox(
-  "php",
-  "php/api/user_notifications/FooUserNotificationEvent.class.php",
-  "files/lib/system/user/notification/event/FooUserNotificationEvent.class.php"
+  title="files/lib/system/user/notification/event/FooUserNotificationEvent.class.php",
+  language="php",
+  filepath="php/api/user_notifications/FooUserNotificationEvent.class.php"
 ) }}
 
 - The `$stackable` property is `false` by default and has to be explicitly set to `true` if stacking of notifications should be enabled.
