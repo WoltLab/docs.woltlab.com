@@ -2314,9 +2314,9 @@ It will be passed to either <code>DatabaseObjectEditor::create()</code> or <code
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">return</span> <span class="p">[</span>
-    <span class="s1">&#39;environment&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;environment&#39;</span><span class="o">.</span><span class="nx">md</span><span class="p">],</span>
-    <span class="s1">&#39;eventName&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;eventname&#39;</span><span class="o">.</span><span class="nx">md</span><span class="p">],</span>
-    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="o">.</span><span class="nx">md</span><span class="p">]</span>
+    <span class="s1">&#39;environment&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;environment&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;eventName&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;eventname&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
 <span class="p">];</span>
 </code></pre></div>
 </td></tr></table>
@@ -2403,10 +2403,10 @@ You should make use of this data to remove the matching element from database.</
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$items</span> <span class="k">as</span> <span class="nv">$item</span><span class="p">)</span> <span class="p">{</span>
     <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span>
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">installation</span><span class="o">-&gt;</span><span class="na">getPackageID</span><span class="p">(),</span>
-        <span class="nv">$item</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;environment&#39;</span><span class="o">.</span><span class="nx">md</span><span class="p">],</span>
-        <span class="nv">$item</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;eventname&#39;</span><span class="o">.</span><span class="nx">md</span><span class="p">],</span>
-        <span class="nv">$item</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="o">.</span><span class="nx">md</span><span class="p">],</span>
-        <span class="nv">$item</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;templatename&#39;</span><span class="o">.</span><span class="nx">md</span><span class="p">]</span>
+        <span class="nv">$item</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;environment&#39;</span><span class="p">],</span>
+        <span class="nv">$item</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;eventname&#39;</span><span class="p">],</span>
+        <span class="nv">$item</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+        <span class="nv">$item</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;templatename&#39;</span><span class="p">]</span>
     <span class="p">]);</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -2433,7 +2433,7 @@ This allows options to store arbitrary data which can be accessed but were not i
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-01-08
+      Last update: 2021-07-08
     
   </small>
 </div>
