@@ -72,7 +72,7 @@ This method is expected to return an array with two keys:
 - `sql` contains the SQL query with placeholders.
 - `parameters` contains an array with values used for the SQL query.
 
-#### 2.5.3. Example
+#### Example
 
 ```php
 <?php
