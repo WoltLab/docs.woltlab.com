@@ -18,6 +18,8 @@ The event class name is the name of the class in which the event is fired.
 The event name is the name given when the event is fired to identify different events within the same class.
 You can either give a single event name or a comma-separated list of event names in which case the event listener listens to all of the listed events.
 
+!!! info "Since the introduction of [the new event system with version 5.5](../../migration/wsc54/php.md#events), the event name is optional and defaults to `:default`."
+
 ### `<listenerclassname>`
 
 The listener class name is the name of the class which is triggered if the relevant event is fired.
