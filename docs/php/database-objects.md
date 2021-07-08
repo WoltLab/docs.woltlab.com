@@ -10,9 +10,9 @@ Developers are required to provide the proper DatabaseObject implementations the
 The basic model derives from `wcf\data\DatabaseObject` and provides a convenient constructor to fetch a single row or construct an instance using pre-loaded rows.
 
 {jinja{ codebox(
-  "php",
-  "php/database-objects/Example.class.php",
-  "files/lib/data/example/Example.class.php"
+  title="files/lib/data/example/Example.class.php",
+  language="php",
+  filepath="php/database-objects/Example.class.php"
 ) }}
 
 The class is intended to be empty by default and there only needs to be code if you want to add additional logic to your model. Both the class name and primary key are determined by `DatabaseObject` using the namespace and class name of the derived class. The example above uses the namespace `wcf\…` which is used as table prefix and the class name `Example` is converted into `exampleID`, resulting in the database table name `wcfN_example` with the primary key `exampleID`.
@@ -25,9 +25,9 @@ You can prevent this automatic guessing by setting the class properties `$databa
 If you already have a `DatabaseObject` class and would like to extend it with additional data or methods, for example by providing a class `ViewableExample` which features view-related changes without polluting the original object, you can use `DatabaseObjectDecorator` which a default implementation of a decorator for database objects.
 
 {jinja{ codebox(
-  "php",
-  "php/database-objects/ViewableExample.class.php",
-  "files/lib/data/example/ViewableExample.class.php"
+  title="files/lib/data/example/ViewableExample.class.php",
+  language="php",
+  filepath="php/database-objects/ViewableExample.class.php"
 ) }}
 
 It is mandatory to set the static `$baseClass` property to the name of the decorated class.
@@ -43,9 +43,9 @@ You can access the decorated objects directly via `DatabaseObjectDecorator::getD
 Adding, editing and deleting models is done using the `DatabaseObjectEditor` class that decorates a `DatabaseObject` and uses its data to perform the actions.
 
 {jinja{ codebox(
-  "php",
-  "php/database-objects/ExampleEditor.class.php",
-  "files/lib/data/example/ExampleEditor.class.php"
+  title="files/lib/data/example/ExampleEditor.class.php",
+  language="php",
+  filepath="php/database-objects/ExampleEditor.class.php"
 ) }}
 
 The editor class requires you to provide the fully qualified name of the model, that is the class name including the complete namespace. Database table name and index key will be pulled directly from the model.
@@ -103,9 +103,9 @@ $exampleEditor->delete();
 Every row is represented as a single instance of the model, but the instance creation deals with single rows only. Retrieving larger sets of rows would be quite inefficient due to the large amount of queries that will be dispatched. This is solved with the `DatabaseObjectList` object that exposes an interface to query the database table using arbitrary conditions for data selection. All rows will be fetched using a single query and the resulting rows are automatically loaded into separate models.
 
 {jinja{ codebox(
-  "php",
-  "php/database-objects/ExampleList.class.php",
-  "files/lib/data/example/ExampleList.class.php"
+  title="files/lib/data/example/ExampleList.class.php",
+  language="php",
+  filepath="php/database-objects/ExampleList.class.php"
 ) }}
 
 The following code listing illustrates loading a large set of examples and iterating over the list to retrieve the objects.
@@ -163,9 +163,9 @@ $exampleList->decoratorClassName = \wcf\data\example\ViewableExample::class;
 Of course, you do not have to set the property after creating the list object, you can also set it by creating a dedicated class:
 
 {jinja{ codebox(
-  "php",
-  "php/database-objects/ViewableExampleList.class.php",
-  "files/lib/data/example/ViewableExampleList.class.php"
+  title="files/lib/data/example/ViewableExampleList.class.php",
+  language="php",
+  filepath="php/database-objects/ViewableExampleList.class.php"
 ) }}
 
 
@@ -179,9 +179,9 @@ Row creation and manipulation can be performed using the aforementioned `Databas
 The `AbstractDatabaseObjectAction` solves both problems by wrapping around the editor class and thus provide an additional layer between the action that should be taken and the actual process. The first problem is solved by a fixed set of events being fired, the second issue is addressed by having a single entry point for all data editing.
 
 {jinja{ codebox(
-  "php",
-  "php/database-objects/ExampleAction.class.php",
-  "files/lib/data/example/ExampleAction.class.php"
+  title="files/lib/data/example/ExampleAction.class.php",
+  language="php",
+  filepath="php/database-objects/ExampleAction.class.php"
 ) }}
 
 ### Executing an Action
