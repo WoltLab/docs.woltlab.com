@@ -2232,6 +2232,9 @@ If <code>name</code> is not given, the system automatically sets the name based 
 <h3 id="eventname"><code>&lt;eventname&gt;</code><a class="headerlink" href="#eventname" title="Permanent link">#</a></h3>
 <p>The event name is the name given when the event is fired to identify different events within the same class.
 You can either give a single event name or a comma-separated list of event names in which case the event listener listens to all of the listed events.</p>
+<div class="admonition info">
+<p class="admonition-title">Since the introduction of <a href="../../../migration/wsc54/php/#events">the new event system with version 5.5</a>, the event name is optional and defaults to <code>:default</code>.</p>
+</div>
 <h3 id="listenerclassname"><code>&lt;listenerclassname&gt;</code><a class="headerlink" href="#listenerclassname" title="Permanent link">#</a></h3>
 <p>The listener class name is the name of the class which is triggered if the relevant event is fired.
 The PHP class has to implement the <code>wcf\system\event\listener\IParameterizedEventListener</code> interface.</p>
@@ -2316,7 +2319,7 @@ If the nice value of two event listeners is equal, they are sorted by the listen
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-04-23
+      Last update: 2021-07-08
     
   </small>
 </div>
