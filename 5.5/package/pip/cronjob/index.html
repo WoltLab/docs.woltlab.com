@@ -1140,14 +1140,21 @@
         
           <li class="md-nav__item">
   <a href="#canbeedited" class="md-nav__link">
-    &lt;canBeEdited&gt;
+    &lt;canbeedited&gt;
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#canbedisabled" class="md-nav__link">
-    &lt;canBeDisabled&gt;
+    &lt;canbedisabled&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isdisabled" class="md-nav__link">
+    &lt;isdisabled&gt;
   </a>
   
 </li>
@@ -2144,14 +2151,21 @@
         
           <li class="md-nav__item">
   <a href="#canbeedited" class="md-nav__link">
-    &lt;canBeEdited&gt;
+    &lt;canbeedited&gt;
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#canbedisabled" class="md-nav__link">
-    &lt;canBeDisabled&gt;
+    &lt;canbedisabled&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isdisabled" class="md-nav__link">
+    &lt;isdisabled&gt;
   </a>
   
 </li>
@@ -2210,10 +2224,15 @@ the class has to implement the <code>wcf\system\cronjob\ICronjob</code> interfac
 <h3 id="start"><code>&lt;start*&gt;</code><a class="headerlink" href="#start" title="Permanent link">#</a></h3>
 <p>All of the five <code>startMinute</code>, <code>startHour</code>, <code>startDom</code> (Day Of Month), <code>startMonth</code>, <code>startDow</code> (Day Of Week) are required.
 They correspond to the fields in <code>crontab(5)</code> of a cron daemon and accept the same syntax.</p>
-<h3 id="canbeedited"><code>&lt;canBeEdited&gt;</code><a class="headerlink" href="#canbeedited" title="Permanent link">#</a></h3>
-<p>Controls whether the administrator may edit the fields of the cronjob.</p>
-<h3 id="canbedisabled"><code>&lt;canBeDisabled&gt;</code><a class="headerlink" href="#canbedisabled" title="Permanent link">#</a></h3>
-<p>Controls whether the administrator may disable the cronjob.</p>
+<h3 id="canbeedited"><code>&lt;canbeedited&gt;</code><a class="headerlink" href="#canbeedited" title="Permanent link">#</a></h3>
+<p>Controls whether the administrator may edit the fields of the cronjob.
+Defaults to <code>1</code>.</p>
+<h3 id="canbedisabled"><code>&lt;canbedisabled&gt;</code><a class="headerlink" href="#canbedisabled" title="Permanent link">#</a></h3>
+<p>Controls whether the administrator may disable the cronjob.
+Defaults to <code>1</code>.</p>
+<h3 id="isdisabled"><code>&lt;isdisabled&gt;</code><a class="headerlink" href="#isdisabled" title="Permanent link">#</a></h3>
+<p>Controls whether the cronjob is disabled by default.
+Defaults to <code>0</code>.</p>
 <h3 id="options"><code>&lt;options&gt;</code><a class="headerlink" href="#options" title="Permanent link">#</a></h3>
 <p>The options element can contain a comma-separated list of options of which at least one needs to be enabled for the template listener to be executed.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h2>
@@ -2266,7 +2285,7 @@ They correspond to the fields in <code>crontab(5)</code> of a cron daemon and ac
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-04-23
+      Last update: 2021-07-08
     
   </small>
 </div>
