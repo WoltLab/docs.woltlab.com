@@ -33,6 +33,11 @@ Controls whether the administrator may edit the fields of the cronjob.
 
 Controls whether the administrator may disable the cronjob.
 
+### `<isdisabled>`
+
+Controls whether the cronjob is disabled by default.
+Defaults to `0`.
+
 ### `<options>`
 
 The options element can contain a comma-separated list of options of which at least one needs to be enabled for the template listener to be executed.
