@@ -25,13 +25,20 @@ Provides a human readable description for the administrator.
 All of the five `startMinute`, `startHour`, `startDom` (Day Of Month), `startMonth`, `startDow` (Day Of Week) are required.
 They correspond to the fields in `crontab(5)` of a cron daemon and accept the same syntax.
 
-### `<canBeEdited>`
+### `<canbeedited>`
 
 Controls whether the administrator may edit the fields of the cronjob.
+Defaults to `1`.
 
-### `<canBeDisabled>`
+### `<canbedisabled>`
 
 Controls whether the administrator may disable the cronjob.
+Defaults to `1`.
+
+### `<isdisabled>`
+
+Controls whether the cronjob is disabled by default.
+Defaults to `0`.
 
 ### `<options>`
 
