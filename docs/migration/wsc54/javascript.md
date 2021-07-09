@@ -20,4 +20,4 @@ See [WoltLab/WCF#4353](https://github.com/WoltLab/WCF/pull/4353) for details.
 
 The bundled version of CodeMirror was updated and should be loaded using the AMD loader going forward.
 
-See the [Third Party Libraries migration guide](libraries.md#codemirror) for details.
+See the [third party libraries migration guide](libraries.md#codemirror) for details.
