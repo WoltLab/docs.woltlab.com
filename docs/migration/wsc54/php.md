@@ -158,6 +158,16 @@ See [WoltLab/WCF#4000](https://github.com/WoltLab/WCF/pull/4000) and [WoltLab/WC
 To properly render embedded objects whenever you are using comments in your packages, you have to use `ViewableCommentList`/`ViewableCommentResponseList` in these places or `ViewableCommentRuntimeCache`/`ViewableCommentResponseRuntimeCache`.
 While these runtime caches are only available since version 5.5, the viewable list classes have always been available so that changing `CommentList` to `ViewableCommentList`, for example, is a backwards-compatible change.
 
+## Emails
+
+The `Mailbox` and `UserMailbox` classes no longer store the passed `Language` and `User` objects, but the respective ID instead.
+This change reduces the size of the serialized email when stored in the background queue.
+
+If you inherit from the `Mailbox` or `UserMailbox` classes, you might experience issues if you directly access the `$this->language` or `$this->user` properties.
+Adjust your class to use composition instead of inheritance if possible.
+Use the `getLanguage()` or `getUser()` getters if using composition is not possible.
+
+See [WoltLab/WCF#4389](https://github.com/WoltLab/WCF/pull/4389) for details.
 
 ## Miscellaneous Additions
 
