@@ -71,6 +71,8 @@ When `FormDocument` creates its `FormDataHandler` instance, it automatically reg
 !!! warning "`IFormDataProcessor` should not be implemented directly. Instead, `AbstractFormDataProcessor` should be extended."
 
 !!! info "All form data is put into the `data` sub-array so that the whole `$parameters` array can be passed to a database object action object that requires the actual database object data to be in the `data` sub-array."
+
+!!! info "When adding a data processor to a form, make sure to add the data processor after the form has been built."
  
 
 

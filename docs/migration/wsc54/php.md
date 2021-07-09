@@ -55,6 +55,10 @@ All the relevant values may be stored as real properties on the event object.
 Event classes should not have an `Event` suffix and should be stored in an `event` namespace in a matching location.
 Thus, the `UserLoggedIn` example might have a FQCN of `\wcf\system\user\authentication\event\UserLoggedIn`.
 
+Event listeners for events implementing `IEvent` need to follow [PSR-14](https://www.php-fig.org/psr/psr-14/), i.e. they need to be callable.
+In practice, this means that the event listener class needs to implement `__invoke()`.
+No interface has to be implemented in this case.
+
 Previously:
 
 ```php
@@ -71,9 +75,9 @@ EventHandler::getInstance()->fireAction($this, 'valueAvailable', $parameters);
     contents="""
 <?php
 
-namespace wcf\system\event\listener;
+namespace wcf\\system\\event\\listener;
 
-use wcf\form\ValueForm;
+use wcf\\form\\ValueForm;
 
 final class ValueDumpListener implements IParameterizedEventListener
 {
@@ -92,7 +96,7 @@ final class ValueDumpListener implements IParameterizedEventListener
 Now:
 
 ```
-EventHandler::getInstance()->fire(new \wcf\system\foo\event\ValueAvailable(\random_int(1, 1024)));
+EventHandler::getInstance()->fire(new ValueAvailable(\random_int(1, 1024)));
 ```
 
 {jinja{ codebox(
@@ -101,9 +105,9 @@ EventHandler::getInstance()->fire(new \wcf\system\foo\event\ValueAvailable(\rand
     contents="""
 <?php
 
-namespace wcf\system\foo\event;
+namespace wcf\\system\\foo\\event;
 
-use wcf\system\event\IEvent;
+use wcf\\system\\event\\IEvent;
 
 final class ValueAvailable implements IEvent
 {
@@ -131,19 +135,15 @@ final class ValueAvailable implements IEvent
     contents="""
 <?php
 
-namespace wcf\system\event\listener;
+namespace wcf\\system\\event\\listener;
 
-use wcf\system\foo\event\ValueAvailable;
+use wcf\\system\\foo\event\\ValueAvailable;
 
-final class ValueDumpListener implements IParameterizedEventListener
+final class ValueDumpListener
 {
-    /**
-     * @inheritDoc
-     * @param ValueAvailable $eventObj
-     */
-    public function execute($eventObj, $className, $eventName, array &$parameters)
+    public function __invoke(ValueAvailable $event)
     {
-        var_dump($eventObj->getValue());
+        var_dump($event->getValue());
     }
 }
 """
@@ -157,3 +157,10 @@ See [WoltLab/WCF#4000](https://github.com/WoltLab/WCF/pull/4000) and [WoltLab/WC
 [WoltLab/WCF#4275](https://github.com/WoltLab/WCF/pull/4275) added support for embedded objects like mentions for comments and comment responses.
 To properly render embedded objects whenever you are using comments in your packages, you have to use `ViewableCommentList`/`ViewableCommentResponseList` in these places or `ViewableCommentRuntimeCache`/`ViewableCommentResponseRuntimeCache`.
 While these runtime caches are only available since version 5.5, the viewable list classes have always been available so that changing `CommentList` to `ViewableCommentList`, for example, is a backwards-compatible change.
+
+
+## Miscellaneous Additions
+
+- [`ValueIntervalFormFieldDependency`](../../php/api/form_builder/dependencies.md#valueintervalformfielddependency)
+- [`ColorFormField`](../../php/api/form_builder/form_fields.md#colorformfield)
+- [`MultipleBoardSelectionFormField`](../../php/api/form_builder/form_fields.md#multipleboardselectionformfield)

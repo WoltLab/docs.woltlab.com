@@ -203,6 +203,8 @@ The class implements `IObjectTypeFormField` and requires an object type of the o
 Additionally, the class provides the methods `categoryName($categoryName)` and `getCategoryName()` that allow setting a specific name or filter for the acl option categories whose acl options are shown.
 A category name of `null` signals that no category filter is used.
 
+!!! info "Since version 5.5, the category name also supports filtering using a wildcard like `user.*`, see [WoltLab/WCF#4355](https://github.com/WoltLab/WCF/pull/4355)."
+
 `AclFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant ACL object type id into the `$parameters` array directly using `{$objectProperty}_aclObjectTypeID` as the array key.
 The relevant database object action method is expected, based on the given ACL object type id, to save the ACL option values appropriately.
 
@@ -222,6 +224,14 @@ Specifically for this form field, there is the `IsNotClickedFormFieldDependency`
 `CaptchaFormField` is used to add captcha protection to the form.
 
 You must specify a captcha object type (`com.woltlab.wcf.captcha`) using the `objectType()` method.
+
+
+### `ColorFormField`
+
+!!! info "Only available since version 5.5."
+
+`ColorFormField` is used to specify RGBA colors using the `rgba(r, g, b, a)` format.
+The class implements `IImmutableFormField`.
 
 
 ### `ContentLanguageFormField`
@@ -432,6 +442,30 @@ The following methods are specific to this form field class:
 
 All form nodes that need to know the id of the `WysiwygFormField` field should use `TWysiwygFormNode`.
 This trait provides `getWysiwygId()` and `wysiwygId($wysiwygId)` to get and set the relevant wysiwyg editor id.
+
+
+
+## Application-Specific Form Fields
+
+### WoltLab Suite Forum
+
+#### `MultipleBoardSelectionFormField`
+
+!!! info "Only available since version 5.5."
+
+`MultipleBoardSelectionFormField` is used to select multiple forums.
+The class implements `IAttributeFormField`, `ICssClassFormField`, and `IImmutableFormField`.
+
+The field supports additional settings:
+
+- `boardNodeList(BoardNodeList $boardNodeList): self` and `getBoardNodeList(): BoardNodeList` are used to set and get the list of board nodes used to render the board selection.
+  `boardNodeList(BoardNodeList $boardNodeList): self` will automatically call `readNodeTree()` on the given board node list.
+- `categoriesSelectable(bool $categoriesSelectable = true): self` and `areCategoriesSelectable(): bool` are used to set and check if the categories in the board node list are selectable.
+  By default, categories are selectable.
+  This option is useful if only actual boards, in which threads can be posted, should be selectable but the categories must still be shown so that the overall forum structure is still properly shown.
+- `supportExternalLinks(bool $supportExternalLinks): self` and `supportsExternalLinks(): bool` are used to set and check if external links will be shown in the selection list.
+  By default, external links are shown.
+  Like in the example given before, in cases where only actual boards, in which threads can be posted, are relevant, this option allows to exclude external links.
 
 
 

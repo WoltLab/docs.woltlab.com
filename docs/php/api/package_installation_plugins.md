@@ -52,9 +52,9 @@ Example:
 ```php
 <?php
 return [
-	'environment' => $data['elements']['environment'.md],
-	'eventName' => $data['elements']['eventname'.md],
-	'name' => $data['attributes']['name'.md]
+	'environment' => $data['elements']['environment'],
+	'eventName' => $data['elements']['eventname'],
+	'name' => $data['attributes']['name']
 ];
 ```
 
@@ -72,7 +72,7 @@ This method is expected to return an array with two keys:
 - `sql` contains the SQL query with placeholders.
 - `parameters` contains an array with values used for the SQL query.
 
-#### 2.5.3. Example
+#### Example
 
 ```php
 <?php
@@ -115,10 +115,10 @@ $statement = WCF::getDB()->prepareStatement($sql);
 foreach ($items as $item) {
 	$statement->execute([
 		$this->installation->getPackageID(),
-		$item['elements']['environment'.md],
-		$item['elements']['eventname'.md],
-		$item['attributes']['name'.md],
-		$item['elements']['templatename'.md]
+		$item['elements']['environment'],
+		$item['elements']['eventname'],
+		$item['attributes']['name'],
+		$item['elements']['templatename']
 	]);
 }
 ```

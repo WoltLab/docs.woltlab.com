@@ -146,9 +146,9 @@ $className = Example::class;
 Some database objects provide static getters, either if they are decorators or for a unique combination of database table columns, like `wcf\data\box\Box::getBoxByIdentifier()`:
 
 {jinja{ codebox(
-  "php",
-  "php/code-style/Box.class.php",
-  "files/lib/data/box/Box.class.php"
+  title="files/lib/data/box/Box.class.php",
+  language="php",
+  filepath="php/code-style/Box.class.php"
 ) }}
 
 Such methods should always either return the desired object or `null` if the object does not exist.
