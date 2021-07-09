@@ -24,9 +24,10 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\system\io\GZipFile::$gzopen64` ([WoltLab/WCF#4381](https://github.com/WoltLab/WCF/pull/4381))
 
 
-### Miscellaneous
+### Database Tables
 
-- `wcf1_package_compatibility` database table ([WoltLab/WCF#4371](https://github.com/WoltLab/WCF/pull/4371))
+- `wcf1_package_compatibility` ([WoltLab/WCF#4371](https://github.com/WoltLab/WCF/pull/4371))
+- `wcf1_package_update_compatibility` ([WoltLab/WCF#4385](https://github.com/WoltLab/WCF/pull/4385))
 
 
 
