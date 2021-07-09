@@ -96,7 +96,7 @@ final class ValueDumpListener implements IParameterizedEventListener
 Now:
 
 ```
-EventHandler::getInstance()->fire(new \wcf\system\foo\event\ValueAvailable(\random_int(1, 1024)));
+EventHandler::getInstance()->fire(new ValueAvailable(\random_int(1, 1024)));
 ```
 
 {jinja{ codebox(
