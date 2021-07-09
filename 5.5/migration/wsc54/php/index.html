@@ -1519,6 +1519,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#emails" class="md-nav__link">
+    Emails
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#miscellaneous-additions" class="md-nav__link">
     Miscellaneous Additions
   </a>
@@ -2127,6 +2134,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#emails" class="md-nav__link">
+    Emails
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#miscellaneous-additions" class="md-nav__link">
     Miscellaneous Additions
   </a>
@@ -2394,6 +2408,13 @@ No interface has to be implemented in this case.</p>
 <p><a href="https://github.com/WoltLab/WCF/pull/4275">WoltLab/WCF#4275</a> added support for embedded objects like mentions for comments and comment responses.
 To properly render embedded objects whenever you are using comments in your packages, you have to use <code>ViewableCommentList</code>/<code>ViewableCommentResponseList</code> in these places or <code>ViewableCommentRuntimeCache</code>/<code>ViewableCommentResponseRuntimeCache</code>.
 While these runtime caches are only available since version 5.5, the viewable list classes have always been available so that changing <code>CommentList</code> to <code>ViewableCommentList</code>, for example, is a backwards-compatible change.</p>
+<h2 id="emails">Emails<a class="headerlink" href="#emails" title="Permanent link">#</a></h2>
+<p>The <code>Mailbox</code> and <code>UserMailbox</code> classes no longer store the passed <code>Language</code> and <code>User</code> objects, but the respective ID instead.
+This change reduces the size of the serialized email when stored in the background queue.</p>
+<p>If you inherit from the <code>Mailbox</code> or <code>UserMailbox</code> classes, you might experience issues if you directly access the <code>$this-&gt;language</code> or <code>$this-&gt;user</code> properties.
+Adjust your class to use composition instead of inheritance if possible.
+Use the <code>getLanguage()</code> or <code>getUser()</code> getters if using composition is not possible.</p>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/4389">WoltLab/WCF#4389</a> for details.</p>
 <h2 id="miscellaneous-additions">Miscellaneous Additions<a class="headerlink" href="#miscellaneous-additions" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="../../../php/api/form_builder/dependencies/#valueintervalformfielddependency"><code>ValueIntervalFormFieldDependency</code></a></li>
