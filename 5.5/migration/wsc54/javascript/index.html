@@ -2121,13 +2121,10 @@ To support transparency, which <code>input[type=color]</code> does not, we also 
 <li><code>wcf.style.colorPicker.hexAlpha</code>,</li>
 <li><code>wcf.style.colorPicker.new</code>.</li>
 </ul>
-<p>See <a href="https://github.com/WoltLab/WCF/pull/4353">WoltLab/WCF#4353</a> for more information.</p>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/4353">WoltLab/WCF#4353</a> for details.</p>
 <h2 id="codemirror">CodeMirror<a class="headerlink" href="#codemirror" title="Permanent link">#</a></h2>
-<p>CodeMirror, the code editor we use for editing templates and SCSS, for example, has been updated to version 5.61.1 and we now also deliver all supported languages/modes.
-To properly support all languages/modes, CodeMirror is now loaded via the AMD module loader, which requires the original structure of the CodeMirror package, i.e. <code>codemirror.js</code> being in a <code>lib</code> folder.
-To preserve backward-compatibility, we also keep copies of <code>codemirror.js</code> and <code>codemirror.css</code> in version 5.61.1 directly in <code>js/3rdParty/codemirror</code>.
-These files are, however, considered deprecated and you should migrate to using <code>require()</code> (see <code>codemirror</code> ACP template).</p>
-<p>See <a href="https://github.com/WoltLab/WCF/pull/4277">WoltLab/WCF#4277</a> for more information.</p>
+<p>The bundled version of CodeMirror was updated and should be loaded using the AMD loader going forward.</p>
+<p>See the <a href="../libraries/#codemirror">third party libraries migration guide</a> for details.</p>
                 
                   
                     
@@ -2136,7 +2133,7 @@ These files are, however, considered deprecated and you should migrate to using 
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-07-02
+      Last update: 2021-07-09
     
   </small>
 </div>
