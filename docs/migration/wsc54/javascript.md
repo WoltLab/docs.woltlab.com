@@ -14,14 +14,10 @@ Be aware that the new color picker requires the following new phrases to be avai
 - `wcf.style.colorPicker.hexAlpha`,
 - `wcf.style.colorPicker.new`.
 
-See [WoltLab/WCF#4353](https://github.com/WoltLab/WCF/pull/4353) for more information.
-
+See [WoltLab/WCF#4353](https://github.com/WoltLab/WCF/pull/4353) for details.
 
 ## CodeMirror
 
-CodeMirror, the code editor we use for editing templates and SCSS, for example, has been updated to version 5.61.1 and we now also deliver all supported languages/modes.
-To properly support all languages/modes, CodeMirror is now loaded via the AMD module loader, which requires the original structure of the CodeMirror package, i.e. `codemirror.js` being in a `lib` folder.
-To preserve backward-compatibility, we also keep copies of `codemirror.js` and `codemirror.css` in version 5.61.1 directly in `js/3rdParty/codemirror`.
-These files are, however, considered deprecated and you should migrate to using `require()` (see `codemirror` ACP template).
+The bundled version of CodeMirror was updated and should be loaded using the AMD loader going forward.
 
-See [WoltLab/WCF#4277](https://github.com/WoltLab/WCF/pull/4277) for more information.
+See the [Third Party Libraries migration guide](libraries.md#codemirror) for details.
