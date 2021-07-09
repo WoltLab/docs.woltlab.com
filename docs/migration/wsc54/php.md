@@ -160,11 +160,11 @@ While these runtime caches are only available since version 5.5, the viewable li
 
 ## Emails
 
-The `Mailbox` and `UserMailbox` classes no longer store the passed `Language` and `User` objects, but the ID instead.
-This reduces the size of the serialized email when stored in the background queue.
+The `Mailbox` and `UserMailbox` classes no longer store the passed `Language` and `User` objects, but the respective ID instead.
+This change reduces the size of the serialized email when stored in the background queue.
 
-If you inherit from the `Mailbox` or `UserMailbox` classes you might experience issues if you directly access the `$this->language` or `$this->user` properties.
-Adjust you class to favor composition over inheritance if possible.
+If you inherit from the `Mailbox` or `UserMailbox` classes, you might experience issues if you directly access the `$this->language` or `$this->user` properties.
+Adjust your class to use composition instead of inheritance if possible.
 Use the `getLanguage()` or `getUser()` getters if using composition is not possible.
 
 See [WoltLab/WCF#4389](https://github.com/WoltLab/WCF/pull/4389) for details.
