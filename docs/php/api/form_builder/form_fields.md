@@ -125,7 +125,7 @@ If `ItemListFormField::SAVE_VALUE_TYPE_ARRAY` is used as save value type, `ItemL
 `MultilineTextFormField` is a [text form field](#textformfield) that supports multiple rows of text.
 The methods `rows($rows)` and `getRows()` can be used to set and get the number of rows of the `textarea` elements.
 The default number of rows is `10`.
-These methods do **not**, however, restrict the number of text rows that canbe entered.
+These methods do **not**, however, restrict the number of text rows that can be entered.
 
 
 ### `MultipleSelectionFormField`
