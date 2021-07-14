@@ -160,6 +160,8 @@ While these runtime caches are only available since version 5.5, the viewable li
 
 ## Emails
 
+### Mailbox
+
 The `Mailbox` and `UserMailbox` classes no longer store the passed `Language` and `User` objects, but the respective ID instead.
 This change reduces the size of the serialized email when stored in the background queue.
 
@@ -168,6 +170,15 @@ Adjust your class to use composition instead of inheritance if possible.
 Use the `getLanguage()` or `getUser()` getters if using composition is not possible.
 
 See [WoltLab/WCF#4389](https://github.com/WoltLab/WCF/pull/4389) for details.
+
+### SMTP
+
+The `SmtpEmailTransport` no longer supports a value of `may` for the `$starttls` property.
+
+Using the `may` value is unsafe as it allows for undetected MITM attacks.
+The use of `encrypt` is recommended, unless it is certain that the SMTP server does not support TLS.
+
+See [WoltLab/WCF#4398](https://github.com/WoltLab/WCF/pull/4398) for details.
 
 ## Miscellaneous Additions
 
