@@ -83,6 +83,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 - `wcf\system\tagging\TagCloud::MAX_FONT_SIZE` ([WoltLab/WCF#4325](https://github.com/WoltLab/WCF/pull/4325))
 - `wcf\system\tagging\TagCloud::MIN_FONT_SIZE` ([WoltLab/WCF#4325](https://github.com/WoltLab/WCF/pull/4325))
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::HEAD`
 
 #### Options
 
