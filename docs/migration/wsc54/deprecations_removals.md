@@ -23,12 +23,14 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\acp\page\PackagePage::$compatibleVersions` ([WoltLab/WCF#4371](https://github.com/WoltLab/WCF/pull/4371))
 - `wcf\system\io\GZipFile::$gzopen64` ([WoltLab/WCF#4381](https://github.com/WoltLab/WCF/pull/4381))
 
+### JavaScript
+
+- `WCF.Search.Message.KeywordList` ([WoltLab/WCF#4402](https://github.com/WoltLab/WCF/pull/4402))
 
 ### Database Tables
 
 - `wcf1_package_compatibility` ([WoltLab/WCF#4371](https://github.com/WoltLab/WCF/pull/4371))
 - `wcf1_package_update_compatibility` ([WoltLab/WCF#4385](https://github.com/WoltLab/WCF/pull/4385))
-
 
 
 ## Removals
