@@ -17,6 +17,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 - `wcf\util\MathUtil::getRandomValue()` ([WoltLab/WCF#4280](https://github.com/WoltLab/WCF/pull/4280))
 - `wcf\util\StringUtil::getHash()` ([WoltLab/WCF#4279](https://github.com/WoltLab/WCF/pull/4279))
+- `wcf\action\MessageQuoteAction::markForRemoval()` ([WoltLab/WCF#4452](https://github.com/WoltLab/WCF/pull/4452))
 
 #### Properties
 
@@ -26,6 +27,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 ### JavaScript
 
 - `WCF.Search.Message.KeywordList` ([WoltLab/WCF#4402](https://github.com/WoltLab/WCF/pull/4402))
+- `WCF.Message.Quote.Manager.markQuotesForRemoval()` ([WoltLab/WCF#4452](https://github.com/WoltLab/WCF/pull/4452))
 
 ### Database Tables
 
