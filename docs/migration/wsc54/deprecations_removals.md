@@ -33,7 +33,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 - `wcf1_package_compatibility` ([WoltLab/WCF#4371](https://github.com/WoltLab/WCF/pull/4371))
 - `wcf1_package_update_compatibility` ([WoltLab/WCF#4385](https://github.com/WoltLab/WCF/pull/4385))
-
+- `wcf1_package_update_optional` ([WoltLab/WCF#4432](https://github.com/WoltLab/WCF/pull/4432))
 
 ## Removals
 
