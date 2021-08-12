@@ -12,6 +12,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 - `filebase\system\file\FileDataHandler` (use `filebase\system\cache\runtime\FileRuntimeCache` instead)
 - `wcf\system\io\FTP` (directly use the FTP extension instead)
+- `wcf\util\PasswordUtil`
 
 #### Methods
 
@@ -49,7 +50,6 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\system\cache\builder\TemplateListenerCacheBuilder` ([WoltLab/WCF#4297](https://github.com/WoltLab/WCF/pull/4297))
 - `wcf\system\log\modification\ModificationLogHandler` ([WoltLab/WCF#4340](https://github.com/WoltLab/WCF/pull/4340))
 - `wcf\system\recaptcha\RecaptchaHandlerV2` ([WoltLab/WCF#4289](https://github.com/WoltLab/WCF/pull/4289))
-- `wcf\util\PasswordUtil`
 - The SCSS compiler’s `Leafo` class aliases ([WoltLab/WCF#4343](https://github.com/WoltLab/WCF/pull/4343), [Migration Guide from 5.2 to 5.3](../wsc52/libraries.md))
 
 #### Methods
