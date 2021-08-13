@@ -27,6 +27,6 @@ Due to laminas-zendframework-bridge this update is a drop-in replacement.
 Existing code should continue to work as-is.
 
 It is recommended to cleanly migrate to laminas-progressbar to allow for a future removal of the bridge.
-Updating the `use` imports should be sufficient to switch the laminas-progressbar.
+Updating the `use` imports should be sufficient to switch to the laminas-progressbar.
 
 See [WoltLab/WCF#4460](https://github.com/WoltLab/WCF/pull/4460) for details.
