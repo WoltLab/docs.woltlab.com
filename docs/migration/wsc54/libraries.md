@@ -18,3 +18,15 @@ To preserve backward-compatibility, we also keep copies of `codemirror.js` and `
 These files are, however, considered deprecated and you should migrate to using `require()` (see `codemirror` ACP template).
 
 See [WoltLab/WCF#4277](https://github.com/WoltLab/WCF/pull/4277) for details.
+
+## Zend/ProgressBar
+
+The old bundled version of Zend/ProgressBar was replaced by a current version of laminas-progressbar.
+
+Due to laminas-zendframework-bridge this update is a drop-in replacement.
+Existing code should continue to work as-is.
+
+It is recommended to cleanly migrate to laminas-progressbar to allow for a future removal of the bridge.
+Updating the `use` imports should be sufficient to switch the laminas-progressbar.
+
+See [WoltLab/WCF#4460](https://github.com/WoltLab/WCF/pull/4460) for details.
