@@ -11,6 +11,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 #### Classes
 
 - `filebase\system\file\FileDataHandler` (use `filebase\system\cache\runtime\FileRuntimeCache` instead)
+- `wcf\action\AbstractAjaxAction` (use PSR-7 responses, [WoltLab/WCF#4437](https://github.com/WoltLab/WCF/pull/4437))
 - `wcf\system\io\FTP` (directly use the FTP extension instead)
 - `wcf\util\PasswordUtil`
 
