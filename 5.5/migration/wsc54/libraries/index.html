@@ -1532,6 +1532,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#zendprogressbar" class="md-nav__link">
+    Zend/ProgressBar
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2095,6 +2102,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#zendprogressbar" class="md-nav__link">
+    Zend/ProgressBar
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2124,6 +2138,13 @@ To properly support all languages/modes, CodeMirror is now loaded via the AMD mo
 To preserve backward-compatibility, we also keep copies of <code>codemirror.js</code> and <code>codemirror.css</code> in version 5.61.1 directly in <code>js/3rdParty/codemirror</code>.
 These files are, however, considered deprecated and you should migrate to using <code>require()</code> (see <code>codemirror</code> ACP template).</p>
 <p>See <a href="https://github.com/WoltLab/WCF/pull/4277">WoltLab/WCF#4277</a> for details.</p>
+<h2 id="zendprogressbar">Zend/ProgressBar<a class="headerlink" href="#zendprogressbar" title="Permanent link">#</a></h2>
+<p>The old bundled version of Zend/ProgressBar was replaced by a current version of laminas-progressbar.</p>
+<p>Due to laminas-zendframework-bridge this update is a drop-in replacement.
+Existing code should continue to work as-is.</p>
+<p>It is recommended to cleanly migrate to laminas-progressbar to allow for a future removal of the bridge.
+Updating the <code>use</code> imports should be sufficient to switch to the laminas-progressbar.</p>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/4460">WoltLab/WCF#4460</a> for details.</p>
                 
                   
                     
@@ -2132,7 +2153,7 @@ These files are, however, considered deprecated and you should migrate to using 
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-07-09
+      Last update: 2021-08-13
     
   </small>
 </div>
