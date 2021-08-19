@@ -1495,20 +1495,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#file-deletion-package-installation-plugin" class="md-nav__link">
-    File Deletion Package Installation Plugin
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#language-package-installation-plugin" class="md-nav__link">
-    Language Package Installation Plugin
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#events" class="md-nav__link">
     Events
   </a>
@@ -1546,6 +1532,20 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-deletion-package-installation-plugin" class="md-nav__link">
+    File Deletion Package Installation Plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#language-package-installation-plugin" class="md-nav__link">
+    Language Package Installation Plugin
+  </a>
   
 </li>
       
@@ -2130,20 +2130,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#file-deletion-package-installation-plugin" class="md-nav__link">
-    File Deletion Package Installation Plugin
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#language-package-installation-plugin" class="md-nav__link">
-    Language Package Installation Plugin
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#events" class="md-nav__link">
     Events
   </a>
@@ -2185,6 +2171,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#file-deletion-package-installation-plugin" class="md-nav__link">
+    File Deletion Package Installation Plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#language-package-installation-plugin" class="md-nav__link">
+    Language Package Installation Plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#miscellaneous-additions" class="md-nav__link">
     Miscellaneous Additions
   </a>
@@ -2209,91 +2209,6 @@
                 
                 
                 <h1 id="migrating-from-wsc-54-php">Migrating from WSC 5.4 - PHP<a class="headerlink" href="#migrating-from-wsc-54-php" title="Permanent link">#</a></h1>
-<h2 id="file-deletion-package-installation-plugin">File Deletion Package Installation Plugin<a class="headerlink" href="#file-deletion-package-installation-plugin" title="Permanent link">#</a></h2>
-<p>Three new package installation plugins have been added to delete ACP templates with <a href="../../../package/pip/acp-template-delete/">acpTemplateDelete</a>, files with <a href="../../../package/pip/file-delete/">fileDelete</a>, and templates with <a href="../../../package/pip/template-delete/">templateDelete</a>.</p>
-<h2 id="language-package-installation-plugin">Language Package Installation Plugin<a class="headerlink" href="#language-package-installation-plugin" title="Permanent link">#</a></h2>
-<p><a href="https://github.com/WoltLab/WCF/pull/4261">WoltLab/WCF#4261</a> has added support for deleting existing phrases with the <code>language</code> package installation plugin.</p>
-<p>The current structure of the language XML files</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>language/en.xml</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc54/en_old.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;language</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span> <span class="na">languagecode=</span><span class="s">&quot;en&quot;</span> <span class="na">languagename=</span><span class="s">&quot;English&quot;</span> <span class="na">countrycode=</span><span class="s">&quot;gb&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;category</span> <span class="na">name=</span><span class="s">&quot;wcf.foo&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;wcf.foo.bar&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
-    <span class="nt">&lt;/category&gt;</span>
-<span class="nt">&lt;/language&gt;</span>
-</code></pre></div>
-</td></tr></table>
-</div>
-
-<p>is deprecated and should be replaced with the new structure with an explicit <code>&lt;import&gt;</code> element like in the other package installation plugins:</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>language/en.xml</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc54/en_new.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;language</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span> <span class="na">languagecode=</span><span class="s">&quot;en&quot;</span> <span class="na">languagename=</span><span class="s">&quot;English&quot;</span> <span class="na">countrycode=</span><span class="s">&quot;gb&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;import&gt;</span>
-        <span class="nt">&lt;category</span> <span class="na">name=</span><span class="s">&quot;wcf.foo&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;wcf.foo.bar&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
-        <span class="nt">&lt;/category&gt;</span>
-    <span class="nt">&lt;/import&gt;</span>
-<span class="nt">&lt;/language&gt;</span>
-</code></pre></div>
-</td></tr></table>
-</div>
-
-<p>Additionally, to now also support deleting phrases with this package installation plugin, support for a <code>&lt;delete&gt;</code> element has been added: </p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>language/en.xml</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc54/en_new_with_delete.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;language</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span> <span class="na">languagecode=</span><span class="s">&quot;en&quot;</span> <span class="na">languagename=</span><span class="s">&quot;English&quot;</span> <span class="na">countrycode=</span><span class="s">&quot;gb&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;import&gt;</span>
-        <span class="nt">&lt;category</span> <span class="na">name=</span><span class="s">&quot;wcf.foo&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;wcf.foo.bar&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
-        <span class="nt">&lt;/category&gt;</span>
-    <span class="nt">&lt;/import&gt;</span>
-    <span class="nt">&lt;delete&gt;</span>
-        <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;wcf.foo.barrr&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/delete&gt;</span>
-<span class="nt">&lt;/language&gt;</span>
-</code></pre></div>
-</td></tr></table>
-</div>
-
-<p>Note that when deleting phrases, the category does not have to be specified because phrase identifiers are unique globally.</p>
-<div class="admonition warning">
-<p class="admonition-title">Mixing the old structure and the new structure is not supported and will result in an error message during the import!</p>
-</div>
 <h2 id="events">Events<a class="headerlink" href="#events" title="Permanent link">#</a></h2>
 <p>Historically, events were tightly coupled with a single class, with the event object being an object of this class, expecting the event listener to consume public properties and method of the event object.
 The <code>$parameters</code> array was introduced due to limitations of this pattern, avoiding moving all the values that might be of interest to the event listener into the state of the object.
@@ -2465,6 +2380,91 @@ Use the <code>getLanguage()</code> or <code>getUser()</code> getters if using co
 <p>Using the <code>may</code> value is unsafe as it allows for undetected MITM attacks.
 The use of <code>encrypt</code> is recommended, unless it is certain that the SMTP server does not support TLS.</p>
 <p>See <a href="https://github.com/WoltLab/WCF/pull/4398">WoltLab/WCF#4398</a> for details.</p>
+<h2 id="file-deletion-package-installation-plugin">File Deletion Package Installation Plugin<a class="headerlink" href="#file-deletion-package-installation-plugin" title="Permanent link">#</a></h2>
+<p>Three new package installation plugins have been added to delete ACP templates with <a href="../../../package/pip/acp-template-delete/">acpTemplateDelete</a>, files with <a href="../../../package/pip/file-delete/">fileDelete</a>, and templates with <a href="../../../package/pip/template-delete/">templateDelete</a>.</p>
+<h2 id="language-package-installation-plugin">Language Package Installation Plugin<a class="headerlink" href="#language-package-installation-plugin" title="Permanent link">#</a></h2>
+<p><a href="https://github.com/WoltLab/WCF/pull/4261">WoltLab/WCF#4261</a> has added support for deleting existing phrases with the <code>language</code> package installation plugin.</p>
+<p>The current structure of the language XML files</p>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle">
+        <code>language/en.xml</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc54/en_old.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;language</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span> <span class="na">languagecode=</span><span class="s">&quot;en&quot;</span> <span class="na">languagename=</span><span class="s">&quot;English&quot;</span> <span class="na">countrycode=</span><span class="s">&quot;gb&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;category</span> <span class="na">name=</span><span class="s">&quot;wcf.foo&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;wcf.foo.bar&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
+    <span class="nt">&lt;/category&gt;</span>
+<span class="nt">&lt;/language&gt;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+
+<p>is deprecated and should be replaced with the new structure with an explicit <code>&lt;import&gt;</code> element like in the other package installation plugins:</p>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle">
+        <code>language/en.xml</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc54/en_new.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;language</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span> <span class="na">languagecode=</span><span class="s">&quot;en&quot;</span> <span class="na">languagename=</span><span class="s">&quot;English&quot;</span> <span class="na">countrycode=</span><span class="s">&quot;gb&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;import&gt;</span>
+        <span class="nt">&lt;category</span> <span class="na">name=</span><span class="s">&quot;wcf.foo&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;wcf.foo.bar&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
+        <span class="nt">&lt;/category&gt;</span>
+    <span class="nt">&lt;/import&gt;</span>
+<span class="nt">&lt;/language&gt;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+
+<p>Additionally, to now also support deleting phrases with this package installation plugin, support for a <code>&lt;delete&gt;</code> element has been added: </p>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle">
+        <code>language/en.xml</code>
+        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc54/en_new_with_delete.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
+    </div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;language</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span> <span class="na">languagecode=</span><span class="s">&quot;en&quot;</span> <span class="na">languagename=</span><span class="s">&quot;English&quot;</span> <span class="na">countrycode=</span><span class="s">&quot;gb&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;import&gt;</span>
+        <span class="nt">&lt;category</span> <span class="na">name=</span><span class="s">&quot;wcf.foo&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;wcf.foo.bar&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
+        <span class="nt">&lt;/category&gt;</span>
+    <span class="nt">&lt;/import&gt;</span>
+    <span class="nt">&lt;delete&gt;</span>
+        <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;wcf.foo.barrr&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/delete&gt;</span>
+<span class="nt">&lt;/language&gt;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+
+<p>Note that when deleting phrases, the category does not have to be specified because phrase identifiers are unique globally.</p>
+<div class="admonition warning">
+<p class="admonition-title">Mixing the old structure and the new structure is not supported and will result in an error message during the import!</p>
+</div>
 <h2 id="miscellaneous-additions">Miscellaneous Additions<a class="headerlink" href="#miscellaneous-additions" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="../../../php/api/form_builder/dependencies/#valueintervalformfielddependency"><code>ValueIntervalFormFieldDependency</code></a></li>
@@ -2479,7 +2479,7 @@ The use of <code>encrypt</code> is recommended, unless it is certain that the SM
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-07-14
+      Last update: 2021-08-19
     
   </small>
 </div>

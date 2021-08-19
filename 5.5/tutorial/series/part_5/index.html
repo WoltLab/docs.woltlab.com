@@ -3139,12 +3139,12 @@ Additionally, we extract the information text from the <code>information_htmlInp
 <span class="cm"> * @module  WoltLabSuite/Core/Controller/Person</span>
 <span class="cm"> */</span>
 
-<span class="k">import</span> <span class="nx">FormBuilderDialog</span> <span class="k">from</span> <span class="s2">&quot;WoltLabSuite/Core/Form/Builder/Dialog&quot;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">Language</span> <span class="k">from</span> <span class="s2">&quot;WoltLabSuite/Core/Language&quot;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">UiNotification</span> <span class="k">from</span> <span class="s2">&quot;WoltLabSuite/Core/Ui/Notification&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">FormBuilderDialog</span> <span class="kr">from</span> <span class="s2">&quot;WoltLabSuite/Core/Form/Builder/Dialog&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">Language</span> <span class="kr">from</span> <span class="s2">&quot;WoltLabSuite/Core/Language&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">UiNotification</span> <span class="kr">from</span> <span class="s2">&quot;WoltLabSuite/Core/Ui/Notification&quot;</span><span class="p">;</span>
 
 <span class="kd">let</span> <span class="nx">addDialog</span>: <span class="kt">FormBuilderDialog</span><span class="p">;</span>
-<span class="kd">const</span> <span class="nx">editDialogs</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="nx">FormBuilderDialog</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">editDialogs</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="nx">FormBuilderDialog</span><span class="o">&gt;</span><span class="p">();</span>
 
 <span class="kd">interface</span> <span class="nx">EditReturnValues</span> <span class="p">{</span>
   <span class="nx">formattedInformation</span>: <span class="kt">string</span><span class="p">;</span>
@@ -3158,7 +3158,7 @@ Additionally, we extract the information text from the <code>information_htmlInp
 <span class="cm">/**</span>
 <span class="cm"> * Opens the edit dialog after clicking on the edit button for a piece of information.</span>
 <span class="cm"> */</span>
-<span class="kd">function</span> <span class="nx">editInformation</span><span class="p">(</span><span class="nx">event</span>: <span class="kt">Event</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nx">editInformation</span><span class="p">(</span><span class="nx">event</span>: <span class="kt">Event</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
   <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
 
   <span class="kd">const</span> <span class="nx">currentTarget</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span> <span class="kr">as</span> <span class="nx">HTMLElement</span><span class="p">;</span>
@@ -3168,7 +3168,7 @@ Additionally, we extract the information text from the <code>information_htmlInp
   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">editDialogs</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">informationId</span><span class="p">))</span> <span class="p">{</span>
     <span class="nx">editDialogs</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span>
       <span class="nx">informationId</span><span class="p">,</span>
-      <span class="k">new</span> <span class="nx">FormBuilderDialog</span><span class="p">(</span>
+      <span class="ow">new</span> <span class="nx">FormBuilderDialog</span><span class="p">(</span>
         <span class="sb">`personInformationEditDialog</span><span class="si">${</span><span class="nx">informationId</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
         <span class="s2">&quot;wcf\\data\\person\\information\\PersonInformationAction&quot;</span><span class="p">,</span>
         <span class="s2">&quot;getEditDialog&quot;</span><span class="p">,</span>
@@ -3197,10 +3197,10 @@ Additionally, we extract the information text from the <code>information_htmlInp
 <span class="cm">/**</span>
 <span class="cm"> * Initializes the JavaScript code for the person page.</span>
 <span class="cm"> */</span>
-<span class="k">export</span> <span class="kd">function</span> <span class="nx">init</span><span class="p">(</span><span class="nx">personId</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">options</span>: <span class="kt">Options</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+<span class="k">export</span> <span class="kd">function</span> <span class="nx">init</span><span class="p">(</span><span class="nx">personId</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">options</span>: <span class="kt">Options</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">canAddInformation</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Initialize the dialog to add new information.</span>
-    <span class="nx">addDialog</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormBuilderDialog</span><span class="p">(</span>
+    <span class="nx">addDialog</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">FormBuilderDialog</span><span class="p">(</span>
       <span class="s2">&quot;personInformationAddDialog&quot;</span><span class="p">,</span>
       <span class="s2">&quot;wcf\\data\\person\\information\\PersonInformationAction&quot;</span><span class="p">,</span>
       <span class="s2">&quot;getAddDialog&quot;</span><span class="p">,</span>
@@ -3213,12 +3213,12 @@ Additionally, we extract the information text from the <code>information_htmlInp
         <span class="p">},</span>
         <span class="nx">submitActionName</span><span class="o">:</span> <span class="s2">&quot;submitAddDialog&quot;</span><span class="p">,</span>
         <span class="nx">successCallback</span><span class="p">()</span> <span class="p">{</span>
-          <span class="nx">UiNotification</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;wcf.person.information.add.success&quot;</span><span class="p">),</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">());</span>
+          <span class="nx">UiNotification</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;wcf.person.information.add.success&quot;</span><span class="p">),</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">());</span>
         <span class="p">},</span>
       <span class="p">},</span>
     <span class="p">);</span>
 
-    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;personInformationAddButton&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;personInformationAddButton&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
       <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
 
       <span class="nx">addDialog</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
@@ -3227,7 +3227,7 @@ Additionally, we extract the information text from the <code>information_htmlInp
 
   <span class="nb">document</span>
     <span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;.jsEditInformation&quot;</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">el</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">editInformation</span><span class="p">(</span><span class="nx">ev</span><span class="p">)));</span>
+    <span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">el</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">editInformation</span><span class="p">(</span><span class="nx">ev</span><span class="p">)));</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
