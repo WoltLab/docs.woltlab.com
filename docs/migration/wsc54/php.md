@@ -1,5 +1,144 @@
 # Migrating from WSC 5.4 - PHP
 
+## Initial PSR-7 support
+
+WoltLab Suite will *incrementally* add support for object oriented request/response handling based off the [PSR-7](https://www.php-fig.org/psr/psr-7/) and [PSR-15](https://www.php-fig.org/psr/psr-15/) standards in the upcoming versions.
+
+WoltLab Suite 5.5 adds initial support by allowing to define the response using objects implementing the PSR-7 `ResponseInterface`.
+If a controller returns such a response object from its `__run()` method, this response will automatically emitted to the client.
+
+Any PSR-7 implementation is supported, but WoltLab Suite 5.5 ships with [laminas-diactoros](https://docs.laminas.dev/laminas-diactoros/) as the recommended “batteries included” implementation of PSR-7.
+
+Support for PSR-7 requests and PSR-15 middlewares is expected to follow in future versions.
+
+See [WoltLab/WCF#4437](https://github.com/WoltLab/WCF/pull/4437) for details.
+
+### Recommended changes for WoltLab Suite 5.5
+
+With the current support in WoltLab Suite 5.5 it is recommended to migrate the `*Action` classes to make use of PSR-7 responses.
+Control and data flow is typically fairly simple in `*Action` classes with most requests ending up in either a redirect or a JSON response, commonly followed by a call to `exit;`.
+
+Experimental support for `*Page` and `*Form` is available.
+It is recommended to wait for a future version before migrating these types of controllers.
+
+#### Migrating Redirects
+
+Previously:
+
+{jinja{ codebox(
+    language="php",
+    title="lib/action/ExampleRedirectAction.class.php",
+    contents="""
+<?php
+
+namespace wcf\\action;
+
+use wcf\\system\\request\\LinkHandler;
+use wcf\\util\\HeaderUtil;
+
+final class ExampleRedirectAction extends AbstractAction
+{
+    public function execute()
+    {
+        parent::execute();
+
+        // Redirect to the landing page.
+        HeaderUtil::redirect(
+            LinkHandler::getInstance()->getLink()
+        );
+
+        exit;
+    }
+}
+"""
+) }}
+
+Now:
+
+{jinja{ codebox(
+    language="php",
+    title="lib/action/ExampleRedirectAction.class.php",
+    contents="""
+<?php
+
+namespace wcf\\action;
+
+use Laminas\\Diactoros\\Response\\RedirectResponse;
+use wcf\\system\\request\\LinkHandler;
+
+final class ExampleRedirectAction extends AbstractAction
+{
+    public function execute()
+    {
+        parent::execute();
+
+        // Redirect to the landing page.
+        return new RedirectResponse(
+            LinkHandler::getInstance()->getLink()
+        );
+    }
+}
+"""
+) }}
+
+#### Migrating JSON responses
+
+Previously:
+
+{jinja{ codebox(
+    language="php",
+    title="lib/action/ExampleJsonAction.class.php",
+    contents="""
+<?php
+
+namespace wcf\\action;
+
+use wcf\\util\\JSON;
+
+final class ExampleJsonAction extends AbstractAction
+{
+    public function execute()
+    {
+        parent::execute();
+
+        \header('Content-type: application/json; charset=UTF-8');
+
+        echo JSON::encode([
+            'foo' => 'bar',
+        ]);
+
+        exit;
+    }
+}
+"""
+) }}
+
+Now:
+
+{jinja{ codebox(
+    language="php",
+    title="lib/action/ExampleJsonAction.class.php",
+    contents="""
+<?php
+
+namespace wcf\\action;
+
+use Laminas\\Diactoros\\Response\\JsonResponse;
+
+final class ExampleJsonAction extends AbstractAction
+{
+    public function execute()
+    {
+        parent::execute();
+
+        return new JsonResponse([
+            'foo' => 'bar',
+        ]);
+    }
+}
+"""
+) }}
+
 ## Events
 
 Historically, events were tightly coupled with a single class, with the event object being an object of this class, expecting the event listener to consume public properties and method of the event object.
