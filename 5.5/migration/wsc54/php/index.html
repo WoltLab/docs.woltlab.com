@@ -1495,6 +1495,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#initial-psr-7-support" class="md-nav__link">
+    Initial PSR-7 support
+  </a>
+  
+    <nav class="md-nav" aria-label="Initial PSR-7 support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-changes-for-woltlab-suite-55" class="md-nav__link">
+    Recommended changes for WoltLab Suite 5.5
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommended changes for WoltLab Suite 5.5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migrating-redirects" class="md-nav__link">
+    Migrating Redirects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrating-json-responses" class="md-nav__link">
+    Migrating JSON responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#events" class="md-nav__link">
     Events
   </a>
@@ -2130,6 +2170,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#initial-psr-7-support" class="md-nav__link">
+    Initial PSR-7 support
+  </a>
+  
+    <nav class="md-nav" aria-label="Initial PSR-7 support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-changes-for-woltlab-suite-55" class="md-nav__link">
+    Recommended changes for WoltLab Suite 5.5
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommended changes for WoltLab Suite 5.5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migrating-redirects" class="md-nav__link">
+    Migrating Redirects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrating-json-responses" class="md-nav__link">
+    Migrating JSON responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#events" class="md-nav__link">
     Events
   </a>
@@ -2209,6 +2289,200 @@
                 
                 
                 <h1 id="migrating-from-wsc-54-php">Migrating from WSC 5.4 - PHP<a class="headerlink" href="#migrating-from-wsc-54-php" title="Permanent link">#</a></h1>
+<h2 id="initial-psr-7-support">Initial PSR-7 support<a class="headerlink" href="#initial-psr-7-support" title="Permanent link">#</a></h2>
+<p>WoltLab Suite will <em>incrementally</em> add support for object oriented request/response handling based off the <a href="https://www.php-fig.org/psr/psr-7/">PSR-7</a> and <a href="https://www.php-fig.org/psr/psr-15/">PSR-15</a> standards in the upcoming versions.</p>
+<p>WoltLab Suite 5.5 adds initial support by allowing to define the response using objects implementing the PSR-7 <code>ResponseInterface</code>.
+If a controller returns such a response object from its <code>__run()</code> method, this response will automatically emitted to the client.</p>
+<p>Any PSR-7 implementation is supported, but WoltLab Suite 5.5 ships with <a href="https://docs.laminas.dev/laminas-diactoros/">laminas-diactoros</a> as the recommended “batteries included” implementation of PSR-7.</p>
+<p>Support for PSR-7 requests and PSR-15 middlewares is expected to follow in future versions.</p>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/4437">WoltLab/WCF#4437</a> for details.</p>
+<h3 id="recommended-changes-for-woltlab-suite-55">Recommended changes for WoltLab Suite 5.5<a class="headerlink" href="#recommended-changes-for-woltlab-suite-55" title="Permanent link">#</a></h3>
+<p>With the current support in WoltLab Suite 5.5 it is recommended to migrate the <code>*Action</code> classes to make use of PSR-7 responses.
+Control and data flow is typically fairly simple in <code>*Action</code> classes with most requests ending up in either a redirect or a JSON response, commonly followed by a call to <code>exit;</code>.</p>
+<p>Experimental support for <code>*Page</code> and <code>*Form</code> is available.
+It is recommended to wait for a future version before migrating these types of controllers.</p>
+<h4 id="migrating-redirects">Migrating Redirects<a class="headerlink" href="#migrating-redirects" title="Permanent link">#</a></h4>
+<p>Previously:</p>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>lib/action/ExampleRedirectAction.class.php</code></div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">wcf\action</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">wcf\system\request\LinkHandler</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\util\HeaderUtil</span><span class="p">;</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">ExampleRedirectAction</span> <span class="k">extends</span> <span class="nx">AbstractAction</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">execute</span><span class="p">();</span>
+
+        <span class="c1">// Redirect to the landing page.</span>
+        <span class="nx">HeaderUtil</span><span class="o">::</span><span class="na">redirect</span><span class="p">(</span>
+            <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">()</span>
+        <span class="p">);</span>
+
+        <span class="k">exit</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+
+<p>Now:</p>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>lib/action/ExampleRedirectAction.class.php</code></div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">wcf\action</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Laminas\Diactoros\Response\RedirectResponse</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\request\LinkHandler</span><span class="p">;</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">ExampleRedirectAction</span> <span class="k">extends</span> <span class="nx">AbstractAction</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">execute</span><span class="p">();</span>
+
+        <span class="c1">// Redirect to the landing page.</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">RedirectResponse</span><span class="p">(</span>
+            <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">()</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+
+<h4 id="migrating-json-responses">Migrating JSON responses<a class="headerlink" href="#migrating-json-responses" title="Permanent link">#</a></h4>
+<p>Previously:</p>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>lib/action/ExampleJsonAction.class.php</code></div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">wcf\action</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">wcf\util\JSON</span><span class="p">;</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">ExampleJsonAction</span> <span class="k">extends</span> <span class="nx">AbstractAction</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">execute</span><span class="p">();</span>
+
+        <span class="nx">\header</span><span class="p">(</span><span class="s1">&#39;Content-type: application/json; charset=UTF-8&#39;</span><span class="p">);</span>
+
+        <span class="k">echo</span> <span class="nx">JSON</span><span class="o">::</span><span class="na">encode</span><span class="p">([</span>
+            <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+        <span class="p">]);</span>
+
+        <span class="k">exit</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+
+<p>Now:</p>
+<div class="titledCodeBox">
+    <div class="codeBoxTitle"><code>lib/action/ExampleJsonAction.class.php</code></div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">wcf\action</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Laminas\Diactoros\Response\JsonResponse</span><span class="p">;</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">ExampleJsonAction</span> <span class="k">extends</span> <span class="nx">AbstractAction</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">execute</span><span class="p">();</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">JsonResponse</span><span class="p">([</span>
+            <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+        <span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+
 <h2 id="events">Events<a class="headerlink" href="#events" title="Permanent link">#</a></h2>
 <p>Historically, events were tightly coupled with a single class, with the event object being an object of this class, expecting the event listener to consume public properties and method of the event object.
 The <code>$parameters</code> array was introduced due to limitations of this pattern, avoiding moving all the values that might be of interest to the event listener into the state of the object.
