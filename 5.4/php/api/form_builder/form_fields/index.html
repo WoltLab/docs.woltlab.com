@@ -513,6 +513,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#abstractformfielddecorator" class="md-nav__link">
+    AbstractFormFieldDecorator
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2408,6 +2415,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#abstractformfielddecorator" class="md-nav__link">
+    AbstractFormFieldDecorator
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2849,6 +2863,13 @@ If the property <code>$integerValues</code> is <code>true</code>, the form field
 The methods <code>step($step = null)</code> and <code>getStep()</code> can be used to set and get the step attribute of the <code>input</code> element.
 The default step for form fields with integer values is <code>1</code>.
 Otherwise, the default step is <code>any</code>.</p>
+<h3 id="abstractformfielddecorator"><code>AbstractFormFieldDecorator</code><a class="headerlink" href="#abstractformfielddecorator" title="Permanent link">#</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Only available since version 5.4.5.</p>
+</div>
+<p><code>AbstractFormFieldDecorator</code> is a default implementation of a decorator for form fields that forwards calls to all methods defined in <code>IFormField</code> to the respective method of the decorated object.
+The class implements <code>IFormfield</code>.
+If the implementation of a more specific interface is required then the remaining methods must be implemented in the concrete decorator derived from <code>AbstractFormFieldDecorator</code> and the type of the <code>$field</code> property must be narrowed appropriately.</p>
 <h2 id="general-form-fields">General Form Fields<a class="headerlink" href="#general-form-fields" title="Permanent link">#</a></h2>
 <p>The following form fields are general reusable fields without any underlying context.</p>
 <h3 id="booleanformfield"><code>BooleanFormField</code><a class="headerlink" href="#booleanformfield" title="Permanent link">#</a></h3>
@@ -3147,7 +3168,7 @@ This trait provides <code>getWysiwygId()</code> and <code>wysiwygId($wysiwygId)<
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-07-10
+      Last update: 2021-08-23
     
   </small>
 </div>
