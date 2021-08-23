@@ -19,6 +19,13 @@ The methods `step($step = null)` and `getStep()` can be used to set and get the 
 The default step for form fields with integer values is `1`.
 Otherwise, the default step is `any`.
 
+### `AbstractFormFieldDecorator`
+
+!!! info "Only available since version 5.4.5."
+
+`AbstractFormFieldDecorator` is a default implementation of a decorator for form fields that forwards calls to all methods defined in `IFormField` to the respective method of the decorated object.
+The class implements `IFormfield`.
+If the implementation of a more specific interface is required then the remaining methods must be implemented in the concrete decorator derived from `AbstractFormFieldDecorator` and the type of the `$field` property must be narrowed appropriately.
 
 ## General Form Fields
 
