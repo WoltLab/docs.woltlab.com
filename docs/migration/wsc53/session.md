@@ -142,6 +142,18 @@ Please check [the version history](https://github.com/WoltLab/WCF/commits/master
 
 !!! warning "Multi-factor authentication is security sensitive. Make sure to carefully read the remarks in `IMultifactorMethod` for possible issues. Also make sure to carefully test your implementation against all sorts of incorrect input and consider attack vectors such as race conditions. It is strongly recommended to generously check the current state by leveraging assertions and exceptions."
 
+#### Enforcing Multi-factor Authentication
+
+To enforce Multi-factor Authentication within your controller you need to:
+
+1. Use the `wcf\system\user\multifactor\TMultifactorRequirementEnforcer` trait.
+2. Call: `$this->enforceMultifactorAuthentication();`
+
+`enforceMultifactorAuthentication()` will check if the user is in a group that requires multi-factor authentication, but does not yet have multi-factor authentication enabled.
+If they did, the request proceeds as usual.
+Otherwise, a `NamedUserException` is thrown.
+
+
 ## Deprecations and Removals
 
 ### SessionHandler
