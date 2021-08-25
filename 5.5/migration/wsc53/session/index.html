@@ -1666,6 +1666,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#enforcing-multi-factor-authentication" class="md-nav__link">
+    Enforcing Multi-factor Authentication
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2302,6 +2309,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#enforcing-multi-factor-authentication" class="md-nav__link">
+    Enforcing Multi-factor Authentication
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2506,6 +2520,15 @@ Please check <a href="https://github.com/WoltLab/WCF/commits/master/wcfsetup/ins
 <div class="admonition warning">
 <p class="admonition-title">Multi-factor authentication is security sensitive. Make sure to carefully read the remarks in <code>IMultifactorMethod</code> for possible issues. Also make sure to carefully test your implementation against all sorts of incorrect input and consider attack vectors such as race conditions. It is strongly recommended to generously check the current state by leveraging assertions and exceptions.</p>
 </div>
+<h4 id="enforcing-multi-factor-authentication">Enforcing Multi-factor Authentication<a class="headerlink" href="#enforcing-multi-factor-authentication" title="Permanent link">#</a></h4>
+<p>To enforce Multi-factor Authentication within your controller you need to:</p>
+<ol>
+<li>Use the <code>wcf\system\user\multifactor\TMultifactorRequirementEnforcer</code> trait.</li>
+<li>Call: <code>$this-&gt;enforceMultifactorAuthentication();</code></li>
+</ol>
+<p><code>enforceMultifactorAuthentication()</code> will check if the user is in a group that requires multi-factor authentication, but does not yet have multi-factor authentication enabled.
+If they did, the request proceeds as usual.
+Otherwise, a <code>NamedUserException</code> is thrown.</p>
 <h2 id="deprecations-and-removals">Deprecations and Removals<a class="headerlink" href="#deprecations-and-removals" title="Permanent link">#</a></h2>
 <h3 id="sessionhandler">SessionHandler<a class="headerlink" href="#sessionhandler" title="Permanent link">#</a></h3>
 <p>Most of the changes with regard to the new session handling happened in <code>SessionHandler</code>.
@@ -2545,7 +2568,7 @@ The <code>{csrfToken}</code> tag is a drop-in replacement and was backported to 
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-04-26
+      Last update: 2021-08-23
     
   </small>
 </div>
