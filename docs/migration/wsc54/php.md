@@ -282,6 +282,17 @@ The use of `encrypt` is recommended, unless it is certain that the SMTP server d
 
 See [WoltLab/WCF#4398](https://github.com/WoltLab/WCF/pull/4398) for details.
 
+## Search
+
+A new [`wcf\system\search\exception\SearchFailed`] exception was added.
+This exception should be thrown when executing the search query fails for (mostly) temporary reasons, such as a network partition to a remote service.
+It is not meant as a blanket exception to wrap everything.
+For example it must not be returned obvious programming errors, such as an access to an undefined variable (`ErrorException`).
+
+Catching the `SearchFailed` exception allows consuming code to gracefully handle search requests that are not essential for proceeding, without silencing other types of error.
+
+See [WoltLab/WCF#4476](https://github.com/WoltLab/WCF/issues/4476) and [WoltLab/WCF#4483](https://github.com/WoltLab/WCF/pull/4483) for details.
+
 ## File Deletion Package Installation Plugin
 
 Three new package installation plugins have been added to delete ACP templates with [acpTemplateDelete](../../package/pip/acp-template-delete.md), files with [fileDelete](../../package/pip/file-delete.md), and templates with [templateDelete](../../package/pip/template-delete.md).
