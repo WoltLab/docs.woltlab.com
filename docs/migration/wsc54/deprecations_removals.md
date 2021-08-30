@@ -20,6 +20,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\util\MathUtil::getRandomValue()` ([WoltLab/WCF#4280](https://github.com/WoltLab/WCF/pull/4280))
 - `wcf\util\StringUtil::getHash()` ([WoltLab/WCF#4279](https://github.com/WoltLab/WCF/pull/4279))
 - `wcf\action\MessageQuoteAction::markForRemoval()` ([WoltLab/WCF#4452](https://github.com/WoltLab/WCF/pull/4452))
+- `wcf\system\request\Request::isExecuted()` ([WoltLab/WCF#4485](https://github.com/WoltLab/WCF/pull/4485))
 
 #### Properties
 
