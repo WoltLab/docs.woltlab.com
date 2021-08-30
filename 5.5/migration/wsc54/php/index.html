@@ -1576,6 +1576,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    Search
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#file-deletion-package-installation-plugin" class="md-nav__link">
     File Deletion Package Installation Plugin
   </a>
@@ -2251,6 +2258,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    Search
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#file-deletion-package-installation-plugin" class="md-nav__link">
     File Deletion Package Installation Plugin
   </a>
@@ -2654,6 +2668,13 @@ Use the <code>getLanguage()</code> or <code>getUser()</code> getters if using co
 <p>Using the <code>may</code> value is unsafe as it allows for undetected MITM attacks.
 The use of <code>encrypt</code> is recommended, unless it is certain that the SMTP server does not support TLS.</p>
 <p>See <a href="https://github.com/WoltLab/WCF/pull/4398">WoltLab/WCF#4398</a> for details.</p>
+<h2 id="search">Search<a class="headerlink" href="#search" title="Permanent link">#</a></h2>
+<p>A new [<code>wcf\system\search\exception\SearchFailed</code>] exception was added.
+This exception should be thrown when executing the search query fails for (mostly) temporary reasons, such as a network partition to a remote service.
+It is not meant as a blanket exception to wrap everything.
+For example it must not be returned obvious programming errors, such as an access to an undefined variable (<code>ErrorException</code>).</p>
+<p>Catching the <code>SearchFailed</code> exception allows consuming code to gracefully handle search requests that are not essential for proceeding, without silencing other types of error.</p>
+<p>See <a href="https://github.com/WoltLab/WCF/issues/4476">WoltLab/WCF#4476</a> and <a href="https://github.com/WoltLab/WCF/pull/4483">WoltLab/WCF#4483</a> for details.</p>
 <h2 id="file-deletion-package-installation-plugin">File Deletion Package Installation Plugin<a class="headerlink" href="#file-deletion-package-installation-plugin" title="Permanent link">#</a></h2>
 <p>Three new package installation plugins have been added to delete ACP templates with <a href="../../../package/pip/acp-template-delete/">acpTemplateDelete</a>, files with <a href="../../../package/pip/file-delete/">fileDelete</a>, and templates with <a href="../../../package/pip/template-delete/">templateDelete</a>.</p>
 <h2 id="language-package-installation-plugin">Language Package Installation Plugin<a class="headerlink" href="#language-package-installation-plugin" title="Permanent link">#</a></h2>
@@ -2753,7 +2774,7 @@ The use of <code>encrypt</code> is recommended, unless it is certain that the SM
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-08-19
+      Last update: 2021-08-27
     
   </small>
 </div>
