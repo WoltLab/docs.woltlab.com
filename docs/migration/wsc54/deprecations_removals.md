@@ -27,6 +27,10 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\acp\page\PackagePage::$compatibleVersions` ([WoltLab/WCF#4371](https://github.com/WoltLab/WCF/pull/4371))
 - `wcf\system\io\GZipFile::$gzopen64` ([WoltLab/WCF#4381](https://github.com/WoltLab/WCF/pull/4381))
 
+#### Functions
+
+- The global `escapeString` helper ([WoltLab/WCF#4506](https://github.com/WoltLab/WCF/pull/4506))
+
 #### Options
 
 - `HTTP_SEND_X_FRAME_OPTIONS` ([WoltLab/WCF#4474](https://github.com/WoltLab/WCF/pull/4474))
