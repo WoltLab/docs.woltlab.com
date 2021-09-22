@@ -10,6 +10,10 @@ If you happen to directly use scssphp in your PHP code, you should be aware that
 
 Refer to [WoltLab/WCF#4345](https://github.com/WoltLab/WCF/pull/4345) and the [scssphp releases](https://github.com/scssphp/scssphp/releases) for details.
 
+## Emogrifier / CSS Inliner
+
+The Emogrifier library was updated from version 5.0 to 6.0.
+
 ## CodeMirror
 
 CodeMirror, the code editor we use for editing templates and SCSS, for example, has been updated to version 5.61.1 and we now also deliver all supported languages/modes.
