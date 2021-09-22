@@ -60,6 +60,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\system\cache\builder\TemplateListenerCacheBuilder` ([WoltLab/WCF#4297](https://github.com/WoltLab/WCF/pull/4297))
 - `wcf\system\log\modification\ModificationLogHandler` ([WoltLab/WCF#4340](https://github.com/WoltLab/WCF/pull/4340))
 - `wcf\system\recaptcha\RecaptchaHandlerV2` ([WoltLab/WCF#4289](https://github.com/WoltLab/WCF/pull/4289))
+- `wcf\system\search\SearchKeywordManager` ([WoltLab/WCF#4313](https://github.com/WoltLab/WCF/pull/4313))
 - The SCSS compiler’s `Leafo` class aliases ([WoltLab/WCF#4343](https://github.com/WoltLab/WCF/pull/4343), [Migration Guide from 5.2 to 5.3](../wsc52/libraries.md))
 
 #### Methods
@@ -87,7 +88,6 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\system\breadcrumb\Breadcrumbs::replace()` ([WoltLab/WCF#4298](https://github.com/WoltLab/WCF/pull/4298))
 - `wcf\system\message\embedded\object\MessageEmbeddedObjectManager::parseTemporaryMessage()` ([WoltLab/WCF#4299](https://github.com/WoltLab/WCF/pull/4299))
 - `wcf\system\package\PackageArchive::getPhpRequirements` ([WoltLab/WCF#4311](https://github.com/WoltLab/WCF/pull/4311))
-- `wcf\system\search\SearchKeywordManager` ([WoltLab/WCF#4313](https://github.com/WoltLab/WCF/pull/4313))
 
 #### Properties
 
