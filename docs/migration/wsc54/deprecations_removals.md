@@ -87,7 +87,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\system\breadcrumb\Breadcrumbs::remove()` ([WoltLab/WCF#4298](https://github.com/WoltLab/WCF/pull/4298))
 - `wcf\system\breadcrumb\Breadcrumbs::replace()` ([WoltLab/WCF#4298](https://github.com/WoltLab/WCF/pull/4298))
 - `wcf\system\message\embedded\object\MessageEmbeddedObjectManager::parseTemporaryMessage()` ([WoltLab/WCF#4299](https://github.com/WoltLab/WCF/pull/4299))
-- `wcf\system\package\PackageArchive::getPhpRequirements` ([WoltLab/WCF#4311](https://github.com/WoltLab/WCF/pull/4311))
+- `wcf\system\package\PackageArchive::getPhpRequirements()` ([WoltLab/WCF#4311](https://github.com/WoltLab/WCF/pull/4311))
 - `wcf\system\search\ISearchIndexManager::add()` (Removal from Interface, see [WoltLab/WCF#4508](https://github.com/WoltLab/WCF/pull/4508))
 - `wcf\system\search\ISearchIndexManager::update()` (Removal from Interface, see [WoltLab/WCF#4508](https://github.com/WoltLab/WCF/pull/4508))
 
