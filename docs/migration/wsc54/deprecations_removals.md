@@ -10,10 +10,10 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 #### Classes
 
-- `filebase\system\file\FileDataHandler` (use `filebase\system\cache\runtime\FileRuntimeCache` instead)
+- `filebase\system\file\FileDataHandler` (use `filebase\system\cache\runtime\FileRuntimeCache`)
 - `wcf\action\AbstractAjaxAction` (use PSR-7 responses, [WoltLab/WCF#4437](https://github.com/WoltLab/WCF/pull/4437))
 - `wcf\page\AbstractSecurePage` ([WoltLab/WCF#4515](https://github.com/WoltLab/WCF/pull/4515))
-- `wcf\system\io\FTP` (directly use the FTP extension instead)
+- `wcf\system\io\FTP` (directly use the FTP extension)
 - `wcf\util\PasswordUtil`
 
 #### Methods
@@ -120,12 +120,12 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 - `Blog.Entry.QuoteHandler` (use `WoltLabSuite/Blog/Ui/Entry/Quote`)
 - `Calendar.Event.QuoteHandler` (use `WoltLabSuite/Calendar/Ui/Event/Quote`)
-- `WBB.Board.MarkAllAsRead` (use `WoltLabSuite/Forum/Ui/Board/MarkAllAsRead` instead)
-- `WBB.Board.MarkAsRead` (use `WoltLabSuite/Forum/Ui/Board/MarkAsRead` instead)
+- `WBB.Board.MarkAllAsRead` (use `WoltLabSuite/Forum/Ui/Board/MarkAllAsRead`)
+- `WBB.Board.MarkAsRead` (use `WoltLabSuite/Forum/Ui/Board/MarkAsRead`)
 - `WBB.Post.QuoteHandler` (use `WoltLabSuite/Forum/Ui/Post/Quote`)
 - `WCF.ACP.Style.ImageUpload` ([WoltLab/WCF#4323](https://github.com/WoltLab/WCF/pull/4323))
 - `WCF.ColorPicker` (see [migration guide for `WCF.ColorPicker`](javascript.md#wcfcolorpicker))
-- `WCF.Conversation.Message.QuoteHandler` (use `WoltLabSuite/Core/Conversation/Ui/Message/Quote` instead, see [WoltLab/com.woltlab.wcf.conversation#155](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/155))
+- `WCF.Conversation.Message.QuoteHandler` (use `WoltLabSuite/Core/Conversation/Ui/Message/Quote`, see [WoltLab/com.woltlab.wcf.conversation#155](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/155))
 - `WCF.Like.js` ([WoltLab/WCF#4300](https://github.com/WoltLab/WCF/pull/4300))
 - `WCF.Message.UserMention` ([WoltLab/WCF#4324](https://github.com/WoltLab/WCF/pull/4324))
 - `WCF.UserPanel` ([WoltLab/WCF#4316](https://github.com/WoltLab/WCF/pull/4316))
