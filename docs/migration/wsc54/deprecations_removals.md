@@ -23,6 +23,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\util\StringUtil::getHash()` ([WoltLab/WCF#4279](https://github.com/WoltLab/WCF/pull/4279))
 - `wcf\util\StringUtil::startsWith()` ([WoltLab/WCF#4509](https://github.com/WoltLab/WCF/pull/4509))
 - `wcf\util\StringUtil::endsWith()` ([WoltLab/WCF#4509](https://github.com/WoltLab/WCF/pull/4509))
+- `wcf\util\StringUtil::split()` ([WoltLab/WCF#4513](https://github.com/WoltLab/WCF/pull/4513))
 
 #### Properties
 
