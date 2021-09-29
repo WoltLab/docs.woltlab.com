@@ -124,6 +124,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `WBB.Board.MarkAllAsRead` (use `WoltLabSuite/Forum/Ui/Board/MarkAllAsRead`)
 - `WBB.Board.MarkAsRead` (use `WoltLabSuite/Forum/Ui/Board/MarkAsRead`)
 - `WBB.Post.QuoteHandler` (use `WoltLabSuite/Forum/Ui/Post/Quote`)
+- `WBB.Thread.LastPageHandler` (use `WoltLabSuite/Forum/Ui/Thread/LastPageHandler`)
 - `WBB.Thread.MarkAsRead` (use `WoltLabSuite/Forum/Ui/Thread/MarkAsRead`)
 - `WCF.ACP.Style.ImageUpload` ([WoltLab/WCF#4323](https://github.com/WoltLab/WCF/pull/4323))
 - `WCF.ColorPicker` (see [migration guide for `WCF.ColorPicker`](javascript.md#wcfcolorpicker))
