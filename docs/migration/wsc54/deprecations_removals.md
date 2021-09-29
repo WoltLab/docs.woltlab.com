@@ -51,6 +51,9 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf1_package_update_compatibility` ([WoltLab/WCF#4385](https://github.com/WoltLab/WCF/pull/4385))
 - `wcf1_package_update_optional` ([WoltLab/WCF#4432](https://github.com/WoltLab/WCF/pull/4432))
 
+### Miscellaneous
+- The global option to set a specific style with a request parameter (`$_REQUEST['styleID']`) is deprecated ([WoltLab/WCF#0c0111e9466e951d867f43869f040ea4aa27c738](https://github.com/WoltLab/WCF/commit/0c0111e9466e951d867f43869f040ea4aa27c738))
+
 ## Removals
 
 ### PHP
