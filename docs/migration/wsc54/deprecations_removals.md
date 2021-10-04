@@ -124,6 +124,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 - `Blog.Entry.QuoteHandler` (use `WoltLabSuite/Blog/Ui/Entry/Quote`)
 - `Calendar.Event.QuoteHandler` (use `WoltLabSuite/Calendar/Ui/Event/Quote`)
+- `WBB.Board.IgnoreBoards` (use `WoltLabSuite/Forum/Ui/Board/Ignore`)
 - `WBB.Board.MarkAllAsRead` (use `WoltLabSuite/Forum/Ui/Board/MarkAllAsRead`)
 - `WBB.Board.MarkAsRead` (use `WoltLabSuite/Forum/Ui/Board/MarkAsRead`)
 - `WBB.Post.QuoteHandler` (use `WoltLabSuite/Forum/Ui/Post/Quote`)
