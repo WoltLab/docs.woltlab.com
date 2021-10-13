@@ -22,13 +22,13 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 - `wcf\action\MessageQuoteAction::markForRemoval()` ([WoltLab/WCF#4452](https://github.com/WoltLab/WCF/pull/4452))
 - `wcf\system\request\Request::isExecuted()` ([WoltLab/WCF#4485](https://github.com/WoltLab/WCF/pull/4485))
-- `wcf\util\MathUtil::getRandomValue()` ([WoltLab/WCF#4280](https://github.com/WoltLab/WCF/pull/4280))
-- `wcf\util\StringUtil::getHash()` ([WoltLab/WCF#4279](https://github.com/WoltLab/WCF/pull/4279))
-- `wcf\util\StringUtil::startsWith()` ([WoltLab/WCF#4509](https://github.com/WoltLab/WCF/pull/4509))
-- `wcf\util\StringUtil::endsWith()` ([WoltLab/WCF#4509](https://github.com/WoltLab/WCF/pull/4509))
-- `wcf\util\StringUtil::split()` ([WoltLab/WCF#4513](https://github.com/WoltLab/WCF/pull/4513))
-- `wcf\system\session\Session::getDeviceIcon()` ([WoltLab/WCF#4525](https://github.com/WoltLab/WCF/pull/4525))
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::query()`
+- `wcf\system\session\Session::getDeviceIcon()` ([WoltLab/WCF#4525](https://github.com/WoltLab/WCF/pull/4525))
+- `wcf\util\MathUtil::getRandomValue()` ([WoltLab/WCF#4280](https://github.com/WoltLab/WCF/pull/4280))
+- `wcf\util\StringUtil::endsWith()` ([WoltLab/WCF#4509](https://github.com/WoltLab/WCF/pull/4509))
+- `wcf\util\StringUtil::getHash()` ([WoltLab/WCF#4279](https://github.com/WoltLab/WCF/pull/4279))
+- `wcf\util\StringUtil::split()` ([WoltLab/WCF#4513](https://github.com/WoltLab/WCF/pull/4513))
+- `wcf\util\StringUtil::startsWith()` ([WoltLab/WCF#4509](https://github.com/WoltLab/WCF/pull/4509))
 
 #### Properties
 
@@ -62,6 +62,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf1_package_update_optional` ([WoltLab/WCF#4432](https://github.com/WoltLab/WCF/pull/4432))
 
 ### Miscellaneous
+
 - The global option to set a specific style with a request parameter (`$_REQUEST['styleID']`) is deprecated ([WoltLab/WCF@0c0111e946](https://github.com/WoltLab/WCF/commit/0c0111e9466e951d867f43869f040ea4aa27c738))
 
 ## Removals
@@ -75,11 +76,11 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wbb\data\thread\NewsList`
 - `wbb\data\thread\News`
 - `wcf\form\RecaptchaForm` ([WoltLab/WCF#4289](https://github.com/WoltLab/WCF/pull/4289))
+- `wcf\system\background\job\ElasticSearchIndexBackgroundJob`
 - `wcf\system\cache\builder\TemplateListenerCacheBuilder` ([WoltLab/WCF#4297](https://github.com/WoltLab/WCF/pull/4297))
 - `wcf\system\log\modification\ModificationLogHandler` ([WoltLab/WCF#4340](https://github.com/WoltLab/WCF/pull/4340))
 - `wcf\system\recaptcha\RecaptchaHandlerV2` ([WoltLab/WCF#4289](https://github.com/WoltLab/WCF/pull/4289))
 - `wcf\system\search\SearchKeywordManager` ([WoltLab/WCF#4313](https://github.com/WoltLab/WCF/pull/4313))
-- `wcf\system\background\job\ElasticSearchIndexBackgroundJob`
 - The SCSS compiler’s `Leafo` class aliases ([WoltLab/WCF#4343](https://github.com/WoltLab/WCF/pull/4343), [Migration Guide from 5.2 to 5.3](../wsc52/libraries.md))
 
 #### Methods
@@ -109,15 +110,15 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\system\package\PackageArchive::getPhpRequirements()` ([WoltLab/WCF#4311](https://github.com/WoltLab/WCF/pull/4311))
 - `wcf\system\search\ISearchIndexManager::add()` (Removal from Interface, see [WoltLab/WCF#4508](https://github.com/WoltLab/WCF/pull/4508))
 - `wcf\system\search\ISearchIndexManager::update()` (Removal from Interface, see [WoltLab/WCF#4508](https://github.com/WoltLab/WCF/pull/4508))
-- `wcf\system\search\elasticsearch\ElasticsearchHandler::add()`
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::_add()`
-- `wcf\system\search\elasticsearch\ElasticsearchHandler::bulkAdd()`
-- `wcf\system\search\elasticsearch\ElasticsearchHandler::update()`
-- `wcf\system\search\elasticsearch\ElasticsearchHandler::delete()`
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::_delete()`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::add()`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::bulkAdd()`
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::bulkDelete()`
-- `wcf\system\search\elasticsearch\ElasticsearchSearchIndexManager::update()`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::delete()`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::update()`
 - `wcf\system\search\elasticsearch\ElasticsearchSearchIndexManager::add()`
+- `wcf\system\search\elasticsearch\ElasticsearchSearchIndexManager::update()`
 
 #### Properties
 
