@@ -1,5 +1,13 @@
 # Migrating from WSC 5.4 - Third Party Libraries
 
+## Symfony PHP Polyfills
+
+WoltLab Suite 5.5 ships with Symfony's PHP 7.3, 7.4, and 8.0 polyfills.
+These polyfills allow you to reliably use some of the PHP functions only available in PHP versions that are newer than the current minimum of PHP 7.2.
+Notable mentions are `str_starts_with`, `str_ends_with`, `array_key_first`, and `array_key_last`.
+
+Refer to the documentation within the [symfony/polyfill](https://github.com/symfony/polyfill/) repository for details.
+
 ## scssphp
 
 scssphp was updated from version 1.4 to 1.8.
