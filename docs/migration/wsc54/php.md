@@ -253,6 +253,20 @@ final class ValueDumpListener
 
 See [WoltLab/WCF#4000](https://github.com/WoltLab/WCF/pull/4000) and [WoltLab/WCF#4265](https://github.com/WoltLab/WCF/pull/4265) for details.
 
+## Authentication
+
+The [`UserLoggedIn`](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/authentication/event/UserLoggedIn.class.php) event was added.
+You should fire this event if you implement a custom login process (e.g. when adding additional external authentication providers).
+
+Example:
+
+```php
+EventHandler::getInstance()->fire(
+    new UserLoggedIn($user)
+);
+```
+
+See [WoltLab/WCF#4356](https://github.com/WoltLab/WCF/pull/4356) for details.
 
 ## Embedded Objects in Comments
 
