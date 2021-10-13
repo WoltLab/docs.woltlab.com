@@ -15,6 +15,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\page\AbstractSecurePage` ([WoltLab/WCF#4515](https://github.com/WoltLab/WCF/pull/4515))
 - `wcf\system\exception\ILoggingAwareException` ([WoltLab/WCF#4547](https://github.com/WoltLab/WCF/pull/4547))
 - `wcf\system\io\FTP` (directly use the FTP extension)
+- `wcf\system\search\elasticsearch\ElasticsearchException`
 - `wcf\util\PasswordUtil`
 
 #### Methods
@@ -27,11 +28,19 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\util\StringUtil::endsWith()` ([WoltLab/WCF#4509](https://github.com/WoltLab/WCF/pull/4509))
 - `wcf\util\StringUtil::split()` ([WoltLab/WCF#4513](https://github.com/WoltLab/WCF/pull/4513))
 - `wcf\system\session\Session::getDeviceIcon()` ([WoltLab/WCF#4525](https://github.com/WoltLab/WCF/pull/4525))
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::query()`
 
 #### Properties
 
 - `wcf\acp\page\PackagePage::$compatibleVersions` ([WoltLab/WCF#4371](https://github.com/WoltLab/WCF/pull/4371))
 - `wcf\system\io\GZipFile::$gzopen64` ([WoltLab/WCF#4381](https://github.com/WoltLab/WCF/pull/4381))
+
+#### Constants
+
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::DELETE`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::GET`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::POST`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::PUT`
 
 #### Functions
 
@@ -70,6 +79,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\system\log\modification\ModificationLogHandler` ([WoltLab/WCF#4340](https://github.com/WoltLab/WCF/pull/4340))
 - `wcf\system\recaptcha\RecaptchaHandlerV2` ([WoltLab/WCF#4289](https://github.com/WoltLab/WCF/pull/4289))
 - `wcf\system\search\SearchKeywordManager` ([WoltLab/WCF#4313](https://github.com/WoltLab/WCF/pull/4313))
+- `wcf\system\background\job\ElasticSearchIndexBackgroundJob`
 - The SCSS compiler’s `Leafo` class aliases ([WoltLab/WCF#4343](https://github.com/WoltLab/WCF/pull/4343), [Migration Guide from 5.2 to 5.3](../wsc52/libraries.md))
 
 #### Methods
@@ -99,10 +109,20 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\system\package\PackageArchive::getPhpRequirements()` ([WoltLab/WCF#4311](https://github.com/WoltLab/WCF/pull/4311))
 - `wcf\system\search\ISearchIndexManager::add()` (Removal from Interface, see [WoltLab/WCF#4508](https://github.com/WoltLab/WCF/pull/4508))
 - `wcf\system\search\ISearchIndexManager::update()` (Removal from Interface, see [WoltLab/WCF#4508](https://github.com/WoltLab/WCF/pull/4508))
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::add()`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::_add()`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::bulkAdd()`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::update()`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::delete()`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::_delete()`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::bulkDelete()`
+- `wcf\system\search\elasticsearch\ElasticsearchSearchIndexManager::update()`
+- `wcf\system\search\elasticsearch\ElasticsearchSearchIndexManager::add()`
 
 #### Properties
 
 - `wcf\data\category\Category::$permissions` ([WoltLab/WCF#4303](https://github.com/WoltLab/WCF/pull/4303))
+- `wcf\system\search\elasticsearch\ElasticsearchSearchIndexManager::$bulkTypeName`
 
 #### Constants
 
