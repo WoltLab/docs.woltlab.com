@@ -1791,6 +1791,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#functions" class="md-nav__link">
     Functions
   </a>
@@ -1873,7 +1880,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#constants" class="md-nav__link">
+  <a href="#constants_1" class="md-nav__link">
     Constants
   </a>
   
@@ -2584,6 +2591,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#functions" class="md-nav__link">
     Functions
   </a>
@@ -2666,7 +2680,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#constants" class="md-nav__link">
+  <a href="#constants_1" class="md-nav__link">
     Constants
   </a>
   
@@ -2738,6 +2752,7 @@
 <li><code>wcf\page\AbstractSecurePage</code> (<a href="https://github.com/WoltLab/WCF/pull/4515">WoltLab/WCF#4515</a>)</li>
 <li><code>wcf\system\exception\ILoggingAwareException</code> (<a href="https://github.com/WoltLab/WCF/pull/4547">WoltLab/WCF#4547</a>)</li>
 <li><code>wcf\system\io\FTP</code> (directly use the FTP extension)</li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchException</code></li>
 <li><code>wcf\util\PasswordUtil</code></li>
 </ul>
 <h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">#</a></h4>
@@ -2750,11 +2765,19 @@
 <li><code>wcf\util\StringUtil::endsWith()</code> (<a href="https://github.com/WoltLab/WCF/pull/4509">WoltLab/WCF#4509</a>)</li>
 <li><code>wcf\util\StringUtil::split()</code> (<a href="https://github.com/WoltLab/WCF/pull/4513">WoltLab/WCF#4513</a>)</li>
 <li><code>wcf\system\session\Session::getDeviceIcon()</code> (<a href="https://github.com/WoltLab/WCF/pull/4525">WoltLab/WCF#4525</a>)</li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::query()</code></li>
 </ul>
 <h4 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h4>
 <ul>
 <li><code>wcf\acp\page\PackagePage::$compatibleVersions</code> (<a href="https://github.com/WoltLab/WCF/pull/4371">WoltLab/WCF#4371</a>)</li>
 <li><code>wcf\system\io\GZipFile::$gzopen64</code> (<a href="https://github.com/WoltLab/WCF/pull/4381">WoltLab/WCF#4381</a>)</li>
+</ul>
+<h4 id="constants">Constants<a class="headerlink" href="#constants" title="Permanent link">#</a></h4>
+<ul>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::DELETE</code></li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::GET</code></li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::POST</code></li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::PUT</code></li>
 </ul>
 <h4 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">#</a></h4>
 <ul>
@@ -2792,6 +2815,7 @@
 <li><code>wcf\system\log\modification\ModificationLogHandler</code> (<a href="https://github.com/WoltLab/WCF/pull/4340">WoltLab/WCF#4340</a>)</li>
 <li><code>wcf\system\recaptcha\RecaptchaHandlerV2</code> (<a href="https://github.com/WoltLab/WCF/pull/4289">WoltLab/WCF#4289</a>)</li>
 <li><code>wcf\system\search\SearchKeywordManager</code> (<a href="https://github.com/WoltLab/WCF/pull/4313">WoltLab/WCF#4313</a>)</li>
+<li><code>wcf\system\background\job\ElasticSearchIndexBackgroundJob</code></li>
 <li>The SCSS compiler’s <code>Leafo</code> class aliases (<a href="https://github.com/WoltLab/WCF/pull/4343">WoltLab/WCF#4343</a>, <a href="../../wsc52/libraries/">Migration Guide from 5.2 to 5.3</a>)</li>
 </ul>
 <h4 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">#</a></h4>
@@ -2821,12 +2845,22 @@
 <li><code>wcf\system\package\PackageArchive::getPhpRequirements()</code> (<a href="https://github.com/WoltLab/WCF/pull/4311">WoltLab/WCF#4311</a>)</li>
 <li><code>wcf\system\search\ISearchIndexManager::add()</code> (Removal from Interface, see <a href="https://github.com/WoltLab/WCF/pull/4508">WoltLab/WCF#4508</a>)</li>
 <li><code>wcf\system\search\ISearchIndexManager::update()</code> (Removal from Interface, see <a href="https://github.com/WoltLab/WCF/pull/4508">WoltLab/WCF#4508</a>)</li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::add()</code></li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::_add()</code></li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::bulkAdd()</code></li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::update()</code></li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::delete()</code></li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::_delete()</code></li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::bulkDelete()</code></li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchSearchIndexManager::update()</code></li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchSearchIndexManager::add()</code></li>
 </ul>
 <h4 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h4>
 <ul>
 <li><code>wcf\data\category\Category::$permissions</code> (<a href="https://github.com/WoltLab/WCF/pull/4303">WoltLab/WCF#4303</a>)</li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchSearchIndexManager::$bulkTypeName</code></li>
 </ul>
-<h4 id="constants">Constants<a class="headerlink" href="#constants" title="Permanent link">#</a></h4>
+<h4 id="constants_1">Constants<a class="headerlink" href="#constants_1" title="Permanent link">#</a></h4>
 <ul>
 <li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::HEAD</code></li>
 <li><code>wcf\system\tagging\TagCloud::MAX_FONT_SIZE</code> (<a href="https://github.com/WoltLab/WCF/pull/4325">WoltLab/WCF#4325</a>)</li>
@@ -2874,7 +2908,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-10-12
+      Last update: 2021-10-13
     
   </small>
 </div>
