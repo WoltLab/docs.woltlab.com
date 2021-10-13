@@ -1759,6 +1759,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#embedded-objects-in-comments" class="md-nav__link">
     Embedded Objects in Comments
   </a>
@@ -2539,6 +2546,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#embedded-objects-in-comments" class="md-nav__link">
     Embedded Objects in Comments
   </a>
@@ -2966,6 +2980,18 @@ No interface has to be implemented in this case.</p>
 </div>
 
 <p>See <a href="https://github.com/WoltLab/WCF/pull/4000">WoltLab/WCF#4000</a> and <a href="https://github.com/WoltLab/WCF/pull/4265">WoltLab/WCF#4265</a> for details.</p>
+<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
+<p>The <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/authentication/event/UserLoggedIn.class.php"><code>UserLoggedIn</code></a> event was added.
+You should fire this event if you implement a custom login process (e.g. when adding additional external authentication providers).</p>
+<p>Example:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fire</span><span class="p">(</span>
+    <span class="k">new</span> <span class="nx">UserLoggedIn</span><span class="p">(</span><span class="nv">$user</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/4356">WoltLab/WCF#4356</a> for details.</p>
 <h2 id="embedded-objects-in-comments">Embedded Objects in Comments<a class="headerlink" href="#embedded-objects-in-comments" title="Permanent link">#</a></h2>
 <p><a href="https://github.com/WoltLab/WCF/pull/4275">WoltLab/WCF#4275</a> added support for embedded objects like mentions for comments and comment responses.
 To properly render embedded objects whenever you are using comments in your packages, you have to use <code>ViewableCommentList</code>/<code>ViewableCommentResponseList</code> in these places or <code>ViewableCommentRuntimeCache</code>/<code>ViewableCommentResponseRuntimeCache</code>.
@@ -3089,7 +3115,7 @@ For example it must not be returned obvious programming errors, such as an acces
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-08-27
+      Last update: 2021-10-13
     
   </small>
 </div>
