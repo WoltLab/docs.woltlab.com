@@ -54,6 +54,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 - `WCF.Message.Quote.Manager.markQuotesForRemoval()` ([WoltLab/WCF#4452](https://github.com/WoltLab/WCF/pull/4452))
 - `WCF.Search.Message.KeywordList` ([WoltLab/WCF#4402](https://github.com/WoltLab/WCF/pull/4402))
+- `SECURITY_TOKEN` (use `Core.getXsrfToken()`, [WoltLab/WCF#4523](https://github.com/WoltLab/WCF/pull/4523))
 
 ### Database Tables
 
