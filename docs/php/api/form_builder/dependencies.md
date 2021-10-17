@@ -54,7 +54,7 @@ WoltLab Suite Core delivers the following two default dependency classes by defa
 
 - `NonEmptyFormFieldDependency` can be used to ensure that a node is only shown if the value of the referenced form field is not empty (being empty is determined using PHP’s `empty` function).
 - `ValueFormFieldDependency` can be used to ensure that a node is only shown if the value of the referenced form field is from a specified list of of values (see methods `values($values)` and `getValues()`).
-  Additionally, via `negate($negate = true)` and `isNegated()`, the locic can also be inverted by requiring the value of the referenced form field not to be from a specified list of values.
+  Additionally, via `negate($negate = true)` and `isNegated()`, the logic can also be inverted by requiring the value of the referenced form field not to be from a specified list of values.
 
 
 ## JavaScript Implementation
