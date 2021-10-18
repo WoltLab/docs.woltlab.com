@@ -2079,6 +2079,7 @@ When the form is built, all dependencies that only know the id of the relevant f
 <ul>
 <li><code>NonEmptyFormFieldDependency</code> can be used to ensure that a node is only shown if the value of the referenced form field is not empty (being empty is determined using PHP’s <code>empty()</code> language construct).</li>
 <li><code>EmptyFormFieldDependency</code> is the inverse of <code>NonEmptyFormFieldDependency</code>, checking for <code>!empty()</code>.</li>
+<li><code>IsNotClickedFormFieldDependency</code> is a special dependency for <a href="../form_fields/#buttonformfield"><code>ButtonFormField</code>s</a>. Refer to the documentation of <code>ButtomFormField</code> for details.</li>
 <li><code>ValueFormFieldDependency</code> can be used to ensure that a node is only shown if the value of the referenced form field is from a specified list of of values (see methods <code>values($values)</code> and <code>getValues()</code>).
   Additionally, via <code>negate($negate = true)</code> and <code>isNegated()</code>, the logic can also be inverted by requiring the value of the referenced form field not to be from a specified list of values.</li>
 </ul>
