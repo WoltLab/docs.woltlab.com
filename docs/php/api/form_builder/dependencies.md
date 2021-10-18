@@ -71,6 +71,10 @@ This is the inverse of `NonEmptyFormFieldDependency`, checking for `!empty()`.
 
 `ValueIntervalFormFieldDependency` can be used to ensure that a node is only shown if the value of the referenced form field is in a specific interval whose boundaries are set via `minimum(?float $minimum = null)` and `maximum(?float $maximum = null)`.
 
+### `IsNotClickedFormFieldDependency`
+
+`IsNotClickedFormFieldDependency` is a special dependency for [`ButtonFormField`s](./form_fields.md#buttonformfield).
+Refer to the documentation of `ButtomFormField` for details.
 
 ## JavaScript Implementation
 
