@@ -54,7 +54,11 @@ WoltLab Suite Core delivers the following default dependency classes by default:
 
 ### `NonEmptyFormFieldDependency`
 
-`NonEmptyFormFieldDependency` can be used to ensure that a node is only shown if the value of the referenced form field is not empty (being empty is determined using PHP’s `empty` function).
+`NonEmptyFormFieldDependency` can be used to ensure that a node is only shown if the value of the referenced form field is not empty (being empty is determined using PHP’s `empty()` language construct).
+
+### `EmptyFormFieldDependency`
+
+This is the inverse of `NonEmptyFormFieldDependency`, checking for `!empty()`.
 
 ### `ValueFormFieldDependency`
 
