@@ -598,6 +598,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#emptyformfielddependency" class="md-nav__link">
+    EmptyFormFieldDependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#valueformfielddependency" class="md-nav__link">
     ValueFormFieldDependency
   </a>
@@ -2462,6 +2469,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#emptyformfielddependency" class="md-nav__link">
+    EmptyFormFieldDependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#valueformfielddependency" class="md-nav__link">
     ValueFormFieldDependency
   </a>
@@ -2563,7 +2577,9 @@ When the form is built, all dependencies that only know the id of the relevant f
 <h2 id="default-dependencies">Default Dependencies<a class="headerlink" href="#default-dependencies" title="Permanent link">#</a></h2>
 <p>WoltLab Suite Core delivers the following default dependency classes by default:</p>
 <h3 id="nonemptyformfielddependency"><code>NonEmptyFormFieldDependency</code><a class="headerlink" href="#nonemptyformfielddependency" title="Permanent link">#</a></h3>
-<p><code>NonEmptyFormFieldDependency</code> can be used to ensure that a node is only shown if the value of the referenced form field is not empty (being empty is determined using PHP’s <code>empty</code> function).</p>
+<p><code>NonEmptyFormFieldDependency</code> can be used to ensure that a node is only shown if the value of the referenced form field is not empty (being empty is determined using PHP’s <code>empty()</code> language construct).</p>
+<h3 id="emptyformfielddependency"><code>EmptyFormFieldDependency</code><a class="headerlink" href="#emptyformfielddependency" title="Permanent link">#</a></h3>
+<p>This is the inverse of <code>NonEmptyFormFieldDependency</code>, checking for <code>!empty()</code>.</p>
 <h3 id="valueformfielddependency"><code>ValueFormFieldDependency</code><a class="headerlink" href="#valueformfielddependency" title="Permanent link">#</a></h3>
 <p><code>ValueFormFieldDependency</code> can be used to ensure that a node is only shown if the value of the referenced form field is from a specified list of of values (see methods <code>values($values)</code> and <code>getValues()</code>).
   Additionally, via <code>negate($negate = true)</code> and <code>isNegated()</code>, the logic can also be inverted by requiring the value of the referenced form field not to be from a specified list of values.</p>
@@ -2623,7 +2639,7 @@ Every form container has to create a matching form container dependency object f
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-10-17
+      Last update: 2021-10-18
     
   </small>
 </div>
