@@ -1,22 +1,10 @@
 # Form Builder
 
-!!! info "Form builder is only available since WoltLab Suite Core 5.2."
+WoltLab Suite includes a powerful way of creating forms: Form Builder.
+Form builder allows you to easily define all the fields and their constraints and interdependencies within PHP with full IDE support.
+It will then automatically generate the necessary HTML with full interactivity to render all the fields and also validate the fields’ contents upon submission.
 
 !!! info "The [migration guide for WoltLab Suite Core 5.2](../../../migration/wsc31/form-builder.md) provides some examples of how to migrate existing forms to form builder that can also help in understanding form builder if the old way of creating forms is familiar."
-
-
-## Advantages of Form Builder
-
-WoltLab Suite 5.2 introduces a new powerful way of creating forms: form builder.
-Before taking a closer look at form builder, let us recap how forms are created in previous versions:
-In general, for each form field, there is a corresponding property of the form's PHP class whose value has to be read from the request data, validated, and passed to the database object action to store the value in a database table.
-When editing an object, the property's value has to be set using the value of the corresponding property of the edited object.
-In the form's template, you have to write the `<form>` element with all of its children: the `<section>` elements, the `<dl>` elements, and, of course, the form fields themselves.
-In summary, this way of creating forms creates much duplicate or at least very similar code and makes it very time consuming if the structure of forms in general or a specific type of form field has to be changed.
-
-Form builder, in contrast, relies on PHP objects representing each component of the form, from the form itself down to each form field.
-This approach makes creating forms as easy as creating some PHP objects, populating them with all the relevant data, and one line of code in the template to print the form.
-
 
 ## Form Builder Components
 
