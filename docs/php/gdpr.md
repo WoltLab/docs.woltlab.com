@@ -12,9 +12,7 @@ on woltlab.com.
 
 ## Including Data in the Export
 
-The `wcf\acp\action\UserExportGdprAction` introduced with WoltLab Suite 3.1.3
-already includes the Core itself as well as all official apps, but you'll need to
-include any personal data stored for your plugin or app by yourself.
+The `wcf\acp\action\UserExportGdprAction` already includes WoltLab Suite Core itself as well as all official apps, but you'll need to include any personal data stored for your plugin or app by yourself.
 
 The event `export` is fired before any data is sent out, but after any Core data
 has been dumped to the `$data` property.

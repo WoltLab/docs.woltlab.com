@@ -1,7 +1,5 @@
 # Media Provider Package Installation Plugin
 
-!!! info "Available since WoltLab Suite 3.1"
-
 Media providers are responsible to detect and convert links to a 3rd party service inside messages.
 
 ## Components

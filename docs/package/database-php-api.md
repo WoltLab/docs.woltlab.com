@@ -1,7 +1,5 @@
 # Database PHP API
 
-!!! info "Available since WoltLab Suite 5.2."
-
 While the [sql](pip/sql.md) package installation plugin supports adding and removing tables, columns, and indices, it is not able to handle cases where the added table, column, or index already exist.
 We have added a new PHP-based API to manipulate the database scheme which can be used in combination with the [script](pip/script.md) package installation plugin that skips parts that already exist:
 
