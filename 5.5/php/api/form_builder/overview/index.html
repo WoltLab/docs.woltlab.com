@@ -520,13 +520,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#advantages-of-form-builder" class="md-nav__link">
-    Advantages of Form Builder
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#form-builder-components" class="md-nav__link">
     Form Builder Components
   </a>
@@ -2413,13 +2406,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#advantages-of-form-builder" class="md-nav__link">
-    Advantages of Form Builder
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#form-builder-components" class="md-nav__link">
     Form Builder Components
   </a>
@@ -2458,21 +2444,12 @@
                 
                 
                 <h1 id="form-builder">Form Builder<a class="headerlink" href="#form-builder" title="Permanent link">#</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Form builder is only available since WoltLab Suite Core 5.2.</p>
-</div>
+<p>WoltLab Suite includes a powerful way of creating forms: Form Builder.
+Form builder allows you to easily define all the fields and their constraints and interdependencies within PHP with full IDE support.
+It will then automatically generate the necessary HTML with full interactivity to render all the fields and also validate the fields’ contents upon submission.</p>
 <div class="admonition info">
 <p class="admonition-title">The <a href="../../../../migration/wsc31/form-builder/">migration guide for WoltLab Suite Core 5.2</a> provides some examples of how to migrate existing forms to form builder that can also help in understanding form builder if the old way of creating forms is familiar.</p>
 </div>
-<h2 id="advantages-of-form-builder">Advantages of Form Builder<a class="headerlink" href="#advantages-of-form-builder" title="Permanent link">#</a></h2>
-<p>WoltLab Suite 5.2 introduces a new powerful way of creating forms: form builder.
-Before taking a closer look at form builder, let us recap how forms are created in previous versions:
-In general, for each form field, there is a corresponding property of the form's PHP class whose value has to be read from the request data, validated, and passed to the database object action to store the value in a database table.
-When editing an object, the property's value has to be set using the value of the corresponding property of the edited object.
-In the form's template, you have to write the <code>&lt;form&gt;</code> element with all of its children: the <code>&lt;section&gt;</code> elements, the <code>&lt;dl&gt;</code> elements, and, of course, the form fields themselves.
-In summary, this way of creating forms creates much duplicate or at least very similar code and makes it very time consuming if the structure of forms in general or a specific type of form field has to be changed.</p>
-<p>Form builder, in contrast, relies on PHP objects representing each component of the form, from the form itself down to each form field.
-This approach makes creating forms as easy as creating some PHP objects, populating them with all the relevant data, and one line of code in the template to print the form.</p>
 <h2 id="form-builder-components">Form Builder Components<a class="headerlink" href="#form-builder-components" title="Permanent link">#</a></h2>
 <p>Form builder consists of several components that are presented on the following pages:</p>
 <ol>
@@ -2586,7 +2563,7 @@ The constructor of <code>FormBuilderDialog</code> expects the following paramete
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-01-15
+      Last update: 2021-10-20
     
   </small>
 </div>

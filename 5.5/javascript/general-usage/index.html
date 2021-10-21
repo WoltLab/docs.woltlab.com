@@ -2578,10 +2578,8 @@ the minified and optimized file to the average visitor. You should use the
 <div class="admonition info">
 <p class="admonition-title">You can learn more on the <a href="../../migration/wsc30/javascript/">Accelerated Guest View</a> in the migration docs.</p>
 </div>
-<p>The "Accelerated Guest View" was introduced in WoltLab Suite 3.1 and aims to
-decrease page size and to improve responsiveness by enabling a read-only mode
-for visitors. If you are providing a separate compiled build for this mode, you'll
-need to include yet another switch to serve the right version to the visitor.</p>
+<p>The “Accelerated Guest View” aims to decrease page size and to improve responsiveness by enabling a read-only mode for visitors.
+If you are providing a separate compiled build for this mode, you'll need to include yet another switch to serve the right version to the visitor.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{@$__wcf-&gt;getPath(&#39;app&#39;)}js/App{if !ENABLE_DEBUG_MODE}{if VISITOR_USE_TINY_BUILD}.tiny{/if}.min{/if}.js?t={@LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
 </td></tr></table>
@@ -2601,7 +2599,7 @@ entirely if you do not provide a tiny build for your file.</p>
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-04-13
+      Last update: 2021-10-20
     
   </small>
 </div>
