@@ -307,6 +307,24 @@ Catching the `SearchFailed` exception allows consuming code to gracefully handle
 
 See [WoltLab/WCF#4476](https://github.com/WoltLab/WCF/issues/4476) and [WoltLab/WCF#4483](https://github.com/WoltLab/WCF/pull/4483) for details.
 
+## Database Package Installation Plugin
+
+WoltLab Suite 5.5 changes the factory classes for common configurations of database columns within the PHP-based DDL API to contain a private constructor, preventing object creation.
+
+This change affects the following classes:
+
+- `DefaultFalseBooleanDatabaseTableColumn`
+- `DefaultTrueBooleanDatabaseTableColumn`
+- `NotNullInt10DatabaseTableColumn`
+- `NotNullVarchar191DatabaseTableColumn`
+- `NotNullVarchar255DatabaseTableColumn`
+- `ObjectIdDatabaseTableColumn`
+
+The static `create()` method never returned an object of the factory class, but instead in object of the base type (e.g. `IntDatabaseTableColumn` for `NotNullInt10DatabaseTableColumn`).
+Constructing an object of these factory classes is considered a bug, as the class name implies a specific column configuration, that might or might not hold if the object is modified afterwards.
+
+See [WoltLab/WCF#4564](https://github.com/WoltLab/WCF/pull/4564) for details.
+
 ## File Deletion Package Installation Plugin
 
 Three new package installation plugins have been added to delete ACP templates with [acpTemplateDelete](../../package/pip/acp-template-delete.md), files with [fileDelete](../../package/pip/file-delete.md), and templates with [templateDelete](../../package/pip/template-delete.md).
