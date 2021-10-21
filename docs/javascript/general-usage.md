@@ -87,10 +87,8 @@ the minified and optimized file to the average visitor. You should use the
 
 !!! info "You can learn more on the [Accelerated Guest View](../migration/wsc30/javascript.md) in the migration docs."
 
-The "Accelerated Guest View" was introduced in WoltLab Suite 3.1 and aims to
-decrease page size and to improve responsiveness by enabling a read-only mode
-for visitors. If you are providing a separate compiled build for this mode, you'll
-need to include yet another switch to serve the right version to the visitor.
+The “Accelerated Guest View” aims to decrease page size and to improve responsiveness by enabling a read-only mode for visitors.
+If you are providing a separate compiled build for this mode, you'll need to include yet another switch to serve the right version to the visitor.
 
 ```html
 <script data-relocate="true" src="{@$__wcf->getPath('app')}js/App{if !ENABLE_DEBUG_MODE}{if VISITOR_USE_TINY_BUILD}.tiny{/if}.min{/if}.js?t={@LAST_UPDATE_TIME}"></script>

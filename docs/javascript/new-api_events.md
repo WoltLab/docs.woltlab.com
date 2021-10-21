@@ -56,9 +56,8 @@ events or trigger events itself at any time.
 
 ### Identifiying Events with the Developer Tools
 
-The Developer Tools in WoltLab Suite 3.1 offer an easy option to identify existing
-events that are fired while code is being executed. You can enable this watch
-mode through your browser's console using `Devtools.toggleEventLogging()`:
+The Developer Tools offer an easy option to identify existing events that are fired while code is being executed.
+You can enable this watch mode through your browser's console using `Devtools.toggleEventLogging()`:
 
 ```
 > Devtools.toggleEventLogging();
