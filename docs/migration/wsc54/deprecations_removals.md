@@ -134,6 +134,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 #### Options
 
+- `ENABLE_CENSORSHIP` (always call `Censorship::test()`, see [WoltLab/WCF#4567](https://github.com/WoltLab/WCF/pull/4567))
 - `MODULE_SYSTEM_RECAPTCHA` ([WoltLab/WCF#4305](https://github.com/WoltLab/WCF/pull/4305))
 - `PROFILE_MAIL_USE_CAPTCHA` ([WoltLab/WCF#4399](https://github.com/WoltLab/WCF/pull/4399))
 - The `may` value for `MAIL_SMTP_STARTTLS` ([WoltLab/WCF#4398](https://github.com/WoltLab/WCF/pull/4398))
