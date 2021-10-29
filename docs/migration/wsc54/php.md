@@ -364,7 +364,15 @@ Note that when deleting phrases, the category does not have to be specified beca
 
 !!! warning "Mixing the old structure and the new structure is not supported and will result in an error message during the import!"
 
-## Miscellaneous Additions
+## Miscellaneous Changes
+
+### View Counters
+
+With WoltLab Suite 5.5 it is expected that view/download counters do not increase for disabled content.
+
+See [WoltLab/WCF#4374](https://github.com/WoltLab/WCF/pull/4374) for details.
+
+### Form Builder
 
 - [`ValueIntervalFormFieldDependency`](../../php/api/form_builder/dependencies.md#valueintervalformfielddependency)
 - [`ColorFormField`](../../php/api/form_builder/form_fields.md#colorformfield)
