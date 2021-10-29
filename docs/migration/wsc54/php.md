@@ -307,7 +307,9 @@ Catching the `SearchFailed` exception allows consuming code to gracefully handle
 
 See [WoltLab/WCF#4476](https://github.com/WoltLab/WCF/issues/4476) and [WoltLab/WCF#4483](https://github.com/WoltLab/WCF/pull/4483) for details.
 
-## Database Package Installation Plugin
+## Package Installation Plugins
+
+### Database
 
 WoltLab Suite 5.5 changes the factory classes for common configurations of database columns within the PHP-based DDL API to contain a private constructor, preventing object creation.
 
@@ -325,12 +327,12 @@ Constructing an object of these factory classes is considered a bug, as the clas
 
 See [WoltLab/WCF#4564](https://github.com/WoltLab/WCF/pull/4564) for details.
 
-## File Deletion Package Installation Plugin
+### File Deletion
 
 Three new package installation plugins have been added to delete ACP templates with [acpTemplateDelete](../../package/pip/acp-template-delete.md), files with [fileDelete](../../package/pip/file-delete.md), and templates with [templateDelete](../../package/pip/template-delete.md).
 
 
-## Language Package Installation Plugin
+### Language
 
 [WoltLab/WCF#4261](https://github.com/WoltLab/WCF/pull/4261) has added support for deleting existing phrases with the `language` package installation plugin.
 
