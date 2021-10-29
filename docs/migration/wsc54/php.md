@@ -298,7 +298,7 @@ See [WoltLab/WCF#4398](https://github.com/WoltLab/WCF/pull/4398) for details.
 
 ## Search
 
-A new [`wcf\system\search\exception\SearchFailed`] exception was added.
+A new [`wcf\system\search\exception\SearchFailed`](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/search/exception/SearchFailed.class.php) exception was added.
 This exception should be thrown when executing the search query fails for (mostly) temporary reasons, such as a network partition to a remote service.
 It is not meant as a blanket exception to wrap everything.
 For example it must not be returned obvious programming errors, such as an access to an undefined variable (`ErrorException`).
