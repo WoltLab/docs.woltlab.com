@@ -271,6 +271,9 @@ The default label of instances of this class is `wcf.form.field.option` and thei
 
 `SimpleAclFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant simple ACL data array into the `$parameters` array directly using the object property as the array key.
 
+!!! info "Since version 5.5, the field also supports inverted permissions, see [WoltLab/WCF#4570](https://github.com/WoltLab/WCF/pull/4570)."
+
+The `SimpleAclFormField` supports inverted permissions, allowing the administrator to grant access to all non-selected users and groups. If this behavior is desired, it needs to be enabled by calling `supportInvertedPermissions`. An `invertPermissions` key containing a boolean value with the users selection will be provided together with the ACL values when saving the field.
 
 ### `SingleMediaSelectionFormField`
 
