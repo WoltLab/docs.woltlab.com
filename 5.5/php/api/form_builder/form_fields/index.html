@@ -3537,6 +3537,10 @@ The default label of instances of this class is <code>wcf.form.field.option</cod
 <h3 id="simpleaclformfield"><code>SimpleAclFormField</code><a class="headerlink" href="#simpleaclformfield" title="Permanent link">#</a></h3>
 <p><code>SimpleAclFormField</code> is used for setting up simple acl values (one <code>yes</code>/<code>no</code> option per user and user group) for specific objects.</p>
 <p><code>SimpleAclFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the relevant simple ACL data array into the <code>$parameters</code> array directly using the object property as the array key.</p>
+<div class="admonition info">
+<p class="admonition-title">Since version 5.5, the field also supports inverted permissions, see <a href="https://github.com/WoltLab/WCF/pull/4570">WoltLab/WCF#4570</a>.</p>
+</div>
+<p>The <code>SimpleAclFormField</code> supports inverted permissions, allowing the administrator to grant access to all non-selected users and groups. If this behavior is desired, it needs to be enabled by calling <code>supportInvertedPermissions</code>. An <code>invertPermissions</code> key containing a boolean value with the users selection will be provided together with the ACL values when saving the field.</p>
 <h3 id="singlemediaselectionformfield"><code>SingleMediaSelectionFormField</code><a class="headerlink" href="#singlemediaselectionformfield" title="Permanent link">#</a></h3>
 <p><code>SingleMediaSelectionFormField</code> is used to select a specific media file.
 The class implements <code>IImmutableFormField</code>.</p>
@@ -3712,7 +3716,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-08-23
+      Last update: 2021-11-02
     
   </small>
 </div>
