@@ -3669,10 +3669,16 @@ The following methods are specific to this form field class:</p>
   An empty string signals that autosaving is disabled.</li>
 <li><code>lastEditTime($lastEditTime)</code> and <code>getLastEditTime()</code> can be used to set the last time the contents have been edited and saved so that the JavaScript can determine if the contents stored in the browser are older or newer.
   <code>0</code> signals that no last edit time has been set.</li>
-<li><code>supportAttachments($supportAttachments)</code> and <code>supportsAttachments()</code> can be used to set and check if the form field supports attachments.</li>
+<li>
+<p><code>supportAttachments($supportAttachments)</code> and <code>supportsAttachments()</code> can be used to set and check if the form field supports attachments.</p>
+<div class="admonition warning">
+<p class="admonition-title">It is not sufficient to simply signal attachment support via these methods for attachments to work. These methods are relevant internally to signal the Javascript code that the editor supports attachments. Actual attachment support is provided by <code>WysiwygAttachmentFormField</code>.</p>
+</div>
+</li>
+<li>
+<p><code>supportMentions($supportMentions)</code> and <code>supportsMentions()</code> can be used to set and check if the form field supports mentions of other users.</p>
+</li>
 </ul>
-<p>!!! warning "It is not sufficient to simply signal attachment support via these methods for attachments to work. These methods are relevant internally to signal the Javascript code that the editor supports attachments. Actual attachment support is provided by <code>WysiwygAttachmentFormField</code>."
-- <code>supportMentions($supportMentions)</code> and <code>supportsMentions()</code> can be used to set and check if the form field supports mentions of other users.</p>
 <p><code>WysiwygFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the relevant simple ACL data array into the <code>$parameters</code> array directly using the object property as the array key.</p>
 <h3 id="twysiwygformnode"><code>TWysiwygFormNode</code><a class="headerlink" href="#twysiwygformnode" title="Permanent link">#</a></h3>
 <p>All form nodes that need to know the id of the <code>WysiwygFormField</code> field should use <code>TWysiwygFormNode</code>.
@@ -3716,7 +3722,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-11-02
+      Last update: 2021-11-08
     
   </small>
 </div>
