@@ -428,8 +428,9 @@ The following methods are specific to this form field class:
 - `lastEditTime($lastEditTime)` and `getLastEditTime()` can be used to set the last time the contents have been edited and saved so that the JavaScript can determine if the contents stored in the browser are older or newer.
   `0` signals that no last edit time has been set.
 - `supportAttachments($supportAttachments)` and `supportsAttachments()` can be used to set and check if the form field supports attachments.
-  
-  !!! warning "It is not sufficient to simply signal attachment support via these methods for attachments to work. These methods are relevant internally to signal the Javascript code that the editor supports attachments. Actual attachment support is provided by `WysiwygAttachmentFormField`."
+
+    !!! warning "It is not sufficient to simply signal attachment support via these methods for attachments to work. These methods are relevant internally to signal the Javascript code that the editor supports attachments. Actual attachment support is provided by `WysiwygAttachmentFormField`."
+
 - `supportMentions($supportMentions)` and `supportsMentions()` can be used to set and check if the form field supports mentions of other users.
 
 `WysiwygFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant simple ACL data array into the `$parameters` array directly using the object property as the array key.
