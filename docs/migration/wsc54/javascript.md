@@ -1,5 +1,12 @@
 # Migrating from WSC 5.4 - TypeScript and JavaScript
 
+## `Ajax.dboAction()`
+
+We have introduced a new `Promise` based API for the interaction with `wcf\\data\\DatabaseObjectAction`.
+It provides full IDE autocompletion support and transparent error handling, but is designed to be used with `DatabaseObjectAction` only.
+
+See [the documentation for the new API](../../javascript/new-api_ajax.md) and [WoltLab/WCF#4585](https://github.com/WoltLab/WCF/pull/4585) for details.
+
 ## `WCF.ColorPicker`
 
 We have replaced the old jQuery-based color picker `WCF.ColorPicker` with a more lightweight replacement `WoltLabSuite/Core/Ui/Color/Picker`, which uses the build-in `input[type=color]` field.
