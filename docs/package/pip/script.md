@@ -23,7 +23,7 @@ The `script`-PIP expects a relative path to a `.php` file.
 The PHP script is deployed by using the [file package installation plugin](file.md).
 To prevent it from colliding with other install script (remember: You cannot overwrite files created by another plugin), we highly recommend to make use of these naming conventions:
 
-- Installation: `install_<package>_<version>.php` (example: `install_com.woltlab.wbb_5.0.0.php`)
+- Installation: `install_<package>.php` (example: `install_com.woltlab.wbb.php`)
 - Update: `update_<package>_<targetVersion>.php` (example: `update_com.woltlab.wbb_5.0.0_pl_1.php`)
 
 `<targetVersion>` equals the version number of the current package being installed.
