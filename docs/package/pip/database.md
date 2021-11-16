@@ -25,7 +25,7 @@ The `database`-PIP expects a relative path to a `.php` file that returns an arra
 The PHP script is deployed by using the [file package installation plugin](file.md).
 To prevent it from colliding with other install script (remember: You cannot overwrite files created by another plugin), we highly recommend to make use of these naming conventions:
 
-- Installation: `acp/database/install_<package>_<version>.php` (example: `acp/database/install_com.woltlab.wbb_5.4.0.php`)
+- Installation: `acp/database/install_<package>.php` (example: `acp/database/install_com.woltlab.wbb.php`)
 - Update: `acp/database/update_<package>_<targetVersion>.php` (example: `acp/database/update_com.woltlab.wbb_5.4.1.php`)
 
 `<targetVersion>` equals the version number of the current package being installed.
