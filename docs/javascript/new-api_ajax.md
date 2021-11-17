@@ -2,15 +2,12 @@
 
 ## `Promise`-based API for `DatabaseObjectAction`
 
-WoltLab Suite 5.5 introduces a new API for Ajax requests that uses `Promise`s
-to control the code flow. It does not rely on references to existing objects
-and does not use arbitrary callbacks to handle the setup and handling of the
-request.
+WoltLab Suite 5.5 introduces a new API for Ajax requests that uses `Promise`s to control the code flow.
+It does not rely on references to existing objects and does not use arbitrary callbacks to handle the setup and handling of the request.
 
 ### Usage
 
-```ts
-// MyModule.ts
+```ts title="MyModule.ts"
 import * as Ajax from "./Ajax";
 
 type ResponseGetLatestFoo = {
@@ -54,24 +51,18 @@ export class MyModule {
 export default MyModule;
 ```
 
-The actual code to dispatch and evaluate a request is only four lines long and
-offers full IDE auto completion support. This example uses a `finally` block
-to reset the button class once the request has finished, regardless of the
-result.
+The actual code to dispatch and evaluate a request is only four lines long and offers full IDE auto completion support.
+This example uses a `finally` block to reset the button class once the request has finished, regardless of the result.
 
-If you do not handle the errors (or chose not to handle _some_ errors), the
-global rejection handler will take care of this and show an dialog that informs
-about the failed request. This mimics the behavior of the `_ajaxFailure()`
-callback in the legacy API.
+If you do not handle the errors (or chose not to handle _some_ errors), the global rejection handler will take care of this and show an dialog that informs about the failed request.
+This mimics the behavior of the `_ajaxFailure()` callback in the legacy API.
 
 ### Aborting in-flight requests
 
-Sometimes new requests are dispatched against the same API before the response
-from the previous has arrived. This applies to either long running requests
-or requests that are dispatched in rapid succession, for example, looking up
-values when the user is actively typing into a search field.
+Sometimes new requests are dispatched against the same API before the response from the previous has arrived.
+This applies to either long running requests or requests that are dispatched in rapid succession, for example, looking up values when the user is actively typing into a search field.
 
-```ts
+```ts title="RapidRequests.ts"
 import * as Ajax from "./Ajax";
 
 export class RapidRequests {
