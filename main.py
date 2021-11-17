@@ -18,24 +18,15 @@ def define_env(env):
                 ).replace('<p>', '').replace('</p>', '')
                 
                 return f"""
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>{title}</code>
-        <a class="codeBoxTitleGitHubLink" href="{editLink}" title="View on GitHub">{icon}</a>
-    </div>
-    ```{language}
-    --8<-- "{filepath}"
-    ```
-</div>
+```{language} title='{title} <a class="codeBoxTitleGitHubLink" href="{editLink}" title="View on GitHub">{icon}</a>'
+--8<-- "{filepath}"
+```
 """
             else:
                 return f"""
-<div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>{title}</code></div>
-```{language}
+```{language} title="{title}"
 {contents}
 ```
-</div>
 """
         else:
             if filepath is not None:
