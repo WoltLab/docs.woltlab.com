@@ -950,11 +950,38 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ajax-inside-modules" class="md-nav__link">
-    Ajax inside Modules
+  <a href="#promise-based-api-for-databaseobjectaction" class="md-nav__link">
+    Promise-based API for DatabaseObjectAction
   </a>
   
-    <nav class="md-nav" aria-label="Ajax inside Modules">
+    <nav class="md-nav" aria-label="Promise-based API for DatabaseObjectAction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aborting-in-flight-requests" class="md-nav__link">
+    Aborting in-flight requests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajax-inside-modules-legacy-api" class="md-nav__link">
+    Ajax inside Modules (Legacy API)
+  </a>
+  
+    <nav class="md-nav" aria-label="Ajax inside Modules (Legacy API)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1088,8 +1115,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#single-requests-without-a-module" class="md-nav__link">
-    Single Requests Without a Module
+  <a href="#single-requests-without-a-module-legacy-api" class="md-nav__link">
+    Single Requests Without a Module (Legacy API)
   </a>
   
 </li>
@@ -2532,11 +2559,38 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ajax-inside-modules" class="md-nav__link">
-    Ajax inside Modules
+  <a href="#promise-based-api-for-databaseobjectaction" class="md-nav__link">
+    Promise-based API for DatabaseObjectAction
   </a>
   
-    <nav class="md-nav" aria-label="Ajax inside Modules">
+    <nav class="md-nav" aria-label="Promise-based API for DatabaseObjectAction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aborting-in-flight-requests" class="md-nav__link">
+    Aborting in-flight requests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajax-inside-modules-legacy-api" class="md-nav__link">
+    Ajax inside Modules (Legacy API)
+  </a>
+  
+    <nav class="md-nav" aria-label="Ajax inside Modules (Legacy API)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2670,8 +2724,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#single-requests-without-a-module" class="md-nav__link">
-    Single Requests Without a Module
+  <a href="#single-requests-without-a-module-legacy-api" class="md-nav__link">
+    Single Requests Without a Module (Legacy API)
   </a>
   
 </li>
@@ -2694,7 +2748,164 @@
                 
                 
                 <h1 id="ajax-requests-javascript-api">Ajax Requests - JavaScript API<a class="headerlink" href="#ajax-requests-javascript-api" title="Permanent link">#</a></h1>
-<h2 id="ajax-inside-modules">Ajax inside Modules<a class="headerlink" href="#ajax-inside-modules" title="Permanent link">#</a></h2>
+<h2 id="promise-based-api-for-databaseobjectaction"><code>Promise</code>-based API for <code>DatabaseObjectAction</code><a class="headerlink" href="#promise-based-api-for-databaseobjectaction" title="Permanent link">#</a></h2>
+<p>WoltLab Suite 5.5 introduces a new API for Ajax requests that uses <code>Promise</code>s to control the code flow.
+It does not rely on references to existing objects and does not use arbitrary callbacks to handle the setup and handling of the request.</p>
+<h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h3>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">MyModule.ts</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">Ajax</span> <span class="kr">from</span> <span class="s2">&quot;./Ajax&quot;</span><span class="p">;</span>
+
+<span class="kr">type</span> <span class="nx">ResponseGetLatestFoo</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">template</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">MyModule</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="k">readonly</span> <span class="nx">bar</span>: <span class="kt">string</span><span class="p">;</span>
+  <span class="k">private</span> <span class="k">readonly</span> <span class="nx">objectId</span>: <span class="kt">number</span><span class="p">;</span>
+
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">objectId</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">bar</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">buttonId</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">bar</span> <span class="o">=</span> <span class="nx">bar</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">objectId</span> <span class="o">=</span> <span class="nx">objectId</span><span class="p">;</span>
+
+    <span class="kd">const</span> <span class="nx">button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">buttonId</span><span class="p">);</span>
+    <span class="nx">button</span><span class="o">?</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">event</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="k">async</span> <span class="nx">click</span><span class="p">(</span><span class="nx">event</span>: <span class="kt">MouseEvent</span><span class="p">)</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+
+    <span class="kd">const</span> <span class="nx">button</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span> <span class="kr">as</span> <span class="nx">HTMLElement</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">button</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">);</span>
+
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="p">(</span><span class="k">await</span> <span class="nx">Ajax</span><span class="p">.</span><span class="nx">dboAction</span><span class="p">(</span><span class="s2">&quot;getLatestFoo&quot;</span><span class="p">,</span> <span class="s2">&quot;wcf\\data\\foo\\FooAction&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">objectIds</span><span class="p">([</span><span class="k">this</span><span class="p">.</span><span class="nx">objectId</span><span class="p">])</span>
+        <span class="p">.</span><span class="nx">payload</span><span class="p">({</span> <span class="nx">bar</span>: <span class="kt">this.bar</span> <span class="p">})</span>
+        <span class="p">.</span><span class="nx">dispatch</span><span class="p">())</span> <span class="kr">as</span> <span class="nx">ResponseGetLatestFoo</span><span class="p">;</span>
+
+      <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;latestFoo&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">template</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+      <span class="nx">button</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">MyModule</span><span class="p">;</span>
+</code></pre></div>
+</td></tr></table>
+<p>The actual code to dispatch and evaluate a request is only four lines long and offers full IDE auto completion support.
+This example uses a <code>finally</code> block to reset the button class once the request has finished, regardless of the result.</p>
+<p>If you do not handle the errors (or chose not to handle <em>some</em> errors), the global rejection handler will take care of this and show an dialog that informs about the failed request.
+This mimics the behavior of the <code>_ajaxFailure()</code> callback in the legacy API.</p>
+<h3 id="aborting-in-flight-requests">Aborting in-flight requests<a class="headerlink" href="#aborting-in-flight-requests" title="Permanent link">#</a></h3>
+<p>Sometimes new requests are dispatched against the same API before the response from the previous has arrived.
+This applies to either long running requests or requests that are dispatched in rapid succession, for example, looking up values when the user is actively typing into a search field.</p>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">RapidRequests.ts</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">Ajax</span> <span class="kr">from</span> <span class="s2">&quot;./Ajax&quot;</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">RapidRequests</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">lastRequest</span>: <span class="kt">AbortController</span> <span class="o">|</span> <span class="kc">undefined</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">inputId</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">inputId</span><span class="p">)</span> <span class="kr">as</span> <span class="nx">HTMLInputElement</span><span class="p">;</span>
+    <span class="nx">input</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">input</span><span class="p">(</span><span class="nx">event</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="k">async</span> <span class="nx">input</span><span class="p">(</span><span class="nx">event</span>: <span class="kt">Event</span><span class="p">)</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+
+    <span class="kd">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span> <span class="kr">as</span> <span class="nx">HTMLInputElement</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">lastRequest</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">lastRequest</span><span class="p">.</span><span class="nx">abort</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">Ajax</span><span class="p">.</span><span class="nx">dboAction</span><span class="p">(</span><span class="s2">&quot;getSuggestions&quot;</span><span class="p">,</span> <span class="s2">&quot;wcf\\data\\bar\\BarAction&quot;</span><span class="p">).</span><span class="nx">payload</span><span class="p">({</span> <span class="nx">value</span> <span class="p">});</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">lastRequest</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">getAbortController</span><span class="p">();</span>
+
+      <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">request</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">();</span>
+      <span class="c1">// Handle the response</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">RapidRequests</span><span class="p">;</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="ajax-inside-modules-legacy-api">Ajax inside Modules (Legacy API)<a class="headerlink" href="#ajax-inside-modules-legacy-api" title="Permanent link">#</a></h2>
 <p>The Ajax component was designed to be used from inside modules where an object
 reference is used to delegate request callbacks. This is acomplished through
 a set of magic methods that are automatically called when the request is created
@@ -2881,7 +3092,7 @@ as a string, or a JavaScript object for JSON requests.</p>
 <p>Optional callback function that is invoked for failed requests, it will be
 automatically called if the callee implements it, otherwise the global error
 handler will be executed.</p>
-<h2 id="single-requests-without-a-module">Single Requests Without a Module<a class="headerlink" href="#single-requests-without-a-module" title="Permanent link">#</a></h2>
+<h2 id="single-requests-without-a-module-legacy-api">Single Requests Without a Module (Legacy API)<a class="headerlink" href="#single-requests-without-a-module-legacy-api" title="Permanent link">#</a></h2>
 <p>The <code>Ajax.api()</code> method expects an object that is used to extract the request
 configuration as well as providing the callback functions when the request state
 changes.</p>
@@ -2931,7 +3142,7 @@ modules from altering the behavior. It is strongly  recommended to always use
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-01-08
+      Last update: 2021-11-17
     
   </small>
 </div>
