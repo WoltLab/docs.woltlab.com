@@ -3082,7 +3082,12 @@ For example it must not be returned obvious programming errors, such as an acces
 <li><code>NotNullInt10DatabaseTableColumn</code></li>
 <li><code>NotNullVarchar191DatabaseTableColumn</code></li>
 <li><code>NotNullVarchar255DatabaseTableColumn</code></li>
-<li><code>ObjectIdDatabaseTableColumn</code></li>
+<li>
+<p><code>ObjectIdDatabaseTableColumn</code></p>
+</li>
+<li>
+<p><code>DatabaseTablePrimaryIndex</code></p>
+</li>
 </ul>
 <p>The static <code>create()</code> method never returned an object of the factory class, but instead in object of the base type (e.g. <code>IntDatabaseTableColumn</code> for <code>NotNullInt10DatabaseTableColumn</code>).
 Constructing an object of these factory classes is considered a bug, as the class name implies a specific column configuration, that might or might not hold if the object is modified afterwards.</p>
@@ -3169,7 +3174,7 @@ Constructing an object of these factory classes is considered a bug, as the clas
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-10-29
+      Last update: 2021-11-17
     
   </small>
 </div>
