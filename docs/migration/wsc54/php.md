@@ -322,6 +322,8 @@ This change affects the following classes:
 - `NotNullVarchar255DatabaseTableColumn`
 - `ObjectIdDatabaseTableColumn`
 
+- `DatabaseTablePrimaryIndex`
+
 The static `create()` method never returned an object of the factory class, but instead in object of the base type (e.g. `IntDatabaseTableColumn` for `NotNullInt10DatabaseTableColumn`).
 Constructing an object of these factory classes is considered a bug, as the class name implies a specific column configuration, that might or might not hold if the object is modified afterwards.
 
