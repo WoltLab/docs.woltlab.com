@@ -1,6 +1,102 @@
 # Ajax Requests - JavaScript API
 
-## Ajax inside Modules
+## `Promise`-based API for `DatabaseObjectAction`
+
+WoltLab Suite 5.5 introduces a new API for Ajax requests that uses `Promise`s to control the code flow.
+It does not rely on references to existing objects and does not use arbitrary callbacks to handle the setup and handling of the request.
+
+### Usage
+
+```ts title="MyModule.ts"
+import * as Ajax from "./Ajax";
+
+type ResponseGetLatestFoo = {
+  template: string;
+};
+
+export class MyModule {
+  private readonly bar: string;
+  private readonly objectId: number;
+
+  constructor(objectId: number, bar: string, buttonId: string) {
+    this.bar = bar;
+    this.objectId = objectId;
+
+    const button = document.getElementById(buttonId);
+    button?.addEventListener("click", (event) => this.click(event));
+  }
+
+  async click(event: MouseEvent): Promise<void> {
+    event.preventDefault();
+
+    const button = event.currentTarget as HTMLElement;
+    if (button.classList.contains("disabled")) {
+      return;
+    }
+    button.classList.add("disabled");
+
+    try {
+      const response = (await Ajax.dboAction("getLatestFoo", "wcf\\data\\foo\\FooAction")
+        .objectIds([this.objectId])
+        .payload({ bar: this.bar })
+        .dispatch()) as ResponseGetLatestFoo;
+
+      document.getElementById("latestFoo")!.innerHTML = response.template;
+    } finally {
+      button.classList.remove("disabled");
+    }
+  }
+}
+
+export default MyModule;
+```
+
+The actual code to dispatch and evaluate a request is only four lines long and offers full IDE auto completion support.
+This example uses a `finally` block to reset the button class once the request has finished, regardless of the result.
+
+If you do not handle the errors (or chose not to handle _some_ errors), the global rejection handler will take care of this and show an dialog that informs about the failed request.
+This mimics the behavior of the `_ajaxFailure()` callback in the legacy API.
+
+### Aborting in-flight requests
+
+Sometimes new requests are dispatched against the same API before the response from the previous has arrived.
+This applies to either long running requests or requests that are dispatched in rapid succession, for example, looking up values when the user is actively typing into a search field.
+
+```ts title="RapidRequests.ts"
+import * as Ajax from "./Ajax";
+
+export class RapidRequests {
+  private lastRequest: AbortController | undefined = undefined;
+
+  constructor(inputId: string) {
+    const input = document.getElementById(inputId) as HTMLInputElement;
+    input.addEventListener("input", (event) => this.input(event));
+  }
+
+  async input(event: Event): Promise<void> {
+    event.preventDefault();
+
+    const input = event.currentTarget as HTMLInputElement;
+    const value = input.value.trim();
+
+    if (this.lastRequest) {
+      this.lastRequest.abort();
+    }
+
+    if (value) {
+      const request = Ajax.dboAction("getSuggestions", "wcf\\data\\bar\\BarAction").payload({ value });
+      this.lastRequest = request.getAbortController();
+
+      const response = await request.dispatch();
+      // Handle the response
+    }
+  }
+}
+
+export default RapidRequests;
+```
+
+## Ajax inside Modules (Legacy API)
 
 The Ajax component was designed to be used from inside modules where an object
 reference is used to delegate request callbacks. This is acomplished through
@@ -206,7 +302,7 @@ Optional callback function that is invoked for failed requests, it will be
 automatically called if the callee implements it, otherwise the global error
 handler will be executed.
 
-## Single Requests Without a Module
+## Single Requests Without a Module (Legacy API)
 
 The `Ajax.api()` method expects an object that is used to extract the request
 configuration as well as providing the callback functions when the request state
