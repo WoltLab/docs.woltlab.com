@@ -2638,12 +2638,7 @@
 <p>Developers are required to provide the proper DatabaseObject implementations themselves, they're not automatically generated, all though the actual code that needs to be written is rather small. The following examples assume the fictional database table <code>wcf1_example</code>, <code>exampleID</code> as the auto-incrementing primary key and the column <code>bar</code> to store some text.</p>
 <h2 id="databaseobject">DatabaseObject<a class="headerlink" href="#databaseobject" title="Permanent link">#</a></h2>
 <p>The basic model derives from <code>wcf\data\DatabaseObject</code> and provides a convenient constructor to fetch a single row or construct an instance using pre-loaded rows.</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>files/lib/data/example/Example.class.php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/php/database-objects/Example.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">files/lib/data/example/Example.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/php/database-objects/Example.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2654,18 +2649,11 @@
 <span class="k">class</span> <span class="nc">Example</span> <span class="k">extends</span> <span class="nx">DatabaseObject</span> <span class="p">{}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>The class is intended to be empty by default and there only needs to be code if you want to add additional logic to your model. Both the class name and primary key are determined by <code>DatabaseObject</code> using the namespace and class name of the derived class. The example above uses the namespace <code>wcf\…</code> which is used as table prefix and the class name <code>Example</code> is converted into <code>exampleID</code>, resulting in the database table name <code>wcfN_example</code> with the primary key <code>exampleID</code>.</p>
 <p>You can prevent this automatic guessing by setting the class properties <code>$databaseTableName</code> and <code>$databaseTableIndexName</code> manually.</p>
 <h2 id="databaseobjectdecorator">DatabaseObjectDecorator<a class="headerlink" href="#databaseobjectdecorator" title="Permanent link">#</a></h2>
 <p>If you already have a <code>DatabaseObject</code> class and would like to extend it with additional data or methods, for example by providing a class <code>ViewableExample</code> which features view-related changes without polluting the original object, you can use <code>DatabaseObjectDecorator</code> which a default implementation of a decorator for database objects.</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>files/lib/data/example/ViewableExample.class.php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/php/database-objects/ViewableExample.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">files/lib/data/example/ViewableExample.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/php/database-objects/ViewableExample.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2696,8 +2684,6 @@
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>It is mandatory to set the static <code>$baseClass</code> property to the name of the decorated class.</p>
 <p>Like for any decorator, you can directly access the decorated object's properties and methods for a decorated object by accessing the property or calling the method on the decorated object.
 You can access the decorated objects directly via <code>DatabaseObjectDecorator::getDecoratedObject()</code>.</p>
@@ -2706,12 +2692,7 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <p class="admonition-title">This is the low-level interface to manipulate data rows, it is recommended to use <code>AbstractDatabaseObjectAction</code>.</p>
 </div>
 <p>Adding, editing and deleting models is done using the <code>DatabaseObjectEditor</code> class that decorates a <code>DatabaseObject</code> and uses its data to perform the actions.</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>files/lib/data/example/ExampleEditor.class.php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/php/database-objects/ExampleEditor.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">files/lib/data/example/ExampleEditor.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/php/database-objects/ExampleEditor.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2726,8 +2707,6 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>The editor class requires you to provide the fully qualified name of the model, that is the class name including the complete namespace. Database table name and index key will be pulled directly from the model.</p>
 <h3 id="create-a-new-row">Create a new row<a class="headerlink" href="#create-a-new-row" title="Permanent link">#</a></h3>
 <p>Inserting a new row into the database table is provided through <code>DatabaseObjectEditor::create()</code> which yields a <code>DatabaseObject</code> instance after creation.</p>
@@ -2796,12 +2775,7 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 </td></tr></table>
 <h2 id="databaseobjectlist">DatabaseObjectList<a class="headerlink" href="#databaseobjectlist" title="Permanent link">#</a></h2>
 <p>Every row is represented as a single instance of the model, but the instance creation deals with single rows only. Retrieving larger sets of rows would be quite inefficient due to the large amount of queries that will be dispatched. This is solved with the <code>DatabaseObjectList</code> object that exposes an interface to query the database table using arbitrary conditions for data selection. All rows will be fetched using a single query and the resulting rows are automatically loaded into separate models.</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>files/lib/data/example/ExampleList.class.php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/php/database-objects/ExampleList.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">files/lib/data/example/ExampleList.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/php/database-objects/ExampleList.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2816,8 +2790,6 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>The following code listing illustrates loading a large set of examples and iterating over the list to retrieve the objects.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2881,12 +2853,7 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
 </code></pre></div>
 </td></tr></table>
 <p>Of course, you do not have to set the property after creating the list object, you can also set it by creating a dedicated class:</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>files/lib/data/example/ViewableExampleList.class.php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/php/database-objects/ViewableExampleList.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">files/lib/data/example/ViewableExampleList.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/php/database-objects/ViewableExampleList.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2899,8 +2866,6 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <h2 id="abstractdatabaseobjectaction">AbstractDatabaseObjectAction<a class="headerlink" href="#abstractdatabaseobjectaction" title="Permanent link">#</a></h2>
 <p>Row creation and manipulation can be performed using the aforementioned <code>DatabaseObjectEditor</code> class, but this approach has two major issues:</p>
 <ol>
@@ -2908,12 +2873,7 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
 <li>Data is passed to the database adapter without any further processing.</li>
 </ol>
 <p>The <code>AbstractDatabaseObjectAction</code> solves both problems by wrapping around the editor class and thus provide an additional layer between the action that should be taken and the actual process. The first problem is solved by a fixed set of events being fired, the second issue is addressed by having a single entry point for all data editing.</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>files/lib/data/example/ExampleAction.class.php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/php/database-objects/ExampleAction.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">files/lib/data/example/ExampleAction.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/php/database-objects/ExampleAction.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2928,8 +2888,6 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <h3 id="executing-an-action">Executing an Action<a class="headerlink" href="#executing-an-action" title="Permanent link">#</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">The method <code>AbstractDatabaseObjectAction::validateAction()</code> is internally used for AJAX method invocation and must not be called programmatically.</p>

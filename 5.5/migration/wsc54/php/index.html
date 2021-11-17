@@ -2730,9 +2730,7 @@ Control and data flow is typically fairly simple in <code>*Action</code> classes
 It is recommended to wait for a future version before migrating these types of controllers.</p>
 <h4 id="migrating-redirects">Migrating Redirects<a class="headerlink" href="#migrating-redirects" title="Permanent link">#</a></h4>
 <p>Previously:</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>lib/action/ExampleRedirectAction.class.php</code></div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">lib/action/ExampleRedirectAction.class.php</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2775,12 +2773,8 @@ It is recommended to wait for a future version before migrating these types of c
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>Now:</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>lib/action/ExampleRedirectAction.class.php</code></div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">lib/action/ExampleRedirectAction.class.php</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2819,13 +2813,9 @@ It is recommended to wait for a future version before migrating these types of c
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <h4 id="migrating-json-responses">Migrating JSON responses<a class="headerlink" href="#migrating-json-responses" title="Permanent link">#</a></h4>
 <p>Previously:</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>lib/action/ExampleJsonAction.class.php</code></div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">lib/action/ExampleJsonAction.class.php</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2868,12 +2858,8 @@ It is recommended to wait for a future version before migrating these types of c
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>Now:</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>lib/action/ExampleJsonAction.class.php</code></div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">lib/action/ExampleJsonAction.class.php</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2908,8 +2894,6 @@ It is recommended to wait for a future version before migrating these types of c
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <h2 id="events">Events<a class="headerlink" href="#events" title="Permanent link">#</a></h2>
 <p>Historically, events were tightly coupled with a single class, with the event object being an object of this class, expecting the event listener to consume public properties and method of the event object.
 The <code>$parameters</code> array was introduced due to limitations of this pattern, avoiding moving all the values that might be of interest to the event listener into the state of the object.
@@ -2938,9 +2922,7 @@ No interface has to be implemented in this case.</p>
 <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;valueAvailable&#39;</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>lib/system/event/listener/ValueDumpListener.class.php</code></div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">lib/system/event/listener/ValueDumpListener.class.php</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2975,15 +2957,11 @@ No interface has to be implemented in this case.</p>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>Now:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>EventHandler::getInstance()-&gt;fire(new ValueAvailable(\random_int(1, 1024)));
 </code></pre></div>
 </td></tr></table>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>lib/system/foo/event/ValueAvailable.class.php</code></div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">lib/system/foo/event/ValueAvailable.class.php</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3030,11 +3008,7 @@ No interface has to be implemented in this case.</p>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
-<div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>lib/system/event/listener/ValueDumpListener.class.php</code></div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">lib/system/event/listener/ValueDumpListener.class.php</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3061,8 +3035,6 @@ No interface has to be implemented in this case.</p>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>See <a href="https://github.com/WoltLab/WCF/pull/4000">WoltLab/WCF#4000</a> and <a href="https://github.com/WoltLab/WCF/pull/4265">WoltLab/WCF#4265</a> for details.</p>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
 <p>The <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/authentication/event/UserLoggedIn.class.php"><code>UserLoggedIn</code></a> event was added.
@@ -3120,12 +3092,7 @@ Constructing an object of these factory classes is considered a bug, as the clas
 <h3 id="language">Language<a class="headerlink" href="#language" title="Permanent link">#</a></h3>
 <p><a href="https://github.com/WoltLab/WCF/pull/4261">WoltLab/WCF#4261</a> has added support for deleting existing phrases with the <code>language</code> package installation plugin.</p>
 <p>The current structure of the language XML files</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>language/en.xml</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc54/en_old.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">language/en.xml <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc54/en_old.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -3138,15 +3105,8 @@ Constructing an object of these factory classes is considered a bug, as the clas
 <span class="nt">&lt;/language&gt;</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>is deprecated and should be replaced with the new structure with an explicit <code>&lt;import&gt;</code> element like in the other package installation plugins:</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>language/en.xml</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc54/en_new.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">language/en.xml <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc54/en_new.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -3163,15 +3123,8 @@ Constructing an object of these factory classes is considered a bug, as the clas
 <span class="nt">&lt;/language&gt;</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>Additionally, to now also support deleting phrases with this package installation plugin, support for a <code>&lt;delete&gt;</code> element has been added: </p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>language/en.xml</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc54/en_new_with_delete.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">language/en.xml <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc54/en_new_with_delete.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3194,8 +3147,6 @@ Constructing an object of these factory classes is considered a bug, as the clas
 <span class="nt">&lt;/language&gt;</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>Note that when deleting phrases, the category does not have to be specified because phrase identifiers are unique globally.</p>
 <div class="admonition warning">
 <p class="admonition-title">Mixing the old structure and the new structure is not supported and will result in an error message during the import!</p>

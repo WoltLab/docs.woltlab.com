@@ -2666,12 +2666,7 @@ To make good use of this new page and introduce a new API of WoltLab Suite, we w
 </div>
 <h2 id="runtime-cache">Runtime Cache<a class="headerlink" href="#runtime-cache" title="Permanent link">#</a></h2>
 <p>To reduce the number of database queries when different APIs require person objects, we implement a <a href="../../../php/api/caches_runtime-caches/">runtime cache</a> for people:</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>files/lib/system/cache/runtime/PersonRuntimeCache.class.php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-3/files/lib/system/cache/runtime/PersonRuntimeCache.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">files/lib/system/cache/runtime/PersonRuntimeCache.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-3/files/lib/system/cache/runtime/PersonRuntimeCache.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2724,17 +2719,10 @@ To make good use of this new page and introduce a new API of WoltLab Suite, we w
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <h2 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">#</a></h2>
 <p>To allow users to comment on people, we need to tell the system that people support comments.
 This is done by registering a <code>com.woltlab.wcf.comment.commentableContent</code> object type whose processor implements <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/comment/manager/ICommentManager.class.php">ICommentManager</a>:</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>objectType.xml</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-3/objectType.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">objectType.xml <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-3/objectType.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2755,15 +2743,8 @@ This is done by registering a <code>com.woltlab.wcf.comment.commentableContent</
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>The <code>PersonCommentManager</code> class extended <code>ICommentManager</code>’s default implementation <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/comment/manager/AbstractCommentManager.class.php">AbstractCommentManager</a>:</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>files/lib/system/comment/manager/PersonCommentManager.class.php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-3/files/lib/system/comment/manager/PersonCommentManager.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">files/lib/system/comment/manager/PersonCommentManager.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-3/files/lib/system/comment/manager/PersonCommentManager.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2944,8 +2925,6 @@ This is done by registering a <code>com.woltlab.wcf.comment.commentableContent</
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <ul>
 <li>First, the system is told the names of the permissions via the <code>$permission*</code> properties.
   More information about comment permissions can be found <a href="../../../php/api/comments/#user-group-options">here</a>.</li>
@@ -2964,12 +2943,7 @@ With this option, comments on individual people can be disabled.</p>
 </div>
 <h2 id="person-page">Person Page<a class="headerlink" href="#person-page" title="Permanent link">#</a></h2>
 <h3 id="personpage"><code>PersonPage</code><a class="headerlink" href="#personpage" title="Permanent link">#</a></h3>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>files/lib/page/PersonPage.class.php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-3/files/lib/page/PersonPage.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">files/lib/page/PersonPage.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-3/files/lib/page/PersonPage.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>
@@ -3182,19 +3156,12 @@ With this option, comments on individual people can be disabled.</p>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>The <code>PersonPage</code> class is similar to the <code>PersonEditForm</code> in the ACP in that it reads the id of the requested person from the request data and validates the id in <code>readParameters()</code>.
 The rest of the code only handles fetching the list of comments on the requested person.
 In <code>readData()</code>, this list is fetched using <code>CommentHandler::getCommentList()</code> if comments are enabled for the person.
 The <code>assignVariables()</code> method assigns some additional template variables like <code>$commentCanAdd</code>, which is <code>1</code> if the active person can add comments and is <code>0</code> otherwise, <code>$lastCommentTime</code>, which contains the UNIX timestamp of the last comment, and <code>$likeData</code>, which contains data related to the likes for the disabled comments.</p>
 <h3 id="persontpl"><code>person.tpl</code><a class="headerlink" href="#persontpl" title="Permanent link">#</a></h3>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>templates/person.tpl</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-3/templates/person.tpl" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">templates/person.tpl <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-3/templates/person.tpl" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3285,20 +3252,13 @@ The <code>assignVariables()</code> method assigns some additional template varia
 {include file=&#39;footer&#39;}
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>For now, the <code>person</code> template is still very empty and only shows the comments in the content area.
 The template code shown for comments is very generic and used in this form in many locations as it only sets the header of the comment list and the container <code>ul#personCommentList</code> element for the comments shown by <code>commentList</code> template.
 The <code>ul#personCommentList</code> elements has five additional <code>data-</code> attributes required by the JavaScript API for comments for loading more comments or creating new ones.
 The <code>commentListAddComment</code> template adds the WYSIWYG support.
 The attribute <code>wysiwygSelector</code> should be the id of the comment list <code>personCommentList</code> with an additional <code>AddComment</code> suffix.</p>
 <h3 id="pagexml"><code>page.xml</code><a class="headerlink" href="#pagexml" title="Permanent link">#</a></h3>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>page.xml</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-3/page.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">page.xml <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-3/page.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3353,8 +3313,6 @@ The attribute <code>wysiwygSelector</code> should be the id of the comment list 
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>The <code>page.xml</code> file has been extended for the new person page with identifier <code>com.woltlab.wcf.people.Person</code>.
 Compared to the pre-existing <code>com.woltlab.wcf.people.PersonList</code> page, there are four differences:</p>
 <ol>
@@ -3366,12 +3324,7 @@ Compared to the pre-existing <code>com.woltlab.wcf.people.PersonList</code> page
    In general, the details page for any type of object that is listed on a different page has the list page as its parent.</li>
 </ol>
 <h3 id="personpagehandler"><code>PersonPageHandler</code><a class="headerlink" href="#personpagehandler" title="Permanent link">#</a></h3>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle">
-        <code>files/lib/system/page/handler/PersonPageHandler.class.php</code>
-        <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-3/files/lib/system/page/handler/PersonPageHandler.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
-    </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">files/lib/system/page/handler/PersonPageHandler.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-3/files/lib/system/page/handler/PersonPageHandler.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>
@@ -3580,8 +3533,6 @@ Compared to the pre-existing <code>com.woltlab.wcf.people.PersonList</code> page
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>Like any page handler, the <code>PersonPageHandler</code> class has to implement the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/IMenuPageHandler.class.php">IMenuPageHandler</a> interface, which should be done by extending the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/AbstractMenuPageHandler.class.php">AbstractMenuPageHandler</a> class.
 As we want  administrators to link to specific people in menus, for example, we have to also implement the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/ILookupPageHandler.class.php">ILookupPageHandler</a> interface by extending the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/AbstractLookupPageHandler.class.php">AbstractLookupPageHandler</a> class.</p>
 <p>For the <code>ILookupPageHandler</code> interface, we need to implement three methods:</p>

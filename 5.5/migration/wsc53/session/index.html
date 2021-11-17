@@ -2814,9 +2814,7 @@ If you perform authentication yourself and do not trust the authentication sourc
 </td></tr></table>
 <h4 id="adding-multi-factor-methods">Adding Multi-factor Methods<a class="headerlink" href="#adding-multi-factor-methods" title="Permanent link">#</a></h4>
 <p>Adding your own multi-factor method requires the implementation of a single object type:</p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>objectType.xml</code></div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">objectType.xml</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2831,8 +2829,6 @@ If you perform authentication yourself and do not trust the authentication sourc
 <span class="nt">&lt;/type&gt;</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <p>The given classname must implement the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/multifactor/IMultifactorMethod.class.php"><code>IMultifactorMethod</code></a> interface.</p>
 <p>As a self-contained example, you can find the initial implementation of the email multi-factor method in <a href="https://github.com/WoltLab/WCF/pull/3729">WoltLab/WCF#3729</a>.
 Please check <a href="https://github.com/WoltLab/WCF/commits/master/wcfsetup/install/files/lib/system/user/multifactor/EmailMultifactorMethod.class.php">the version history</a> of the PHP class to make sure you do not miss important changes that were added later.</p>

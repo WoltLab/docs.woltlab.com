@@ -2565,9 +2565,7 @@ You can find examples of how to migrate existing forms to form builder <a href="
 <p>User content providers help the WoltLab Suite to find user generated content. They provide a class with which you can find content from a particular user and delete objects.</p>
 <h3 id="php-class">PHP Class<a class="headerlink" href="#php-class" title="Permanent link">#</a></h3>
 <p>First, we create the PHP class that provides our interface to provide the data. The class must implement interface <code>wcf\system\user\content\provider\IUserContentProvider</code> in any case. Mostly we process data which is based on <a href="../../../php/database-objects/"><code>wcf\data\DatabaseObject</code></a>. In this case, the WoltLab Suite provides an abstract class <code>wcf\system\user\content\provider\AbstractDatabaseUserContentProvider</code> that can be used to automatically generates the standardized classes to generate the list and deletes objects via the DatabaseObjectAction. For example, if we would create a content provider for comments, the class would look like this: </p>
-<div class="titledCodeBox">
-    <div class="codeBoxTitle"><code>files/lib/system/user/content/provider/CommentUserContentProvider.class.php</code></div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">files/lib/system/user/content/provider/CommentUserContentProvider.class.php</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2610,8 +2608,6 @@ You can find examples of how to migrate existing forms to form builder <a href="
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-
 <h3 id="object-type">Object Type<a class="headerlink" href="#object-type" title="Permanent link">#</a></h3>
 <p>Now the appropriate object type must be created for the class. This object type must be from the definition <code>com.woltlab.wcf.content.userContentProvider</code> and include the previous created class as FQN in the parameter <code>classname</code>. Also the following parameters can be used in the object type: </p>
 <h4 id="nicevalue"><code>nicevalue</code><a class="headerlink" href="#nicevalue" title="Permanent link">#</a></h4>
