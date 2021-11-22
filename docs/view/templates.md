@@ -126,8 +126,8 @@ More information about installing templates can be found on those pages.
 <div class="section tabMenuContainer">
 	<nav class="tabMenu">
 		<ul>
-			<li><a href="{@$__wcf->getAnchor('tab1')}">Tab 1</a></li>
-			<li><a href="{@$__wcf->getAnchor('tab2')}">Tab 2</a></li>
+			<li><a href="#tab1">Tab 1</a></li>
+			<li><a href="#tab2">Tab 2</a></li>
 			
 			{event name='tabMenuTabs'}
 		</ul>
@@ -142,8 +142,8 @@ More information about installing templates can be found on those pages.
 	<div id="tab2" class="tabMenuContainer tabMenuContent">
 		<nav class="menu">
 			<ul>
-				<li><a href="{@$__wcf->getAnchor('tab2A')}">Tab 2A</a></li>
-				<li><a href="{@$__wcf->getAnchor('tab2B')}">Tab 2B</a></li>
+				<li><a href="#tab2A">Tab 2A</a></li>
+				<li><a href="#tab2B">Tab 2B</a></li>
 				
 				{event name='tabMenuTab2Subtabs'}
 			</ul>
