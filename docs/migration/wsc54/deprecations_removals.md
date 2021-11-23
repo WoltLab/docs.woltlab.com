@@ -21,6 +21,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 #### Methods
 
 - `wcf\action\MessageQuoteAction::markForRemoval()` ([WoltLab/WCF#4452](https://github.com/WoltLab/WCF/pull/4452))
+- `wcf\system\message\QuickReplyManager::setTmpHash()` ([WoltLab/WCF#4575](https://github.com/WoltLab/WCF/pull/4575))
 - `wcf\system\request\Request::isExecuted()` ([WoltLab/WCF#4485](https://github.com/WoltLab/WCF/pull/4485))
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::query()`
 - `wcf\system\session\Session::getDeviceIcon()` ([WoltLab/WCF#4525](https://github.com/WoltLab/WCF/pull/4525))
