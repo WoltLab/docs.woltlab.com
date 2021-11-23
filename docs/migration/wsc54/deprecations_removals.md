@@ -91,6 +91,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wbb\data\thread\ThreadAction::countReplies()`
 - `wbb\data\thread\ThreadAction::validateCountReplies()`
 - `wcf\acp\form\UserGroupOptionForm::verifyPermissions()` ([WoltLab/WCF#4312](https://github.com/WoltLab/WCF/pull/4312))
+- `wcf\data\conversation\message\ConversationMessageAction::jumpToExtended()` ([WoltLab/com.woltlab.wcf.conversation#162](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/162))
 - `wcf\data\moderation\queue\ModerationQueueEditor::markAsDone()` ([WoltLab/WCF#4317](https://github.com/WoltLab/WCF/pull/4317))
 - `wcf\data\tag\TagCloudTag::getSize()` ([WoltLab/WCF#4325](https://github.com/WoltLab/WCF/pull/4325))
 - `wcf\data\tag\TagCloudTag::setSize()` ([WoltLab/WCF#4325](https://github.com/WoltLab/WCF/pull/4325))
