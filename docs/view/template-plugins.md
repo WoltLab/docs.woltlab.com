@@ -423,7 +423,7 @@ All additional attributes are added as attributes of the `select` HTML element.
 ```
 
 
-## <span class="label label-info">3.0+</span> `js`
+## `js`
 
 `js` generates script tags based on whether `ENABLE_DEBUG_MODE` and `VISITOR_USE_TINY_BUILD` are enabled.
 
@@ -531,7 +531,7 @@ Additional attributes are passed to `LinkHandler::getLink()`.
 For detailed information on its usage, we refer to the extensive documentation in the [`ObjectActionFunctionTemplatePlugin` class](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/template/plugin/ObjectActionFunctionTemplatePlugin.class.php) itself.
 
 
-## <span class="label label-info">3.0+</span> `page`
+## `page`
 
 `page` generates an internal link to a CMS page.
 
