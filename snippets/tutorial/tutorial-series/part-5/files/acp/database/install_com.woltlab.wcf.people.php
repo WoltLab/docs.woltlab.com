@@ -10,6 +10,7 @@ use wcf\system\database\table\column\TextDatabaseTableColumn;
 use wcf\system\database\table\column\VarcharDatabaseTableColumn;
 use wcf\system\database\table\DatabaseTable;
 use wcf\system\database\table\index\DatabaseTableForeignKey;
+use wcf\system\database\table\index\DatabaseTablePrimaryIndex;
 
 return [
     DatabaseTable::create('wcf1_person')
@@ -24,6 +25,10 @@ return [
                 ->notNull()
                 ->defaultValue(0),
             DefaultTrueBooleanDatabaseTableColumn::create('enableComments'),
+        ])
+        ->indices([
+            DatabaseTablePrimaryIndex::create()
+                ->columns(['personID']),
         ]),
 
     DatabaseTable::create('wcf1_person_information')
@@ -39,6 +44,10 @@ return [
                 ->notNull(true)
                 ->defaultValue(''),
             NotNullInt10DatabaseTableColumn::create('time'),
+        ])
+        ->indices([
+            DatabaseTablePrimaryIndex::create()
+                ->columns(['informationID']),
         ])
         ->foreignKeys([
             DatabaseTableForeignKey::create()
