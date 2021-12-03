@@ -89,6 +89,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 #### Methods
 
 - `wbb\data\board\BoardCache::getLabelGroups()`
+- `wbb\data\post\PostAction::jumpToExtended()` (this method always threw a `BadMethodCallException`)
 - `wbb\data\thread\ThreadAction::countReplies()`
 - `wbb\data\thread\ThreadAction::validateCountReplies()`
 - `wcf\acp\form\UserGroupOptionForm::verifyPermissions()` ([WoltLab/WCF#4312](https://github.com/WoltLab/WCF/pull/4312))
