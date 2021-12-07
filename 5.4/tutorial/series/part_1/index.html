@@ -2876,11 +2876,17 @@ Thus, the database table we will store the people in only contains three columns
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">use</span> <span class="nx">wcf\system\database\table\column\NotNullVarchar255DatabaseTableColumn</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\system\database\table\column\ObjectIdDatabaseTableColumn</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\system\database\table\DatabaseTable</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\database\table\index\DatabaseTablePrimaryIndex</span><span class="p">;</span>
 
 <span class="k">return</span> <span class="p">[</span>
     <span class="nx">DatabaseTable</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;wcf1_person&#39;</span><span class="p">)</span>
@@ -2888,6 +2894,10 @@ Thus, the database table we will store the people in only contains three columns
             <span class="nx">ObjectIdDatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;personID&#39;</span><span class="p">),</span>
             <span class="nx">NotNullVarchar255DatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;firstName&#39;</span><span class="p">),</span>
             <span class="nx">NotNullVarchar255DatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;lastName&#39;</span><span class="p">),</span>
+        <span class="p">])</span>
+        <span class="o">-&gt;</span><span class="na">indices</span><span class="p">([</span>
+            <span class="nx">DatabaseTablePrimaryIndex</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">columns</span><span class="p">([</span><span class="s1">&#39;personID&#39;</span><span class="p">]),</span>
         <span class="p">]),</span>
 <span class="p">];</span>
 </code></pre></div>
