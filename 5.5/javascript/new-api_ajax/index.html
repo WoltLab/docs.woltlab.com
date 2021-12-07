@@ -2806,7 +2806,7 @@ It does not rely on references to existing objects and does not use arbitrary ca
     <span class="k">this</span><span class="p">.</span><span class="nx">objectId</span> <span class="o">=</span> <span class="nx">objectId</span><span class="p">;</span>
 
     <span class="kd">const</span> <span class="nx">button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">buttonId</span><span class="p">);</span>
-    <span class="nx">button</span><span class="o">?</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">event</span><span class="p">));</span>
+    <span class="nx">button</span><span class="o">?</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="ow">void</span> <span class="k">this</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">event</span><span class="p">));</span>
   <span class="p">}</span>
 
   <span class="k">async</span> <span class="nx">click</span><span class="p">(</span><span class="nx">event</span>: <span class="kt">MouseEvent</span><span class="p">)</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span> <span class="p">{</span>
@@ -2878,7 +2878,7 @@ This applies to either long running requests or requests that are dispatched in 
 
   <span class="kr">constructor</span><span class="p">(</span><span class="nx">inputId</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">inputId</span><span class="p">)</span> <span class="kr">as</span> <span class="nx">HTMLInputElement</span><span class="p">;</span>
-    <span class="nx">input</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">input</span><span class="p">(</span><span class="nx">event</span><span class="p">));</span>
+    <span class="nx">input</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="ow">void</span> <span class="k">this</span><span class="p">.</span><span class="nx">input</span><span class="p">(</span><span class="nx">event</span><span class="p">));</span>
   <span class="p">}</span>
 
   <span class="k">async</span> <span class="nx">input</span><span class="p">(</span><span class="nx">event</span>: <span class="kt">Event</span><span class="p">)</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span> <span class="p">{</span>
@@ -3139,7 +3139,7 @@ modules from altering the behavior. It is strongly  recommended to always use
   <small>
     
       Last update:
-      2021-11-17
+      2021-12-07
     
   </small>
 </div>
