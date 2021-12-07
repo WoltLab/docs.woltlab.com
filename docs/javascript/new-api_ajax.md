@@ -23,7 +23,7 @@ export class MyModule {
     this.objectId = objectId;
 
     const button = document.getElementById(buttonId);
-    button?.addEventListener("click", (event) => this.click(event));
+    button?.addEventListener("click", (event) => void this.click(event));
   }
 
   async click(event: MouseEvent): Promise<void> {
@@ -70,7 +70,7 @@ export class RapidRequests {
 
   constructor(inputId: string) {
     const input = document.getElementById(inputId) as HTMLInputElement;
-    input.addEventListener("input", (event) => this.input(event));
+    input.addEventListener("input", (event) => void this.input(event));
   }
 
   async input(event: Event): Promise<void> {
