@@ -1748,6 +1748,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#new-user-menu" class="md-nav__link">
+    New User Menu
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2427,6 +2434,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#new-user-menu" class="md-nav__link">
+    New User Menu
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2465,13 +2479,19 @@ To support transparency, which <code>input[type=color]</code> does not, we also 
 <h2 id="codemirror">CodeMirror<a class="headerlink" href="#codemirror" title="Permanent link">#</a></h2>
 <p>The bundled version of CodeMirror was updated and should be loaded using the AMD loader going forward.</p>
 <p>See the <a href="../libraries/#codemirror">third party libraries migration guide</a> for details.</p>
+<h2 id="new-user-menu">New User Menu<a class="headerlink" href="#new-user-menu" title="Permanent link">#</a></h2>
+<p>The legacy implementation <code>WCF.User.Panel.Abstract</code> was based on jQuery and has now been retired in favor of a new lightweight implementation that provides a clean interface and improved accessibility.
+You are strongly encouraged to migrate your existing implementation to integrate with existing menus.</p>
+<p>Please use <code>WoltLabSuite/Core/Ui/User/Menu/Data/ModerationQueue.ts</code> as a template for your own implementation, it contains only strictly the code you will need. It makes use of the new <code>Ajax.dboAction()</code> (see above) for improved readability and flexibility.</p>
+<p>You must update your trigger button to include the <code>role</code>, <code>tabindex</code> and ARIA attributes! Please take a look at the links in <code>pageHeaderUser.tpl</code> to see these four attributes in action.</p>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/4603">WoltLab/WCF#4603</a> for details.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2021-11-23
+      2021-12-09
     
   </small>
 </div>
