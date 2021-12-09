@@ -28,3 +28,14 @@ See [WoltLab/WCF#4353](https://github.com/WoltLab/WCF/pull/4353) for details.
 The bundled version of CodeMirror was updated and should be loaded using the AMD loader going forward.
 
 See the [third party libraries migration guide](libraries.md#codemirror) for details.
+
+## New User Menu
+
+The legacy implementation `WCF.User.Panel.Abstract` was based on jQuery and has now been retired in favor of a new lightweight implementation that provides a clean interface and improved accessibility.
+You are strongly encouraged to migrate your existing implementation to integrate with existing menus.
+
+Please use `WoltLabSuite/Core/Ui/User/Menu/Data/ModerationQueue.ts` as a template for your own implementation, it contains only strictly the code you will need. It makes use of the new `Ajax.dboAction()` (see above) for improved readability and flexibility.
+
+You must update your trigger button to include the `role`, `tabindex` and ARIA attributes! Please take a look at the links in `pageHeaderUser.tpl` to see these four attributes in action.
+
+See [WoltLab/WCF#4603](https://github.com/WoltLab/WCF/pull/4603) for details.
