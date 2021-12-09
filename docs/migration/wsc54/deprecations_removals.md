@@ -22,6 +22,8 @@ With version 5.5, we have deprecated certain components and removed several othe
 #### Methods
 
 - `wcf\action\MessageQuoteAction::markForRemoval()` ([WoltLab/WCF#4452](https://github.com/WoltLab/WCF/pull/4452))
+- `wcf\data\user\notification\UserNotificationAction::getOutstandingNotifications()` ([WoltLab/WCF#4603](https://github.com/WoltLab/WCF/pull/4603))
+- `wcf\data\moderation\queue\ModerationQueueAction::getOutstandingQueues()` ([WoltLab/WCF#4603](https://github.com/WoltLab/WCF/pull/4603))
 - `wcf\system\message\QuickReplyManager::setTmpHash()` ([WoltLab/WCF#4575](https://github.com/WoltLab/WCF/pull/4575))
 - `wcf\system\request\Request::isExecuted()` ([WoltLab/WCF#4485](https://github.com/WoltLab/WCF/pull/4485))
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::query()`
@@ -59,6 +61,9 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `WCF.Message.Quote.Manager.markQuotesForRemoval()` ([WoltLab/WCF#4452](https://github.com/WoltLab/WCF/pull/4452))
 - `WCF.Search.Message.KeywordList` ([WoltLab/WCF#4402](https://github.com/WoltLab/WCF/pull/4402))
 - `SECURITY_TOKEN` (use `Core.getXsrfToken()`, [WoltLab/WCF#4523](https://github.com/WoltLab/WCF/pull/4523))
+- `WCF.Dropdown.Interactive.Handler` ([WoltLab/WCF#4603](https://github.com/WoltLab/WCF/pull/4603))
+- `WCF.Dropdown.Interactive.Instance` ([WoltLab/WCF#4603](https://github.com/WoltLab/WCF/pull/4603))
+- `WCF.User.Panel.Abstract` ([WoltLab/WCF#4603](https://github.com/WoltLab/WCF/pull/4603))
 
 ### Database Tables
 
@@ -175,6 +180,9 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `WCF.Like.js` ([WoltLab/WCF#4300](https://github.com/WoltLab/WCF/pull/4300))
 - `WCF.Message.UserMention` ([WoltLab/WCF#4324](https://github.com/WoltLab/WCF/pull/4324))
 - `WCF.UserPanel` ([WoltLab/WCF#4316](https://github.com/WoltLab/WCF/pull/4316))
+- `WCF.User.Panel.Moderation` ([WoltLab/WCF#4603](https://github.com/WoltLab/WCF/pull/4603))
+- `WCF.User.Panel.Notification` ([WoltLab/WCF#4603](https://github.com/WoltLab/WCF/pull/4603))
+- `WCF.User.Panel.UserMenu` ([WoltLab/WCF#4603](https://github.com/WoltLab/WCF/pull/4603))
 
 
 ### Phrases
