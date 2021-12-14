@@ -10,7 +10,7 @@ Refer to the documentation within the [symfony/polyfill](https://github.com/symf
 
 ## scssphp
 
-scssphp was updated from version 1.4 to 1.8.
+scssphp was updated from version 1.4 to 1.9.
 
 If you interact with scssphp only by deploying `.scss` files, then you should not experience any breaking changes, except when the improved SCSS compatibility interprets your SCSS code differently.
 
