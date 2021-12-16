@@ -50,7 +50,7 @@ $users = UserRuntimeCache::getInstance()->getObjects([3, 4]);
 ## Example
 
 {jinja{ codebox(
-   "php",
-   "php/api/caches/UserRuntimeCache.class.php",
-   "files/lib/system/cache/runtime/UserRuntimeCache.class.php"
+    title="files/lib/system/cache/runtime/UserRuntimeCache.class.php",
+    language="php",
+    filepath="php/api/caches/UserRuntimeCache.class.php",
 ) }}

@@ -27,9 +27,9 @@ that already implements the mandatory interface [ICacheBuilder](https://github.c
 
 
 {jinja{ codebox(
-"php",
-"php/api/caches/ExampleCacheBuilder.class.php",
-"files/lib/system/cache/builder/ExampleCacheBuilder.class.php"
+    title="files/lib/system/cache/builder/ExampleCacheBuilder.class.php",
+    language="php",
+    filepath="php/api/caches/ExampleCacheBuilder.class.php",
 ) }}
 
 Reading data from your cache builder is quite simple and follows a consistent
