@@ -37,13 +37,10 @@ Make sure to insert a linebreak between the attribute and the parameter name.
 
 Example:
 
-{jinja{ codebox(
-    language="php",
-    title="wcfsetup/install/files/lib/data/user/User.class.php",
-    contents="""
+```php title="wcfsetup/install/files/lib/data/user/User.class.php"
 <?php
 
-namespace wcf\\data\\user;
+namespace wcf\data\user;
 
 // …
 
@@ -60,5 +57,4 @@ final class User extends DatabaseObject implements IPopoverObject, IRouteControl
 
     // …
 }
-"""
-) }}
+```

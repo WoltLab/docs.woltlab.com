@@ -25,16 +25,13 @@ It is recommended to wait for a future version before migrating these types of c
 
 Previously:
 
-{jinja{ codebox(
-    language="php",
-    title="lib/action/ExampleRedirectAction.class.php",
-    contents="""
+```php title="lib/action/ExampleRedirectAction.class.php"
 <?php
 
-namespace wcf\\action;
+namespace wcf\action;
 
-use wcf\\system\\request\\LinkHandler;
-use wcf\\util\\HeaderUtil;
+use wcf\system\request\LinkHandler;
+use wcf\util\HeaderUtil;
 
 final class ExampleRedirectAction extends AbstractAction
 {
@@ -50,21 +47,17 @@ final class ExampleRedirectAction extends AbstractAction
         exit;
     }
 }
-"""
-) }}
+```
 
 Now:
 
-{jinja{ codebox(
-    language="php",
-    title="lib/action/ExampleRedirectAction.class.php",
-    contents="""
+```php title="lib/action/ExampleRedirectAction.class.php"
 <?php
 
-namespace wcf\\action;
+namespace wcf\action;
 
-use Laminas\\Diactoros\\Response\\RedirectResponse;
-use wcf\\system\\request\\LinkHandler;
+use Laminas\Diactoros\Response\RedirectResponse;
+use wcf\system\request\LinkHandler;
 
 final class ExampleRedirectAction extends AbstractAction
 {
@@ -78,22 +71,18 @@ final class ExampleRedirectAction extends AbstractAction
         );
     }
 }
-"""
-) }}
+```
 
 #### Migrating JSON responses
 
 Previously:
 
-{jinja{ codebox(
-    language="php",
-    title="lib/action/ExampleJsonAction.class.php",
-    contents="""
+```php title="lib/action/ExampleJsonAction.class.php"
 <?php
 
-namespace wcf\\action;
+namespace wcf\action;
 
-use wcf\\util\\JSON;
+use wcf\util\JSON;
 
 final class ExampleJsonAction extends AbstractAction
 {
@@ -110,20 +99,16 @@ final class ExampleJsonAction extends AbstractAction
         exit;
     }
 }
-"""
-) }}
+```
 
 Now:
 
-{jinja{ codebox(
-    language="php",
-    title="lib/action/ExampleJsonAction.class.php",
-    contents="""
+```php title="lib/action/ExampleJsonAction.class.php"
 <?php
 
-namespace wcf\\action;
+namespace wcf\action;
 
-use Laminas\\Diactoros\\Response\\JsonResponse;
+use Laminas\Diactoros\Response\JsonResponse;
 
 final class ExampleJsonAction extends AbstractAction
 {
@@ -136,8 +121,7 @@ final class ExampleJsonAction extends AbstractAction
         ]);
     }
 }
-"""
-) }}
+```
 
 ## Events
 
@@ -171,15 +155,12 @@ $parameters = [
 EventHandler::getInstance()->fireAction($this, 'valueAvailable', $parameters);
 ```
 
-{jinja{ codebox(
-    language="php",
-    title="lib/system/event/listener/ValueDumpListener.class.php",
-    contents="""
+```php title="lib/system/event/listener/ValueDumpListener.class.php"
 <?php
 
-namespace wcf\\system\\event\\listener;
+namespace wcf\system\event\listener;
 
-use wcf\\form\\ValueForm;
+use wcf\form\ValueForm;
 
 final class ValueDumpListener implements IParameterizedEventListener
 {
@@ -192,8 +173,7 @@ final class ValueDumpListener implements IParameterizedEventListener
         var_dump($parameters['value']);
     }
 }
-"""
-) }}
+```
 
 Now:
 
@@ -201,15 +181,12 @@ Now:
 EventHandler::getInstance()->fire(new ValueAvailable(\random_int(1, 1024)));
 ```
 
-{jinja{ codebox(
-    language="php",
-    title="lib/system/foo/event/ValueAvailable.class.php",
-    contents="""
+```php title="lib/system/foo/event/ValueAvailable.class.php"
 <?php
 
-namespace wcf\\system\\foo\\event;
+namespace wcf\system\foo\event;
 
-use wcf\\system\\event\\IEvent;
+use wcf\system\event\IEvent;
 
 final class ValueAvailable implements IEvent
 {
@@ -228,18 +205,14 @@ final class ValueAvailable implements IEvent
         return $this->value;
     }
 }
-"""
-) }}
+```
 
-{jinja{ codebox(
-    language="php",
-    title="lib/system/event/listener/ValueDumpListener.class.php",
-    contents="""
+```php title="lib/system/event/listener/ValueDumpListener.class.php"
 <?php
 
-namespace wcf\\system\\event\\listener;
+namespace wcf\system\event\listener;
 
-use wcf\\system\\foo\event\\ValueAvailable;
+use wcf\system\foo\event\ValueAvailable;
 
 final class ValueDumpListener
 {
@@ -248,8 +221,7 @@ final class ValueDumpListener
         var_dump($event->getValue());
     }
 }
-"""
-) }}
+```
 
 See [WoltLab/WCF#4000](https://github.com/WoltLab/WCF/pull/4000) and [WoltLab/WCF#4265](https://github.com/WoltLab/WCF/pull/4265) for details.
 

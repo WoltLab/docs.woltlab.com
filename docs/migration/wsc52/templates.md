@@ -90,22 +90,15 @@ We unified the approach for such links:
 
 Example:
 
-{jinja{ codebox(
-    language="php",
-    title="files/lib/data/foo/Foo.class.php",
-    contents="""
+```php title="files/lib/data/foo/Foo.class.php"
 class Foo extends DatabaseObject implements IPopoverObject {
     public function getPopoverLinkClass() {
         return 'fooLink';
     }
 }
-"""
-)}}
+```
 
-{jinja{ codebox(
-    language="php",
-    title="files/lib/data/foo/FooAction.class.php",
-    contents="""
+```php title="files/lib/data/foo/FooAction.class.php"
 class FooAction extends AbstractDatabaseObjectAction implements IPopoverAction {
     public function validateGetPopover() {
         // …
@@ -117,14 +110,13 @@ class FooAction extends AbstractDatabaseObjectAction implements IPopoverAction {
         ];
     }
 }
-"""
-)}}
+```
 
 ```js
 require(['WoltLabSuite/Core/Controller/Popover'], function(ControllerPopover) {
 	ControllerPopover.init({
 		className: 'fooLink',
-		dboAction: 'wcf\\data∑foo\\FooAction',
+		dboAction: 'wcf\\data\\foo\\FooAction',
 		identifier: 'com.woltlab.wcf.foo'
 	});
 });

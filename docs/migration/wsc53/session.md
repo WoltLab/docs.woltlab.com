@@ -121,19 +121,15 @@ if ($isPending) {
 
 Adding your own multi-factor method requires the implementation of a single object type:
 
-{jinja{ codebox(
-   language="xml",
-   title="objectType.xml",
-   contents="""
+```xml title="objectType.xml"
 <type>
    <name>com.example.multifactor.foobar</name>
    <definitionname>com.woltlab.wcf.multifactor</definitionname>
    <icon><!-- Font Awesome 4 Icon Name goes here. --></icon>
    <priority><!-- Determines the sort order, higher priority will be preferred for authentication. --></priority>
-   <classname>wcf\system\\user\multifactor\FoobarMultifactorMethod</classname>
+   <classname>wcf\system\user\multifactor\FoobarMultifactorMethod</classname>
 </type>
-"""
-)}}
+```
 
 The given classname must implement the [`IMultifactorMethod`](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/multifactor/IMultifactorMethod.class.php) interface.
 

@@ -51,17 +51,13 @@ For all changes, please refer to the [source code on GitHub]({jinja{ config.repo
 
 The first step to support activity points is to register an object type for the `com.woltlab.wcf.user.activityPointEvent` object type definition for created person information and specify the default number of points awarded per piece of information:
 
-{jinja{ codebox(
-    language="xml",
-    title="objectType.xml",
-    contents="""
+```xml title="objectType.xml"
 <type>
     <name>com.woltlab.wcf.people.information</name>
     <definitionname>com.woltlab.wcf.user.activityPointEvent</definitionname>
     <points>2</points>
 </type>
-    """
-) }}
+```
 
 Additionally, the phrase `wcf.user.activityPoint.objectType.com.woltlab.wcf.people.information` (in general: `wcf.user.activityPoint.objectType.{objectType}`) has to be added.
 
@@ -70,17 +66,13 @@ The activity points are awarded when new pieces are created via `PersonInformati
 Lastly, we have to add two components for updating data:
 First, we register a new rebuild data worker
 
-{jinja{ codebox(
-language="xml",
-title="objectType.xml",
-contents="""
+```xml title="objectType.xml"
 <type>
     <name>com.woltlab.wcf.people.information</name>
     <definitionname>com.woltlab.wcf.rebuildData</definitionname>
     <classname>wcf\system\worker\PersonInformationRebuildDataWorker</classname>
 </type>
-"""
-) }}
+```
 
 {jinja{ codebox(
     title="files/lib/system/worker/PersonInformationRebuildDataWorker.class.php",
@@ -93,18 +85,14 @@ which updates the number of instances for which any user received person informa
 
 Second, we add an event listener for `UserActivityPointItemsRebuildDataWorker` to update the total user activity points awarded for person information:
 
-{jinja{ codebox(
-    language="xml",
-    title="eventListener.xml",
-    contents="""
-<eventlistener name=\"execute@wcf\system\worker\\UserActivityPointItemsRebuildDataWorker\">
-    <eventclassname>wcf\system\worker\\UserActivityPointItemsRebuildDataWorker</eventclassname>
+```xml title="eventListener.xml"
+<eventlistener name="execute@wcf\system\worker\UserActivityPointItemsRebuildDataWorker">
+    <eventclassname>wcf\system\worker\UserActivityPointItemsRebuildDataWorker</eventclassname>
     <eventname>execute</eventname>
     <listenerclassname>wcf\system\event\listener\PersonUserActivityPointItemsRebuildDataWorkerListener</listenerclassname>
     <environment>admin</environment>
 </eventlistener>
-"""
-) }}
+```
 
 {jinja{ codebox(
     title="files/lib/system/event/listener/PersonUserActivityPointItemsRebuildDataWorkerListener.class.php",
@@ -117,17 +105,13 @@ Second, we add an event listener for `UserActivityPointItemsRebuildDataWorker` t
 
 To support user activity events, an object type for `com.woltlab.wcf.user.recentActivityEvent` has to be registered with a class implementing `wcf\system\user\activity\event\IUserActivityEvent`:
 
-{jinja{ codebox(
-language="xml",
-title="objectType.xml",
-contents="""
+```xml title="objectType.xml"
 <type>
     <name>com.woltlab.wcf.people.information</name>
     <definitionname>com.woltlab.wcf.user.recentActivityEvent</definitionname>
-    <classname>wcf\system\\user\activity\event\PersonInformationUserActivityEvent</classname>
+    <classname>wcf\system\user\activity\event\PersonInformationUserActivityEvent</classname>
 </type>
-"""
-) }}
+```
 
 {jinja{ codebox(
     title="files/lib/system/user/activity/event/PersonInformationUserActivityEvent.class.php",
