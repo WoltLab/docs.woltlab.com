@@ -13,10 +13,14 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `filebase\system\file\FileDataHandler` (use `filebase\system\cache\runtime\FileRuntimeCache`)
 - `wcf\action\AbstractAjaxAction` (use PSR-7 responses, [WoltLab/WCF#4437](https://github.com/WoltLab/WCF/pull/4437))
 - `wcf\data\IExtendedMessageQuickReplyAction` ([WoltLab/WCF#4575](https://github.com/WoltLab/WCF/pull/4575))
+- `wcf\form\SearchForm` (see [WoltLab/WCF#4605](https://github.com/WoltLab/WCF/pull/4605))
 - `wcf\page\AbstractSecurePage` ([WoltLab/WCF#4515](https://github.com/WoltLab/WCF/pull/4515))
+- `wcf\page\SearchResultPage` (see [WoltLab/WCF#4605](https://github.com/WoltLab/WCF/pull/4605))
 - `wcf\system\exception\ILoggingAwareException` ([WoltLab/WCF#4547](https://github.com/WoltLab/WCF/pull/4547))
 - `wcf\system\io\FTP` (directly use the FTP extension)
+- `wcf\system\search\AbstractSearchableObjectType` (use `AbstractSearchProvider` instead, see [WoltLab/WCF#4605](https://github.com/WoltLab/WCF/pull/4605))
 - `wcf\system\search\elasticsearch\ElasticsearchException`
+- `wcf\system\search\ISearchableObjectType` (use `ISearchProvider` instead, see [WoltLab/WCF#4605](https://github.com/WoltLab/WCF/pull/4605))
 - `wcf\util\PasswordUtil`
 
 #### Methods
@@ -70,6 +74,16 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf1_package_compatibility` ([WoltLab/WCF#4371](https://github.com/WoltLab/WCF/pull/4371))
 - `wcf1_package_update_compatibility` ([WoltLab/WCF#4385](https://github.com/WoltLab/WCF/pull/4385))
 - `wcf1_package_update_optional` ([WoltLab/WCF#4432](https://github.com/WoltLab/WCF/pull/4432))
+
+### Templates
+
+#### Template Events
+
+- `search::queryOptions`
+- `search::authorOptions`
+- `search::periodOptions`
+- `search::displayOptions`
+- `search::generalFields`
 
 ### Miscellaneous
 
@@ -156,6 +170,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `MODULE_SYSTEM_RECAPTCHA` ([WoltLab/WCF#4305](https://github.com/WoltLab/WCF/pull/4305))
 - `PROFILE_MAIL_USE_CAPTCHA` ([WoltLab/WCF#4399](https://github.com/WoltLab/WCF/pull/4399))
 - The `may` value for `MAIL_SMTP_STARTTLS` ([WoltLab/WCF#4398](https://github.com/WoltLab/WCF/pull/4398))
+- `SEARCH_USE_CAPTCHA` (see [WoltLab/WCF#4605](https://github.com/WoltLab/WCF/pull/4605))
 
 #### Files
 
@@ -190,3 +205,26 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wbb.search.boards.all`
 - `wcf.global.form.error.greaterThan.javaScript` ([WoltLab/WCF#4306](https://github.com/WoltLab/WCF/pull/4306))
 - `wcf.global.form.error.lessThan.javaScript` ([WoltLab/WCF#4306](https://github.com/WoltLab/WCF/pull/4306))
+- `wcf.search.type.keywords`
+- `wcf.acp.option.search_use_captcha`
+- `wcf.search.query.description`
+- `wcf.search.results.change`
+- `wcf.search.results.description`
+- `wcf.search.general`
+- `wcf.search.query`
+- `wcf.search.error.noMatches`
+- `wcf.search.error.user.noMatches`
+
+
+### Templates
+
+#### Templates
+
+- `searchResult`
+
+#### Template Events
+
+- `search::tabMenuTabs`
+- `search::sections`
+- `tagSearch::tabMenuTabs`
+- `tagSearch::sections`

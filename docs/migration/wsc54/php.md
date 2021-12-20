@@ -270,6 +270,17 @@ See [WoltLab/WCF#4398](https://github.com/WoltLab/WCF/pull/4398) for details.
 
 ## Search
 
+### Search Form
+
+After the overhaul of the search form, search providers are no longer bound to `SearchForm` and `SearchResultPage`. 
+The interface `ISearchObjectType` and the abstract implementation `AbstractSearchableObjectType` have been replaced by `ISearchProvider` and `AbstractSearchProvider`.
+
+Please use [`ArticleSearch`](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/search/ArticleSearch.class.php) as a template for your own implementation
+
+See [WoltLab/WCF#4605](https://github.com/WoltLab/WCF/pull/4605) for details.
+
+### Exceptions
+
 A new [`wcf\system\search\exception\SearchFailed`](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/search/exception/SearchFailed.class.php) exception was added.
 This exception should be thrown when executing the search query fails for (mostly) temporary reasons, such as a network partition to a remote service.
 It is not meant as a blanket exception to wrap everything.
