@@ -1833,6 +1833,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    Templates
+  </a>
+  
+    <nav class="md-nav" aria-label="Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template-events" class="md-nav__link">
+    Template Events
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#miscellaneous" class="md-nav__link">
     Miscellaneous
   </a>
@@ -1918,6 +1938,33 @@
   <a href="#phrases" class="md-nav__link">
     Phrases
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templates_1" class="md-nav__link">
+    Templates
+  </a>
+  
+    <nav class="md-nav" aria-label="Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#templates_2" class="md-nav__link">
+    Templates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-events_1" class="md-nav__link">
+    Template Events
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2634,6 +2681,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    Templates
+  </a>
+  
+    <nav class="md-nav" aria-label="Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template-events" class="md-nav__link">
+    Template Events
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#miscellaneous" class="md-nav__link">
     Miscellaneous
   </a>
@@ -2722,6 +2789,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#templates_1" class="md-nav__link">
+    Templates
+  </a>
+  
+    <nav class="md-nav" aria-label="Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#templates_2" class="md-nav__link">
+    Templates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-events_1" class="md-nav__link">
+    Template Events
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2753,10 +2847,14 @@
 <li><code>filebase\system\file\FileDataHandler</code> (use <code>filebase\system\cache\runtime\FileRuntimeCache</code>)</li>
 <li><code>wcf\action\AbstractAjaxAction</code> (use PSR-7 responses, <a href="https://github.com/WoltLab/WCF/pull/4437">WoltLab/WCF#4437</a>)</li>
 <li><code>wcf\data\IExtendedMessageQuickReplyAction</code> (<a href="https://github.com/WoltLab/WCF/pull/4575">WoltLab/WCF#4575</a>)</li>
+<li><code>wcf\form\SearchForm</code> (see <a href="https://github.com/WoltLab/WCF/pull/4605">WoltLab/WCF#4605</a>)</li>
 <li><code>wcf\page\AbstractSecurePage</code> (<a href="https://github.com/WoltLab/WCF/pull/4515">WoltLab/WCF#4515</a>)</li>
+<li><code>wcf\page\SearchResultPage</code> (see <a href="https://github.com/WoltLab/WCF/pull/4605">WoltLab/WCF#4605</a>)</li>
 <li><code>wcf\system\exception\ILoggingAwareException</code> (<a href="https://github.com/WoltLab/WCF/pull/4547">WoltLab/WCF#4547</a>)</li>
 <li><code>wcf\system\io\FTP</code> (directly use the FTP extension)</li>
+<li><code>wcf\system\search\AbstractSearchableObjectType</code> (use <code>AbstractSearchProvider</code> instead, see <a href="https://github.com/WoltLab/WCF/pull/4605">WoltLab/WCF#4605</a>)</li>
 <li><code>wcf\system\search\elasticsearch\ElasticsearchException</code></li>
+<li><code>wcf\system\search\ISearchableObjectType</code> (use <code>ISearchProvider</code> instead, see <a href="https://github.com/WoltLab/WCF/pull/4605">WoltLab/WCF#4605</a>)</li>
 <li><code>wcf\util\PasswordUtil</code></li>
 </ul>
 <h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">#</a></h4>
@@ -2810,6 +2908,15 @@
 <li><code>wcf1_package_compatibility</code> (<a href="https://github.com/WoltLab/WCF/pull/4371">WoltLab/WCF#4371</a>)</li>
 <li><code>wcf1_package_update_compatibility</code> (<a href="https://github.com/WoltLab/WCF/pull/4385">WoltLab/WCF#4385</a>)</li>
 <li><code>wcf1_package_update_optional</code> (<a href="https://github.com/WoltLab/WCF/pull/4432">WoltLab/WCF#4432</a>)</li>
+</ul>
+<h3 id="templates">Templates<a class="headerlink" href="#templates" title="Permanent link">#</a></h3>
+<h4 id="template-events">Template Events<a class="headerlink" href="#template-events" title="Permanent link">#</a></h4>
+<ul>
+<li><code>search::queryOptions</code></li>
+<li><code>search::authorOptions</code></li>
+<li><code>search::periodOptions</code></li>
+<li><code>search::displayOptions</code></li>
+<li><code>search::generalFields</code></li>
 </ul>
 <h3 id="miscellaneous">Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permanent link">#</a></h3>
 <ul>
@@ -2894,6 +3001,7 @@
 <li><code>MODULE_SYSTEM_RECAPTCHA</code> (<a href="https://github.com/WoltLab/WCF/pull/4305">WoltLab/WCF#4305</a>)</li>
 <li><code>PROFILE_MAIL_USE_CAPTCHA</code> (<a href="https://github.com/WoltLab/WCF/pull/4399">WoltLab/WCF#4399</a>)</li>
 <li>The <code>may</code> value for <code>MAIL_SMTP_STARTTLS</code> (<a href="https://github.com/WoltLab/WCF/pull/4398">WoltLab/WCF#4398</a>)</li>
+<li><code>SEARCH_USE_CAPTCHA</code> (see <a href="https://github.com/WoltLab/WCF/pull/4605">WoltLab/WCF#4605</a>)</li>
 </ul>
 <h4 id="files">Files<a class="headerlink" href="#files" title="Permanent link">#</a></h4>
 <ul>
@@ -2926,6 +3034,27 @@
 <li><code>wbb.search.boards.all</code></li>
 <li><code>wcf.global.form.error.greaterThan.javaScript</code> (<a href="https://github.com/WoltLab/WCF/pull/4306">WoltLab/WCF#4306</a>)</li>
 <li><code>wcf.global.form.error.lessThan.javaScript</code> (<a href="https://github.com/WoltLab/WCF/pull/4306">WoltLab/WCF#4306</a>)</li>
+<li><code>wcf.search.type.keywords</code></li>
+<li><code>wcf.acp.option.search_use_captcha</code></li>
+<li><code>wcf.search.query.description</code></li>
+<li><code>wcf.search.results.change</code></li>
+<li><code>wcf.search.results.description</code></li>
+<li><code>wcf.search.general</code></li>
+<li><code>wcf.search.query</code></li>
+<li><code>wcf.search.error.noMatches</code></li>
+<li><code>wcf.search.error.user.noMatches</code></li>
+</ul>
+<h3 id="templates_1">Templates<a class="headerlink" href="#templates_1" title="Permanent link">#</a></h3>
+<h4 id="templates_2">Templates<a class="headerlink" href="#templates_2" title="Permanent link">#</a></h4>
+<ul>
+<li><code>searchResult</code></li>
+</ul>
+<h4 id="template-events_1">Template Events<a class="headerlink" href="#template-events_1" title="Permanent link">#</a></h4>
+<ul>
+<li><code>search::tabMenuTabs</code></li>
+<li><code>search::sections</code></li>
+<li><code>tagSearch::tabMenuTabs</code></li>
+<li><code>tagSearch::sections</code></li>
 </ul>
 
   <hr>
@@ -2933,7 +3062,7 @@
   <small>
     
       Last update:
-      2021-12-09
+      2021-12-20
     
   </small>
 </div>

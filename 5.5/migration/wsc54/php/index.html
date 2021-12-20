@@ -1806,6 +1806,26 @@
     Search
   </a>
   
+    <nav class="md-nav" aria-label="Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#search-form" class="md-nav__link">
+    Search Form
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exceptions" class="md-nav__link">
+    Exceptions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2634,6 +2654,26 @@
     Search
   </a>
   
+    <nav class="md-nav" aria-label="Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#search-form" class="md-nav__link">
+    Search Form
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exceptions" class="md-nav__link">
+    Exceptions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3065,6 +3105,12 @@ Use the <code>getLanguage()</code> or <code>getUser()</code> getters if using co
 The use of <code>encrypt</code> is recommended, unless it is certain that the SMTP server does not support TLS.</p>
 <p>See <a href="https://github.com/WoltLab/WCF/pull/4398">WoltLab/WCF#4398</a> for details.</p>
 <h2 id="search">Search<a class="headerlink" href="#search" title="Permanent link">#</a></h2>
+<h3 id="search-form">Search Form<a class="headerlink" href="#search-form" title="Permanent link">#</a></h3>
+<p>After the overhaul of the search form, search providers are no longer bound to <code>SearchForm</code> and <code>SearchResultPage</code>. 
+The interface <code>ISearchObjectType</code> and the abstract implementation <code>AbstractSearchableObjectType</code> have been replaced by <code>ISearchProvider</code> and <code>AbstractSearchProvider</code>.</p>
+<p>Please use <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/search/ArticleSearch.class.php"><code>ArticleSearch</code></a> as a template for your own implementation</p>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/4605">WoltLab/WCF#4605</a> for details.</p>
+<h3 id="exceptions">Exceptions<a class="headerlink" href="#exceptions" title="Permanent link">#</a></h3>
 <p>A new <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/search/exception/SearchFailed.class.php"><code>wcf\system\search\exception\SearchFailed</code></a> exception was added.
 This exception should be thrown when executing the search query fails for (mostly) temporary reasons, such as a network partition to a remote service.
 It is not meant as a blanket exception to wrap everything.
@@ -3171,7 +3217,7 @@ Constructing an object of these factory classes is considered a bug, as the clas
   <small>
     
       Last update:
-      2021-12-16
+      2021-12-20
     
   </small>
 </div>
