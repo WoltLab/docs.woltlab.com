@@ -79,6 +79,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 #### Template Events
 
+- `pageNavbarTop::navigationIcons`
 - `search::queryOptions`
 - `search::authorOptions`
 - `search::periodOptions`
