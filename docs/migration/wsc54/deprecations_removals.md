@@ -59,6 +59,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 #### Options
 
 - `HTTP_SEND_X_FRAME_OPTIONS` ([WoltLab/WCF#4474](https://github.com/WoltLab/WCF/pull/4474))
+- `ELASTICSEARCH_ALLOW_LEADING_WILDCARD`
 
 ### JavaScript
 
@@ -153,6 +154,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::update()`
 - `wcf\system\search\elasticsearch\ElasticsearchSearchIndexManager::add()`
 - `wcf\system\search\elasticsearch\ElasticsearchSearchIndexManager::update()`
+- `wcf\system\search\elasticsearch\ElasticsearchSearchEngine::parseSearchQuery()`
 
 #### Properties
 
