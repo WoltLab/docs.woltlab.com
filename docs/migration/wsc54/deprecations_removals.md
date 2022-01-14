@@ -32,6 +32,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\system\request\Request::isExecuted()` ([WoltLab/WCF#4485](https://github.com/WoltLab/WCF/pull/4485))
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::query()`
 - `wcf\system\session\Session::getDeviceIcon()` ([WoltLab/WCF#4525](https://github.com/WoltLab/WCF/pull/4525))
+- `wcf\system\WCF::getAnchor()` ([WoltLab/WCF#4580](https://github.com/WoltLab/WCF/pull/4580))
 - `wcf\util\MathUtil::getRandomValue()` ([WoltLab/WCF#4280](https://github.com/WoltLab/WCF/pull/4280))
 - `wcf\util\StringUtil::endsWith()` ([WoltLab/WCF#4509](https://github.com/WoltLab/WCF/pull/4509))
 - `wcf\util\StringUtil::getHash()` ([WoltLab/WCF#4279](https://github.com/WoltLab/WCF/pull/4279))
