@@ -95,7 +95,7 @@ A list of packages including their version required for this package to work.
 Example:
 
 ```xml
-<requiredpackage minversion="2.0.0" file="requirements/com.woltlab.wcf.tar">com.woltlab.wcf</requiredpackage>
+<requiredpackage minversion="2.7.5" file="requirements/com.example.foo.tar">com.example.foo</requiredpackage>
 ```
 
 The attribute `minversion` must be a valid version number as described in [`<version>`](#version).
@@ -110,7 +110,7 @@ A list of optional packages which can be selected by the user at the very end of
 Example:
 
 ```xml
-<optionalpackage file="optionals/com.woltlab.wcf.moderatedUserGroup.tar">com.woltlab.wcf.moderatedUserGroup</optionalpackage>
+<optionalpackage file="optionals/com.example.bar.tar">com.example.bar</optionalpackage>
 ```
 
 The `file` attribute specifies the location of the optional package's archive relative to the `package.xml`.
@@ -124,10 +124,10 @@ List of packages which conflict with this package. It is not possible to install
 Example:
 
 ```xml
-<excludedpackage version="3.1.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+<excludedpackage version="6.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
 ```
 
-The attribute `version` must be a valid version number as described in the [\<version\>](#version) section. In the example above it will be impossible to install this package in WoltLab Suite Core 3.1.0 Alpha 1 or higher.
+The attribute `version` must be a valid version number as described in the [\<version\>](#version) section. In the example above it will be impossible to install this package in WoltLab Suite Core 6.0.0 Alpha 1 or higher.
 
 ### `<compatibility>`
 !!! info "Available since WoltLab Suite 3.1"
