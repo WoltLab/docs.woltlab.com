@@ -6,15 +6,17 @@ This guide will help you to create a simple package that provides a simple test
 page. It is nothing too fancy, but you can use it as the foundation for your
 next project.
 
-There are some requirements you should met before starting:
+There are some requirements you should be met before starting:
 
 - Text editor with syntax highlighting for PHP, [Notepad++](https://notepad-plus-plus.org/) is a solid pick
  - `*.php` and `*.tpl` should be encoded with ANSI/ASCII
  - `*.xml` are always encoded with UTF-8, but omit the BOM (byte-order-mark)
- - Use tabs instead of spaces to indent lines
- - It is recommended to set the tab width to `8` spaces, this is used in the entire software and will ease reading the source files
-- An active installation of WoltLab Suite 3
-- An application to create `*.tar` archives, e.g. [7-Zip](http://www.7-zip.org/) on Windows
+ - Use the coding standard [PSR-12](https://www.php-fig.org/psr/psr-12/) and use spaces for indentation instead of tabs
+ - Use [TypeScript](javascript/typescript.md) for generating JavaScript-code instead of writing JavaScript files
+ - Indent your TypeScript-Code using two (2) spaces
+ - An active installation of WoltLab Suite 5
+ - [npm](https://www.npmjs.com/get-npm) for TypeScript dependency management
+ - An application to create `*.tar` archives, e.g. [7-Zip](https://www.7-zip.org/) on Windows
 
 ## The package.xml File
 
@@ -26,7 +28,7 @@ Create a new file called `package.xml` and insert the code below:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<package xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/package.xsd" name="com.example.test">
+<package xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/5.4/package.xsd" name="com.example.test">
 	<packageinformation>
 		<!-- com.example.test -->
 		<packagename>Simple Package</packagename>
