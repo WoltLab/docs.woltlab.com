@@ -2419,14 +2419,14 @@
         <span class="nt">&lt;provider</span> <span class="na">name=</span><span class="s">&quot;youtube&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;title&gt;</span>YouTube<span class="nt">&lt;/title&gt;</span>
             <span class="nt">&lt;regex&gt;</span><span class="cp">&lt;![CDATA[https?://(?:.+?\.)?youtu(?:\.be/|be\.com/(?:#/)?watch\?(?:.*?&amp;)?v=)(?P&lt;ID&gt;[a-zA-Z0-9_-]+)(?:(?:\?|&amp;)t=(?P&lt;start&gt;[0-9hms]+)$)?]]&gt;</span><span class="nt">&lt;/regex&gt;</span>
-            <span class="c">&lt;!-- advanced PHP callback --&gt;</span>
+            <span class="cm">&lt;!-- advanced PHP callback --&gt;</span>
             <span class="nt">&lt;className&gt;</span><span class="cp">&lt;![CDATA[wcf\system\bbcode\media\provider\YouTubeBBCodeMediaProvider]]&gt;</span><span class="nt">&lt;/className&gt;</span>
         <span class="nt">&lt;/provider&gt;</span>
 
         <span class="nt">&lt;provider</span> <span class="na">name=</span><span class="s">&quot;youtube-playlist&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;title&gt;</span>YouTube Playlist<span class="nt">&lt;/title&gt;</span>
             <span class="nt">&lt;regex&gt;</span><span class="cp">&lt;![CDATA[https?://(?:.+?\.)?youtu(?:\.be/|be\.com/)playlist\?(?:.*?&amp;)?list=(?P&lt;ID&gt;[a-zA-Z0-9_-]+)]]&gt;</span><span class="nt">&lt;/regex&gt;</span>
-            <span class="c">&lt;!-- uses a simple HTML replacement --&gt;</span>
+            <span class="cm">&lt;!-- uses a simple HTML replacement --&gt;</span>
             <span class="nt">&lt;html&gt;</span><span class="cp">&lt;![CDATA[&lt;div class=&quot;videoContainer&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/videoseries?list={$ID}&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;]]&gt;</span><span class="nt">&lt;/html&gt;</span>
         <span class="nt">&lt;/provider&gt;</span>
     <span class="nt">&lt;/import&gt;</span>

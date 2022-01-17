@@ -2739,7 +2739,7 @@ It provides the meta data (e.g. package name, description, author) and the instr
         <span class="nt">&lt;packagename&gt;</span>Simple Package<span class="nt">&lt;/packagename&gt;</span>
         <span class="nt">&lt;packagedescription&gt;</span>A simple package to demonstrate the package system of WoltLab Suite Core<span class="nt">&lt;/packagedescription&gt;</span>
         <span class="nt">&lt;version&gt;</span>1.0.0<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;date&gt;</span>2016-12-18<span class="nt">&lt;/date&gt;</span>
+        <span class="nt">&lt;date&gt;</span>2022-01-17<span class="nt">&lt;/date&gt;</span>
     <span class="nt">&lt;/packageinformation&gt;</span>
 
     <span class="nt">&lt;authorinformation&gt;</span>
@@ -2748,7 +2748,7 @@ It provides the meta data (e.g. package name, description, author) and the instr
     <span class="nt">&lt;/authorinformation&gt;</span>
 
     <span class="nt">&lt;requiredpackages&gt;</span>
-        <span class="nt">&lt;requiredpackage</span> <span class="na">minversion=</span><span class="s">&quot;3.0.0&quot;</span><span class="nt">&gt;</span>com.woltlab.wcf<span class="nt">&lt;/requiredpackage&gt;</span>
+        <span class="nt">&lt;requiredpackage</span> <span class="na">minversion=</span><span class="s">&quot;5.4.10&quot;</span><span class="nt">&gt;</span>com.woltlab.wcf<span class="nt">&lt;/requiredpackage&gt;</span>
     <span class="nt">&lt;/requiredpackages&gt;</span>
 
     <span class="nt">&lt;excludedpackages&gt;</span>
@@ -2824,7 +2824,7 @@ The attribute <code>languagecode</code> is available here too, please reference 
 <p>A list of packages including their version required for this package to work.</p>
 <h4 id="requiredpackage"><code>&lt;requiredpackage&gt;</code><a class="headerlink" href="#requiredpackage" title="Permanent link">#</a></h4>
 <p>Example:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;requiredpackage</span> <span class="na">minversion=</span><span class="s">&quot;2.0.0&quot;</span> <span class="na">file=</span><span class="s">&quot;requirements/com.woltlab.wcf.tar&quot;</span><span class="nt">&gt;</span>com.woltlab.wcf<span class="nt">&lt;/requiredpackage&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;requiredpackage</span> <span class="na">minversion=</span><span class="s">&quot;2.7.5&quot;</span> <span class="na">file=</span><span class="s">&quot;requirements/com.example.foo.tar&quot;</span><span class="nt">&gt;</span>com.example.foo<span class="nt">&lt;/requiredpackage&gt;</span>
 </code></pre></div>
 </td></tr></table>
 <p>The attribute <code>minversion</code> must be a valid version number as described in <a href="#version"><code>&lt;version&gt;</code></a>.
@@ -2833,7 +2833,7 @@ The <code>file</code> attribute is optional and specifies the location of the re
 <p>A list of optional packages which can be selected by the user at the very end of the installation process.</p>
 <h4 id="optionalpackage_1"><code>&lt;optionalpackage&gt;</code><a class="headerlink" href="#optionalpackage_1" title="Permanent link">#</a></h4>
 <p>Example:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;optionalpackage</span> <span class="na">file=</span><span class="s">&quot;optionals/com.woltlab.wcf.moderatedUserGroup.tar&quot;</span><span class="nt">&gt;</span>com.woltlab.wcf.moderatedUserGroup<span class="nt">&lt;/optionalpackage&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;optionalpackage</span> <span class="na">file=</span><span class="s">&quot;optionals/com.example.bar.tar&quot;</span><span class="nt">&gt;</span>com.example.bar<span class="nt">&lt;/optionalpackage&gt;</span>
 </code></pre></div>
 </td></tr></table>
 <p>The <code>file</code> attribute specifies the location of the optional package's archive relative to the <code>package.xml</code>.</p>
@@ -2841,10 +2841,10 @@ The <code>file</code> attribute is optional and specifies the location of the re
 <p>List of packages which conflict with this package. It is not possible to install it if any of the specified packages is installed. In return you cannot install an excluded package if this package is installed.</p>
 <h4 id="excludedpackage"><code>&lt;excludedpackage&gt;</code><a class="headerlink" href="#excludedpackage" title="Permanent link">#</a></h4>
 <p>Example:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;excludedpackage</span> <span class="na">version=</span><span class="s">&quot;3.1.0 Alpha 1&quot;</span><span class="nt">&gt;</span>com.woltlab.wcf<span class="nt">&lt;/excludedpackage&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;excludedpackage</span> <span class="na">version=</span><span class="s">&quot;6.0.0 Alpha 1&quot;</span><span class="nt">&gt;</span>com.woltlab.wcf<span class="nt">&lt;/excludedpackage&gt;</span>
 </code></pre></div>
 </td></tr></table>
-<p>The attribute <code>version</code> must be a valid version number as described in the <a href="#version">\&lt;version></a> section. In the example above it will be impossible to install this package in WoltLab Suite Core 3.1.0 Alpha 1 or higher.</p>
+<p>The attribute <code>version</code> must be a valid version number as described in the <a href="#version">\&lt;version></a> section. In the example above it will be impossible to install this package in WoltLab Suite Core 6.0.0 Alpha 1 or higher.</p>
 <h3 id="compatibility"><code>&lt;compatibility&gt;</code><a class="headerlink" href="#compatibility" title="Permanent link">#</a></h3>
 <div class="admonition info">
 <p class="admonition-title">Available since WoltLab Suite 3.1</p>
@@ -2899,10 +2899,10 @@ The <code>file</code> attribute is optional and specifies the location of the re
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;instructions</span> <span class="na">type=</span><span class="s">&quot;update&quot;</span> <span class="na">fromversion=</span><span class="s">&quot;1.0.0&quot;</span><span class="nt">&gt;</span>
-    <span class="c">&lt;!-- … --&gt;</span>
+    <span class="cm">&lt;!-- … --&gt;</span>
 <span class="nt">&lt;/instructions&gt;</span>
 <span class="nt">&lt;instructions</span> <span class="na">type=</span><span class="s">&quot;update&quot;</span> <span class="na">fromversion=</span><span class="s">&quot;1.0.1&quot;</span><span class="nt">&gt;</span>
-    <span class="c">&lt;!-- … --&gt;</span>
+    <span class="cm">&lt;!-- … --&gt;</span>
 <span class="nt">&lt;/instructions&gt;</span>
 </code></pre></div>
 </td></tr></table>
@@ -2948,7 +2948,7 @@ Instead of using a dummy <code>&lt;instruction&gt;</code> that idempotently upda
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-04-23
+      Last update: 2022-01-17
     
   </small>
 </div>

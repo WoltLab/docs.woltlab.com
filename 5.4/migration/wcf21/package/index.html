@@ -2565,18 +2565,18 @@
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;instructions</span> <span class="na">type=</span><span class="s">&quot;install&quot;</span><span class="nt">&gt;</span>
-    <span class="c">&lt;!-- assumes `eventListener.xml` --&gt;</span>
+    <span class="cm">&lt;!-- assumes `eventListener.xml` --&gt;</span>
     <span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">&quot;eventListener&quot;</span> <span class="nt">/&gt;</span>
-    <span class="c">&lt;!-- assumes `install.sql` --&gt;</span>
+    <span class="cm">&lt;!-- assumes `install.sql` --&gt;</span>
     <span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">&quot;sql&quot;</span> <span class="nt">/&gt;</span>
-    <span class="c">&lt;!-- assumes `language/*.xml` --&gt;</span>
+    <span class="cm">&lt;!-- assumes `language/*.xml` --&gt;</span>
     <span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">&quot;language&quot;</span> <span class="nt">/&gt;</span>
 
-    <span class="c">&lt;!-- exceptions --&gt;</span>
+    <span class="cm">&lt;!-- exceptions --&gt;</span>
 
-    <span class="c">&lt;!-- assumes `files.tar` --&gt;</span>
+    <span class="cm">&lt;!-- assumes `files.tar` --&gt;</span>
     <span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">&quot;file&quot;</span> <span class="nt">/&gt;</span>
-    <span class="c">&lt;!-- no default value, requires relative path --&gt;</span>
+    <span class="cm">&lt;!-- no default value, requires relative path --&gt;</span>
     <span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">&quot;script&quot;</span><span class="nt">&gt;</span>acp/install_com.woltlab.wcf_3.0.php<span class="nt">&lt;/instruction&gt;</span>
 <span class="nt">&lt;/instructions&gt;</span>
 </code></pre></div>
@@ -2667,25 +2667,25 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c">&lt;!-- category --&gt;</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- category --&gt;</span>
 <span class="nt">&lt;acpmenuitem</span> <span class="na">name=</span><span class="s">&quot;wcf.acp.menu.link.group&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;parent&gt;</span>wcf.acp.menu.link.user<span class="nt">&lt;/parent&gt;</span>
     <span class="nt">&lt;showorder&gt;</span>2<span class="nt">&lt;/showorder&gt;</span>
 <span class="nt">&lt;/acpmenuitem&gt;</span>
 
-<span class="c">&lt;!-- menu item --&gt;</span>
+<span class="cm">&lt;!-- menu item --&gt;</span>
 <span class="nt">&lt;acpmenuitem</span> <span class="na">name=</span><span class="s">&quot;wcf.acp.menu.link.group.list&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;controller&gt;</span>wcf\acp\page\UserGroupListPage<span class="nt">&lt;/controller&gt;</span>
     <span class="nt">&lt;parent&gt;</span>wcf.acp.menu.link.group<span class="nt">&lt;/parent&gt;</span>
     <span class="nt">&lt;permissions&gt;</span>admin.user.canEditGroup,admin.user.canDeleteGroup<span class="nt">&lt;/permissions&gt;</span>
 <span class="nt">&lt;/acpmenuitem&gt;</span>
-<span class="c">&lt;!-- menu item action --&gt;</span>
+<span class="cm">&lt;!-- menu item action --&gt;</span>
 <span class="nt">&lt;acpmenuitem</span> <span class="na">name=</span><span class="s">&quot;wcf.acp.menu.link.group.add&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;controller&gt;</span>wcf\acp\form\UserGroupAddForm<span class="nt">&lt;/controller&gt;</span>
-    <span class="c">&lt;!-- actions are defined by menu items of menu items --&gt;</span>
+    <span class="cm">&lt;!-- actions are defined by menu items of menu items --&gt;</span>
     <span class="nt">&lt;parent&gt;</span>wcf.acp.menu.link.group.list<span class="nt">&lt;/parent&gt;</span>
     <span class="nt">&lt;permissions&gt;</span>admin.user.canAddGroup<span class="nt">&lt;/permissions&gt;</span>
-    <span class="c">&lt;!-- required FontAwesome icon name used for display --&gt;</span>
+    <span class="cm">&lt;!-- required FontAwesome icon name used for display --&gt;</span>
     <span class="nt">&lt;icon&gt;</span>fa-plus<span class="nt">&lt;/icon&gt;</span>
 <span class="nt">&lt;/acpmenuitem&gt;</span>
 </code></pre></div>
