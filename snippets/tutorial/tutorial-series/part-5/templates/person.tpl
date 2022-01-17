@@ -33,7 +33,7 @@
 			
 			{foreach from=$person->getInformation() item=$information}
 				<li class="comment personInformation jsObjectActionObject" data-object-id="{@$information->getObjectID()}">
-					<div class="box48{if $__wcf->getUserProfileHandler()->isIgnoredUser($information->userID)} ignoredUserContent{/if}">
+					<div class="box48{if $__wcf->getUserProfileHandler()->isIgnoredUser($information->userID, 2)} ignoredUserContent{/if}">
 						{user object=$information->getUserProfile() type='avatar48' ariaHidden='true' tabindex='-1'}
 						
 						<div class="commentContentContainer">
