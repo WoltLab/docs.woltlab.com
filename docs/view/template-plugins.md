@@ -462,6 +462,17 @@ require(['Language', /* … */], function(Language, /* … */) {
 ```
 
 
+## <span class="label label-info">5.5+</span> `json`
+
+`json` JSON-encodes the given value.
+
+```smarty
+<script>
+let data = { "title": {@$foo->getTitle()|json} };
+</script>
+```
+
+
 ## `lang`
 
 `lang` replaces a language items with its value.
