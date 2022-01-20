@@ -233,16 +233,6 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 ```
 
 
-## `encodeJSON`
-
-`encodeJSON` encodes a JSON string to be used as a single-quoted string in JavaScript by replacing `\\` with `\\\\`, `'` with `&#39;`, linebreaks with `\n`, and `/` with `\/`.
-Additionally, `htmlspecialchars` is applied to the string.
-
-```smarty
-'{@$foo|encodeJSON}'
-```
-
-
 ## `escapeCDATA`
 
 `escapeCDATA` encodes a string to be used in a `CDATA` element by replacing `]]>` with `]]]]><![CDATA[>`.
