@@ -34,6 +34,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\system\session\Session::getDeviceIcon()` ([WoltLab/WCF#4525](https://github.com/WoltLab/WCF/pull/4525))
 - `wcf\system\WCF::getAnchor()` ([WoltLab/WCF#4580](https://github.com/WoltLab/WCF/pull/4580))
 - `wcf\util\MathUtil::getRandomValue()` ([WoltLab/WCF#4280](https://github.com/WoltLab/WCF/pull/4280))
+- `wcf\util\StringUtil::encodeJSON()` ([WoltLab/WCF#4645](https://github.com/WoltLab/WCF/pull/4645))
 - `wcf\util\StringUtil::endsWith()` ([WoltLab/WCF#4509](https://github.com/WoltLab/WCF/pull/4509))
 - `wcf\util\StringUtil::getHash()` ([WoltLab/WCF#4279](https://github.com/WoltLab/WCF/pull/4279))
 - `wcf\util\StringUtil::split()` ([WoltLab/WCF#4513](https://github.com/WoltLab/WCF/pull/4513))
@@ -78,6 +79,10 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf1_package_update_optional` ([WoltLab/WCF#4432](https://github.com/WoltLab/WCF/pull/4432))
 
 ### Templates
+
+#### Template Modifiers
+
+- `|encodeJSON` ([WoltLab/WCF#4645](https://github.com/WoltLab/WCF/pull/4645))
 
 #### Template Events
 
