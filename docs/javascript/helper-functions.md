@@ -253,7 +253,7 @@ var elements = context.getElementsByTagName("div");
 
 ## Utility Functions
 
-### `elInnerError(element: Element, errorMessage?: string, isHtml?: boolean): Element | null``
+### `elInnerError(element: Element, errorMessage?: string, isHtml?: boolean): Element | null`
 
 Unified function to display and remove inline error messages for input elements,
 please read the [section in the migration docs](../migration/wsc30/javascript.md#helper-function-for-inline-error-messages)
