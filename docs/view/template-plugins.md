@@ -492,6 +492,8 @@ All additional attributes are available when parsing the language item.
 If the template variable `__language` exists, this language object will be used instead of `WCF::getLanguage()`.
 This modifier is useful when assigning the value directly to a variable.
 
+Note that template scripting is applied to the output of the variable, which can lead to unwanted side effects. Use `phrase` instead if you don't want to use template scripting.
+
 ```smarty
 {$languageItem|language}
 
@@ -571,6 +573,21 @@ For detailed information on its usage, we refer to the extensive documentation i
 | `pages` | maximum number of of pages; by default, the template variable `$pages` is used |
 | `print` | if `false` and `assign=true`, the pagination is not printed |
 | `application`, `id`, `object`, `title` | additional parameters passed to `LinkHandler::getLink()` to generate page links |
+
+
+## <span class="label label-info">5.5+</span> `phrase`
+
+`phrase` replaces a language items with its value.
+If the template variable `__language` exists, this language object will be used instead of `WCF::getLanguage()`.
+This modifier is useful when assigning the value directly to a variable.
+
+`phrase` should be used instead of `language` unless you want to explicitly allow template scripting on a variable's output.
+
+```smarty
+{$languageItem|phrase}
+
+{assign var=foo value=$languageItem|phrase}
+```
 
 
 ## `plainTime`
