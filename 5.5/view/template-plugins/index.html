@@ -993,6 +993,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#55-phrase" class="md-nav__link">
+    5.5+ phrase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#plaintime" class="md-nav__link">
     plainTime
   </a>
@@ -2923,6 +2930,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#55-phrase" class="md-nav__link">
+    5.5+ phrase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#plaintime" class="md-nav__link">
     plainTime
   </a>
@@ -3654,6 +3668,7 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 <p><code>language</code> replaces a language items with its value.
 If the template variable <code>__language</code> exists, this language object will be used instead of <code>WCF::getLanguage()</code>.
 This modifier is useful when assigning the value directly to a variable.</p>
+<p>Note that template scripting is applied to the output of the variable, which can lead to unwanted side effects. Use <code>phrase</code> instead if you don't want to use template scripting.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$languageItem</span><span class="o">|</span><span class="na">language</span><span class="cp">}</span><span class="x"></span>
@@ -3783,6 +3798,18 @@ For detailed information on its usage, we refer to the extensive documentation i
 </tr>
 </tbody>
 </table>
+<h2 id="55-phrase"><span class="label label-info">5.5+</span> <code>phrase</code><a class="headerlink" href="#55-phrase" title="Permanent link">#</a></h2>
+<p><code>phrase</code> replaces a language items with its value.
+If the template variable <code>__language</code> exists, this language object will be used instead of <code>WCF::getLanguage()</code>.
+This modifier is useful when assigning the value directly to a variable.</p>
+<p><code>phrase</code> should be used instead of <code>language</code> unless you want to explicitly allow template scripting on a variable's output.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nv">$languageItem</span><span class="o">|</span><span class="na">phrase</span><span class="cp">}</span><span class="x"></span>
+
+<span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">foo</span> <span class="na">value</span><span class="o">=</span><span class="nv">$languageItem</span><span class="o">|</span><span class="na">phrase</span><span class="cp">}</span><span class="x"></span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="plaintime"><code>plainTime</code><a class="headerlink" href="#plaintime" title="Permanent link">#</a></h2>
 <p><code>plainTime</code> formats a timestamp to include year, month, day, hour, and minutes.
 The exact formatting depends on the current language (via the language items <code>wcf.date.dateTimeFormat</code>, <code>wcf.date.dateFormat</code>, and <code>wcf.date.timeFormat</code>).</p>
@@ -3969,7 +3996,7 @@ The optional <code>type</code> parameter is responsible for what the generated l
   <small>
     
       Last update:
-      2022-01-20
+      2022-02-03
     
   </small>
 </div>
