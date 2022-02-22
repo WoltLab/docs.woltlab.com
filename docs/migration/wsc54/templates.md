@@ -12,7 +12,7 @@ See [WoltLab/WCF#4315](https://github.com/WoltLab/WCF/pull/4315) for details.
 
 ## Phrase Modifier
 
-The `|language` modifier was added to allow the piping of the phrase through other functions. This has some unwanted side effects when used with plain strings that should not support variable interpolation. Another difference to {lang} is the evaluation on runtime rather than at compile time, allowing the phrase to be taken from a variable instead.
+The `|language` modifier was added to allow the piping of the phrase through other functions. This has some unwanted side effects when used with plain strings that should not support variable interpolation. Another difference to `{lang}` is the evaluation on runtime rather than at compile time, allowing the phrase to be taken from a variable instead.
 
 We introduces the new modifier `|phrase` as a thin wrapper around `\wcf\system::WCF::getLanguage()->get()`. Use `|phrase` instead of `|language` unless you want to explicitly allow template scripting on a variable's output.
 
