@@ -13,7 +13,7 @@ There are some requirements you should met before starting:
  - `*.xml` are always encoded with UTF-8, but omit the BOM (byte-order-mark)
  - Use tabs instead of spaces to indent lines
  - It is recommended to set the tab width to `8` spaces, this is used in the entire software and will ease reading the source files
-- An active installation of WoltLab Suite 3
+- An active installation of WoltLab Suite 5
 - An application to create `*.tar` archives, e.g. [7-Zip](http://www.7-zip.org/) on Windows
 
 ## The package.xml File
