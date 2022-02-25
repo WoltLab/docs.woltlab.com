@@ -3,7 +3,7 @@
 ## Form Validation
 
 Every form field class has to implement `IFormField::validate()` according to their internal logic of what constitutes a valid value.
-If a certain constraint for the value is no met, a form field validation error object is added to the form field.
+If a certain constraint for the value is not met, a form field validation error object is added to the form field.
 Form field validation error classes have to implement the interface `IFormFieldValidationError`.
 
 In addition to intrinsic validations like checking the length of the value of a text form field, in many cases, there are additional constraints specific to the form like ensuring that the text is not already used by a different object of the same database object class.
