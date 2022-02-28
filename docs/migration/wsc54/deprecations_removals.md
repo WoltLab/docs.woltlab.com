@@ -108,6 +108,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wbb\action\BoardQuickSearchAction`
 - `wbb\data\thread\NewsList`
 - `wbb\data\thread\News`
+- `wcf\action\PollAction` ([WoltLab/WCF#4662](https://github.com/WoltLab/WCF/pull/4662))
 - `wcf\form\RecaptchaForm` ([WoltLab/WCF#4289](https://github.com/WoltLab/WCF/pull/4289))
 - `wcf\system\background\job\ElasticSearchIndexBackgroundJob`
 - `wcf\system\cache\builder\TemplateListenerCacheBuilder` ([WoltLab/WCF#4297](https://github.com/WoltLab/WCF/pull/4297))
