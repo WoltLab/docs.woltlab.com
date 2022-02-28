@@ -204,6 +204,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `WCF.Conversation.Message.QuoteHandler` (use `WoltLabSuite/Core/Conversation/Ui/Message/Quote`, see [WoltLab/com.woltlab.wcf.conversation#155](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/155))
 - `WCF.Like.js` ([WoltLab/WCF#4300](https://github.com/WoltLab/WCF/pull/4300))
 - `WCF.Message.UserMention` ([WoltLab/WCF#4324](https://github.com/WoltLab/WCF/pull/4324))
+- `WCF.Poll.Manager` ([WoltLab/WCF#4662](https://github.com/WoltLab/WCF/pull/4662))
 - `WCF.UserPanel` ([WoltLab/WCF#4316](https://github.com/WoltLab/WCF/pull/4316))
 - `WCF.User.Panel.Moderation` ([WoltLab/WCF#4603](https://github.com/WoltLab/WCF/pull/4603))
 - `WCF.User.Panel.Notification` ([WoltLab/WCF#4603](https://github.com/WoltLab/WCF/pull/4603))
