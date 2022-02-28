@@ -62,6 +62,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 - `HTTP_SEND_X_FRAME_OPTIONS` ([WoltLab/WCF#4474](https://github.com/WoltLab/WCF/pull/4474))
 - `ELASTICSEARCH_ALLOW_LEADING_WILDCARD`
+- `WBB_MODULE_IGNORE_BOARDS` (The option will be always on with WoltLab Suite Forum 5.5 and will be removed with a future version.)
 
 ### JavaScript
 
