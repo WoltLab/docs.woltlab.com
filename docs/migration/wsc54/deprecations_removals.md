@@ -62,6 +62,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 - `HTTP_SEND_X_FRAME_OPTIONS` ([WoltLab/WCF#4474](https://github.com/WoltLab/WCF/pull/4474))
 - `ELASTICSEARCH_ALLOW_LEADING_WILDCARD`
+- `WBB_MODULE_IGNORE_BOARDS` (The option will be always on with WoltLab Suite Forum 5.5 and will be removed with a future version.)
 
 ### JavaScript
 
@@ -107,6 +108,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wbb\action\BoardQuickSearchAction`
 - `wbb\data\thread\NewsList`
 - `wbb\data\thread\News`
+- `wcf\action\PollAction` ([WoltLab/WCF#4662](https://github.com/WoltLab/WCF/pull/4662))
 - `wcf\form\RecaptchaForm` ([WoltLab/WCF#4289](https://github.com/WoltLab/WCF/pull/4289))
 - `wcf\system\background\job\ElasticSearchIndexBackgroundJob`
 - `wcf\system\cache\builder\TemplateListenerCacheBuilder` ([WoltLab/WCF#4297](https://github.com/WoltLab/WCF/pull/4297))
@@ -203,6 +205,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `WCF.Conversation.Message.QuoteHandler` (use `WoltLabSuite/Core/Conversation/Ui/Message/Quote`, see [WoltLab/com.woltlab.wcf.conversation#155](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/155))
 - `WCF.Like.js` ([WoltLab/WCF#4300](https://github.com/WoltLab/WCF/pull/4300))
 - `WCF.Message.UserMention` ([WoltLab/WCF#4324](https://github.com/WoltLab/WCF/pull/4324))
+- `WCF.Poll.Manager` ([WoltLab/WCF#4662](https://github.com/WoltLab/WCF/pull/4662))
 - `WCF.UserPanel` ([WoltLab/WCF#4316](https://github.com/WoltLab/WCF/pull/4316))
 - `WCF.User.Panel.Moderation` ([WoltLab/WCF#4603](https://github.com/WoltLab/WCF/pull/4603))
 - `WCF.User.Panel.Notification` ([WoltLab/WCF#4603](https://github.com/WoltLab/WCF/pull/4603))
