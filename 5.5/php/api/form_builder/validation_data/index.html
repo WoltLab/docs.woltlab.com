@@ -2584,7 +2584,7 @@
 <h1 id="form-validation-and-form-data">Form Validation and Form Data<a class="headerlink" href="#form-validation-and-form-data" title="Permanent link">#</a></h1>
 <h2 id="form-validation">Form Validation<a class="headerlink" href="#form-validation" title="Permanent link">#</a></h2>
 <p>Every form field class has to implement <code>IFormField::validate()</code> according to their internal logic of what constitutes a valid value.
-If a certain constraint for the value is no met, a form field validation error object is added to the form field.
+If a certain constraint for the value is not met, a form field validation error object is added to the form field.
 Form field validation error classes have to implement the interface <code>IFormFieldValidationError</code>.</p>
 <p>In addition to intrinsic validations like checking the length of the value of a text form field, in many cases, there are additional constraints specific to the form like ensuring that the text is not already used by a different object of the same database object class.
 Such additional validations can be added to (and removed from) the form field via implementations of the <code>IFormFieldValidator</code> interface.</p>
@@ -2659,7 +2659,7 @@ When the data processor is invoked, it checks whether the relevant entry in the 
   <small>
     
       Last update:
-      2021-06-28
+      2022-02-25
     
   </small>
 </div>
