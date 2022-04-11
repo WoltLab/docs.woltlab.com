@@ -312,6 +312,13 @@ Constructing an object of these factory classes is considered a bug, as the clas
 
 See [WoltLab/WCF#4564](https://github.com/WoltLab/WCF/pull/4564) for details.
 
+WoltLab Suite 5.5 adds the `IDefaultValueDatabaseTableColumn` interface which is used to check whether specifying a default value is legal.
+For backwards compatibility this interface is implemented by `AbstractDatabaseTableColumn`.
+You should explicitly add this interface to custom table column type classes to avoid breakage if the interface is removed from `AbstractDatabaseTableColumn` in a future version.
+Likewise you should explicitly check for the interface before attempting to access the methods related to the default value of a column.
+
+See [WoltLab/WCF#4733](https://github.com/WoltLab/WCF/pull/4733) for details.
+
 ### File Deletion
 
 Three new package installation plugins have been added to delete ACP templates with [acpTemplateDelete](../../package/pip/acp-template-delete.md), files with [fileDelete](../../package/pip/file-delete.md), and templates with [templateDelete](../../package/pip/template-delete.md).

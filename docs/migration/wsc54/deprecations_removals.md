@@ -16,6 +16,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\form\SearchForm` (see [WoltLab/WCF#4605](https://github.com/WoltLab/WCF/pull/4605))
 - `wcf\page\AbstractSecurePage` ([WoltLab/WCF#4515](https://github.com/WoltLab/WCF/pull/4515))
 - `wcf\page\SearchResultPage` (see [WoltLab/WCF#4605](https://github.com/WoltLab/WCF/pull/4605))
+- `wcf\system\database\table\column\TUnsupportedDefaultValue` (do not implement `IDefaultValueDatabaseTableColumn`, see [WoltLab/WCF#4733](https://github.com/WoltLab/WCF/pull/4733))
 - `wcf\system\exception\ILoggingAwareException` ([WoltLab/WCF#4547](https://github.com/WoltLab/WCF/pull/4547))
 - `wcf\system\io\FTP` (directly use the FTP extension)
 - `wcf\system\search\AbstractSearchableObjectType` (use `AbstractSearchProvider` instead, see [WoltLab/WCF#4605](https://github.com/WoltLab/WCF/pull/4605))
