@@ -3152,6 +3152,11 @@ For example it must not be returned obvious programming errors, such as an acces
 <p>The static <code>create()</code> method never returned an object of the factory class, but instead in object of the base type (e.g. <code>IntDatabaseTableColumn</code> for <code>NotNullInt10DatabaseTableColumn</code>).
 Constructing an object of these factory classes is considered a bug, as the class name implies a specific column configuration, that might or might not hold if the object is modified afterwards.</p>
 <p>See <a href="https://github.com/WoltLab/WCF/pull/4564">WoltLab/WCF#4564</a> for details.</p>
+<p>WoltLab Suite 5.5 adds the <code>IDefaultValueDatabaseTableColumn</code> interface which is used to check whether specifying a default value is legal.
+For backwards compatibility this interface is implemented by <code>AbstractDatabaseTableColumn</code>.
+You should explicitly add this interface to custom table column type classes to avoid breakage if the interface is removed from <code>AbstractDatabaseTableColumn</code> in a future version.
+Likewise you should explicitly check for the interface before attempting to access the methods related to the default value of a column.</p>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/4733">WoltLab/WCF#4733</a> for details.</p>
 <h3 id="file-deletion">File Deletion<a class="headerlink" href="#file-deletion" title="Permanent link">#</a></h3>
 <p>Three new package installation plugins have been added to delete ACP templates with <a href="../../../package/pip/acp-template-delete/">acpTemplateDelete</a>, files with <a href="../../../package/pip/file-delete/">fileDelete</a>, and templates with <a href="../../../package/pip/template-delete/">templateDelete</a>.</p>
 <h3 id="language">Language<a class="headerlink" href="#language" title="Permanent link">#</a></h3>
@@ -3232,7 +3237,7 @@ Constructing an object of these factory classes is considered a bug, as the clas
   <small>
     
       Last update:
-      2021-12-20
+      2022-04-11
     
   </small>
 </div>
