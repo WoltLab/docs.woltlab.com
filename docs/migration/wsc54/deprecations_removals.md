@@ -27,6 +27,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 #### Methods
 
 - `wcf\action\MessageQuoteAction::markForRemoval()` ([WoltLab/WCF#4452](https://github.com/WoltLab/WCF/pull/4452))
+- `wcf\data\user\avatar\UserAvatarAction::fetchRemoteAvatar()` ([WoltLab/WCF#4744](https://github.com/WoltLab/WCF/pull/4744))
 - `wcf\data\user\notification\UserNotificationAction::getOutstandingNotifications()` ([WoltLab/WCF#4603](https://github.com/WoltLab/WCF/pull/4603))
 - `wcf\data\moderation\queue\ModerationQueueAction::getOutstandingQueues()` ([WoltLab/WCF#4603](https://github.com/WoltLab/WCF/pull/4603))
 - `wcf\system\message\QuickReplyManager::setTmpHash()` ([WoltLab/WCF#4575](https://github.com/WoltLab/WCF/pull/4575))
