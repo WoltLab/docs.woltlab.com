@@ -179,7 +179,7 @@ To list the people in the ACP, we need a `PersonListPage` class and a `personLis
 #### `PersonListPage`
 
 {jinja{ codebox(
-  title="files/lib/data/person/PersonListPage.class.php",
+  title="files/lib/acp/page/PersonListPage.class.php",
   language="php",
   filepath="tutorial/tutorial-series/part-1/files/lib/acp/page/PersonListPage.class.php"
 ) }}
