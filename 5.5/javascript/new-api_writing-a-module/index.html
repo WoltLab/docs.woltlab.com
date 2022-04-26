@@ -2518,7 +2518,7 @@ using a <a href="../../package/pip/template-listener/">template-listener</a> on 
 the module name is therefore <code>WoltLabSuite/Core/Ui/Foo</code>, it is automatically
 derived from the file path and name.</p>
 <p>For further instructions on how to define and require modules head over to the <a href="http://requirejs.org/docs/api.html">RequireJS API</a>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2550,54 +2550,52 @@ derived from the file path and name.</p>
 <span class="normal">30</span>
 <span class="normal">31</span>
 <span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">define</span><span class="p">([</span><span class="s2">&quot;Ajax&quot;</span><span class="p">,</span> <span class="s2">&quot;WoltLabSuite/Core/Ui/Bar&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Ajax</span><span class="p">,</span> <span class="nx">UiBar</span><span class="p">)</span> <span class="p">{</span>
-  <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">define</span><span class="p">([</span><span class="s2">&quot;Ajax&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Ui/Bar&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Ajax</span><span class="p">,</span><span class="w"> </span><span class="nx">UiBar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span><span class="w"></span>
 
-  <span class="kd">function</span> <span class="nx">Foo</span><span class="p">()</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span> <span class="p">}</span>
-  <span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nx">elBySel</span><span class="p">(</span><span class="s2">&quot;.myButton&quot;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">WCF_CLICK_EVENT</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_click</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
-    <span class="p">},</span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">Foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">init</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">elBySel</span><span class="p">(</span><span class="s2">&quot;.myButton&quot;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">WCF_CLICK_EVENT</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">_click</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
 
-    <span class="nx">_click</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">_click</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
 
-      <span class="k">if</span> <span class="p">(</span><span class="nx">UiBar</span><span class="p">.</span><span class="nx">isSnafucated</span><span class="p">())</span> <span class="p">{</span>
-        <span class="nx">Ajax</span><span class="p">.</span><span class="nx">api</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">UiBar</span><span class="p">.</span><span class="nx">isSnafucated</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Ajax</span><span class="p">.</span><span class="nx">api</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
 
-    <span class="nx">_ajaxSuccess</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Received response&quot;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
-    <span class="p">},</span>
+<span class="w">    </span><span class="nx">_ajaxSuccess</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Received response&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
 
-    <span class="nx">_ajaxSetup</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="p">{</span>
-        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
-          <span class="nx">actionName</span><span class="o">:</span> <span class="s2">&quot;makeSnafucated&quot;</span><span class="p">,</span>
-          <span class="nx">className</span><span class="o">:</span> <span class="s2">&quot;wcf\\data\\foo\\FooAction&quot;</span>
-        <span class="p">}</span>
-      <span class="p">};</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="nx">_ajaxSetup</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">actionName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;makeSnafucated&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nx">className</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;wcf\\data\\foo\\FooAction&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="k">return</span> <span class="nx">Foo</span><span class="p">;</span>
-<span class="p">});</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">Foo</span><span class="p">;</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h2 id="loading-a-module">Loading a Module<a class="headerlink" href="#loading-a-module" title="Permanent link">#</a></h2>
 <p>Modules can then be loaded through their derived name:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
-  <span class="nx">require</span><span class="p">([</span><span class="s2">&quot;WoltLabSuite/Core/Ui/Foo&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">UiFoo</span><span class="p">)</span> <span class="p">{</span>
-    <span class="ow">new</span> <span class="nx">UiFoo</span><span class="p">();</span>
-  <span class="p">});</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;WoltLabSuite/Core/Ui/Foo&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">UiFoo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">UiFoo</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="module-aliases">Module Aliases<a class="headerlink" href="#module-aliases" title="Permanent link">#</a></h3>
 <p>Some common modules have short-hand aliases that can be used to include them
 without writing out their full name. You can still use their original path, but

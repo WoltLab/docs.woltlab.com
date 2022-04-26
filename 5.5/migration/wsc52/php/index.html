@@ -2538,34 +2538,31 @@ To support this edit link two small changes are required within your <code>*AddF
 <li>
 <p>Update the template.</p>
 <p>Replace:
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;formError&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;formError&#39;</span><span class="cp">}</span><span class="x"></span>
 
 <span class="cp">{</span><span class="nf">if</span> <span class="nv">$success</span><span class="o">|</span><span class="na">isset</span><span class="cp">}</span><span class="x"></span>
 <span class="x">    &lt;p class=&quot;success&quot;&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.success.</span><span class="cp">{</span><span class="nv">$action</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/p&gt;</span>
 <span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
-</code></pre></div>
-</td></tr></table></p>
+</code></pre></div></td></tr></table></div></p>
 <p>With:
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;formNotice&#39;</span><span class="cp">}</span><span class="x"></span>
-</code></pre></div>
-</td></tr></table></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;formNotice&#39;</span><span class="cp">}</span><span class="x"></span>
+</code></pre></div></td></tr></table></div></p>
 </li>
 <li>
 <p>Expose <code>objectEditLink</code> to the template.</p>
 <p>Example (<code>$object</code> being the newly created object):
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
     <span class="s1">&#39;success&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
     <span class="s1">&#39;objectEditLink&#39;</span> <span class="o">=&gt;</span> <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getControllerLink</span><span class="p">(</span><span class="nx">ObjectEditForm</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$object</span><span class="o">-&gt;</span><span class="na">objectID</span><span class="p">]),</span>
 <span class="p">]);</span>
-</code></pre></div>
-</td></tr></table></p>
+</code></pre></div></td></tr></table></div></p>
 </li>
 </ol>
 <h2 id="user-generated-links">User Generated Links<a class="headerlink" href="#user-generated-links" title="Permanent link">#</a></h2>
@@ -2585,7 +2582,7 @@ Unless the destination variable is explicitely cleared before processing the nex
 This possibly causes the request to exceed the memory limit or ImageMagick's internal resource limits, even if sufficient resources would have been available to scale the current image.</p>
 <p>Starting with WoltLab Suite 5.3 it is recommended to clear image handles as early as possible.
 The usual pattern of creating a thumbnail for an existing image would then look like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2597,7 +2594,7 @@ The usual pattern of creating a thumbnail for an existing image would then look 
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">foreach</span> <span class="p">([</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span> <span class="p">]</span> <span class="k">as</span> <span class="nv">$size</span><span class="p">)</span> <span class="p">{</span>
     <span class="nv">$adapter</span> <span class="o">=</span> <span class="nx">ImageHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getAdapter</span><span class="p">();</span>
     <span class="nv">$adapter</span><span class="o">-&gt;</span><span class="na">loadFile</span><span class="p">(</span><span class="nv">$src</span><span class="p">);</span>
@@ -2610,8 +2607,7 @@ The usual pattern of creating a thumbnail for an existing image would then look 
     <span class="c1">// New: Clear thumbnail as soon as possible to free up the memory.</span>
     <span class="nv">$thumbnail</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>Refer to <a href="https://github.com/WoltLab/WCF/pull/3505">WoltLab/WCF#3505</a> for additional details.</p>
 <h2 id="toggle-for-accelerated-mobile-pages-amp">Toggle for Accelerated Mobile Pages (AMP)<a class="headerlink" href="#toggle-for-accelerated-mobile-pages-amp" title="Permanent link">#</a></h2>
 <p>Controllers delivering AMP versions of pages have to check for the new option <code>MODULE_AMP</code> and the templates of the non-AMP versions have to also check if the option is enabled before outputting the <code>&lt;link rel="amphtml" /&gt;</code> element.</p>

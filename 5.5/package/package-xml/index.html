@@ -2851,7 +2851,7 @@
 <p>The <code>package.xml</code> is the core component of every package.
 It provides the meta data (e.g. package name, description, author) and the instruction set for a new installation and/or updating from a previous version.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h2>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">package.xml <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/package/package.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">package.xml <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/package/package.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2877,7 +2877,7 @@ It provides the meta data (e.g. package name, description, author) and the instr
 <span class="normal">24</span>
 <span class="normal">25</span>
 <span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;com.example.package&quot;</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/2019/package.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;packageinformation&gt;</span>
         <span class="nt">&lt;packagename&gt;</span>Simple Package<span class="nt">&lt;/packagename&gt;</span>
@@ -2904,8 +2904,7 @@ It provides the meta data (e.g. package name, description, author) and the instr
         <span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">&quot;template&quot;</span><span class="nt">&gt;</span>templates.tar<span class="nt">&lt;/instruction&gt;</span>
     <span class="nt">&lt;/instructions&gt;</span>
 <span class="nt">&lt;/package&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h2 id="elements">Elements<a class="headerlink" href="#elements" title="Permanent link">#</a></h2>
 <h3 id="package"><code>&lt;package&gt;</code><a class="headerlink" href="#package" title="Permanent link">#</a></h3>
 <p>The root node of every <code>package.xml</code> it contains the reference to the namespace and the location of the XML Schema Definition (XSD).</p>
@@ -2918,15 +2917,14 @@ The resulting package identifier is <code>com.woltlab.wbb</code> (<code>&lt;tld&
 <h4 id="packagename"><code>&lt;packagename&gt;</code><a class="headerlink" href="#packagename" title="Permanent link">#</a></h4>
 <p>This is the actual package name displayed to the end user, this can be anything you want, try to keep it short.
 It supports the attribute <code>languagecode</code> which allows you to provide the package name in different languages, please be aware that if it is not present, <code>en</code> (English) is assumed:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;packageinformation&gt;</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;packageinformation&gt;</span>
     <span class="nt">&lt;packagename&gt;</span>Simple Package<span class="nt">&lt;/packagename&gt;</span>
     <span class="nt">&lt;packagename</span> <span class="na">languagecode=</span><span class="s">&quot;de&quot;</span><span class="nt">&gt;</span>Einfaches Paket<span class="nt">&lt;/packagename&gt;</span>
 <span class="nt">&lt;/packageinformation&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h4 id="packagedescription"><code>&lt;packagedescription&gt;</code><a class="headerlink" href="#packagedescription" title="Permanent link">#</a></h4>
 <p>Brief summary of the package, use it to explain what it does since the package name might not always be clear enough.
 The attribute <code>languagecode</code> is available here too, please reference to <a href="#packageName"><code>&lt;packagename&gt;</code></a> for details.</p>
@@ -2966,26 +2964,23 @@ The attribute <code>languagecode</code> is available here too, please reference 
 <p>A list of packages including their version required for this package to work.</p>
 <h4 id="requiredpackage"><code>&lt;requiredpackage&gt;</code><a class="headerlink" href="#requiredpackage" title="Permanent link">#</a></h4>
 <p>Example:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;requiredpackage</span> <span class="na">minversion=</span><span class="s">&quot;2.7.5&quot;</span> <span class="na">file=</span><span class="s">&quot;requirements/com.example.foo.tar&quot;</span><span class="nt">&gt;</span>com.example.foo<span class="nt">&lt;/requiredpackage&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;requiredpackage</span> <span class="na">minversion=</span><span class="s">&quot;2.7.5&quot;</span> <span class="na">file=</span><span class="s">&quot;requirements/com.example.foo.tar&quot;</span><span class="nt">&gt;</span>com.example.foo<span class="nt">&lt;/requiredpackage&gt;</span>
+</code></pre></div></td></tr></table></div>
 <p>The attribute <code>minversion</code> must be a valid version number as described in <a href="#version"><code>&lt;version&gt;</code></a>.
 The <code>file</code> attribute is optional and specifies the location of the required package's archive relative to the <code>package.xml</code>.</p>
 <h3 id="optionalpackage"><code>&lt;optionalpackage&gt;</code><a class="headerlink" href="#optionalpackage" title="Permanent link">#</a></h3>
 <p>A list of optional packages which can be selected by the user at the very end of the installation process.</p>
 <h4 id="optionalpackage_1"><code>&lt;optionalpackage&gt;</code><a class="headerlink" href="#optionalpackage_1" title="Permanent link">#</a></h4>
 <p>Example:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;optionalpackage</span> <span class="na">file=</span><span class="s">&quot;optionals/com.example.bar.tar&quot;</span><span class="nt">&gt;</span>com.example.bar<span class="nt">&lt;/optionalpackage&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;optionalpackage</span> <span class="na">file=</span><span class="s">&quot;optionals/com.example.bar.tar&quot;</span><span class="nt">&gt;</span>com.example.bar<span class="nt">&lt;/optionalpackage&gt;</span>
+</code></pre></div></td></tr></table></div>
 <p>The <code>file</code> attribute specifies the location of the optional package's archive relative to the <code>package.xml</code>.</p>
 <h3 id="excludedpackages"><code>&lt;excludedpackages&gt;</code><a class="headerlink" href="#excludedpackages" title="Permanent link">#</a></h3>
 <p>List of packages which conflict with this package. It is not possible to install it if any of the specified packages is installed. In return you cannot install an excluded package if this package is installed.</p>
 <h4 id="excludedpackage"><code>&lt;excludedpackage&gt;</code><a class="headerlink" href="#excludedpackage" title="Permanent link">#</a></h4>
 <p>Example:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;excludedpackage</span> <span class="na">version=</span><span class="s">&quot;6.0.0 Alpha 1&quot;</span><span class="nt">&gt;</span>com.woltlab.wcf<span class="nt">&lt;/excludedpackage&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;excludedpackage</span> <span class="na">version=</span><span class="s">&quot;6.0.0 Alpha 1&quot;</span><span class="nt">&gt;</span>com.woltlab.wcf<span class="nt">&lt;/excludedpackage&gt;</span>
+</code></pre></div></td></tr></table></div>
 <p>The attribute <code>version</code> must be a valid version number as described in the <a href="#version">\&lt;version></a> section. In the example above it will be impossible to install this package in WoltLab Suite Core 6.0.0 Alpha 1 or higher.</p>
 <h3 id="compatibility"><code>&lt;compatibility&gt;</code><a class="headerlink" href="#compatibility" title="Permanent link">#</a></h3>
 <div class="admonition info">
@@ -2997,13 +2992,12 @@ The <code>file</code> attribute is optional and specifies the location of the re
 <p>WoltLab Suite 3.1 introduced a new versioning system that focused around the API compatibility and is intended to replace the <code>&lt;excludedpackage&gt;</code> instruction for the Core for most plugins.</p>
 <p>The <code>&lt;compatibility&gt;</code>-tag holds a list of compatible API versions, and while only a single version is available at the time of writing, future versions will add more versions with backwards-compatibility in mind.</p>
 <p>Example:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;compatibility&gt;</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;compatibility&gt;</span>
     <span class="nt">&lt;api</span> <span class="na">version=</span><span class="s">&quot;2018&quot;</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/compatibility&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h4 id="existing-api-versions">Existing API versions<a class="headerlink" href="#existing-api-versions" title="Permanent link">#</a></h4>
 <table>
 <thead>
@@ -3035,53 +3029,48 @@ The <code>file</code> attribute is optional and specifies the location of the re
 <li>Installed version: <code>1.0.0</code></li>
 <li>Package version: <code>1.0.2</code></li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;instructions</span> <span class="na">type=</span><span class="s">&quot;update&quot;</span> <span class="na">fromversion=</span><span class="s">&quot;1.0.0&quot;</span><span class="nt">&gt;</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;instructions</span> <span class="na">type=</span><span class="s">&quot;update&quot;</span> <span class="na">fromversion=</span><span class="s">&quot;1.0.0&quot;</span><span class="nt">&gt;</span>
     <span class="cm">&lt;!-- … --&gt;</span>
 <span class="nt">&lt;/instructions&gt;</span>
 <span class="nt">&lt;instructions</span> <span class="na">type=</span><span class="s">&quot;update&quot;</span> <span class="na">fromversion=</span><span class="s">&quot;1.0.1&quot;</span><span class="nt">&gt;</span>
     <span class="cm">&lt;!-- … --&gt;</span>
 <span class="nt">&lt;/instructions&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>In this example WoltLab Suite Core will pick the first update block since it allows an update from <code>1.0.0 -&gt; 1.0.2</code>.
 The other block is not considered, since the currently installed version is <code>1.0.0</code>. After applying the update block (<code>fromversion="1.0.0"</code>), the version now reads <code>1.0.2</code>.</p>
 <h4 id="instruction"><code>&lt;instruction&gt;</code><a class="headerlink" href="#instruction" title="Permanent link">#</a></h4>
 <p>Example:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">&quot;objectTypeDefinition&quot;</span><span class="nt">&gt;</span>objectTypeDefinition.xml<span class="nt">&lt;/instruction&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">&quot;objectTypeDefinition&quot;</span><span class="nt">&gt;</span>objectTypeDefinition.xml<span class="nt">&lt;/instruction&gt;</span>
+</code></pre></div></td></tr></table></div>
 <p>The attribute <code>type</code> specifies the instruction type which is used to determine the package installation plugin (PIP) invoked to handle its value.
 The value must be a valid file relative to the location of <code>package.xml</code>.
 Many PIPs provide default file names which are used if no value is given:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">&quot;objectTypeDefinition&quot;</span> <span class="nt">/&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">&quot;objectTypeDefinition&quot;</span> <span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div>
 <p>There is a <a href="../pip/">list of all default PIPs</a> available.</p>
 <div class="admonition warning">
 <p class="admonition-title">Both the <code>type</code>-attribute and the element value are case-sensitive. Windows does not care if the file is called <code>objecttypedefinition.xml</code> but was referenced as <code>objectTypeDefinition.xml</code>, but both Linux and Mac systems will be unable to find the file.</p>
 </div>
 <p>In addition to the <code>type</code> attribute, an optional <code>run</code> attribute (with <code>standalone</code> as the only valid value) is supported which forces the installation to execute this PIP in an isolated request, allowing a single, resource-heavy PIP to execute without encountering restrictions such as PHP’s <code>memory_limit</code> or <code>max_execution_time</code>:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">&quot;file&quot;</span> <span class="na">run=</span><span class="s">&quot;standalone&quot;</span> <span class="nt">/&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">&quot;file&quot;</span> <span class="na">run=</span><span class="s">&quot;standalone&quot;</span> <span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div>
 <h4 id="void"><code>&lt;void/&gt;</code><a class="headerlink" href="#void" title="Permanent link">#</a></h4>
 <p>Sometimes a package update should only adjust the metadata of the package, for example, an optional package was added.
 However, WoltLab Suite Core requires that the list of <code>&lt;instructions&gt;</code> is non-empty.
 Instead of using a dummy <code>&lt;instruction&gt;</code> that idempotently updates some PIP, the <code>&lt;void/&gt;</code> tag can be used for this use-case.</p>
 <p>Using the <code>&lt;void/&gt;</code> tag is only valid for <code>&lt;instructions type="update"&gt;</code> and must not be accompanied by other <code>&lt;instruction&gt;</code> tags.</p>
 <p>Example:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;instructions</span> <span class="na">type=</span><span class="s">&quot;update&quot;</span> <span class="na">fromversion=</span><span class="s">&quot;1.0.0&quot;</span><span class="nt">&gt;</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;instructions</span> <span class="na">type=</span><span class="s">&quot;update&quot;</span> <span class="na">fromversion=</span><span class="s">&quot;1.0.0&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;void/&gt;</span>
 <span class="nt">&lt;/instructions&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
   <hr>
 <div class="md-source-file">

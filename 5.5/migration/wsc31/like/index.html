@@ -2490,97 +2490,81 @@
 <p>As a final step, we only need to change the language variables themselves. To ensure a consistent usability, the same formulations should be used as in the WoltLab Suite Core. </p>
 <h5 id="english">English<a class="headerlink" href="#english" title="Permanent link">#</a></h5>
 <p><code>{prefix}.like.title</code>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Reaction to a {objectName}
-</code></pre></div>
-</td></tr></table></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Reaction to a {objectName}
+</code></pre></div></td></tr></table></div></p>
 <p><code>{prefix}.like.title.stacked</code></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>{#$count} users reacted to your {objectName}
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>{#$count} users reacted to your {objectName}
+</code></pre></div></td></tr></table></div>
 <p><code>{prefix}.like.message</code>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>{@$author-&gt;getAnchorTag()} reacted to your {objectName} ({implode from=$reactions key=reactionID item=count}{@$__wcf-&gt;getReactionHandler()-&gt;getReactionTypeByID($reactionID)-&gt;renderIcon()}×{#$count}{/implode}).
-</code></pre></div>
-</td></tr></table></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>{@$author-&gt;getAnchorTag()} reacted to your {objectName} ({implode from=$reactions key=reactionID item=count}{@$__wcf-&gt;getReactionHandler()-&gt;getReactionTypeByID($reactionID)-&gt;renderIcon()}×{#$count}{/implode}).
+</code></pre></div></td></tr></table></div></p>
 <p><code>{prefix}.like.message.stacked</code></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>{if $count &lt; 4}{@$authors[0]-&gt;getAnchorTag()}{if $count == 2} and {else}, {/if}{@$authors[1]-&gt;getAnchorTag()}{if $count == 3} and {@$authors[2]-&gt;getAnchorTag()}{/if}{else}{@$authors[0]-&gt;getAnchorTag()} and {#$others} others{/if} reacted to your {objectName} ({implode from=$reactions key=reactionID item=count}{@$__wcf-&gt;getReactionHandler()-&gt;getReactionTypeByID($reactionID)-&gt;renderIcon()}×{#$count}{/implode}).
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>{if $count &lt; 4}{@$authors[0]-&gt;getAnchorTag()}{if $count == 2} and {else}, {/if}{@$authors[1]-&gt;getAnchorTag()}{if $count == 3} and {@$authors[2]-&gt;getAnchorTag()}{/if}{else}{@$authors[0]-&gt;getAnchorTag()} and {#$others} others{/if} reacted to your {objectName} ({implode from=$reactions key=reactionID item=count}{@$__wcf-&gt;getReactionHandler()-&gt;getReactionTypeByID($reactionID)-&gt;renderIcon()}×{#$count}{/implode}).
+</code></pre></div></td></tr></table></div>
 <p><code>wcf.user.notification.{objectTypeName}.like.notification.like</code>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Notify me when someone reacted to my {objectName}
-</code></pre></div>
-</td></tr></table></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Notify me when someone reacted to my {objectName}
+</code></pre></div></td></tr></table></div></p>
 <h5 id="german">German<a class="headerlink" href="#german" title="Permanent link">#</a></h5>
 <p><code>{prefix}.like.title</code>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Reaktion auf einen {objectName}
-</code></pre></div>
-</td></tr></table></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Reaktion auf einen {objectName}
+</code></pre></div></td></tr></table></div></p>
 <p><code>{prefix}.like.title.stacked</code></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>{#$count} Benutzern haben auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>{#$count} Benutzern haben auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert
+</code></pre></div></td></tr></table></div>
 <p><code>{prefix}.like.message</code>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>{@$author-&gt;getAnchorTag()} hat auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert ({implode from=$reactions key=reactionID item=count}{@$__wcf-&gt;getReactionHandler()-&gt;getReactionTypeByID($reactionID)-&gt;renderIcon()}×{#$count}{/implode}).
-</code></pre></div>
-</td></tr></table></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>{@$author-&gt;getAnchorTag()} hat auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert ({implode from=$reactions key=reactionID item=count}{@$__wcf-&gt;getReactionHandler()-&gt;getReactionTypeByID($reactionID)-&gt;renderIcon()}×{#$count}{/implode}).
+</code></pre></div></td></tr></table></div></p>
 <p><code>{prefix}.like.message.stacked</code></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>{if $count &lt; 4}{@$authors[0]-&gt;getAnchorTag()}{if $count == 2} und {else}, {/if}{@$authors[1]-&gt;getAnchorTag()}{if $count == 3} und {@$authors[2]-&gt;getAnchorTag()}{/if}{else}{@$authors[0]-&gt;getAnchorTag()} und {#$others} weitere{/if} haben auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert ({implode from=$reactions key=reactionID item=count}{@$__wcf-&gt;getReactionHandler()-&gt;getReactionTypeByID($reactionID)-&gt;renderIcon()}×{#$count}{/implode}).
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>{if $count &lt; 4}{@$authors[0]-&gt;getAnchorTag()}{if $count == 2} und {else}, {/if}{@$authors[1]-&gt;getAnchorTag()}{if $count == 3} und {@$authors[2]-&gt;getAnchorTag()}{/if}{else}{@$authors[0]-&gt;getAnchorTag()} und {#$others} weitere{/if} haben auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert ({implode from=$reactions key=reactionID item=count}{@$__wcf-&gt;getReactionHandler()-&gt;getReactionTypeByID($reactionID)-&gt;renderIcon()}×{#$count}{/implode}).
+</code></pre></div></td></tr></table></div>
 <p><code>wcf.user.notification.{object_type_name}.like.notification.like</code>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Jemandem hat auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert
-</code></pre></div>
-</td></tr></table></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Jemandem hat auf {if LANGUAGE_USE_INFORMAL_VARIANT}dein(en){else}Ihr(en){/if} {objectName} reagiert
+</code></pre></div></td></tr></table></div></p>
 <h3 id="recent-activity">Recent Activity<a class="headerlink" href="#recent-activity" title="Permanent link">#</a></h3>
 <p>To adjust entries in the Recent Activity, only three small steps are necessary. First we pass the concrete reaction to the language variable, so that we can use the reaction object there. To do this, we add the following variable to the text of the <code>\wcf\system\user\activity\event\IUserActivityEvent</code> object: <code>$event-&gt;reactionType</code>. Typically we name the variable <code>reactionType</code>. In the second step, we mark the event as compatible. Therefore we set the parameter <code>supportsReactions</code> in the <a href="../../../package/pip/object-type/"><code>objectType.xml</code></a> to <code>1</code>. So for example the entry looks like this:</p>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">objectType.xml</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">objectType.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;type&gt;</span>
     <span class="nt">&lt;name&gt;</span>com.woltlab.example.likeableObject.recentActivityEvent<span class="nt">&lt;/name&gt;</span>
     <span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.user.recentActivityEvent<span class="nt">&lt;/definitionname&gt;</span>
     <span class="nt">&lt;classname&gt;</span>wcf\system\user\activity\event\LikeableObjectUserActivityEvent<span class="nt">&lt;/classname&gt;</span>
     <span class="nt">&lt;supportsReactions&gt;</span>1<span class="nt">&lt;/supportsReactions&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>Finally we modify our language variable. To ensure a consistent usability, the same formulations should be used as in the WoltLab Suite Core.</p>
 <h4 id="english_1">English<a class="headerlink" href="#english_1" title="Permanent link">#</a></h4>
 <p><code>wcf.user.recentActivity.{object_type_name}.recentActivityEvent</code>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Reaction ({objectName})
-</code></pre></div>
-</td></tr></table></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Reaction ({objectName})
+</code></pre></div></td></tr></table></div></p>
 <p><em>Your language variable for the recent activity text</em>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Reacted with &lt;span title=&quot;{$reactionType-&gt;getTitle()}&quot; class=&quot;jsTooltip&quot;&gt;{@$reactionType-&gt;renderIcon()}&lt;/span&gt; to the {objectName}.
-</code></pre></div>
-</td></tr></table></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Reacted with &lt;span title=&quot;{$reactionType-&gt;getTitle()}&quot; class=&quot;jsTooltip&quot;&gt;{@$reactionType-&gt;renderIcon()}&lt;/span&gt; to the {objectName}.
+</code></pre></div></td></tr></table></div></p>
 <h4 id="german_1">German<a class="headerlink" href="#german_1" title="Permanent link">#</a></h4>
 <p><code>wcf.user.recentActivity.{objectTypeName}.recentActivityEvent</code>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Reaktion ({objectName})
-</code></pre></div>
-</td></tr></table></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Reaktion ({objectName})
+</code></pre></div></td></tr></table></div></p>
 <p><em>Your language variable for the recent activity text</em>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Hat mit &lt;span title=&quot;{$reactionType-&gt;getTitle()}&quot; class=&quot;jsTooltip&quot;&gt;{@$reactionType-&gt;renderIcon()}&lt;/span&gt; auf {objectName} reagiert.
-</code></pre></div>
-</td></tr></table></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Hat mit &lt;span title=&quot;{$reactionType-&gt;getTitle()}&quot; class=&quot;jsTooltip&quot;&gt;{@$reactionType-&gt;renderIcon()}&lt;/span&gt; auf {objectName} reagiert.
+</code></pre></div></td></tr></table></div></p>
 <h3 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">#</a></h3>
 <p>If comments send notifications, they must also be updated. The language variables are changed in the same way as described in the section <a href="./#Language-Variables">Notifications / Language</a>. After that comment must be marked as compatible. Therefore we set the parameter <code>supportsReactions</code> in the <a href="../../../package/pip/object-type/"><code>objectType.xml</code></a> to <code>1</code>. So for example the entry looks like this: </p>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">objectType.xml</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">objectType.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;type&gt;</span>
     <span class="nt">&lt;name&gt;</span>com.woltlab.wcf.objectComment.response.like.notification<span class="nt">&lt;/name&gt;</span>
     <span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.notification.objectType<span class="nt">&lt;/definitionname&gt;</span>
     <span class="nt">&lt;classname&gt;</span>wcf\system\user\notification\object\type\LikeUserNotificationObjectType<span class="nt">&lt;/classname&gt;</span>
     <span class="nt">&lt;category&gt;</span>com.woltlab.example<span class="nt">&lt;/category&gt;</span>
     <span class="nt">&lt;supportsReactions&gt;</span>1<span class="nt">&lt;/supportsReactions&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h2 id="forward-compatibility">Forward Compatibility<a class="headerlink" href="#forward-compatibility" title="Permanent link">#</a></h2>
 <p>So that these changes also work in older versions of WoltLab Suite Core, the used classes and traits were backported with WoltLab Suite Core 3.0.22 and WoltLab Suite Core 3.1.10.</p>
 

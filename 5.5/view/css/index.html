@@ -2561,7 +2561,7 @@
 <p>Images used within a style must be located in the style's image folder. To get the folder name within the CSS the SCSS variable <code>#{$style_image_path}</code> can be used. The value will contain a trailing slash.</p>
 <h2 id="media-breakpoints">Media Breakpoints<a class="headerlink" href="#media-breakpoints" title="Permanent link">#</a></h2>
 <p>Media breakpoints instruct the browser to apply different CSS depending on the viewport dimensions, e.g. serving a desktop PC a different view than when viewed on a smartphone.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2573,7 +2573,7 @@
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cm">/* red background color for desktop pc */</span><span class="w"></span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/* red background color for desktop pc */</span><span class="w"></span>
 <span class="k">@include</span><span class="nd"> screen-lg</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="nt">background-color</span><span class="nd">:</span><span class="w"> </span><span class="nt">red</span><span class="o">;</span><span class="w"></span>
@@ -2586,8 +2586,7 @@
 <span class="w">        </span><span class="nt">background-color</span><span class="nd">:</span><span class="w"> </span><span class="nt">green</span><span class="o">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="available-breakpoints">Available Breakpoints<a class="headerlink" href="#available-breakpoints" title="Permanent link">#</a></h3>
 <div class="admonition info">
 <p class="admonition-title">Some very large smartphones, for example the Apple iPhone 7 Plus, do match the media query for <code>Tablets (portrait)</code> when viewed in landscape mode.</p>
@@ -2666,7 +2665,7 @@
 <h2 id="asset-preloading">Asset Preloading<a class="headerlink" href="#asset-preloading" title="Permanent link">#</a></h2>
 <p>WoltLab Suite’s SCSS compiler supports adding <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content">preloading</a> metadata to the CSS.
 To communicate the preloading intent to the compiler, the <code>--woltlab-suite-preload</code> CSS variable is set to the result of the <code>preload()</code> function:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2675,7 +2674,7 @@ To communicate the preloading intent to the compiler, the <code>--woltlab-suite-
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nc">.fooBar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nc">.fooBar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">--woltlab-suite-preload</span><span class="nd">:</span><span class="w">    </span><span class="nn">#</span><span class="p">{</span><span class="nt">preload</span><span class="o">(</span><span class="w"></span>
 <span class="w">                                    </span><span class="s1">&#39;</span><span class="si">#{</span><span class="nv">$style_image_path</span><span class="si">}</span><span class="s1">custom/background.png&#39;</span><span class="o">,</span><span class="w"></span>
 <span class="w">                                    </span><span class="err">$</span><span class="nt">as</span><span class="nd">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="o">,</span><span class="w"></span>
@@ -2685,13 +2684,11 @@ To communicate the preloading intent to the compiler, the <code>--woltlab-suite-
 
 <span class="w">    </span><span class="nt">background</span><span class="nd">:</span><span class="w"> </span><span class="nt">url</span><span class="o">(</span><span class="s1">&#39;</span><span class="si">#{</span><span class="nv">$style_image_path</span><span class="si">}</span><span class="s1">custom/background.png&#39;</span><span class="o">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>The parameters of the <code>preload()</code> function map directly to the preloading properties that are used within the <code>&lt;link&gt;</code> tag and the <code>link:</code> HTTP response header.</p>
 <p>The above example will result in a <code>&lt;link&gt;</code> similar to the following being added to the generated HTML:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&lt;link rel=&quot;preload&quot; href=&quot;https://example.com/images/style-1/custom/background.png&quot; as=&quot;image&quot; type=&quot;image/png&quot;&gt;
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;link rel=&quot;preload&quot; href=&quot;https://example.com/images/style-1/custom/background.png&quot; as=&quot;image&quot; type=&quot;image/png&quot;&gt;
+</code></pre></div></td></tr></table></div>
 <div class="admonition info">
 <p class="admonition-title">Use preloading sparingly for the most important resources where you can be certain that the browser will need them. Unused preloaded resources will unnecessarily waste bandwidth.</p>
 </div>

@@ -2461,7 +2461,7 @@
 <h2 id="consuming-woltlab-suites-types">Consuming WoltLab Suite’s Types<a class="headerlink" href="#consuming-woltlab-suites-types" title="Permanent link">#</a></h2>
 <p>To consume the types of WoltLab Suite, you will need to install the <code>@woltlab/wcf</code> npm package using a git URL that refers to the appropriate branch of <a href="https://github.com/WoltLab/WCF">WoltLab/WCF</a>.</p>
 <p>A full <code>package.json</code> that includes WoltLab Suite, TypeScript, eslint and Prettier could look like the following.</p>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">package.json <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/package.json" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">package.json <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/package.json" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2474,7 +2474,7 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;@typescript-eslint/eslint-plugin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^4.6.1&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;@typescript-eslint/parser&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^4.6.1&quot;</span><span class="p">,</span><span class="w"></span>
@@ -2488,12 +2488,11 @@
 <span class="w">    </span><span class="nt">&quot;@woltlab/wcf&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/WoltLab/WCF.git#master&quot;</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>After installing the types using npm, you will also need to configure <code>tsconfig.json</code> to take the types into account.
 To do so, you will need to add them to the <code>compilerOptions.paths</code> option.
 A complete <code>tsconfig.json</code> file that matches the configuration of WoltLab Suite could look like the following.</p>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">tsconfig.json <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/tsconfig.json" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tsconfig.json <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/tsconfig.json" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2520,7 +2519,7 @@ A complete <code>tsconfig.json</code> file that matches the configuration of Wol
 <span class="normal">25</span>
 <span class="normal">26</span>
 <span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;include&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">    </span><span class="s2">&quot;node_modules/@woltlab/wcf/global.d.ts&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="s2">&quot;ts/**/*&quot;</span><span class="w"></span>
@@ -2548,20 +2547,18 @@ A complete <code>tsconfig.json</code> file that matches the configuration of Wol
 <span class="w">    </span><span class="nt">&quot;importHelpers&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>After this initial set-up, you would place your TypeScript source files into the <code>ts/</code> folder of your project.
 The generated JavaScript target files will be placed into <code>files/js/</code> and thus will be installed by the <a href="../../package/pip/file/">file PIP</a>.</p>
 <h2 id="additional-tools">Additional Tools<a class="headerlink" href="#additional-tools" title="Permanent link">#</a></h2>
 <p>WoltLab Suite uses additional tools to ensure the high quality and a consistent code style of the TypeScript modules.
 The current configuration of these tools is as follows.
 It is recommended to re-use this configuration as is.</p>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">.prettierrc <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/.prettierrc" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>trailingComma: all
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.prettierrc <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/.prettierrc" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>trailingComma: all
 printWidth: 120
-</code></pre></div>
-</td></tr></table>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">.eslintrc.js <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/.eslintrc.js" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.eslintrc.js <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/.eslintrc.js" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2597,71 +2594,67 @@ printWidth: 120
 <span class="normal">34</span>
 <span class="normal">35</span>
 <span class="normal">36</span>
-<span class="normal">37</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">root</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nx">parser</span><span class="o">:</span> <span class="s2">&quot;@typescript-eslint/parser&quot;</span><span class="p">,</span>
-    <span class="nx">parserOptions</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">tsconfigRootDir</span><span class="o">:</span> <span class="nx">__dirname</span><span class="p">,</span>
-        <span class="nx">project</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;./tsconfig.json&quot;</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;@typescript-eslint&quot;</span><span class="p">],</span>
-    <span class="k">extends</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">&quot;eslint:recommended&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;plugin:@typescript-eslint/recommended&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;plugin:@typescript-eslint/recommended-requiring-type-checking&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;prettier&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;prettier/@typescript-eslint&quot;</span>
-    <span class="p">],</span>
-    <span class="nx">rules</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;@typescript-eslint/ban-types&quot;</span><span class="o">:</span> <span class="p">[</span>
-            <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="p">{</span>
-                <span class="nx">types</span><span class="o">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;object&quot;</span><span class="o">:</span> <span class="kc">false</span>
-                <span class="p">},</span>
-                <span class="nx">extendDefaults</span><span class="o">:</span> <span class="kc">true</span>
-            <span class="p">}</span>
-        <span class="p">],</span>
-        <span class="s2">&quot;@typescript-eslint/no-explicit-any&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
-        <span class="s2">&quot;@typescript-eslint/no-non-null-assertion&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
-        <span class="s2">&quot;@typescript-eslint/no-unsafe-assignment&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
-        <span class="s2">&quot;@typescript-eslint/no-unsafe-call&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
-        <span class="s2">&quot;@typescript-eslint/no-unsafe-member-access&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
-        <span class="s2">&quot;@typescript-eslint/no-unsafe-return&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
-        <span class="s2">&quot;@typescript-eslint/no-unused-vars&quot;</span><span class="o">:</span> <span class="p">[</span>
-            <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="p">{</span>
-                <span class="s2">&quot;argsIgnorePattern&quot;</span><span class="o">:</span> <span class="s2">&quot;^_&quot;</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">};</span>
-</code></pre></div>
-</td></tr></table>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">.eslintignore <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/.eslintignore" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>**/*.js
-</code></pre></div>
-</td></tr></table>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">root</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">parser</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;@typescript-eslint/parser&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">parserOptions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">tsconfigRootDir</span><span class="o">:</span><span class="w"> </span><span class="nx">__dirname</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">project</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;./tsconfig.json&quot;</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;@typescript-eslint&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="k">extends</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;eslint:recommended&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;plugin:@typescript-eslint/recommended&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;plugin:@typescript-eslint/recommended-requiring-type-checking&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;prettier&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;prettier/@typescript-eslint&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;@typescript-eslint/ban-types&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;error&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">types</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;object&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">                </span><span class="p">},</span><span class="w"></span>
+<span class="w">                </span><span class="nx">extendDefaults</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;@typescript-eslint/no-explicit-any&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;@typescript-eslint/no-non-null-assertion&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;@typescript-eslint/no-unsafe-assignment&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;@typescript-eslint/no-unsafe-call&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;@typescript-eslint/no-unsafe-member-access&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;@typescript-eslint/no-unsafe-return&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;@typescript-eslint/no-unused-vars&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;error&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;argsIgnorePattern&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^_&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.eslintignore <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/.eslintignore" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>**/*.js
+</code></pre></div></td></tr></table></div>
 <p>This <code>.gitattributes</code> configuration will automatically collapse the generated JavaScript target files in GitHub’s Diff view.
 You will not need it if you do not use git or GitHub.</p>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">.gitattributes <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/.gitattributes" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>files/js/**/*.js linguist-generated
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.gitattributes <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/.gitattributes" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>files/js/**/*.js linguist-generated
+</code></pre></div></td></tr></table></div>
 <h2 id="writing-a-simple-module">Writing a simple module<a class="headerlink" href="#writing-a-simple-module" title="Permanent link">#</a></h2>
 <p>After completing this initial set-up you can start writing your first TypeScript module.
 The TypeScript compiler can be launched in Watch Mode by running <code>npx tsc -w</code>.</p>
 <p>WoltLab Suite’s modules can be imported using the standard ECMAScript module import syntax by specifying the full module name.
 The public API of the module can also be exported using the standard ECMAScript module export syntax.</p>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">ts/Example.ts <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/Example.ts" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">ts/Example.ts <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/Example.ts" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">Language</span> <span class="kr">from</span> <span class="s2">&quot;WoltLabSuite/Core/Language&quot;</span><span class="p">;</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Language</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Language&quot;</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">export</span> <span class="kd">function</span> <span class="nx">run</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;wcf.foo.bar&quot;</span><span class="p">));</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">alert</span><span class="p">(</span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;wcf.foo.bar&quot;</span><span class="p">));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>This simple example module will compile to plain JavaScript that is compatible with the AMD loader that is used by WoltLab Suite.</p>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">files/js/Example.js <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/Example.js" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/js/Example.js <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/Example.js" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2670,30 +2663,28 @@ The public API of the module can also be exported using the standard ECMAScript 
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">define</span><span class="p">([</span><span class="s2">&quot;require&quot;</span><span class="p">,</span> <span class="s2">&quot;exports&quot;</span><span class="p">,</span> <span class="s2">&quot;tslib&quot;</span><span class="p">,</span> <span class="s2">&quot;WoltLabSuite/Core/Language&quot;</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">tslib_1</span><span class="p">,</span> <span class="nx">Language</span><span class="p">)</span> <span class="p">{</span>
-    <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
-    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">exports</span><span class="p">,</span> <span class="s2">&quot;__esModule&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
-    <span class="nx">exports</span><span class="p">.</span><span class="nx">run</span> <span class="o">=</span> <span class="ow">void</span> <span class="mf">0</span><span class="p">;</span>
-    <span class="nx">Language</span> <span class="o">=</span> <span class="nx">tslib_1</span><span class="p">.</span><span class="nx">__importStar</span><span class="p">(</span><span class="nx">Language</span><span class="p">);</span>
-    <span class="kd">function</span> <span class="nx">run</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;wcf.foo.bar&quot;</span><span class="p">));</span>
-    <span class="p">}</span>
-    <span class="nx">exports</span><span class="p">.</span><span class="nx">run</span> <span class="o">=</span> <span class="nx">run</span><span class="p">;</span>
-<span class="p">});</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">define</span><span class="p">([</span><span class="s2">&quot;require&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;exports&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tslib&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Language&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">require</span><span class="p">,</span><span class="w"> </span><span class="nx">exports</span><span class="p">,</span><span class="w"> </span><span class="nx">tslib_1</span><span class="p">,</span><span class="w"> </span><span class="nx">Language</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">exports</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;__esModule&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="nx">exports</span><span class="p">.</span><span class="nx">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Language</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tslib_1</span><span class="p">.</span><span class="nx">__importStar</span><span class="p">(</span><span class="nx">Language</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">alert</span><span class="p">(</span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;wcf.foo.bar&quot;</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">exports</span><span class="p">.</span><span class="nx">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">run</span><span class="p">;</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>Within templates it can be consumed as follows.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
-  <span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Example&quot;</span><span class="p">],</span> <span class="p">(</span><span class="nx">Example</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">Example</span><span class="p">.</span><span class="nx">run</span><span class="p">();</span> <span class="c1">// Alerts the contents of the `wcf.foo.bar` phrase.</span>
-  <span class="p">});</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Example&quot;</span><span class="p">],</span><span class="w"> </span><span class="p">(</span><span class="nx">Example</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Example</span><span class="p">.</span><span class="nx">run</span><span class="p">();</span><span class="w"> </span><span class="c1">// Alerts the contents of the `wcf.foo.bar` phrase.</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
   <hr>
 <div class="md-source-file">

@@ -2670,21 +2670,20 @@
 <p>This class offers a set of static methods that can be used to determine if some
 common keys are being pressed. Internally it compares either the <code>.key</code> property
 if it is supported or the value of <code>.which</code>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;EventKey&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">EventKey</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">elBySel</span><span class="p">(</span><span class="s2">&quot;.some-input&quot;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;keydown&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">EventKey</span><span class="p">.</span><span class="nx">Enter</span><span class="p">(</span><span class="nx">event</span><span class="p">))</span> <span class="p">{</span>
-      <span class="c1">// the `Enter` key was pressed</span>
-    <span class="p">}</span>
-  <span class="p">});</span>
-<span class="p">});</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;EventKey&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">EventKey</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">elBySel</span><span class="p">(</span><span class="s2">&quot;.some-input&quot;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;keydown&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">EventKey</span><span class="p">.</span><span class="nx">Enter</span><span class="p">(</span><span class="nx">event</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// the `Enter` key was pressed</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h3 id="arrowdownevent-keyboardevent-boolean"><code>ArrowDown(event: KeyboardEvent): boolean</code><a class="headerlink" href="#arrowdownevent-keyboardevent-boolean" title="Permanent link">#</a></h3>
 <p>Returns true if the user has pressed the <code>↓</code> key.</p>
 <h3 id="arrowleftevent-keyboardevent-boolean"><code>ArrowLeft(event: KeyboardEvent): boolean</code><a class="headerlink" href="#arrowleftevent-keyboardevent-boolean" title="Permanent link">#</a></h3>
@@ -2708,15 +2707,14 @@ events or trigger events itself at any time.</p>
 <h3 id="identifiying-events-with-the-developer-tools">Identifiying Events with the Developer Tools<a class="headerlink" href="#identifiying-events-with-the-developer-tools" title="Permanent link">#</a></h3>
 <p>The Developer Tools offer an easy option to identify existing events that are fired while code is being executed.
 You can enable this watch mode through your browser's console using <code>Devtools.toggleEventLogging()</code>:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&gt; Devtools.toggleEventLogging();
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt; Devtools.toggleEventLogging();
 &lt;   Event logging enabled
 &lt; [Devtools.EventLogging] Firing event: bar @ com.example.app.foo
 &lt; [Devtools.EventLogging] Firing event: baz @ com.example.app.foo
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="addidentifier-string-action-string-callback-data-object-void-string"><code>add(identifier: string, action: string, callback: (data: Object) =&gt; void): string</code><a class="headerlink" href="#addidentifier-string-action-string-callback-data-object-void-string" title="Permanent link">#</a></h3>
 <p>Adding an event listeners returns a randomly generated UUIDv4 that is used to
 identify the listener. This UUID is required to remove a specific listener through

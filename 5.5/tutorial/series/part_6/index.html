@@ -2499,7 +2499,7 @@
 <p>In addition to the components used in previous parts, we will use the <a href="../../../php/api/user_activity_points/">user activity points API</a> and the user activity events API.</p>
 <h2 id="package-structure">Package Structure<a class="headerlink" href="#package-structure" title="Permanent link">#</a></h2>
 <p>The package will have the following file structure <em>excluding</em> unchanged files from previous parts:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2519,7 +2519,7 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>├── files
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code>├── files
 │   └── lib
 │       ├── data
 │       │   └── person
@@ -2540,38 +2540,35 @@
 │   ├── de.xml
 │   └── en.xml
 └── objectType.xml
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>For all changes, please refer to the <a href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-6">source code on GitHub</a>.</p>
 <h2 id="user-activity-points">User Activity Points<a class="headerlink" href="#user-activity-points" title="Permanent link">#</a></h2>
 <p>The first step to support activity points is to register an object type for the <code>com.woltlab.wcf.user.activityPointEvent</code> object type definition for created person information and specify the default number of points awarded per piece of information:</p>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">objectType.xml</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">objectType.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;type&gt;</span>
     <span class="nt">&lt;name&gt;</span>com.woltlab.wcf.people.information<span class="nt">&lt;/name&gt;</span>
     <span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.user.activityPointEvent<span class="nt">&lt;/definitionname&gt;</span>
     <span class="nt">&lt;points&gt;</span>2<span class="nt">&lt;/points&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>Additionally, the phrase <code>wcf.user.activityPoint.objectType.com.woltlab.wcf.people.information</code> (in general: <code>wcf.user.activityPoint.objectType.{objectType}</code>) has to be added.</p>
 <p>The activity points are awarded when new pieces are created via <code>PersonInformation::create()</code> using <code>UserActivityPointHandler::fireEvent()</code> and removed in <code>PersonInformation::create()</code> via <code>UserActivityPointHandler::removeEvents()</code> if pieces of information are deleted.</p>
 <p>Lastly, we have to add two components for updating data:
 First, we register a new rebuild data worker</p>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">objectType.xml</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">objectType.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;type&gt;</span>
     <span class="nt">&lt;name&gt;</span>com.woltlab.wcf.people.information<span class="nt">&lt;/name&gt;</span>
     <span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.rebuildData<span class="nt">&lt;/definitionname&gt;</span>
     <span class="nt">&lt;classname&gt;</span>wcf\system\worker\PersonInformationRebuildDataWorker<span class="nt">&lt;/classname&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
-</code></pre></div>
-</td></tr></table>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">files/lib/system/worker/PersonInformationRebuildDataWorker.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-6/files/lib/system/worker/PersonInformationRebuildDataWorker.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/worker/PersonInformationRebuildDataWorker.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-6/files/lib/system/worker/PersonInformationRebuildDataWorker.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2642,7 +2639,7 @@ First, we register a new rebuild data worker</p>
 <span class="normal">69</span>
 <span class="normal">70</span>
 <span class="normal">71</span>
-<span class="normal">72</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">72</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">wcf\system\worker</span><span class="p">;</span>
 
@@ -2714,25 +2711,23 @@ First, we register a new rebuild data worker</p>
         <span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>which updates the number of instances for which any user received person information activity points.
 (This data worker also requires the phrases <code>wcf.acp.rebuildData.com.woltlab.wcf.people.information</code> and <code>wcf.acp.rebuildData.com.woltlab.wcf.people.information.description</code>).</p>
 <p>Second, we add an event listener for <code>UserActivityPointItemsRebuildDataWorker</code> to update the total user activity points awarded for person information:</p>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">eventListener.xml</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">eventListener.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;eventlistener</span> <span class="na">name=</span><span class="s">&quot;execute@wcf\system\worker\UserActivityPointItemsRebuildDataWorker&quot;</span><span class="nt">&gt;</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;eventlistener</span> <span class="na">name=</span><span class="s">&quot;execute@wcf\system\worker\UserActivityPointItemsRebuildDataWorker&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;eventclassname&gt;</span>wcf\system\worker\UserActivityPointItemsRebuildDataWorker<span class="nt">&lt;/eventclassname&gt;</span>
     <span class="nt">&lt;eventname&gt;</span>execute<span class="nt">&lt;/eventname&gt;</span>
     <span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\PersonUserActivityPointItemsRebuildDataWorkerListener<span class="nt">&lt;/listenerclassname&gt;</span>
     <span class="nt">&lt;environment&gt;</span>admin<span class="nt">&lt;/environment&gt;</span>
 <span class="nt">&lt;/eventlistener&gt;</span>
-</code></pre></div>
-</td></tr></table>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">files/lib/system/event/listener/PersonUserActivityPointItemsRebuildDataWorkerListener.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-6/files/lib/system/event/listener/PersonUserActivityPointItemsRebuildDataWorkerListener.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/event/listener/PersonUserActivityPointItemsRebuildDataWorkerListener.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-6/files/lib/system/event/listener/PersonUserActivityPointItemsRebuildDataWorkerListener.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2774,7 +2769,7 @@ First, we register a new rebuild data worker</p>
 <span class="normal">40</span>
 <span class="normal">41</span>
 <span class="normal">42</span>
-<span class="normal">43</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">wcf\system\event\listener</span><span class="p">;</span>
 
@@ -2817,22 +2812,20 @@ First, we register a new rebuild data worker</p>
         <span class="p">));</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h2 id="user-activity-events">User Activity Events<a class="headerlink" href="#user-activity-events" title="Permanent link">#</a></h2>
 <p>To support user activity events, an object type for <code>com.woltlab.wcf.user.recentActivityEvent</code> has to be registered with a class implementing <code>wcf\system\user\activity\event\IUserActivityEvent</code>:</p>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">objectType.xml</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">objectType.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;type&gt;</span>
     <span class="nt">&lt;name&gt;</span>com.woltlab.wcf.people.information<span class="nt">&lt;/name&gt;</span>
     <span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.user.recentActivityEvent<span class="nt">&lt;/definitionname&gt;</span>
     <span class="nt">&lt;classname&gt;</span>wcf\system\user\activity\event\PersonInformationUserActivityEvent<span class="nt">&lt;/classname&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
-</code></pre></div>
-</td></tr></table>
-<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">files/lib/system/user/activity/event/PersonInformationUserActivityEvent.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-6/files/lib/system/user/activity/event/PersonInformationUserActivityEvent.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/user/activity/event/PersonInformationUserActivityEvent.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/tutorial/tutorial-series/part-6/files/lib/system/user/activity/event/PersonInformationUserActivityEvent.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2880,7 +2873,7 @@ First, we register a new rebuild data worker</p>
 <span class="normal">46</span>
 <span class="normal">47</span>
 <span class="normal">48</span>
-<span class="normal">49</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">49</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">wcf\system\user\activity\event</span><span class="p">;</span>
 
@@ -2929,8 +2922,7 @@ First, we register a new rebuild data worker</p>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><code>PersonInformationUserActivityEvent::prepare()</code> must check for all events whether the associated piece of information still exists and if it is the case, mark the event as accessible via the <code>setIsAccessible()</code> method, set the title of the activity event via <code>setTitle()</code>, and set a description of the event via <code>setDescription()</code> for which we use the newly added <code>PersonInformation::getFormattedExcerpt()</code> method.</p>
 <p>Lastly, we have to add the phrase <code>wcf.user.recentActivity.com.woltlab.wcf.people.information</code>, which is shown in the list of activity events as the type of activity event.</p>
 
