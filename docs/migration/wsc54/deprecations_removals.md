@@ -55,6 +55,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::GET`
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::POST`
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::PUT`
+- `wcf\system\visitTracker\VisitTracker::DEFAULT_LIFETIME` ([WoltLab/WCF#4757](https://github.com/WoltLab/WCF/pull/4757))
 
 #### Functions
 
@@ -242,3 +243,7 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `search::sections`
 - `tagSearch::tabMenuTabs`
 - `tagSearch::sections`
+
+### Miscellaneous
+
+- Object specific VisitTracker lifetimes ([WoltLab/WCF#4757](https://github.com/WoltLab/WCF/pull/4757))
