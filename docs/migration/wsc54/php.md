@@ -272,7 +272,7 @@ See [WoltLab/WCF#4398](https://github.com/WoltLab/WCF/pull/4398) for details.
 
 ### Search Form
 
-After the overhaul of the search form, search providers are no longer bound to `SearchForm` and `SearchResultPage`. 
+After the overhaul of the search form, search providers are no longer bound to `SearchForm` and `SearchResultPage`.
 The interface `ISearchObjectType` and the abstract implementation `AbstractSearchableObjectType` have been replaced by `ISearchProvider` and `AbstractSearchProvider`.
 
 Please use [`ArticleSearch`](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/search/ArticleSearch.class.php) as a template for your own implementation
@@ -337,7 +337,7 @@ is deprecated and should be replaced with the new structure with an explicit `<i
     filepath="migration/wsc54/en_new.xml",
 ) }}
 
-Additionally, to now also support deleting phrases with this package installation plugin, support for a `<delete>` element has been added: 
+Additionally, to now also support deleting phrases with this package installation plugin, support for a `<delete>` element has been added:
 
 {jinja{ codebox(
     language="xml",
@@ -348,6 +348,10 @@ Additionally, to now also support deleting phrases with this package installatio
 Note that when deleting phrases, the category does not have to be specified because phrase identifiers are unique globally.
 
 !!! warning "Mixing the old structure and the new structure is not supported and will result in an error message during the import!"
+
+## Board and Thread Subscriptions
+
+See [here](form_subscriptions.md) for details.
 
 ## Miscellaneous Changes
 
