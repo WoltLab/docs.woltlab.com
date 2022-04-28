@@ -34,6 +34,8 @@ With version 5.5, we have deprecated certain components and removed several othe
 - `wcf\system\request\Request::isExecuted()` ([WoltLab/WCF#4485](https://github.com/WoltLab/WCF/pull/4485))
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::query()`
 - `wcf\system\session\Session::getDeviceIcon()` ([WoltLab/WCF#4525](https://github.com/WoltLab/WCF/pull/4525))
+- `wcf\system\user\authentication\password\algorithm\TPhpass::hash()` ([WoltLab/WCF#4602](https://github.com/WoltLab/WCF/pull/4762))
+- `wcf\system\user\authentication\password\algorithm\TPhpass::needsRehash()` ([WoltLab/WCF#4602](https://github.com/WoltLab/WCF/pull/4762))
 - `wcf\system\WCF::getAnchor()` ([WoltLab/WCF#4580](https://github.com/WoltLab/WCF/pull/4580))
 - `wcf\util\MathUtil::getRandomValue()` ([WoltLab/WCF#4280](https://github.com/WoltLab/WCF/pull/4280))
 - `wcf\util\StringUtil::encodeJSON()` ([WoltLab/WCF#4645](https://github.com/WoltLab/WCF/pull/4645))
