@@ -2,14 +2,12 @@
 
 ## Subscriptions
 
-With WoltLab Suite Forum 5.5 we introduced a new system to subscribe threads and boards including the possibility to ignore threads and boards.
-[You can read more about this feature in our blog](https://www.woltlab.com/article/260-new-features-in-woltlab-suite-5-5-revision-of-buttons-and-ignoring-threads/).
-The new system uses an own system to manage the subscribed forums as well as the subscribed threads.
-This has made the previously used object type `com.woltlab.wcf.user.objectWatch` obsolete, as it no longer meets the requirements we need for the new more flexible system.
-In addition, having our own implementation also makes it much easier to use, as we work with our own tables and we can thus create correct foreign keys.
-Therefore, we had to create a new API to manage subscriptions.
+With WoltLab Suite Forum 5.5 we have introduced a new system for subscribing to threads and boards, which also offers the possibility to ignore threads and boards.
+[You can learn more about this feature in our blog](https://www.woltlab.com/article/260-new-features-in-woltlab-suite-5-5-revision-of-buttons-and-ignoring-threads/).
+The new system uses a separate mechanism to track the subscribed forums as well as the subscribed threads.
+The previously used object type `com.woltlab.wcf.user.objectWatch` is now discontinued, because the object watch system turned out to be too limited for the complex logic behind thread and forum subscriptions.
 
-### Subscribe to threads
+### Subscribe to Threads
 
 #### Previously
 
@@ -34,25 +32,25 @@ ThreadStatusHandler::saveSubscriptionStatus(
 ### Filter Ignored Threads
 
 To filter ignored threads from a given `ThreadList`, you can use the method `ThreadStatusHandler::addFilterForIgnoredThreads()` to append the filter for ignored threads.
-The `ViewableThreadList` filters ignored threads by default.
+The `ViewableThreadList` filters out ignored threads by default.
 
-As an example:
+Example:
 
 ```php
+$user = new User(123);
 $threadList = new ThreadList();
 ThreadStatusHandler::addFilterForIgnoredThreads(
     $threadList,
-    // This parameter is optional. If null, the current user will be used. Otherwise, the filter is executed
-    // for the given user.
-    WCF::getUser()
+    // This parameter specifies the target user. Defaults to the current user if the parameter
+    // is omitted or `null`.
+    $user
 );
 $threadList->readObjects();
 ```
 
 ### Filter Ignored Users
 
-Ignoring threads should surpress the notifications for the user.
-Therefore we ship also a method, which can filter the `userIDs`, which are ignoring a specific thread.
+Avoid issuing notifications to users that have ignored the target thread by filtering those out.
 
 ```php
 $userIDs = [1, 2, 3];
@@ -62,7 +60,7 @@ $users = ThreadStatusHandler::filterIgnoredUserIDs(
 );
 ```
 
-### Subscribe to boards
+### Subscribe to Boards
 
 #### Previously
 
@@ -86,8 +84,7 @@ BoardStatusHandler::saveSubscriptionStatus(
 
 ### Filter Ignored Boards
 
-With the new system, notifications from ignored boards should be surpressed.
-Therefore, we introduced a method, which filters userIDs which ignoring a specific board.
+Similar to ignored threads you will also have to avoid issuing notifications for boards that a user has ignored.
 
 ```php
 $userIDs = [1, 2, 3];
