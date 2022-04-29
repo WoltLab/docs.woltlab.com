@@ -9,7 +9,7 @@ The previously used object type `com.woltlab.wcf.user.objectWatch` is now discon
 
 ### Subscribe to Threads
 
-#### Previously
+Previously:
 
 ```php
 $action = new UserObjectWatchAction([], 'subscribe', [
@@ -21,7 +21,8 @@ $action = new UserObjectWatchAction([], 'subscribe', [
 $action->executeAction();
 ```
 
-#### Now
+Now:
+
 ```php
 ThreadStatusHandler::saveSubscriptionStatus(
     $threadID,
@@ -62,7 +63,7 @@ $users = ThreadStatusHandler::filterIgnoredUserIDs(
 
 ### Subscribe to Boards
 
-#### Previously
+Previously:
 
 ```php
 $action = new UserObjectWatchAction([], 'subscribe', [
@@ -74,7 +75,8 @@ $action = new UserObjectWatchAction([], 'subscribe', [
 $action->executeAction();
 ```
 
-#### Now
+Now:
+
 ```php
 BoardStatusHandler::saveSubscriptionStatus(
     $boardID,
