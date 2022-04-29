@@ -358,7 +358,8 @@ Note that when deleting phrases, the category does not have to be specified beca
 
 ## Board and Thread Subscriptions
 
-See [here](form_subscriptions.md) for details.
+WoltLab Suite Forum 5.5 updates the subscription logic for boards and threads to properly support the ignoring of threads.
+See the [dedicated migration guide](forum_subscriptions.md) for details.
 
 ## Miscellaneous Changes
 
