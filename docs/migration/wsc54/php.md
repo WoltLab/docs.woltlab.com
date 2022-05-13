@@ -1,4 +1,4 @@
-# Migrating from WSC 5.4 - PHP
+# Migrating from WoltLab Suite 5.4 - PHP
 
 ## Initial PSR-7 support
 

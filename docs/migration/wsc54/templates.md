@@ -1,4 +1,4 @@
-# Migrating from WSC 5.4 - Templates
+# Migrating from WoltLab Suite 5.4 - Templates
 
 ## Content Interaction Buttons
 

@@ -1,4 +1,4 @@
-# Migrating from WSC 5.3 - Templates and Languages
+# Migrating from WoltLab Suite 5.3 - Templates and Languages
 
 ## `{csrfToken}`
 

@@ -1,4 +1,4 @@
-# Migrating from WSC 5.4 - Third Party Libraries
+# Migrating from WoltLab Suite 5.4 - Third Party Libraries
 
 ## Symfony PHP Polyfills
 

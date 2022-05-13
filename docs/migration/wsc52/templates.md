@@ -1,4 +1,4 @@
-# Migrating from WSC 5.2 - Templates and Languages
+# Migrating WoltLab Suite 5.2 - Templates and Languages
 
 ## `{jslang}`
 

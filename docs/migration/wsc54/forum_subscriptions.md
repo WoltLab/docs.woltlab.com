@@ -1,4 +1,4 @@
-# Migrating from WSC 5.4 - WoltLab Suite Forum
+# Migrating from WoltLab Suite 5.4 - WoltLab Suite Forum
 
 ## Subscriptions
 

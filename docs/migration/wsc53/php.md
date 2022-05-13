@@ -1,4 +1,4 @@
-# Migrating from WSC 5.3 - PHP
+# Migrating from WoltLab Suite 5.3 - PHP
 
 ## Minimum requirements
 

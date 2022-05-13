@@ -1,4 +1,4 @@
-# Migrating from WSC 5.2 - PHP
+# Migrating from WoltLab Suite 5.2 - PHP
 
 ## Comments
 

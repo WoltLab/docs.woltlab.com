@@ -1,4 +1,4 @@
-# Migrating from WSC 5.4 - TypeScript and JavaScript
+# Migrating from WoltLab Suite 5.4 - TypeScript and JavaScript
 
 ## `Ajax.dboAction()`
 

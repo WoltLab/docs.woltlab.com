@@ -1,4 +1,4 @@
-# Migrating from WSC 5.4 - Deprecations and Removals
+# Migrating from WoltLab Suite 5.4 - Deprecations and Removals
 
 With version 5.5, we have deprecated certain components and removed several other components that have been deprecated for many years.
 
