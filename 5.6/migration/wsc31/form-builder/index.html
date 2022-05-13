@@ -2380,7 +2380,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/WoltLab/docs.woltlab.com/edit/5.5/docs/migration/wsc31/form-builder.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/WoltLab/docs.woltlab.com/edit/5.6/docs/migration/wsc31/form-builder.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
@@ -2391,7 +2391,7 @@
 <p>As the first example, the pre-WoltLab Suite Core 5.2 versions of the forms to add and edit persons from the <a href="../../../tutorial/series/part_1/">first part of the tutorial series</a> will be updated to the new form builder API.
 This form is the perfect first examples as it is very simple with only two text fields whose only restriction is that they have to be filled out and that their values may not be longer than 255 characters each.</p>
 <p>As a reminder, here are the two relevant PHP files and the relevant template file:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/acp/form/PersonAddForm.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc-31/formBuilder/PersonAddForm_old.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/acp/form/PersonAddForm.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.6/snippets/migration/wsc-31/formBuilder/PersonAddForm_old.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>
@@ -2609,7 +2609,7 @@ This form is the perfect first examples as it is very simple with only two text 
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/acp/form/PersonEditForm.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc-31/formBuilder/PersonEditForm_old.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/acp/form/PersonEditForm.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.6/snippets/migration/wsc-31/formBuilder/PersonEditForm_old.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2791,7 +2791,7 @@ This form is the perfect first examples as it is very simple with only two text 
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">acptemplates/personAdd.tpl <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc-31/formBuilder/personAdd_old.tpl" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">acptemplates/personAdd.tpl <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.6/snippets/migration/wsc-31/formBuilder/personAdd_old.tpl" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2928,7 +2928,7 @@ This form is the perfect first examples as it is very simple with only two text 
 <span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;footer&#39;</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div></td></tr></table></div>
 <p>Updating the template is easy as the complete form is replace by a single line of code:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">acptemplates/personAdd.tpl <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc-31/formBuilder/personAdd_new.tpl" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">acptemplates/personAdd.tpl <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.6/snippets/migration/wsc-31/formBuilder/personAdd_new.tpl" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2968,7 +2968,7 @@ This form is the perfect first examples as it is very simple with only two text 
 </code></pre></div></td></tr></table></div>
 <p><code>PersonEditForm</code> also becomes much simpler:
 only the edited <code>Person</code> object must be read:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/acp/form/PersonEditForm.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc-31/formBuilder/PersonEditForm_new.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/acp/form/PersonEditForm.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.6/snippets/migration/wsc-31/formBuilder/PersonEditForm_new.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3035,7 +3035,7 @@ only the edited <code>Person</code> object must be read:</p>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Most of the work is done in <code>PersonAddForm</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/acp/form/PersonAddForm.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/migration/wsc-31/formBuilder/PersonAddForm_new.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/acp/form/PersonAddForm.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.6/snippets/migration/wsc-31/formBuilder/PersonAddForm_new.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
