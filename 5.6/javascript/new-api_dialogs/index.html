@@ -1,0 +1,2952 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.woltlab.com/5.6/javascript/new-api_dialogs/">
+      
+      <link rel="icon" href="../../assets/default.favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.14">
+    
+    
+      
+        <title>Dialogs - WoltLab Suite Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3de6f41f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dialogs-javascript-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+    <a href="https://www.woltlab.com">Back to <strong>woltlab.com</strong></a>
+
+          </div>
+        </aside>
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="WoltLab Suite Documentation" class="md-header__button md-logo" aria-label="WoltLab Suite Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WoltLab Suite Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dialogs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/WoltLab/docs.woltlab.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="WoltLab Suite Documentation" class="md-nav__button md-logo" aria-label="WoltLab Suite Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    WoltLab Suite Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/WoltLab/docs.woltlab.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          PHP API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="PHP API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          PHP API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/pages/" class="md-nav__link">
+        Pages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/database-objects/" class="md-nav__link">
+        Database Objects
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/database-access/" class="md-nav__link">
+        Database Access
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_1" type="checkbox" id="__nav_2_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_1">
+          Caches
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Caches" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Caches
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/caches/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/caches_persistent-caches/" class="md-nav__link">
+        Persistent Caches
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/caches_runtime-caches/" class="md-nav__link">
+        Runtime Caches
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/comments/" class="md-nav__link">
+        Comments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/cronjobs/" class="md-nav__link">
+        Cronjobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/events/" class="md-nav__link">
+        Events
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_5" type="checkbox" id="__nav_2_5_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_5">
+          Form Builder
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Form Builder" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Form Builder
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/form_builder/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/form_builder/structure/" class="md-nav__link">
+        Structure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/form_builder/form_fields/" class="md-nav__link">
+        Fields
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/form_builder/validation_data/" class="md-nav__link">
+        Validation and Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/form_builder/dependencies/" class="md-nav__link">
+        Dependencies
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/package_installation_plugins/" class="md-nav__link">
+        Package Installation Plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/user_activity_points/" class="md-nav__link">
+        User Activity Points
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/user_notifications/" class="md-nav__link">
+        User Notifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/api/sitemaps/" class="md-nav__link">
+        Sitemaps
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/code-style/" class="md-nav__link">
+        Code Style
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/apps/" class="md-nav__link">
+        Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/gdpr/" class="md-nav__link">
+        GDPR
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Languages, Templates & CSS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Languages, Templates & CSS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Languages, Templates & CSS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../view/languages/" class="md-nav__link">
+        Languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../view/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../view/template-plugins/" class="md-nav__link">
+        Template Plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../view/css/" class="md-nav__link">
+        CSS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          TypeScript and JavaScript API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="TypeScript and JavaScript API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          TypeScript and JavaScript API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general-usage/" class="md-nav__link">
+        General Usage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typescript/" class="md-nav__link">
+        TypeScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          New API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="New API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          New API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_writing-a-module/" class="md-nav__link">
+        Writing a module
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_data-structures/" class="md-nav__link">
+        Data Structures
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_core/" class="md-nav__link">
+        Core Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_dom/" class="md-nav__link">
+        DOM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_events/" class="md-nav__link">
+        Event Handling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_ajax/" class="md-nav__link">
+        Ajax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Dialogs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Dialogs
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_dialogsetup" class="md-nav__link">
+    _dialogSetup()
+  </a>
+  
+    <nav class="md-nav" aria-label="_dialogSetup()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id-string" class="md-nav__link">
+    id: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-any" class="md-nav__link">
+    source: any
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options-object" class="md-nav__link">
+    options: Object
+  </a>
+  
+    <nav class="md-nav" aria-label="options: Object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optionsbackdropcloseonclick-boolean" class="md-nav__link">
+    options.backdropCloseOnClick: boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionsclosable-boolean" class="md-nav__link">
+    options.closable: boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionsclosebuttonlabel-string" class="md-nav__link">
+    options.closeButtonLabel: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionscloseconfirmmessage-string" class="md-nav__link">
+    options.closeConfirmMessage: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionstitle-string" class="md-nav__link">
+    options.title: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionsonbeforeclose-id-string-void" class="md-nav__link">
+    options.onBeforeClose: (id: string) =&gt; void
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionsonclose-id-string-void" class="md-nav__link">
+    options.onClose: (id: string) =&gt; void
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionsonshow-content-element-void" class="md-nav__link">
+    options.onShow: (content: Element) =&gt; void
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settitleid-string-object-title-string" class="md-nav__link">
+    setTitle(id: string | Object, title: string)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setcallbackid-string-object-key-string-value-data-any-void-null" class="md-nav__link">
+    setCallback(id: string | Object, key: string, value: (data: any) =&gt; void | null)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebuildid-string-object" class="md-nav__link">
+    rebuild(id: string | Object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#closeid-string-object" class="md-nav__link">
+    close(id: string | Object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getdialogid-string-object-object" class="md-nav__link">
+    getDialog(id: string | Object): Object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isopenid-string-object-boolean" class="md-nav__link">
+    isOpen(id: string | Object): boolean
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_browser/" class="md-nav__link">
+        Browser and Screen Sizes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-api_ui/" class="md-nav__link">
+        User Interface
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy-api/" class="md-nav__link">
+        Legacy API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helper-functions/" class="md-nav__link">
+        Helper Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-snippets/" class="md-nav__link">
+        Code Snippets
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Package Components
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Package Components" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Package Components
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/package-xml/" class="md-nav__link">
+        package.xml
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          PIPs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="PIPs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          PIPs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/acl-option/" class="md-nav__link">
+        aclOption
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/acp-menu/" class="md-nav__link">
+        acpMenu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/acp-search-provider/" class="md-nav__link">
+        acpSearchProvider
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/acp-template/" class="md-nav__link">
+        acpTemplate
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/acp-template-delete/" class="md-nav__link">
+        acpTemplateDelete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/bbcode/" class="md-nav__link">
+        bbcode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/box/" class="md-nav__link">
+        box
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/clipboard-action/" class="md-nav__link">
+        clipboardAction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/core-object/" class="md-nav__link">
+        coreObject
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/cronjob/" class="md-nav__link">
+        cronjob
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/database/" class="md-nav__link">
+        database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/event-listener/" class="md-nav__link">
+        eventListener
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/file/" class="md-nav__link">
+        file
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/file-delete/" class="md-nav__link">
+        fileDelete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/language/" class="md-nav__link">
+        language
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/media-provider/" class="md-nav__link">
+        mediaProvider
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/menu/" class="md-nav__link">
+        menu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/menu-item/" class="md-nav__link">
+        menuItem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/object-type/" class="md-nav__link">
+        objectType
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/object-type-definition/" class="md-nav__link">
+        objectTypeDefinition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/option/" class="md-nav__link">
+        option
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/page/" class="md-nav__link">
+        page
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/pip/" class="md-nav__link">
+        pip
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/script/" class="md-nav__link">
+        script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/smiley/" class="md-nav__link">
+        smiley
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/sql/" class="md-nav__link">
+        sql
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/style/" class="md-nav__link">
+        style
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/template/" class="md-nav__link">
+        template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/template-delete/" class="md-nav__link">
+        templateDelete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/template-listener/" class="md-nav__link">
+        templateListener
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/user-group-option/" class="md-nav__link">
+        userGroupOption
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/user-menu/" class="md-nav__link">
+        userMenu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/user-notification-event/" class="md-nav__link">
+        userNotificationEvent
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/user-option/" class="md-nav__link">
+        userOption
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/pip/user-profile-menu/" class="md-nav__link">
+        userProfileMenu
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/database-php-api/" class="md-nav__link">
+        Database PHP API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Migration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Migration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Migration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Migrating from WSC 5.4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Migrating from WSC 5.4" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Migrating from WSC 5.4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc54/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc54/javascript/" class="md-nav__link">
+        TypeScript and JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc54/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc54/libraries/" class="md-nav__link">
+        Third Party Libraries
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc54/deprecations_removals/" class="md-nav__link">
+        Deprecations and Removals
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Migrating from WSC 5.3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Migrating from WSC 5.3" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Migrating from WSC 5.3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc53/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc53/session/" class="md-nav__link">
+        Session Handling and Authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc53/javascript/" class="md-nav__link">
+        TypeScript and JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc53/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc53/libraries/" class="md-nav__link">
+        Third Party Libraries
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Migrating from WSC 5.2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Migrating from WSC 5.2" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Migrating from WSC 5.2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc52/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc52/templates/" class="md-nav__link">
+        Templates and Languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc52/libraries/" class="md-nav__link">
+        Third Party Libraries
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          Migrating from WSC 3.1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Migrating from WSC 3.1" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Migrating from WSC 3.1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc31/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5">
+          Migrating from WSC 3.0
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Migrating from WSC 3.0" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Migrating from WSC 3.0
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc30/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc30/javascript/" class="md-nav__link">
+        JavaScript API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc30/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc30/css/" class="md-nav__link">
+        CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wsc30/package/" class="md-nav__link">
+        Package Components
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_6" type="checkbox" id="__nav_6_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_6">
+          Migrating from WCF 2.1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Migrating from WCF 2.1" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_6">
+          <span class="md-nav__icon md-icon"></span>
+          Migrating from WCF 2.1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wcf21/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wcf21/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wcf21/css/" class="md-nav__link">
+        CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/wcf21/package/" class="md-nav__link">
+        Package Components
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1">
+          Tutorial Series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial Series" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/series/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/series/part_1/" class="md-nav__link">
+        Part 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/series/part_2/" class="md-nav__link">
+        Part 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/series/part_3/" class="md-nav__link">
+        Part 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/series/part_4/" class="md-nav__link">
+        Part 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/series/part_5/" class="md-nav__link">
+        Part 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/series/part_6/" class="md-nav__link">
+        Part 6
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_dialogsetup" class="md-nav__link">
+    _dialogSetup()
+  </a>
+  
+    <nav class="md-nav" aria-label="_dialogSetup()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id-string" class="md-nav__link">
+    id: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-any" class="md-nav__link">
+    source: any
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options-object" class="md-nav__link">
+    options: Object
+  </a>
+  
+    <nav class="md-nav" aria-label="options: Object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optionsbackdropcloseonclick-boolean" class="md-nav__link">
+    options.backdropCloseOnClick: boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionsclosable-boolean" class="md-nav__link">
+    options.closable: boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionsclosebuttonlabel-string" class="md-nav__link">
+    options.closeButtonLabel: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionscloseconfirmmessage-string" class="md-nav__link">
+    options.closeConfirmMessage: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionstitle-string" class="md-nav__link">
+    options.title: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionsonbeforeclose-id-string-void" class="md-nav__link">
+    options.onBeforeClose: (id: string) =&gt; void
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionsonclose-id-string-void" class="md-nav__link">
+    options.onClose: (id: string) =&gt; void
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionsonshow-content-element-void" class="md-nav__link">
+    options.onShow: (content: Element) =&gt; void
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settitleid-string-object-title-string" class="md-nav__link">
+    setTitle(id: string | Object, title: string)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setcallbackid-string-object-key-string-value-data-any-void-null" class="md-nav__link">
+    setCallback(id: string | Object, key: string, value: (data: any) =&gt; void | null)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebuildid-string-object" class="md-nav__link">
+    rebuild(id: string | Object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#closeid-string-object" class="md-nav__link">
+    close(id: string | Object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getdialogid-string-object-object" class="md-nav__link">
+    getDialog(id: string | Object): Object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isopenid-string-object-boolean" class="md-nav__link">
+    isOpen(id: string | Object): boolean
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/WoltLab/docs.woltlab.com/edit/5.5/docs/javascript/new-api_dialogs.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="dialogs-javascript-api">Dialogs - JavaScript API<a class="headerlink" href="#dialogs-javascript-api" title="Permanent link">#</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>Dialogs are full screen overlays that cover the currently visible window area
+using a semi-opague backdrop and a prominently placed dialog window in the
+foreground. They shift the attention away from the original content towards the
+dialog and usually contain additional details and/or dedicated form inputs.</p>
+<h2 id="_dialogsetup"><code>_dialogSetup()</code><a class="headerlink" href="#_dialogsetup" title="Permanent link">#</a></h2>
+<p>The lazy initialization is performed upon the first invocation from the callee,
+using the magic <code>_dialogSetup()</code> method to retrieve the basic configuration for
+the dialog construction and any event callbacks.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// App/Foo.js</span><span class="w"></span>
+<span class="nx">define</span><span class="p">([</span><span class="s2">&quot;Ui/Dialog&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">UiDialog</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">Foo</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// this will open the dialog constructed by _dialogSetup</span><span class="w"></span>
+<span class="w">      </span><span class="nx">UiDialog</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">_dialogSetup</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;myDialog&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">source</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;p&gt;Hello World!&lt;/p&gt;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">onClose</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// the fancy dialog was closed!</span><span class="w"></span>
+<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">Foo</span><span class="p">;</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h3 id="id-string"><code>id: string</code><a class="headerlink" href="#id-string" title="Permanent link">#</a></h3>
+<p>The <code>id</code> is used to identify a dialog on runtime, but is also part of the first-
+time setup when the dialog has not been opened before. If <code>source</code> is <code>undefined</code>,
+the module attempts to construct the dialog using an element with the same id.</p>
+<h3 id="source-any"><code>source: any</code><a class="headerlink" href="#source-any" title="Permanent link">#</a></h3>
+<p>There are six different types of value that <code>source</code> does allow and each of them
+changes how the initial dialog is constructed:</p>
+<ol>
+<li><code>undefined</code><br />
+  The dialog exists already and the value of <code>id</code> should be used to identify the
+  element.</li>
+<li><code>null</code><br />
+  The HTML is provided using the second argument of <code>.open()</code>.</li>
+<li><code>() =&gt; void</code><br />
+  If the <code>source</code> is a function, it is executed and is expected to start the
+  dialog initialization itself.</li>
+<li><code>Object</code><br />
+  Plain objects are interpreted as parameters for an Ajax request, in particular
+  <code>source.data</code> will be used to issue the request. It is possible to specify the
+  key <code>source.after</code> as a callback <code>(content: Element, responseData: Object) =&gt; void</code>
+  that is executed after the dialog was opened.</li>
+<li><code>string</code><br />
+  The string is expected to be plain HTML that should be used to construct the
+  dialog.</li>
+<li><code>DocumentFragment</code><br />
+  A new container <code>&lt;div&gt;</code> with the provided <code>id</code> is created and the contents of
+  the <code>DocumentFragment</code> is appended to it. This container is then used for the
+  dialog.</li>
+</ol>
+<h3 id="options-object"><code>options: Object</code><a class="headerlink" href="#options-object" title="Permanent link">#</a></h3>
+<p>All configuration options and callbacks are handled through this object.</p>
+<h4 id="optionsbackdropcloseonclick-boolean"><code>options.backdropCloseOnClick: boolean</code><a class="headerlink" href="#optionsbackdropcloseonclick-boolean" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>true</code>.</em></p>
+<p>Clicks on the dialog backdrop will close the top-most dialog. This option will
+be force-disabled if the option <code>closeable</code> is set to <code>false</code>.</p>
+<h4 id="optionsclosable-boolean"><code>options.closable: boolean</code><a class="headerlink" href="#optionsclosable-boolean" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>true</code>.</em></p>
+<p>Enables the close button in the dialog title, when disabled the dialog can be
+closed through the <code>.close()</code> API call only.</p>
+<h4 id="optionsclosebuttonlabel-string"><code>options.closeButtonLabel: string</code><a class="headerlink" href="#optionsclosebuttonlabel-string" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>Language.get("wcf.global.button.close")</code>.</em></p>
+<p>The phrase that is displayed in the tooltip for the close button.</p>
+<h4 id="optionscloseconfirmmessage-string"><code>options.closeConfirmMessage: string</code><a class="headerlink" href="#optionscloseconfirmmessage-string" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>""</code>.</em></p>
+<p>Shows a <a href="../new-api_ui/">confirmation dialog</a> using the configured message
+before closing the dialog. The dialog will not be closed if the dialog is
+rejected by the user.</p>
+<h4 id="optionstitle-string"><code>options.title: string</code><a class="headerlink" href="#optionstitle-string" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>""</code>.</em></p>
+<p>The phrase that is displayed in the dialog title.</p>
+<h4 id="optionsonbeforeclose-id-string-void"><code>options.onBeforeClose: (id: string) =&gt; void</code><a class="headerlink" href="#optionsonbeforeclose-id-string-void" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>null</code>.</em></p>
+<p>The callback is executed when the user clicks on the close button or, if enabled,
+on the backdrop. The callback is responsible to close the dialog by itself, the
+default close behavior is automatically prevented.</p>
+<h4 id="optionsonclose-id-string-void"><code>options.onClose: (id: string) =&gt; void</code><a class="headerlink" href="#optionsonclose-id-string-void" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>null</code>.</em></p>
+<p>The callback is notified once the dialog is about to be closed, but is still
+visible at this point. It is not possible to abort the close operation at this
+point.</p>
+<h4 id="optionsonshow-content-element-void"><code>options.onShow: (content: Element) =&gt; void</code><a class="headerlink" href="#optionsonshow-content-element-void" title="Permanent link">#</a></h4>
+<p><em>Defaults to <code>null</code>.</em></p>
+<p>Receives the dialog content element as its only argument, allowing the callback
+to modify the DOM or to register event listeners before the dialog is presented
+to the user. The dialog is already visible at call time, but the dialog has not
+been finalized yet.</p>
+<h2 id="settitleid-string-object-title-string"><code>setTitle(id: string | Object, title: string)</code><a class="headerlink" href="#settitleid-string-object-title-string" title="Permanent link">#</a></h2>
+<p>Sets the title of a dialog.</p>
+<h2 id="setcallbackid-string-object-key-string-value-data-any-void-null"><code>setCallback(id: string | Object, key: string, value: (data: any) =&gt; void | null)</code><a class="headerlink" href="#setcallbackid-string-object-key-string-value-data-any-void-null" title="Permanent link">#</a></h2>
+<p>Sets a callback function after the dialog initialization, the special value
+<code>null</code> will remove a previously set callback. Valid values for <code>key</code> are
+<code>onBeforeClose</code>, <code>onClose</code> and <code>onShow</code>.</p>
+<h2 id="rebuildid-string-object"><code>rebuild(id: string | Object)</code><a class="headerlink" href="#rebuildid-string-object" title="Permanent link">#</a></h2>
+<p>Rebuilds a dialog by performing various calculations on the maximum dialog
+height in regards to the overflow handling and adjustments for embedded forms.
+This method is automatically invoked whenever a dialog is shown, after invoking
+the <code>options.onShow</code> callback.</p>
+<h2 id="closeid-string-object"><code>close(id: string | Object)</code><a class="headerlink" href="#closeid-string-object" title="Permanent link">#</a></h2>
+<p>Closes an open dialog, this will neither trigger a confirmation dialog, nor does
+it invoke the <code>options.onBeforeClose</code> callback. The <code>options.onClose</code> callback
+will always be invoked, but it cannot abort the close operation.</p>
+<h2 id="getdialogid-string-object-object"><code>getDialog(id: string | Object): Object</code><a class="headerlink" href="#getdialogid-string-object-object" title="Permanent link">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">This method returns an internal data object by reference, any modifications made do have an effect on the dialogs behavior and in particular no validation is performed on the modification. It is strongly recommended to use the <code>.set*()</code> methods only.</p>
+</div>
+<p>Returns the internal dialog data that is attached to a dialog. The most important
+key is <code>.content</code> which holds a reference to the dialog's inner content element.</p>
+<h2 id="isopenid-string-object-boolean"><code>isOpen(id: string | Object): boolean</code><a class="headerlink" href="#isopenid-string-object-boolean" title="Permanent link">#</a></h2>
+<p>Returns true if the dialog exists and is open.</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2021-01-08
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../new-api_ajax/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Ajax" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Ajax
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../new-api_browser/" class="md-footer__link md-footer__link--next" aria-label="Next: Browser and Screen Sizes" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Browser and Screen Sizes
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2020 WoltLab GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-copyright">
+	<a href="https://www.woltlab.com/legal-notice/">Legal Notice</a> 
+	<a href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c2e1ee47.min.js"></script>
+      
+    
+  </body>
+</html>
