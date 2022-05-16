@@ -10,6 +10,8 @@ With version 5.6, we have deprecated certain components and removed several othe
 
 #### Classes
 
+- `wcf\SensitiveArgument` ([WoltLab/WCF#4802](https://github.com/WoltLab/WCF/pull/4802))
+
 #### Methods
 
 - `wcf\data\package\update\server\PackageUpdateServer::attemptSecureConnection()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
