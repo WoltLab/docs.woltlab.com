@@ -56,6 +56,8 @@ With version 5.6, we have deprecated certain components and removed several othe
 - The `$forceHTTP` parameter of `wcf\system\package\PackageUpdateDispatcher::getPackageUpdateXML()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - `wcf\system\WCFACP::initPackage()` ([WoltLab/WCF#4794](https://github.com/WoltLab/WCF/pull/4794))
 - `wcf\system\WCFACP::getFrontendMenu()` ([WoltLab/WCF#4812](https://github.com/WoltLab/WCF/pull/4812))
+- `wcf\system\request\Request::getPageName()` ([WoltLab/WCF#4822](https://github.com/WoltLab/WCF/pull/4822))
+- `wcf\system\request\Request::getPageType()` ([WoltLab/WCF#4822](https://github.com/WoltLab/WCF/pull/4822))
 - The `$dbNumber` parameter of `wcf\system\WCFSetup::getConflictedTables()` ([WoltLab/WCF#4791](https://github.com/WoltLab/WCF/pull/4791))
 
 #### Properties
