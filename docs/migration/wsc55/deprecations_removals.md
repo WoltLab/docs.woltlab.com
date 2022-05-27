@@ -48,7 +48,7 @@ With version 5.6, we have deprecated certain components and removed several othe
 
 #### Classes
 
-- `wcf\\system\option\DesktopNotificationApplicationSelectOptionType` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
+- `wcf\system\option\DesktopNotificationApplicationSelectOptionType` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
 
 #### Methods
 
