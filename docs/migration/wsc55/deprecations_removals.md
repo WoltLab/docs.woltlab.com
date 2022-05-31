@@ -63,6 +63,8 @@ With version 5.6, we have deprecated certain components and removed several othe
 - `wcf\system\request\Request::getPageType()` ([WoltLab/WCF#4822](https://github.com/WoltLab/WCF/pull/4822))
 - `wcf\system\request\RouteHandler::getDefaultController()` ([WoltLab/WCF#4832](https://github.com/WoltLab/WCF/pull/4832))
 - `wcf\system\request\RouteHandler::loadDefaultControllers()` ([WoltLab/WCF#4832](https://github.com/WoltLab/WCF/pull/4832))
+- `wcf\system\session\SessionHandler::getStyleID()` ([WoltLab/WCF#4837](https://github.com/WoltLab/WCF/pull/4837))
+- `wcf\system\session\SessionHandler::setStyleID()`([WoltLab/WCF#4837](https://github.com/WoltLab/WCF/pull/4837))
 - The `$dbNumber` parameter of `wcf\system\WCFSetup::getConflictedTables()` ([WoltLab/WCF#4791](https://github.com/WoltLab/WCF/pull/4791))
 
 #### Properties
