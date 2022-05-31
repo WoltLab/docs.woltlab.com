@@ -19,6 +19,7 @@ With version 5.6, we have deprecated certain components and removed several othe
 - `wcf\system\io\RemoteFile::disableSSL()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - `wcf\system\io\RemoteFile::supportsSSL()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - `wcf\system\request\RequestHandler::inRescueMode()` ([WoltLab/WCF#4831](https://github.com/WoltLab/WCF/pull/4831))
+- `wcf\system\session\SessionHandler::getLanguageIDs()` ([WoltLab/WCF#4839](https://github.com/WoltLab/WCF/pull/4839))
 - `wcf\system\WCF::getFavicon()` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
 - `wcf\system\WCF::useDesktopNotifications()` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
 - `wcf\system\WCF::getActivePath()` ([WoltLab/WCF#4827](https://github.com/WoltLab/WCF/pull/4827))
