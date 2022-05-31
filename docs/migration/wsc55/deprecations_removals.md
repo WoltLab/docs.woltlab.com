@@ -51,6 +51,7 @@ With version 5.6, we have deprecated certain components and removed several othe
 #### Classes
 
 - `wcf\system\option\DesktopNotificationApplicationSelectOptionType` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
+- `wcf\system\search\elasticsearch\ElasticsearchException`
 
 #### Methods
 
@@ -63,6 +64,7 @@ With version 5.6, we have deprecated certain components and removed several othe
 - `wcf\system\request\Request::getPageType()` ([WoltLab/WCF#4822](https://github.com/WoltLab/WCF/pull/4822))
 - `wcf\system\request\RouteHandler::getDefaultController()` ([WoltLab/WCF#4832](https://github.com/WoltLab/WCF/pull/4832))
 - `wcf\system\request\RouteHandler::loadDefaultControllers()` ([WoltLab/WCF#4832](https://github.com/WoltLab/WCF/pull/4832))
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::query()`
 - `wcf\system\session\SessionHandler::getStyleID()` ([WoltLab/WCF#4837](https://github.com/WoltLab/WCF/pull/4837))
 - `wcf\system\session\SessionHandler::setStyleID()`([WoltLab/WCF#4837](https://github.com/WoltLab/WCF/pull/4837))
 - The `$dbNumber` parameter of `wcf\system\WCFSetup::getConflictedTables()` ([WoltLab/WCF#4791](https://github.com/WoltLab/WCF/pull/4791))
@@ -77,6 +79,11 @@ With version 5.6, we have deprecated certain components and removed several othe
 - `wcf\system\WCF::$forceLogout` ([WoltLab/WCF#4799](https://github.com/WoltLab/WCF/pull/4799))
 
 #### Constants
+
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::DELETE`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::GET`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::POST`
+- `wcf\system\search\elasticsearch\ElasticsearchHandler::PUT`
 
 #### Options
 
