@@ -1749,6 +1749,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#idna-handling" class="md-nav__link">
+    IDNA Handling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#laminas-diactoros" class="md-nav__link">
     Laminas Diactoros
   </a>
@@ -2510,6 +2517,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#idna-handling" class="md-nav__link">
+    IDNA Handling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#laminas-diactoros" class="md-nav__link">
     Laminas Diactoros
   </a>
@@ -2539,6 +2553,10 @@
 <p>The Symfony Polyfills for 7.3, 7.4, and 8.0 were removed, as the minimum PHP version was increased to PHP 8.1.
 The Polyfill for PHP 8.2 was added.</p>
 <p>Refer to the documentation within the <a href="https://github.com/symfony/polyfill/">symfony/polyfill</a> repository for details.</p>
+<h2 id="idna-handling">IDNA Handling<a class="headerlink" href="#idna-handling" title="Permanent link">#</a></h2>
+<p>The true/punycode and pear/net_idna2 dependencies were removed, because of a lack of upstream maintenance.
+Instead the <a href="https://www.php.net/manual/en/function.idn-to-ascii.php"><code>idn_to_ascii</code></a> function should be used.
+A polyfill for environments without the intl extension is provided.</p>
 <h2 id="laminas-diactoros">Laminas Diactoros<a class="headerlink" href="#laminas-diactoros" title="Permanent link">#</a></h2>
 <p>Diactoros was updated from version 2.4 to 2.10.</p>
 
@@ -2547,7 +2565,7 @@ The Polyfill for PHP 8.2 was added.</p>
   <small>
     
       Last update:
-      2022-06-07
+      2022-06-09
     
   </small>
 </div>
