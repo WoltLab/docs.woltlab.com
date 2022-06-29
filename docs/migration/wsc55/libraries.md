@@ -15,4 +15,4 @@ A polyfill for environments without the intl extension is provided.
 
 ## Laminas Diactoros
 
-Diactoros was updated from version 2.4 to 2.10.
+Diactoros was updated from version 2.4 to 2.11.
