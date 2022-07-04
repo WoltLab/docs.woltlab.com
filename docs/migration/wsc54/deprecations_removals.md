@@ -87,9 +87,10 @@ With version 5.5, we have deprecated certain components and removed several othe
 
 ### Templates
 
-#### Template Modifiers
+#### Template Plugins
 
 - `|encodeJSON` ([WoltLab/WCF#4645](https://github.com/WoltLab/WCF/pull/4645))
+- `{fetch}` ([WoltLab/WCF#4891](https://github.com/WoltLab/WCF/pull/4891))
 
 #### Template Events
 
