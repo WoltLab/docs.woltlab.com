@@ -105,6 +105,10 @@ With version 5.6, we have deprecated certain components and removed several othe
 
 #### Templates
 
+#### Template Plugins
+
+- `{fetch}` ([WoltLab/WCF#4892](https://github.com/WoltLab/WCF/pull/4892))
+
 #### Template Events
 
 - `headInclude::javascriptLanguageImport` ([WoltLab/WCF#4801](https://github.com/WoltLab/WCF/pull/4801))
