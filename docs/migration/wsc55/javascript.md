@@ -2,4 +2,4 @@
 
 ## Minimum requirements
 
-The ECMAScript target version has been increase to es2019 from es2017.
+The ECMAScript target version has been increased to es2019 from es2017.
