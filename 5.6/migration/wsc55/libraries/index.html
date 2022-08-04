@@ -1777,6 +1777,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#diff" class="md-nav__link">
+    Diff
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2545,6 +2552,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#diff" class="md-nav__link">
+    Diff
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2573,14 +2587,19 @@ The Polyfill for PHP 8.2 was added.</p>
 Instead the <a href="https://www.php.net/manual/en/function.idn-to-ascii.php"><code>idn_to_ascii</code></a> function should be used.
 A polyfill for environments without the intl extension is provided.</p>
 <h2 id="laminas-diactoros">Laminas Diactoros<a class="headerlink" href="#laminas-diactoros" title="Permanent link">#</a></h2>
-<p>Diactoros was updated from version 2.4 to 2.11.</p>
+<p>Diactoros was updated from version 2.4 to 2.14.</p>
+<h2 id="diff">Diff<a class="headerlink" href="#diff" title="Permanent link">#</a></h2>
+<p>WoltLab Suite 5.6 ships with sebastian/diff as a replacement for <code>wcf\util\Diff</code>.
+The <code>wcf\util\Diff::rawDiffFromSebastianDiff()</code> method was added as a compatibility helper to transform sebastian/diff's output format into Diff's output format.</p>
+<p>Refer to the documentation within the <a href="https://github.com/sebastianbergmann/diff">sebastianbergmann/diff</a> repository for details on how to use the library.</p>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/4918">WoltLab/WCF#4918</a> for examples on how to use the compatibility helper if you need to preserve the output format for the time being.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-06-29
+      2022-08-04
     
   </small>
 </div>
