@@ -11,6 +11,7 @@ With version 5.6, we have deprecated certain components and removed several othe
 #### Classes
 
 - `wcf\SensitiveArgument` ([WoltLab/WCF#4802](https://github.com/WoltLab/WCF/pull/4802))
+- `wcf\util\CronjobUtil` ([WoltLab/WCF#4923](https://github.com/WoltLab/WCF/pull/4923))
 
 #### Methods
 

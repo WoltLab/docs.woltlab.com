@@ -25,3 +25,9 @@ The `wcf\util\Diff::rawDiffFromSebastianDiff()` method was added as a compatibil
 Refer to the documentation within the [sebastianbergmann/diff](https://github.com/sebastianbergmann/diff) repository for details on how to use the library.
 
 See [WoltLab/WCF#4918](https://github.com/WoltLab/WCF/pull/4918) for examples on how to use the compatibility helper if you need to preserve the output format for the time being.
+
+## Cronjobs
+
+WoltLab Suite 5.6 ships with dragonmantank/cron-expression as a replacement for `wcf\util\CronjobUtil`.
+
+This library is considered an internal library / implementation detail and not covered by backwards compatibility promises of WoltLab Suite.
