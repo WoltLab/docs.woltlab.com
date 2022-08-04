@@ -16,3 +16,12 @@ A polyfill for environments without the intl extension is provided.
 ## Laminas Diactoros
 
 Diactoros was updated from version 2.4 to 2.11.
+
+## Diff
+
+WoltLab Suite 5.6 ships with sebastian/diff as a replacement for `wcf\util\Diff`.
+The `wcf\util\Diff::rawDiffFromSebastianDiff()` method was added as a compatibility helper to transform sebastian/diff's output format into Diff's output format.
+
+Refer to the documentation within the [sebastianbergmann/diff](https://github.com/sebastianbergmann/diff) repository for details on how to use the library.
+
+See [WoltLab/WCF#4918](https://github.com/WoltLab/WCF/pull/4918) for examples on how to use the compatibility helper if you need to preserve the output format for the time being.
