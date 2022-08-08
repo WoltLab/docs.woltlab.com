@@ -36,6 +36,8 @@ With version 5.6, we have deprecated certain components and removed several othe
 
 #### Constants
 
+- `wcf\system\condition\UserAvatarCondition::GRAVATAR` ([WoltLab/WCF#4929](https://github.com/WoltLab/WCF/pull/4929))
+
 #### Functions
 
 #### Options
@@ -59,11 +61,13 @@ With version 5.6, we have deprecated certain components and removed several othe
 #### Classes
 
 - `wcf\acp\form\ApplicationEditForm` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
+- `wcf\action\GravatarDownloadAction` ([WoltLab/WCF#4929](https://github.com/WoltLab/WCF/pull/4929))
+- `wcf\data\user\avatar\Gravatar` ([WoltLab/WCF#4929](https://github.com/WoltLab/WCF/pull/4929))
+- `wcf\system\bbcode\highlighter\*Highlighter` ([WoltLab/WCF#4926](https://github.com/WoltLab/WCF/pull/4926))
+- `wcf\system\bbcode\highlighter\Highlighter` ([WoltLab/WCF#4926](https://github.com/WoltLab/WCF/pull/4926))
 - `wcf\system\cache\source\MemcachedCacheSource` ([WoltLab/WCF#4928](https://github.com/WoltLab/WCF/pull/4928))
 - `wcf\system\option\DesktopNotificationApplicationSelectOptionType` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
 - `wcf\system\search\elasticsearch\ElasticsearchException`
-- `wcf\system\bbcode\highlighter\Highlighter` ([WoltLab/WCF#4926](https://github.com/WoltLab/WCF/pull/4926))
-- `wcf\system\bbcode\highlighter\*Highlighter` ([WoltLab/WCF#4926](https://github.com/WoltLab/WCF/pull/4926))
 
 #### Methods
 
@@ -116,6 +120,8 @@ With version 5.6, we have deprecated certain components and removed several othe
 - `CACHE_SOURCE_MEMCACHED_HOST` ([WoltLab/WCF#4928](https://github.com/WoltLab/WCF/pull/4928))
 - `DESKTOP_NOTIFICATION_PACKAGE_ID` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
 - `HTTP_SEND_X_FRAME_OPTIONS` ([WoltLab/WCF#4786](https://github.com/WoltLab/WCF/pull/4786))
+- `MODULE_GRAVATAR` ([WoltLab/WCF#4929](https://github.com/WoltLab/WCF/pull/4929))
+- `GRAVATAR_DEFAULT_TYPE` ([WoltLab/WCF#4929](https://github.com/WoltLab/WCF/pull/4929))
 
 #### Files
 
@@ -123,7 +129,10 @@ With version 5.6, we have deprecated certain components and removed several othe
 
 ### JavaScript
 
-### Phrases
+### Database
+
+- `wcf1_user.enableGravatar` ([WoltLab/WCF#4929](https://github.com/WoltLab/WCF/pull/4929))
+- `wcf1_user.gravatarFileExtension` ([WoltLab/WCF#4929](https://github.com/WoltLab/WCF/pull/4929))
 
 ### Templates
 
