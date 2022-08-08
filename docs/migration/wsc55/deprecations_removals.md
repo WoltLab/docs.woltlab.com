@@ -77,6 +77,8 @@ With version 5.6, we have deprecated certain components and removed several othe
 - `wcf\system\request\Request::setIsLandingPage()`
 - `wcf\system\request\RouteHandler::getDefaultController()` ([WoltLab/WCF#4832](https://github.com/WoltLab/WCF/pull/4832))
 - `wcf\system\request\RouteHandler::loadDefaultControllers()` ([WoltLab/WCF#4832](https://github.com/WoltLab/WCF/pull/4832))
+- `wcf\system\search\AbstractSearchEngine::getFulltextMinimumWordLength()` ([WoltLab/WCF#4933](https://github.com/WoltLab/WCF/pull/4933))
+- `wcf\system\search\AbstractSearchEngine::parseSearchQuery()` ([WoltLab/WCF#4933](https://github.com/WoltLab/WCF/pull/4933))
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::query()`
 - `wcf\system\search\SearchIndexManager::add()` ([WoltLab/WCF#4925](https://github.com/WoltLab/WCF/pull/4925))
 - `wcf\system\search\SearchIndexManager::update()` ([WoltLab/WCF#4925](https://github.com/WoltLab/WCF/pull/4925))
@@ -106,6 +108,8 @@ With version 5.6, we have deprecated certain components and removed several othe
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::GET`
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::POST`
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::PUT`
+- `SECURITY_TOKEN` ([WoltLab/WCF#4934](https://github.com/WoltLab/WCF/pull/4934))
+- `SECURITY_TOKEN_INPUT_TAG` ([WoltLab/WCF#4934](https://github.com/WoltLab/WCF/pull/4934))
 
 #### Options
 
@@ -114,6 +118,8 @@ With version 5.6, we have deprecated certain components and removed several othe
 - `HTTP_SEND_X_FRAME_OPTIONS` ([WoltLab/WCF#4786](https://github.com/WoltLab/WCF/pull/4786))
 
 #### Files
+
+- The `scss.inc.php` compatibility include. ([WoltLab/WCF#4932](https://github.com/WoltLab/WCF/pull/4932))
 
 ### JavaScript
 
