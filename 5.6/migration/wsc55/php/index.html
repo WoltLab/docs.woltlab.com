@@ -1721,6 +1721,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#indicating-parameters-that-hold-sensitive-information" class="md-nav__link">
+    Indicating parameters that hold sensitive information
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2517,6 +2524,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#indicating-parameters-that-hold-sensitive-information" class="md-nav__link">
+    Indicating parameters that hold sensitive information
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2545,13 +2559,34 @@
 </ul>
 <p>It is recommended to make use of the newly introduced features whereever possible.
 Please refer to the PHP documentation for details.</p>
+<h2 id="indicating-parameters-that-hold-sensitive-information">Indicating parameters that hold sensitive information<a class="headerlink" href="#indicating-parameters-that-hold-sensitive-information" title="Permanent link">#</a></h2>
+<p>PHP 8.2 adds native support for redacting parameters holding sensitive information in stack traces.
+Parameters with the <code>#[\SensitiveParameter]</code> attribute will show a placeholder value within the stack trace and the error log.</p>
+<p>WoltLab Suite’s exception handler contains logic to manually apply the sanitization for PHP versions before 8.2.</p>
+<p>It is strongly recommended to add this attribute to all parameters holding sensitive information.
+Examples for sensitive parameters include passwords/passphrases, access tokens, plaintext values to be encrypted, or private keys.</p>
+<p>As attributes are fully backwards and forwards compatible it is possible to apply the attribute to packages targeting older WoltLab Suite or PHP versions without causing errors.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">function</span> <span class="nf">checkPassword</span><span class="p">(</span>
+    <span class="c1">#[\SensitiveParameter]</span>
+    <span class="nv">$password</span><span class="p">,</span>
+<span class="p">)</span><span class="o">:</span> <span class="nx">bool</span> <span class="p">{</span>
+    <span class="c1">// …</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>See the <a href="https://wiki.php.net/rfc/redact_parameters_in_back_traces">PHP RFC: Redacting parameters in back traces</a> for more details.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-05-13
+      2022-08-08
     
   </small>
 </div>
