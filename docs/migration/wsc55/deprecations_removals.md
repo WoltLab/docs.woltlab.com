@@ -66,6 +66,8 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\bbcode\highlighter\*Highlighter` ([WoltLab/WCF#4926](https://github.com/WoltLab/WCF/pull/4926))
 - `wcf\system\bbcode\highlighter\Highlighter` ([WoltLab/WCF#4926](https://github.com/WoltLab/WCF/pull/4926))
 - `wcf\system\cache\source\MemcachedCacheSource` ([WoltLab/WCF#4928](https://github.com/WoltLab/WCF/pull/4928))
+- `wcf\system\cli\command\PackageCLICommand` ([WoltLab/WCF#4946](https://github.com/WoltLab/WCF/pull/4946))
+- `wcf\system\mail\Mail` ([WoltLab/WCF#4941](https://github.com/WoltLab/WCF/pull/4941))
 - `wcf\system\option\DesktopNotificationApplicationSelectOptionType` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
 - `wcf\system\search\elasticsearch\ElasticsearchException`
 
@@ -96,6 +98,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\util\CryptoUtil::randomBytes()` ([WoltLab/WCF#4924](https://github.com/WoltLab/WCF/pull/4924))
 - `wcf\util\CryptoUtil::randomInt()` ([WoltLab/WCF#4924](https://github.com/WoltLab/WCF/pull/4924))
 - `wcf\util\CryptoUtil::secureCompare()` ([WoltLab/WCF#4924](https://github.com/WoltLab/WCF/pull/4924))
+- `wcf\util\FileUtil::downloadFileFromHttp()` ([WoltLab/WCF#4942](https://github.com/WoltLab/WCF/pull/4942))
 - `wcf\util\PasswordUtil::secureCompare()` ([WoltLab/WCF#4924](https://github.com/WoltLab/WCF/pull/4924))
 - `wcf\util\PasswordUtil::secureRandomNumber()` ([WoltLab/WCF#4924](https://github.com/WoltLab/WCF/pull/4924))
 
@@ -134,20 +137,21 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 - `flexibleArea.js` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `jQuery.browser.smartphone` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
-- `window.shuffle()` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `Prism.wscSplitIntoLines` ([WoltLab/WCF#4940](https://github.com/WoltLab/WCF/pull/4940))
 - `WCF.Action.Scroll` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.Date.Picker` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.Date.Util` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.Dropdown.Interactive.Handler` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 - `WCF.Dropdown.Interactive.Instance` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
-- `WCF.Message.Smilies` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.Message.Share.Page` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.Message.Smilies` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.Search.Message.KeywordList` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.System.FlexibleMenu` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.System.Fullscreen` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.System.PageNavigation` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.ToggleOptions` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.User.Panel.Abstract` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
+- `window.shuffle()` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 
 ### Database
 
