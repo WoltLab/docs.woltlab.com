@@ -74,6 +74,7 @@ With version 5.6, we have deprecated certain components and removed several othe
 - The `$forceHTTP` parameter of `wcf\data\package\update\server\PackageUpdateServer::getListURL()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - The `$forceHTTP` parameter of `wcf\system\package\PackageUpdateDispatcher::getPackageUpdateXML()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - `wcf\data\bbcode\BBCodeCache::getHighlighters()` ([WoltLab/WCF#4926](https://github.com/WoltLab/WCF/pull/4926))
+- `wcf\data\conversation\ConversationAction::getMixedConversationList()` ([WoltLab/com.woltlab.wcf.conversation#176](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/176))
 - `wcf\system\request\Request::execute()` ([WoltLab/WCF#4820](https://github.com/WoltLab/WCF/pull/4820))
 - `wcf\system\request\Request::getPageType()` ([WoltLab/WCF#4822](https://github.com/WoltLab/WCF/pull/4822))
 - `wcf\system\request\Request::getPageType()` ([WoltLab/WCF#4822](https://github.com/WoltLab/WCF/pull/4822))
@@ -137,6 +138,8 @@ With version 5.6, we have deprecated certain components and removed several othe
 ### Templates
 
 #### Templates
+
+- `conversationListUserPanel` ([WoltLab/com.woltlab.wcf.conversation#176](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/176))
 
 #### Template Plugins
 
