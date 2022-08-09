@@ -75,6 +75,8 @@ With version 5.6, we have deprecated certain components and removed several othe
 - The `$forceHTTP` parameter of `wcf\system\package\PackageUpdateDispatcher::getPackageUpdateXML()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - `wcf\data\bbcode\BBCodeCache::getHighlighters()` ([WoltLab/WCF#4926](https://github.com/WoltLab/WCF/pull/4926))
 - `wcf\data\conversation\ConversationAction::getMixedConversationList()` ([WoltLab/com.woltlab.wcf.conversation#176](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/176))
+- `wcf\data\moderation\queue\ModerationQueueAction::getOutstandingQueues()` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
+- `wcf\data\user\notification\UserNotificationAction::getOustandingNotifications()` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 - `wcf\system\request\Request::execute()` ([WoltLab/WCF#4820](https://github.com/WoltLab/WCF/pull/4820))
 - `wcf\system\request\Request::getPageType()` ([WoltLab/WCF#4822](https://github.com/WoltLab/WCF/pull/4822))
 - `wcf\system\request\Request::getPageType()` ([WoltLab/WCF#4822](https://github.com/WoltLab/WCF/pull/4822))
@@ -130,6 +132,10 @@ With version 5.6, we have deprecated certain components and removed several othe
 
 ### JavaScript
 
+- `WCF.Dropdown.Interactive.Handler` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
+- `WCF.Dropdown.Interactive.Instance` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
+- `WCF.User.Panel.Abstract` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
+
 ### Database
 
 - `wcf1_user.enableGravatar` ([WoltLab/WCF#4929](https://github.com/WoltLab/WCF/pull/4929))
@@ -140,6 +146,8 @@ With version 5.6, we have deprecated certain components and removed several othe
 #### Templates
 
 - `conversationListUserPanel` ([WoltLab/com.woltlab.wcf.conversation#176](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/176))
+- `moderationQueueList` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
+- `notificationListUserPanel` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 
 #### Template Plugins
 
