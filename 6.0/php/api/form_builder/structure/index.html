@@ -1,0 +1,3504 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.woltlab.com/6.0/php/api/form_builder/structure/">
+      
+      <link rel="icon" href="../../../../assets/default.favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Structure - WoltLab Suite Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+      
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#structure-of-form-builder" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+    <a href="https://www.woltlab.com">Back to <strong>woltlab.com</strong></a>
+
+          </div>
+        </aside>
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="WoltLab Suite Documentation" class="md-header__button md-logo" aria-label="WoltLab Suite Documentation" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WoltLab Suite Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Structure
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/WoltLab/docs.woltlab.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="WoltLab Suite Documentation" class="md-nav__button md-logo" aria-label="WoltLab Suite Documentation" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    WoltLab Suite Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/WoltLab/docs.woltlab.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          PHP API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="PHP API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          PHP API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pages/" class="md-nav__link">
+        Pages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database-objects/" class="md-nav__link">
+        Database Objects
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database-access/" class="md-nav__link">
+        Database Access
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_1" type="checkbox" id="__nav_2_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_1">
+          Caches
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Caches" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Caches
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../caches/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../caches_persistent-caches/" class="md-nav__link">
+        Persistent Caches
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../caches_runtime-caches/" class="md-nav__link">
+        Runtime Caches
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comments/" class="md-nav__link">
+        Comments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cronjobs/" class="md-nav__link">
+        Cronjobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../events/" class="md-nav__link">
+        Events
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_5" type="checkbox" id="__nav_2_5_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_5">
+          Form Builder
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Form Builder" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Form Builder
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Structure
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Structure
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#form-nodes" class="md-nav__link">
+    Form Nodes
+  </a>
+  
+    <nav class="md-nav" aria-label="Form Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iformnode" class="md-nav__link">
+    IFormNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iformchildnode" class="md-nav__link">
+    IFormChildNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iformparentnode" class="md-nav__link">
+    IFormParentNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iformelement" class="md-nav__link">
+    IFormElement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iobjecttypeformnode" class="md-nav__link">
+    IObjectTypeFormNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customformnode" class="md-nav__link">
+    CustomFormNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templateformnode" class="md-nav__link">
+    TemplateFormNode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#form-document" class="md-nav__link">
+    Form Document
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#form-button" class="md-nav__link">
+    Form Button
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#form-container" class="md-nav__link">
+    Form Container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#form-field" class="md-nav__link">
+    Form Field
+  </a>
+  
+    <nav class="md-nav" aria-label="Form Field">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#form-field-interfaces-and-traits" class="md-nav__link">
+    Form Field Interfaces and Traits
+  </a>
+  
+    <nav class="md-nav" aria-label="Form Field Interfaces and Traits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iattributeformfield" class="md-nav__link">
+    IAttributeFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iautocompleteformfield" class="md-nav__link">
+    IAutoCompleteFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iautofocusformfield" class="md-nav__link">
+    IAutoFocusFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#icssclassformfield" class="md-nav__link">
+    ICssClassFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ifileformfield" class="md-nav__link">
+    IFileFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ifilterableselectionformfield" class="md-nav__link">
+    IFilterableSelectionFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii18nformfield" class="md-nav__link">
+    II18nFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iimmutableformfield" class="md-nav__link">
+    IImmutableFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iinputmodeformfield" class="md-nav__link">
+    IInputModeFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imaximumformfield" class="md-nav__link">
+    IMaximumFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imaximumlengthformfield" class="md-nav__link">
+    IMaximumLengthFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iminimumformfield" class="md-nav__link">
+    IMinimumFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iminimumlengthformfield" class="md-nav__link">
+    IMinimumLengthFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imultipleformfield" class="md-nav__link">
+    IMultipleFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inullableformfield" class="md-nav__link">
+    INullableFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipackagesformfield" class="md-nav__link">
+    IPackagesFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipatternformfield" class="md-nav__link">
+    IPatternFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iplaceholderformfield" class="md-nav__link">
+    IPlaceholderFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iselectionformfield" class="md-nav__link">
+    ISelectionFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isuffixedformfield" class="md-nav__link">
+    ISuffixedFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tdefaultidformfield" class="md-nav__link">
+    TDefaultIdFormField
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#displaying-forms" class="md-nav__link">
+    Displaying Forms
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../form_fields/" class="md-nav__link">
+        Fields
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validation_data/" class="md-nav__link">
+        Validation and Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependencies/" class="md-nav__link">
+        Dependencies
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package_installation_plugins/" class="md-nav__link">
+        Package Installation Plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_activity_points/" class="md-nav__link">
+        User Activity Points
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_notifications/" class="md-nav__link">
+        User Notifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sitemaps/" class="md-nav__link">
+        Sitemaps
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../code-style/" class="md-nav__link">
+        Code Style
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../apps/" class="md-nav__link">
+        Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gdpr/" class="md-nav__link">
+        GDPR
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Languages, Templates & CSS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Languages, Templates & CSS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Languages, Templates & CSS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../view/languages/" class="md-nav__link">
+        Languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../view/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../view/template-plugins/" class="md-nav__link">
+        Template Plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../view/css/" class="md-nav__link">
+        CSS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          TypeScript and JavaScript API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="TypeScript and JavaScript API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          TypeScript and JavaScript API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../javascript/general-usage/" class="md-nav__link">
+        General Usage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../javascript/typescript/" class="md-nav__link">
+        TypeScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          New API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="New API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          New API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../javascript/new-api_writing-a-module/" class="md-nav__link">
+        Writing a module
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../javascript/new-api_data-structures/" class="md-nav__link">
+        Data Structures
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../javascript/new-api_core/" class="md-nav__link">
+        Core Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../javascript/new-api_dom/" class="md-nav__link">
+        DOM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../javascript/new-api_events/" class="md-nav__link">
+        Event Handling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../javascript/new-api_ajax/" class="md-nav__link">
+        Ajax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../javascript/new-api_dialogs/" class="md-nav__link">
+        Dialogs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../javascript/new-api_browser/" class="md-nav__link">
+        Browser and Screen Sizes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../javascript/new-api_ui/" class="md-nav__link">
+        User Interface
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../javascript/legacy-api/" class="md-nav__link">
+        Legacy API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../javascript/helper-functions/" class="md-nav__link">
+        Helper Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../javascript/code-snippets/" class="md-nav__link">
+        Code Snippets
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Package Components
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Package Components" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Package Components
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/package-xml/" class="md-nav__link">
+        package.xml
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          PIPs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="PIPs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          PIPs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/acl-option/" class="md-nav__link">
+        aclOption
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/acp-menu/" class="md-nav__link">
+        acpMenu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/acp-search-provider/" class="md-nav__link">
+        acpSearchProvider
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/acp-template/" class="md-nav__link">
+        acpTemplate
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/acp-template-delete/" class="md-nav__link">
+        acpTemplateDelete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/bbcode/" class="md-nav__link">
+        bbcode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/box/" class="md-nav__link">
+        box
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/clipboard-action/" class="md-nav__link">
+        clipboardAction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/core-object/" class="md-nav__link">
+        coreObject
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/cronjob/" class="md-nav__link">
+        cronjob
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/database/" class="md-nav__link">
+        database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/event-listener/" class="md-nav__link">
+        eventListener
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/file/" class="md-nav__link">
+        file
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/file-delete/" class="md-nav__link">
+        fileDelete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/language/" class="md-nav__link">
+        language
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/media-provider/" class="md-nav__link">
+        mediaProvider
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/menu/" class="md-nav__link">
+        menu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/menu-item/" class="md-nav__link">
+        menuItem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/object-type/" class="md-nav__link">
+        objectType
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/object-type-definition/" class="md-nav__link">
+        objectTypeDefinition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/option/" class="md-nav__link">
+        option
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/page/" class="md-nav__link">
+        page
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/pip/" class="md-nav__link">
+        pip
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/script/" class="md-nav__link">
+        script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/smiley/" class="md-nav__link">
+        smiley
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/sql/" class="md-nav__link">
+        sql
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/style/" class="md-nav__link">
+        style
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/template/" class="md-nav__link">
+        template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/template-delete/" class="md-nav__link">
+        templateDelete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/template-listener/" class="md-nav__link">
+        templateListener
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/user-group-option/" class="md-nav__link">
+        userGroupOption
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/user-menu/" class="md-nav__link">
+        userMenu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/user-notification-event/" class="md-nav__link">
+        userNotificationEvent
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/user-option/" class="md-nav__link">
+        userOption
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/pip/user-profile-menu/" class="md-nav__link">
+        userProfileMenu
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../package/database-php-api/" class="md-nav__link">
+        Database PHP API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Migration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Migration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Migration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          From WoltLab Suite 5.5
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="From WoltLab Suite 5.5" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          From WoltLab Suite 5.5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc55/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc55/javascript/" class="md-nav__link">
+        TypeScript and JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc55/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc55/libraries/" class="md-nav__link">
+        Third Party Libraries
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc55/deprecations_removals/" class="md-nav__link">
+        Deprecations and Removals
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          From WoltLab Suite 5.4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="From WoltLab Suite 5.4" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          From WoltLab Suite 5.4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc54/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc54/javascript/" class="md-nav__link">
+        TypeScript and JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc54/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc54/libraries/" class="md-nav__link">
+        Third Party Libraries
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc54/deprecations_removals/" class="md-nav__link">
+        Deprecations and Removals
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          From WoltLab Suite 5.3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="From WoltLab Suite 5.3" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          From WoltLab Suite 5.3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc53/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc53/session/" class="md-nav__link">
+        Session Handling and Authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc53/javascript/" class="md-nav__link">
+        TypeScript and JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc53/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc53/libraries/" class="md-nav__link">
+        Third Party Libraries
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          From WoltLab Suite 5.2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="From WoltLab Suite 5.2" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          From WoltLab Suite 5.2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc52/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc52/templates/" class="md-nav__link">
+        Templates and Languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc52/libraries/" class="md-nav__link">
+        Third Party Libraries
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5">
+          From WoltLab Suite 3.1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="From WoltLab Suite 3.1" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          From WoltLab Suite 3.1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc31/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_6" type="checkbox" id="__nav_6_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_6">
+          From WoltLab Suite 3.0
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="From WoltLab Suite 3.0" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_6">
+          <span class="md-nav__icon md-icon"></span>
+          From WoltLab Suite 3.0
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc30/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc30/javascript/" class="md-nav__link">
+        JavaScript API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc30/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc30/css/" class="md-nav__link">
+        CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc30/package/" class="md-nav__link">
+        Package Components
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_7" type="checkbox" id="__nav_6_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_7">
+          From WCF 2.1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="From WCF 2.1" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_7">
+          <span class="md-nav__icon md-icon"></span>
+          From WCF 2.1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wcf21/php/" class="md-nav__link">
+        PHP API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wcf21/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wcf21/css/" class="md-nav__link">
+        CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wcf21/package/" class="md-nav__link">
+        Package Components
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1">
+          Tutorial Series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial Series" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorial/series/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorial/series/part_1/" class="md-nav__link">
+        Part 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorial/series/part_2/" class="md-nav__link">
+        Part 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorial/series/part_3/" class="md-nav__link">
+        Part 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorial/series/part_4/" class="md-nav__link">
+        Part 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorial/series/part_5/" class="md-nav__link">
+        Part 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorial/series/part_6/" class="md-nav__link">
+        Part 6
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#form-nodes" class="md-nav__link">
+    Form Nodes
+  </a>
+  
+    <nav class="md-nav" aria-label="Form Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iformnode" class="md-nav__link">
+    IFormNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iformchildnode" class="md-nav__link">
+    IFormChildNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iformparentnode" class="md-nav__link">
+    IFormParentNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iformelement" class="md-nav__link">
+    IFormElement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iobjecttypeformnode" class="md-nav__link">
+    IObjectTypeFormNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customformnode" class="md-nav__link">
+    CustomFormNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templateformnode" class="md-nav__link">
+    TemplateFormNode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#form-document" class="md-nav__link">
+    Form Document
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#form-button" class="md-nav__link">
+    Form Button
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#form-container" class="md-nav__link">
+    Form Container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#form-field" class="md-nav__link">
+    Form Field
+  </a>
+  
+    <nav class="md-nav" aria-label="Form Field">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#form-field-interfaces-and-traits" class="md-nav__link">
+    Form Field Interfaces and Traits
+  </a>
+  
+    <nav class="md-nav" aria-label="Form Field Interfaces and Traits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iattributeformfield" class="md-nav__link">
+    IAttributeFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iautocompleteformfield" class="md-nav__link">
+    IAutoCompleteFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iautofocusformfield" class="md-nav__link">
+    IAutoFocusFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#icssclassformfield" class="md-nav__link">
+    ICssClassFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ifileformfield" class="md-nav__link">
+    IFileFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ifilterableselectionformfield" class="md-nav__link">
+    IFilterableSelectionFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii18nformfield" class="md-nav__link">
+    II18nFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iimmutableformfield" class="md-nav__link">
+    IImmutableFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iinputmodeformfield" class="md-nav__link">
+    IInputModeFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imaximumformfield" class="md-nav__link">
+    IMaximumFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imaximumlengthformfield" class="md-nav__link">
+    IMaximumLengthFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iminimumformfield" class="md-nav__link">
+    IMinimumFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iminimumlengthformfield" class="md-nav__link">
+    IMinimumLengthFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imultipleformfield" class="md-nav__link">
+    IMultipleFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inullableformfield" class="md-nav__link">
+    INullableFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipackagesformfield" class="md-nav__link">
+    IPackagesFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipatternformfield" class="md-nav__link">
+    IPatternFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iplaceholderformfield" class="md-nav__link">
+    IPlaceholderFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iselectionformfield" class="md-nav__link">
+    ISelectionFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isuffixedformfield" class="md-nav__link">
+    ISuffixedFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tdefaultidformfield" class="md-nav__link">
+    TDefaultIdFormField
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#displaying-forms" class="md-nav__link">
+    Displaying Forms
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/WoltLab/docs.woltlab.com/edit/6.0/docs/php/api/form_builder/structure.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="structure-of-form-builder">Structure of Form Builder<a class="headerlink" href="#structure-of-form-builder" title="Permanent link">#</a></h1>
+<p>Forms built with form builder consist of three major structural elements listed from top to bottom:</p>
+<ol>
+<li>form document,</li>
+<li>form container,</li>
+<li>form field.</li>
+</ol>
+<p>The basis for all three elements are form nodes.</p>
+<div class="admonition info">
+<p class="admonition-title">The form builder API uses fluent interfaces heavily, meaning that unless a method is a getter, it generally returns the objects itself to support method chaining.</p>
+</div>
+<h2 id="form-nodes">Form Nodes<a class="headerlink" href="#form-nodes" title="Permanent link">#</a></h2>
+<ul>
+<li><code>IFormNode</code> is the base interface that any node of a form has to implement.</li>
+<li><code>IFormChildNode</code> extends <code>IFormNode</code> for such elements of a form that can be a child node to a parent node.</li>
+<li><code>IFormParentNode</code> extends <code>IFormNode</code> for such elements of a form that can be a parent to child nodes.</li>
+<li><code>IFormElement</code> extends <code>IFormNode</code> for such elements of a form that can have a description and a label.</li>
+</ul>
+<h3 id="iformnode"><code>IFormNode</code><a class="headerlink" href="#iformnode" title="Permanent link">#</a></h3>
+<p><code>IFormNode</code> is the base interface that any node of a form has to implement and it requires the following methods:</p>
+<ul>
+<li><code>addClass($class)</code>, <code>addClasses(array $classes)</code>, <code>removeClass($class)</code>, <code>getClasses()</code>, and <code>hasClass($class)</code> add, remove, get, and check for CSS classes of the HTML element representing the form node.
+  If the form node consists of multiple (nested) HTML elements, the classes are generally added to the top element.
+  <code>static validateClass($class)</code> is used to check if a given CSS class is valid.
+  By default, a form node has no CSS classes.</li>
+<li><code>addDependency(IFormFieldDependency $dependency)</code>, <code>removeDependency($dependencyId)</code>, <code>getDependencies()</code>, and <code>hasDependency($dependencyId)</code> add, remove, get, and check for dependencies of this form node on other form fields.
+  <code>checkDependencies()</code> checks if <strong>all</strong> of the node’s dependencies are met and returns a boolean value reflecting the check’s result.
+  The <a href="../dependencies/">form builder dependency documentation</a> provides more detailed information about dependencies and how they work.
+  By default, a form node has no dependencies.</li>
+<li><code>attribute($name, $value = null)</code>, <code>removeAttribute($name)</code>, <code>getAttribute($name)</code>, <code>getAttributes()</code>, <code>hasAttribute($name)</code> add, remove, get, and check for attributes of the HTML element represting the form node.
+  The attributes are added to the same element that the CSS classes are added to.
+  <code>static validateAttribute($name)</code> is used to check if a given attribute is valid.
+  By default, a form node has no attributes.</li>
+<li><code>available($available = true)</code> and <code>isAvailable()</code> can be used to set and check if the node is available.
+  The availability functionality can be used to easily toggle form nodes based, for example, on options without having to create a condition to append the relevant.
+  This way of checking availability makes it easier to set up forms. 
+  By default, every form node is available.</li>
+</ul>
+<p>The following aspects are important when working with availability:</p>
+<ul>
+<li>Unavailable fields produce no output, their value is not read, they are not validated and they are not checked for save values.</li>
+<li>Form fields are also able to mark themselves as unavailable, for example, a selection field without any options.</li>
+<li>Form containers are automatically unavailable if they contain no available children.</li>
+</ul>
+<p>Availability sets the static availability for form nodes that does not change during the lifetime of a form.
+  In contrast, dependencies represent a dynamic availability for form nodes that depends on the current value of certain form fields.
+- <code>cleanup()</code> is called after the whole form is not used anymore to reset other APIs if the form fields depends on them and they expect such a reset.
+  This method is not intended to clean up the form field’s value as a new form document object is created to show a clean form.
+- <code>getDocument()</code> returns the <code>IFormDocument</code> object the node belongs to.
+  (As <code>IFormDocument</code> extends <code>IFormNode</code>, form document objects simply return themselves.)
+- <code>getHtml()</code> returns the HTML representation of the node.
+  <code>getHtmlVariables()</code> return template variables (in addition to the form node itself) to render the node’s HTML representation.
+- <code>id($id)</code> and <code>getId()</code> set and get the id of the form node.
+  Every id has to be unique within a form.
+  <code>getPrefixedId()</code> returns the prefixed version of the node’s id (see <code>IFormDocument::getPrefix()</code> and <code>IFormDocument::prefix()</code>).
+  <code>static validateId($id)</code> is used to check if a given id is valid.
+- <code>populate()</code> is called by <code>IFormDocument::build()</code> after all form nodes have been added.
+  This method should finilize the initialization of the form node after all parent-child relations of the form document have been established.
+  This method is needed because during the construction of a form node, it neither knows the form document it will belong to nor does it know its parent.
+- <code>validate()</code> checks, after the form is submitted, if the form node is valid.
+  A form node with children is valid if all of its child nodes are valid.
+  A form field is valid if its value is valid.
+- <code>static create($id)</code> is the factory method that has to be used to create new form nodes with the given id.</p>
+<p><code>TFormNode</code> provides a default implementation of most of these methods.</p>
+<h3 id="iformchildnode"><code>IFormChildNode</code><a class="headerlink" href="#iformchildnode" title="Permanent link">#</a></h3>
+<p><code>IFormChildNode</code> extends <code>IFormNode</code> for such elements of a form that can be a child node to a parent node and it requires the <code>parent(IFormParentNode $parentNode)</code> and <code>getParent()</code> methods used to set and get the node’s parent node.
+<code>TFormChildNode</code> provides a default implementation of these two methods and also of <code>IFormNode::getDocument()</code>.</p>
+<h3 id="iformparentnode"><code>IFormParentNode</code><a class="headerlink" href="#iformparentnode" title="Permanent link">#</a></h3>
+<p><code>IFormParentNode</code> extends <code>IFormNode</code> for such elements of a form that can be a parent to child nodes.
+Additionally, the interface also extends <code>\Countable</code> and <code>\RecursiveIterator</code>.
+The interface requires the following methods:</p>
+<ul>
+<li><code>appendChild(IFormChildNode $child)</code>, <code>appendChildren(array $children)</code>, <code>insertAfter(IFormChildNode $child, $referenceNodeId)</code>, and <code>insertBefore(IFormChildNode $child, $referenceNodeId)</code> are used to insert new children either at the end or at specific positions.
+  <code>validateChild(IFormChildNode $child)</code> is used to check if a given child node can be added.
+  A child node cannot be added if it would cause an id to be used twice.</li>
+<li><code>children()</code> returns the direct children of a form node.</li>
+<li><code>getIterator()</code> return  a recursive iterator for a form node.</li>
+<li><code>getNodeById($nodeId)</code> returns the node with the given id by searching for it in the node’s children and recursively in all of their children.
+  <code>contains($nodeId)</code> can be used to simply check if a node with the given id exists.</li>
+<li><code>hasValidationErrors()</code> checks if a form node or any of its children has a validation error (see <code>IFormField::getValidationErrors()</code>).</li>
+<li><code>readValues()</code> recursively calls <code>IFormParentNode::readValues()</code> and <code>IFormField::readValue()</code> on its children.</li>
+</ul>
+<h3 id="iformelement"><code>IFormElement</code><a class="headerlink" href="#iformelement" title="Permanent link">#</a></h3>
+<p><code>IFormElement</code> extends <code>IFormNode</code> for such elements of a form that can have a description and a label and it requires the following methods:</p>
+<ul>
+<li><code>label($languageItem = null, array $variables = [])</code> and <code>getLabel()</code> can be used to set and get the label of the form element.
+  <code>requiresLabel()</code> can be checked if the form element requires a label.
+  A label-less form element that requires a label will prevent the form from being rendered by throwing an exception.</li>
+<li><code>description($languageItem = null, array $variables = [])</code> and <code>getDescription()</code> can be used to set and get the description of the form element.</li>
+</ul>
+<h3 id="iobjecttypeformnode"><code>IObjectTypeFormNode</code><a class="headerlink" href="#iobjecttypeformnode" title="Permanent link">#</a></h3>
+<p><code>IObjectTypeFormField</code> has to be implemented by form nodes that rely on a object type of a specific object type definition in order to function.
+The implementing class has to implement the methods <code>objectType($objectType)</code>, <code>getObjectType()</code>, and <code>getObjectTypeDefinition()</code>.
+<code>TObjectTypeFormNode</code> provides a default implementation of these three methods.</p>
+<h3 id="customformnode"><code>CustomFormNode</code><a class="headerlink" href="#customformnode" title="Permanent link">#</a></h3>
+<p><code>CustomFormNode</code> is a form node whose contents can be set directly via <code>content($content)</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">This class should generally not be relied on. Instead, <code>TemplateFormNode</code> should be used.</p>
+</div>
+<h3 id="templateformnode"><code>TemplateFormNode</code><a class="headerlink" href="#templateformnode" title="Permanent link">#</a></h3>
+<p><code>TemplateFormNode</code> is a form node whose contents are read from a template.
+<code>TemplateFormNode</code> has the following additional methods:</p>
+<ul>
+<li><code>application($application)</code> and <code>getApplicaton()</code> can be used to set and get the abbreviation of the application the shown template belongs to.
+  If no template has been set explicitly, <code>getApplicaton()</code> returns <code>wcf</code>.</li>
+<li><code>templateName($templateName)</code> and <code>getTemplateName()</code> can be used to set and get the name of the template containing the node contents.
+  If no template has been set and the node is rendered, an exception will be thrown.</li>
+<li><code>variables(array $variables)</code> and <code>getVariables()</code> can be used to set and get additional variables passed to the template.</li>
+</ul>
+<h2 id="form-document">Form Document<a class="headerlink" href="#form-document" title="Permanent link">#</a></h2>
+<p>A form document object represents the form as a whole and has to implement the <code>IFormDocument</code> interface.
+WoltLab Suite provides a default implementation with the <code>FormDocument</code> class.
+<code>IFormDocument</code> should not be implemented directly but instead <code>FormDocument</code> should be extended to avoid issues if the <code>IFormDocument</code> interface changes in the future.</p>
+<p><code>IFormDocument</code> extends <code>IFormParentNode</code> and requires the following additional methods:</p>
+<ul>
+<li><code>action($action)</code> and <code>getAction()</code> can be used set and get the <code>action</code> attribute of the <code>&lt;form&gt;</code> HTML element.</li>
+<li><code>addButton(IFormButton $button)</code> and <code>getButtons()</code> can be used add and get form buttons that are shown at the bottom of the form. 
+  <code>addDefaultButton($addDefaultButton)</code> and <code>hasDefaultButton()</code> can be used to set and check if the form has the default button which is added by default unless specified otherwise.
+  Each implementing class may define its own default button.
+  <code>FormDocument</code> has a button with id <code>submitButton</code>, label <code>wcf.global.button.submit</code>, access key <code>s</code>, and CSS class <code>buttonPrimary</code> as its default button. </li>
+<li><code>ajax($ajax)</code> and <code>isAjax()</code> can be used to set and check if the form document is requested via an AJAX request or processes data via an AJAX request.
+  These methods are helpful for form fields that behave differently when providing data via AJAX.</li>
+<li><code>build()</code> has to be called once after all nodes have been added to this document to trigger <code>IFormNode::populate()</code>.</li>
+<li>
+<p><code>formMode($formMode)</code> and <code>getFormMode()</code> sets the form mode.
+  Possible form modes are:</p>
+</li>
+<li>
+<p><code>IFormDocument::FORM_MODE_CREATE</code> has to be used when the form is used to create a new object.</p>
+</li>
+<li><code>IFormDocument::FORM_MODE_UPDATE</code> has to be used when the form is used to edit an existing object.</li>
+<li><code>getData()</code> returns the array containing the form data and which is passed as the <code>$parameters</code> argument of the constructor of a database object action object.</li>
+<li><code>getDataHandler()</code> returns the data handler for this document that is used to process the field data into a parameters array for the constructor of a database object action object.</li>
+<li><code>getEnctype()</code> returns the encoding type of the form.
+  If the form contains a <code>IFileFormField</code>, <code>multipart/form-data</code> is returned, otherwise <code>null</code> is returned.</li>
+<li><code>loadValues(array $data, IStorableObject $object)</code> is used when editing an existing object to set the form field values by calling <code>IFormField::loadValue()</code> for all form fields.
+  Additionally, the form mode is set to <code>IFormDocument::FORM_MODE_UPDATE</code>.</li>
+<li><span class="label label-info">5.4+</span> <code>markRequiredFields(bool $markRequiredFields = true): self</code> and <code>marksRequiredFields(): bool</code> can be used to set and check whether fields that are required are marked (with an asterisk in the label) in the output.</li>
+<li><code>method($method)</code> and <code>getMethod()</code> can be used to set and get the <code>method</code> attribute of the <code>&lt;form&gt;</code> HTML element.
+  By default, the method is <code>post</code>.</li>
+<li><code>prefix($prefix)</code> and <code>getPrefix()</code> can be used to set and get a global form prefix that is prepended to form elements’ names and ids to avoid conflicts with other forms.
+  By default, the prefix is an empty string.
+  If a prefix of <code>foo</code> is set, <code>getPrefix()</code> returns <code>foo_</code> (additional trailing underscore).</li>
+<li><code>requestData(array $requestData)</code>, <code>getRequestData($index = null)</code>, and <code>hasRequestData($index = null)</code> can be used to set, get and check for specific request data.
+  In most cases, the relevant request data is the <code>$_POST</code> array.
+  In default AJAX requests handled by database object actions, however, the request data generally is in <code>AbstractDatabaseObjectAction::$parameters</code>.
+  By default, <code>$_POST</code> is the request data.</li>
+</ul>
+<p>The last aspect is relevant for <code>DialogFormDocument</code> objects.
+<code>DialogFormDocument</code> is a specialized class for forms in dialogs that, in contrast to <code>FormDocument</code> do not require an <code>action</code> to be set.
+Additionally, <code>DialogFormDocument</code> provides the <code>cancelable($cancelable = true)</code> and <code>isCancelable()</code> methods used to determine if the dialog from can be canceled.
+By default, dialog forms are cancelable.</p>
+<h2 id="form-button">Form Button<a class="headerlink" href="#form-button" title="Permanent link">#</a></h2>
+<p>A form button object represents a button shown at the end of the form that, for example, submits the form.
+Every form button has to implement the <code>IFormButton</code> interface that extends <code>IFormChildNode</code> and <code>IFormElement</code>.
+<code>IFormButton</code> requires four methods to be implemented:</p>
+<ul>
+<li><code>accessKey($accessKey)</code> and <code>getAccessKey()</code> can be used to set and get the access key with which the form button can be activated.
+  By default, form buttons have no access key set.</li>
+<li><code>submit($submitButton)</code> and <code>isSubmit()</code> can be used to set and check if the form button is a submit button.
+  A submit button is an <code>input[type=submit]</code> element.
+  Otherwise, the button is a <code>button</code> element. </li>
+</ul>
+<h2 id="form-container">Form Container<a class="headerlink" href="#form-container" title="Permanent link">#</a></h2>
+<p>A form container object represents a container for other form containers or form field directly.
+Every form container has to implement the <code>IFormContainer</code> interface which requires the following method:</p>
+<ul>
+<li><code>loadValues(array $data, IStorableObject $object)</code> is called by <code>IFormDocument::loadValuesFromObject()</code> to inform the container that object data is loaded.
+  This method is <em>not</em> intended to generally call <code>IFormField::loadValues()</code> on its form field children as these methods are already called by <code>IFormDocument::loadValuesFromObject()</code>.
+  This method is intended for specialized form containers with more complex logic.</li>
+</ul>
+<p>There are multiple default container implementations:</p>
+<ol>
+<li><code>FormContainer</code> is the default implementation of <code>IFormContainer</code>.</li>
+<li><code>TabMenuFormContainer</code> represents the container of tab menu, while</li>
+<li><code>TabFormContainer</code> represents a tab of a tab menu and</li>
+<li><code>TabTabMenuFormContainer</code> represents a tab of a tab menu that itself contains a tab menu.</li>
+<li>The children of <code>RowFormContainer</code> are shown in a row and should use <code>col-*</code> classes.</li>
+<li>The children of <code>RowFormFieldContainer</code> are also shown in a row but does not show the labels and descriptions of the individual form fields.
+   Instead of the individual labels and descriptions, the container's label and description is shown and both span all of fields.</li>
+<li><code>SuffixFormFieldContainer</code> can be used for one form field with a second selection form field used as a suffix.</li>
+</ol>
+<p>The methods of the interfaces that <code>FormContainer</code> is implementing are well documented, but here is a short overview of the most important methods when setting up a form or extending a form with an event listener:</p>
+<ul>
+<li><code>appendChild(IFormChildNode $child)</code>, <code>appendChildren(array $children)</code>, and <code>insertBefore(IFormChildNode $child, $referenceNodeId)</code> are used to insert new children into the form container.</li>
+<li><code>description($languageItem = null, array $variables = [])</code> and <code>label($languageItem = null, array $variables = [])</code> are used to set the description and the label or title of the form container.</li>
+</ul>
+<h2 id="form-field">Form Field<a class="headerlink" href="#form-field" title="Permanent link">#</a></h2>
+<p>A form field object represents a concrete form field that allows entering data.
+Every form field has to implement the <code>IFormField</code> interface which extends <code>IFormChildNode</code> and <code>IFormElement</code>.</p>
+<p><code>IFormField</code> requires the following additional methods:</p>
+<ul>
+<li><code>addValidationError(IFormFieldValidationError $error)</code> and <code>getValidationErrors()</code> can be used to get and set validation errors of the form field (see <a href="../validation_data/#form-validation">form validation</a>).</li>
+<li><code>addValidator(IFormFieldValidator $validator)</code>, <code>getValidators()</code>, <code>removeValidator($validatorId)</code>, and <code>hasValidator($validatorId)</code> can be used to get, set, remove, and check for validators for the form field (see <a href="../validation_data/#form-validation">form validation</a>).</li>
+<li><code>getFieldHtml()</code> returns the field's HTML output without the surrounding <code>dl</code> structure.</li>
+<li><code>objectProperty($objectProperty)</code> and <code>getObjectProperty()</code> can be used to get and set the object property that the field represents.
+  When setting the object property is set to an empty string, the previously set object property is unset.
+  If no object property has been set, the field’s (non-prefixed) id is returned.</li>
+</ul>
+<p>The object property allows having different fields (requiring different ids) that represent the same object property which is handy when available options of the field’s value depend on another field.
+  Having object property allows to define different fields for each value of the other field and to use form field dependencies to only show the appropriate field.
+- <code>readValue()</code> reads the form field value from the request data after the form is submitted.
+- <code>required($required = true)</code> and <code>isRequired()</code> can be used to determine if the form field has to be filled out.
+  By default, form fields do not have to be filled out.
+- <code>value($value)</code> and <code>getSaveValue()</code> can be used to get and set the value of the form field to be used outside of the context of forms.
+  <code>getValue()</code>, in contrast, returns the internal representation of the form field’s value.
+  In general, the internal representation is only relevant when validating the value in additional validators.
+  <code>loadValue(array $data, IStorableObject $object)</code> extracts the form field value from the given data array (and additional, non-editable data from the object if the field needs them).</p>
+<p><code>AbstractFormField</code> provides default implementations of many of the listed methods above and should be extended instead of implementing <code>IFormField</code> directly.</p>
+<p>An overview of the form fields provided by default can be found <a href="../form_fields/">here</a>.</p>
+<h3 id="form-field-interfaces-and-traits">Form Field Interfaces and Traits<a class="headerlink" href="#form-field-interfaces-and-traits" title="Permanent link">#</a></h3>
+<p>WoltLab Suite Core provides a variety of interfaces and matching traits with default implementations for several common features of form fields:</p>
+<h4 id="iattributeformfield"><code>IAttributeFormField</code><a class="headerlink" href="#iattributeformfield" title="Permanent link">#</a></h4>
+<div class="admonition info">
+<p class="admonition-title">Only available since version 5.4.</p>
+</div>
+<p><code>IAttributeFormField</code> has to be implemented by form fields for which attributes can be added to the actual form element (in addition to adding attributes to the surrounding element via the attribute-related methods of <code>IFormNode</code>).
+The implementing class has to implement the methods <code>fieldAttribute(string $name, string $value = null): self</code> and <code>getFieldAttribute(string $name): self</code>/<code>getFieldAttributes(): array</code>, which are used to add and get the attributes, respectively.
+Additionally, <code>hasFieldAttribute(string $name): bool</code> has to implemented to check if a certain attribute is present, <code>removeFieldAttribute(string $name): self</code> to remove an attribute, and <code>static validateFieldAttribute(string $name)</code> to check if the attribute is valid for this specific class.
+<code>TAttributeFormField</code> provides a default implementation of these methods and <code>TInputAttributeFormField</code> specializes the trait for <code>input</code>-based form fields.
+These two traits also ensure that if a specific interface that handles a specific attribute is implemented, like <code>IAutoCompleteFormField</code> handling <code>autocomplete</code>, this attribute cannot be set with this API.
+Instead, the dedicated API provided by the relevant interface has to be used.</p>
+<h4 id="iautocompleteformfield"><code>IAutoCompleteFormField</code><a class="headerlink" href="#iautocompleteformfield" title="Permanent link">#</a></h4>
+<div class="admonition info">
+<p class="admonition-title">Only available since version 5.4.</p>
+</div>
+<p><code>IAutoCompleteFormField</code> has to be implemented by form fields that support the <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute"><code>autocomplete</code> attribute</a>.
+The implementing class has to implement the methods <code>autoComplete(?string $autoComplete): self</code> and <code>getAutoComplete(): ?string</code>, which are used to set and get the autocomplete value, respectively.
+<code>TAutoCompleteFormField</code> provides a default implementation of these two methods and <code>TTextAutoCompleteFormField</code> specializes the trait for text form fields.
+When using <code>TAutoCompleteFormField</code>, you have to implement the <code>getValidAutoCompleteTokens(): array</code> method which returns all valid <code>autocomplete</code> tokens.</p>
+<h4 id="iautofocusformfield"><code>IAutoFocusFormField</code><a class="headerlink" href="#iautofocusformfield" title="Permanent link">#</a></h4>
+<p><code>IAutoFocusFormField</code> has to be implemented by form fields that can be auto-focused.
+The implementing class has to implement the methods <code>autoFocus($autoFocus = true)</code> and <code>isAutoFocused()</code>.
+By default, form fields are not auto-focused.
+<code>TAutoFocusFormField</code> provides a default implementation of these two methods.</p>
+<h4 id="icssclassformfield"><code>ICssClassFormField</code><a class="headerlink" href="#icssclassformfield" title="Permanent link">#</a></h4>
+<div class="admonition info">
+<p class="admonition-title">Only available since version 5.4.</p>
+</div>
+<p><code>ICssClassFormField</code> has to be implemented by form fields for which CSS classes can be added to the actual form element (in addition to adding CSS classes to the surrounding element via the class-related methods of <code>IFormNode</code>).
+The implementing class has to implement the methods <code>addFieldClass(string $class): self</code>/<code>addFieldClasses(array $classes): self</code> and <code>getFieldClasses(): array</code>, which are used to add and get the CSS classes, respectively.
+Additionally, <code>hasFieldClass(string $class): bool</code> has to implemented to check if a certain CSS class is present and <code>removeFieldClass(string $class): self</code> to remove a CSS class.
+<code>TCssClassFormField</code> provides a default implementation of these methods.</p>
+<h4 id="ifileformfield"><code>IFileFormField</code><a class="headerlink" href="#ifileformfield" title="Permanent link">#</a></h4>
+<p><code>IFileFormField</code> has to be implemented by every form field that uploads files so that the <code>enctype</code> attribute of the form document is <code>multipart/form-data</code> (see <code>IFormDocument::getEnctype()</code>).</p>
+<h4 id="ifilterableselectionformfield"><code>IFilterableSelectionFormField</code><a class="headerlink" href="#ifilterableselectionformfield" title="Permanent link">#</a></h4>
+<p><code>IFilterableSelectionFormField</code> extends <code>ISelectionFormField</code> by the possibilty for users when selecting the value(s) to filter the list of available options.
+The implementing class has to implement the methods <code>filterable($filterable = true)</code> and <code>isFilterable()</code>.
+<code>TFilterableSelectionFormField</code> provides a default implementation of these two methods.</p>
+<h4 id="ii18nformfield"><code>II18nFormField</code><a class="headerlink" href="#ii18nformfield" title="Permanent link">#</a></h4>
+<p><code>II18nFormField</code> has to be implemented by form fields if the form field value can be entered separately for all available languages.
+The implementing class has to implement the following methods:</p>
+<ul>
+<li><code>i18n($i18n = true)</code> and <code>isI18n()</code> can be used to set whether a specific instance of the class actually supports multilingual input.</li>
+<li><code>i18nRequired($i18nRequired = true)</code> and <code>isI18nRequired()</code> can be used to set whether a specific instance of the class requires separate values for all languages.</li>
+<li><code>languageItemPattern($pattern)</code> and <code>getLanguageItemPattern()</code> can be used to set the pattern/regular expression for the language item used to save the multilingual values.</li>
+<li><code>hasI18nValues()</code> and <code>hasPlainValue()</code> check if the current value is a multilingual or monolingual value.</li>
+</ul>
+<p><code>TI18nFormField</code> provides a default implementation of these eight methods and additional default implementations of some of the <code>IFormField</code> methods.
+If multilingual input is enabled for a specific form field, classes using <code>TI18nFormField</code> register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the array with multilingual input into the <code>$parameters</code> array directly using <code>{$objectProperty}_i18n</code> as the array key.
+If multilingual input is enabled but only a monolingual value is entered, the custom form field data processor does nothing and the form field’s value is added by the <code>DefaultFormDataProcessor</code> into the <code>data</code> sub-array of the <code>$parameters</code> array.</p>
+<div class="admonition info">
+<p class="admonition-title"><code>TI18nFormField</code> already provides a default implementation of <code>IFormField::validate()</code>.</p>
+</div>
+<h4 id="iimmutableformfield"><code>IImmutableFormField</code><a class="headerlink" href="#iimmutableformfield" title="Permanent link">#</a></h4>
+<p><code>IImmutableFormField</code> has to be implemented by form fields that support being displayed but whose value cannot be changed.
+The implementing class has to implement the methods <code>immutable($immutable = true)</code> and <code>isImmutable()</code> that can be used to determine if the value of the form field is mutable or immutable.
+By default, form field are mutable.</p>
+<h4 id="iinputmodeformfield"><code>IInputModeFormField</code><a class="headerlink" href="#iinputmodeformfield" title="Permanent link">#</a></h4>
+<div class="admonition info">
+<p class="admonition-title">Only available since version 5.4.</p>
+</div>
+<p><code>IInputModeFormField</code> has to be implemented by form fields that support the <a href="https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-inputmode-attribute"><code>inputmode</code> attribute</a>.
+The implementing class has to implement the methods <code>inputMode(?string $inputMode): self</code> and <code>getInputMode(): ?string</code>, which are used to set and get the input mode, respectively.
+<code>TInputModeFormField</code> provides a default implementation of these two methods.</p>
+<h4 id="imaximumformfield"><code>IMaximumFormField</code><a class="headerlink" href="#imaximumformfield" title="Permanent link">#</a></h4>
+<p><code>IMaximumFormField</code> has to be implemented by form fields if the entered value must have a maximum value.
+The implementing class has to implement the methods <code>maximum($maximum = null)</code> and <code>getMaximum()</code>.
+A maximum of <code>null</code> signals that no maximum value has been set.
+<code>TMaximumFormField</code> provides a default implementation of these two methods.</p>
+<div class="admonition warning">
+<p class="admonition-title">The implementing class has to validate the entered value against the maximum value manually.</p>
+</div>
+<h4 id="imaximumlengthformfield"><code>IMaximumLengthFormField</code><a class="headerlink" href="#imaximumlengthformfield" title="Permanent link">#</a></h4>
+<p><code>IMaximumLengthFormField</code> has to be implemented by form fields if the entered value must have a maximum length.
+The implementing class has to implement the methods <code>maximumLength($maximumLength = null)</code>, <code>getMaximumLength()</code>, and <code>validateMaximumLength($text, Language $language = null)</code>.
+A maximum length of <code>null</code> signals that no maximum length has been set.
+<code>TMaximumLengthFormField</code> provides a default implementation of these two methods.</p>
+<div class="admonition warning">
+<p class="admonition-title">The implementing class has to validate the entered value against the maximum value manually by calling <code>validateMaximumLength()</code>.</p>
+</div>
+<h4 id="iminimumformfield"><code>IMinimumFormField</code><a class="headerlink" href="#iminimumformfield" title="Permanent link">#</a></h4>
+<p><code>IMinimumFormField</code> has to be implemented by form fields if the entered value must have a minimum value.
+The implementing class has to implement the methods <code>minimum($minimum = null)</code> and <code>getMinimum()</code>.
+A minimum of <code>null</code> signals that no minimum value has been set.
+<code>TMinimumFormField</code> provides a default implementation of these three methods.</p>
+<div class="admonition warning">
+<p class="admonition-title">The implementing class has to validate the entered value against the minimum value manually.</p>
+</div>
+<h4 id="iminimumlengthformfield"><code>IMinimumLengthFormField</code><a class="headerlink" href="#iminimumlengthformfield" title="Permanent link">#</a></h4>
+<p><code>IMinimumLengthFormField</code> has to be implemented by form fields if the entered value must have a minimum length.
+The implementing class has to implement the methods <code>minimumLength($minimumLength = null)</code>, <code>getMinimumLength()</code>, and <code>validateMinimumLength($text, Language $language = null)</code>.
+A minimum length of <code>null</code> signals that no minimum length has been set.
+<code>TMinimumLengthFormField</code> provides a default implementation of these three methods.</p>
+<div class="admonition warning">
+<p class="admonition-title">The implementing class has to validate the entered value against the minimum value manually by calling <code>validateMinimumLength()</code>.</p>
+</div>
+<h4 id="imultipleformfield"><code>IMultipleFormField</code><a class="headerlink" href="#imultipleformfield" title="Permanent link">#</a></h4>
+<p><code>IMinimumLengthFormField</code> has to be implemented by form fields that support selecting or setting multiple values.
+The implementing class has to implement the following methods:</p>
+<ul>
+<li><code>multiple($multiple = true)</code> and <code>allowsMultiple()</code> can be used to set whether a specific instance of the class actually should support multiple values.
+  By default, multiple values are not supported.</li>
+<li><code>minimumMultiples($minimum)</code> and <code>getMinimumMultiples()</code> can be used to set the minimum number of values that have to be selected/entered.
+  By default, there is no required minimum number of values.</li>
+<li><code>maximumMultiples($minimum)</code> and <code>getMaximumMultiples()</code> can be used to set the maximum number of values that have to be selected/entered.
+  By default, there is no maximum number of values.
+  <code>IMultipleFormField::NO_MAXIMUM_MULTIPLES</code> is returned if no maximum number of values has been set and it can also be used to unset a previously set maximum number of values.</li>
+</ul>
+<p><code>TMultipleFormField</code> provides a default implementation of these six methods and classes using <code>TMultipleFormField</code> register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the <code>HtmlInputProcessor</code> object with the text into the <code>$parameters</code> array directly using <code>{$objectProperty}_htmlInputProcessor</code> as the array key.</p>
+<div class="admonition warning">
+<p class="admonition-title">The implementing class has to validate the values against the minimum and maximum number of values manually.</p>
+</div>
+<h4 id="inullableformfield"><code>INullableFormField</code><a class="headerlink" href="#inullableformfield" title="Permanent link">#</a></h4>
+<p><code>INullableFormField</code> has to be implemented by form fields that support <code>null</code> as their (empty) value.
+The implementing class has to implement the methods <code>nullable($nullable = true)</code> and <code>isNullable()</code>.
+<code>TNullableFormField</code> provides a default implementation of these two methods.</p>
+<p><code>null</code> should be returned by <code>IFormField::getSaveValue()</code> is the field is considered empty and the form field has been set as nullable.</p>
+<h4 id="ipackagesformfield"><code>IPackagesFormField</code><a class="headerlink" href="#ipackagesformfield" title="Permanent link">#</a></h4>
+<p><code>IPackagesFormField</code> has to be implemented by form fields that, in some way, considers packages whose ids may be passed to the field object.
+The implementing class has to implement the methods <code>packageIDs(array $packageIDs)</code> and <code>getPackageIDs()</code>.
+<code>TPackagesFormField</code> provides a default implementation of these two methods.</p>
+<h4 id="ipatternformfield"><code>IPatternFormField</code><a class="headerlink" href="#ipatternformfield" title="Permanent link">#</a></h4>
+<div class="admonition info">
+<p class="admonition-title">Only available since version 5.4.</p>
+</div>
+<p><code>IPatternFormField</code> has to be implemented by form fields that support the <a href="https://html.spec.whatwg.org/multipage/input.html#the-pattern-attribute"><code>pattern</code> attribute</a>.
+The implementing class has to implement the methods <code>pattern(?string $pattern): self</code> and <code>getPattern(): ?string</code>, which are used to set and get the pattern, respectively.
+<code>TPatternFormField</code> provides a default implementation of these two methods.</p>
+<h4 id="iplaceholderformfield"><code>IPlaceholderFormField</code><a class="headerlink" href="#iplaceholderformfield" title="Permanent link">#</a></h4>
+<p><code>IPlaceholderFormField</code> has to be implemented by form fields that support a placeholder value for empty fields.
+The implementing class has to implement the methods <code>placeholder($languageItem = null, array $variables = [])</code> and <code>getPlaceholder()</code>.
+<code>TPlaceholderFormField</code> provides a default implementation of these two methods.</p>
+<h4 id="iselectionformfield"><code>ISelectionFormField</code><a class="headerlink" href="#iselectionformfield" title="Permanent link">#</a></h4>
+<p><code>ISelectionFormField</code> has to be implemented by form fields with a predefined set of possible values.
+The implementing class has to implement the getter and setter methods <code>options($options, $nestedOptions = false, $labelLanguageItems = true)</code> and <code>getOptions()</code> and additionally two methods related to nesting, i.e. whether the selectable options have a hierarchy:
+<code>supportsNestedOptions()</code> and <code>getNestedOptions()</code>.
+<code>TSelectionFormField</code> provides a default implementation of these four methods.</p>
+<h4 id="isuffixedformfield"><code>ISuffixedFormField</code><a class="headerlink" href="#isuffixedformfield" title="Permanent link">#</a></h4>
+<p><code>ISuffixedFormField</code> has to be implemented by form fields that support supports displaying a suffix behind the actual input field.
+The implementing class has to implement the methods <code>suffix($languageItem = null, array $variables = [])</code> and <code>getSuffix()</code>.
+<code>TSuffixedFormField</code> provides a default implementation of these two methods.</p>
+<h4 id="tdefaultidformfield"><code>TDefaultIdFormField</code><a class="headerlink" href="#tdefaultidformfield" title="Permanent link">#</a></h4>
+<p>Form fields that have a default id have to use <code>TDefaultIdFormField</code> and have to implement the method <code>getDefaultId()</code>.</p>
+<h2 id="displaying-forms">Displaying Forms<a class="headerlink" href="#displaying-forms" title="Permanent link">#</a></h2>
+<p>The only thing to do in a template to display the <strong>whole</strong> form including all of the necessary JavaScript is to put</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="o">@</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getHtml</span><span class="o">()</span><span class="cp">}</span><span class="x"></span>
+</code></pre></div></td></tr></table></div>
+<p>into the template file at the relevant position.</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2021-01-16
+    
+  </small>
+</div>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Overview
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../form_fields/" class="md-footer__link md-footer__link--next" aria-label="Next: Fields" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Fields
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2020 WoltLab GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-copyright">
+	<a href="https://www.woltlab.com/legal-notice/">Legal Notice</a> 
+	<a href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+    
+  </body>
+</html>
