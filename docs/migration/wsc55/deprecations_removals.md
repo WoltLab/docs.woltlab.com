@@ -1,6 +1,6 @@
 # Migrating from WoltLab Suite 5.5 - Deprecations and Removals
 
-With version 5.6, we have deprecated certain components and removed several other components that have been deprecated for many years.
+With version 6.0, we have deprecated certain components and removed several other components that have been deprecated for many years.
 
 
 

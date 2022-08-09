@@ -19,7 +19,7 @@ Diactoros was updated from version 2.4 to 2.14.
 
 ## Diff
 
-WoltLab Suite 5.6 ships with sebastian/diff as a replacement for `wcf\util\Diff`.
+WoltLab Suite 6.0 ships with sebastian/diff as a replacement for `wcf\util\Diff`.
 The `wcf\util\Diff::rawDiffFromSebastianDiff()` method was added as a compatibility helper to transform sebastian/diff's output format into Diff's output format.
 
 Refer to the documentation within the [sebastianbergmann/diff](https://github.com/sebastianbergmann/diff) repository for details on how to use the library.
@@ -28,6 +28,6 @@ See [WoltLab/WCF#4918](https://github.com/WoltLab/WCF/pull/4918) for examples on
 
 ## Cronjobs
 
-WoltLab Suite 5.6 ships with dragonmantank/cron-expression as a replacement for `wcf\util\CronjobUtil`.
+WoltLab Suite 6.0 ships with dragonmantank/cron-expression as a replacement for `wcf\util\CronjobUtil`.
 
 This library is considered an internal library / implementation detail and not covered by backwards compatibility promises of WoltLab Suite.
