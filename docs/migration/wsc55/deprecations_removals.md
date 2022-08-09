@@ -132,8 +132,21 @@ With version 5.6, we have deprecated certain components and removed several othe
 
 ### JavaScript
 
+- `flexibleArea.js` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `jQuery.browser.smartphone` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `window.shuffle()` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.Action.Scroll` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.Date.Picker` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.Date.Util` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.Dropdown.Interactive.Handler` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 - `WCF.Dropdown.Interactive.Instance` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
+- `WCF.Message.Smilies` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.Message.Share.Page` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.Search.Message.KeywordList` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.System.FlexibleMenu` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.System.Fullscreen` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.System.PageNavigation` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.ToggleOptions` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.User.Panel.Abstract` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 
 ### Database
