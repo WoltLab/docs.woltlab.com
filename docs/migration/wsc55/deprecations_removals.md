@@ -88,6 +88,10 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\request\Request::setIsLandingPage()`
 - `wcf\system\request\RouteHandler::getDefaultController()` ([WoltLab/WCF#4832](https://github.com/WoltLab/WCF/pull/4832))
 - `wcf\system\request\RouteHandler::loadDefaultControllers()` ([WoltLab/WCF#4832](https://github.com/WoltLab/WCF/pull/4832))
+- `wcf\system\package\PackageArchive::unzipPackageArchive()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
+- `wcf\system\package\PackageInstallationDispatcher::convertShorthandByteValue()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
+- `wcf\system\package\PackageInstallationDispatcher::functionExists()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
+- `wcf\system\package\PackageInstallationDispatcher::validatePHPRequirements()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
 - `wcf\system\search\AbstractSearchEngine::getFulltextMinimumWordLength()` ([WoltLab/WCF#4933](https://github.com/WoltLab/WCF/pull/4933))
 - `wcf\system\search\AbstractSearchEngine::parseSearchQuery()` ([WoltLab/WCF#4933](https://github.com/WoltLab/WCF/pull/4933))
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::query()`
