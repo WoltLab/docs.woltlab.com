@@ -10,6 +10,35 @@ In WoltLab Suite 6.0 we have made the decision to make a clean cut and drop supp
 Brand icons had been moved to a separate font in Font Awesome 5, but since more and more fonts are being added we have stepped back from relying on that font.
 We have instead made the decision to embed brand icons using inline SVGs which are much more efficient when you only need a handful of brand icons instead of loading a 100kB+ font just for a few icons.
 
+## Misuse of Icons as Buttons
+
+One pattern that could be found every here and then was the use of icons as buttons.
+Using icons in buttons is fine, as long as there is a readable title and that they are properly marked as buttons.
+
+A common misuse looks like this:
+
+```smarty
+<span class="icon icon16 fa-times pointer jsMyDeleteButton" data-some-object-id="123"></span>
+```
+
+This example has a few problems, for starters it is not marked as a button which would require both `role="button"` and `tabindex="0"` to be recognized as such.
+Additionally there is no title which leaves users clueless about what the option does, especially visually impaired users are possibly unable to identify the icon.
+
+WoltLab Suite 6.0 addresses this issue by removing all default styling from `<button>` elements, making them the ideal choice for button type elements.
+
+```smarty
+<button class="jsMyDeleteButton" data-some-object-id="123" title="descriptive title here">{icon size=16 name='xmark'}</button>
+```
+
+The icon will appear just as before, but the button is now properly accessible.
+
+## Using CSS Classes With Icons
+
+It is strongly discouraged to apply CSS classes to icons themselves.
+Icons inherit the text color from the surrounding context which removes the need to manually apply the color.
+
+If you ever need to alter the icons, such as applying a special color or transformation, you should wrap the icon in an element like `<span>` and apply the changes to that element instead.
+
 ## Using Icons in Templates
 
 The new template function `{icon}` was added to take care of generating the HTML code for icons, including the embedded SVGs for brand icons.
@@ -33,3 +62,49 @@ The syntax for brand icons is very similar, but you are required to specifiy par
 ```smarty
 <button class="button">{icon size=16 name='facebook' type='brand'} Share on Facebook</button>
 ```
+
+## Using Icons in TypeScript/JavaScript
+
+Buttons can be dynamically created using the native `document.createElement()` using the new `fa-icon` element.
+
+```ts
+const icon = document.createElement("fa-icon");
+icon.size = 16;
+icon.setIcon("bell", true);
+
+// This is the same as the following call in templates:
+// {icon size=16 name='bell' type='solid'}
+```
+
+### Creating Icons in HTML Strings
+
+You can embed icons in HTML strings by constructing the `fa-icon` element yourself.
+
+```ts
+element.innerHTML = '<fa-icon size="16" name="bell" solid></fa-icon>';
+```
+
+### Changing an Icon on Runtime
+
+You can alter the size by changing the `size` attribute which accepts the numbers `16`, `24`, `32`, `48`, `64`, `96`, `128` and `144`.
+The icon itself should be always set through the `setIcon(name: string, isSolid: boolean)` function which validates the values and rejects unknown icons.
+
+## Migrating Icons
+
+We provide a helper script that eases the transition by replacing icons in templates, JavaScript and TypeScript files.
+The script itself is very defensive and only replaces obvious matches, it will leave icons with additional CSS classes or attributes as-is and will need to be manually adjusted.
+
+### Replacing Icons With the Helper Script
+
+The helperscript is part of WoltLab Suite Core and can be found in the repository at `extra/migrate-fa-v4.php`.
+The script must be executed from CLI and requires PHP 8.1.
+
+```shell
+$> php extra/migrate-fa-v4.php /path/to/the/target/directory/
+```
+
+The target directory will be searched recursively for files with the extension `tpl`, `js` and `ts`.
+
+### Replacing Icons Manually by Example
+
+TODO
