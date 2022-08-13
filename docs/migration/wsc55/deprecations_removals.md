@@ -160,6 +160,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `Calendar.Event.QuoteHandler`
 - `Calendar.UI.Calendar`
 - `Calendar.Event.Date.FullDay` ([WoltLab/com.woltlab.calendar#171](https://github.com/WoltLab/com.woltlab.calendar/pull/171))
+- `Calendar.Event.TabMenu`
 - `Blog.Entry.Delete`
 - `Blog.Entry.Preview`
 - `Blog.Entry.QuoteHandler`
