@@ -165,6 +165,10 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `Blog.Entry.QuoteHandler`
 - `Blog.Category.MarkAllAsRead`
 - `Blog.Blog.Archive`
+- `Filebase.File.Share`
+- `Filebase.File.Preview`
+- `Filebase.Category.MarkAllAsRead`
+- `Filebase.File.MarkAsRead`
 
 ### Database
 
