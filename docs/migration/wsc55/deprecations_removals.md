@@ -44,6 +44,8 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 ### JavaScript
 
+- `WCF.User.ObjectWatch.Subscribe` ([WoltLab/WCF#4962](https://github.com/WoltLab/WCF/pull/4962))
+
 ### Database Tables
 
 ### Templates
