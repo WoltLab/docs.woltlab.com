@@ -173,6 +173,14 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `Filebase.Category.MarkAllAsRead`
 - `Filebase.File.MarkAsRead`
 - `Gallery.Image.Delete`
+- `WBB.Board.IgnoreBoards`
+- `WBB.Post.QuoteHandler`
+- `WBB.Post.IPAddressHandler`
+- `WBB.Post.Preview`
+- `WBB.Thread.WatchedThreadList`
+- `WBB.Thread.SimilarThreads`
+- `WBB.Thread.LastPageHandler`
+- `WBB.Thread.UpdateHandler.Thread`
 
 ### Database
 
