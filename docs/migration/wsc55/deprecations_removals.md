@@ -181,6 +181,9 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `WBB.Thread.SimilarThreads`
 - `WBB.Thread.LastPageHandler`
 - `WBB.Thread.UpdateHandler.Thread`
+- `WCF.Conversation.RemoveParticipant`
+- `WCF.Conversation.Preview`
+- `WCF.Conversation.Message.QuoteHandler`
 
 ### Database
 
