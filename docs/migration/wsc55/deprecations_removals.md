@@ -184,6 +184,8 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `WCF.Conversation.RemoveParticipant`
 - `WCF.Conversation.Preview`
 - `WCF.Conversation.Message.QuoteHandler`
+- `WCF.Conversation.MarkAsRead`
+- `WCF.Conversation.MarkAllAsRead`
 
 ### Database
 
