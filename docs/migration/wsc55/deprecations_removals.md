@@ -154,6 +154,8 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `WCF.ToggleOptions` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.User.Panel.Abstract` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 - `window.shuffle()` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.Moderation.Queue.MarkAsRead`
+- `WCF.Moderation.Queue.MarkAllAsRead`
 - `Calendar/Ui/Event/Date/Cancel.js`
 - `Calendar.Category.MarkAllAsRead` ([WoltLab/com.woltlab.calendar#169](https://github.com/WoltLab/com.woltlab.calendar/pull/169))
 - `Calendar.Event.Preview`
