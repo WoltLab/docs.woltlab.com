@@ -95,6 +95,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\search\SearchIndexManager::update()` ([WoltLab/WCF#4925](https://github.com/WoltLab/WCF/pull/4925))
 - `wcf\system\session\SessionHandler::getStyleID()` ([WoltLab/WCF#4837](https://github.com/WoltLab/WCF/pull/4837))
 - `wcf\system\session\SessionHandler::setStyleID()` ([WoltLab/WCF#4837](https://github.com/WoltLab/WCF/pull/4837))
+- `wcf\system\WCFACP::checkMasterPassword()` ([WoltLab/WCF#4977](https://github.com/WoltLab/WCF/pull/4977))
 - `wcf\system\WCFACP::getFrontendMenu()` ([WoltLab/WCF#4812](https://github.com/WoltLab/WCF/pull/4812))
 - `wcf\system\WCFACP::initPackage()` ([WoltLab/WCF#4794](https://github.com/WoltLab/WCF/pull/4794))
 - `wcf\util\CryptoUtil::randomBytes()` ([WoltLab/WCF#4924](https://github.com/WoltLab/WCF/pull/4924))
@@ -103,6 +104,8 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\util\FileUtil::downloadFileFromHttp()` ([WoltLab/WCF#4942](https://github.com/WoltLab/WCF/pull/4942))
 - `wcf\util\PasswordUtil::secureCompare()` ([WoltLab/WCF#4924](https://github.com/WoltLab/WCF/pull/4924))
 - `wcf\util\PasswordUtil::secureRandomNumber()` ([WoltLab/WCF#4924](https://github.com/WoltLab/WCF/pull/4924))
+- `wcf\util\StyleUtil::updateStyleFile()` ([WoltLab/WCF#4977](https://github.com/WoltLab/WCF/pull/4977))
+- `wcf\util\UserRegistrationUtil::isSecurePassword()` ([WoltLab/WCF#4977](https://github.com/WoltLab/WCF/pull/4977))
 
 #### Properties
 
