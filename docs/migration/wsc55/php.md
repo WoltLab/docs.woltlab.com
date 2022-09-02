@@ -11,6 +11,15 @@ The minimum requirements have been increased to the following:
 It is recommended to make use of the newly introduced features whereever possible.
 Please refer to the PHP documentation for details.
 
+## Package System
+
+### Removal of API compatibility
+
+WoltLab Suite 6.0 removes support for the deprecated API compatibility functionality.
+Any packages with a `<compatibility>` tag in their package.xml are assumed to not have been updated for WoltLab Suite 6.0 and will be rejected during installation.
+Furthermore any packages without an explicit requirement for `com.woltlab.wcf` in at least version `5.4.22` are also assumed to not have been updated for WoltLab Suite 6.0 and will also be rejected.
+The latter check is intended to reject old and most likely incompatible packages where the author forgot to add either an `<excludedpackage>` or a `<compatibility>` tag before releasing it.
+
 ## Indicating parameters that hold sensitive information
 
 PHP 8.2 adds native support for redacting parameters holding sensitive information in stack traces.

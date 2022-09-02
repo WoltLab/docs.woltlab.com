@@ -129,6 +129,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::PUT`
 - `SECURITY_TOKEN` ([WoltLab/WCF#4934](https://github.com/WoltLab/WCF/pull/4934))
 - `SECURITY_TOKEN_INPUT_TAG` ([WoltLab/WCF#4934](https://github.com/WoltLab/WCF/pull/4934))
+- `WSC_API_VERSION` ([WoltLab/WCF#4943](https://github.com/WoltLab/WCF/pull/4943))
 
 #### Options
 
@@ -196,6 +197,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `WCF.Conversation.MarkAsRead`
 - `WCF.Conversation.MarkAllAsRead`
 - `WCF.ModeratedUserGroup.AddMembers`
+- `WSC_API_VERSION` ([WoltLab/WCF#4943](https://github.com/WoltLab/WCF/pull/4943))
 
 ### Database
 
