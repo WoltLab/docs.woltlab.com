@@ -1722,6 +1722,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#package-system" class="md-nav__link">
+    Package System
+  </a>
+  
+    <nav class="md-nav" aria-label="Package System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#removal-of-api-compatibility" class="md-nav__link">
+    Removal of API compatibility
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#indicating-parameters-that-hold-sensitive-information" class="md-nav__link">
     Indicating parameters that hold sensitive information
   </a>
@@ -2525,6 +2545,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#package-system" class="md-nav__link">
+    Package System
+  </a>
+  
+    <nav class="md-nav" aria-label="Package System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#removal-of-api-compatibility" class="md-nav__link">
+    Removal of API compatibility
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#indicating-parameters-that-hold-sensitive-information" class="md-nav__link">
     Indicating parameters that hold sensitive information
   </a>
@@ -2559,6 +2599,12 @@
 </ul>
 <p>It is recommended to make use of the newly introduced features whereever possible.
 Please refer to the PHP documentation for details.</p>
+<h2 id="package-system">Package System<a class="headerlink" href="#package-system" title="Permanent link">#</a></h2>
+<h3 id="removal-of-api-compatibility">Removal of API compatibility<a class="headerlink" href="#removal-of-api-compatibility" title="Permanent link">#</a></h3>
+<p>WoltLab Suite 6.0 removes support for the deprecated API compatibility functionality.
+Any packages with a <code>&lt;compatibility&gt;</code> tag in their package.xml are assumed to not have been updated for WoltLab Suite 6.0 and will be rejected during installation.
+Furthermore any packages without an explicit requirement for <code>com.woltlab.wcf</code> in at least version <code>5.4.22</code> are also assumed to not have been updated for WoltLab Suite 6.0 and will also be rejected.
+The latter check is intended to reject old and most likely incompatible packages where the author forgot to add either an <code>&lt;excludedpackage&gt;</code> or a <code>&lt;compatibility&gt;</code> tag before releasing it.</p>
 <h2 id="indicating-parameters-that-hold-sensitive-information">Indicating parameters that hold sensitive information<a class="headerlink" href="#indicating-parameters-that-hold-sensitive-information" title="Permanent link">#</a></h2>
 <p>PHP 8.2 adds native support for redacting parameters holding sensitive information in stack traces.
 Parameters with the <code>#[\SensitiveParameter]</code> attribute will show a placeholder value within the stack trace and the error log.</p>
@@ -2586,7 +2632,7 @@ Examples for sensitive parameters include passwords/passphrases, access tokens, 
   <small>
     
       Last update:
-      2022-08-08
+      2022-09-02
     
   </small>
 </div>
