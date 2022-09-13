@@ -2,7 +2,7 @@
 
 ## Minimum requirements
 
-The ECMAScript target version has been increased to es2019 from es2017.
+The ECMAScript target version has been increased to ES2022 from es2017.
 
 ## Subscribe Button (WCF.User.ObjectWatch.Subscribe)
 
