@@ -189,6 +189,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `Filebase.File.Preview`
 - `Filebase.Category.MarkAllAsRead`
 - `Filebase.File.MarkAsRead`
+- `Gallery.Category.MarkAllAsRead`
 - `Gallery.Image.Delete`
 - `WBB.Board.IgnoreBoards`
 - `WBB.Post.QuoteHandler`
