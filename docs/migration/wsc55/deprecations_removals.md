@@ -12,6 +12,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 - `wcf\SensitiveArgument` ([WoltLab/WCF#4802](https://github.com/WoltLab/WCF/pull/4802))
 - `wcf\util\CronjobUtil` ([WoltLab/WCF#4923](https://github.com/WoltLab/WCF/pull/4923))
+- `wcf\action\AbstractDialogAction` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
 
 #### Methods
 
@@ -95,6 +96,9 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\package\PackageInstallationDispatcher::convertShorthandByteValue()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
 - `wcf\system\package\PackageInstallationDispatcher::functionExists()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
 - `wcf\system\package\PackageInstallationDispatcher::validatePHPRequirements()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
+- `wcf\system\package\PackageInstallationDispatcher::openQueue()` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
+- `wcf\system\package\PackageInstallationDispatcher::checkPackageInstallationQueue()` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
+- `wcf\system\package\PackageInstallationDispatcher::completeSetup()` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
 - `wcf\system\search\AbstractSearchEngine::getFulltextMinimumWordLength()` ([WoltLab/WCF#4933](https://github.com/WoltLab/WCF/pull/4933))
 - `wcf\system\search\AbstractSearchEngine::parseSearchQuery()` ([WoltLab/WCF#4933](https://github.com/WoltLab/WCF/pull/4933))
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::query()`
