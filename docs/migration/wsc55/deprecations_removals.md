@@ -82,6 +82,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\data\conversation\ConversationAction::getMixedConversationList()` ([WoltLab/com.woltlab.wcf.conversation#176](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/176))
 - `wcf\data\moderation\queue\ModerationQueueAction::getOutstandingQueues()` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 - `wcf\data\user\notification\UserNotificationAction::getOustandingNotifications()` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
+- `wcf\data\package\installation\queue\PackageInstallationQueueAction::prepareQueue()` ([WoltLab/WCF#4997](https://github.com/WoltLab/WCF/pull/4997))
 - `wcf\system\bbcode\BBCodeParser::getRemoveLinks()` ([WoltLab/WCF#4986](https://github.com/WoltLab/WCF/pull/4986))
 - `wcf\system\bbcode\HtmlBBCodeParser::setRemoveLinks()` ([WoltLab/WCF#4986](https://github.com/WoltLab/WCF/pull/4986))
 - `wcf\system\html\output\node\AbstractHtmlOutputNode::setRemoveLinks()` ([WoltLab/WCF#4986](https://github.com/WoltLab/WCF/pull/4986))
@@ -99,6 +100,8 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\package\PackageInstallationDispatcher::openQueue()` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
 - `wcf\system\package\PackageInstallationDispatcher::checkPackageInstallationQueue()` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
 - `wcf\system\package\PackageInstallationDispatcher::completeSetup()` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
+- `wcf\system\package\PackageInstallationNodeBuilder::insertNode()` ([WoltLab/WCF#4997](https://github.com/WoltLab/WCF/pull/4997))
+- `wcf\system\package\PackageUpdateDispatcher::prepareInstallation()` ([WoltLab/WCF#4997](https://github.com/WoltLab/WCF/pull/4997))
 - `wcf\system\search\AbstractSearchEngine::getFulltextMinimumWordLength()` ([WoltLab/WCF#4933](https://github.com/WoltLab/WCF/pull/4933))
 - `wcf\system\search\AbstractSearchEngine::parseSearchQuery()` ([WoltLab/WCF#4933](https://github.com/WoltLab/WCF/pull/4933))
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::query()`
@@ -206,6 +209,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `WCF.Conversation.MarkAllAsRead`
 - `WCF.ModeratedUserGroup.AddMembers`
 - `WSC_API_VERSION` ([WoltLab/WCF#4943](https://github.com/WoltLab/WCF/pull/4943))
+- `SID_ARG_2ND` ([WoltLab/WCF#4998](https://github.com/WoltLab/WCF/pull/4998))
 
 ### Database
 
