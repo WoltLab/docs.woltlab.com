@@ -10,9 +10,9 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 #### Classes
 
+- `wcf\action\AbstractDialogAction` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
 - `wcf\SensitiveArgument` ([WoltLab/WCF#4802](https://github.com/WoltLab/WCF/pull/4802))
 - `wcf\util\CronjobUtil` ([WoltLab/WCF#4923](https://github.com/WoltLab/WCF/pull/4923))
-- `wcf\action\AbstractDialogAction` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
 
 #### Methods
 
@@ -81,13 +81,23 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\data\bbcode\BBCodeCache::getHighlighters()` ([WoltLab/WCF#4926](https://github.com/WoltLab/WCF/pull/4926))
 - `wcf\data\conversation\ConversationAction::getMixedConversationList()` ([WoltLab/com.woltlab.wcf.conversation#176](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/176))
 - `wcf\data\moderation\queue\ModerationQueueAction::getOutstandingQueues()` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
-- `wcf\data\user\notification\UserNotificationAction::getOustandingNotifications()` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
+- `wcf\data\package\installation\queue\PackageInstallationQueueAction::prepareQueue()` ([WoltLab/WCF#4997](https://github.com/WoltLab/WCF/pull/4997))
 - `wcf\data\user\avatar\UserAvatarAction::enforceDimensions()` ([WoltLab/WCF#5007](https://github.com/WoltLab/WCF/pull/5007))
 - `wcf\data\user\avatar\UserAvatarAction::fetchRemoteAvatar()` ([WoltLab/WCF#5007](https://github.com/WoltLab/WCF/pull/5007))
-- `wcf\data\package\installation\queue\PackageInstallationQueueAction::prepareQueue()` ([WoltLab/WCF#4997](https://github.com/WoltLab/WCF/pull/4997))
+- `wcf\data\user\notification\UserNotificationAction::getOustandingNotifications()` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 - `wcf\system\bbcode\BBCodeParser::getRemoveLinks()` ([WoltLab/WCF#4986](https://github.com/WoltLab/WCF/pull/4986))
 - `wcf\system\bbcode\HtmlBBCodeParser::setRemoveLinks()` ([WoltLab/WCF#4986](https://github.com/WoltLab/WCF/pull/4986))
 - `wcf\system\html\output\node\AbstractHtmlOutputNode::setRemoveLinks()` ([WoltLab/WCF#4986](https://github.com/WoltLab/WCF/pull/4986))
+- `wcf\system\package\PackageArchive::downloadArchive()` ([WoltLab/WCF#5006](https://github.com/WoltLab/WCF/pull/5006))
+- `wcf\system\package\PackageArchive::unzipPackageArchive()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
+- `wcf\system\package\PackageInstallationDispatcher::checkPackageInstallationQueue()` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
+- `wcf\system\package\PackageInstallationDispatcher::completeSetup()` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
+- `wcf\system\package\PackageInstallationDispatcher::convertShorthandByteValue()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
+- `wcf\system\package\PackageInstallationDispatcher::functionExists()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
+- `wcf\system\package\PackageInstallationDispatcher::openQueue()` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
+- `wcf\system\package\PackageInstallationDispatcher::validatePHPRequirements()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
+- `wcf\system\package\PackageInstallationNodeBuilder::insertNode()` ([WoltLab/WCF#4997](https://github.com/WoltLab/WCF/pull/4997))
+- `wcf\system\package\PackageUpdateDispatcher::prepareInstallation()` ([WoltLab/WCF#4997](https://github.com/WoltLab/WCF/pull/4997))
 - `wcf\system\request\Request::execute()` ([WoltLab/WCF#4820](https://github.com/WoltLab/WCF/pull/4820))
 - `wcf\system\request\Request::getPageType()` ([WoltLab/WCF#4822](https://github.com/WoltLab/WCF/pull/4822))
 - `wcf\system\request\Request::getPageType()` ([WoltLab/WCF#4822](https://github.com/WoltLab/WCF/pull/4822))
@@ -95,16 +105,6 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\request\Request::setIsLandingPage()`
 - `wcf\system\request\RouteHandler::getDefaultController()` ([WoltLab/WCF#4832](https://github.com/WoltLab/WCF/pull/4832))
 - `wcf\system\request\RouteHandler::loadDefaultControllers()` ([WoltLab/WCF#4832](https://github.com/WoltLab/WCF/pull/4832))
-- `wcf\system\package\PackageArchive::unzipPackageArchive()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
-- `wcf\system\package\PackageArchive::downloadArchive()` ([WoltLab/WCF#5006](https://github.com/WoltLab/WCF/pull/5006))
-- `wcf\system\package\PackageInstallationDispatcher::convertShorthandByteValue()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
-- `wcf\system\package\PackageInstallationDispatcher::functionExists()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
-- `wcf\system\package\PackageInstallationDispatcher::validatePHPRequirements()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
-- `wcf\system\package\PackageInstallationDispatcher::openQueue()` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
-- `wcf\system\package\PackageInstallationDispatcher::checkPackageInstallationQueue()` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
-- `wcf\system\package\PackageInstallationDispatcher::completeSetup()` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
-- `wcf\system\package\PackageInstallationNodeBuilder::insertNode()` ([WoltLab/WCF#4997](https://github.com/WoltLab/WCF/pull/4997))
-- `wcf\system\package\PackageUpdateDispatcher::prepareInstallation()` ([WoltLab/WCF#4997](https://github.com/WoltLab/WCF/pull/4997))
 - `wcf\system\search\AbstractSearchEngine::getFulltextMinimumWordLength()` ([WoltLab/WCF#4933](https://github.com/WoltLab/WCF/pull/4933))
 - `wcf\system\search\AbstractSearchEngine::parseSearchQuery()` ([WoltLab/WCF#4933](https://github.com/WoltLab/WCF/pull/4933))
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::query()`
@@ -140,19 +140,19 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::GET`
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::POST`
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::PUT`
-- `SECURITY_TOKEN` ([WoltLab/WCF#4934](https://github.com/WoltLab/WCF/pull/4934))
-- `SECURITY_TOKEN_INPUT_TAG` ([WoltLab/WCF#4934](https://github.com/WoltLab/WCF/pull/4934))
-- `WSC_API_VERSION` ([WoltLab/WCF#4943](https://github.com/WoltLab/WCF/pull/4943))
 - `PACKAGE_NAME` ([WoltLab/WCF#5006](https://github.com/WoltLab/WCF/pull/5006))
 - `PACKAGE_VERSION` ([WoltLab/WCF#5006](https://github.com/WoltLab/WCF/pull/5006))
+- `SECURITY_TOKEN_INPUT_TAG` ([WoltLab/WCF#4934](https://github.com/WoltLab/WCF/pull/4934))
+- `SECURITY_TOKEN` ([WoltLab/WCF#4934](https://github.com/WoltLab/WCF/pull/4934))
+- `WSC_API_VERSION` ([WoltLab/WCF#4943](https://github.com/WoltLab/WCF/pull/4943))
 
 #### Options
 
 - `CACHE_SOURCE_MEMCACHED_HOST` ([WoltLab/WCF#4928](https://github.com/WoltLab/WCF/pull/4928))
 - `DESKTOP_NOTIFICATION_PACKAGE_ID` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
+- `GRAVATAR_DEFAULT_TYPE` ([WoltLab/WCF#4929](https://github.com/WoltLab/WCF/pull/4929))
 - `HTTP_SEND_X_FRAME_OPTIONS` ([WoltLab/WCF#4786](https://github.com/WoltLab/WCF/pull/4786))
 - `MODULE_GRAVATAR` ([WoltLab/WCF#4929](https://github.com/WoltLab/WCF/pull/4929))
-- `GRAVATAR_DEFAULT_TYPE` ([WoltLab/WCF#4929](https://github.com/WoltLab/WCF/pull/4929))
 
 #### Files
 
@@ -161,16 +161,53 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 ### JavaScript
 
+- `Blog.Blog.Archive`
+- `Blog.Category.MarkAllAsRead`
+- `Blog.Entry.Delete`
+- `Blog.Entry.Preview`
+- `Blog.Entry.QuoteHandler`
+- `Calendar.Category.MarkAllAsRead` ([WoltLab/com.woltlab.calendar#169](https://github.com/WoltLab/com.woltlab.calendar/pull/169))
+- `Calendar.Event.Date.FullDay` ([WoltLab/com.woltlab.calendar#171](https://github.com/WoltLab/com.woltlab.calendar/pull/171))
+- `Calendar.Event.Date.Participation.RemoveParticipant`
+- `Calendar.Event.Preview`
+- `Calendar.Event.QuoteHandler`
+- `Calendar.Event.Share`
+- `Calendar.Event.TabMenu`
+- `Calendar.UI.Calendar`
+- `Calendar/Ui/Event/Date/Cancel.js`
+- `Filebase.Category.MarkAllAsRead`
+- `Filebase.File.MarkAsRead`
+- `Filebase.File.Preview`
+- `Filebase.File.Share`
 - `flexibleArea.js` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `Gallery.Category.MarkAllAsRead`
+- `Gallery.Image.Delete`
 - `jQuery.browser.smartphone` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `Prism.wscSplitIntoLines` ([WoltLab/WCF#4940](https://github.com/WoltLab/WCF/pull/4940))
+- `SID_ARG_2ND` ([WoltLab/WCF#4998](https://github.com/WoltLab/WCF/pull/4998))
+- `WBB.Board.IgnoreBoards`
+- `WBB.Post.IPAddressHandler`
+- `WBB.Post.Preview`
+- `WBB.Post.QuoteHandler`
+- `WBB.Thread.LastPageHandler`
+- `WBB.Thread.SimilarThreads`
+- `WBB.Thread.UpdateHandler.Thread`
+- `WBB.Thread.WatchedThreadList`
 - `WCF.Action.Scroll` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.Conversation.MarkAllAsRead`
+- `WCF.Conversation.MarkAsRead`
+- `WCF.Conversation.Message.QuoteHandler`
+- `WCF.Conversation.Preview`
+- `WCF.Conversation.RemoveParticipant`
 - `WCF.Date.Picker` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.Date.Util` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.Dropdown.Interactive.Handler` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 - `WCF.Dropdown.Interactive.Instance` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 - `WCF.Message.Share.Page` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.Message.Smilies` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.ModeratedUserGroup.AddMembers`
+- `WCF.Moderation.Queue.MarkAllAsRead`
+- `WCF.Moderation.Queue.MarkAsRead`
 - `WCF.Search.Message.KeywordList` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.System.FlexibleMenu` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.System.Fullscreen` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
@@ -178,44 +215,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `WCF.ToggleOptions` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.User.Panel.Abstract` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 - `window.shuffle()` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
-- `WCF.Moderation.Queue.MarkAsRead`
-- `WCF.Moderation.Queue.MarkAllAsRead`
-- `Calendar/Ui/Event/Date/Cancel.js`
-- `Calendar.Category.MarkAllAsRead` ([WoltLab/com.woltlab.calendar#169](https://github.com/WoltLab/com.woltlab.calendar/pull/169))
-- `Calendar.Event.Preview`
-- `Calendar.Event.Share`
-- `Calendar.Event.Date.Participation.RemoveParticipant`
-- `Calendar.Event.QuoteHandler`
-- `Calendar.UI.Calendar`
-- `Calendar.Event.Date.FullDay` ([WoltLab/com.woltlab.calendar#171](https://github.com/WoltLab/com.woltlab.calendar/pull/171))
-- `Calendar.Event.TabMenu`
-- `Blog.Entry.Delete`
-- `Blog.Entry.Preview`
-- `Blog.Entry.QuoteHandler`
-- `Blog.Category.MarkAllAsRead`
-- `Blog.Blog.Archive`
-- `Filebase.File.Share`
-- `Filebase.File.Preview`
-- `Filebase.Category.MarkAllAsRead`
-- `Filebase.File.MarkAsRead`
-- `Gallery.Category.MarkAllAsRead`
-- `Gallery.Image.Delete`
-- `WBB.Board.IgnoreBoards`
-- `WBB.Post.QuoteHandler`
-- `WBB.Post.IPAddressHandler`
-- `WBB.Post.Preview`
-- `WBB.Thread.WatchedThreadList`
-- `WBB.Thread.SimilarThreads`
-- `WBB.Thread.LastPageHandler`
-- `WBB.Thread.UpdateHandler.Thread`
-- `WCF.Conversation.RemoveParticipant`
-- `WCF.Conversation.Preview`
-- `WCF.Conversation.Message.QuoteHandler`
-- `WCF.Conversation.MarkAsRead`
-- `WCF.Conversation.MarkAllAsRead`
-- `WCF.ModeratedUserGroup.AddMembers`
 - `WSC_API_VERSION` ([WoltLab/WCF#4943](https://github.com/WoltLab/WCF/pull/4943))
-- `SID_ARG_2ND` ([WoltLab/WCF#4998](https://github.com/WoltLab/WCF/pull/4998))
 
 ### Database
 
@@ -240,9 +240,9 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 #### Template Events
 
-- `headInclude::javascriptLanguageImport` ([WoltLab/WCF#4801](https://github.com/WoltLab/WCF/pull/4801))
 - `headInclude::javascriptInclude` ([WoltLab/WCF#4801](https://github.com/WoltLab/WCF/pull/4801))
 - `headInclude::javascriptInit` ([WoltLab/WCF#4801](https://github.com/WoltLab/WCF/pull/4801))
+- `headInclude::javascriptLanguageImport` ([WoltLab/WCF#4801](https://github.com/WoltLab/WCF/pull/4801))
 
 #### Template Variables
 
