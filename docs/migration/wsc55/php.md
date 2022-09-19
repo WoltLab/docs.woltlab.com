@@ -11,6 +11,13 @@ The minimum requirements have been increased to the following:
 It is recommended to make use of the newly introduced features whereever possible.
 Please refer to the PHP documentation for details.
 
+## Inheritance
+
+Parameter, return, and property types have been added to methods of various classes/interfaces.
+This might cause errors during inheritance, because the types are not compatible with the newly added types in the parent class.
+
+Return types may already be added in package versions for older WoltLab Suite branches to be forward compatible, because return types are covariant.
+
 ## Package System
 
 ### Removal of API compatibility
