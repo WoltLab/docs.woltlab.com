@@ -82,6 +82,8 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\data\conversation\ConversationAction::getMixedConversationList()` ([WoltLab/com.woltlab.wcf.conversation#176](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/176))
 - `wcf\data\moderation\queue\ModerationQueueAction::getOutstandingQueues()` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 - `wcf\data\user\notification\UserNotificationAction::getOustandingNotifications()` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
+- `wcf\data\user\avatar\UserAvatarAction::enforceDimensions()` ([WoltLab/WCF#5007](https://github.com/WoltLab/WCF/pull/5007))
+- `wcf\data\user\avatar\UserAvatarAction::fetchRemoteAvatar()` ([WoltLab/WCF#5007](https://github.com/WoltLab/WCF/pull/5007))
 - `wcf\data\package\installation\queue\PackageInstallationQueueAction::prepareQueue()` ([WoltLab/WCF#4997](https://github.com/WoltLab/WCF/pull/4997))
 - `wcf\system\bbcode\BBCodeParser::getRemoveLinks()` ([WoltLab/WCF#4986](https://github.com/WoltLab/WCF/pull/4986))
 - `wcf\system\bbcode\HtmlBBCodeParser::setRemoveLinks()` ([WoltLab/WCF#4986](https://github.com/WoltLab/WCF/pull/4986))
