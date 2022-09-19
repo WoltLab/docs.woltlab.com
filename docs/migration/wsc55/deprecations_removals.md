@@ -94,6 +94,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\request\RouteHandler::getDefaultController()` ([WoltLab/WCF#4832](https://github.com/WoltLab/WCF/pull/4832))
 - `wcf\system\request\RouteHandler::loadDefaultControllers()` ([WoltLab/WCF#4832](https://github.com/WoltLab/WCF/pull/4832))
 - `wcf\system\package\PackageArchive::unzipPackageArchive()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
+- `wcf\system\package\PackageArchive::downloadArchive()` ([WoltLab/WCF#5006](https://github.com/WoltLab/WCF/pull/5006))
 - `wcf\system\package\PackageInstallationDispatcher::convertShorthandByteValue()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
 - `wcf\system\package\PackageInstallationDispatcher::functionExists()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
 - `wcf\system\package\PackageInstallationDispatcher::validatePHPRequirements()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
@@ -140,6 +141,8 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `SECURITY_TOKEN` ([WoltLab/WCF#4934](https://github.com/WoltLab/WCF/pull/4934))
 - `SECURITY_TOKEN_INPUT_TAG` ([WoltLab/WCF#4934](https://github.com/WoltLab/WCF/pull/4934))
 - `WSC_API_VERSION` ([WoltLab/WCF#4943](https://github.com/WoltLab/WCF/pull/4943))
+- `PACKAGE_NAME` ([WoltLab/WCF#5006](https://github.com/WoltLab/WCF/pull/5006))
+- `PACKAGE_VERSION` ([WoltLab/WCF#5006](https://github.com/WoltLab/WCF/pull/5006))
 
 #### Options
 
@@ -152,6 +155,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 #### Files
 
 - The `scss.inc.php` compatibility include. ([WoltLab/WCF#4932](https://github.com/WoltLab/WCF/pull/4932))
+- The `config.inc.php` in app directories. ([WoltLab/WCF#5006](https://github.com/WoltLab/WCF/pull/5006))
 
 ### JavaScript
 
