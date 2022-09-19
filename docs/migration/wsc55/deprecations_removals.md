@@ -214,6 +214,9 @@ With version 6.0, we have deprecated certain components and removed several othe
 ### Database
 
 - `wcf1_package_compatibility` ([WoltLab/WCF#4992](https://github.com/WoltLab/WCF/pull/4992))
+- `wcf1_package_update_compatibility` ([WoltLab/WCF#5005](https://github.com/WoltLab/WCF/pull/5005))
+- `wcf1_package_update_optional` ([WoltLab/WCF#5005](https://github.com/WoltLab/WCF/pull/5005))
+- `wcf1_user_notification_to_user` ([WoltLab/WCF#5005](https://github.com/WoltLab/WCF/pull/5005))
 - `wcf1_user.enableGravatar` ([WoltLab/WCF#4929](https://github.com/WoltLab/WCF/pull/4929))
 - `wcf1_user.gravatarFileExtension` ([WoltLab/WCF#4929](https://github.com/WoltLab/WCF/pull/4929))
 
