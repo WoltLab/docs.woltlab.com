@@ -20,6 +20,10 @@ Return types may already be added in package versions for older WoltLab Suite br
 
 ## Package System
 
+### Rejection of “pl” versions
+
+Woltlab Suite 6.0 no longer accepts package versions with the “pl” suffix as valid.
+
 ### Removal of API compatibility
 
 WoltLab Suite 6.0 removes support for the deprecated API compatibility functionality.
