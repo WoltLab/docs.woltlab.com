@@ -145,3 +145,10 @@ Events whose name is marked with an asterisk are called from a static method and
 | `wbb\data\board\BoardAction` | `cloneBoard` |
 | `wbb\data\post\PostAction` | `quickReplyShouldMerge` |
 | `wbb\system\thread\ThreadHandler` | `didInit` |
+
+## WoltLab Suite Filebase
+
+| Class | Event Name |
+|-------|------------|
+| `filebase\data\file\File` | `getPrice` |
+| `filebase\data\file\ViewableFile` | `getUnreadFiles` |
