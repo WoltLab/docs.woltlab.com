@@ -19,8 +19,8 @@ Events whose name is marked with an asterisk are called from a static method and
 | `wcf\data\session\SessionAction` | `poll` |
 | `wcf\data\trophy\Trophy` | `renderTrophy` |
 | `wcf\data\user\online\UserOnline` | `getBrowser` |
-| `wcf\data\user\online\UserOnlineList` | `isVisible` |
-| `wcf\data\user\online\UserOnlineList` | `isVisibleUser` |
+| `wcf\data\user\online\UsersOnlineList` | `isVisible` |
+| `wcf\data\user\online\UsersOnlineList` | `isVisibleUser` |
 | `wcf\data\user\trophy\UserTrophy` | `getReplacements` |
 | `wcf\data\user\UserAction` | `beforeFindUsers` |
 | `wcf\data\user\UserAction` | `rename` |
