@@ -131,6 +131,13 @@ Events whose name is marked with an asterisk are called from a static method and
 | `wcf\data\conversation\ConversationAction` | `addParticipants_validateParticipants` |
 | `wcf\data\conversation\message\ConversationMessageAction` | `afterQuickReply` |
 
+## WoltLab Suite Core: Infractions
+
+| Class | Event Name |
+|-------|------------|
+| `wcf\system\infraction\suspension\BanSuspensionAction` | `suspend` |
+| `wcf\system\infraction\suspension\BanSuspensionAction` | `unsuspend` |
+
 ## WoltLab Suite Forum
 
 | Class | Event Name |
