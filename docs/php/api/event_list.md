@@ -124,6 +124,13 @@ Events whose name is marked with an asterisk are called from a static method and
 | `wcf\system\WCF` | `initialized` |
 | `wcf\util\HeaderUtil` | `parseOutput`*|
 
+## WoltLab Suite Core: Conversations
+
+| Class | Event Name |
+|-------|------------|
+| `wcf\data\conversation\ConversationAction` | `addParticipants_validateParticipants` |
+| `wcf\data\conversation\message\ConversationMessageAction` | `afterQuickReply` |
+
 ## WoltLab Suite Forum
 
 | Class | Event Name |
