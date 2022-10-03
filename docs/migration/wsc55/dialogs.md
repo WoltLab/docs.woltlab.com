@@ -88,7 +88,7 @@ Destructive action:
 All other actions:
 > Do you want to […]
 
-#### Available Presets
+### Available Presets
 
 WoltLab Suite 6.0 currently ships with three presets for common actions.
 All three presets require the title of the related object as part of the question asked to the user.
@@ -124,6 +124,6 @@ if (result) {
 }
 ```
 
-### Prompts
+## Prompts
 
 TODO
