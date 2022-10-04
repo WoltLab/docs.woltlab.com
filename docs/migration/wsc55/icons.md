@@ -45,14 +45,14 @@ The new template function `{icon}` was added to take care of generating the HTML
 Icons in HTML should not be constructed using the actual HTML element, but instead always use `{icon}`.
 
 ```smarty
-<button class="button">{icon name='bell'} I‘m a button with a bell icon</button>
+<button class="button">{icon name='bell'} I’m a button with a bell icon</button>
 ```
 
 Unless specified the icon will attempt to use a non-solid variant of the icon if it is available.
 You can explicitly request a solid version of the icon by specifying it with `type='solid'`.
 
 ```smarty
-<button class="button">{icon name='bell' type='solid'} I‘m a button with a solid bell icon</button>
+<button class="button">{icon name='bell' type='solid'} I’m a button with a solid bell icon</button>
 ```
 
 Icons will implicitly assume the size `16`, but you can explicitly request a different icon size using the `size` attribute:
