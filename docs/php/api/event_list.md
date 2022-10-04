@@ -19,7 +19,8 @@ Events whose name is marked with an asterisk are called from a static method and
 | `wcf\data\session\SessionAction` | `poll` |
 | `wcf\data\trophy\Trophy` | `renderTrophy` |
 | `wcf\data\user\online\UserOnline` | `getBrowser` |
-| `wcf\data\user\online\UserOnlineList` | `isVisible` |
+| `wcf\data\user\online\UsersOnlineList` | `isVisible` |
+| `wcf\data\user\online\UsersOnlineList` | `isVisibleUser` |
 | `wcf\data\user\trophy\UserTrophy` | `getReplacements` |
 | `wcf\data\user\UserAction` | `beforeFindUsers` |
 | `wcf\data\user\UserAction` | `rename` |
@@ -34,6 +35,8 @@ Events whose name is marked with an asterisk are called from a static method and
 | `wcf\form\AbstractForm` | `saved` |
 | `wcf\form\AbstractForm` | `submit` |
 | `wcf\form\AbstractForm` | `validate` |
+| `wcf\form\AbstractFormBuilderForm` | `createForm` |
+| `wcf\form\AbstractFormBuilderForm` | `buildForm` |
 | `wcf\form\AbstractModerationForm` | `prepareSave` |
 | `wcf\page\AbstractPage` | `assignVariables` |
 | `wcf\page\AbstractPage` | `checkModules` |
@@ -42,6 +45,8 @@ Events whose name is marked with an asterisk are called from a static method and
 | `wcf\page\AbstractPage` | `readParameters` |
 | `wcf\page\AbstractPage` | `show` |
 | `wcf\page\MultipleLinkPage` | `beforeReadObjects` |
+| `wcf\page\MultipleLinkPage` | `insteadOfReadObjects` |
+| `wcf\page\MultipleLinkPage` | `afterInitObjectList` |
 | `wcf\page\MultipleLinkPage` | `calculateNumberOfPages` |
 | `wcf\page\MultipleLinkPage` | `countItems` |
 | `wcf\page\SortablePage` | `validateSortField` |
@@ -50,6 +55,7 @@ Events whose name is marked with an asterisk are called from a static method and
 | `wcf\system\bbcode\MessageParser` | `beforeParsing` |
 | `wcf\system\bbcode\SimpleMessageParser` | `afterParsing` |
 | `wcf\system\bbcode\SimpleMessageParser` | `beforeParsing` |
+| `wcf\system\box\BoxHandler` | `loadBoxes` |
 | `wcf\system\box\AbstractBoxController` | `__construct` |
 | `wcf\system\box\AbstractBoxController` | `afterLoadContent` |
 | `wcf\system\box\AbstractBoxController` | `beforeLoadContent` |
@@ -82,6 +88,8 @@ Events whose name is marked with an asterisk are called from a static method and
 | `wcf\system\message\QuickReplyManager` | `createdMessage` |
 | `wcf\system\message\QuickReplyManager` | `getMessage` |
 | `wcf\system\message\QuickReplyManager` | `validateParameters` |
+| `wcf\system\message\quote\MessageQuoteManager` | `addFullQuote` |
+| `wcf\system\message\quote\MessageQuoteManager` | `beforeRenderQuote` |
 | `wcf\system\option\OptionHandler` | `afterReadCache` |
 | `wcf\system\package\plugin\AbstractPackageInstallationPlugin` | `construct` |
 | `wcf\system\package\plugin\AbstractPackageInstallationPlugin` | `hasUninstall` |
@@ -116,6 +124,20 @@ Events whose name is marked with an asterisk are called from a static method and
 | `wcf\system\WCF` | `initialized` |
 | `wcf\util\HeaderUtil` | `parseOutput`*|
 
+## WoltLab Suite Core: Conversations
+
+| Class | Event Name |
+|-------|------------|
+| `wcf\data\conversation\ConversationAction` | `addParticipants_validateParticipants` |
+| `wcf\data\conversation\message\ConversationMessageAction` | `afterQuickReply` |
+
+## WoltLab Suite Core: Infractions
+
+| Class | Event Name |
+|-------|------------|
+| `wcf\system\infraction\suspension\BanSuspensionAction` | `suspend` |
+| `wcf\system\infraction\suspension\BanSuspensionAction` | `unsuspend` |
+
 ## WoltLab Suite Forum
 
 | Class | Event Name |
@@ -123,3 +145,10 @@ Events whose name is marked with an asterisk are called from a static method and
 | `wbb\data\board\BoardAction` | `cloneBoard` |
 | `wbb\data\post\PostAction` | `quickReplyShouldMerge` |
 | `wbb\system\thread\ThreadHandler` | `didInit` |
+
+## WoltLab Suite Filebase
+
+| Class | Event Name |
+|-------|------------|
+| `filebase\data\file\File` | `getPrice` |
+| `filebase\data\file\ViewableFile` | `getUnreadFiles` |
