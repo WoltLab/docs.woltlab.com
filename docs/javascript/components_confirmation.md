@@ -50,7 +50,7 @@ const askForReason = true;
 const { result, reason } = await confirmationFactory()
   .softDelete(theObjectName, askForReason);
 if (result) {
-    // …
+    console.log("The user has requested a soft delete, the following reason was provided:", reason);
 }
 ```
 
@@ -62,7 +62,7 @@ Restore a previously soft deleted object:
 const result = await confirmationFactory()
   .restore(theObjectName);
 if (result) {
-    // …
+    console.log("The user has requested to restore the object.");
 }
 ```
 
@@ -74,6 +74,10 @@ Permanently delete an object, will inform the user that the action cannot be und
 const result = await confirmationFactory()
   .delete(theObjectName);
 if (result) {
-    // …
+    console.log("The user has requested to delete the object.");
 }
 ```
+
+## Code Examples
+
+TODO

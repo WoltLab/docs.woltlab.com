@@ -57,4 +57,103 @@ TODO
 
 ## Interacting with dialogs
 
+Dialogs are represented by the `<woltlab-core-dialog>` element that exposes a set of properties and methods to interact with it.
+
+### Opening and Closing Dialogs
+
+You can open a dialog through the `.show()` method that expects the title of the dialog as the only argument.
+Check the `.open` property to determine if the dialog is currently open.
+
+Programmatically closing a dialog is possibly through `.close()`.
+
+### Accessing the Content
+
+All contents of a dialog exists within a child element that can be accessed through the `content` property.
+
+```ts
+// Add some text to the dialog.
+const p = document.createElement("p");
+p.textContent = "Hello World";
+dialog.content.append(p);
+
+// Find a text input inside the dialog.
+const input = dialog.content.querySelector('input[type="text"]');
+```
+
+### Event Access
+
+You can bind event listeners to specialized events to get notified of events and to modify its behavior.
+
+#### `afterClose`
+
+_This event cannot be canceled._
+
+Fires when the dialog has closed.
+
+```ts
+dialog.addEventListener("afterClose", () => {
+  // Dialog was closed.
+});
+```
+
+#### `close`
+
+Fires when the dialog is about to close.
+
+```ts
+dialog.addEventListener("close", (event) => {
+  if (someCondition) {
+    event.preventDefault();
+  }
+});
+```
+
+#### `cancel`
+
+Fires only when there is a “Cancel” button and the user has either pressed that button or clicked on the modal backdrop.
+The dialog will close if the event is not canceled.
+
+```ts
+dialog.addEventListener("cancel", (event) => {
+  if (someCondition) {
+    event.preventDefault();
+  }
+});
+```
+
+#### `primary`
+
+_This event cannot be canceled._
+
+Fires only when there is a primary action button and the user has either pressed that button or submitted the form through keyboard controls.
+
+```ts
+dialog.addEventListener("primary", () => {
+  // The primary action button was clicked or the
+  // form was submitted through keyboard controls.
+  //
+  // The `validate` event has completed successfully.
+});
+```
+
+#### `validate`
+
+Fires only when there is a form and the user has pressed the primary action button or submitted the form through keyboard controls.
+Canceling this event is interpreted as a form validation failure.
+
+```ts
+const input = document.createElement("input");
+dialog.content.append(input);
+
+dialog.addEventListener("validate", (event) => {
+  if (input.value.trim() === "") {
+    event.preventDefault();
+
+    // Display an inline error message.
+  }
+});
+```
+
+## Code Examples
+
 TODO
