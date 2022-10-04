@@ -2489,8 +2489,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#woltlab-suite-core-conversations" class="md-nav__link">
+    WoltLab Suite Core: Conversations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#woltlab-suite-core-infractions" class="md-nav__link">
+    WoltLab Suite Core: Infractions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#woltlab-suite-forum" class="md-nav__link">
     WoltLab Suite Forum
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#woltlab-suite-filebase" class="md-nav__link">
+    WoltLab Suite Filebase
   </a>
   
 </li>
@@ -2579,8 +2600,12 @@
 <td><code>getBrowser</code></td>
 </tr>
 <tr>
-<td><code>wcf\data\user\online\UserOnlineList</code></td>
+<td><code>wcf\data\user\online\UsersOnlineList</code></td>
 <td><code>isVisible</code></td>
+</tr>
+<tr>
+<td><code>wcf\data\user\online\UsersOnlineList</code></td>
+<td><code>isVisibleUser</code></td>
 </tr>
 <tr>
 <td><code>wcf\data\user\trophy\UserTrophy</code></td>
@@ -2639,6 +2664,14 @@
 <td><code>validate</code></td>
 </tr>
 <tr>
+<td><code>wcf\form\AbstractFormBuilderForm</code></td>
+<td><code>createForm</code></td>
+</tr>
+<tr>
+<td><code>wcf\form\AbstractFormBuilderForm</code></td>
+<td><code>buildForm</code></td>
+</tr>
+<tr>
 <td><code>wcf\form\AbstractModerationForm</code></td>
 <td><code>prepareSave</code></td>
 </tr>
@@ -2672,6 +2705,14 @@
 </tr>
 <tr>
 <td><code>wcf\page\MultipleLinkPage</code></td>
+<td><code>insteadOfReadObjects</code></td>
+</tr>
+<tr>
+<td><code>wcf\page\MultipleLinkPage</code></td>
+<td><code>afterInitObjectList</code></td>
+</tr>
+<tr>
+<td><code>wcf\page\MultipleLinkPage</code></td>
 <td><code>calculateNumberOfPages</code></td>
 </tr>
 <tr>
@@ -2701,6 +2742,10 @@
 <tr>
 <td><code>wcf\system\bbcode\SimpleMessageParser</code></td>
 <td><code>beforeParsing</code></td>
+</tr>
+<tr>
+<td><code>wcf\system\box\BoxHandler</code></td>
+<td><code>loadBoxes</code></td>
 </tr>
 <tr>
 <td><code>wcf\system\box\AbstractBoxController</code></td>
@@ -2829,6 +2874,14 @@
 <tr>
 <td><code>wcf\system\message\QuickReplyManager</code></td>
 <td><code>validateParameters</code></td>
+</tr>
+<tr>
+<td><code>wcf\system\message\quote\MessageQuoteManager</code></td>
+<td><code>addFullQuote</code></td>
+</tr>
+<tr>
+<td><code>wcf\system\message\quote\MessageQuoteManager</code></td>
+<td><code>beforeRenderQuote</code></td>
 </tr>
 <tr>
 <td><code>wcf\system\option\OptionHandler</code></td>
@@ -2964,6 +3017,44 @@
 </tr>
 </tbody>
 </table>
+<h2 id="woltlab-suite-core-conversations">WoltLab Suite Core: Conversations<a class="headerlink" href="#woltlab-suite-core-conversations" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Event Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wcf\data\conversation\ConversationAction</code></td>
+<td><code>addParticipants_validateParticipants</code></td>
+</tr>
+<tr>
+<td><code>wcf\data\conversation\message\ConversationMessageAction</code></td>
+<td><code>afterQuickReply</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="woltlab-suite-core-infractions">WoltLab Suite Core: Infractions<a class="headerlink" href="#woltlab-suite-core-infractions" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Event Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wcf\system\infraction\suspension\BanSuspensionAction</code></td>
+<td><code>suspend</code></td>
+</tr>
+<tr>
+<td><code>wcf\system\infraction\suspension\BanSuspensionAction</code></td>
+<td><code>unsuspend</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="woltlab-suite-forum">WoltLab Suite Forum<a class="headerlink" href="#woltlab-suite-forum" title="Permanent link">#</a></h2>
 <table>
 <thead>
@@ -2987,13 +3078,32 @@
 </tr>
 </tbody>
 </table>
+<h2 id="woltlab-suite-filebase">WoltLab Suite Filebase<a class="headerlink" href="#woltlab-suite-filebase" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Event Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filebase\data\file\File</code></td>
+<td><code>getPrice</code></td>
+</tr>
+<tr>
+<td><code>filebase\data\file\ViewableFile</code></td>
+<td><code>getUnreadFiles</code></td>
+</tr>
+</tbody>
+</table>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2021-01-08
+      2022-09-26
     
   </small>
 </div>
