@@ -77,7 +77,3 @@ if (result) {
     console.log("The user has requested to delete the object.");
 }
 ```
-
-## Code Examples
-
-TODO

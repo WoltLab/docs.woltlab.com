@@ -53,7 +53,74 @@ Confirmation dialogs are supported through a separate factory function that prov
 
 ## Prompts
 
-TODO
+The most common type of dialogs are prompts that are similar to confirmation dialogs, but without the restrictions and with a regular title.
+These dialogs can be used universally and provide a submit and cancel button by default.
+In addition they offer an “extra” button that is placed to the left of the default buttons are can be used to offer a single additional action.
+
+### Code Example
+
+```html
+<button id="showMyDialog">Show the dialog</button>
+
+<template id="myDialog">
+  <dl>
+    <dt>
+      <label for="myInput">Title</label>
+    </dt>
+    <dd>
+      <input type="text" name="myInput" id="myInput" value="" required>
+    </dd>
+  </dl>
+</template>
+```
+
+```ts
+document.getElementById("showMyDialog")!.addEventListener("click", () => {
+  const dialog = dialogFactory()
+    .fromId("myDialog")
+    .asPrompt();
+  
+  dialog.addEventListener("primary", () => {
+    const myInput = document.getElementById("myInput");
+
+    console.log("Provided title:", myInput.value.trim());
+  });
+});
+```
+
+### Custom Buttons
+
+The `asPrompt()` call permits some level of customization of the form control buttons.
+
+#### Customizing the Primary Button
+
+The `primary` option is used to change the default label of the primary button.
+
+```ts
+dialogFactory()
+  .fromId("myDialog")
+  .asPrompt({
+    primary: Language.get("wcf.dialog.button.primary"),
+  });
+```
+
+### Adding an Extra Button
+
+The extra button has no default label, enabling it requires you to provide a readable name.
+
+```ts
+const dialog = dialogFactory()
+  .fromId("myDialog")
+  .asPrompt({
+    extra: Language.get("my.extra.button.name"),
+  });
+
+dialog.addEventListener("extra", () => {
+  // The extra button does nothing on its own. If you want
+  // to close the button after performing an action you’ll
+  // need to call `dialog.close()` yourself.
+});
+```
 
 ## Interacting with dialogs
 
@@ -118,6 +185,19 @@ dialog.addEventListener("cancel", (event) => {
   if (someCondition) {
     event.preventDefault();
   }
+});
+```
+
+#### `extra`
+
+_This event cannot be canceled._
+
+Fires when an extra button is present and the button was clicked by the user.
+This event does nothing on its own and is supported for dialogs of type “Prompt” only.
+
+```ts
+dialog.addEventListener("extra", () => {
+  // The extra button was clicked.
 });
 ```
 
