@@ -2633,13 +2633,12 @@ To request reauthentication within your controller you need to:</p>
 <ol>
 <li>Use the <code>wcf\system\user\authentication\TReauthenticationCheck</code> trait.</li>
 <li>Call:
-   <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">requestReauthentication</span><span class="p">(</span><span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getControllerLink</span><span class="p">(</span><span class="k">static</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="p">[</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">requestReauthentication</span><span class="p">(</span><span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getControllerLink</span><span class="p">(</span><span class="k">static</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="p">[</span>
  <span class="cm">/* additional parameters */</span>
 <span class="p">]));</span>
-</code></pre></div>
-</td></tr></table></li>
+</code></pre></div></td></tr></table></div></li>
 </ol>
 <p><code>requestReauthentication()</code> will check if the user has recently authenticated themselves.
 If they did, the request proceeds as usual.
@@ -2652,11 +2651,10 @@ The user will not be logged in (i.e. <code>WCF::getUser()-&gt;userID</code> retu
 <p>Requesting multi-factor authentication is done on an opt-in basis for compatibility reasons.
 If you perform authentication yourself and do not trust the authentication source to perform multi-factor authentication itself, you will need to adjust your logic to request multi-factor authentication from WoltLab Suite:</p>
 <p>Previously:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">changeUser</span><span class="p">(</span><span class="nv">$targetUser</span><span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">changeUser</span><span class="p">(</span><span class="nv">$targetUser</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
 <p>Now:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2665,7 +2663,7 @@ If you perform authentication yourself and do not trust the authentication sourc
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nv">$isPending</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">changeUserAfterMultifactorAuthentication</span><span class="p">(</span><span class="nv">$targetUser</span><span class="p">);</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$isPending</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">changeUserAfterMultifactorAuthentication</span><span class="p">(</span><span class="nv">$targetUser</span><span class="p">);</span>
 <span class="k">if</span> <span class="p">(</span><span class="nv">$isPending</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Redirect to the authentication form. The user will not be logged in.</span>
     <span class="c1">// Note: Do not use `getControllerLink` to support both the frontend as well as the ACP.</span>
@@ -2675,27 +2673,25 @@ If you perform authentication yourself and do not trust the authentication sourc
     <span class="k">exit</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="c1">// Proceed as usual. The user will be logged in.</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h4 id="adding-multi-factor-methods">Adding Multi-factor Methods<a class="headerlink" href="#adding-multi-factor-methods" title="Permanent link">#</a></h4>
 <p>Adding your own multi-factor method requires the implementation of a single object type:</p>
 <div class="titledCodeBox">
     <div class="codeBoxTitle"><code>objectType.xml</code></div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;type&gt;</span>
    <span class="nt">&lt;name&gt;</span>com.example.multifactor.foobar<span class="nt">&lt;/name&gt;</span>
    <span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.multifactor<span class="nt">&lt;/definitionname&gt;</span>
    <span class="nt">&lt;icon&gt;</span><span class="cm">&lt;!-- Font Awesome 4 Icon Name goes here. --&gt;</span><span class="nt">&lt;/icon&gt;</span>
    <span class="nt">&lt;priority&gt;</span><span class="cm">&lt;!-- Determines the sort order, higher priority will be preferred for authentication. --&gt;</span><span class="nt">&lt;/priority&gt;</span>
    <span class="nt">&lt;classname&gt;</span>wcf\system\user\multifactor\FoobarMultifactorMethod<span class="nt">&lt;/classname&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <p>The given classname must implement the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/multifactor/IMultifactorMethod.class.php"><code>IMultifactorMethod</code></a> interface.</p>

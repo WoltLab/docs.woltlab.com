@@ -2380,22 +2380,21 @@
 <p><a href="../database-objects/">Database Objects</a> provide a convenient and object-oriented approach to work with the database, but there can be use-cases that require raw access including writing methods for model classes. This section assumes that you have either used <a href="https://en.wikipedia.org/wiki/Prepared_statement">prepared statements</a> before or at least understand how it works.</p>
 <h2 id="the-preparedstatement-object">The PreparedStatement Object<a class="headerlink" href="#the-preparedstatement-object" title="Permanent link">#</a></h2>
 <p>The database access is designed around <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/database/statement/PreparedStatement.class.php">PreparedStatement</a>, built on top of PHP's <code>PDOStatement</code> so that you call all of <code>PDOStatement</code>'s methods, and each query requires you to obtain a statement object.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepareStatement</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_example&quot;</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
 <span class="k">while</span> <span class="p">(</span><span class="nv">$row</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchArray</span><span class="p">())</span> <span class="p">{</span>
     <span class="c1">// handle result</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="query-parameters">Query Parameters<a class="headerlink" href="#query-parameters" title="Permanent link">#</a></h3>
 <p>The example below illustrates the usage of parameters where each value is replaced with the generic <code>?</code>-placeholder. Values are provided by calling <code>$statement-&gt;execute()</code> with a continuous, one-dimensional array that exactly match the number of question marks.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2407,7 +2406,7 @@
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  *</span>
 <span class="s2">        FROM    wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_example</span>
 <span class="s2">        WHERE   exampleID = ?</span>
@@ -2420,28 +2419,26 @@
 <span class="k">while</span> <span class="p">(</span><span class="nv">$row</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchArray</span><span class="p">())</span> <span class="p">{</span>
     <span class="c1">// handle result</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="fetching-a-single-result">Fetching a Single Result<a class="headerlink" href="#fetching-a-single-result" title="Permanent link">#</a></h3>
 <div class="admonition danger">
 <p class="admonition-title">Do not attempt to use <code>fetchSingleRow()</code> or <code>fetchSingleColumn()</code> if the result contains more than one row.</p>
 </div>
 <p>You can opt-in to retrieve only a single row from database and make use of shortcut methods to reduce the code that you have to write.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  *</span>
 <span class="s2">        FROM    wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_example</span>
 <span class="s2">        WHERE   exampleID = ?&quot;</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepareStatement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span><span class="nv">$exampleID</span><span class="p">]);</span>
 <span class="nv">$row</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchSingleRow</span><span class="p">();</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>There are two distinct differences when comparing with the example on query parameters above:</p>
 <ol>
 <li>The method <code>prepareStatement()</code> receives a secondary parameter that will be appended to the query as <code>LIMIT 1</code>.</li>
@@ -2452,7 +2449,7 @@
 <p class="admonition-title">There is no way to return another column from the same row if you use <code>fetchColumn()</code> to retrieve data.</p>
 </div>
 <p>Fetching an array is only useful if there is going to be more than one column per result row, otherwise accessing the column directly is much more convenient and increases the code readability.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2460,7 +2457,7 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  bar</span>
 <span class="s2">        FROM    wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_example&quot;</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepareStatement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
@@ -2469,110 +2466,103 @@
     <span class="c1">// handle result</span>
 <span class="p">}</span>
 <span class="nv">$bar</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchSingleColumn</span><span class="p">();</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>Similar to fetching a single row, you can also issue a query that will select a single row, but reads only one column from the result row.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  bar</span>
 <span class="s2">        FROM    wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_example</span>
 <span class="s2">        WHERE   exampleID = ?&quot;</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepareStatement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span><span class="nv">$exampleID</span><span class="p">]);</span>
 <span class="nv">$bar</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchSingleColumn</span><span class="p">();</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="fetching-all-results">Fetching All Results<a class="headerlink" href="#fetching-all-results" title="Permanent link">#</a></h3>
 <p>If you want to fetch all results of a query but only store them in an array without directly processing them, in most cases, you can rely on built-in methods.</p>
 <p>To fetch all rows of query, you can use <code>PDOStatement::fetchAll()</code> with <code>\PDO::FETCH_ASSOC</code> as the first parameter:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  *</span>
 <span class="s2">        FROM    wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_example&quot;</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepareStatement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
 <span class="nv">$rows</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">(</span><span class="nx">\PDO</span><span class="o">::</span><span class="na">FETCH_ASSOC</span><span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>As a result, you get an array containing associative arrays with the rows of the <code>wcf{WCF_N}_example</code> database table as content.</p>
 <p>If you only want to fetch a list of the values of a certain column, you can use <code>\PDO::FETCH_COLUMN</code> as the first parameter:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  exampleID</span>
 <span class="s2">        FROM    wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_example&quot;</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepareStatement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
 <span class="nv">$exampleIDs</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">(</span><span class="nx">\PDO</span><span class="o">::</span><span class="na">FETCH_COLUMN</span><span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>As a result, you get an array with all <code>exampleID</code> values.</p>
 <p>The <code>PreparedStatement</code> class adds an additional methods that covers another common use case in our code:
 Fetching two columns and using the first column's value as the array key and the second column's value as the array value.
 This case is covered by <code>PreparedStatement::fetchMap()</code>:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  exampleID, userID</span>
 <span class="s2">        FROM    wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_example_mapping&quot;</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepareStatement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
 <span class="nv">$map</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchMap</span><span class="p">(</span><span class="s1">&#39;exampleID&#39;</span><span class="p">,</span> <span class="s1">&#39;userID&#39;</span><span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><code>$map</code> is a one-dimensional array where each <code>exampleID</code> value maps to the corresponding <code>userID</code> value.</p>
 <div class="admonition warning">
 <p class="admonition-title">If there are multiple entries for a certain <code>exampleID</code> value with different <code>userID</code> values, the existing entry in the array will be overwritten and contain the last read value from the database table. Therefore, this method should generally only be used for unique combinations.</p>
 </div>
 <p>If you do not have a combination of columns with unique pairs of values, but you want to get a list of <code>userID</code> values with the same <code>exampleID</code>, you can set the third parameter of <code>fetchMap()</code> to <code>false</code> and get a list:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  exampleID, userID</span>
 <span class="s2">        FROM    wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_example_mapping&quot;</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepareStatement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
 <span class="nv">$map</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchMap</span><span class="p">(</span><span class="s1">&#39;exampleID&#39;</span><span class="p">,</span> <span class="s1">&#39;userID&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>Now, as a result, you get a two-dimensional array with the array keys being the <code>exampleID</code> values and the array values being arrays with all <code>userID</code> values from rows with the respective <code>exampleID</code> value.</p>
 <h2 id="building-complex-conditions">Building Complex Conditions<a class="headerlink" href="#building-complex-conditions" title="Permanent link">#</a></h2>
 <p>Building conditional conditions can turn out to be a real mess and it gets even worse with SQL's <code>IN (…)</code> which requires as many placeholders as there will be values. The solutions is <code>PreparedStatementConditionBuilder</code>, a simple but useful helper class with a bulky name, it is also the class used when accessing <code>DatabaseObjecList::getConditionBuilder()</code>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$conditions</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\system\database\util\PreparedStatementConditionBuilder</span><span class="p">();</span>
 <span class="nv">$conditions</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s2">&quot;exampleID = ?&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$exampleID</span><span class="p">]);</span>
 <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$valuesForBar</span><span class="p">))</span> <span class="p">{</span>
     <span class="nv">$conditions</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s2">&quot;(bar IN (?) OR baz = ?)&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$valuesForBar</span><span class="p">,</span> <span class="nv">$baz</span><span class="p">]);</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>The <code>IN (?)</code> in the example above is automatically expanded to match the number of items contained in <code>$valuesForBar</code>. Be aware that the method will generate an invalid query if <code>$valuesForBar</code> is empty!</p>
 <h2 id="insert-or-update-in-bulk">INSERT or UPDATE in Bulk<a class="headerlink" href="#insert-or-update-in-bulk" title="Permanent link">#</a></h2>
 <p>Prepared statements not only protect against SQL injection by separating the logical query and the actual data, but also provides the ability to reuse the same query with different values. This leads to a performance improvement as the code does not have to transmit the query with for every data set and only has to parse and analyze the query once.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2584,7 +2574,7 @@ This case is covered by <code>PreparedStatement::fetchMap()</code>:</p>
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;ghi&#39;</span><span class="p">];</span>
 
 <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO  wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_example</span>
@@ -2597,10 +2587,9 @@ This case is covered by <code>PreparedStatement::fetchMap()</code>:</p>
     <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span><span class="nv">$bar</span><span class="p">]);</span>
 <span class="p">}</span>
 <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">commitTransaction</span><span class="p">();</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>It is generally advised to wrap bulk operations in a transaction as it allows the database to optimize the process, including fewer I/O operations.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2619,7 +2608,7 @@ This case is covered by <code>PreparedStatement::fetchMap()</code>:</p>
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
     <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span>
     <span class="mi">3</span> <span class="o">=&gt;</span> <span class="s1">&#39;def&#39;</span><span class="p">,</span>
@@ -2639,8 +2628,7 @@ This case is covered by <code>PreparedStatement::fetchMap()</code>:</p>
     <span class="p">]);</span>
 <span class="p">}</span>
 <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">commitTransaction</span><span class="p">();</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
                 
                   
                     

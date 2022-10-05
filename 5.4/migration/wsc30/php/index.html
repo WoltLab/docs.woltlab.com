@@ -2435,32 +2435,30 @@
 <p>Comments can now be set to require approval by a moderator before being published. This feature is disabled by default if you do not provide a permission in the manager class, enabling it requires a new permission that has to be provided in a special property of your manage implementation.</p>
 <div class="titledCodeBox">
     <div class="codeBoxTitle"><code>files/lib/system/comment/manager/ExampleCommentManager.class.php</code></div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">ExampleCommentManager</span> <span class="k">extends</span> <span class="nx">AbstractCommentManager</span> <span class="p">{</span>
   <span class="k">protected</span> <span class="nv">$permissionAddWithoutModeration</span> <span class="o">=</span> <span class="s1">&#39;foo.bar.example.canAddCommentWithoutModeration&#39;</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <h2 id="raw-html-in-user-activity-events">Raw HTML in User Activity Events<a class="headerlink" href="#raw-html-in-user-activity-events" title="Permanent link">#</a></h2>
 <p>User activity events were previously encapsulated inside <code>&lt;div class="htmlContent"&gt;…&lt;/div&gt;</code>, with impacts on native elements such as lists. You can now disable the class usage by defining your event as raw HTML:</p>
 <div class="titledCodeBox">
     <div class="codeBoxTitle"><code>files/lib/system/user/activity/event/ExampleUserActivityEvent.class.php</code></div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">ExampleUserActivityEvent</span> <span class="p">{</span>
   <span class="c1">// enables raw HTML for output, defaults to `false`</span>
   <span class="k">protected</span> <span class="nv">$isRawHtml</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <h2 id="permission-to-view-likes-of-an-object">Permission to View Likes of an Object<a class="headerlink" href="#permission-to-view-likes-of-an-object" title="Permanent link">#</a></h2>
@@ -2468,21 +2466,20 @@
 <p>Implement the interface <code>\wcf\data\like\IRestrictedLikeObjectTypeProvider</code> in your object provider to add support for this new permission check.</p>
 <div class="titledCodeBox">
     <div class="codeBoxTitle"><code>files/lib/data/example/LikeableExampleProvider.class.php</code></div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">LikeableExampleProvider</span> <span class="k">extends</span> <span class="nx">ExampleProvider</span> <span class="k">implements</span> <span class="nx">IRestrictedLikeObjectTypeProvider</span><span class="p">,</span> <span class="nx">IViewableLikeProvider</span> <span class="p">{</span>
   <span class="k">public</span> <span class="k">function</span> <span class="nf">canViewLikes</span><span class="p">(</span><span class="nx">ILikeObject</span> <span class="nv">$object</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// perform your permission checks here</span>
     <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <h2 id="developer-tools-sync-feature">Developer Tools: Sync Feature<a class="headerlink" href="#developer-tools-sync-feature" title="Permanent link">#</a></h2>
@@ -2491,21 +2488,20 @@
 <p>There's another feature that allows all matching PIPs to be executed in a row using a single button click. In order to solve dependencies on other PIPs, any implementing PIP must also provide the method <code>getSyncDependencies()</code> that returns the dependent PIPs in an arbitrary order.</p>
 <div class="titledCodeBox">
     <div class="codeBoxTitle"><code>files/lib/data/package/plugin/ExamplePackageInstallationPlugin.class.php</code></div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">ExamplePackageInstallationPlugin</span> <span class="k">extends</span> <span class="nx">AbstractXMLPackageInstallationPlugin</span> <span class="k">implements</span> <span class="nx">IIdempotentPackageInstallationPlugin</span> <span class="p">{</span>
   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getSyncDependencies</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// provide a list of dependent PIPs in arbitrary order</span>
     <span class="k">return</span> <span class="p">[];</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <h2 id="media-providers">Media Providers<a class="headerlink" href="#media-providers" title="Permanent link">#</a></h2>
@@ -2516,7 +2512,7 @@
         <code>mediaProvider.xml</code>
         <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/migration/wsc-30/mediaProvider.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2525,7 +2521,7 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/tornado/mediaProvider.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;import&gt;</span>
         <span class="nt">&lt;provider</span> <span class="na">name=</span><span class="s">&quot;example&quot;</span><span class="nt">&gt;</span>
@@ -2535,25 +2531,23 @@
         <span class="nt">&lt;/provider&gt;</span>
     <span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <h4 id="php-callback">PHP Callback<a class="headerlink" href="#php-callback" title="Permanent link">#</a></h4>
 <p>The full match is provided for <code>$url</code>, while any capture groups from the regular expression are assigned to <code>$matches</code>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">ExampleBBCodeMediaProvider</span> <span class="k">implements</span> <span class="nx">IBBCodeMediaProvider</span> <span class="p">{</span>
   <span class="k">public</span> <span class="k">function</span> <span class="nf">parse</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$matches</span> <span class="o">=</span> <span class="p">[])</span> <span class="p">{</span>
     <span class="k">return</span> <span class="s2">&quot;final HTML output&quot;</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h2 id="re-evaluate-html-messages">Re-Evaluate HTML Messages<a class="headerlink" href="#re-evaluate-html-messages" title="Permanent link">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">You need to manually set the disallowed bbcodes in order to avoid unintentional bbcode evaluation. Please see <a href="https://github.com/WoltLab/WCF/commit/7e058783da1378dda5393a9bb4df9cfe94e5b394">this commit</a> for a reference implementation inside worker processes.</p>
@@ -2565,7 +2559,7 @@
 </ol>
 <p>The newly added method <code>reprocess($message, $objectType, $objectID)</code> solves this short-coming by offering a full bbcode and text re-evaluation while bypassing any input filters, assuming that the input HTML was already filtered previously.</p>
 <h3 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link">#</a></h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2581,7 +2575,7 @@
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="c1">// rebuild data workers tend to contain code similar to this:</span>
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">objectList</span> <span class="k">as</span> <span class="nv">$message</span><span class="p">)</span> <span class="p">{</span>
  <span class="c1">// ...</span>
@@ -2598,8 +2592,7 @@
  <span class="p">}</span>
  <span class="c1">// ...</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
                 
                   
                     

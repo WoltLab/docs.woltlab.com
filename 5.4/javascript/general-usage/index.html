@@ -2390,7 +2390,7 @@ appearance.</p>
 <p>This behavior is controlled through the <code>data-relocate="true"</code> attribute on the <code>&lt;script&gt;</code>
 which is mandatory for almost all scripts, mostly because their dependencies (such
 as jQuery) are moved to the bottom anyway.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2402,21 +2402,20 @@ as jQuery) are moved to the bottom anyway.</p>
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
-  <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Code that uses jQuery (Legacy API)</span>
-  <span class="p">});</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Code that uses jQuery (Legacy API)</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="cm">&lt;!-- or --&gt;</span>
 
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
-  <span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Some&quot;</span><span class="p">,</span> <span class="s2">&quot;Dependencies&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Some</span><span class="p">,</span> <span class="nx">Dependencies</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Modern API</span>
-  <span class="p">});</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Some&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Dependencies&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Some</span><span class="p">,</span><span class="w"> </span><span class="nx">Dependencies</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Modern API</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h2 id="including-external-javascript-files">Including External JavaScript Files<a class="headerlink" href="#including-external-javascript-files" title="Permanent link">#</a></h2>
 <p>The AMD-Modules used in the new API are automatically recognized and lazy-loaded
 on demand, so unless you have a rather large and pre-compiled code-base, there
@@ -2428,9 +2427,8 @@ appending the special <code>LAST_UPDATE_TIME</code> constant to your file path. 
 the unix timestamp of the last time any package was installed, updated or removed
 and thus avoid outdated caches by relying on a unique value, without invalidating
 the cache more often that it needs to be.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{@$__wcf-&gt;getPath(&#39;app&#39;)}js/App.js?t={@LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{@$__wcf-&gt;getPath(&#39;app&#39;)}js/App.js?t={@LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
 <p>For small scripts you can simply serve the full, non-minified version to the user
 at all times, the differences in size and execution speed are insignificant and
 are very unlikely to offer any benefits. They might even yield a worse performance,
@@ -2440,9 +2438,8 @@ is never called.</p>
 include a switch to load the uncompressed version in the debug mode, while serving
 the minified and optimized file to the average visitor. You should use the
 <code>ENABLE_DEBUG_MODE</code> constant to decide which version should be loaded.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{@$__wcf-&gt;getPath(&#39;app&#39;)}js/App{if !ENABLE_DEBUG_MODE}.min{/if}.js?t={@LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{@$__wcf-&gt;getPath(&#39;app&#39;)}js/App{if !ENABLE_DEBUG_MODE}.min{/if}.js?t={@LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="the-accelerated-guest-view-tiny-builds">The Accelerated Guest View ("Tiny Builds")<a class="headerlink" href="#the-accelerated-guest-view-tiny-builds" title="Permanent link">#</a></h3>
 <div class="admonition info">
 <p class="admonition-title">You can learn more on the <a href="../../migration/wsc30/javascript/">Accelerated Guest View</a> in the migration docs.</p>
@@ -2451,15 +2448,13 @@ the minified and optimized file to the average visitor. You should use the
 decrease page size and to improve responsiveness by enabling a read-only mode
 for visitors. If you are providing a separate compiled build for this mode, you'll
 need to include yet another switch to serve the right version to the visitor.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{@$__wcf-&gt;getPath(&#39;app&#39;)}js/App{if !ENABLE_DEBUG_MODE}{if VISITOR_USE_TINY_BUILD}.tiny{/if}.min{/if}.js?t={@LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{@$__wcf-&gt;getPath(&#39;app&#39;)}js/App{if !ENABLE_DEBUG_MODE}{if VISITOR_USE_TINY_BUILD}.tiny{/if}.min{/if}.js?t={@LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="the-js-template-plugin">The <code>{js}</code> Template Plugin<a class="headerlink" href="#the-js-template-plugin" title="Permanent link">#</a></h3>
 <p>The <code>{js}</code> template plugin exists solely to provide a much easier and less error-prone
 method to include external JavaScript files.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>{js application=&#39;app&#39; file=&#39;App&#39; hasTiny=true}
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>{js application=&#39;app&#39; file=&#39;App&#39; hasTiny=true}
+</code></pre></div></td></tr></table></div>
 <p>The <code>hasTiny</code> attribute is optional, you can set it to <code>false</code> or just omit it
 entirely if you do not provide a tiny build for your file.</p>
                 

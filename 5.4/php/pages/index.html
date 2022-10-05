@@ -2589,7 +2589,7 @@
 <h4 id="readparameters">readParameters()<a class="headerlink" href="#readparameters" title="Permanent link">#</a></h4>
 <p>Reads and sanitizes request parameters, this should be the only method to ever read user-supplied input. Read data should be stored in class properties to be accessible at a later point, allowing your code to safely assume that the data has been sanitized and is safe to work with.</p>
 <p>A typical example is the board page from the forum app that reads the id and attempts to identify the request forum.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2602,7 +2602,7 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">function</span> <span class="nf">readParameters</span><span class="p">()</span> <span class="p">{</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span> <span class="k">function</span> <span class="nf">readParameters</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">parent</span><span class="o">::</span><span class="na">readParameters</span><span class="p">();</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]))</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">boardID</span> <span class="o">=</span> <span class="nb">intval</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]);</span>
@@ -2616,8 +2616,7 @@
         <span class="k">throw</span> <span class="k">new</span> <span class="nx">PermissionDeniedException</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><span class="label label-info">Events</span> <code>readParameters</code></p>
 <h4 id="show">show()<a class="headerlink" href="#show" title="Permanent link">#</a></h4>
 <p>Used to be the method of choice to handle permissions and module option checks, but has been used almost entirely as an internal method since the introduction of the properties <code>$loginRequired</code>, <code>$neededModules</code> and <code>$neededPermissions</code>.</p>
@@ -2628,14 +2627,14 @@
 <h4 id="assignvariables">assignVariables()<a class="headerlink" href="#assignvariables" title="Permanent link">#</a></h4>
 <p>Last method call before the template engine kicks in and renders the template. All though some properties are bound to the template automatically, you still need to pass any custom variables and class properties to the engine to make them available in templates.</p>
 <p>Following the example in <code>readParameters()</code>, the code below adds the board data to the template.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">function</span> <span class="nf">assignVariables</span><span class="p">()</span> <span class="p">{</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span> <span class="k">function</span> <span class="nf">assignVariables</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">parent</span><span class="o">::</span><span class="na">assignVariables</span><span class="p">();</span>
 
     <span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
@@ -2643,8 +2642,7 @@
         <span class="s1">&#39;boardID&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">boardID</span>
     <span class="p">]);</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><span class="label label-info">Events</span> <code>assignVariables</code></p>
 <h2 id="abstractform">AbstractForm<a class="headerlink" href="#abstractform" title="Permanent link">#</a></h2>
 <p>Extends the AbstractPage implementation with additional methods designed to handle form submissions properly.</p>

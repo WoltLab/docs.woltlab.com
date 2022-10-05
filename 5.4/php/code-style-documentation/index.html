@@ -2299,9 +2299,8 @@
 <h3 id="database-table-columns-as-properties">Database Table Columns as Properties<a class="headerlink" href="#database-table-columns-as-properties" title="Permanent link">#</a></h3>
 <p>As the database table columns are not explicit properties of the classes extending <code>wcf\data\DatabaseObject</code> but rather stored in <code>DatabaseObject::$data</code> and accessible via <code>DatabaseObject::__get($name)</code>, the IDE we use, PhpStorm, is neither able to autocomplete such property access nor to interfere the type of the property.</p>
 <p>To solve this problem, <code>@property-read</code> tags must be added to the class documentation which registers the database table columns as public read-only properties:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code> * @property-read   propertyType    $propertyName   property description
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> * @property-read   propertyType    $propertyName   property description
+</code></pre></div></td></tr></table></div>
 <p>The properties have to be in the same order as the order in the database table.</p>
 <p>The following table provides templates for common description texts so that similar database table columns have similar description texts.</p>
 <table>
@@ -2381,38 +2380,36 @@
 <h2 id="database-object-editors">Database Object Editors<a class="headerlink" href="#database-object-editors" title="Permanent link">#</a></h2>
 <h3 id="class-tags">Class Tags<a class="headerlink" href="#class-tags" title="Permanent link">#</a></h3>
 <p>Any database object editor class comment must have to following tags to properly support autocompletion by IDEs:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="sd">/**</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="sd">/**</span>
 <span class="sd"> * …</span>
 <span class="sd"> * @method static   {DBO class name}    create(array $parameters = [])</span>
 <span class="sd"> * @method      {DBO class name}    getDecoratedObject()</span>
 <span class="sd"> * @mixin       {DBO class name}</span>
 <span class="sd"> */</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>The only exception to this rule is if the class overwrites the <code>create()</code> method which itself has to be properly documentation then.</p>
 <p>The first and second line makes sure that when calling the <code>create()</code> or <code>getDecoratedObject()</code> method, the return value is correctly recognized and not just a general <code>DatabaseObject</code> instance.
 The third line tells the IDE (if <code>@mixin</code> is supported) that the database object editor decorates the database object and therefore offers autocompletion for properties and methods from the database object class itself.</p>
 <h2 id="runtime-caches">Runtime Caches<a class="headerlink" href="#runtime-caches" title="Permanent link">#</a></h2>
 <h3 id="class-tags_1">Class Tags<a class="headerlink" href="#class-tags_1" title="Permanent link">#</a></h3>
 <p>Any class implementing the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/cache/runtime/IRuntimeCache.class.php">IRuntimeCache</a> interface must have the following class tags:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="sd">/**</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="sd">/**</span>
 <span class="sd"> * …</span>
 <span class="sd"> * @method  {DBO class name}[]  getCachedObjects()</span>
 <span class="sd"> * @method  {DBO class name}    getObject($objectID)</span>
 <span class="sd"> * @method  {DBO class name}[]  getObjects(array $objectIDs)</span>
 <span class="sd"> */</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>These tags ensure that when calling any of the mentioned methods, the return value refers to the concrete database object and not just generically to <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/data/DatabaseObject.class.php">DatabaseObject</a>.</p>
                 
                   

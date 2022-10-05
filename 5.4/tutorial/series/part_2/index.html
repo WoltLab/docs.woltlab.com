@@ -2436,7 +2436,7 @@ As in the first part, we will not bother with careful validation of the entered 
 <p>For more information about the event system, please refer to the <a href="../../../php/api/events/">dedicated page on events</a>.</p>
 <h2 id="package-structure">Package Structure<a class="headerlink" href="#package-structure" title="Permanent link">#</a></h2>
 <p>The package will have the following file structure:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2454,7 +2454,7 @@ As in the first part, we will not bother with careful validation of the entered 
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>├── eventListener.xml
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code>├── eventListener.xml
 ├── files
 │   ├── acp
 │   │   └── database
@@ -2473,8 +2473,7 @@ As in the first part, we will not bother with careful validation of the entered 
 └── templates
     ├── __personListBirthday.tpl
     └── __personListBirthdaySortField.tpl
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h2 id="extending-person-model">Extending Person Model<a class="headerlink" href="#extending-person-model" title="Permanent link">#</a></h2>
 <p>The existing model of a person only contains the person’s first name and their last name (in additional to the id used to identify created people).
 To add the birthday to the model, we need to create an additional database table column using the <a href="../../../package/pip/database/"><code>database</code> package installation plugin</a>:</p>
@@ -2483,7 +2482,7 @@ To add the birthday to the model, we need to create an additional database table
         <code>files/acp/database/install_com.woltlab.wcf.people.birthday.php</code>
         <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-2/files/acp/database/install_com.woltlab.wcf.people.birthday.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2493,7 +2492,7 @@ To add the birthday to the model, we need to create an additional database table
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="n">php</span><span class="w"></span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="n">php</span><span class="w"></span>
 
 <span class="n">use</span><span class="w"> </span><span class="n">wcf</span><span class="err">\</span><span class="k">system</span><span class="err">\</span><span class="k">database</span><span class="err">\</span><span class="k">table</span><span class="err">\</span><span class="k">column</span><span class="err">\</span><span class="n">DateDatabaseTableColumn</span><span class="p">;</span><span class="w"></span>
 <span class="n">use</span><span class="w"> </span><span class="n">wcf</span><span class="err">\</span><span class="k">system</span><span class="err">\</span><span class="k">database</span><span class="err">\</span><span class="k">table</span><span class="err">\</span><span class="n">PartialDatabaseTable</span><span class="p">;</span><span class="w"></span>
@@ -2504,8 +2503,7 @@ To add the birthday to the model, we need to create an additional database table
 <span class="w">            </span><span class="n">DateDatabaseTableColumn</span><span class="p">::</span><span class="k">create</span><span class="p">(</span><span class="s1">&#39;birthday&#39;</span><span class="p">),</span><span class="w"></span>
 <span class="w">        </span><span class="p">]),</span><span class="w"></span>
 <span class="p">];</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <p>If we have a <a href="../part_1/#person"><code>Person</code> object</a>, this new property can be accessed the same way as the <code>personID</code> property, the <code>firstName</code> property, or the <code>lastName</code> property from the base package: <code>$person-&gt;birthday</code>.</p>
@@ -2516,7 +2514,7 @@ To add the birthday to the model, we need to create an additional database table
         <code>files/lib/system/event/listener/BirthdayPersonAddFormListener.class.php</code>
         <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-2/files/lib/system/event/listener/BirthdayPersonAddFormListener.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2549,7 +2547,7 @@ To add the birthday to the model, we need to create an additional database table
 <span class="normal">31</span>
 <span class="normal">32</span>
 <span class="normal">33</span>
-<span class="normal">34</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">wcf\system\event\listener</span><span class="p">;</span>
 
@@ -2583,26 +2581,24 @@ To add the birthday to the model, we need to create an additional database table
         <span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <p>registered via</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;eventlistener</span> <span class="na">name=</span><span class="s">&quot;createForm@wcf\acp\form\PersonAddForm&quot;</span><span class="nt">&gt;</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;eventlistener</span> <span class="na">name=</span><span class="s">&quot;createForm@wcf\acp\form\PersonAddForm&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;environment&gt;</span>admin<span class="nt">&lt;/environment&gt;</span>
   <span class="nt">&lt;eventclassname&gt;</span>wcf\acp\form\PersonAddForm<span class="nt">&lt;/eventclassname&gt;</span>
   <span class="nt">&lt;eventname&gt;</span>createForm<span class="nt">&lt;/eventname&gt;</span>
   <span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\BirthdayPersonAddFormListener<span class="nt">&lt;/listenerclassname&gt;</span>
   <span class="nt">&lt;inherit&gt;</span>1<span class="nt">&lt;/inherit&gt;</span>
 <span class="nt">&lt;/eventlistener&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>in <code>eventListener.xml</code>, <a href="#eventlistenerxml">see below</a>.</p>
 <p>As <code>BirthdayPersonAddFormListener</code> extends <code>AbstractEventListener</code> and as the name of relevant event is <code>createForm</code>, <code>AbstractEventListener</code> internally automatically calls <code>onCreateForm()</code> with the event object as the parameter.
 It is important to set <code>&lt;inherit&gt;1&lt;/inherit&gt;</code> so that the event listener is also executed for <code>PersonEditForm</code>, which extends <code>PersonAddForm</code>.</p>
@@ -2612,19 +2608,18 @@ It is important to set <code>&lt;inherit&gt;1&lt;/inherit&gt;</code> so that the
         <code>language/de.xml</code>
         <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-2/language/de.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="n">xml</span><span class="w"> </span><span class="k">version</span><span class="o">=</span><span class="ss">&quot;1.0&quot;</span><span class="w"> </span><span class="k">encoding</span><span class="o">=</span><span class="ss">&quot;UTF-8&quot;</span><span class="o">?&gt;</span><span class="w"></span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="n">xml</span><span class="w"> </span><span class="k">version</span><span class="o">=</span><span class="ss">&quot;1.0&quot;</span><span class="w"> </span><span class="k">encoding</span><span class="o">=</span><span class="ss">&quot;UTF-8&quot;</span><span class="o">?&gt;</span><span class="w"></span>
 <span class="o">&lt;</span><span class="k">language</span><span class="w"> </span><span class="n">xmlns</span><span class="o">=</span><span class="ss">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="n">xmlns</span><span class="p">:</span><span class="n">xsi</span><span class="o">=</span><span class="ss">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="n">xsi</span><span class="p">:</span><span class="n">schemaLocation</span><span class="o">=</span><span class="ss">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span><span class="w"> </span><span class="n">languagecode</span><span class="o">=</span><span class="ss">&quot;de&quot;</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="o">&lt;</span><span class="n">category</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="ss">&quot;wcf.person&quot;</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">        </span><span class="o">&lt;</span><span class="n">item</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="ss">&quot;wcf.person.birthday&quot;</span><span class="o">&gt;&lt;!</span><span class="p">[</span><span class="n">CDATA</span><span class="p">[</span><span class="n">Geburtstag</span><span class="p">]]</span><span class="o">&gt;&lt;/</span><span class="n">item</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="o">&lt;/</span><span class="n">category</span><span class="o">&gt;</span><span class="w"></span>
 <span class="o">&lt;/</span><span class="k">language</span><span class="o">&gt;</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <div class="titledCodeBox">
@@ -2632,19 +2627,18 @@ It is important to set <code>&lt;inherit&gt;1&lt;/inherit&gt;</code> so that the
         <code>language/en.xml</code>
         <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-2/language/en.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="n">xml</span><span class="w"> </span><span class="k">version</span><span class="o">=</span><span class="ss">&quot;1.0&quot;</span><span class="w"> </span><span class="k">encoding</span><span class="o">=</span><span class="ss">&quot;UTF-8&quot;</span><span class="o">?&gt;</span><span class="w"></span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="n">xml</span><span class="w"> </span><span class="k">version</span><span class="o">=</span><span class="ss">&quot;1.0&quot;</span><span class="w"> </span><span class="k">encoding</span><span class="o">=</span><span class="ss">&quot;UTF-8&quot;</span><span class="o">?&gt;</span><span class="w"></span>
 <span class="o">&lt;</span><span class="k">language</span><span class="w"> </span><span class="n">xmlns</span><span class="o">=</span><span class="ss">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="n">xmlns</span><span class="p">:</span><span class="n">xsi</span><span class="o">=</span><span class="ss">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="n">xsi</span><span class="p">:</span><span class="n">schemaLocation</span><span class="o">=</span><span class="ss">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span><span class="w"> </span><span class="n">languagecode</span><span class="o">=</span><span class="ss">&quot;en&quot;</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="o">&lt;</span><span class="n">category</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="ss">&quot;wcf.person&quot;</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">        </span><span class="o">&lt;</span><span class="n">item</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="ss">&quot;wcf.person.birthday&quot;</span><span class="o">&gt;&lt;!</span><span class="p">[</span><span class="n">CDATA</span><span class="p">[</span><span class="n">Birthday</span><span class="p">]]</span><span class="o">&gt;&lt;/</span><span class="n">item</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="o">&lt;/</span><span class="n">category</span><span class="o">&gt;</span><span class="w"></span>
 <span class="o">&lt;/</span><span class="k">language</span><span class="o">&gt;</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <h2 id="adding-birthday-table-column-in-acp">Adding Birthday Table Column in ACP<a class="headerlink" href="#adding-birthday-table-column-in-acp" title="Permanent link">#</a></h2>
@@ -2660,7 +2654,7 @@ It is important to set <code>&lt;inherit&gt;1&lt;/inherit&gt;</code> so that the
         <code>files/lib/system/event/listener/BirthdaySortFieldPersonListPageListener.class.php</code>
         <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-2/files/lib/system/event/listener/BirthdaySortFieldPersonListPageListener.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2683,7 +2677,7 @@ It is important to set <code>&lt;inherit&gt;1&lt;/inherit&gt;</code> so that the
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">wcf\system\event\listener</span><span class="p">;</span>
 
@@ -2707,8 +2701,7 @@ It is important to set <code>&lt;inherit&gt;1&lt;/inherit&gt;</code> so that the
         <span class="nv">$page</span><span class="o">-&gt;</span><span class="na">validSortFields</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;birthday&#39;</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <div class="admonition info">
@@ -2716,13 +2709,11 @@ It is important to set <code>&lt;inherit&gt;1&lt;/inherit&gt;</code> so that the
 </div>
 <p>As the relevant template codes are only one line each, we will simply put them directly in the <code>templateListener.xml</code> file that will be shown <a href="#templatelistenerxml">later on</a>.
 The code for the table head is similar to the other <code>th</code> elements:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;th class=&quot;columnDate columnBirthday</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">&#39;birthday&#39;</span><span class="cp">}</span><span class="x"> active </span><span class="cp">{</span><span class="o">@</span><span class="nv">$sortOrder</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&quot;&gt;&lt;a href=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;PersonList&#39;</span><span class="cp">}</span><span class="x">pageNo=</span><span class="cp">{</span><span class="o">@</span><span class="nv">$pageNo</span><span class="cp">}</span><span class="x">&amp;sortField=birthday&amp;sortOrder=</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">&#39;birthday&#39;</span> <span class="o">&amp;&amp;</span> <span class="nv">$sortOrder</span> <span class="o">==</span> <span class="s1">&#39;ASC&#39;</span><span class="cp">}</span><span class="x">DESC</span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x">ASC</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot;&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.birthday</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/a&gt;&lt;/th&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;th class=&quot;columnDate columnBirthday</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">&#39;birthday&#39;</span><span class="cp">}</span><span class="x"> active </span><span class="cp">{</span><span class="o">@</span><span class="nv">$sortOrder</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&quot;&gt;&lt;a href=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;PersonList&#39;</span><span class="cp">}</span><span class="x">pageNo=</span><span class="cp">{</span><span class="o">@</span><span class="nv">$pageNo</span><span class="cp">}</span><span class="x">&amp;sortField=birthday&amp;sortOrder=</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">&#39;birthday&#39;</span> <span class="o">&amp;&amp;</span> <span class="nv">$sortOrder</span> <span class="o">==</span> <span class="s1">&#39;ASC&#39;</span><span class="cp">}</span><span class="x">DESC</span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x">ASC</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot;&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.birthday</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/a&gt;&lt;/th&gt;</span>
+</code></pre></div></td></tr></table></div>
 <p>For the table body’s column, we need to make sure that the birthday is only show if it is actually set:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;td class=&quot;columnDate columnBirthday&quot;&gt;</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">birthday</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$person</span><span class="o">-&gt;</span><span class="na">birthday</span><span class="o">|</span><span class="na">strtotime</span><span class="o">|</span><span class="na">date</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&lt;/td&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;td class=&quot;columnDate columnBirthday&quot;&gt;</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">birthday</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$person</span><span class="o">-&gt;</span><span class="na">birthday</span><span class="o">|</span><span class="na">strtotime</span><span class="o">|</span><span class="na">date</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&lt;/td&gt;</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="adding-birthday-in-front-end">Adding Birthday in Front End<a class="headerlink" href="#adding-birthday-in-front-end" title="Permanent link">#</a></h2>
 <p>In the front end, we also want to make the list sortable by birthday and show the birthday as part of each person’s “statistics”.</p>
 <p>To add the birthday as a valid sort field, we use <code>BirthdaySortFieldPersonListPageListener</code> just as in the ACP.
@@ -2732,9 +2723,8 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
         <code>templates/__personListBirthdaySortField.tpl</code>
         <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-2/templates/__personListBirthdaySortField.tpl" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;option value=&quot;birthday&quot;</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">&#39;birthday&#39;</span><span class="cp">}</span><span class="x"> selected</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.birthday</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/option&gt;</span>
-</code></pre></div>
-</td></tr></table>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;option value=&quot;birthday&quot;</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$sortField</span> <span class="o">==</span> <span class="s1">&#39;birthday&#39;</span><span class="cp">}</span><span class="x"> selected</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.birthday</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/option&gt;</span>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <div class="admonition info">
@@ -2747,15 +2737,14 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
         <code>templates/__personListBirthday.tpl</code>
         <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-2/templates/__personListBirthday.tpl" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">{</span><span class="nf">if</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">birthday</span><span class="cp">}</span><span class="x"></span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">if</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">birthday</span><span class="cp">}</span><span class="x"></span>
 <span class="x">    &lt;dt&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.birthday</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/dt&gt;</span>
 <span class="x">    &lt;dd&gt;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$person</span><span class="o">-&gt;</span><span class="na">birthday</span><span class="o">|</span><span class="na">strtotime</span><span class="o">|</span><span class="na">date</span><span class="cp">}</span><span class="x">&lt;/dd&gt;</span>
 <span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <h2 id="templatelistenerxml"><code>templateListener.xml</code><a class="headerlink" href="#templatelistenerxml" title="Permanent link">#</a></h2>
@@ -2765,7 +2754,7 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
         <code>templateListener.xml</code>
         <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-2/templateListener.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2798,7 +2787,7 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
 <span class="normal">31</span>
 <span class="normal">32</span>
 <span class="normal">33</span>
-<span class="normal">34</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/tornado/5.4/templateListener.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;import&gt;</span>
         <span class="cm">&lt;!-- admin --&gt;</span>
@@ -2832,8 +2821,7 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
         <span class="cm">&lt;!-- /user --&gt;</span>
     <span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <p>In cases where a template is used, we simply use the <code>include</code> syntax to load the template.</p>
@@ -2844,7 +2832,7 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
         <code>eventListener.xml</code>
         <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-2/eventListener.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2872,7 +2860,7 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
 <span class="normal">26</span>
 <span class="normal">27</span>
 <span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/eventListener.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;import&gt;</span>
         <span class="cm">&lt;!-- admin --&gt;</span>
@@ -2901,8 +2889,7 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
         <span class="cm">&lt;!-- /user --&gt;</span>
     <span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <h2 id="packagexml"><code>package.xml</code><a class="headerlink" href="#packagexml" title="Permanent link">#</a></h2>
@@ -2912,7 +2899,7 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
         <code>package.xml</code>
         <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-2/package.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2944,7 +2931,7 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
 <span class="normal">30</span>
 <span class="normal">31</span>
 <span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;com.woltlab.wcf.people.birthday&quot;</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/package.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;packageinformation&gt;</span>
         <span class="nt">&lt;packagename&gt;</span>WoltLab Suite Core Tutorial: People (Birthday)<span class="nt">&lt;/packagename&gt;</span>
@@ -2977,8 +2964,7 @@ In the front end, we will now use a template (<code>__personListBirthdaySortFiel
         <span class="nt">&lt;instruction</span> <span class="na">type=</span><span class="s">&quot;templateListener&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/instructions&gt;</span>
 <span class="nt">&lt;/package&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <hr />

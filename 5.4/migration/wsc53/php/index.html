@@ -2454,28 +2454,25 @@ Leveraging this API is easily done.</p>
 <ol>
 <li>Register an object type for the definition <code>com.woltlab.wcf.floodControl</code>: <code>com.example.foo.myContent</code>.</li>
 <li>Whenever the active user creates content of this type, call
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">FloodControl</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">registerContent</span><span class="p">(</span><span class="s1">&#39;com.example.foo.myContent&#39;</span><span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">FloodControl</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">registerContent</span><span class="p">(</span><span class="s1">&#39;com.example.foo.myContent&#39;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
     You should only call this method if the user creates the content themselves.
     If the content is automatically created by the system, for example when copying / duplicating existing content, no activity should be registered.</li>
 <li>
 <p>To check the last time when the active user created content of the relevant type, use
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">FloodControl</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLastTime</span><span class="p">(</span><span class="s1">&#39;com.example.foo.myContent&#39;</span><span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">FloodControl</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLastTime</span><span class="p">(</span><span class="s1">&#39;com.example.foo.myContent&#39;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
     If you want to limit the number of content items created within a certain period of time, for example within one day, use
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nv">$data</span> <span class="o">=</span> <span class="nx">FloodControl</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">countContent</span><span class="p">(</span><span class="s1">&#39;com.example.foo.myContent&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">\DateInterval</span><span class="p">(</span><span class="s1">&#39;P1D&#39;</span><span class="p">));</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$data</span> <span class="o">=</span> <span class="nx">FloodControl</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">countContent</span><span class="p">(</span><span class="s1">&#39;com.example.foo.myContent&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">\DateInterval</span><span class="p">(</span><span class="s1">&#39;P1D&#39;</span><span class="p">));</span>
 <span class="c1">// number of content items created within the last day</span>
 <span class="nv">$count</span> <span class="o">=</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">];</span>
 <span class="c1">// timestamp when the earliest content item was created within the last day</span>
 <span class="nv">$earliestTime</span> <span class="o">=</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;earliestTime&#39;</span><span class="p">];</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
     The method also returns <code>earliestTime</code> so that you can tell the user in the error message when they are able again to create new content of the relevant type.</p>
 <div class="admonition info">
 <p class="admonition-title">Flood control entries are only stored for 31 days and older entries are cleaned up daily.</p>
@@ -2495,17 +2492,16 @@ The script is expected to return an array of <code>DatabaseTable</code> objects 
 The PHP file must be located in the <code>acp/database/</code> directory for the devtools sync function to recognize the file.</p>
 <h2 id="php-database-api">PHP Database API<a class="headerlink" href="#php-database-api" title="Permanent link">#</a></h2>
 <p>The PHP API to add and change database tables during package installations and updates in the <code>wcf\system\database\table</code> namespace now also supports renaming existing table columns with the new <code>IDatabaseTableColumn::renameTo()</code> method:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">PartialDatabaseTable</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;wcf1_test&#39;</span><span class="p">)</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">PartialDatabaseTable</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;wcf1_test&#39;</span><span class="p">)</span>
         <span class="o">-&gt;</span><span class="na">columns</span><span class="p">([</span>
                 <span class="nx">NotNullInt10DatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;oldName&#39;</span><span class="p">)</span>
                         <span class="o">-&gt;</span><span class="na">renameTo</span><span class="p">(</span><span class="s1">&#39;newName&#39;</span><span class="p">)</span>
         <span class="p">]);</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <div class="admonition info">
 <p class="admonition-title">Like with every change to existing database tables, packages can only rename columns that they installed.</p>
 </div>

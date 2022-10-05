@@ -2535,26 +2535,25 @@
 <p>Creates a deep-clone of the provided object by value, removing any references on
 the original element, including arrays. However, this does not clone references
 to non-plain objects, these instances will be copied by reference.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Core&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Core</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mf">1</span> <span class="p">};</span>
-  <span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="nx">Core</span><span class="p">.</span><span class="nx">clone</span><span class="p">(</span><span class="nx">obj1</span><span class="p">);</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Core&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Core</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">obj1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">obj2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Core</span><span class="p">.</span><span class="nx">clone</span><span class="p">(</span><span class="nx">obj1</span><span class="p">);</span><span class="w"></span>
 
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj1</span> <span class="o">===</span> <span class="nx">obj2</span><span class="p">);</span> <span class="c1">// output: false</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj2</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">obj2</span><span class="p">.</span><span class="nx">a</span> <span class="o">===</span> <span class="mf">1</span><span class="p">);</span> <span class="c1">// output: true</span>
-<span class="p">});</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj1</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">obj2</span><span class="p">);</span><span class="w"> </span><span class="c1">// output: false</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj2</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">obj2</span><span class="p">.</span><span class="nx">a</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// output: true</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h3 id="extendbase-object-merge-object-object"><code>extend(base: Object, ...merge: Object[]): Object</code><a class="headerlink" href="#extendbase-object-merge-object-object" title="Permanent link">#</a></h3>
 <p>Accepts an infinite amount of plain objects as parameters, values will be copied
 from the 2nd...nth object into the first object. The first parameter will be
 cloned and the resulting object is returned.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2563,22 +2562,21 @@ cloned and the resulting object is returned.</p>
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Core&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Core</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mf">2</span> <span class="p">};</span>
-  <span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="nx">b</span><span class="o">:</span> <span class="mf">2</span> <span class="p">};</span>
-  <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nx">Core</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-    <span class="nx">b</span><span class="o">:</span> <span class="mf">1</span>
-  <span class="p">},</span> <span class="nx">obj1</span><span class="p">,</span> <span class="nx">obj2</span><span class="p">);</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Core&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Core</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">obj1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">obj2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Core</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="nx">obj1</span><span class="p">,</span><span class="w"> </span><span class="nx">obj2</span><span class="p">);</span><span class="w"></span>
 
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">b</span> <span class="o">===</span> <span class="mf">2</span><span class="p">);</span> <span class="c1">// output: true</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">a</span> <span class="o">===</span> <span class="mf">2</span><span class="p">);</span> <span class="c1">// output: false</span>
-<span class="p">});</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">b</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// output: true</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">obj</span><span class="p">.</span><span class="nx">a</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// output: false</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h3 id="inheritbase-object-target-object-merge-object"><code>inherit(base: Object, target: Object, merge?: Object)</code><a class="headerlink" href="#inheritbase-object-target-object-merge-object" title="Permanent link">#</a></h3>
 <p>Derives the second object's prototype from the first object, afterwards the
 derived class will pass the <code>instanceof</code> check against the original class.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2611,45 +2609,44 @@ derived class will pass the <code>instanceof</code> check against the original c
 <span class="normal">31</span>
 <span class="normal">32</span>
 <span class="normal">33</span>
-<span class="normal">34</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// App.js</span>
-<span class="nb">window</span><span class="p">.</span><span class="nx">App</span> <span class="o">=</span> <span class="p">{};</span>
-<span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-  <span class="nx">bar</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
-<span class="p">});</span>
-<span class="nx">App</span><span class="p">.</span><span class="nx">Baz</span> <span class="o">=</span> <span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-  <span class="nx">makeSnafucated</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
-<span class="p">});</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// App.js</span><span class="w"></span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">App</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+<span class="nx">App</span><span class="p">.</span><span class="nx">Baz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span><span class="w"></span>
+<span class="w">  </span><span class="nx">makeSnafucated</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
 
-<span class="c1">// --- NEW API ---</span>
+<span class="c1">// --- NEW API ---</span><span class="w"></span>
 
-<span class="c1">// App/Foo.js</span>
-<span class="nx">define</span><span class="p">([],</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+<span class="c1">// App/Foo.js</span><span class="w"></span>
+<span class="nx">define</span><span class="p">([],</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span><span class="w"></span>
 
-  <span class="kd">function</span> <span class="nx">Foo</span><span class="p">()</span> <span class="p">{};</span>
-  <span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">bar</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">Foo</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
 
-  <span class="k">return</span> <span class="nx">Foo</span><span class="p">;</span>
-<span class="p">});</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">Foo</span><span class="p">;</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
 
-<span class="c1">// App/Baz.js</span>
-<span class="nx">define</span><span class="p">([</span><span class="s2">&quot;Core&quot;</span><span class="p">,</span> <span class="s2">&quot;./Foo&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Core</span><span class="p">,</span> <span class="nx">Foo</span><span class="p">)</span> <span class="p">{</span>
-  <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+<span class="c1">// App/Baz.js</span><span class="w"></span>
+<span class="nx">define</span><span class="p">([</span><span class="s2">&quot;Core&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;./Foo&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Core</span><span class="p">,</span><span class="w"> </span><span class="nx">Foo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span><span class="w"></span>
 
-  <span class="kd">function</span> <span class="nx">Baz</span><span class="p">()</span> <span class="p">{};</span>
-  <span class="nx">Core</span><span class="p">.</span><span class="nx">inherit</span><span class="p">(</span><span class="nx">Baz</span><span class="p">,</span> <span class="nx">Foo</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">makeSnafucated</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
-  <span class="p">});</span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">Baz</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Core</span><span class="p">.</span><span class="nx">inherit</span><span class="p">(</span><span class="nx">Baz</span><span class="p">,</span><span class="w"> </span><span class="nx">Foo</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">makeSnafucated</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
 
-  <span class="k">return</span> <span class="nx">Baz</span><span class="p">;</span>
-<span class="p">});</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">Baz</span><span class="p">;</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h3 id="isplainobjectobject-object-boolean"><code>isPlainObject(object: Object): boolean</code><a class="headerlink" href="#isplainobjectobject-object-boolean" title="Permanent link">#</a></h3>
 <p>Verifies if an object is a plain JavaScript object and not an object instance.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2661,79 +2658,74 @@ derived class will pass the <code>instanceof</code> check against the original c
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Core&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Core</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">function</span> <span class="nx">Foo</span><span class="p">()</span> <span class="p">{}</span>
-  <span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">hello</span><span class="o">:</span> <span class="s2">&quot;world&quot;</span><span class="p">;</span>
-  <span class="p">};</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Core&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Core</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">Foo</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">hello</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;world&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
 
-  <span class="kd">var</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">hello</span><span class="o">:</span> <span class="s2">&quot;world&quot;</span> <span class="p">};</span>
-  <span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Foo</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">obj1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">hello</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;world&quot;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">obj2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Foo</span><span class="p">();</span><span class="w"></span>
 
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Core</span><span class="p">.</span><span class="nx">isPlainObject</span><span class="p">(</span><span class="nx">obj1</span><span class="p">));</span> <span class="c1">// output: true</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj1</span><span class="p">.</span><span class="nx">hello</span> <span class="o">===</span> <span class="nx">obj2</span><span class="p">.</span><span class="nx">hello</span><span class="p">);</span> <span class="c1">// output: true</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Core</span><span class="p">.</span><span class="nx">isPlainObject</span><span class="p">(</span><span class="nx">obj2</span><span class="p">));</span> <span class="c1">// output: false</span>
-<span class="p">});</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Core</span><span class="p">.</span><span class="nx">isPlainObject</span><span class="p">(</span><span class="nx">obj1</span><span class="p">));</span><span class="w"> </span><span class="c1">// output: true</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj1</span><span class="p">.</span><span class="nx">hello</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">obj2</span><span class="p">.</span><span class="nx">hello</span><span class="p">);</span><span class="w"> </span><span class="c1">// output: true</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Core</span><span class="p">.</span><span class="nx">isPlainObject</span><span class="p">(</span><span class="nx">obj2</span><span class="p">));</span><span class="w"> </span><span class="c1">// output: false</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h3 id="triggereventelement-element-eventname-string"><code>triggerEvent(element: Element, eventName: string)</code><a class="headerlink" href="#triggereventelement-element-eventname-string" title="Permanent link">#</a></h3>
 <p>Creates and dispatches a synthetic JavaScript event on an element.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Core&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Core</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">elBySel</span><span class="p">(</span><span class="s2">&quot;.some-element&quot;</span><span class="p">);</span>
-  <span class="nx">Core</span><span class="p">.</span><span class="nx">triggerEvent</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="s2">&quot;click&quot;</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Core&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Core</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">elBySel</span><span class="p">(</span><span class="s2">&quot;.some-element&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Core</span><span class="p">.</span><span class="nx">triggerEvent</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;click&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h2 id="language"><code>Language</code><a class="headerlink" href="#language" title="Permanent link">#</a></h2>
 <h3 id="addkey-string-value-string"><code>add(key: string, value: string)</code><a class="headerlink" href="#addkey-string-value-string" title="Permanent link">#</a></h3>
 <p>Registers a new phrase.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
-  <span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Language&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Language</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">Language</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;app.foo.bar&#39;</span><span class="p">,</span> <span class="s1">&#39;{jslang}app.foo.bar{/jslang}&#39;</span><span class="p">);</span>
-  <span class="p">});</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Language&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Language</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Language</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;app.foo.bar&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{jslang}app.foo.bar{/jslang}&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="addobjectobject-object"><code>addObject(object: Object)</code><a class="headerlink" href="#addobjectobject-object" title="Permanent link">#</a></h3>
 <p>Registers a list of phrases using a plain object.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
-  <span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Language&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Language</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">Language</span><span class="p">.</span><span class="nx">addObject</span><span class="p">({</span>
-      <span class="s1">&#39;app.foo.bar&#39;</span><span class="o">:</span> <span class="s1">&#39;{jslang}app.foo.bar{/jslang}&#39;</span>
-    <span class="p">});</span>
-  <span class="p">});</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Language&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Language</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Language</span><span class="p">.</span><span class="nx">addObject</span><span class="p">({</span><span class="w"></span>
+<span class="w">      </span><span class="s1">&#39;app.foo.bar&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{jslang}app.foo.bar{/jslang}&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="getkey-string-parameters-object-string"><code>get(key: string, parameters?: Object): string</code><a class="headerlink" href="#getkey-string-parameters-object-string" title="Permanent link">#</a></h3>
 <p>Retrieves a phrase by its key, optionally supporting basic template scripting
 with dynamic variables passed using the <code>parameters</code> object.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Language&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Language</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">title</span> <span class="o">=</span> <span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;app.foo.title&quot;</span><span class="p">);</span>
-  <span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;app.foo.content&quot;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">some</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span>
-  <span class="p">});</span>
-<span class="p">});</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Language&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Language</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;app.foo.title&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;app.foo.content&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">some</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h2 id="stringutil"><code>StringUtil</code><a class="headerlink" href="#stringutil" title="Permanent link">#</a></h2>
 <h3 id="escapehtmlstr-string-string"><code>escapeHTML(str: string): string</code><a class="headerlink" href="#escapehtmlstr-string-string" title="Permanent link">#</a></h3>
 <p>Escapes special HTML characters by converting them into an HTML entity.</p>

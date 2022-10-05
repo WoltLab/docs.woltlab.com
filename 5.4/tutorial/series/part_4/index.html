@@ -2351,7 +2351,7 @@
 <p>To pre-install a specific person list box, we refer to the documentation of the <a href="../../../package/pip/box/"><code>box</code> package installation plugin</a>.</p>
 <h2 id="package-structure">Package Structure<a class="headerlink" href="#package-structure" title="Permanent link">#</a></h2>
 <p>The complete package will have the following file structure (<em>excluding</em> unchanged files from <a href="../part_3/">part 3</a>):</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2366,7 +2366,7 @@
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>├── files
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code>├── files
 │   └── lib
 │       └── system
 │           ├── box
@@ -2382,31 +2382,29 @@
 ├── objectTypeDefinition.xml
 └── templates
     └── boxPersonList.tpl
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>For all changes, please refer to the <a href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-4">source code on GitHub</a>.</p>
 <h2 id="box-controller">Box Controller<a class="headerlink" href="#box-controller" title="Permanent link">#</a></h2>
 <p>In addition to static boxes with fixed contents, administrators are able to create dynamic boxes with contents from the database.
 In our case here, we want administrators to be able to create boxes listing people.
 To do so, we first have to register a new object type for this person list box controller for the object type definition <code>com.woltlab.wcf.boxController</code>:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;type&gt;</span>
     <span class="nt">&lt;name&gt;</span>com.woltlab.wcf.personList<span class="nt">&lt;/name&gt;</span>
     <span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.boxController<span class="nt">&lt;/definitionname&gt;</span>
     <span class="nt">&lt;classname&gt;</span>wcf\system\box\PersonListBoxController<span class="nt">&lt;/classname&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>The <code>com.woltlab.wcf.boxController</code> object type definition requires the provided class to implement <code>wcf\system\box\IBoxController</code>:</p>
 <div class="titledCodeBox">
     <div class="codeBoxTitle">
         <code>files/lib/system/box/PersonListBoxController.class.php</code>
         <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-4/files/lib/system/box/PersonListBoxController.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2474,7 +2472,7 @@ To do so, we first have to register a new object type for this person list box c
 <span class="normal">66</span>
 <span class="normal">67</span>
 <span class="normal">68</span>
-<span class="normal">69</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">69</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">wcf\system\box</span><span class="p">;</span>
 
@@ -2543,8 +2541,7 @@ To do so, we first have to register a new object type for this person list box c
         <span class="p">],</span> <span class="k">true</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <p>By extending <code>AbstractDatabaseObjectListBoxController</code>, we only have to provide minimal data ourself and rely mostly on the default implementation provided by <code>AbstractDatabaseObjectListBoxController</code>:</p>
@@ -2566,7 +2563,7 @@ To do so, we first have to register a new object type for this person list box c
         <code>templates/boxPersonList.tpl</code>
         <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-4/templates/boxPersonList.tpl" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2580,7 +2577,7 @@ To do so, we first have to register a new object type for this person list box c
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="x">&lt;ul class=&quot;sidebarItemList&quot;&gt;</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;ul class=&quot;sidebarItemList&quot;&gt;</span>
 <span class="x">    </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$boxPersonList</span> <span class="na">item</span><span class="o">=</span><span class="na">boxPerson</span><span class="cp">}</span><span class="x"></span>
 <span class="x">        &lt;li class=&quot;box24&quot;&gt;</span>
 <span class="x">            &lt;span class=&quot;icon icon24 fa-user&quot;&gt;&lt;/span&gt;</span>
@@ -2595,8 +2592,7 @@ To do so, we first have to register a new object type for this person list box c
 <span class="x">        &lt;/li&gt;</span>
 <span class="x">    </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span><span class="x"></span>
 <span class="x">&lt;/ul&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <p>The template relies on a <code>.sidebarItemList</code> element, which is generally used for sidebar listings.
@@ -2617,7 +2613,7 @@ We will support filtering the people by their first and last name so that, for e
         <code>objectTypeDefinition.xml</code>
         <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-4/objectTypeDefinition.xml" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2625,7 +2621,7 @@ We will support filtering the people by their first and last name so that, for e
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/objectTypeDefinition.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;import&gt;</span>
         <span class="nt">&lt;definition&gt;</span>
@@ -2634,12 +2630,11 @@ We will support filtering the people by their first and last name so that, for e
         <span class="nt">&lt;/definition&gt;</span>
     <span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <p>Next, we register the specific conditions for filtering by the first and last name using this object type condition:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2648,7 +2643,7 @@ We will support filtering the people by their first and last name so that, for e
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;type&gt;</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;type&gt;</span>
    <span class="nt">&lt;name&gt;</span>com.woltlab.wcf.people.firstName<span class="nt">&lt;/name&gt;</span>
    <span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.box.personList.condition<span class="nt">&lt;/definitionname&gt;</span>
    <span class="nt">&lt;classname&gt;</span>wcf\system\condition\person\PersonFirstNameTextPropertyCondition<span class="nt">&lt;/classname&gt;</span>
@@ -2658,15 +2653,14 @@ We will support filtering the people by their first and last name so that, for e
    <span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.box.personList.condition<span class="nt">&lt;/definitionname&gt;</span>
    <span class="nt">&lt;classname&gt;</span>wcf\system\condition\person\PersonLastNameTextPropertyCondition<span class="nt">&lt;/classname&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><code>PersonFirstNameTextPropertyCondition</code> and <code>PersonLastNameTextPropertyCondition</code> only differ minimally so that we only focus on <code>PersonFirstNameTextPropertyCondition</code> here, which relies on the default implementation <code>AbstractObjectTextPropertyCondition</code> and only requires specifying different object properties:</p>
 <div class="titledCodeBox">
     <div class="codeBoxTitle">
         <code>files/lib/system/condition/person/PersonFirstNameTextPropertyCondition.class.php</code>
         <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.4/snippets/tutorial/tutorial-series/part-4/files/lib/system/condition/person/PersonFirstNameTextPropertyCondition.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg></span></a>
     </div>
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2712,7 +2706,7 @@ We will support filtering the people by their first and last name so that, for e
 <span class="normal">44</span>
 <span class="normal">45</span>
 <span class="normal">46</span>
-<span class="normal">47</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">wcf\system\condition\person</span><span class="p">;</span>
 
@@ -2759,8 +2753,7 @@ We will support filtering the people by their first and last name so that, for e
 <span class="sd">     */</span>
     <span class="k">protected</span> <span class="nv">$supportsMultipleValues</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 
 <ol>
