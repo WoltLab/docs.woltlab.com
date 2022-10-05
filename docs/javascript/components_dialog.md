@@ -1,6 +1,6 @@
 # Dialogs - JavaScript API
 
-Modal dialogs are a powerful tool to draw the viewer‘s attention to an important message, question or form.
+Modal dialogs are a powerful tool to draw the viewer’s attention to an important message, question or form.
 Dialogs naturally interrupt the workflow and prevent the navigation to other sections by making other elements on the page inert.
 
 WoltLab Suite 6.0 ships with four different types of dialogs.
@@ -8,17 +8,16 @@ WoltLab Suite 6.0 ships with four different types of dialogs.
 ## Dialogs Without Controls
 
 Dialogs may contain just an explanation or extra information that should be presented to the viewer without requiring any further interaction.
+The dialog can be closed via the “X” button or by clicking the modal backdrop.
 
 ```ts
-const dialog = dialogFactory()
-  .fromHtml("<p>Hello World</p>")
-  .withoutControls();
+const dialog = dialogFactory().fromHtml("<p>Hello World</p>").withoutControls();
 dialog.show("Greetings from my dialog");
 ```
 
 ### When to Use
 
-The short answer is: Don‘t.
+The short answer is: Don’t.
 
 Dialogs without controls are an anti-pattern because they only contain content that does not require the modal appearance of a dialog.
 More often than not dialogs are used for this kind of content because they are easy to use without thinking about better ways to present the content.
@@ -36,7 +35,7 @@ An alert will only provide a single button to acknowledge the dialog and must no
 const dialog = dialogFactory()
   .fromHtml("<p>ERROR: Something went wrong!</p>")
   .asAlert();
-dialog.show("Server Error")
+dialog.show("Server Error");
 ```
 
 ### When to Use
@@ -55,7 +54,9 @@ Confirmation dialogs are supported through a separate factory function that prov
 
 The most common type of dialogs are prompts that are similar to confirmation dialogs, but without the restrictions and with a regular title.
 These dialogs can be used universally and provide a submit and cancel button by default.
+
 In addition they offer an “extra” button that is placed to the left of the default buttons are can be used to offer a single additional action.
+A possible use case for an “extra” button would be a dialog that includes an instance of the WYSIWYG editor, the extra button could be used to trigger a message preview.
 
 ### Code Example
 
@@ -68,7 +69,7 @@ In addition they offer an “extra” button that is placed to the left of the d
       <label for="myInput">Title</label>
     </dt>
     <dd>
-      <input type="text" name="myInput" id="myInput" value="" required>
+      <input type="text" name="myInput" id="myInput" value="" required />
     </dd>
   </dl>
 </template>
@@ -76,10 +77,8 @@ In addition they offer an “extra” button that is placed to the left of the d
 
 ```ts
 document.getElementById("showMyDialog")!.addEventListener("click", () => {
-  const dialog = dialogFactory()
-    .fromId("myDialog")
-    .asPrompt();
-  
+  const dialog = dialogFactory().fromId("myDialog").asPrompt();
+
   dialog.addEventListener("primary", () => {
     const myInput = document.getElementById("myInput");
 
@@ -233,7 +232,3 @@ dialog.addEventListener("validate", (event) => {
   }
 });
 ```
-
-## Code Examples
-
-TODO

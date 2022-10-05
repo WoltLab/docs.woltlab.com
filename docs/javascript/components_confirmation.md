@@ -12,7 +12,7 @@ const result = await confirmationFactory()
   .custom("Do you want a cookie?")
   .withoutMessage();
 if (result) {
-    // User has confirmed the dialog.
+  // User has confirmed the dialog.
 }
 ```
 
@@ -31,10 +31,14 @@ Destructive actions are those that cannot be undone and either cause a permanent
 All questions should be phrased in one or two ways depending on the action.
 
 Destructive action:
-> Are you sure you want to […]?
+
+> Are you sure you want to delete “Example Object”?
+> (German) Wollen Sie „Beispiel-Objekt” wirklich löschen?
 
 All other actions:
-> Do you want to […]
+
+> Do you want to move “Example Object” to the trash bin?
+> (German) Möchten Sie „Beispiel-Objekt“ in den Papierkorb verschieben?
 
 ## Available Presets
 
@@ -47,10 +51,29 @@ Soft deleting objects with an optional input field for a reason:
 
 ```ts
 const askForReason = true;
-const { result, reason } = await confirmationFactory()
-  .softDelete(theObjectName, askForReason);
+const { result, reason } = await confirmationFactory().softDelete(
+  theObjectName,
+  askForReason
+);
 if (result) {
-    console.log("The user has requested a soft delete, the following reason was provided:", reason);
+  console.log(
+    "The user has requested a soft delete, the following reason was provided:",
+    reason
+  );
+}
+```
+
+The `reason` will always be a string, but with a length of zero if the `result` is `false` or if no reason was requested.
+You can simply omit the value if you do not use the reason.
+
+```ts
+const askForReason = false;
+const { result } = await confirmationFactory().softDelete(
+  theObjectName,
+  askForReason
+);
+if (result) {
+  console.log("The user has requested a soft delete.");
 }
 ```
 
@@ -59,10 +82,9 @@ if (result) {
 Restore a previously soft deleted object:
 
 ```ts
-const result = await confirmationFactory()
-  .restore(theObjectName);
+const result = await confirmationFactory().restore(theObjectName);
 if (result) {
-    console.log("The user has requested to restore the object.");
+  console.log("The user has requested to restore the object.");
 }
 ```
 
@@ -71,9 +93,8 @@ if (result) {
 Permanently delete an object, will inform the user that the action cannot be undone:
 
 ```ts
-const result = await confirmationFactory()
-  .delete(theObjectName);
+const result = await confirmationFactory().delete(theObjectName);
 if (result) {
-    console.log("The user has requested to delete the object.");
+  console.log("The user has requested to delete the object.");
 }
 ```
