@@ -125,7 +125,7 @@ If it is not present, `DatabaseTable::foreignKeys()` will automatically set one 
 Indices are represented by `DatabaseTableIndex` objects: 
 
 ```php
-DatabaseTableIndex::create()
+DatabaseTableIndex::create('fooID')
 	->type(DatabaseTableIndex::UNIQUE_TYPE)
 	->columns(['fooID'])
 ```
@@ -134,5 +134,6 @@ There are four different types: `DatabaseTableIndex::DEFAULT_TYPE` (default), `D
 For primary keys, there is also the `DatabaseTablePrimaryIndex` class which automatically sets the type to `DatabaseTableIndex::PRIMARY_TYPE`.
 To drop a index, all of the relevant data to create the index has to be present and the `drop()` method has to be called.
 
-`DatabaseTableIndex::create()` also supports the index name as a parameter.
-If it is not present, `DatabaseTable::indices()` will automatically set one based on the index data.
+The index name is specified as the parameter to `DatabaseTableIndex::create()`.
+It is strongly recommended to specify an explicit name ([WoltLab/WCF#4505](https://github.com/WoltLab/WCF/issues/4505)).
+If no name is given, `DatabaseTable::indices()` will automatically set one based on the index data.
