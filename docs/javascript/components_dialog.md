@@ -30,6 +30,7 @@ Alerts are designed to inform the user of something important that requires no f
 Typical examples for alerts are error messages or warnings.
 
 An alert will only provide a single button to acknowledge the dialog and must not contain interactive content.
+The dialog itself will be limited to a width of 500px, the title can wrap into multiple lines and there will be no „X“ button to close the dialog.
 
 ```ts
 const dialog = dialogFactory()
@@ -37,6 +38,25 @@ const dialog = dialogFactory()
   .asAlert();
 dialog.show("Server Error");
 ```
+
+You can customize the label of the primary button to better explain what will happen next.
+This can be useful for alerts that will have a side-effect when closing the dialog, such as redirect to a different page.
+
+```ts
+const dialog = dialogFactory()
+  .fromHtml("<p>Something went wrong, we cannot find your shopping cart.</p>")
+  .asAlert({
+    primary: "Back to the Store Page",
+  });
+
+dialog.addEventListener("primary", () => {
+  window.location.href = "https://example.com/shop/";
+});
+
+dialog.show("The shopping cart is missing");
+```
+
+The `primary` event is triggered both by clicking on the primary button and by clicks on the modal backdrop.
 
 ### When to Use
 
