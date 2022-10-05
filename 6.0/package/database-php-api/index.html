@@ -2716,22 +2716,23 @@ If it is not present, <code>DatabaseTable::foreignKeys()</code> will automatical
 <p>Indices are represented by <code>DatabaseTableIndex</code> objects: </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">DatabaseTableIndex</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">DatabaseTableIndex</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;fooID&#39;</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">type</span><span class="p">(</span><span class="nx">DatabaseTableIndex</span><span class="o">::</span><span class="na">UNIQUE_TYPE</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">columns</span><span class="p">([</span><span class="s1">&#39;fooID&#39;</span><span class="p">])</span>
 </code></pre></div></td></tr></table></div>
 <p>There are four different types: <code>DatabaseTableIndex::DEFAULT_TYPE</code> (default), <code>DatabaseTableIndex::PRIMARY_TYPE</code>, <code>DatabaseTableIndex::UNIQUE_TYPE</code>, and <code>DatabaseTableIndex::FULLTEXT_TYPE</code>.
 For primary keys, there is also the <code>DatabaseTablePrimaryIndex</code> class which automatically sets the type to <code>DatabaseTableIndex::PRIMARY_TYPE</code>.
 To drop a index, all of the relevant data to create the index has to be present and the <code>drop()</code> method has to be called.</p>
-<p><code>DatabaseTableIndex::create()</code> also supports the index name as a parameter.
-If it is not present, <code>DatabaseTable::indices()</code> will automatically set one based on the index data.</p>
+<p>The index name is specified as the parameter to <code>DatabaseTableIndex::create()</code>.
+It is strongly recommended to specify an explicit name (<a href="https://github.com/WoltLab/WCF/issues/4505">WoltLab/WCF#4505</a>).
+If no name is given, <code>DatabaseTable::indices()</code> will automatically set one based on the index data.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2021-10-20
+      2022-10-05
     
   </small>
 </div>
