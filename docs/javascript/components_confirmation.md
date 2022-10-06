@@ -17,7 +17,7 @@ if (result) {
 ```
 
 Confirmation dialogs are a special type that use the `role="alertdialog"` attribute and will always include a cancel button.
-The dialog itself will be limited to a width of 500px, the title can wrap into multiple lines and there will be no „X“ button to close the dialog.
+The dialog itself will be limited to a width of 500px, the title can wrap into multiple lines and there will be no “X” button to close the dialog.
 
 ## When to Use
 
@@ -33,7 +33,7 @@ All questions should be phrased in one or two ways depending on the action.
 Destructive action:
 
 > Are you sure you want to delete “Example Object”?
-> (German) Wollen Sie „Beispiel-Objekt” wirklich löschen?
+> (German) Wollen Sie „Beispiel-Objekt“ wirklich löschen?
 
 All other actions:
 

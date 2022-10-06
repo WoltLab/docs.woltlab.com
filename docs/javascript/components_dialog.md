@@ -30,7 +30,7 @@ Alerts are designed to inform the user of something important that requires no f
 Typical examples for alerts are error messages or warnings.
 
 An alert will only provide a single button to acknowledge the dialog and must not contain interactive content.
-The dialog itself will be limited to a width of 500px, the title can wrap into multiple lines and there will be no „X“ button to close the dialog.
+The dialog itself will be limited to a width of 500px, the title can wrap into multiple lines and there will be no “X” button to close the dialog.
 
 ```ts
 const dialog = dialogFactory()
