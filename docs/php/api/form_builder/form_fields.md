@@ -95,6 +95,13 @@ The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `IAutoFocu
 `FloatFormField` is an implementation of [AbstractNumericFormField](#abstractnumericformfield) for floating point numbers.
 
 
+### `HiddenFormField`
+
+`HiddenFormField` is a form field without any user-visible UI.
+Even though the form field is invisible to the user, the value can still be modified by the user, e.g. by leveraging the web browsers developer tools.
+The `HiddenFormField` *must not* be used to transfer sensitive information or information that the user should not be able to modify.
+
+
 ### `IconFormField`
 
 `IconFormField` is a form field to select a FontAwesome icon.
