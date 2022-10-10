@@ -1,6 +1,6 @@
 # Template Plugins
 
-## <span class="label label-info">5.3+</span> `anchor`
+## `anchor`
 
 The `anchor` template plugin creates `a` HTML elements.
 The easiest way to use the template plugin is to pass it an instance of `ITitledLinkObject`:
@@ -43,7 +43,7 @@ using
 
 is sufficient if `Entry::getPopoverLinkClass()` returns `blogEntryLink`.
 
-## <span class="label label-info">5.3+</span> `anchorAttributes`
+## `anchorAttributes`
 
 `anchorAttributes` compliments the `StringUtil::getAnchorTagAttributes(string, bool): string` method.
 It allows to easily generate the necessary attributes for an anchor tag based off the destination URL.
@@ -206,7 +206,7 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 ```
 
 
-## <span class="label label-info">3.1+</span> `dateInterval`
+## `dateInterval`
 
 `dateInterval` calculates the difference between two unix timestamps and generated a textual date interval.
 
@@ -352,7 +352,7 @@ Like `foreach`, `hascontent` also supports an `else` part:
 
 | Attribute | Description |
 |-----------|-------------|
-| <span class="label label-info">5.2+</span> `disabled` | if `true`, all checkboxes are disabled |
+| `disabled` | if `true`, all checkboxes are disabled |
 | `disableEncoding` | if `true`, the values are not passed through `wcf\util\StringUtil::encodeHTML()`; `false` by default |
 | `name` | `name` attribute of the `input` checkbox element |
 | `output` | array used as keys and values for `options` if present; not present by default |
@@ -404,7 +404,7 @@ All additional attributes are added as attributes of the `select` HTML element.
 | `key` | optional template variable name where the current array key is stored during the iteration |
 
 
-## <span class="label label-info">5.2+</span> `ipSearch`
+## `ipSearch`
 
 `ipSearch` generates a link to search for an IP address.
 
@@ -437,7 +437,7 @@ All additional attributes are added as attributes of the `select` HTML element.
 ```
 
 
-## <span class="label label-info">5.3+</span> `jslang`
+## `jslang`
 
 `jslang` works like [`lang`](#lang) with the difference that the resulting string is automatically passed through [`encodeJS`](#encodejs).
 
@@ -600,7 +600,7 @@ The exact formatting depends on the current language (via the language items `wc
 ```
 
 
-## <span class="label label-info">5.3+</span> `plural`
+## `plural`
 
 `plural` allows to easily select the correct plural form of a phrase based on a given `value`.
 The pluralization logic follows the [Unicode Language Plural Rules](https://unicode-org.github.io/cldr-staging/charts/37/supplemental/language_plural_rules.md) for cardinal numbers.
@@ -726,7 +726,7 @@ If `prepend` is used on an array as the variable, the value is prepended to all 
 | 3 | if `true`, words can be broken up in the middle; `false` by default |
 
 
-## <span class="label label-info">5.3+</span> `user`
+## `user`
 
 `user` generates links to user profiles.
 The mandatory `object` parameter requires an instances of `UserProfile`.

@@ -42,8 +42,6 @@ The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFor
 
 ### `CheckboxFormField`
 
-!!! info "Only available since version 5.3.2."
-
 `CheckboxFormField` extends `BooleanFormField` and offers a simple HTML checkbox.
 
 
@@ -363,7 +361,6 @@ The following methods are specific to this form container class:
   By default, the preview button is shown.
   This method is only relevant before the form is built.
   Afterwards, the preview button availability can not be changed.
-  Only available since WoltLab Suite Core 5.3.
 - `getObjectId()` returns the id of the edited object or `0` if no object is edited.
 - `getPreselect()`, `preselect($preselect)` can be used to set the value of the wysiwyg tab menu's `data-preselect` attribute used to determine which tab is preselected.
   By default, the preselect is `'true'` which is used to pre-select the first tab.
