@@ -1240,26 +1240,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#compatibility" class="md-nav__link">
-    &lt;compatibility&gt;
-  </a>
-  
-    <nav class="md-nav" aria-label="&lt;compatibility&gt;">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#existing-api-versions" class="md-nav__link">
-    Existing API versions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#instructions" class="md-nav__link">
     &lt;instructions&gt;
   </a>
@@ -2884,26 +2864,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#compatibility" class="md-nav__link">
-    &lt;compatibility&gt;
-  </a>
-  
-    <nav class="md-nav" aria-label="&lt;compatibility&gt;">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#existing-api-versions" class="md-nav__link">
-    Existing API versions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#instructions" class="md-nav__link">
     &lt;instructions&gt;
   </a>
@@ -3104,39 +3064,6 @@ The <code>file</code> attribute is optional and specifies the location of the re
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;excludedpackage</span> <span class="na">version=</span><span class="s">&quot;6.0.0 Alpha 1&quot;</span><span class="nt">&gt;</span>com.woltlab.wcf<span class="nt">&lt;/excludedpackage&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>The attribute <code>version</code> must be a valid version number as described in the <a href="#version">\&lt;version></a> section. In the example above it will be impossible to install this package in WoltLab Suite Core 6.0.0 Alpha 1 or higher.</p>
-<h3 id="compatibility"><code>&lt;compatibility&gt;</code><a class="headerlink" href="#compatibility" title="Permanent link">#</a></h3>
-<div class="admonition info">
-<p class="admonition-title">Available since WoltLab Suite 3.1</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">With the release of WoltLab Suite 5.2 the API versions were abolished. Instead of using API versions packages should exclude version <code>6.0.0 Alpha 1</code> of <code>com.woltlab.wcf</code> going forward.</p>
-</div>
-<p>WoltLab Suite 3.1 introduced a new versioning system that focused around the API compatibility and is intended to replace the <code>&lt;excludedpackage&gt;</code> instruction for the Core for most plugins.</p>
-<p>The <code>&lt;compatibility&gt;</code>-tag holds a list of compatible API versions, and while only a single version is available at the time of writing, future versions will add more versions with backwards-compatibility in mind.</p>
-<p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;compatibility&gt;</span>
-    <span class="nt">&lt;api</span> <span class="na">version=</span><span class="s">&quot;2018&quot;</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;/compatibility&gt;</span>
-</code></pre></div></td></tr></table></div>
-<h4 id="existing-api-versions">Existing API versions<a class="headerlink" href="#existing-api-versions" title="Permanent link">#</a></h4>
-<table>
-<thead>
-<tr>
-<th>WoltLab Suite Core</th>
-<th>API-Version</th>
-<th>Backwards-Compatible to API-Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>3.1</td>
-<td>2018</td>
-<td>n/a</td>
-</tr>
-</tbody>
-</table>
 <h3 id="instructions"><code>&lt;instructions&gt;</code><a class="headerlink" href="#instructions" title="Permanent link">#</a></h3>
 <p>List of instructions to be executed upon install or update. The order is important, the topmost <code>&lt;instruction&gt;</code> will be executed first.</p>
 <h4 id="instructions-typeinstall"><code>&lt;instructions type="install"&gt;</code><a class="headerlink" href="#instructions-typeinstall" title="Permanent link">#</a></h4>
@@ -3199,7 +3126,7 @@ Instead of using a dummy <code>&lt;instruction&gt;</code> that idempotently upda
   <small>
     
       Last update:
-      2022-01-17
+      2022-10-10
     
   </small>
 </div>
