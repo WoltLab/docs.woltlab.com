@@ -1,5 +1,7 @@
 # Dialogs - JavaScript API
 
+!!! info This API has been deprecated in WoltLab Suite 6.0, please refer to the new [dialog implementation](components_dialog.md).
+
 ## Introduction
 
 Dialogs are full screen overlays that cover the currently visible window area

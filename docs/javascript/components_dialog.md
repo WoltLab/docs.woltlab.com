@@ -5,6 +5,16 @@ Dialogs naturally interrupt the workflow and prevent the navigation to other sec
 
 WoltLab Suite 6.0 ships with four different types of dialogs.
 
+## Quickstart
+
+There are four different types of dialogs that each fulfill their own specialized role and that provide built-in features to make the development much easier.
+Please see the following list to make a quick decision of what kind of dialog you need.
+
+* Is this some kind of error message? Use an alert dialog.
+* Are you asking the user to confirm an action? Use a [confirmation dialog](components_confirmation.md).
+* Does the dialog contain form inputs that the user must fill in? Use a prompt dialog.
+* Do you want to present information to the user without requiring any action? Use a dialog without controls.
+
 ## Dialogs Without Controls
 
 Dialogs may contain just an explanation or extra information that should be presented to the viewer without requiring any further interaction.
