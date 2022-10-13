@@ -176,6 +176,47 @@ dialog.content.append(p);
 const input = dialog.content.querySelector('input[type="text"]');
 ```
 
+### Managing an Instance of a Dialog
+
+The old API for dialogs implicitly kept track of the instance by binding it to the `this` parameter as seen in calls like `UiDialog.open(this);`.
+The new implementation requires to you to keep track of the dialog on your own.
+
+```ts
+class MyComponent {
+  #dialog?: WoltlabCoreDialogElement;
+
+  constructor() {
+    const button = document.querySelector(".myButton") as HTMLButtonElement;
+    button.addEventListener("click", () => {
+      this.#showGreeting(button.dataset.name);
+    });
+  }
+
+  #showGreeting(name: string | undefined): void {
+    const dialog = this.#getDialog();
+
+    const p = dialog.content.querySelector("p")!;
+    if (name === undefined) {
+      p.textContent = "Hello World";
+    } else {
+      p.textContent = `Hello ${name}`;
+    }
+
+    dialog.show("Greetings!");
+  }
+
+  #getDialog(): WoltlabCoreDialogElement {
+    if (this.#dialog === undefined) {
+      this.#dialog = dialogFactory()
+        .fromHtml("<p>Hello from MyComponent</p>")
+        .withoutControls();
+    }
+
+    return this.#dialog;
+  }
+}
+```
+
 ### Event Access
 
 You can bind event listeners to specialized events to get notified of events and to modify its behavior.
