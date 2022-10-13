@@ -1805,6 +1805,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#support-for-legacy-inheritance" class="md-nav__link">
+    Support for Legacy Inheritance
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2608,6 +2615,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#support-for-legacy-inheritance" class="md-nav__link">
+    Support for Legacy Inheritance
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2637,13 +2651,18 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;__userObjectWatchButton&#39;</span> <span class="na">isSubscribed</span><span class="o">=</span><span class="nv">$isSubscribed</span> <span class="na">objectType</span><span class="o">=</span><span class="s1">&#39;foo.bar&#39;</span> <span class="na">objectID</span><span class="o">=</span><span class="nv">$id</span><span class="cp">}</span><span class="x"></span>
 </code></pre></div></td></tr></table></div></p>
 <p>See <a href="https://github.com/WoltLab/WCF/pull/4962/">WoltLab/WCF#4962</a> for details.</p>
+<h2 id="support-for-legacy-inheritance">Support for Legacy Inheritance<a class="headerlink" href="#support-for-legacy-inheritance" title="Permanent link">#</a></h2>
+<p>The migration from JavaScript to TypeScript was a breaking change because the previous prototype based inheritance was incompatible with ES6 classes.
+<code>Core.enableLegacyInheritance()</code> was added in an effort to emulate the previous behavior to aid in the migration process.</p>
+<p>This workaround was unstable at best and was designed as a temporary solution only.
+<a href="https://github.com/WoltLab/WCF/pull/5041">WoltLab/WCF#5041</a> removed the legacy inheritance, requiring all depending implementations to migrate to ES6 classes.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-09-13
+      2022-10-13
     
   </small>
 </div>
