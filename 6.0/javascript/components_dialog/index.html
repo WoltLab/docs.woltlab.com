@@ -1020,6 +1020,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#managing-an-instance-of-a-dialog" class="md-nav__link">
+    Managing an Instance of a Dialog
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#event-access" class="md-nav__link">
     Event Access
   </a>
@@ -2017,6 +2024,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../migration/wsc55/dialogs/" class="md-nav__link">
+        Dialogs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../migration/wsc55/libraries/" class="md-nav__link">
         Third Party Libraries
       </a>
@@ -2887,6 +2908,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#managing-an-instance-of-a-dialog" class="md-nav__link">
+    Managing an Instance of a Dialog
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#event-access" class="md-nav__link">
     Event Access
   </a>
@@ -3144,6 +3172,75 @@ Check the <code>.open</code> property to determine if the dialog is currently op
 <span class="c1">// Find a text input inside the dialog.</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;input[type=&quot;text&quot;]&#39;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
+<h3 id="managing-an-instance-of-a-dialog">Managing an Instance of a Dialog<a class="headerlink" href="#managing-an-instance-of-a-dialog" title="Permanent link">#</a></h3>
+<p>The old API for dialogs implicitly kept track of the instance by binding it to the <code>this</code> parameter as seen in calls like <code>UiDialog.open(this);</code>.
+The new implementation requires to you to keep track of the dialog on your own.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">MyComponent</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="err">#</span><span class="nx">dialog?</span><span class="o">:</span><span class="w"> </span><span class="kt">WoltlabCoreDialogElement</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.myButton&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">HTMLButtonElement</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">showGreeting</span><span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">#</span><span class="nx">showGreeting</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">getDialog</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">p</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">p</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`Hello </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;Greetings!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">#</span><span class="nx">getDialog</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WoltlabCoreDialogElement</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">dialog</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello from MyComponent&lt;/p&gt;&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="nx">withoutControls</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">dialog</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h3 id="event-access">Event Access<a class="headerlink" href="#event-access" title="Permanent link">#</a></h3>
 <p>You can bind event listeners to specialized events to get notified of events and to modify its behavior.</p>
 <h4 id="afterclose"><code>afterClose</code><a class="headerlink" href="#afterclose" title="Permanent link">#</a></h4>
@@ -3234,7 +3331,7 @@ Canceling this event is interpreted as a form validation failure.</p>
   <small>
     
       Last update:
-      2022-10-11
+      2022-10-13
     
   </small>
 </div>
