@@ -1020,6 +1020,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#disabling-the-submit-button-of-a-dialog" class="md-nav__link">
+    Disabling the Submit Button of a Dialog
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#managing-an-instance-of-a-dialog" class="md-nav__link">
     Managing an Instance of a Dialog
   </a>
@@ -2908,6 +2915,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#disabling-the-submit-button-of-a-dialog" class="md-nav__link">
+    Disabling the Submit Button of a Dialog
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#managing-an-instance-of-a-dialog" class="md-nav__link">
     Managing an Instance of a Dialog
   </a>
@@ -3172,6 +3186,22 @@ Check the <code>.open</code> property to determine if the dialog is currently op
 <span class="c1">// Find a text input inside the dialog.</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;input[type=&quot;text&quot;]&#39;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
+<h3 id="disabling-the-submit-button-of-a-dialog">Disabling the Submit Button of a Dialog<a class="headerlink" href="#disabling-the-submit-button-of-a-dialog" title="Permanent link">#</a></h3>
+<p>You can prevent the dialog submission until a condition is met, allowing you to dynamically enable or disable the button at will.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialog</span><span class="p">.</span><span class="nx">incomplete</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">checkbox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;input[type=&quot;checkbox&quot;]&#39;</span><span class="p">)</span><span class="o">!</span><span class="p">;</span><span class="w"></span>
+<span class="nx">checkbox</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;change&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Block the dialog submission unless the checkbox is checked.</span><span class="w"></span>
+<span class="w">  </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">incomplete</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">checked</span><span class="p">;</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h3 id="managing-an-instance-of-a-dialog">Managing an Instance of a Dialog<a class="headerlink" href="#managing-an-instance-of-a-dialog" title="Permanent link">#</a></h3>
 <p>The old API for dialogs implicitly kept track of the instance by binding it to the <code>this</code> parameter as seen in calls like <code>UiDialog.open(this);</code>.
 The new implementation requires to you to keep track of the dialog on your own.</p>
@@ -3331,7 +3361,7 @@ Canceling this event is interpreted as a form validation failure.</p>
   <small>
     
       Last update:
-      2022-10-13
+      2022-10-14
     
   </small>
 </div>
