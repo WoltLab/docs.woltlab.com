@@ -10,10 +10,10 @@ WoltLab Suite 6.0 ships with four different types of dialogs.
 There are four different types of dialogs that each fulfill their own specialized role and that provide built-in features to make the development much easier.
 Please see the following list to make a quick decision of what kind of dialog you need.
 
-* Is this some kind of error message? Use an alert dialog.
-* Are you asking the user to confirm an action? Use a [confirmation dialog](components_confirmation.md).
-* Does the dialog contain form inputs that the user must fill in? Use a prompt dialog.
-* Do you want to present information to the user without requiring any action? Use a dialog without controls.
+- Is this some kind of error message? Use an alert dialog.
+- Are you asking the user to confirm an action? Use a [confirmation dialog](components_confirmation.md).
+- Does the dialog contain form inputs that the user must fill in? Use a prompt dialog.
+- Do you want to present information to the user without requiring any action? Use a dialog without controls.
 
 ## Dialogs Without Controls
 
@@ -174,6 +174,20 @@ dialog.content.append(p);
 
 // Find a text input inside the dialog.
 const input = dialog.content.querySelector('input[type="text"]');
+```
+
+### Disabling the Submit Button of a Dialog
+
+You can prevent the dialog submission until a condition is met, allowing you to dynamically enable or disable the button at will.
+
+```ts
+dialog.incomplete = false;
+
+const checkbox = dialog.content.querySelector('input[type="checkbox"]')!;
+checkbox.addEventListener("change", () => {
+  // Block the dialog submission unless the checkbox is checked.
+  dialog.incomplete = !checkbox.checked;
+});
 ```
 
 ### Managing an Instance of a Dialog
