@@ -177,7 +177,7 @@ final class ValueDumpListener implements IParameterizedEventListener
 
 Now:
 
-```
+```php
 EventHandler::getInstance()->fire(new ValueAvailable(\random_int(1, 1024)));
 ```
 
