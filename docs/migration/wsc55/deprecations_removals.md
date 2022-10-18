@@ -46,6 +46,8 @@ With version 6.0, we have deprecated certain components and removed several othe
 ### JavaScript
 
 - `WCF.User.ObjectWatch.Subscribe` ([WoltLab/WCF#4962](https://github.com/WoltLab/WCF/pull/4962))
+- `WCF.User.List` ([WoltLab/WCF#5039](https://github.com/WoltLab/WCF/pull/5039))
+- `WoltLabSuite/Core/Ui/User/List` ([WoltLab/WCF#5039](https://github.com/WoltLab/WCF/pull/5039))
 
 ### Database Tables
 
