@@ -2690,9 +2690,8 @@
 The Polyfill for PHP 8.2 was added.</p>
 <p>Refer to the documentation within the <a href="https://github.com/symfony/polyfill/">symfony/polyfill</a> repository for details.</p>
 <h2 id="idna-handling">IDNA Handling<a class="headerlink" href="#idna-handling" title="Permanent link">#</a></h2>
-<p>The true/punycode and pear/net_idna2 dependencies were removed, because of a lack of upstream maintenance.
-Instead the <a href="https://www.php.net/manual/en/function.idn-to-ascii.php"><code>idn_to_ascii</code></a> function should be used.
-A polyfill for environments without the intl extension is provided.</p>
+<p>The true/punycode and pear/net_idna2 dependencies were removed, because of a lack of upstream maintenance and because the <code>intl</code> extension is now required.
+Instead the <a href="https://www.php.net/manual/en/function.idn-to-ascii.php"><code>idn_to_ascii</code></a> function should be used.</p>
 <h2 id="laminas-diactoros">Laminas Diactoros<a class="headerlink" href="#laminas-diactoros" title="Permanent link">#</a></h2>
 <p>Diactoros was updated from version 2.4 to 2.17.</p>
 <h2 id="diff">Diff<a class="headerlink" href="#diff" title="Permanent link">#</a></h2>
@@ -2709,7 +2708,7 @@ The <code>wcf\util\Diff::rawDiffFromSebastianDiff()</code> method was added as a
   <small>
     
       Last update:
-      2022-10-04
+      2022-10-18
     
   </small>
 </div>
