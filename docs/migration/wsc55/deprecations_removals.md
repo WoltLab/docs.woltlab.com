@@ -249,6 +249,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 #### Template Variables
 
+- `$__sessionKeepAlive` ([WoltLab/WCF#5055](https://github.com/WoltLab/WCF/pull/5055))
 - `$__wcfVersion` ([WoltLab/WCF#4927](https://github.com/WoltLab/WCF/pull/4927))
 
 ### Miscellaneous
