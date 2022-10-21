@@ -54,13 +54,11 @@ The possible keywords are:
 - Alpha/dev (both is regarded to be the same)
 - Beta
 - RC (release candidate)
-- pl (patch level)
 
 Valid examples:
 
 - 1.0.0
 - 1.12.13 Alpha 19
-- 7.0.0 pl 3
 
 Invalid examples:
 
