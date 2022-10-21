@@ -1,24 +1,7 @@
 # Database PHP API
 
 While the [sql](pip/sql.md) package installation plugin supports adding and removing tables, columns, and indices, it is not able to handle cases where the added table, column, or index already exist.
-We have added a new PHP-based API to manipulate the database scheme which can be used in combination with the [script](pip/script.md) package installation plugin that skips parts that already exist:
-
-```php
-$tables = [
-	// list of `DatabaseTable` objects
-];
-
-(new DatabaseTableChangeProcessor(
-	/** @var ScriptPackageInstallationPlugin $this */
-	$this->installation->getPackage(),
-	$tables,
-	WCF::getDB()->getEditor())
-)->process();
-```
-
-All of the relevant components can be found in the `wcf\system\database\table` namespace.
-
-With WoltLab Suite 5.4, you should use the new [database](pip/database.md) package installation plugin for which you only have to return the array of affected database tables:
+We have added a new PHP-based API to manipulate the database scheme which can be used in combination with the [database](pip/database.md) package installation plugin that skips parts that already exist:
 
 ```php
 return [
@@ -26,6 +9,7 @@ return [
 ];
 ```
 
+All of the relevant components can be found in the `wcf\system\database\table` namespace.
 
 ## Database Tables
 
