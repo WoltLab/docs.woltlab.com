@@ -8,11 +8,11 @@ use wcf\system\cronjob\PruneIpAddressesCronjob;
  * Prunes old ip addresses.
  *
  * @author  Matthias Schmidt
- * @copyright   2001-2021 WoltLab GmbH
+ * @copyright   2001-2022 WoltLab GmbH
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package WoltLabSuite\Core\System\Event\Listener
  */
-class PersonPruneIpAddressesCronjobListener extends AbstractEventListener
+final class PersonPruneIpAddressesCronjobListener extends AbstractEventListener
 {
     protected function onExecute(PruneIpAddressesCronjob $cronjob): void
     {

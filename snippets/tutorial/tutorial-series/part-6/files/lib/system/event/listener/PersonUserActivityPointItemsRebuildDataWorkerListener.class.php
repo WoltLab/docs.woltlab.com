@@ -11,11 +11,11 @@ use wcf\system\worker\UserActivityPointItemsRebuildDataWorker;
  * Updates the user activity point items counter for person information.
  *
  * @author  Matthias Schmidt
- * @copyright   2001-2021 WoltLab GmbH
+ * @copyright   2001-2022 WoltLab GmbH
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package WoltLabSuite\Core\System\Event\Listener
  */
-class PersonUserActivityPointItemsRebuildDataWorkerListener extends AbstractEventListener
+final class PersonUserActivityPointItemsRebuildDataWorkerListener extends AbstractEventListener
 {
     protected function onExecute(UserActivityPointItemsRebuildDataWorker $worker): void
     {
@@ -26,18 +26,18 @@ class PersonUserActivityPointItemsRebuildDataWorkerListener extends AbstractEven
         $conditionBuilder->add('user_activity_point.objectTypeID = ?', [$objectType->objectTypeID]);
         $conditionBuilder->add('user_activity_point.userID IN (?)', [$worker->getObjectList()->getObjectIDs()]);
 
-        $sql = "UPDATE  wcf" . WCF_N . "_user_activity_point user_activity_point
+        $sql = "UPDATE  wcf1_user_activity_point user_activity_point
                 SET     user_activity_point.items = (
                             SELECT  COUNT(*)
-                            FROM    wcf" . WCF_N . "_person_information person_information
+                            FROM    wcf1_person_information person_information
                             WHERE   person_information.userID = user_activity_point.userID
                         ),
                         user_activity_point.activityPoints = user_activity_point.items * ?
                 {$conditionBuilder}";
-        $statement = WCF::getDB()->prepareStatement($sql);
-        $statement->execute(\array_merge(
-            [$objectType->points],
-            $conditionBuilder->getParameters()
-        ));
+        $statement = WCF::getDB()->prepare($sql);
+        $statement->execute([
+            $objectType->points,
+            ...$conditionBuilder->getParameters()
+        ]);
     }
 }

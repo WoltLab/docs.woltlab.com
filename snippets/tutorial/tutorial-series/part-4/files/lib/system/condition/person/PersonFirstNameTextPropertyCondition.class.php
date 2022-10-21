@@ -9,11 +9,11 @@ use wcf\system\condition\AbstractObjectTextPropertyCondition;
  * Condition implementation for the first name of a person.
  *
  * @author  Matthias Schmidt
- * @copyright   2001-2021 WoltLab GmbH
+ * @copyright   2001-2022 WoltLab GmbH
  * @license WoltLab License <http://www.woltlab.com/license-agreement.html>
  * @package WoltLabSuite\Core\System\Condition
  */
-class PersonFirstNameTextPropertyCondition extends AbstractObjectTextPropertyCondition
+final class PersonFirstNameTextPropertyCondition extends AbstractObjectTextPropertyCondition
 {
     /**
      * @inheritDoc

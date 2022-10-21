@@ -9,13 +9,13 @@ use wcf\system\user\activity\point\UserActivityPointHandler;
  * Worker implementation for updating person information.
  *
  * @author  Matthias Schmidt
- * @copyright   2001-2021 WoltLab GmbH
+ * @copyright   2001-2022 WoltLab GmbH
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package WoltLabSuite\Core\System\Worker
  *
  * @method  PersonInformationList   getObjectList()
  */
-class PersonInformationRebuildDataWorker extends AbstractRebuildDataWorker
+final class PersonInformationRebuildDataWorker extends AbstractRebuildDataWorker
 {
     /**
      * @inheritDoc
