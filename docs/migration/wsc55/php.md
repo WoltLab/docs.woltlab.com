@@ -18,6 +18,32 @@ This might cause errors during inheritance, because the types are not compatible
 
 Return types may already be added in package versions for older WoltLab Suite branches to be forward compatible, because return types are covariant.
 
+## Application Boot
+
+### Request-specific logic will no longer happen during boot
+
+Historically the application boot in `WCF`’s constructor performed processing based on fundamentally request-specific values, such as the accessed URL, the request body, or cookies.
+This is problematic, because this makes the boot dependent on the HTTP environment which may not be be available, e.g. when using the CLI interface for maintenance jobs.
+The latter needs to emulate certain aspects of the HTTP environment for the boot to succeed.
+Furthermore one of the goals of the introduction of PSR-7/PSR-15-based request processing that [was started in WoltLab Suite 5.5](../wsc54/php.md#initial-psr-7-support) is the removal of implicit global state in favor of explicitly provided values by means of a `ServerRequestInterface` and thus to achieve a cleaner architecture.
+
+To achieve a clean separation this type of request-specific logic will incrementally be moved out of the application boot in `WCF`’s constructor and into the request processing stack that is launched by `RequestHandler`, e.g. by running appropriate PSR-15 middleware.
+
+An example of this type of request-specific logic that was previously happening during application boot is the check that verifies whether a user is banned and denies access otherwise.
+This check is based on a request-specific value, namely the user’s session which in turn is based on a provided (HTTP) cookie.
+It is now moved into the [`CheckUserBan` middleware](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/http/middleware/CheckUserBan.class.php).
+
+This move implies that custom scripts that include WoltLab Suite Core’s `global.php`, without also invoking `RequestHandler` will no longer be able to rely on this type of access control having happened and will need to implement it themselves, e.g. by manually running the appropriate middlewares.
+
+Notably the following checks have been moved into a middleware:
+
+- Denying access to banned users ([WoltLab/WCF#4935](https://github.com/WoltLab/WCF/pull/4935))
+- ACP authentication ([WoltLab/WCF#4939](https://github.com/WoltLab/WCF/pull/4939))
+
+The initialization of the session itself and dependent subsystems (e.g. the user object and thus the current language) is still running during application boot for now.
+However it is planned to also move the session initialization into the middleware in a future version and then providing access to the session by adding an attribute on the `ServerRequestInterface`, instead of querying the session via `WCF::getSession()`.
+As such you should begin to stop relying on the session and user outside of `RequestHandler`’s middleware stack and should also avoid calling `WCF::getUser()` and `WCF::getSession()` outside of a controller, instead adding on a `User` parameter to allow an appropriate user to be passed from the outside.
+
 ## Package System
 
 ### Rejection of “pl” versions
