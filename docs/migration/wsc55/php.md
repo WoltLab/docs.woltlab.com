@@ -31,7 +31,7 @@ To achieve a clean separation this type of request-specific logic will increment
 
 An example of this type of request-specific logic that was previously happening during application boot is the check that verifies whether a user is banned and denies access otherwise.
 This check is based on a request-specific value, namely the user’s session which in turn is based on a provided (HTTP) cookie.
-It is now moved into the [`CheckUserBan` middleware](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/http/middleware/CheckUserBan.class.php).
+It is now [moved into the `CheckUserBan` middleware](https://github.com/WoltLab/WCF/commit/51154ba3f8f1d09b54560d5d1933f9053ef409cb).
 
 This move implies that custom scripts that include WoltLab Suite Core’s `global.php`, without also invoking `RequestHandler` will no longer be able to rely on this type of access control having happened and will need to implement it themselves, e.g. by manually running the appropriate middlewares.
 
