@@ -9,13 +9,13 @@ use wcf\system\WCF;
  * Worker implementation for updating people.
  *
  * @author  Matthias Schmidt
- * @copyright   2001-2021 WoltLab GmbH
+ * @copyright   2001-2022 WoltLab GmbH
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package WoltLabSuite\Core\System\Worker
  *
  * @method  PersonList  getObjectList()
  */
-class PersonRebuildDataWorker extends AbstractRebuildDataWorker
+final class PersonRebuildDataWorker extends AbstractRebuildDataWorker
 {
     /**
      * @inheritDoc
@@ -48,14 +48,14 @@ class PersonRebuildDataWorker extends AbstractRebuildDataWorker
             return;
         }
 
-        $sql = "UPDATE  wcf" . WCF_N . "_person person
+        $sql = "UPDATE  wcf1_person person
                 SET     informationCount = (
                             SELECT  COUNT(*)
-                            FROM    wcf" . WCF_N . "_person_information person_information
+                            FROM    wcf1_person_information person_information
                             WHERE   person_information.personID = person.personID
                         )
                 WHERE   person.personID = ?";
-        $statement = WCF::getDB()->prepareStatement($sql);
+        $statement = WCF::getDB()->prepare($sql);
 
         WCF::getDB()->beginTransaction();
         foreach ($this->getObjectList() as $person) {
