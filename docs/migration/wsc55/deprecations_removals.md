@@ -259,6 +259,12 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 - `$__sessionKeepAlive` ([WoltLab/WCF#5055](https://github.com/WoltLab/WCF/pull/5055))
 - `$__wcfVersion` ([WoltLab/WCF#4927](https://github.com/WoltLab/WCF/pull/4927))
+- `$tpl.cookie` ([WoltLab/WCF@7cfd5578ede22e](https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36))
+- `$tpl.env` ([WoltLab/WCF@7cfd5578ede22e](https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36))
+- `$tpl.get` ([WoltLab/WCF@7cfd5578ede22e](https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36))
+- `$tpl.now` ([WoltLab/WCF@7cfd5578ede22e](https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36))
+- `$tpl.post` ([WoltLab/WCF@7cfd5578ede22e](https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36))
+- `$tpl.server` ([WoltLab/WCF@7cfd5578ede22e](https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36))
 
 ### Miscellaneous
 

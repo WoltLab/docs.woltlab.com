@@ -197,17 +197,6 @@ If you want to call a function on a variable, you can use the modifier syntax:
 
 #### System Template Variable
 
-The template variable `$tpl` is automatically assigned and is an array containing different data:
-
-- `$tpl[get]` contains `$_GET`.
-- `$tpl[post]` contains `$_POST`.
-- `$tpl[cookie]` contains `$_COOKIE`.
-- `$tpl[server]` contains `$_SERVER`.
-- `$tpl[env]` contains `$_ENV`.
-- `$tpl[now]` contains `TIME_NOW` (current timestamp).
-
-Furthermore, the following template variables are also automatically assigned:
-
 - `$__wcf` contains the `WCF` object (or `WCFACP` object in the backend).
 
 ### Comments
