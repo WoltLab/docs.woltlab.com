@@ -72,6 +72,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\bbcode\highlighter\Highlighter` ([WoltLab/WCF#4926](https://github.com/WoltLab/WCF/pull/4926))
 - `wcf\system\cache\source\MemcachedCacheSource` ([WoltLab/WCF#4928](https://github.com/WoltLab/WCF/pull/4928))
 - `wcf\system\cli\command\PackageCLICommand` ([WoltLab/WCF#4946](https://github.com/WoltLab/WCF/pull/4946))
+- `wcf\system\cli\DatabaseCLICommandHistory` ([WoltLab/WCF#5058](https://github.com/WoltLab/WCF/pull/5058))
 - `wcf\system\database\table\column/\UnsupportedDefaultValue` ([WoltLab/WCF#5012](https://github.com/WoltLab/WCF/pull/5012))
 - `wcf\system\mail\Mail` ([WoltLab/WCF#4941](https://github.com/WoltLab/WCF/pull/4941))
 - `wcf\system\option\DesktopNotificationApplicationSelectOptionType` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
@@ -115,6 +116,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\search\SearchIndexManager::update()` ([WoltLab/WCF#4925](https://github.com/WoltLab/WCF/pull/4925))
 - `wcf\system\session\SessionHandler::getStyleID()` ([WoltLab/WCF#4837](https://github.com/WoltLab/WCF/pull/4837))
 - `wcf\system\session\SessionHandler::setStyleID()` ([WoltLab/WCF#4837](https://github.com/WoltLab/WCF/pull/4837))
+- `wcf\system\CLIWCF::checkForUpdates()` ([WoltLab/WCF#5058](https://github.com/WoltLab/WCF/pull/5058))
 - `wcf\system\WCFACP::checkMasterPassword()` ([WoltLab/WCF#4977](https://github.com/WoltLab/WCF/pull/4977))
 - `wcf\system\WCFACP::getFrontendMenu()` ([WoltLab/WCF#4812](https://github.com/WoltLab/WCF/pull/4812))
 - `wcf\system\WCFACP::initPackage()` ([WoltLab/WCF#4794](https://github.com/WoltLab/WCF/pull/4794))
@@ -136,6 +138,11 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\template\TemplateScriptingCompiler::$disabledPHPFunctions` ([WoltLab/WCF#4788](https://github.com/WoltLab/WCF/pull/4788))
 - `wcf\system\template\TemplateScriptingCompiler::$enterpriseFunctions` ([WoltLab/WCF#4788](https://github.com/WoltLab/WCF/pull/4788))
 - `wcf\system\WCF::$forceLogout` ([WoltLab/WCF#4799](https://github.com/WoltLab/WCF/pull/4799))
+
+#### Events
+
+- `beforeArgumentParsing@wcf\system\CLIWCF` ([WoltLab/WCF#5058](https://github.com/WoltLab/WCF/pull/5058))
+- `afterArgumentParsing@wcf\system\CLIWCF` ([WoltLab/WCF#5058](https://github.com/WoltLab/WCF/pull/5058))
 
 #### Constants
 
@@ -222,6 +229,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 ### Database
 
+- `wcf1_cli_history` ([WoltLab/WCF#5058](https://github.com/WoltLab/WCF/pull/5058))
 - `wcf1_package_compatibility` ([WoltLab/WCF#4992](https://github.com/WoltLab/WCF/pull/4992))
 - `wcf1_package_update_compatibility` ([WoltLab/WCF#5005](https://github.com/WoltLab/WCF/pull/5005))
 - `wcf1_package_update_optional` ([WoltLab/WCF#5005](https://github.com/WoltLab/WCF/pull/5005))
