@@ -4269,13 +4269,13 @@ After editing a piece of information, we do not reload the page but dynamically 
 <span class="sd"> * Worker implementation for updating people.</span>
 <span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2022 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\Worker</span>
 <span class="sd"> *</span>
 <span class="sd"> * @method  PersonList  getObjectList()</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonRebuildDataWorker</span> <span class="k">extends</span> <span class="nx">AbstractRebuildDataWorker</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">PersonRebuildDataWorker</span> <span class="k">extends</span> <span class="nx">AbstractRebuildDataWorker</span>
 <span class="p">{</span>
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
@@ -4308,14 +4308,14 @@ After editing a piece of information, we do not reload the page but dynamically 
             <span class="k">return</span><span class="p">;</span>
         <span class="p">}</span>
 
-        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE  wcf&quot;</span> <span class="o">.</span> <span class="nx">WCF_N</span> <span class="o">.</span> <span class="s2">&quot;_person person</span>
+        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE  wcf1_person person</span>
 <span class="s2">                SET     informationCount = (</span>
 <span class="s2">                            SELECT  COUNT(*)</span>
-<span class="s2">                            FROM    wcf&quot;</span> <span class="o">.</span> <span class="nx">WCF_N</span> <span class="o">.</span> <span class="s2">&quot;_person_information person_information</span>
+<span class="s2">                            FROM    wcf1_person_information person_information</span>
 <span class="s2">                            WHERE   person_information.personID = person.personID</span>
 <span class="s2">                        )</span>
 <span class="s2">                WHERE   person.personID = ?&quot;</span><span class="p">;</span>
-        <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepareStatement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+        <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 
         <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">beginTransaction</span><span class="p">();</span>
         <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getObjectList</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$person</span><span class="p">)</span> <span class="p">{</span>
@@ -4358,11 +4358,11 @@ After editing a piece of information, we do not reload the page but dynamically 
 <span class="sd"> * Updates person information during user renaming.</span>
 <span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2022 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\Event\Listener</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonUserActionRenameListener</span> <span class="k">extends</span> <span class="nx">AbstractUserActionRenameListener</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">PersonUserActionRenameListener</span> <span class="k">extends</span> <span class="nx">AbstractUserActionRenameListener</span>
 <span class="p">{</span>
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
@@ -4404,11 +4404,11 @@ After editing a piece of information, we do not reload the page but dynamically 
 <span class="sd"> * Updates person information during user merging.</span>
 <span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2022 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\Event\Listener</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonUserMergeListener</span> <span class="k">extends</span> <span class="nx">AbstractUserMergeListener</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">PersonUserMergeListener</span> <span class="k">extends</span> <span class="nx">AbstractUserMergeListener</span>
 <span class="p">{</span>
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
@@ -4452,11 +4452,11 @@ After editing a piece of information, we do not reload the page but dynamically 
 <span class="sd"> * Prunes old ip addresses.</span>
 <span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2022 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\Event\Listener</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonPruneIpAddressesCronjobListener</span> <span class="k">extends</span> <span class="nx">AbstractEventListener</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">PersonPruneIpAddressesCronjobListener</span> <span class="k">extends</span> <span class="nx">AbstractEventListener</span>
 <span class="p">{</span>
     <span class="k">protected</span> <span class="k">function</span> <span class="nf">onExecute</span><span class="p">(</span><span class="nx">PruneIpAddressesCronjob</span> <span class="nv">$cronjob</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
     <span class="p">{</span>
@@ -4497,11 +4497,11 @@ After editing a piece of information, we do not reload the page but dynamically 
 <span class="sd"> * Adds the ip addresses stored with the person information during user data export.</span>
 <span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2022 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\Event\Listener</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonUserExportGdprListener</span> <span class="k">extends</span> <span class="nx">AbstractEventListener</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">PersonUserExportGdprListener</span> <span class="k">extends</span> <span class="nx">AbstractEventListener</span>
 <span class="p">{</span>
     <span class="k">protected</span> <span class="k">function</span> <span class="nf">onExport</span><span class="p">(</span><span class="nx">UserExportGdprAction</span> <span class="nv">$action</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
     <span class="p">{</span>
