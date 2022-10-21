@@ -2473,35 +2473,14 @@
 
 <h1 id="database-php-api">Database PHP API<a class="headerlink" href="#database-php-api" title="Permanent link">#</a></h1>
 <p>While the <a href="../pip/sql/">sql</a> package installation plugin supports adding and removing tables, columns, and indices, it is not able to handle cases where the added table, column, or index already exist.
-We have added a new PHP-based API to manipulate the database scheme which can be used in combination with the <a href="../pip/script/">script</a> package installation plugin that skips parts that already exist:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$tables</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1">// list of `DatabaseTable` objects</span>
-<span class="p">];</span>
-
-<span class="p">(</span><span class="k">new</span> <span class="nx">DatabaseTableChangeProcessor</span><span class="p">(</span>
-    <span class="sd">/** @var ScriptPackageInstallationPlugin $this */</span>
-    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">installation</span><span class="o">-&gt;</span><span class="na">getPackage</span><span class="p">(),</span>
-    <span class="nv">$tables</span><span class="p">,</span>
-    <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getEditor</span><span class="p">())</span>
-<span class="p">)</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">();</span>
-</code></pre></div></td></tr></table></div>
-<p>All of the relevant components can be found in the <code>wcf\system\database\table</code> namespace.</p>
-<p>With WoltLab Suite 5.4, you should use the new <a href="../pip/database/">database</a> package installation plugin for which you only have to return the array of affected database tables:</p>
+We have added a new PHP-based API to manipulate the database scheme which can be used in combination with the <a href="../pip/database/">database</a> package installation plugin that skips parts that already exist:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">return</span> <span class="p">[</span>
     <span class="c1">// list of `DatabaseTable` objects</span>
 <span class="p">];</span>
 </code></pre></div></td></tr></table></div>
+<p>All of the relevant components can be found in the <code>wcf\system\database\table</code> namespace.</p>
 <h2 id="database-tables">Database Tables<a class="headerlink" href="#database-tables" title="Permanent link">#</a></h2>
 <p>There are two classes representing database tables: <code>DatabaseTable</code> and <code>PartialDatabaseTable</code>.
 If a new table should be created, use <code>DatabaseTable</code>.
@@ -2610,7 +2589,7 @@ If no name is given, <code>DatabaseTable::indices()</code> will automatically se
   <small>
     
       Last update:
-      2022-10-05
+      2022-10-21
     
   </small>
 </div>
