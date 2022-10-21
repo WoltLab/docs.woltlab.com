@@ -63,7 +63,7 @@ Valid examples:
 Invalid examples:
 
 - 1.0.0 Beta (keyword Beta must be followed by a number)
-- 2.0 RC 3 (version number must consists of 3 blocks of numbers)
+- 2.0 RC 3 (version number must consist of 3 blocks of numbers)
 - 1.2.3 dev 4.5 (4.5 is not an integer, 4 or 5 would be valid but not the fraction)
 
 #### `<date>`
