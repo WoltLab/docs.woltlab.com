@@ -42,7 +42,7 @@ Notably the following checks have been moved into a middleware:
 
 The initialization of the session itself and dependent subsystems (e.g. the user object and thus the current language) is still running during application boot for now.
 However it is planned to also move the session initialization into the middleware in a future version and then providing access to the session by adding an attribute on the `ServerRequestInterface`, instead of querying the session via `WCF::getSession()`.
-As such you should begin to stop relying on the session and user outside of `RequestHandler`’s middleware stack and should also avoid calling `WCF::getUser()` and `WCF::getSession()` outside of a controller, instead adding on a `User` parameter to allow an appropriate user to be passed from the outside.
+As such you should begin to stop relying on the session and user outside of `RequestHandler`’s middleware stack and should also avoid calling `WCF::getUser()` and `WCF::getSession()` outside of a controller, instead adding a `User` parameter to your methods to allow an appropriate user to be passed from the outside.
 
 ## Package System
 
