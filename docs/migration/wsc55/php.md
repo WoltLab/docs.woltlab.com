@@ -44,6 +44,18 @@ The initialization of the session itself and dependent subsystems (e.g. the user
 However it is planned to also move the session initialization into the middleware in a future version and then providing access to the session by adding an attribute on the `ServerRequestInterface`, instead of querying the session via `WCF::getSession()`.
 As such you should begin to stop relying on the session and user outside of `RequestHandler`’s middleware stack and should also avoid calling `WCF::getUser()` and `WCF::getSession()` outside of a controller, instead adding a `User` parameter to your methods to allow an appropriate user to be passed from the outside.
 
+An example of a method that implicitly relies on these global values is the [VisitTracker's `trackObjectVisit()` method](https://github.com/WoltLab/WCF/blob/7cfd5578ede22e798b770262c0cdf1e9dfe25d36/wcfsetup/install/files/lib/system/visitTracker/VisitTracker.class.php#L199).
+It only takes the object type, object ID and timestamp as the parameter and will determine the `userID` by itself.
+The `trackObjectVisitByUserIDs()` method on the other hand does not rely on global values.
+Instead the relevant user IDs need to be passed explicitly from the controller as parameters, thus making the information the method works with explicit.
+This also makes the method reusable for use cases where an object should be marked as visited for a user other than the active user, without needing to temporarily switch the active user in the session.
+
+The same is true for “permission checking” methods on `DatabaseObject`s.
+Instead of having a `$myObject->canView()` method that uses `WCF::getSession()` or `WCF::getUser()` internally, the user should explicitly be passed to the method as a parameter, allowing for permission checks to happen in a different context, for example send sending notification emails.
+
+Likewise event listeners should not access these request-specific values at all, because they are unable to know whether the event was fired based on these request-specific values or whether some programmatic action fired the event for another arbitrary user.
+Instead they must retrieve the appropriate information from the event data only.
+
 ## Package System
 
 ### Rejection of “pl” versions
