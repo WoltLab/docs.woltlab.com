@@ -122,10 +122,10 @@ List of packages which conflict with this package. It is not possible to install
 Example:
 
 ```xml
-<excludedpackage version="6.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+<excludedpackage version="7.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
 ```
 
-The attribute `version` must be a valid version number as described in the [\<version\>](#version) section. In the example above it will be impossible to install this package in WoltLab Suite Core 6.0.0 Alpha 1 or higher.
+The attribute `version` must be a valid version number as described in the [\<version\>](#version) section. In the example above it will be impossible to install this package in WoltLab Suite Core 7.0.0 Alpha 1 or higher.
 
 
 ### `<instructions>`
