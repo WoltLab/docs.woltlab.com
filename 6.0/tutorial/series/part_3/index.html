@@ -2912,7 +2912,7 @@ To make good use of this new page and introduce a new API of WoltLab Suite, we w
 <span class="sd"> * Runtime cache implementation for people.</span>
 <span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2022 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\Cache\Runtime</span>
 <span class="sd"> *</span>
@@ -2920,7 +2920,7 @@ To make good use of this new page and introduce a new API of WoltLab Suite, we w
 <span class="sd"> * @method  Person      getObject($objectID)</span>
 <span class="sd"> * @method  Person[]    getObjects(array $objectIDs)</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonRuntimeCache</span> <span class="k">extends</span> <span class="nx">AbstractRuntimeCache</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">PersonRuntimeCache</span> <span class="k">extends</span> <span class="nx">AbstractRuntimeCache</span>
 <span class="p">{</span>
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
@@ -3054,11 +3054,11 @@ This is done by registering a <code>com.woltlab.wcf.comment.commentableContent</
 <span class="sd"> * Comment manager implementation for people.</span>
 <span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2022 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\Comment\Manager</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonCommentManager</span> <span class="k">extends</span> <span class="nx">AbstractCommentManager</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">PersonCommentManager</span> <span class="k">extends</span> <span class="nx">AbstractCommentManager</span>
 <span class="p">{</span>
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
@@ -3646,11 +3646,11 @@ Compared to the pre-existing <code>com.woltlab.wcf.people.PersonList</code> page
 <span class="sd"> * Page handler implementation for person page.</span>
 <span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2019 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2022 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\Page\Handler</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonPageHandler</span> <span class="k">extends</span> <span class="nx">AbstractLookupPageHandler</span> <span class="k">implements</span> <span class="nx">IOnlineLocationPageHandler</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">PersonPageHandler</span> <span class="k">extends</span> <span class="nx">AbstractLookupPageHandler</span> <span class="k">implements</span> <span class="nx">IOnlineLocationPageHandler</span>
 <span class="p">{</span>
     <span class="k">use</span> <span class="nx">TOnlineLocationPageHandler</span><span class="p">;</span>
 

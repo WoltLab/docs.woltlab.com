@@ -2847,13 +2847,13 @@ First, we register a new rebuild data worker</p>
 <span class="sd"> * Worker implementation for updating person information.</span>
 <span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2022 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\Worker</span>
 <span class="sd"> *</span>
 <span class="sd"> * @method  PersonInformationList   getObjectList()</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonInformationRebuildDataWorker</span> <span class="k">extends</span> <span class="nx">AbstractRebuildDataWorker</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">PersonInformationRebuildDataWorker</span> <span class="k">extends</span> <span class="nx">AbstractRebuildDataWorker</span>
 <span class="p">{</span>
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
@@ -2979,11 +2979,11 @@ First, we register a new rebuild data worker</p>
 <span class="sd"> * Updates the user activity point items counter for person information.</span>
 <span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2022 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\Event\Listener</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonUserActivityPointItemsRebuildDataWorkerListener</span> <span class="k">extends</span> <span class="nx">AbstractEventListener</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">PersonUserActivityPointItemsRebuildDataWorkerListener</span> <span class="k">extends</span> <span class="nx">AbstractEventListener</span>
 <span class="p">{</span>
     <span class="k">protected</span> <span class="k">function</span> <span class="nf">onExecute</span><span class="p">(</span><span class="nx">UserActivityPointItemsRebuildDataWorker</span> <span class="nv">$worker</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
     <span class="p">{</span>
@@ -2994,19 +2994,19 @@ First, we register a new rebuild data worker</p>
         <span class="nv">$conditionBuilder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;user_activity_point.objectTypeID = ?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$objectType</span><span class="o">-&gt;</span><span class="na">objectTypeID</span><span class="p">]);</span>
         <span class="nv">$conditionBuilder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;user_activity_point.userID IN (?)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$worker</span><span class="o">-&gt;</span><span class="na">getObjectList</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObjectIDs</span><span class="p">()]);</span>
 
-        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE  wcf&quot;</span> <span class="o">.</span> <span class="nx">WCF_N</span> <span class="o">.</span> <span class="s2">&quot;_user_activity_point user_activity_point</span>
+        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE  wcf1_user_activity_point user_activity_point</span>
 <span class="s2">                SET     user_activity_point.items = (</span>
 <span class="s2">                            SELECT  COUNT(*)</span>
-<span class="s2">                            FROM    wcf&quot;</span> <span class="o">.</span> <span class="nx">WCF_N</span> <span class="o">.</span> <span class="s2">&quot;_person_information person_information</span>
+<span class="s2">                            FROM    wcf1_person_information person_information</span>
 <span class="s2">                            WHERE   person_information.userID = user_activity_point.userID</span>
 <span class="s2">                        ),</span>
 <span class="s2">                        user_activity_point.activityPoints = user_activity_point.items * ?</span>
 <span class="s2">                </span><span class="si">{</span><span class="nv">$conditionBuilder</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span>
-        <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepareStatement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
-        <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="nx">\array_merge</span><span class="p">(</span>
-            <span class="p">[</span><span class="nv">$objectType</span><span class="o">-&gt;</span><span class="na">points</span><span class="p">],</span>
-            <span class="nv">$conditionBuilder</span><span class="o">-&gt;</span><span class="na">getParameters</span><span class="p">()</span>
-        <span class="p">));</span>
+        <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+        <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span>
+            <span class="nv">$objectType</span><span class="o">-&gt;</span><span class="na">points</span><span class="p">,</span>
+            <span class="o">...</span><span class="nv">$conditionBuilder</span><span class="o">-&gt;</span><span class="na">getParameters</span><span class="p">()</span>
+        <span class="p">]);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -3082,11 +3082,11 @@ First, we register a new rebuild data worker</p>
 <span class="sd"> * User activity event implementation for person information.</span>
 <span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2022 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\User\Activity\Event</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonInformationUserActivityEvent</span> <span class="k">extends</span> <span class="nx">SingletonFactory</span> <span class="k">implements</span> <span class="nx">IUserActivityEvent</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">PersonInformationUserActivityEvent</span> <span class="k">extends</span> <span class="nx">SingletonFactory</span> <span class="k">implements</span> <span class="nx">IUserActivityEvent</span>
 <span class="p">{</span>
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>

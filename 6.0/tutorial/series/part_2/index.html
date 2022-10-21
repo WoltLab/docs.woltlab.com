@@ -2894,19 +2894,19 @@ To add the birthday to the model, we need to create an additional database table
 <span class="sd"> * Handles setting the birthday when adding and editing people.</span>
 <span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2022 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\Event\Listener</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">BirthdayPersonAddFormListener</span> <span class="k">extends</span> <span class="nx">AbstractEventListener</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">BirthdayPersonAddFormListener</span> <span class="k">extends</span> <span class="nx">AbstractEventListener</span>
 <span class="p">{</span>
     <span class="sd">/**</span>
 <span class="sd">     * @see AbstractFormBuilderForm::createForm()</span>
 <span class="sd">     */</span>
     <span class="k">protected</span> <span class="k">function</span> <span class="nf">onCreateForm</span><span class="p">(</span><span class="nx">PersonAddForm</span> <span class="nv">$form</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
     <span class="p">{</span>
-        <span class="sd">/** @var FormContainer $dataContainer */</span>
         <span class="nv">$dataContainer</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">form</span><span class="o">-&gt;</span><span class="na">getNodeById</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">);</span>
+        <span class="nx">\assert</span><span class="p">(</span><span class="nv">$dataContainer</span> <span class="nx">instanceof</span> <span class="nx">FormContainer</span><span class="p">);</span>
         <span class="nv">$dataContainer</span><span class="o">-&gt;</span><span class="na">appendChild</span><span class="p">(</span>
             <span class="nx">DateFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;birthday&#39;</span><span class="p">)</span>
                 <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;wcf.person.birthday&#39;</span><span class="p">)</span>
@@ -3000,11 +3000,11 @@ It is important to set <code>&lt;inherit&gt;1&lt;/inherit&gt;</code> so that the
 <span class="sd"> * Makes people&#39;s birthday a valid sort field in the ACP and the front end.</span>
 <span class="sd"> *</span>
 <span class="sd"> * @author  Matthias Schmidt</span>
-<span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
+<span class="sd"> * @copyright   2001-2022 WoltLab GmbH</span>
 <span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> * @package WoltLabSuite\Core\System\Event\Listener</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">BirthdaySortFieldPersonListPageListener</span> <span class="k">extends</span> <span class="nx">AbstractEventListener</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">BirthdaySortFieldPersonListPageListener</span> <span class="k">extends</span> <span class="nx">AbstractEventListener</span>
 <span class="p">{</span>
     <span class="sd">/**</span>
 <span class="sd">     * @see SortablePage::validateSortField()</span>
