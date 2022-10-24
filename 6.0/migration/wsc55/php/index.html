@@ -1775,6 +1775,26 @@
     Inheritance
   </a>
   
+    <nav class="md-nav" aria-label="Inheritance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-return-property-types" class="md-nav__link">
+    Parameter / Return / Property Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final" class="md-nav__link">
+    final
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2680,6 +2700,26 @@
     Inheritance
   </a>
   
+    <nav class="md-nav" aria-label="Inheritance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-return-property-types" class="md-nav__link">
+    Parameter / Return / Property Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final" class="md-nav__link">
+    final
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2787,9 +2827,12 @@
 <p>It is recommended to make use of the newly introduced features whereever possible.
 Please refer to the PHP documentation for details.</p>
 <h2 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">#</a></h2>
+<h3 id="parameter-return-property-types">Parameter / Return / Property Types<a class="headerlink" href="#parameter-return-property-types" title="Permanent link">#</a></h3>
 <p>Parameter, return, and property types have been added to methods of various classes/interfaces.
 This might cause errors during inheritance, because the types are not compatible with the newly added types in the parent class.</p>
 <p>Return types may already be added in package versions for older WoltLab Suite branches to be forward compatible, because return types are covariant.</p>
+<h3 id="final">final<a class="headerlink" href="#final" title="Permanent link">#</a></h3>
+<p>The <code>final</code> modifier was added to several classes that were not usefully set up for inheritance in the first place to make it explicit that inheriting from these classes is unsupported.</p>
 <h2 id="application-boot">Application Boot<a class="headerlink" href="#application-boot" title="Permanent link">#</a></h2>
 <h3 id="request-specific-logic-will-no-longer-happen-during-boot">Request-specific logic will no longer happen during boot<a class="headerlink" href="#request-specific-logic-will-no-longer-happen-during-boot" title="Permanent link">#</a></h3>
 <p>Historically the application boot in <code>WCF</code>’s constructor performed processing based on fundamentally request-specific values, such as the accessed URL, the request body, or cookies.
@@ -2861,7 +2904,7 @@ Examples for sensitive parameters include passwords/passphrases, access tokens, 
   <small>
     
       Last update:
-      2022-10-21
+      2022-10-24
     
   </small>
 </div>
