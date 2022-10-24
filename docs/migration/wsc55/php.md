@@ -13,10 +13,16 @@ Please refer to the PHP documentation for details.
 
 ## Inheritance
 
+### Parameter / Return / Property Types
+
 Parameter, return, and property types have been added to methods of various classes/interfaces.
 This might cause errors during inheritance, because the types are not compatible with the newly added types in the parent class.
 
 Return types may already be added in package versions for older WoltLab Suite branches to be forward compatible, because return types are covariant.
+
+### final
+
+The `final` modifier was added to several classes that were not usefully set up for inheritance in the first place to make it explicit that inheriting from these classes is unsupported.
 
 ## Application Boot
 
