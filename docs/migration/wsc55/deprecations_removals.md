@@ -47,6 +47,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 - `WCF.User.ObjectWatch.Subscribe` ([WoltLab/WCF#4962](https://github.com/WoltLab/WCF/pull/4962))
 - `WCF.User.List` ([WoltLab/WCF#5039](https://github.com/WoltLab/WCF/pull/5039))
+- `WoltLabSuite/Core/NumberUtil` ([WoltLab/WCF#5071](https://github.com/WoltLab/WCF/pull/5071))
 - `WoltLabSuite/Core/Ui/User/List` ([WoltLab/WCF#5039](https://github.com/WoltLab/WCF/pull/5039))
 
 ### Database Tables
@@ -222,6 +223,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `WCF.System.FlexibleMenu` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.System.Fullscreen` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.System.PageNavigation` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.Template` ([WoltLab/WCF#5070](https://github.com/WoltLab/WCF/pull/5070))
 - `WCF.ToggleOptions` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.User.Panel.Abstract` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 - `window.shuffle()` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
