@@ -127,6 +127,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\util\FileUtil::downloadFileFromHttp()` ([WoltLab/WCF#4942](https://github.com/WoltLab/WCF/pull/4942))
 - `wcf\util\PasswordUtil::secureCompare()` ([WoltLab/WCF#4924](https://github.com/WoltLab/WCF/pull/4924))
 - `wcf\util\PasswordUtil::secureRandomNumber()` ([WoltLab/WCF#4924](https://github.com/WoltLab/WCF/pull/4924))
+- `wcf\util\StringUtil::encodeJSON()` ([WoltLab/WCF#5073](https://github.com/WoltLab/WCF/pull/5073))
 - `wcf\util\StyleUtil::updateStyleFile()` ([WoltLab/WCF#4977](https://github.com/WoltLab/WCF/pull/4977))
 - `wcf\util\UserRegistrationUtil::isSecurePassword()` ([WoltLab/WCF#4977](https://github.com/WoltLab/WCF/pull/4977))
 
@@ -250,6 +251,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 #### Template Plugins
 
 - `{fetch}` ([WoltLab/WCF#4892](https://github.com/WoltLab/WCF/pull/4892))
+- `|encodeJSON` ([WoltLab/WCF#5073](https://github.com/WoltLab/WCF/pull/5073))
 
 #### Template Events
 
