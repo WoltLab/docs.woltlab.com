@@ -111,3 +111,13 @@ function checkPassword(
 ```
 
 See the [PHP RFC: Redacting parameters in back traces](https://wiki.php.net/rfc/redact_parameters_in_back_traces) for more details.
+
+## Conditions
+
+### AbstractIntegerCondition
+
+Deriving from `AbstractIntegerCondition` now requires to explicitly implement `protected function getIdentifier(): string`, instead of setting the `$identifier` property.
+This is to ensure that all conditions specify a unique identifier, instead of accidentally relying on a default value.
+The `$identifier` property will no longer be used and may be removed.
+
+See [WoltLab/WCF#5077](https://github.com/WoltLab/WCF/pull/5077) for details.
