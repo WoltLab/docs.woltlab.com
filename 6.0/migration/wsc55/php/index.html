@@ -1871,6 +1871,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#conditions" class="md-nav__link">
+    Conditions
+  </a>
+  
+    <nav class="md-nav" aria-label="Conditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstractintegercondition" class="md-nav__link">
+    AbstractIntegerCondition
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2796,6 +2816,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#conditions" class="md-nav__link">
+    Conditions
+  </a>
+  
+    <nav class="md-nav" aria-label="Conditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstractintegercondition" class="md-nav__link">
+    AbstractIntegerCondition
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2898,13 +2938,19 @@ Examples for sensitive parameters include passwords/passphrases, access tokens, 
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>See the <a href="https://wiki.php.net/rfc/redact_parameters_in_back_traces">PHP RFC: Redacting parameters in back traces</a> for more details.</p>
+<h2 id="conditions">Conditions<a class="headerlink" href="#conditions" title="Permanent link">#</a></h2>
+<h3 id="abstractintegercondition">AbstractIntegerCondition<a class="headerlink" href="#abstractintegercondition" title="Permanent link">#</a></h3>
+<p>Deriving from <code>AbstractIntegerCondition</code> now requires to explicitly implement <code>protected function getIdentifier(): string</code>, instead of setting the <code>$identifier</code> property.
+This is to ensure that all conditions specify a unique identifier, instead of accidentally relying on a default value.
+The <code>$identifier</code> property will no longer be used and may be removed.</p>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/5077">WoltLab/WCF#5077</a> for details.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-10-24
+      2022-10-26
     
   </small>
 </div>
