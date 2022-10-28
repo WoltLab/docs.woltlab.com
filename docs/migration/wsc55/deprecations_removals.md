@@ -26,6 +26,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\WCF::getActivePath()` ([WoltLab/WCF#4827](https://github.com/WoltLab/WCF/pull/4827))
 - `wcf\system\WCF::getFavicon()` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
 - `wcf\system\WCF::useDesktopNotifications()` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
+- `wcf\util\CryptoUtil::validateSignedString()` ([WoltLab/WCF#5083](https://github.com/WoltLab/WCF/pull/5083))
 - `wcf\util\Diff::__construct()` ([WoltLab/WCF#4918](https://github.com/WoltLab/WCF/pull/4918))
 - `wcf\util\Diff::__toString()` ([WoltLab/WCF#4918](https://github.com/WoltLab/WCF/pull/4918))
 - `wcf\util\Diff::getLCS()` ([WoltLab/WCF#4918](https://github.com/WoltLab/WCF/pull/4918))
