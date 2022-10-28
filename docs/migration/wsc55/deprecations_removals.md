@@ -76,6 +76,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\cli\command\PackageCLICommand` ([WoltLab/WCF#4946](https://github.com/WoltLab/WCF/pull/4946))
 - `wcf\system\cli\DatabaseCLICommandHistory` ([WoltLab/WCF#5058](https://github.com/WoltLab/WCF/pull/5058))
 - `wcf\system\database\table\column/\UnsupportedDefaultValue` ([WoltLab/WCF#5012](https://github.com/WoltLab/WCF/pull/5012))
+- `wcf\system\exception\ILoggingAwareException` (and associated functionality) ([WoltLab/WCF#5086](https://github.com/WoltLab/WCF/pull/5086))
 - `wcf\system\mail\Mail` ([WoltLab/WCF#4941](https://github.com/WoltLab/WCF/pull/4941))
 - `wcf\system\option\DesktopNotificationApplicationSelectOptionType` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
 - `wcf\system\search\elasticsearch\ElasticsearchException`
@@ -158,6 +159,10 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `SECURITY_TOKEN_INPUT_TAG` ([WoltLab/WCF#4934](https://github.com/WoltLab/WCF/pull/4934))
 - `SECURITY_TOKEN` ([WoltLab/WCF#4934](https://github.com/WoltLab/WCF/pull/4934))
 - `WSC_API_VERSION` ([WoltLab/WCF#4943](https://github.com/WoltLab/WCF/pull/4943))
+
+#### Functions
+
+- The global `escapeString` helper ([WoltLab/WCF#5085](https://github.com/WoltLab/WCF/pull/5085))
 
 #### Options
 
