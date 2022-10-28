@@ -64,6 +64,10 @@ Instead they must retrieve the appropriate information from the event data only.
 
 ## Package System
 
+### Required “minversion” for required packages
+
+The `minversion` attribute of the `<requiredpackage>` tag is now required.
+
 ### Rejection of “pl” versions
 
 Woltlab Suite 6.0 no longer accepts package versions with the “pl” suffix as valid.
