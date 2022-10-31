@@ -1812,6 +1812,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bootstrap-scripts" class="md-nav__link">
+    Bootstrap Scripts
+  </a>
+  
+    <nav class="md-nav" aria-label="Bootstrap Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registering-ievent-listeners" class="md-nav__link">
+    Registering IEvent listeners
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2764,6 +2784,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bootstrap-scripts" class="md-nav__link">
+    Bootstrap Scripts
+  </a>
+  
+    <nav class="md-nav" aria-label="Bootstrap Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registering-ievent-listeners" class="md-nav__link">
+    Registering IEvent listeners
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2915,6 +2955,67 @@ This also makes the method reusable for use cases where an object should be mark
 Instead of having a <code>$myObject-&gt;canView()</code> method that uses <code>WCF::getSession()</code> or <code>WCF::getUser()</code> internally, the user should explicitly be passed to the method as a parameter, allowing for permission checks to happen in a different context, for example send sending notification emails.</p>
 <p>Likewise event listeners should not access these request-specific values at all, because they are unable to know whether the event was fired based on these request-specific values or whether some programmatic action fired the event for another arbitrary user.
 Instead they must retrieve the appropriate information from the event data only.</p>
+<h3 id="bootstrap-scripts">Bootstrap Scripts<a class="headerlink" href="#bootstrap-scripts" title="Permanent link">#</a></h3>
+<p>WoltLab Suite 6.0 adds package-specific bootstrap scripts allowing a package to execute logic during the application boot to prepare the environment before the request is passed through the middleware pipeline into the controller in <code>RequestHandler</code>.</p>
+<p>Bootstrap scripts are stored in the <code>lib/bootstrap/</code> directory of WoltLab Suite Core with the package identifier as the file name.
+They do not need to be registered explicitly, as one future goal of the bootstrap scripts is reducing the amount of system state that needs to be stored within the database.
+Instead WoltLab Suite Core will automatically create a bootstrap loader that includes all installed bootstrap scripts as part of the package installation and uninstallation process.</p>
+<p>Bootstrap scripts will be loaded and the bootstrap functions will executed based on a topological sorting of all installed packages.
+A package can rely on all bootstrap scripts of its dependencies being loaded before its own bootstrap script is loaded.
+It can also rely on all bootstrap functions of its dependencies having executed before its own bootstrap functions is executed.
+However it cannot rely on any specific loading and execution order of non-dependencies.</p>
+<p>As hinted at in the previous paragraph, executing the bootstrap scripts happens in two phases:</p>
+<ol>
+<li>All bootstrap scripts will be <code>include()</code>d in topological order. The script is expected to return a <code>Closure</code> that is executed in phase 2.</li>
+<li>Once all bootstrap scripts have been included, the returned <code>Closure</code>s will be executed in the same order the bootstrap scripts were loaded.</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/bootstrap/com.example.foo.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Phase (1).</span>
+
+<span class="k">return</span> <span class="k">static</span> <span class="k">function</span> <span class="p">()</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
+    <span class="c1">// Phase (2).</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>For the vast majority of packages it is expected that the phase (1) bootstrapping is not used, except to return the <code>Closure</code>.
+Instead the logic should reside in the <code>Closure</code>s body that is executed in phase (2).</p>
+<h4 id="registering-ievent-listeners">Registering <code>IEvent</code> listeners<a class="headerlink" href="#registering-ievent-listeners" title="Permanent link">#</a></h4>
+<p>An example use case for bootstrap scripts with WoltLab Suite 6.0 is registering event listeners for <code>IEvent</code>-based events that <a href="../../wsc54/php/#events">were added with WoltLab Suite 5.5</a>, instead of using the <a href="../../../package/pip/event-listener/">eventListener PIP</a>.
+Registering event listeners within the bootstrap script allows you to leverage your IDE’s autocompletion for class names and and prevents forgetting the explicit uninstallation of old event listeners during a package upgrade.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/bootstrap/com.example.bar.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">wcf\system\event\EventHandler</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\event\listener\ValueDumpListener</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\foo\event\ValueAvailable</span><span class="p">;</span>
+
+<span class="k">return</span> <span class="k">static</span> <span class="k">function</span> <span class="p">()</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
+    <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">ValueAvailable</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nx">ValueDumpListener</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+    <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">ValueAvailable</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">ValueAvailable</span> <span class="nv">$event</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
+        <span class="c1">// For simple use cases a `Closure` instead of a class name may be used.</span>
+        <span class="nx">\var_dump</span><span class="p">(</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">());</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="package-system">Package System<a class="headerlink" href="#package-system" title="Permanent link">#</a></h2>
 <h3 id="required-minversion-for-required-packages">Required “minversion” for required packages<a class="headerlink" href="#required-minversion-for-required-packages" title="Permanent link">#</a></h3>
 <p>The <code>minversion</code> attribute of the <code>&lt;requiredpackage&gt;</code> tag is now required.</p>
