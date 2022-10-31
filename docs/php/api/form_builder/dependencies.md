@@ -85,7 +85,7 @@ If `$singleSelectionFormField` is an instance of `SingleSelectionFormField` that
 
 ```php
 $textFormField->addDependency(
-	NonEmptyFormFieldDependency::create('singleSelectionFormField')
+	ValueFormFieldDependency::create('singleSelectionFormField')
 		->field($singleSelectionFormField)
 		->values([1, 3])
 );
@@ -95,7 +95,7 @@ If, in contrast, `$singleSelectionFormField` has many available options and `7` 
 
 ```php
 $textFormField->addDependency(
-	NonEmptyFormFieldDependency::create('singleSelectionFormField')
+	ValueFormFieldDependency::create('singleSelectionFormField')
 		->field($singleSelectionFormField)
 		->values([7])
 		->negate()
