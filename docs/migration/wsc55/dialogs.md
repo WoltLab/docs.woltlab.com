@@ -41,9 +41,9 @@ The `_dialogSetup()` method was complex, offered subpar auto completition suppor
 
 ### `source`
 
-The source of a dialog is provided directly through the fluent API of [`dialogFactory()`](components_dialog.md) which provides methods to spawn dialogs using elements, HTML strings or completely empty.
+The source of a dialog is provided directly through the fluent API of [`dialogFactory()`](../../javascript/components_dialog.md) which provides methods to spawn dialogs using elements, HTML strings or completely empty.
 
-The major change is the removal of the AJAX support as the content source, you should use [`dboAction()`](new-api_ajax.md) instead and then create the dialog.
+The major change is the removal of the AJAX support as the content source, you should use [`dboAction()`](../../javascript/new-api_ajax.md) instead and then create the dialog.
 
 ### `options.onSetup(content: HTMLElement)`
 
