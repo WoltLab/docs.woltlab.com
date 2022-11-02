@@ -191,6 +191,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `Calendar.Event.QuoteHandler`
 - `Calendar.Event.Share`
 - `Calendar.Event.TabMenu`
+- `Calendar.Event.Thread.ShowParticipants`
 - `Calendar.UI.Calendar`
 - `Calendar/Ui/Event/Date/Cancel.js`
 - `Filebase.Category.MarkAllAsRead`
