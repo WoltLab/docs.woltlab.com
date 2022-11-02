@@ -3001,19 +3001,31 @@ Registering event listeners within the bootstrap script allows you to leverage y
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">use</span> <span class="nx">wcf\system\event\EventHandler</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\system\event\listener\ValueDumpListener</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\system\foo\event\ValueAvailable</span><span class="p">;</span>
 
 <span class="k">return</span> <span class="k">static</span> <span class="k">function</span> <span class="p">()</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
-    <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">ValueAvailable</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nx">ValueDumpListener</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+    <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span>
+        <span class="nx">ValueAvailable</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="nx">ValueDumpListener</span><span class="o">::</span><span class="na">class</span>
+    <span class="p">);</span>
 
-    <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">ValueAvailable</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">ValueAvailable</span> <span class="nv">$event</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
-        <span class="c1">// For simple use cases a `Closure` instead of a class name may be used.</span>
-        <span class="nx">\var_dump</span><span class="p">(</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">());</span>
-    <span class="p">});</span>
+    <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span>
+        <span class="nx">ValueAvailable</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">ValueAvailable</span> <span class="nv">$event</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
+            <span class="c1">// For simple use cases a `Closure` instead of a class name may be used.</span>
+            <span class="nx">\var_dump</span><span class="p">(</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="package-system">Package System<a class="headerlink" href="#package-system" title="Permanent link">#</a></h2>
@@ -3067,7 +3079,7 @@ The <code>$identifier</code> property will no longer be used and may be removed.
   <small>
     
       Last update:
-      2022-10-28
+      2022-11-02
     
   </small>
 </div>
