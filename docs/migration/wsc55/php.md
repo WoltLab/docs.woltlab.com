@@ -106,12 +106,18 @@ use wcf\system\event\listener\ValueDumpListener;
 use wcf\system\foo\event\ValueAvailable;
 
 return static function (): void {
-    EventHandler::getInstance()->register(ValueAvailable::class, ValueDumpListener::class);
+    EventHandler::getInstance()->register(
+        ValueAvailable::class,
+        ValueDumpListener::class
+    );
 
-    EventHandler::getInstance()->register(ValueAvailable::class, static function (ValueAvailable $event): void {
-        // For simple use cases a `Closure` instead of a class name may be used.
-        \var_dump($event->getValue());
-    });
+    EventHandler::getInstance()->register(
+        ValueAvailable::class,
+        static function (ValueAvailable $event): void {
+            // For simple use cases a `Closure` instead of a class name may be used.
+            \var_dump($event->getValue());
+        }
+    );
 };
 ```
 
