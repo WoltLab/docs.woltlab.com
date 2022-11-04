@@ -119,8 +119,6 @@ Events whose name is marked with an asterisk are called from a static method and
 | `wcf\system\user\notification\UserNotificationHandler` | `updateTriggerCount` |
 | `wcf\system\user\UserBirthdayCache` | `loadMonth` |
 | `wcf\system\worker\AbstractRebuildDataWorker` | `execute` |
-| `wcf\system\CLIWCF` | `afterArgumentParsing` |
-| `wcf\system\CLIWCF` | `beforeArgumentParsing` |
 | `wcf\system\WCF` | `initialized` |
 | `wcf\util\HeaderUtil` | `parseOutput`*|
 

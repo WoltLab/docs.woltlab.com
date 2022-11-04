@@ -26,6 +26,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\WCF::getActivePath()` ([WoltLab/WCF#4827](https://github.com/WoltLab/WCF/pull/4827))
 - `wcf\system\WCF::getFavicon()` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
 - `wcf\system\WCF::useDesktopNotifications()` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
+- `wcf\util\CryptoUtil::validateSignedString()` ([WoltLab/WCF#5083](https://github.com/WoltLab/WCF/pull/5083))
 - `wcf\util\Diff::__construct()` ([WoltLab/WCF#4918](https://github.com/WoltLab/WCF/pull/4918))
 - `wcf\util\Diff::__toString()` ([WoltLab/WCF#4918](https://github.com/WoltLab/WCF/pull/4918))
 - `wcf\util\Diff::getLCS()` ([WoltLab/WCF#4918](https://github.com/WoltLab/WCF/pull/4918))
@@ -47,6 +48,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 - `WCF.User.ObjectWatch.Subscribe` ([WoltLab/WCF#4962](https://github.com/WoltLab/WCF/pull/4962))
 - `WCF.User.List` ([WoltLab/WCF#5039](https://github.com/WoltLab/WCF/pull/5039))
+- `WoltLabSuite/Core/NumberUtil` ([WoltLab/WCF#5071](https://github.com/WoltLab/WCF/pull/5071))
 - `WoltLabSuite/Core/Ui/User/List` ([WoltLab/WCF#5039](https://github.com/WoltLab/WCF/pull/5039))
 
 ### Database Tables
@@ -72,7 +74,9 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\bbcode\highlighter\Highlighter` ([WoltLab/WCF#4926](https://github.com/WoltLab/WCF/pull/4926))
 - `wcf\system\cache\source\MemcachedCacheSource` ([WoltLab/WCF#4928](https://github.com/WoltLab/WCF/pull/4928))
 - `wcf\system\cli\command\PackageCLICommand` ([WoltLab/WCF#4946](https://github.com/WoltLab/WCF/pull/4946))
+- `wcf\system\cli\DatabaseCLICommandHistory` ([WoltLab/WCF#5058](https://github.com/WoltLab/WCF/pull/5058))
 - `wcf\system\database\table\column/\UnsupportedDefaultValue` ([WoltLab/WCF#5012](https://github.com/WoltLab/WCF/pull/5012))
+- `wcf\system\exception\ILoggingAwareException` (and associated functionality) ([WoltLab/WCF#5086](https://github.com/WoltLab/WCF/pull/5086))
 - `wcf\system\mail\Mail` ([WoltLab/WCF#4941](https://github.com/WoltLab/WCF/pull/4941))
 - `wcf\system\option\DesktopNotificationApplicationSelectOptionType` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
 - `wcf\system\search\elasticsearch\ElasticsearchException`
@@ -115,6 +119,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\search\SearchIndexManager::update()` ([WoltLab/WCF#4925](https://github.com/WoltLab/WCF/pull/4925))
 - `wcf\system\session\SessionHandler::getStyleID()` ([WoltLab/WCF#4837](https://github.com/WoltLab/WCF/pull/4837))
 - `wcf\system\session\SessionHandler::setStyleID()` ([WoltLab/WCF#4837](https://github.com/WoltLab/WCF/pull/4837))
+- `wcf\system\CLIWCF::checkForUpdates()` ([WoltLab/WCF#5058](https://github.com/WoltLab/WCF/pull/5058))
 - `wcf\system\WCFACP::checkMasterPassword()` ([WoltLab/WCF#4977](https://github.com/WoltLab/WCF/pull/4977))
 - `wcf\system\WCFACP::getFrontendMenu()` ([WoltLab/WCF#4812](https://github.com/WoltLab/WCF/pull/4812))
 - `wcf\system\WCFACP::initPackage()` ([WoltLab/WCF#4794](https://github.com/WoltLab/WCF/pull/4794))
@@ -124,6 +129,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\util\FileUtil::downloadFileFromHttp()` ([WoltLab/WCF#4942](https://github.com/WoltLab/WCF/pull/4942))
 - `wcf\util\PasswordUtil::secureCompare()` ([WoltLab/WCF#4924](https://github.com/WoltLab/WCF/pull/4924))
 - `wcf\util\PasswordUtil::secureRandomNumber()` ([WoltLab/WCF#4924](https://github.com/WoltLab/WCF/pull/4924))
+- `wcf\util\StringUtil::encodeJSON()` ([WoltLab/WCF#5073](https://github.com/WoltLab/WCF/pull/5073))
 - `wcf\util\StyleUtil::updateStyleFile()` ([WoltLab/WCF#4977](https://github.com/WoltLab/WCF/pull/4977))
 - `wcf\util\UserRegistrationUtil::isSecurePassword()` ([WoltLab/WCF#4977](https://github.com/WoltLab/WCF/pull/4977))
 
@@ -137,6 +143,11 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\template\TemplateScriptingCompiler::$enterpriseFunctions` ([WoltLab/WCF#4788](https://github.com/WoltLab/WCF/pull/4788))
 - `wcf\system\WCF::$forceLogout` ([WoltLab/WCF#4799](https://github.com/WoltLab/WCF/pull/4799))
 
+#### Events
+
+- `beforeArgumentParsing@wcf\system\CLIWCF` ([WoltLab/WCF#5058](https://github.com/WoltLab/WCF/pull/5058))
+- `afterArgumentParsing@wcf\system\CLIWCF` ([WoltLab/WCF#5058](https://github.com/WoltLab/WCF/pull/5058))
+
 #### Constants
 
 - `wcf\system\search\elasticsearch\ElasticsearchHandler::DELETE`
@@ -148,6 +159,10 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `SECURITY_TOKEN_INPUT_TAG` ([WoltLab/WCF#4934](https://github.com/WoltLab/WCF/pull/4934))
 - `SECURITY_TOKEN` ([WoltLab/WCF#4934](https://github.com/WoltLab/WCF/pull/4934))
 - `WSC_API_VERSION` ([WoltLab/WCF#4943](https://github.com/WoltLab/WCF/pull/4943))
+
+#### Functions
+
+- The global `escapeString` helper ([WoltLab/WCF#5085](https://github.com/WoltLab/WCF/pull/5085))
 
 #### Options
 
@@ -176,6 +191,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `Calendar.Event.QuoteHandler`
 - `Calendar.Event.Share`
 - `Calendar.Event.TabMenu`
+- `Calendar.Event.Thread.ShowParticipants`
 - `Calendar.UI.Calendar`
 - `Calendar/Ui/Event/Date/Cancel.js`
 - `Calendar.Export.iCal`
@@ -216,6 +232,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `WCF.System.FlexibleMenu` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.System.Fullscreen` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.System.PageNavigation` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.Template` ([WoltLab/WCF#5070](https://github.com/WoltLab/WCF/pull/5070))
 - `WCF.ToggleOptions` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.User.Panel.Abstract` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 - `window.shuffle()` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
@@ -223,6 +240,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 ### Database
 
+- `wcf1_cli_history` ([WoltLab/WCF#5058](https://github.com/WoltLab/WCF/pull/5058))
 - `wcf1_package_compatibility` ([WoltLab/WCF#4992](https://github.com/WoltLab/WCF/pull/4992))
 - `wcf1_package_update_compatibility` ([WoltLab/WCF#5005](https://github.com/WoltLab/WCF/pull/5005))
 - `wcf1_package_update_optional` ([WoltLab/WCF#5005](https://github.com/WoltLab/WCF/pull/5005))
@@ -241,6 +259,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 #### Template Plugins
 
 - `{fetch}` ([WoltLab/WCF#4892](https://github.com/WoltLab/WCF/pull/4892))
+- `|encodeJSON` ([WoltLab/WCF#5073](https://github.com/WoltLab/WCF/pull/5073))
 
 #### Template Events
 
@@ -252,6 +271,12 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 - `$__sessionKeepAlive` ([WoltLab/WCF#5055](https://github.com/WoltLab/WCF/pull/5055))
 - `$__wcfVersion` ([WoltLab/WCF#4927](https://github.com/WoltLab/WCF/pull/4927))
+- `$tpl.cookie` ([WoltLab/WCF@7cfd5578ede22e](https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36))
+- `$tpl.env` ([WoltLab/WCF@7cfd5578ede22e](https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36))
+- `$tpl.get` ([WoltLab/WCF@7cfd5578ede22e](https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36))
+- `$tpl.now` ([WoltLab/WCF@7cfd5578ede22e](https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36))
+- `$tpl.post` ([WoltLab/WCF@7cfd5578ede22e](https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36))
+- `$tpl.server` ([WoltLab/WCF@7cfd5578ede22e](https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36))
 
 ### Miscellaneous
 

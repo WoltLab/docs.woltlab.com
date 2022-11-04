@@ -11,11 +11,11 @@ use wcf\system\WCF;
  * Comment manager implementation for people.
  *
  * @author  Matthias Schmidt
- * @copyright   2001-2021 WoltLab GmbH
+ * @copyright   2001-2022 WoltLab GmbH
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package WoltLabSuite\Core\System\Comment\Manager
  */
-class PersonCommentManager extends AbstractCommentManager
+final class PersonCommentManager extends AbstractCommentManager
 {
     /**
      * @inheritDoc

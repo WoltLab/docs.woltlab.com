@@ -216,9 +216,9 @@ use wcf\system\foo\event\ValueAvailable;
 
 final class ValueDumpListener
 {
-    public function __invoke(ValueAvailable $event)
+    public function __invoke(ValueAvailable $event): void
     {
-        var_dump($event->getValue());
+        \var_dump($event->getValue());
     }
 }
 ```

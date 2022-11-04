@@ -9,11 +9,11 @@ use wcf\system\WCF;
  * Dynamic box controller implementation for a list of persons.
  *
  * @author  Matthias Schmidt
- * @copyright   2001-2021 WoltLab GmbH
+ * @copyright   2001-2022 WoltLab GmbH
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package WoltLabSuite\Core\System\Box
  */
-class PersonListBoxController extends AbstractDatabaseObjectListBoxController
+final class PersonListBoxController extends AbstractDatabaseObjectListBoxController
 {
     /**
      * @inheritDoc

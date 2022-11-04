@@ -54,18 +54,16 @@ The possible keywords are:
 - Alpha/dev (both is regarded to be the same)
 - Beta
 - RC (release candidate)
-- pl (patch level)
 
 Valid examples:
 
 - 1.0.0
 - 1.12.13 Alpha 19
-- 7.0.0 pl 3
 
 Invalid examples:
 
 - 1.0.0 Beta (keyword Beta must be followed by a number)
-- 2.0 RC 3 (version number must consists of 3 blocks of numbers)
+- 2.0 RC 3 (version number must consist of 3 blocks of numbers)
 - 1.2.3 dev 4.5 (4.5 is not an integer, 4 or 5 would be valid but not the fraction)
 
 #### `<date>`
@@ -124,10 +122,10 @@ List of packages which conflict with this package. It is not possible to install
 Example:
 
 ```xml
-<excludedpackage version="6.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+<excludedpackage version="7.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
 ```
 
-The attribute `version` must be a valid version number as described in the [\<version\>](#version) section. In the example above it will be impossible to install this package in WoltLab Suite Core 6.0.0 Alpha 1 or higher.
+The attribute `version` must be a valid version number as described in the [\<version\>](#version) section. In the example above it will be impossible to install this package in WoltLab Suite Core 7.0.0 Alpha 1 or higher.
 
 
 ### `<instructions>`

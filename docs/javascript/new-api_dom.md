@@ -1,11 +1,5 @@
 # Working with the DOM - JavaScript API
 
-## Helper Functions
-
-There is large set of [helper functions](helper-functions.md) that assist
-you when working with the DOM tree and its elements. These functions are globally
-available and do not require explicit module imports.
-
 ## `Dom/Util`
 
 ### `createFragmentFromHtml(html: string): DocumentFragment`

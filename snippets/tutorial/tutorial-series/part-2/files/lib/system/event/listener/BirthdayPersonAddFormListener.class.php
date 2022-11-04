@@ -11,19 +11,19 @@ use wcf\system\form\builder\field\DateFormField;
  * Handles setting the birthday when adding and editing people.
  *
  * @author  Matthias Schmidt
- * @copyright   2001-2021 WoltLab GmbH
+ * @copyright   2001-2022 WoltLab GmbH
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package WoltLabSuite\Core\System\Event\Listener
  */
-class BirthdayPersonAddFormListener extends AbstractEventListener
+final class BirthdayPersonAddFormListener extends AbstractEventListener
 {
     /**
      * @see AbstractFormBuilderForm::createForm()
      */
     protected function onCreateForm(PersonAddForm $form): void
     {
-        /** @var FormContainer $dataContainer */
         $dataContainer = $form->form->getNodeById('data');
+        \assert($dataContainer instanceof FormContainer);
         $dataContainer->appendChild(
             DateFormField::create('birthday')
                 ->label('wcf.person.birthday')

@@ -9,7 +9,7 @@ use wcf\data\person\PersonList;
  * Runtime cache implementation for people.
  *
  * @author  Matthias Schmidt
- * @copyright   2001-2021 WoltLab GmbH
+ * @copyright   2001-2022 WoltLab GmbH
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package WoltLabSuite\Core\System\Cache\Runtime
  *
@@ -17,7 +17,7 @@ use wcf\data\person\PersonList;
  * @method  Person      getObject($objectID)
  * @method  Person[]    getObjects(array $objectIDs)
  */
-class PersonRuntimeCache extends AbstractRuntimeCache
+final class PersonRuntimeCache extends AbstractRuntimeCache
 {
     /**
      * @inheritDoc
