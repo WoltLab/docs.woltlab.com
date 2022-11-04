@@ -237,6 +237,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `WCF.User.Panel.Abstract` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 - `window.shuffle()` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WSC_API_VERSION` ([WoltLab/WCF#4943](https://github.com/WoltLab/WCF/pull/4943))
+- `WCF.Infraction.Warning.ShowDetails`
 
 ### Database
 
