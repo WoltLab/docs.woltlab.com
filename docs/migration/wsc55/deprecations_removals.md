@@ -96,6 +96,8 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\bbcode\HtmlBBCodeParser::setRemoveLinks()` ([WoltLab/WCF#4986](https://github.com/WoltLab/WCF/pull/4986))
 - `wcf\system\html\output\node\AbstractHtmlOutputNode::setRemoveLinks()` ([WoltLab/WCF#4986](https://github.com/WoltLab/WCF/pull/4986))
 - `wcf\system\package\PackageArchive::downloadArchive()` ([WoltLab/WCF#5006](https://github.com/WoltLab/WCF/pull/5006))
+- `wcf\system\package\PackageArchive::getInstructions()` ([WoltLab/WCF#5120](https://github.com/WoltLab/WCF/pull/5120))
+- `wcf\system\package\PackageArchive::setPackage()` ([WoltLab/WCF#5120](https://github.com/WoltLab/WCF/pull/5120))
 - `wcf\system\package\PackageArchive::unzipPackageArchive()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
 - `wcf\system\package\PackageInstallationDispatcher::checkPackageInstallationQueue()` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
 - `wcf\system\package\PackageInstallationDispatcher::completeSetup()` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
