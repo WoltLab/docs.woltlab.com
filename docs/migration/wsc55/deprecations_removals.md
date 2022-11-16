@@ -99,6 +99,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\package\PackageArchive::getAllExistingRequirements()` ([WoltLab/WCF#5125](https://github.com/WoltLab/WCF/pull/5125))
 - `wcf\system\package\PackageArchive::getInstructions()` ([WoltLab/WCF#5120](https://github.com/WoltLab/WCF/pull/5120))
 - `wcf\system\package\PackageArchive::isValidInstall()` ([WoltLab/WCF#5125](https://github.com/WoltLab/WCF/pull/5125))
+- `wcf\system\package\PackageArchive::isValidUpdate()` ([WoltLab/WCF#5126](https://github.com/WoltLab/WCF/pull/5126))
 - `wcf\system\package\PackageArchive::setPackage()` ([WoltLab/WCF#5120](https://github.com/WoltLab/WCF/pull/5120))
 - `wcf\system\package\PackageArchive::unzipPackageArchive()` ([WoltLab/WCF#4949](https://github.com/WoltLab/WCF/pull/4949))
 - `wcf\system\package\PackageInstallationDispatcher::checkPackageInstallationQueue()` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
