@@ -96,8 +96,10 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\bbcode\HtmlBBCodeParser::setRemoveLinks()` ([WoltLab/WCF#4986](https://github.com/WoltLab/WCF/pull/4986))
 - `wcf\system\html\output\node\AbstractHtmlOutputNode::setRemoveLinks()` ([WoltLab/WCF#4986](https://github.com/WoltLab/WCF/pull/4986))
 - `wcf\system\package\PackageArchive::downloadArchive()` ([WoltLab/WCF#5006](https://github.com/WoltLab/WCF/pull/5006))
+- `wcf\system\package\PackageArchive::filterUpdateInstructions()` ([WoltLab/WCF#5129](https://github.com/WoltLab/WCF/pull/5129))
 - `wcf\system\package\PackageArchive::getAllExistingRequirements()` ([WoltLab/WCF#5125](https://github.com/WoltLab/WCF/pull/5125))
 - `wcf\system\package\PackageArchive::getInstructions()` ([WoltLab/WCF#5120](https://github.com/WoltLab/WCF/pull/5120))
+- `wcf\system\package\PackageArchive::getUpdateInstructions()` ([WoltLab/WCF#5129](https://github.com/WoltLab/WCF/pull/5129))
 - `wcf\system\package\PackageArchive::isValidInstall()` ([WoltLab/WCF#5125](https://github.com/WoltLab/WCF/pull/5125))
 - `wcf\system\package\PackageArchive::isValidUpdate()` ([WoltLab/WCF#5126](https://github.com/WoltLab/WCF/pull/5126))
 - `wcf\system\package\PackageArchive::setPackage()` ([WoltLab/WCF#5120](https://github.com/WoltLab/WCF/pull/5120))
@@ -142,6 +144,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 - `wcf\acp\form\PageAddForm::$isLandingPage` ([WoltLab/WCF#4842](https://github.com/WoltLab/WCF/pull/4842))
 - `wcf\system\appliation\ApplicationHandler::$isMultiDomain` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
+- `wcf\system\package\PackageArchive::$package` ([WoltLab/WCF#5129](https://github.com/WoltLab/WCF/pull/5129))
 - `wcf\system\request\RequestHandler::$inRescueMode` ([WoltLab/WCF#4831](https://github.com/WoltLab/WCF/pull/4831))
 - `wcf\system\request\RouteHandler::$defaultControllers` ([WoltLab/WCF#4832](https://github.com/WoltLab/WCF/pull/4832))
 - `wcf\system\template\TemplateScriptingCompiler::$disabledPHPFunctions` ([WoltLab/WCF#4788](https://github.com/WoltLab/WCF/pull/4788))
