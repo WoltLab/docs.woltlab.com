@@ -240,3 +240,24 @@ This is to ensure that all conditions specify a unique identifier, instead of ac
 The `$identifier` property will no longer be used and may be removed.
 
 See [WoltLab/WCF#5077](https://github.com/WoltLab/WCF/pull/5077) for details.
+
+## Rebuild Workers
+
+Rebuild workers should no longer be registered using the `com.woltlab.wcf.rebuildData` object type definition.
+You can attach an event listener to the `wcf\system\worker\event\RebuildWorkerCollecting` event inside a [bootstrap script](#bootstrap-scripts) to lazily register workers.
+The class name of the worker is registered using the event’s `register()` method:
+
+```php title="files/lib/bootstrap/com.example.bar.php"
+<?php
+
+use wcf\system\event\EventHandler;
+use wcf\system\worker\event\RebuildWorkerCollecting;
+
+return static function (): void {
+    $eventHandler = EventHandler::getInstance();
+
+    $eventHandler->register(RebuildWorkerCollecting::class, static function (RebuildWorkerCollecting $event) {
+        $event->register(\bar\system\worker\BazWorker::class, 0);
+    });
+};
+```
