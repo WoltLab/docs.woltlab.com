@@ -1925,6 +1925,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#rebuild-workers" class="md-nav__link">
+    Rebuild Workers
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2904,6 +2911,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#rebuild-workers" class="md-nav__link">
+    Rebuild Workers
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3145,13 +3159,41 @@ Examples for sensitive parameters include passwords/passphrases, access tokens, 
 This is to ensure that all conditions specify a unique identifier, instead of accidentally relying on a default value.
 The <code>$identifier</code> property will no longer be used and may be removed.</p>
 <p>See <a href="https://github.com/WoltLab/WCF/pull/5077">WoltLab/WCF#5077</a> for details.</p>
+<h2 id="rebuild-workers">Rebuild Workers<a class="headerlink" href="#rebuild-workers" title="Permanent link">#</a></h2>
+<p>Rebuild workers should no longer be registered using the <code>com.woltlab.wcf.rebuildData</code> object type definition.
+You can attach an event listener to the <code>wcf\system\worker\event\RebuildWorkerCollecting</code> event inside a <a href="#bootstrap-scripts">bootstrap script</a> to lazily register workers.
+The class name of the worker is registered using the event’s <code>register()</code> method:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/bootstrap/com.example.bar.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">wcf\system\event\EventHandler</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\worker\event\RebuildWorkerCollecting</span><span class="p">;</span>
+
+<span class="k">return</span> <span class="k">static</span> <span class="k">function</span> <span class="p">()</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
+    <span class="nv">$eventHandler</span> <span class="o">=</span> <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">();</span>
+
+    <span class="nv">$eventHandler</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">RebuildWorkerCollecting</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">RebuildWorkerCollecting</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">\bar\system\worker\BazWorker</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-11-02
+      2022-12-06
     
   </small>
 </div>
