@@ -244,7 +244,8 @@ See [WoltLab/WCF#5077](https://github.com/WoltLab/WCF/pull/5077) for details.
 ## Rebuild Workers
 
 Rebuild workers should no longer be registered using the `com.woltlab.wcf.rebuildData` object type definition.
-Instead an event listener for the `wcf\system\worker\event\RebuildWorkerCollecting` event should be registered in a [bootstrap script](#bootstrap-scripts) the worker classname be registered using the event’s `register()` method:
+You can attach an event listener to the `wcf\system\worker\event\RebuildWorkerCollecting` event inside a [bootstrap script](#bootstrap-scripts) to lazily register workers.
+The class name of the worker is registered using the event’s `register()` method:
 
 ```php title="files/lib/bootstrap/com.example.bar.php"
 <?php
