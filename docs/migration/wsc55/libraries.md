@@ -16,6 +16,12 @@ Instead the [`idn_to_ascii`](https://www.php.net/manual/en/function.idn-to-ascii
 
 Diactoros was updated from version 2.4 to 2.22.
 
+## Input Validation
+
+WoltLab Suite 6.0 ships with cuyz/valinor 1.0 as a reliable solution to validate untrusted external input values.
+
+Refer to the documentation within the [CuyZ/Valinor](https://github.com/CuyZ/Valinor) repository for details.
+
 ## Diff
 
 WoltLab Suite 6.0 ships with sebastian/diff as a replacement for `wcf\util\Diff`.
