@@ -3199,7 +3199,10 @@ Likewise any functionality called by the controller’s <code>handle()</code> me
 <span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
-<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">wcf\action</span><span class="p">;</span>
 
@@ -3212,8 +3215,9 @@ Likewise any functionality called by the controller’s <code>handle()</code> me
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
     <span class="p">{</span>
-        <span class="cm">/* 0. Explicitly register services used by the controller, to make dependencies</span>
-<span class="cm">         *    explicit and to avoid accidentally using global state outside of a controller.</span>
+        <span class="cm">/* 0. Explicitly register services used by the controller, to</span>
+<span class="cm">         *    make dependencies explicit and to avoid accidentally using</span>
+<span class="cm">         *    global state outside of a controller.</span>
 <span class="cm">         */</span>
     <span class="p">}</span>
 
@@ -3221,15 +3225,17 @@ Likewise any functionality called by the controller’s <code>handle()</code> me
     <span class="p">{</span>
         <span class="cm">/* 1. Perform permission checks and input validation. */</span>
 
-        <span class="cm">/* 2. Perform the action. The action must not rely on global state, but</span>
-<span class="cm">         *    instead only on explicitly passed values. It should assume that</span>
-<span class="cm">         *    permissions have already been validated by the controller, allowing</span>
-<span class="cm">         *    it to be reusable programmatically.</span>
+        <span class="cm">/* 2. Perform the action. The action must not rely on global state,</span>
+<span class="cm">         *    but instead only on explicitly passed values. It should assume</span>
+<span class="cm">         *    that permissions have already been validated by the controller,</span>
+<span class="cm">         *    allowing it to be reusable programmatically.</span>
 <span class="cm">         */</span>
 
         <span class="cm">/* 3. Perform post processing. */</span>
 
-        <span class="cm">/* 4. Prepare the response, e.g. by querying an updated object from the database. */</span>
+        <span class="cm">/* 4. Prepare the response, e.g. by querying an updated object from</span>
+<span class="cm">         *    the database.</span>
+<span class="cm">         */</span>
 
         <span class="cm">/* 5. Send the response. */</span>
         <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">();</span>
@@ -3244,7 +3250,13 @@ Likewise any requests with a JSON body will automatically be decoded by a middle
 <p>The new <code>WoltLabSuite/Core/Ajax/Backend</code> module may be used to easily query a <code>RequestHandlerInterface</code>-based controller.
 The JavaScript code must not make any assumptions about the URI structure to reach the controller.
 Instead the endpoint must be generated using <code>LinkHandler</code> and explicitly provided, e.g. by storing it in a <code>data-endpoint</code> attribute:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;button class=&quot;button fancyButton&quot; data-endpoint=&quot;{link controller=&#39;MyFancy&#39;}{/link}&quot;&gt;Click me!&lt;/button&gt;
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;button</span>
+<span class="x">    class=&quot;button fancyButton&quot;</span>
+<span class="x">    data-endpoint=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;MyFancy&#39;</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">&gt;Click me!&lt;/button&gt;</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -3263,7 +3275,11 @@ Instead the endpoint must be generated using <code>LinkHandler</code> and explic
 <h4 id="formbuilder">FormBuilder<a class="headerlink" href="#formbuilder" title="Permanent link">#</a></h4>
 <p>The <code>Psr15DialogForm</code> class combined with the <code>usingFormBuilder()</code> method of <a href="../dialogs/"><code>dialogFactory()</code></a> provides a “batteries-included” solution to create a AJAX- and <a href="../../../php/api/form_builder/overview/">FormBuilder</a>-based <code>RequestHandlerInterface</code>-based controller.</p>
 <p>Within the JavaScript code the endpoint is queried using:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ok</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">usingFormBuilder</span><span class="p">().</span><span class="nx">fromEndpoint</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ok</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nx">usingFormBuilder</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nx">fromEndpoint</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <p>The returned <code>Promise</code> will resolve when the dialog is closed, either by successfully submitting the form or by manually closing it and thus aborting the process.
 If the form was submitted successfully <code>ok</code> will be <code>true</code> and <code>result</code> will contain the controller’s response.
