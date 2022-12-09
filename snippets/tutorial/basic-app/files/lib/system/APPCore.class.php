@@ -5,7 +5,7 @@ namespace app\system;
 use app\page\ExamplePage;
 use wcf\system\application\AbstractApplication;
 
-class APPCore extends AbstractApplication
+final class APPCore extends AbstractApplication
 {
     /**
      * @inheritDoc
