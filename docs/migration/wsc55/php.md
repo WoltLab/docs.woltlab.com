@@ -121,6 +121,147 @@ return static function (): void {
 };
 ```
 
+## Request Processing
+
+As previously mentioned in the [Application Boot](#application-boot) section, WoltLab Suite 6.0 improves support for PSR-7/PSR-15-based request processing [that was initially announced with WoltLab Suite 5.5](../wsc54/php.md#initial-psr-7-support).
+
+WoltLab Suite 5.5 added support for returning a PSR-7 `ResponseInterface` from a controller and recommended to migrate existing controllers based on `AbstractAction` to make use of `RedirectResponse` and `JsonResponse` instead of using `HeaderUtil::redirect()` or manually emitting JSON with appropriate headers.
+Processing the request values still used PHP’s superglobals (specifically `$_GET` and `$_POST`).
+
+WoltLab Suite 6.0 adds support for controllers based on PSR-15’s `RequestHandlerInterface`, supporting request processing based on a provided PSR-7 `ServerRequestInterface` object.
+
+### Recommended changes for WoltLab Suite 6.0
+
+It is recommended to use `RequestHandlerInterface`-based controllers whenever an `AbstractAction` would previously be used.
+Furthermore any AJAX-based logic that would previously rely on `AJAXProxyAction` combined with a method in an `AbstractDatabaseObjectAction` should also be implemented using a dedicated `RequestHandlerInterface`-based controller.
+Both `AbstractAction` and `AJAXProxyAction`-based AJAX requests should be considered soft-deprecated going forward.
+
+When creating a `RequestHandlerInterface`-based controller, care should be taken to ensure no mutable state is stored in object properties of the controller itself, the state of the controller object must be identical before, during and after a request was processed. Instead any required values must be passed explicitly by means of method parameters and return values.
+Likewise any functionality called by the controller’s `handle()` method should not rely on implicit global values, such as `WCF::getUser()`, as was explained in the previous [section about request-specific logic](#request-specific-logic-will-no-longer-happen-during-boot).
+
+The recommended pattern for a `RequestHandlerInterface`-based controller looks as follows:
+
+```php title="files/lib/action/MyFancyAction.class.php"
+<?php
+
+namespace wcf\action;
+
+use Laminas\Diactoros\Response;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Server\RequestHandlerInterface;
+
+final class MyFancyAction implements RequestHandlerInterface
+{
+    public function __construct()
+    {
+        /* 0. Explicitly register services used by the controller, to make dependencies
+         *    explicit and to avoid accidentally using global state outside of a controller.
+         */
+    }
+
+    public function handle(ServerRequestInterface $request): ResponseInterface
+    {
+        /* 1. Perform permission checks and input validation. */
+
+        /* 2. Perform the action. The action must not rely on global state, but
+         *    instead only on explicitly passed values. It should assume that
+         *    permissions have already been validated by the controller, allowing
+         *    it to be reusable programmatically.
+         */
+
+        /* 3. Perform post processing. */
+
+        /* 4. Prepare the response, e.g. by querying an updated object from the database. */
+
+        /* 5. Send the response. */
+        return new Response();
+    }
+}
+```
+
+It is recommended to leverage [Valinor](./libraries.md#input-validation) for structural validation of input values if using the [FormBuilder](../../php/api/form_builder/overview.md) is not a good fit, specifically for any values that are provided implicitly and are expected to be correct.
+WoltLab Suite includes a middleware that will automatically convert unhandled `MappingError`s into a response with status HTTP 400 Bad Request.
+
+XSRF validation will automatically be performed by a middleware any non-`GET` requests.
+Likewise any requests with a JSON body will automatically be decoded by a middleware and stored as the `ServerRequestInterface`’s parsed body.
+
+#### Querying RequestHandlerInterface-based controllers via JavaScript
+
+The new `WoltLabSuite/Core/Ajax/Backend` module may be used to easily query a `RequestHandlerInterface`-based controller.
+The JavaScript code must not make any assumptions about the URI structure to reach the controller.
+Instead the endpoint must be generated using `LinkHandler` and explicitly provided, e.g. by storing it in a `data-endpoint` attribute:
+
+```tpl
+<button class="button fancyButton" data-endpoint="{link controller='MyFancy'}{/link}">Click me!</button>
+```
+
+```ts
+const button = document.querySelector('.fancyButton');
+button.addEventListener('click', async (event) => {
+    const request = prepareRequest(button.dataset.endpoint)
+        .get(); // or: .post(…)
+
+    const response = await request.fetchAsResponse(); // or: .fetchAsJson()
+});
+```
+
+#### FormBuilder
+
+The `Psr15DialogForm` class combined with the `usingFormBuilder()` method of [`dialogFactory()`](./dialogs.md) provides a batteries-included solution to create a AJAX- and [FormBuilder](../../php/api/form_builder/overview.md)-based `RequestHandlerInterface`-based controller.
+
+Within the JavaScript code the endpoint is queried using:
+
+```ts
+const { ok, result } = await dialogFactory().usingFormBuilder().fromEndpoint(url);
+```
+
+The returned `Promise` will resolve when the dialog is closed, either by successfully submitting the form or by manually closing it and thus aborting the process.
+If the form was submitted successfully `ok` will be `true` and `result` will contain the controller’s response.
+If the dialog was closed without successfully submitting the form, `ok` will be `false` and `result` will contain an undefined value.
+
+Within the PHP code, then form may be created as usual, using `Psr15DialogForm` as the form document.
+The controller must return `$dialogForm->toJsonResponse()` for `GET` requests and validate the `ServerRequestInterface` using `$dialogForm->validateRequest($request)` for `POST` requests.
+The latter will return a `ResponseInterface` to be returned if validation fails, and `null` otherwise.
+If validation succeeded, the controller must perform the resulting action and return a `JsonResponse` with the `result` key:
+
+```php
+if ($request->getMethod() === 'GET') {
+    return $dialogForm->toJsonResponse();
+} elseif ($request->getMethod() === 'POST') {
+    $response = $dialogForm->validatePsr7Request($request);
+    if ($response !== null) {
+        return $response;
+    }
+
+    $data = $form->getData();
+
+    // Use $data.
+
+    return new JsonResponse([
+        'result' => [
+            'some' => 'value',
+        ],
+    ]);
+} else {
+    return new TextResponse('The used HTTP method is not allowed.', 405, [
+        'allow' => 'POST, GET',
+    ]);
+}
+```
+
+#### Example
+
+A complete example, showcasing all the patterns can be found in [WoltLab/WCF#5106](https://github.com/WoltLab/WCF/pull/5106).
+This example showcases how to:
+
+- Store used services within the controller’s constructor.
+- Perform validation of inputs using Valinor.
+- Perform permission checks.
+- Use the FormBuilder.
+- Delegate the actual processing to a reusable command that does not rely on global state.
+- Store the request endpoint as a `data-*` attribute.
+
 ## Package System
 
 ### Required “minversion” for required packages
