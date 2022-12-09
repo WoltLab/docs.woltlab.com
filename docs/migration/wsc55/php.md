@@ -157,8 +157,9 @@ final class MyFancyAction implements RequestHandlerInterface
 {
     public function __construct()
     {
-        /* 0. Explicitly register services used by the controller, to make dependencies
-         *    explicit and to avoid accidentally using global state outside of a controller.
+        /* 0. Explicitly register services used by the controller, to
+         *    make dependencies explicit and to avoid accidentally using
+         *    global state outside of a controller.
          */
     }
 
@@ -166,15 +167,17 @@ final class MyFancyAction implements RequestHandlerInterface
     {
         /* 1. Perform permission checks and input validation. */
 
-        /* 2. Perform the action. The action must not rely on global state, but
-         *    instead only on explicitly passed values. It should assume that
-         *    permissions have already been validated by the controller, allowing
-         *    it to be reusable programmatically.
+        /* 2. Perform the action. The action must not rely on global state,
+         *    but instead only on explicitly passed values. It should assume
+         *    that permissions have already been validated by the controller,
+         *    allowing it to be reusable programmatically.
          */
 
         /* 3. Perform post processing. */
 
-        /* 4. Prepare the response, e.g. by querying an updated object from the database. */
+        /* 4. Prepare the response, e.g. by querying an updated object from
+         *    the database.
+         */
 
         /* 5. Send the response. */
         return new Response();
@@ -194,8 +197,11 @@ The new `WoltLabSuite/Core/Ajax/Backend` module may be used to easily query a `R
 The JavaScript code must not make any assumptions about the URI structure to reach the controller.
 Instead the endpoint must be generated using `LinkHandler` and explicitly provided, e.g. by storing it in a `data-endpoint` attribute:
 
-```tpl
-<button class="button fancyButton" data-endpoint="{link controller='MyFancy'}{/link}">Click me!</button>
+```smarty
+<button
+    class="button fancyButton"
+    data-endpoint="{link controller='MyFancy'}{/link}"
+>Click me!</button>
 ```
 
 ```ts
@@ -215,7 +221,9 @@ The `Psr15DialogForm` class combined with the `usingFormBuilder()` method of [`d
 Within the JavaScript code the endpoint is queried using:
 
 ```ts
-const { ok, result } = await dialogFactory().usingFormBuilder().fromEndpoint(url);
+const { ok, result } = await dialogFactory()
+    .usingFormBuilder()
+    .fromEndpoint(url);
 ```
 
 The returned `Promise` will resolve when the dialog is closed, either by successfully submitting the form or by manually closing it and thus aborting the process.
