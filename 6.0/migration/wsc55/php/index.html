@@ -1838,6 +1838,53 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#request-processing" class="md-nav__link">
+    Request Processing
+  </a>
+  
+    <nav class="md-nav" aria-label="Request Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-changes-for-woltlab-suite-60" class="md-nav__link">
+    Recommended changes for WoltLab Suite 6.0
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommended changes for WoltLab Suite 6.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#querying-requesthandlerinterface-based-controllers-via-javascript" class="md-nav__link">
+    Querying RequestHandlerInterface-based controllers via JavaScript
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formbuilder" class="md-nav__link">
+    FormBuilder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#package-system" class="md-nav__link">
     Package System
   </a>
@@ -2824,6 +2871,53 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#request-processing" class="md-nav__link">
+    Request Processing
+  </a>
+  
+    <nav class="md-nav" aria-label="Request Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-changes-for-woltlab-suite-60" class="md-nav__link">
+    Recommended changes for WoltLab Suite 6.0
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommended changes for WoltLab Suite 6.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#querying-requesthandlerinterface-based-controllers-via-javascript" class="md-nav__link">
+    Querying RequestHandlerInterface-based controllers via JavaScript
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formbuilder" class="md-nav__link">
+    FormBuilder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#package-system" class="md-nav__link">
     Package System
   </a>
@@ -3056,6 +3150,183 @@ Registering event listeners within the bootstrap script allows you to leverage y
     <span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="request-processing">Request Processing<a class="headerlink" href="#request-processing" title="Permanent link">#</a></h2>
+<p>As previously mentioned in the <a href="#application-boot">Application Boot</a> section, WoltLab Suite 6.0 improves support for PSR-7/PSR-15-based request processing <a href="../../wsc54/php/#initial-psr-7-support">that was initially announced with WoltLab Suite 5.5</a>.</p>
+<p>WoltLab Suite 5.5 added support for returning a PSR-7 <code>ResponseInterface</code> from a controller and recommended to migrate existing controllers based on <code>AbstractAction</code> to make use of <code>RedirectResponse</code> and <code>JsonResponse</code> instead of using <code>HeaderUtil::redirect()</code> or manually emitting JSON with appropriate headers.
+Processing the request values still used PHP’s superglobals (specifically <code>$_GET</code> and <code>$_POST</code>).</p>
+<p>WoltLab Suite 6.0 adds support for controllers based on PSR-15’s <code>RequestHandlerInterface</code>, supporting request processing based on a provided PSR-7 <code>ServerRequestInterface</code> object.</p>
+<h3 id="recommended-changes-for-woltlab-suite-60">Recommended changes for WoltLab Suite 6.0<a class="headerlink" href="#recommended-changes-for-woltlab-suite-60" title="Permanent link">#</a></h3>
+<p>It is recommended to use <code>RequestHandlerInterface</code>-based controllers whenever an <code>AbstractAction</code> would previously be used.
+Furthermore any AJAX-based logic that would previously rely on <code>AJAXProxyAction</code> combined with a method in an <code>AbstractDatabaseObjectAction</code> should also be implemented using a dedicated <code>RequestHandlerInterface</code>-based controller.
+Both <code>AbstractAction</code> and <code>AJAXProxyAction</code>-based AJAX requests should be considered soft-deprecated going forward.</p>
+<p>When creating a <code>RequestHandlerInterface</code>-based controller, care should be taken to ensure no mutable state is stored in object properties of the controller itself.
+The state of the controller object must be identical before, during and after a request was processed.
+Any required values must be passed explicitly by means of method parameters and return values.
+Likewise any functionality called by the controller’s <code>handle()</code> method should not rely on implicit global values, such as <code>WCF::getUser()</code>, as was explained in the previous <a href="#request-specific-logic-will-no-longer-happen-during-boot">section about request-specific logic</a>.</p>
+<p>The recommended pattern for a <code>RequestHandlerInterface</code>-based controller looks as follows:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/action/MyFancyAction.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">wcf\action</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Laminas\Diactoros\Response</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Psr\Http\Message\ServerRequestInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Psr\Http\Message\ResponseInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Psr\Http\Server\RequestHandlerInterface</span><span class="p">;</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">MyFancyAction</span> <span class="k">implements</span> <span class="nx">RequestHandlerInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="cm">/* 0. Explicitly register services used by the controller, to make dependencies</span>
+<span class="cm">         *    explicit and to avoid accidentally using global state outside of a controller.</span>
+<span class="cm">         */</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">handle</span><span class="p">(</span><span class="nx">ServerRequestInterface</span> <span class="nv">$request</span><span class="p">)</span><span class="o">:</span> <span class="nx">ResponseInterface</span>
+    <span class="p">{</span>
+        <span class="cm">/* 1. Perform permission checks and input validation. */</span>
+
+        <span class="cm">/* 2. Perform the action. The action must not rely on global state, but</span>
+<span class="cm">         *    instead only on explicitly passed values. It should assume that</span>
+<span class="cm">         *    permissions have already been validated by the controller, allowing</span>
+<span class="cm">         *    it to be reusable programmatically.</span>
+<span class="cm">         */</span>
+
+        <span class="cm">/* 3. Perform post processing. */</span>
+
+        <span class="cm">/* 4. Prepare the response, e.g. by querying an updated object from the database. */</span>
+
+        <span class="cm">/* 5. Send the response. */</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>It is recommended to leverage <a href="../libraries/#input-validation">Valinor</a> for structural validation of input values if using the <a href="../../../php/api/form_builder/overview/">FormBuilder</a> is not a good fit, specifically for any values that are provided implicitly and are expected to be correct.
+WoltLab Suite includes a middleware that will automatically convert unhandled <code>MappingError</code>s into a response with status HTTP 400 Bad Request.</p>
+<p>XSRF validation will implicitly be performed for any request that uses a HTTP verb other than <code>GET</code>.
+Likewise any requests with a JSON body will automatically be decoded by a middleware and stored as the <code>ServerRequestInterface</code>’s parsed body.</p>
+<h4 id="querying-requesthandlerinterface-based-controllers-via-javascript">Querying RequestHandlerInterface-based controllers via JavaScript<a class="headerlink" href="#querying-requesthandlerinterface-based-controllers-via-javascript" title="Permanent link">#</a></h4>
+<p>The new <code>WoltLabSuite/Core/Ajax/Backend</code> module may be used to easily query a <code>RequestHandlerInterface</code>-based controller.
+The JavaScript code must not make any assumptions about the URI structure to reach the controller.
+Instead the endpoint must be generated using <code>LinkHandler</code> and explicitly provided, e.g. by storing it in a <code>data-endpoint</code> attribute:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;button class=&quot;button fancyButton&quot; data-endpoint=&quot;{link controller=&#39;MyFancy&#39;}{/link}&quot;&gt;Click me!&lt;/button&gt;
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.fancyButton&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">prepareRequest</span><span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">endpoint</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="nx">get</span><span class="p">();</span><span class="w"> </span><span class="c1">// or: .post(…)</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nx">fetchAsResponse</span><span class="p">();</span><span class="w"> </span><span class="c1">// or: .fetchAsJson()</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h4 id="formbuilder">FormBuilder<a class="headerlink" href="#formbuilder" title="Permanent link">#</a></h4>
+<p>The <code>Psr15DialogForm</code> class combined with the <code>usingFormBuilder()</code> method of <a href="../dialogs/"><code>dialogFactory()</code></a> provides a “batteries-included” solution to create a AJAX- and <a href="../../../php/api/form_builder/overview/">FormBuilder</a>-based <code>RequestHandlerInterface</code>-based controller.</p>
+<p>Within the JavaScript code the endpoint is queried using:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ok</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">usingFormBuilder</span><span class="p">().</span><span class="nx">fromEndpoint</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>The returned <code>Promise</code> will resolve when the dialog is closed, either by successfully submitting the form or by manually closing it and thus aborting the process.
+If the form was submitted successfully <code>ok</code> will be <code>true</code> and <code>result</code> will contain the controller’s response.
+If the dialog was closed without successfully submitting the form, <code>ok</code> will be <code>false</code> and <code>result</code> will be set to <code>undefined</code>.</p>
+<p>Within the PHP code, the form may be created as usual, but use <code>Psr15DialogForm</code> as the form document.
+The controller must return <code>$dialogForm-&gt;toJsonResponse()</code> for <code>GET</code> requests and validate the <code>ServerRequestInterface</code> using <code>$dialogForm-&gt;validateRequest($request)</code> for <code>POST</code> requests.
+The latter will return a <code>ResponseInterface</code> to be returned if the validation fails, otherwise <code>null</code> is returned.
+If validation succeeded, the controller must perform the resulting action and return a <code>JsonResponse</code> with the <code>result</code> key:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$dialogForm</span><span class="o">-&gt;</span><span class="na">toJsonResponse</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$dialogForm</span><span class="o">-&gt;</span><span class="na">validatePsr7Request</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$response</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
+
+    <span class="c1">// Use $data.</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">JsonResponse</span><span class="p">([</span>
+        <span class="s1">&#39;result&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;some&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">]);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">TextResponse</span><span class="p">(</span><span class="s1">&#39;The used HTTP method is not allowed.&#39;</span><span class="p">,</span> <span class="mi">405</span><span class="p">,</span> <span class="p">[</span>
+        <span class="s1">&#39;allow&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;POST, GET&#39;</span><span class="p">,</span>
+    <span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
+<p>A complete example, showcasing all the patterns can be found in <a href="https://github.com/WoltLab/WCF/pull/5106">WoltLab/WCF#5106</a>.
+This example showcases how to:</p>
+<ul>
+<li>Store used services within the controller’s constructor.</li>
+<li>Perform validation of inputs using Valinor.</li>
+<li>Perform permission checks.</li>
+<li>Use the FormBuilder.</li>
+<li>Delegate the actual processing to a reusable command that does not rely on global state.</li>
+<li>Store the request endpoint as a <code>data-*</code> attribute.</li>
+</ul>
 <h2 id="package-system">Package System<a class="headerlink" href="#package-system" title="Permanent link">#</a></h2>
 <h3 id="required-minversion-for-required-packages">Required “minversion” for required packages<a class="headerlink" href="#required-minversion-for-required-packages" title="Permanent link">#</a></h3>
 <p>The <code>minversion</code> attribute of the <code>&lt;requiredpackage&gt;</code> tag is now required.</p>
@@ -3193,7 +3464,7 @@ The class name of the worker is registered using the event’s <code>register()<
   <small>
     
       Last update:
-      2022-12-06
+      2022-12-09
     
   </small>
 </div>
