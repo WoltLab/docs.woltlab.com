@@ -16,6 +16,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 #### Methods
 
+- `wcf\data\cronjob\CronjobAction::executeCronjobs()` ([WoltLab/WCF#5171](https://github.com/WoltLab/WCF/pull/5171))
 - `wcf\data\package\update\server\PackageUpdateServer::attemptSecureConnection()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - `wcf\data\package\update\server\PackageUpdateServer::isValidServerURL()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - `wcf\data\page\Page::setAsLandingPage()` ([WoltLab/WCF#4842](https://github.com/WoltLab/WCF/pull/4842))
@@ -74,6 +75,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\bbcode\highlighter\*Highlighter` ([WoltLab/WCF#4926](https://github.com/WoltLab/WCF/pull/4926))
 - `wcf\system\bbcode\highlighter\Highlighter` ([WoltLab/WCF#4926](https://github.com/WoltLab/WCF/pull/4926))
 - `wcf\system\cache\source\MemcachedCacheSource` ([WoltLab/WCF#4928](https://github.com/WoltLab/WCF/pull/4928))
+- `wcf\system\cli\command\CronjobCLICommand` ([WoltLab/WCF#5171](https://github.com/WoltLab/WCF/pull/5171))
 - `wcf\system\cli\command\PackageCLICommand` ([WoltLab/WCF#4946](https://github.com/WoltLab/WCF/pull/4946))
 - `wcf\system\cli\DatabaseCLICommandHistory` ([WoltLab/WCF#5058](https://github.com/WoltLab/WCF/pull/5058))
 - `wcf\system\database\table\column/\UnsupportedDefaultValue` ([WoltLab/WCF#5012](https://github.com/WoltLab/WCF/pull/5012))
