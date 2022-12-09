@@ -136,7 +136,9 @@ It is recommended to use `RequestHandlerInterface`-based controllers whenever an
 Furthermore any AJAX-based logic that would previously rely on `AJAXProxyAction` combined with a method in an `AbstractDatabaseObjectAction` should also be implemented using a dedicated `RequestHandlerInterface`-based controller.
 Both `AbstractAction` and `AJAXProxyAction`-based AJAX requests should be considered soft-deprecated going forward.
 
-When creating a `RequestHandlerInterface`-based controller, care should be taken to ensure no mutable state is stored in object properties of the controller itself, the state of the controller object must be identical before, during and after a request was processed. Instead any required values must be passed explicitly by means of method parameters and return values.
+When creating a `RequestHandlerInterface`-based controller, care should be taken to ensure no mutable state is stored in object properties of the controller itself.
+The state of the controller object must be identical before, during and after a request was processed.
+Any required values must be passed explicitly by means of method parameters and return values.
 Likewise any functionality called by the controller’s `handle()` method should not rely on implicit global values, such as `WCF::getUser()`, as was explained in the previous [section about request-specific logic](#request-specific-logic-will-no-longer-happen-during-boot).
 
 The recommended pattern for a `RequestHandlerInterface`-based controller looks as follows:
@@ -183,7 +185,7 @@ final class MyFancyAction implements RequestHandlerInterface
 It is recommended to leverage [Valinor](./libraries.md#input-validation) for structural validation of input values if using the [FormBuilder](../../php/api/form_builder/overview.md) is not a good fit, specifically for any values that are provided implicitly and are expected to be correct.
 WoltLab Suite includes a middleware that will automatically convert unhandled `MappingError`s into a response with status HTTP 400 Bad Request.
 
-XSRF validation will automatically be performed by a middleware any non-`GET` requests.
+XSRF validation will implicitly be performed for any request that uses a HTTP verb other than `GET`.
 Likewise any requests with a JSON body will automatically be decoded by a middleware and stored as the `ServerRequestInterface`’s parsed body.
 
 #### Querying RequestHandlerInterface-based controllers via JavaScript
@@ -208,7 +210,7 @@ button.addEventListener('click', async (event) => {
 
 #### FormBuilder
 
-The `Psr15DialogForm` class combined with the `usingFormBuilder()` method of [`dialogFactory()`](./dialogs.md) provides a batteries-included solution to create a AJAX- and [FormBuilder](../../php/api/form_builder/overview.md)-based `RequestHandlerInterface`-based controller.
+The `Psr15DialogForm` class combined with the `usingFormBuilder()` method of [`dialogFactory()`](./dialogs.md) provides a “batteries-included” solution to create a AJAX- and [FormBuilder](../../php/api/form_builder/overview.md)-based `RequestHandlerInterface`-based controller.
 
 Within the JavaScript code the endpoint is queried using:
 
@@ -218,11 +220,11 @@ const { ok, result } = await dialogFactory().usingFormBuilder().fromEndpoint(url
 
 The returned `Promise` will resolve when the dialog is closed, either by successfully submitting the form or by manually closing it and thus aborting the process.
 If the form was submitted successfully `ok` will be `true` and `result` will contain the controller’s response.
-If the dialog was closed without successfully submitting the form, `ok` will be `false` and `result` will contain an undefined value.
+If the dialog was closed without successfully submitting the form, `ok` will be `false` and `result` will be set to `undefined`.
 
-Within the PHP code, then form may be created as usual, using `Psr15DialogForm` as the form document.
+Within the PHP code, the form may be created as usual, but use `Psr15DialogForm` as the form document.
 The controller must return `$dialogForm->toJsonResponse()` for `GET` requests and validate the `ServerRequestInterface` using `$dialogForm->validateRequest($request)` for `POST` requests.
-The latter will return a `ResponseInterface` to be returned if validation fails, and `null` otherwise.
+The latter will return a `ResponseInterface` to be returned if the validation fails, otherwise `null` is returned.
 If validation succeeded, the controller must perform the resulting action and return a `JsonResponse` with the `result` key:
 
 ```php
