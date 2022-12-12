@@ -12,6 +12,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 - `wcf\action\AbstractDialogAction` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
 - `wcf\SensitiveArgument` ([WoltLab/WCF#4802](https://github.com/WoltLab/WCF/pull/4802))
+- `wcf\system\cli\command\IArgumentedCLICommand` ([WoltLab/WCF#5185](https://github.com/WoltLab/WCF/pull/5185))
 - `wcf\util\CronjobUtil` ([WoltLab/WCF#4923](https://github.com/WoltLab/WCF/pull/4923))
 
 #### Methods
@@ -20,6 +21,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\data\package\update\server\PackageUpdateServer::attemptSecureConnection()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - `wcf\data\package\update\server\PackageUpdateServer::isValidServerURL()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - `wcf\data\page\Page::setAsLandingPage()` ([WoltLab/WCF#4842](https://github.com/WoltLab/WCF/pull/4842))
+- `wcf\system\cli\command\CLICommandHandler::getCommands()` ([WoltLab/WCF#5185](https://github.com/WoltLab/WCF/pull/5185))
 - `wcf\system\io\RemoteFile::disableSSL()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - `wcf\system\io\RemoteFile::supportsSSL()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - `wcf\system\request\RequestHandler::inRescueMode()` ([WoltLab/WCF#4831](https://github.com/WoltLab/WCF/pull/4831))
@@ -75,7 +77,10 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\system\bbcode\highlighter\*Highlighter` ([WoltLab/WCF#4926](https://github.com/WoltLab/WCF/pull/4926))
 - `wcf\system\bbcode\highlighter\Highlighter` ([WoltLab/WCF#4926](https://github.com/WoltLab/WCF/pull/4926))
 - `wcf\system\cache\source\MemcachedCacheSource` ([WoltLab/WCF#4928](https://github.com/WoltLab/WCF/pull/4928))
+- `wcf\system\cli\command\CLICommandNameCompleter` ([WoltLab/WCF#5185](https://github.com/WoltLab/WCF/pull/5185))
+- `wcf\system\cli\command\CommandsCLICommand` ([WoltLab/WCF#5185](https://github.com/WoltLab/WCF/pull/5185))
 - `wcf\system\cli\command\CronjobCLICommand` ([WoltLab/WCF#5171](https://github.com/WoltLab/WCF/pull/5171))
+- `wcf\system\cli\command\HelpCLICommand` ([WoltLab/WCF#5185](https://github.com/WoltLab/WCF/pull/5185))
 - `wcf\system\cli\command\PackageCLICommand` ([WoltLab/WCF#4946](https://github.com/WoltLab/WCF/pull/4946))
 - `wcf\system\cli\DatabaseCLICommandHistory` ([WoltLab/WCF#5058](https://github.com/WoltLab/WCF/pull/5058))
 - `wcf\system\database\table\column/\UnsupportedDefaultValue` ([WoltLab/WCF#5012](https://github.com/WoltLab/WCF/pull/5012))
