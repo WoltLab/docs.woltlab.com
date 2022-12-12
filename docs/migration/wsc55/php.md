@@ -237,14 +237,14 @@ If validation succeeded, the controller must perform the resulting action and re
 
 ```php
 if ($request->getMethod() === 'GET') {
-    return $dialogForm->toJsonResponse();
+    return $dialogForm->toResponse();
 } elseif ($request->getMethod() === 'POST') {
-    $response = $dialogForm->validatePsr7Request($request);
+    $response = $dialogForm->validateRequest($request);
     if ($response !== null) {
         return $response;
     }
 
-    $data = $form->getData();
+    $data = $dialogForm->getData();
 
     // Use $data.
 
