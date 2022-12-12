@@ -3310,14 +3310,14 @@ If validation succeeded, the controller must perform the resulting action and re
 <span class="normal">20</span>
 <span class="normal">21</span>
 <span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nv">$dialogForm</span><span class="o">-&gt;</span><span class="na">toJsonResponse</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nv">$dialogForm</span><span class="o">-&gt;</span><span class="na">toResponse</span><span class="p">();</span>
 <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$dialogForm</span><span class="o">-&gt;</span><span class="na">validatePsr7Request</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$dialogForm</span><span class="o">-&gt;</span><span class="na">validateRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="nv">$response</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
+    <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$dialogForm</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
 
     <span class="c1">// Use $data.</span>
 
@@ -3480,7 +3480,7 @@ The class name of the worker is registered using the event’s <code>register()<
   <small>
     
       Last update:
-      2022-12-09
+      2022-12-12
     
   </small>
 </div>
