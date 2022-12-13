@@ -8,7 +8,7 @@ The database access is designed around [PreparedStatement](https://github.com/Wo
 
 ```php
 <?php
-$statement = \wcf\system\WCF::getDB()->prepareStatement("SELECT * FROM wcf".WCF_N."_example");
+$statement = \wcf\system\WCF::getDB()->prepare("SELECT * FROM wcf1_example");
 $statement->execute();
 while ($row = $statement->fetchArray()) {
     // handle result
@@ -22,10 +22,10 @@ The example below illustrates the usage of parameters where each value is replac
 ```php
 <?php
 $sql = "SELECT  *
-        FROM    wcf".WCF_N."_example
+        FROM    wcf1_example
         WHERE   exampleID = ?
                 OR bar IN (?, ?, ?, ?, ?)";
-$statement = \wcf\system\WCF::getDB()->prepareStatement($sql);
+$statement = \wcf\system\WCF::getDB()->prepare($sql);
 $statement->execute([
     $exampleID,
     $list, $of, $values, $for, $bar
@@ -44,16 +44,16 @@ You can opt-in to retrieve only a single row from database and make use of short
 ```php
 <?php
 $sql = "SELECT  *
-        FROM    wcf".WCF_N."_example
+        FROM    wcf1_example
         WHERE   exampleID = ?";
-$statement = \wcf\system\WCF::getDB()->prepareStatement($sql, 1);
+$statement = \wcf\system\WCF::getDB()->prepare($sql, 1);
 $statement->execute([$exampleID]);
 $row = $statement->fetchSingleRow();
 ```
 
 There are two distinct differences when comparing with the example on query parameters above:
 
-1. The method `prepareStatement()` receives a secondary parameter that will be appended to the query as `LIMIT 1`.
+1. The method `prepare()` receives a secondary parameter that will be appended to the query as `LIMIT 1`.
 2. Data is read using `fetchSingleRow()` instead of `fetchArray()` or similar methods, that will read one result and close the cursor.
 
 ### Fetch by Column
@@ -65,8 +65,8 @@ Fetching an array is only useful if there is going to be more than one column pe
 ```php
 <?php
 $sql = "SELECT  bar
-        FROM    wcf".WCF_N."_example";
-$statement = \wcf\system\WCF::getDB()->prepareStatement($sql);
+        FROM    wcf1_example";
+$statement = \wcf\system\WCF::getDB()->prepare($sql);
 $statement->execute();
 while ($bar = $statement->fetchColumn()) {
     // handle result
@@ -79,9 +79,9 @@ Similar to fetching a single row, you can also issue a query that will select a 
 ```php
 <?php
 $sql = "SELECT  bar
-        FROM    wcf".WCF_N."_example
+        FROM    wcf1_example
         WHERE   exampleID = ?";
-$statement = \wcf\system\WCF::getDB()->prepareStatement($sql, 1);
+$statement = \wcf\system\WCF::getDB()->prepare($sql, 1);
 $statement->execute([$exampleID]);
 $bar = $statement->fetchSingleColumn();
 ```
@@ -95,8 +95,8 @@ To fetch all rows of query, you can use `PDOStatement::fetchAll()` with `\PDO::F
 ```php
 <?php
 $sql = "SELECT  *
-        FROM    wcf".WCF_N."_example";
-$statement = \wcf\system\WCF::getDB()->prepareStatement($sql);
+        FROM    wcf1_example";
+$statement = \wcf\system\WCF::getDB()->prepare($sql);
 $statement->execute();
 $rows = $statement->fetchAll(\PDO::FETCH_ASSOC);
 ```
@@ -108,8 +108,8 @@ If you only want to fetch a list of the values of a certain column, you can use 
 ```php
 <?php
 $sql = "SELECT  exampleID
-        FROM    wcf".WCF_N."_example";
-$statement = \wcf\system\WCF::getDB()->prepareStatement($sql);
+        FROM    wcf1_example";
+$statement = \wcf\system\WCF::getDB()->prepare($sql);
 $statement->execute();
 $exampleIDs = $statement->fetchAll(\PDO::FETCH_COLUMN);
 ```
@@ -123,8 +123,8 @@ This case is covered by `PreparedStatement::fetchMap()`:
 ```php
 <?php
 $sql = "SELECT  exampleID, userID
-        FROM    wcf".WCF_N."_example_mapping";
-$statement = \wcf\system\WCF::getDB()->prepareStatement($sql);
+        FROM    wcf1_example_mapping";
+$statement = \wcf\system\WCF::getDB()->prepare($sql);
 $statement->execute();
 $map = $statement->fetchMap('exampleID', 'userID');
 ```
@@ -138,8 +138,8 @@ If you do not have a combination of columns with unique pairs of values, but you
 ```php
 <?php
 $sql = "SELECT  exampleID, userID
-        FROM    wcf".WCF_N."_example_mapping";
-$statement = \wcf\system\WCF::getDB()->prepareStatement($sql);
+        FROM    wcf1_example_mapping";
+$statement = \wcf\system\WCF::getDB()->prepare($sql);
 $statement->execute();
 $map = $statement->fetchMap('exampleID', 'userID', false);
 ```
@@ -171,10 +171,10 @@ Prepared statements not only protect against SQL injection by separating the log
 <?php
 $data = ['abc', 'def', 'ghi'];
 
-$sql = "INSERT INTO  wcf".WCF_N."_example
+$sql = "INSERT INTO  wcf1_example
                      (bar)
         VALUES       (?)";
-$statement = \wcf\system\WCF::getDB()->prepareStatement($sql);
+$statement = \wcf\system\WCF::getDB()->prepare($sql);
 
 \wcf\system\WCF::getDB()->beginTransaction();
 foreach ($data as $bar) {
@@ -193,10 +193,10 @@ $data = [
     4 => 'ghi'
 ];
 
-$sql = "UPDATE  wcf".WCF_N."_example
+$sql = "UPDATE  wcf1_example
         SET     bar = ?
         WHERE   exampleID = ?";
-$statement = \wcf\system\WCF::getDB()->prepareStatement($sql);
+$statement = \wcf\system\WCF::getDB()->prepare($sql);
 
 \wcf\system\WCF::getDB()->beginTransaction();
 foreach ($data as $exampleID => $bar) {
