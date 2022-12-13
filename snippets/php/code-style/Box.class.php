@@ -11,10 +11,10 @@ class Box extends DatabaseObject {
      * @return	Box|null
      */
     public static function getBoxByIdentifier($identifier) {
-        $sql = "SELECT	*
-			FROM	wcf".WCF_N."_box
-			WHERE	identifier = ?";
-        $statement = WCF::getDB()->prepareStatement($sql);
+        $sql = "SELECT  *
+                FROM    wcf1_box
+                WHERE   identifier = ?";
+        $statement = WCF::getDB()->prepare($sql);
         $statement->execute([$identifier]);
 
         return $statement->fetchObject(self::class);

@@ -23,7 +23,7 @@ class LastActivityCronjob extends AbstractCronjob {
                 SET     user_table.lastActivityTime = session.lastActivityTime
                 WHERE   user_table.userID = session.userID
                     AND session.userID <> 0";
-        $statement = WCF::getDB()->prepareStatement($sql);
+        $statement = WCF::getDB()->prepare($sql);
         $statement->execute();
     }
 }
