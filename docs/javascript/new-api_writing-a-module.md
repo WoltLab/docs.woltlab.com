@@ -103,7 +103,6 @@ it is strongly recommended to use the aliases for consistency.
 | [Core](new-api_core.md) | WoltLabSuite/Core/Core |
 | DateUtil | WoltLabSuite/Core/Date/Util |
 | Devtools | WoltLabSuite/Core/Devtools |
-| [Dictionary](new-api_data-structures.md) | WoltLabSuite/Core/Dictionary |
 | [Dom/ChangeListener](new-api_dom.md) | WoltLabSuite/Core/Dom/Change/Listener |
 | Dom/Traverse | WoltLabSuite/Core/Dom/Traverse |
 | [Dom/Util](new-api_dom.md) | WoltLabSuite/Core/Dom/Util |
@@ -111,8 +110,6 @@ it is strongly recommended to use the aliases for consistency.
 | [EventHandler](new-api_events.md) | WoltLabSuite/Core/Event/Handler |
 | [EventKey](new-api_events.md) | WoltLabSuite/Core/Event/Key |
 | [Language](new-api_core.md) | WoltLabSuite/Core/Language |
-| [List](new-api_data-structures.md) | WoltLabSuite/Core/List |
-| [ObjectMap](new-api_data-structures.md) | WoltLabSuite/Core/ObjectMap |
 | Permission | WoltLabSuite/Core/Permission |
 | [StringUtil](new-api_core.md) | WoltLabSuite/Core/StringUtil |
 | [Ui/Alignment](new-api_ui.md) | WoltLabSuite/Core/Ui/Alignment |
