@@ -482,13 +482,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#executing-cronjobs-through-cli" class="md-nav__link">
-    Executing Cronjobs Through CLI
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2615,13 +2608,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#executing-cronjobs-through-cli" class="md-nav__link">
-    Executing Cronjobs Through CLI
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2702,7 +2688,7 @@
 <span class="s2">                SET     user_table.lastActivityTime = session.lastActivityTime</span>
 <span class="s2">                WHERE   user_table.userID = session.userID</span>
 <span class="s2">                    AND session.userID &lt;&gt; 0&quot;</span><span class="p">;</span>
-        <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepareStatement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+        <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
         <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -2711,25 +2697,13 @@
 <p>Every cronjob needs to implement the <code>wcf\system\cronjob\ICronjob</code> interface which requires the <code>execute(Cronjob $cronjob)</code> method to be implemented.
 This method is called by <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/cronjob/CronjobScheduler.class.php">wcf\system\cronjob\CronjobScheduler</a> when executing the cronjobs.</p>
 <p>In practice, however, you should extend the <code>AbstractCronjob</code> class and also call the <code>AbstractCronjob::execute()</code> method as it fires an event which makes cronjobs extendable by plugins (see <a href="../events/">event documentation</a>).</p>
-<h2 id="executing-cronjobs-through-cli">Executing Cronjobs Through CLI<a class="headerlink" href="#executing-cronjobs-through-cli" title="Permanent link">#</a></h2>
-<p>Cronjobs can be executed through the command-line interface (CLI):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>php /path/to/wcf/cli.php &lt;&lt; &#39;EOT&#39;
-USERNAME
-PASSWORD
-cronjob execute
-EOT
-</code></pre></div></td></tr></table></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2021-04-23
+      2022-12-13
     
   </small>
 </div>
