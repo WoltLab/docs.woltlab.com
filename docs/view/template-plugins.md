@@ -251,17 +251,6 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 ```
 
 
-## `fetch`
-
-`fetch` fetches the contents of a file using `file_get_contents`.
-
-```smarty
-{fetch file='foo.html'} {* prints the contents of `foo.html` *}
-
-{fetch file='bar.html' assign=bar} {* assigns the contents of `foo.html` to `$bar`; does not print the contents *}
-```
-
-
 ## `filesizeBinary`
 
 `filesizeBinary` formats the filesize using binary filesize (in bytes).
