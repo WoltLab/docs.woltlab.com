@@ -2519,7 +2519,7 @@
 <span class="s2">                SET     user_table.lastActivityTime = session.lastActivityTime</span>
 <span class="s2">                WHERE   user_table.userID = session.userID</span>
 <span class="s2">                    AND session.userID &lt;&gt; 0&quot;</span><span class="p">;</span>
-        <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepareStatement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+        <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
         <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
