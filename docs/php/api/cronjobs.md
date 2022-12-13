@@ -22,16 +22,3 @@ Every cronjob needs to implement the `wcf\system\cronjob\ICronjob` interface whi
 This method is called by [wcf\system\cronjob\CronjobScheduler](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/cronjob/CronjobScheduler.class.php) when executing the cronjobs.
 
 In practice, however, you should extend the `AbstractCronjob` class and also call the `AbstractCronjob::execute()` method as it fires an event which makes cronjobs extendable by plugins (see [event documentation](events.md)).
-
-
-## Executing Cronjobs Through CLI
-
-Cronjobs can be executed through the command-line interface (CLI):
-
-```
-php /path/to/wcf/cli.php << 'EOT'
-USERNAME
-PASSWORD
-cronjob execute
-EOT
-```
