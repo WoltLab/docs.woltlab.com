@@ -254,9 +254,10 @@ if ($request->getMethod() === 'GET') {
         ],
     ]);
 } else {
-    return new TextResponse('The used HTTP method is not allowed.', 405, [
-        'allow' => 'POST, GET',
-    ]);
+    // The used method is validated by a middleware. Methods that are not
+    // GET or POST need to be explicitly allowed using the 'AllowHttpMethod'
+    // attribute.
+    throw new \LogicException('Unreachable');
 }
 ```
 
