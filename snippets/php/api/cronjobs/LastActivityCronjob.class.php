@@ -18,8 +18,8 @@ class LastActivityCronjob extends AbstractCronjob {
     public function execute(Cronjob $cronjob) {
         parent::execute($cronjob);
 
-        $sql = "UPDATE  wcf".WCF_N."_user user_table,
-                        wcf".WCF_N."_session session
+        $sql = "UPDATE  wcf1_user user_table,
+                        wcf1_session session
                 SET     user_table.lastActivityTime = session.lastActivityTime
                 WHERE   user_table.userID = session.userID
                     AND session.userID <> 0";
