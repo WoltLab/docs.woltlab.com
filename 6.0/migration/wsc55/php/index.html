@@ -3295,7 +3295,8 @@ If validation succeeded, the controller must perform the resulting action and re
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nv">$dialogForm</span><span class="o">-&gt;</span><span class="na">toResponse</span><span class="p">();</span>
 <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span> <span class="p">{</span>
     <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$dialogForm</span><span class="o">-&gt;</span><span class="na">validateRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
@@ -3313,9 +3314,10 @@ If validation succeeded, the controller must perform the resulting action and re
         <span class="p">],</span>
     <span class="p">]);</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nx">TextResponse</span><span class="p">(</span><span class="s1">&#39;The used HTTP method is not allowed.&#39;</span><span class="p">,</span> <span class="mi">405</span><span class="p">,</span> <span class="p">[</span>
-        <span class="s1">&#39;allow&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;POST, GET&#39;</span><span class="p">,</span>
-    <span class="p">]);</span>
+    <span class="c1">// The used method is validated by a middleware. Methods that are not</span>
+    <span class="c1">// GET or POST need to be explicitly allowed using the &#39;AllowHttpMethod&#39;</span>
+    <span class="c1">// attribute.</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nx">\LogicException</span><span class="p">(</span><span class="s1">&#39;Unreachable&#39;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
@@ -3466,7 +3468,7 @@ The class name of the worker is registered using the event’s <code>register()<
   <small>
     
       Last update:
-      2022-12-12
+      2022-12-14
     
   </small>
 </div>
