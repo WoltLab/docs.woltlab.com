@@ -2514,8 +2514,8 @@
     <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nx">Cronjob</span> <span class="nv">$cronjob</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">parent</span><span class="o">::</span><span class="na">execute</span><span class="p">(</span><span class="nv">$cronjob</span><span class="p">);</span>
 
-        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE  wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_user user_table,</span>
-<span class="s2">                        wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_session session</span>
+        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE  wcf1_user user_table,</span>
+<span class="s2">                        wcf1_session session</span>
 <span class="s2">                SET     user_table.lastActivityTime = session.lastActivityTime</span>
 <span class="s2">                WHERE   user_table.userID = session.userID</span>
 <span class="s2">                    AND session.userID &lt;&gt; 0&quot;</span><span class="p">;</span>
