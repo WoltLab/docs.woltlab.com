@@ -15,7 +15,7 @@ This component supports both static URLs and dynamic navigation using DOM events
 
 Defaults to `1`.
 
-Number of the currently active page.
+The number of the currently displayed page.
 
 ### `count`
 
@@ -25,18 +25,18 @@ Number of available pages. Must be greater than `1` for the pagination to be dis
 
 ### `url`
 
-Default to an empty string.
+Defaults to an empty string.
 
-If defined, static pagination links are created based on the URL.
+If defined, static pagination links are created based on the URL with the `pageNo` parameter appended to it.
 Otherwise only the `switchPage` event will be fired if a user clicks on a pagination link.
 
 ## Events
 
 ### `switchPage`
 
-The `switchPage` event will be fired if a user clicks on a pagination link. The event detail will contain the number of the selected page.
+The `switchPage` event will be fired when the user clicks on a pagination link. The event detail will contain the number of the selected page.
 The event can be canceled to prevent navigation.
 
 ### `jumpToPage`
 
-The `switchPage` event will be fired if a user clicks on a ellipsis button within the pagination.
+The `switchPage` event will be fired when the user clicks on one of the ellipsis buttons within the pagination.
