@@ -2725,9 +2725,9 @@ To do so, we first have to register a new object type for this person list box c
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;type&gt;</span>
-    <span class="nt">&lt;name&gt;</span>com.woltlab.wcf.personList<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.boxController<span class="nt">&lt;/definitionname&gt;</span>
-    <span class="nt">&lt;classname&gt;</span>wcf\system\box\PersonListBoxController<span class="nt">&lt;/classname&gt;</span>
+<span class="w">    </span><span class="nt">&lt;name&gt;</span>com.woltlab.wcf.personList<span class="nt">&lt;/name&gt;</span>
+<span class="w">    </span><span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.boxController<span class="nt">&lt;/definitionname&gt;</span>
+<span class="w">    </span><span class="nt">&lt;classname&gt;</span>wcf\system\box\PersonListBoxController<span class="nt">&lt;/classname&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>The <code>com.woltlab.wcf.boxController</code> object type definition requires the provided class to implement <code>wcf\system\box\IBoxController</code>:</p>
@@ -2898,19 +2898,19 @@ To do so, we first have to register a new object type for this person list box c
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;ul class=&quot;sidebarItemList&quot;&gt;</span>
-<span class="x">    </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$boxPersonList</span> <span class="na">item</span><span class="o">=</span><span class="na">boxPerson</span><span class="cp">}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$boxPersonList</span> <span class="na">item</span><span class="o">=</span><span class="na">boxPerson</span><span class="cp">}</span>
 <span class="x">        &lt;li class=&quot;box24&quot;&gt;</span>
 <span class="x">            &lt;span class=&quot;icon icon24 fa-user&quot;&gt;&lt;/span&gt;</span>
 
 <span class="x">            &lt;div class=&quot;sidebarItemTitle&quot;&gt;</span>
 <span class="x">                &lt;h3&gt;</span><span class="cp">{</span><span class="nf">anchor</span> <span class="na">object</span><span class="o">=</span><span class="nv">$boxPerson</span><span class="cp">}</span><span class="x">&lt;/h3&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;__boxPersonDescription&#39;</span><span class="cp">}{</span><span class="nf">lang</span> <span class="na">__optional</span><span class="o">=</span><span class="kc">true</span><span class="cp">}</span><span class="x">wcf.person.boxList.description.</span><span class="cp">{</span><span class="nv">$boxSortField</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}{</span><span class="nf">/capture</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$__boxPersonDescription</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                </span><span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;__boxPersonDescription&#39;</span><span class="cp">}{</span><span class="nf">lang</span> <span class="na">__optional</span><span class="o">=</span><span class="kc">true</span><span class="cp">}</span><span class="x">wcf.person.boxList.description.</span><span class="cp">{</span><span class="nv">$boxSortField</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}{</span><span class="nf">/capture</span><span class="cp">}</span>
+<span class="x">                </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$__boxPersonDescription</span><span class="cp">}</span>
 <span class="x">                    &lt;small&gt;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$__boxPersonDescription</span><span class="cp">}</span><span class="x">&lt;/small&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 <span class="x">            &lt;/div&gt;</span>
 <span class="x">        &lt;/li&gt;</span>
-<span class="x">    </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span>
 <span class="x">&lt;/ul&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>The template relies on a <code>.sidebarItemList</code> element, which is generally used for sidebar listings.
@@ -2935,13 +2935,13 @@ We will support filtering the people by their first and last name so that, for e
 <span class="normal">7</span>
 <span class="normal">8</span>
 <span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/objectTypeDefinition.xsd&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;import&gt;</span>
-        <span class="nt">&lt;definition&gt;</span>
-            <span class="nt">&lt;name&gt;</span>com.woltlab.wcf.box.personList.condition<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;interfacename&gt;</span>wcf\system\condition\IObjectListCondition<span class="nt">&lt;/interfacename&gt;</span>
-        <span class="nt">&lt;/definition&gt;</span>
-    <span class="nt">&lt;/import&gt;</span>
+<span class="nt">&lt;data</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/objectTypeDefinition.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;import&gt;</span>
+<span class="w">        </span><span class="nt">&lt;definition&gt;</span>
+<span class="w">            </span><span class="nt">&lt;name&gt;</span>com.woltlab.wcf.box.personList.condition<span class="nt">&lt;/name&gt;</span>
+<span class="w">            </span><span class="nt">&lt;interfacename&gt;</span>wcf\system\condition\IObjectListCondition<span class="nt">&lt;/interfacename&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/definition&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>Next, we register the specific conditions for filtering by the first and last name using this object type condition:</p>
@@ -2955,14 +2955,14 @@ We will support filtering the people by their first and last name so that, for e
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;type&gt;</span>
-   <span class="nt">&lt;name&gt;</span>com.woltlab.wcf.people.firstName<span class="nt">&lt;/name&gt;</span>
-   <span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.box.personList.condition<span class="nt">&lt;/definitionname&gt;</span>
-   <span class="nt">&lt;classname&gt;</span>wcf\system\condition\person\PersonFirstNameTextPropertyCondition<span class="nt">&lt;/classname&gt;</span>
+<span class="w">   </span><span class="nt">&lt;name&gt;</span>com.woltlab.wcf.people.firstName<span class="nt">&lt;/name&gt;</span>
+<span class="w">   </span><span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.box.personList.condition<span class="nt">&lt;/definitionname&gt;</span>
+<span class="w">   </span><span class="nt">&lt;classname&gt;</span>wcf\system\condition\person\PersonFirstNameTextPropertyCondition<span class="nt">&lt;/classname&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 <span class="nt">&lt;type&gt;</span>
-   <span class="nt">&lt;name&gt;</span>com.woltlab.wcf.people.lastName<span class="nt">&lt;/name&gt;</span>
-   <span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.box.personList.condition<span class="nt">&lt;/definitionname&gt;</span>
-   <span class="nt">&lt;classname&gt;</span>wcf\system\condition\person\PersonLastNameTextPropertyCondition<span class="nt">&lt;/classname&gt;</span>
+<span class="w">   </span><span class="nt">&lt;name&gt;</span>com.woltlab.wcf.people.lastName<span class="nt">&lt;/name&gt;</span>
+<span class="w">   </span><span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.box.personList.condition<span class="nt">&lt;/definitionname&gt;</span>
+<span class="w">   </span><span class="nt">&lt;classname&gt;</span>wcf\system\condition\person\PersonLastNameTextPropertyCondition<span class="nt">&lt;/classname&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p><code>PersonFirstNameTextPropertyCondition</code> and <code>PersonLastNameTextPropertyCondition</code> only differ minimally so that we only focus on <code>PersonFirstNameTextPropertyCondition</code> here, which relies on the default implementation <code>AbstractObjectTextPropertyCondition</code> and only requires specifying different object properties:</p>

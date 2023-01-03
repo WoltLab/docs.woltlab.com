@@ -2720,12 +2720,12 @@ A confirmation dialog should always ask a concise question that includes a refer
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nx">custom</span><span class="p">(</span><span class="s2">&quot;Do you want a cookie?&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nx">withoutMessage</span><span class="p">();</span><span class="w"></span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// User has confirmed the dialog.</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">()</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">custom</span><span class="p">(</span><span class="s2">&quot;Do you want a cookie?&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">withoutMessage</span><span class="p">();</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// User has confirmed the dialog.</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Confirmation dialogs are a special type that use the <code>role="alertdialog"</code> attribute and will always include a cancel button.
 The dialog itself will be limited to a width of 500px, the title can wrap into multiple lines and there will be no “X” button to close the dialog.</p>
@@ -2747,8 +2747,9 @@ All questions should be phrased in one or two ways depending on the action.</p>
 (German) Möchten Sie „Beispiel-Objekt“ in den Papierkorb verschieben?</p>
 </blockquote>
 <h2 id="available-presets">Available Presets<a class="headerlink" href="#available-presets" title="Permanent link">#</a></h2>
-<p>WoltLab Suite 6.0 currently ships with three presets for common confirmation dialogs.
-All three presets require the title of the related object as part of the question asked to the user.</p>
+<p>WoltLab Suite 6.0 currently ships with three presets for common confirmation dialogs.</p>
+<p>All three presets have an optional parameter for the title of the related object as part of the question asked to the user.
+It is strongly recommended to provide the title if it exists, otherwise it can be omitted and an indeterminate variant is used instead.</p>
 <h3 id="soft-delete">Soft Delete<a class="headerlink" href="#soft-delete" title="Permanent link">#</a></h3>
 <p>Soft deleting objects with an optional input field for a reason:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2761,17 +2762,17 @@ All three presets require the title of the related object as part of the questio
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">askForReason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">reason</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">().</span><span class="nx">softDelete</span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="nx">theObjectName</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">askForReason</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;The user has requested a soft delete, the following reason was provided:&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">reason</span><span class="w"></span>
-<span class="w">  </span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">askForReason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">reason</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">().</span><span class="nx">softDelete</span><span class="p">(</span>
+<span class="w">  </span><span class="nx">theObjectName</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">askForReason</span>
+<span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;The user has requested a soft delete, the following reason was provided:&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">reason</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>The <code>reason</code> will always be a string, but with a length of zero if the <code>result</code> is <code>false</code> or if no reason was requested.
 You can simply omit the value if you do not use the reason.</p>
@@ -2782,34 +2783,34 @@ You can simply omit the value if you do not use the reason.</p>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">askForReason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">().</span><span class="nx">softDelete</span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="nx">theObjectName</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">askForReason</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The user has requested a soft delete.&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">askForReason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">().</span><span class="nx">softDelete</span><span class="p">(</span>
+<span class="w">  </span><span class="nx">theObjectName</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">askForReason</span>
+<span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The user has requested a soft delete.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="restore">Restore<a class="headerlink" href="#restore" title="Permanent link">#</a></h3>
 <p>Restore a previously soft deleted object:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">().</span><span class="nx">restore</span><span class="p">(</span><span class="nx">theObjectName</span><span class="p">);</span><span class="w"></span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The user has requested to restore the object.&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">().</span><span class="nx">restore</span><span class="p">(</span><span class="nx">theObjectName</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The user has requested to restore the object.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="delete">Delete<a class="headerlink" href="#delete" title="Permanent link">#</a></h3>
 <p>Permanently delete an object, will inform the user that the action cannot be undone:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">().</span><span class="ow">delete</span><span class="p">(</span><span class="nx">theObjectName</span><span class="p">);</span><span class="w"></span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The user has requested to delete the object.&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">().</span><span class="ow">delete</span><span class="p">(</span><span class="nx">theObjectName</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The user has requested to delete the object.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 
   <hr>
@@ -2817,7 +2818,7 @@ You can simply omit the value if you do not use the reason.</p>
   <small>
     
       Last update:
-      2022-10-06
+      2023-01-03
     
   </small>
 </div>

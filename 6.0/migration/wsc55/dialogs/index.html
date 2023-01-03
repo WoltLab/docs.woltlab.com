@@ -2882,11 +2882,11 @@ The <code>_dialogSetup()</code> method was complex, offered subpar auto completi
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello World!&lt;/p&gt;&quot;</span><span class="p">).</span><span class="nx">asAlert</span><span class="p">();</span><span class="w"></span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello World!&lt;/p&gt;&quot;</span><span class="p">).</span><span class="nx">asAlert</span><span class="p">();</span>
 
-<span class="c1">// Do something with `dialog.content` or bind event listeners.</span><span class="w"></span>
+<span class="c1">// Do something with `dialog.content` or bind event listeners.</span>
 
-<span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;My Title&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;My Title&quot;</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="optionsonshowcontent-htmlelement"><code>options.onShow(content: HTMLElement)</code><a class="headerlink" href="#optionsonshowcontent-htmlelement" title="Permanent link">#</a></h3>
 <p>There is no equivalent in the new API, because you can simply store a reference to your dialog and access the <code>.content</code> property at any time.</p>
@@ -2911,23 +2911,23 @@ As a developer you only need to listen for the <code>validate</code> and the <co
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nx">fromId</span><span class="p">(</span><span class="s2">&quot;myComplexDialogWithFormInputs&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nx">asPrompt</span><span class="p">();</span><span class="w"></span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">()</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">fromId</span><span class="p">(</span><span class="s2">&quot;myComplexDialogWithFormInputs&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">asPrompt</span><span class="p">();</span>
 
-<span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;validate&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Validate the form inputs in `dialog.content`.</span><span class="w"></span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;validate&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Validate the form inputs in `dialog.content`.</span>
 
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">validationHasFailed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">validationHasFailed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
 
-<span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;primary&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// The dialog has been successfully validated</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// and was submitted by the user.</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// You can access form inputs through `dialog.content`.</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;primary&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// The dialog has been successfully validated</span>
+<span class="w">  </span><span class="c1">// and was submitted by the user.</span>
+<span class="w">  </span><span class="c1">// You can access form inputs through `dialog.content`.</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="changes-to-the-template">Changes to the Template<a class="headerlink" href="#changes-to-the-template" title="Permanent link">#</a></h2>
 <p>Both the old and the new API support the use of existing elements to create dialogs.
@@ -2973,15 +2973,15 @@ Please see the explanation on the four different <a href="components_dialog.md">
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">_dialogSetup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// …</span><span class="w"></span>
-<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;myDialog&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="p">};</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">_dialogSetup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// …</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;myDialog&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>New API</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromId</span><span class="p">(</span><span class="s2">&quot;myDialog&quot;</span><span class="p">).</span><span class="nx">withoutControls</span><span class="p">();</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromId</span><span class="p">(</span><span class="s2">&quot;myDialog&quot;</span><span class="p">).</span><span class="nx">withoutControls</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="using-source-to-provide-the-dialog-html">Using <code>source</code> to Provide the Dialog HTML<a class="headerlink" href="#using-source-to-provide-the-dialog-html" title="Permanent link">#</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2989,15 +2989,15 @@ Please see the explanation on the four different <a href="components_dialog.md">
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">_dialogSetup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// …</span><span class="w"></span>
-<span class="w">    </span><span class="nx">source</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;p&gt;Hello World&lt;/p&gt;&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="p">};</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">_dialogSetup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// …</span>
+<span class="w">    </span><span class="nx">source</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;p&gt;Hello World&lt;/p&gt;&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>New API</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello World&lt;/p&gt;&quot;</span><span class="p">).</span><span class="nx">withoutControls</span><span class="p">();</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello World&lt;/p&gt;&quot;</span><span class="p">).</span><span class="nx">withoutControls</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="updating-the-html-when-the-dialog-is-shown">Updating the HTML When the Dialog Is Shown<a class="headerlink" href="#updating-the-html-when-the-dialog-is-shown" title="Permanent link">#</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -3010,17 +3010,17 @@ Please see the explanation on the four different <a href="components_dialog.md">
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">_dialogSetup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// …</span><span class="w"></span>
-<span class="w">    </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// …</span><span class="w"></span>
-<span class="w">      </span><span class="nx">onShow</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">content</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">content</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="p">};</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">_dialogSetup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// …</span>
+<span class="w">    </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// …</span>
+<span class="w">      </span><span class="nx">onShow</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">content</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">content</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>New API</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3029,13 +3029,13 @@ Please see the explanation on the four different <a href="components_dialog.md">
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;&lt;/p&gt;&quot;</span><span class="p">).</span><span class="nx">withoutControls</span><span class="p">();</span><span class="w"></span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;&lt;/p&gt;&quot;</span><span class="p">).</span><span class="nx">withoutControls</span><span class="p">();</span>
 
-<span class="c1">// Somewhere later in the code</span><span class="w"></span>
+<span class="c1">// Somewhere later in the code</span>
 
-<span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
 
-<span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;Some Title&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;Some Title&quot;</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="specifying-the-title-of-a-dialog">Specifying the Title of a Dialog<a class="headerlink" href="#specifying-the-title-of-a-dialog" title="Permanent link">#</a></h3>
 <p>The title was previously fixed in the <code>_dialogSetup()</code> method and could only be changed on runtime using the <code>setTitle()</code> method.</p>
@@ -3047,26 +3047,26 @@ Please see the explanation on the four different <a href="components_dialog.md">
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">_dialogSetup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// …</span><span class="w"></span>
-<span class="w">    </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// …</span><span class="w"></span>
-<span class="w">      </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Some Title&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="p">};</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">_dialogSetup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// …</span>
+<span class="w">    </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// …</span>
+<span class="w">      </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Some Title&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>The title is now provided whenever the dialog should be opened, permitting changes in place.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;&lt;/p&gt;&quot;</span><span class="p">).</span><span class="nx">withoutControls</span><span class="p">();</span><span class="w"></span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;&lt;/p&gt;&quot;</span><span class="p">).</span><span class="nx">withoutControls</span><span class="p">();</span>
 
-<span class="c1">// Somewhere later in the code</span><span class="w"></span>
+<span class="c1">// Somewhere later in the code</span>
 
-<span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;Some Title&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;Some Title&quot;</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 
   <hr>

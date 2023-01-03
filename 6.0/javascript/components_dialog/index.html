@@ -3011,8 +3011,8 @@ Please see the following list to make a quick decision of what kind of dialog yo
 <p>Dialogs may contain just an explanation or extra information that should be presented to the viewer without requiring any further interaction.
 The dialog can be closed via the “X” button or by clicking the modal backdrop.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello World&lt;/p&gt;&quot;</span><span class="p">).</span><span class="nx">withoutControls</span><span class="p">();</span><span class="w"></span>
-<span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;Greetings from my dialog&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello World&lt;/p&gt;&quot;</span><span class="p">).</span><span class="nx">withoutControls</span><span class="p">();</span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;Greetings from my dialog&quot;</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">#</a></h3>
 <p>The short answer is: Don’t.</p>
@@ -3027,10 +3027,10 @@ The dialog itself will be limited to a width of 500px, the title can wrap into m
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;ERROR: Something went wrong!&lt;/p&gt;&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nx">asAlert</span><span class="p">();</span><span class="w"></span>
-<span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;Server Error&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">()</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;ERROR: Something went wrong!&lt;/p&gt;&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">asAlert</span><span class="p">();</span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;Server Error&quot;</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p>You can customize the label of the primary button to better explain what will happen next.
 This can be useful for alerts that will have a side-effect when closing the dialog, such as redirect to a different page.</p>
@@ -3044,17 +3044,17 @@ This can be useful for alerts that will have a side-effect when closing the dial
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Something went wrong, we cannot find your shopping cart.&lt;/p&gt;&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nx">asAlert</span><span class="p">({</span><span class="w"></span>
-<span class="w">    </span><span class="nx">primary</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Back to the Store Page&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">()</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Something went wrong, we cannot find your shopping cart.&lt;/p&gt;&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">asAlert</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">primary</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Back to the Store Page&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="p">});</span>
 
-<span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;primary&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://example.com/shop/&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;primary&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://example.com/shop/&quot;</span><span class="p">;</span>
+<span class="p">});</span>
 
-<span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;The shopping cart is missing&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;The shopping cart is missing&quot;</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p>The <code>primary</code> event is triggered both by clicking on the primary button and by clicks on the modal backdrop.</p>
 <h3 id="when-to-use_1">When to Use<a class="headerlink" href="#when-to-use_1" title="Permanent link">#</a></h3>
@@ -3102,15 +3102,15 @@ A possible use case for an “extra” button would be a dialog that includes an
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;showMyDialog&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromId</span><span class="p">(</span><span class="s2">&quot;myDialog&quot;</span><span class="p">).</span><span class="nx">asPrompt</span><span class="p">();</span><span class="w"></span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;showMyDialog&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromId</span><span class="p">(</span><span class="s2">&quot;myDialog&quot;</span><span class="p">).</span><span class="nx">asPrompt</span><span class="p">();</span>
 
-<span class="w">  </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;primary&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">myInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;myInput&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;primary&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">myInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;myInput&quot;</span><span class="p">);</span>
 
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Provided title:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">myInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">());</span><span class="w"></span>
-<span class="w">  </span><span class="p">});</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Provided title:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">myInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">());</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="custom-buttons">Custom Buttons<a class="headerlink" href="#custom-buttons" title="Permanent link">#</a></h3>
 <p>The <code>asPrompt()</code> call permits some level of customization of the form control buttons.</p>
@@ -3120,11 +3120,11 @@ A possible use case for an “extra” button would be a dialog that includes an
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialogFactory</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nx">fromId</span><span class="p">(</span><span class="s2">&quot;myDialog&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nx">asPrompt</span><span class="p">({</span><span class="w"></span>
-<span class="w">    </span><span class="nx">primary</span><span class="o">:</span><span class="w"> </span><span class="kt">Language.get</span><span class="p">(</span><span class="s2">&quot;wcf.dialog.button.primary&quot;</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialogFactory</span><span class="p">()</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">fromId</span><span class="p">(</span><span class="s2">&quot;myDialog&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">asPrompt</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">primary</span><span class="o">:</span><span class="w"> </span><span class="kt">Language.get</span><span class="p">(</span><span class="s2">&quot;wcf.dialog.button.primary&quot;</span><span class="p">),</span>
+<span class="w">  </span><span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="adding-an-extra-button">Adding an Extra Button<a class="headerlink" href="#adding-an-extra-button" title="Permanent link">#</a></h3>
 <p>The extra button has no default label, enabling it requires you to provide a readable name.</p>
@@ -3138,17 +3138,17 @@ A possible use case for an “extra” button would be a dialog that includes an
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nx">fromId</span><span class="p">(</span><span class="s2">&quot;myDialog&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nx">asPrompt</span><span class="p">({</span><span class="w"></span>
-<span class="w">    </span><span class="nx">extra</span><span class="o">:</span><span class="w"> </span><span class="kt">Language.get</span><span class="p">(</span><span class="s2">&quot;my.extra.button.name&quot;</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">()</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">fromId</span><span class="p">(</span><span class="s2">&quot;myDialog&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">asPrompt</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">extra</span><span class="o">:</span><span class="w"> </span><span class="kt">Language.get</span><span class="p">(</span><span class="s2">&quot;my.extra.button.name&quot;</span><span class="p">),</span>
+<span class="w">  </span><span class="p">});</span>
 
-<span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;extra&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// The extra button does nothing on its own. If you want</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// to close the button after performing an action you’ll</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// need to call `dialog.close()` yourself.</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;extra&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// The extra button does nothing on its own. If you want</span>
+<span class="w">  </span><span class="c1">// to close the button after performing an action you’ll</span>
+<span class="w">  </span><span class="c1">// need to call `dialog.close()` yourself.</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="interacting-with-dialogs">Interacting with dialogs<a class="headerlink" href="#interacting-with-dialogs" title="Permanent link">#</a></h2>
 <p>Dialogs are represented by the <code>&lt;woltlab-core-dialog&gt;</code> element that exposes a set of properties and methods to interact with it.</p>
@@ -3164,13 +3164,13 @@ Check the <code>.open</code> property to determine if the dialog is currently op
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Add some text to the dialog.</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="nx">p</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span><span class="w"></span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Add some text to the dialog.</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">);</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
 
-<span class="c1">// Find a text input inside the dialog.</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;input[type=&quot;text&quot;]&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// Find a text input inside the dialog.</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;input[type=&quot;text&quot;]&#39;</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="disabling-the-submit-button-of-a-dialog">Disabling the Submit Button of a Dialog<a class="headerlink" href="#disabling-the-submit-button-of-a-dialog" title="Permanent link">#</a></h3>
 <p>You can prevent the dialog submission until a condition is met, allowing you to dynamically enable or disable the button at will.</p>
@@ -3180,13 +3180,13 @@ Check the <code>.open</code> property to determine if the dialog is currently op
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialog</span><span class="p">.</span><span class="nx">incomplete</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialog</span><span class="p">.</span><span class="nx">incomplete</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">checkbox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;input[type=&quot;checkbox&quot;]&#39;</span><span class="p">)</span><span class="o">!</span><span class="p">;</span><span class="w"></span>
-<span class="nx">checkbox</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;change&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Block the dialog submission unless the checkbox is checked.</span><span class="w"></span>
-<span class="w">  </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">incomplete</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">checked</span><span class="p">;</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">checkbox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;input[type=&quot;checkbox&quot;]&#39;</span><span class="p">)</span><span class="o">!</span><span class="p">;</span>
+<span class="nx">checkbox</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;change&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Block the dialog submission unless the checkbox is checked.</span>
+<span class="w">  </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">incomplete</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">checked</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="managing-an-instance-of-a-dialog">Managing an Instance of a Dialog<a class="headerlink" href="#managing-an-instance-of-a-dialog" title="Permanent link">#</a></h3>
 <p>The old API for dialogs implicitly kept track of the instance by binding it to the <code>this</code> parameter as seen in calls like <code>UiDialog.open(this);</code>.
@@ -3223,39 +3223,39 @@ The new implementation requires to you to keep track of the dialog on your own.<
 <span class="normal">30</span>
 <span class="normal">31</span>
 <span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">MyComponent</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="err">#</span><span class="nx">dialog?</span><span class="o">:</span><span class="w"> </span><span class="kt">WoltlabCoreDialogElement</span><span class="p">;</span><span class="w"></span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">MyComponent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="err">#</span><span class="nx">dialog?</span><span class="o">:</span><span class="w"> </span><span class="kt">WoltlabCoreDialogElement</span><span class="p">;</span>
 
-<span class="w">  </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.myButton&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">HTMLButtonElement</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">showGreeting</span><span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">});</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.myButton&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">HTMLButtonElement</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">showGreeting</span><span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="err">#</span><span class="nx">showGreeting</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">getDialog</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="err">#</span><span class="nx">showGreeting</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">getDialog</span><span class="p">();</span>
 
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nx">p</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nx">p</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`Hello </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">p</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">p</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`Hello </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;Greetings!&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;Greetings!&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="err">#</span><span class="nx">getDialog</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WoltlabCoreDialogElement</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">dialog</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello from MyComponent&lt;/p&gt;&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="nx">withoutControls</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="err">#</span><span class="nx">getDialog</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WoltlabCoreDialogElement</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">dialog</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">()</span>
+<span class="w">        </span><span class="p">.</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello from MyComponent&lt;/p&gt;&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="nx">withoutControls</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">dialog</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">dialog</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="event-access">Event Access<a class="headerlink" href="#event-access" title="Permanent link">#</a></h3>
 <p>You can bind event listeners to specialized events to get notified of events and to modify its behavior.</p>
@@ -3264,9 +3264,9 @@ The new implementation requires to you to keep track of the dialog on your own.<
 <p>Fires when the dialog has closed.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;afterClose&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Dialog was closed.</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;afterClose&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Dialog was closed.</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="close"><code>close</code><a class="headerlink" href="#close" title="Permanent link">#</a></h4>
 <p>Fires when the dialog is about to close.</p>
@@ -3274,11 +3274,11 @@ The new implementation requires to you to keep track of the dialog on your own.<
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">someCondition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">someCondition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="cancel"><code>cancel</code><a class="headerlink" href="#cancel" title="Permanent link">#</a></h4>
 <p>Fires only when there is a “Cancel” button and the user has either pressed that button or clicked on the modal backdrop.
@@ -3287,11 +3287,11 @@ The dialog will close if the event is not canceled.</p>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;cancel&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">someCondition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;cancel&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">someCondition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="extra"><code>extra</code><a class="headerlink" href="#extra" title="Permanent link">#</a></h4>
 <p><em>This event cannot be canceled.</em></p>
@@ -3299,9 +3299,9 @@ The dialog will close if the event is not canceled.</p>
 This event does nothing on its own and is supported for dialogs of type “Prompt” only.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;extra&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// The extra button was clicked.</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;extra&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// The extra button was clicked.</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="primary"><code>primary</code><a class="headerlink" href="#primary" title="Permanent link">#</a></h4>
 <p><em>This event cannot be canceled.</em></p>
@@ -3311,12 +3311,12 @@ This event does nothing on its own and is supported for dialogs of type “Promp
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;primary&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// The primary action button was clicked or the</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// form was submitted through keyboard controls.</span><span class="w"></span>
-<span class="w">  </span><span class="c1">//</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// The `validate` event has completed successfully.</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;primary&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// The primary action button was clicked or the</span>
+<span class="w">  </span><span class="c1">// form was submitted through keyboard controls.</span>
+<span class="w">  </span><span class="c1">//</span>
+<span class="w">  </span><span class="c1">// The `validate` event has completed successfully.</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="validate"><code>validate</code><a class="headerlink" href="#validate" title="Permanent link">#</a></h4>
 <p>Fires only when there is a form and the user has pressed the primary action button or submitted the form through keyboard controls.
@@ -3330,16 +3330,16 @@ Canceling this event is interpreted as a form validation failure.</p>
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span><span class="w"></span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">);</span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
 
-<span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;validate&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;validate&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
 
-<span class="w">    </span><span class="c1">// Display an inline error message.</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Display an inline error message.</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 
   <hr>

@@ -2805,14 +2805,14 @@ listener that does not rely on a <code>MutationObserver</code>.</p>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Dom/ChangeListener&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">DomChangeListener</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">DomChangeListener</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;App/Foo&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// the DOM may have been altered significantly</span><span class="w"></span>
-<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Dom/ChangeListener&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">DomChangeListener</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">DomChangeListener</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;App/Foo&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// the DOM may have been altered significantly</span>
+<span class="w">  </span><span class="p">});</span>
 
-<span class="w">  </span><span class="c1">// propagate changes to the DOM</span><span class="w"></span>
-<span class="w">  </span><span class="nx">DomChangeListener</span><span class="p">.</span><span class="nx">trigger</span><span class="p">();</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// propagate changes to the DOM</span>
+<span class="w">  </span><span class="nx">DomChangeListener</span><span class="p">.</span><span class="nx">trigger</span><span class="p">();</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 
   <hr>
