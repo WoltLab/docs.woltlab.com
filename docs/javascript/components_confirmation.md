@@ -43,7 +43,9 @@ All other actions:
 ## Available Presets
 
 WoltLab Suite 6.0 currently ships with three presets for common confirmation dialogs.
-All three presets require the title of the related object as part of the question asked to the user.
+
+All three presets have an optional parameter for the title of the related object as part of the question asked to the user.
+It is strongly recommended to provide the title if it exists, otherwise it can be omitted and an indeterminate variant is used instead.
 
 ### Soft Delete
 
