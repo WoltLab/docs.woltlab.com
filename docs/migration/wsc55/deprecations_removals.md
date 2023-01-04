@@ -21,6 +21,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\data\package\update\server\PackageUpdateServer::attemptSecureConnection()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - `wcf\data\package\update\server\PackageUpdateServer::isValidServerURL()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - `wcf\data\page\Page::setAsLandingPage()` ([WoltLab/WCF#4842](https://github.com/WoltLab/WCF/pull/4842))
+- `wcf\data\style\Style::getRelativeFavicon()` ([WoltLab/WCF#5201](https://github.com/WoltLab/WCF/pull/5201))
 - `wcf\system\cli\command\CLICommandHandler::getCommands()` ([WoltLab/WCF#5185](https://github.com/WoltLab/WCF/pull/5185))
 - `wcf\system\io\RemoteFile::disableSSL()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - `wcf\system\io\RemoteFile::supportsSSL()` ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))

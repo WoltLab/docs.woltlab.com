@@ -36,3 +36,9 @@ See [WoltLab/WCF#4918](https://github.com/WoltLab/WCF/pull/4918) for examples on
 WoltLab Suite 6.0 ships with dragonmantank/cron-expression as a replacement for `wcf\util\CronjobUtil`.
 
 This library is considered an internal library / implementation detail and not covered by backwards compatibility promises of WoltLab Suite.
+
+## .ico converter
+
+The chrisjean/php-ico dependency was removed, because of a lack of upstream maintenance.
+As the library was only used for Favicon generation, no replacement is made available.
+The favicons are now delivered as PNG files.
