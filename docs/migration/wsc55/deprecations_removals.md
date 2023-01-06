@@ -51,10 +51,13 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 ### JavaScript
 
+- `WCF.Location` ([WoltLab/WCF#4972](https://github.com/WoltLab/WCF/pull/4972))
 - `WCF.User.ObjectWatch.Subscribe` ([WoltLab/WCF#4962](https://github.com/WoltLab/WCF/pull/4962))
 - `WCF.User.List` ([WoltLab/WCF#5039](https://github.com/WoltLab/WCF/pull/5039))
+- `WoltLabSuite/Core/Controller/Map/Route/Planner` ([WoltLab/WCF#4972](https://github.com/WoltLab/WCF/pull/4972))
 - `WoltLabSuite/Core/NumberUtil` ([WoltLab/WCF#5071](https://github.com/WoltLab/WCF/pull/5071))
 - `WoltLabSuite/Core/Ui/User/List` ([WoltLab/WCF#5039](https://github.com/WoltLab/WCF/pull/5039))
+
 
 ### Database Tables
 
@@ -202,6 +205,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `Blog.Entry.Preview`
 - `Blog.Entry.QuoteHandler`
 - `Calendar.Category.MarkAllAsRead` ([WoltLab/com.woltlab.calendar#169](https://github.com/WoltLab/com.woltlab.calendar/pull/169))
+- `Calendar.Event.Coordinates`
 - `Calendar.Event.Date.FullDay` ([WoltLab/com.woltlab.calendar#171](https://github.com/WoltLab/com.woltlab.calendar/pull/171))
 - `Calendar.Event.Date.Participation.RemoveParticipant`
 - `Calendar.Event.Preview`
@@ -209,6 +213,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `Calendar.Event.Share`
 - `Calendar.Event.TabMenu`
 - `Calendar.Event.Thread.ShowParticipants`
+- `Calendar.Map`
 - `Calendar.UI.Calendar`
 - `Calendar/Ui/Event/Date/Cancel.js`
 - `Calendar.Export.iCal`
