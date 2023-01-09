@@ -63,7 +63,7 @@ Adds a marker to the map.
 ```html
 <script data-relocate="true">
 	require(['WoltLabSuite/Core/Component/GoogleMaps/Marker'], ({ addMarker }) => {
-		addMarker(document.getElementById('map_id'), 52.4505, 13.7546, 'Title', true);
+		void addMarker(document.getElementById('map_id'), 52.4505, 13.7546, 'Title', true);
 	});
 </script>
 ```
@@ -101,7 +101,7 @@ Adds a draggable marker to the map.
 ```html
 <script data-relocate="true">
 	require(['WoltLabSuite/Core/Component/GoogleMaps/Marker'], ({ addDraggableMarker }) => {
-		addDraggableMarker(document.getElementById('map_id'), 52.4505, 13.7546);
+		void addDraggableMarker(document.getElementById('map_id'), 52.4505, 13.7546);
 	});
 </script>
 ```
