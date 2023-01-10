@@ -131,6 +131,7 @@ Enables the geocoding feature for a map.
 	type="text"
 	data-google-maps-geocoding="map_id"
 	data-google-maps-marker
+	data-google-maps-geocoding-store="prefix"
 >
 ```
 
@@ -143,6 +144,10 @@ ID of the `<woltlab-core-google-maps>` element.
 ##### `data-google-maps-marker`
 
 If set, a movable marker is created that is coupled with the input field.
+
+##### `data-google-maps-geocoding-store`
+
+If set, the coordinates (latitude and longitude) are stored comma-separated in a hidden input field. Optionally, a value can be passed that is used as a prefix for the name of the input field.
 
 ### `MarkerLoader`
 
