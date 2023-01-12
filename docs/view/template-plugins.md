@@ -441,7 +441,7 @@ require(['Language', /* … */], function(Language, /* … */) {
 ```
 
 
-## <span class="label label-info">5.5+</span> `json`
+## <span class="label label-info">5.5+</span> `|json`
 
 `json` JSON-encodes the given value.
 
@@ -566,7 +566,7 @@ For detailed information on its usage, we refer to the extensive documentation i
 | `application`, `id`, `object`, `title` | additional parameters passed to `LinkHandler::getLink()` to generate page links |
 
 
-## <span class="label label-info">5.5+</span> `phrase`
+## <span class="label label-info">5.5+</span> `|phrase`
 
 `phrase` replaces a language items with its value.
 If the template variable `__language` exists, this language object will be used instead of `WCF::getLanguage()`.
