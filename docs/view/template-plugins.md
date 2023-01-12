@@ -546,6 +546,8 @@ For detailed information on its usage, we refer to the extensive documentation i
 
 ## `{pages}`
 
+!!! info "This template plugin has been deprecated in WoltLab Suite 6.0."
+
 `pages` generates a pagination.
 
 ```smarty
