@@ -1,6 +1,6 @@
 # Template Plugins
 
-## `anchor`
+## `{anchor}`
 
 The `anchor` template plugin creates `a` HTML elements.
 The easiest way to use the template plugin is to pass it an instance of `ITitledLinkObject`:
@@ -43,7 +43,7 @@ using
 
 is sufficient if `Entry::getPopoverLinkClass()` returns `blogEntryLink`.
 
-## `anchorAttributes`
+## `{anchorAttributes}`
 
 `anchorAttributes` compliments the `StringUtil::getAnchorTagAttributes(string, bool): string` method.
 It allows to easily generate the necessary attributes for an anchor tag based off the destination URL.
@@ -59,7 +59,7 @@ It allows to easily generate the necessary attributes for an anchor tag based of
 | `isUgc` | whether the `rel="ugc"` attribute should be generated; `false` by default |
 | `appendClassname` | whether the `class="externalURL"` attribute should be generated; `true` by default |
 
-## `append`
+## `{append}`
 
 If a string should be appended to the value of a variable, `append` can be used:
 
@@ -77,7 +77,7 @@ If the variables does not exist yet, `append` creates a new one with the given v
 If `append` is used on an array as the variable, the value is appended to all elements of the array.
 
 
-## `assign`
+## `{assign}`
 
 New template variables can be declared and new values can be assigned to existing template variables using `assign`:
 
@@ -88,7 +88,7 @@ New template variables can be declared and new values can be assigned to existin
 ```
 
 
-## `capture`
+## `{capture}`
 
 In some situations, `assign` is not sufficient to assign values to variables in templates if the value is complex.
 Instead, `capture` can be used:
@@ -104,7 +104,7 @@ Instead, `capture` can be used:
 ```
 
 
-## `concat`
+## `|concat`
 
 `concat` is a modifier used to concatenate multiple strings:
 
@@ -117,7 +117,7 @@ Instead, `capture` can be used:
 ```
 
 
-## `counter`
+## `{counter}`
 
 `counter` can be used to generate and optionally print a counter:
 
@@ -159,7 +159,7 @@ The `{csrfToken}` template plugin supports a `type` parameter.
 Specifying this parameter might be required in rare situations.
 Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/template/plugin/CsrfTokenFunctionTemplatePlugin.class.php) for details.
 
-## `currency`
+## `|currency`
 
 `currency` is a modifier used to format currency values with two decimals using language dependent thousands separators and decimal point:
 
@@ -170,7 +170,7 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 ```
 
 
-## `cycle`
+## `{cycle}`
 
 `cycle` can be used to cycle between different values:
 
@@ -197,7 +197,7 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 | `values` | string containing the different cycles values, also see `delimiter` |
 
 
-## `date`
+## `|date`
 
 `date` generated a formatted date using `wcf\util\DateUtil::format()` with `DateUtil::DATE_FORMAT` internally.
 
@@ -206,7 +206,7 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 ```
 
 
-## `dateInterval`
+## `{dateInterval}`
 
 `dateInterval` calculates the difference between two unix timestamps and generated a textual date interval.
 
@@ -222,7 +222,7 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 | `start` | start of the time interval; current timestamp by default (though either `start` or `end` has to be set) |
 
 
-## `encodeJS`
+## `|encodeJS`
 
 `encodeJS` encodes a string to be used as a single-quoted string in JavaScript by replacing `\\` with `\\\\`, `'` with `\'`, linebreaks with `\n`, and `/` with `\/`.
 
@@ -233,7 +233,7 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 ```
 
 
-## `escapeCDATA`
+## `|escapeCDATA`
 
 `escapeCDATA` encodes a string to be used in a `CDATA` element by replacing `]]>` with `]]]]><![CDATA[>`.
 
@@ -242,7 +242,7 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 ```
 
 
-## `event`
+## `{event}`
 
 `event` provides extension points in templates that [template listeners](../package/pip/template-listener.md) can use.
 
@@ -251,7 +251,7 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 ```
 
 
-## `filesizeBinary`
+## `|filesizeBinary`
 
 `filesizeBinary` formats the filesize using binary filesize (in bytes).
 
@@ -260,7 +260,7 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 ```
 
 
-## `filesize`
+## `|filesize`
 
 `filesize` formats the filesize using filesize (in bytes).
 
@@ -269,7 +269,7 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 ```
 
 
-## `hascontent`
+## `{hascontent}`
 
 In many cases, conditional statements can be used to determine if a certain section of a template is shown:
 
@@ -329,7 +329,7 @@ Like `foreach`, `hascontent` also supports an `else` part:
 ```
 
 
-## `htmlCheckboxes`
+## `{htmlCheckboxes}`
 
 `htmlCheckboxes` generates a list of HTML checkboxes.
 
@@ -351,7 +351,7 @@ Like `foreach`, `hascontent` also supports an `else` part:
 | `values` | array with values used in combination with `output`, where `output` is only used as keys for `options` |
 
 
-## `htmlOptions`
+## `{htmlOptions}`
 
 `htmlOptions` generates an `select` HTML element.
 
@@ -377,7 +377,7 @@ Like `foreach`, `hascontent` also supports an `else` part:
 All additional attributes are added as attributes of the `select` HTML element.
 
 
-## `implode`
+## `{implode}`
 
 `implodes` transforms an array into a string and prints it.
 
@@ -393,7 +393,7 @@ All additional attributes are added as attributes of the `select` HTML element.
 | `key` | optional template variable name where the current array key is stored during the iteration |
 
 
-## `ipSearch`
+## `|ipSearch`
 
 `ipSearch` generates a link to search for an IP address.
 
@@ -402,7 +402,7 @@ All additional attributes are added as attributes of the `select` HTML element.
 ```
 
 
-## `js`
+## `{js}`
 
 `js` generates script tags based on whether `ENABLE_DEBUG_MODE` and `VISITOR_USE_TINY_BUILD` are enabled.
 
@@ -426,7 +426,7 @@ All additional attributes are added as attributes of the `select` HTML element.
 ```
 
 
-## `jslang`
+## `{jslang}`
 
 `jslang` works like [`lang`](#lang) with the difference that the resulting string is automatically passed through [`encodeJS`](#encodejs).
 
@@ -452,7 +452,7 @@ let data = { "title": {@$foo->getTitle()|json} };
 ```
 
 
-## `lang`
+## `{lang}`
 
 `lang` replaces a language items with its value.
 
@@ -475,7 +475,7 @@ let data = { "title": {@$foo->getTitle()|json} };
 All additional attributes are available when parsing the language item.
 
 
-## `language`
+## `|language`
 
 `language` replaces a language items with its value.
 If the template variable `__language` exists, this language object will be used instead of `WCF::getLanguage()`.
@@ -490,7 +490,7 @@ Note that template scripting is applied to the output of the variable, which can
 ```
 
 
-## `link`
+## `{link}`
 
 `link` generates internal links using `LinkHandler`.
 
@@ -508,7 +508,7 @@ Note that template scripting is applied to the output of the variable, which can
 Additional attributes are passed to `LinkHandler::getLink()`.
 
 
-## `newlineToBreak`
+## `|newlineToBreak`
 
 `newlineToBreak` transforms newlines into HTML `<br>` elements after encoding the content via `wcf\util\StringUtil::encodeHTML()`.
 
@@ -523,7 +523,7 @@ Additional attributes are passed to `LinkHandler::getLink()`.
 For detailed information on its usage, we refer to the extensive documentation in the [`ObjectActionFunctionTemplatePlugin` class](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/template/plugin/ObjectActionFunctionTemplatePlugin.class.php) itself.
 
 
-## `page`
+## `{page}`
 
 `page` generates an internal link to a CMS page.
 
@@ -544,7 +544,7 @@ For detailed information on its usage, we refer to the extensive documentation i
 | `language` | language code of the page language (cannot be used together with `languageID`) |
 
 
-## `pages`
+## `{pages}`
 
 `pages` generates a pagination.
 
@@ -579,7 +579,7 @@ This modifier is useful when assigning the value directly to a variable.
 ```
 
 
-## `plainTime`
+## `|plainTime`
 
 `plainTime` formats a timestamp to include year, month, day, hour, and minutes.
 The exact formatting depends on the current language (via the language items `wcf.date.dateTimeFormat`, `wcf.date.dateFormat`, and `wcf.date.timeFormat`).
@@ -589,7 +589,7 @@ The exact formatting depends on the current language (via the language items `wc
 ```
 
 
-## `plural`
+## `{plural}`
 
 `plural` allows to easily select the correct plural form of a phrase based on a given `value`.
 The pluralization logic follows the [Unicode Language Plural Rules](https://unicode-org.github.io/cldr-staging/charts/37/supplemental/language_plural_rules.md) for cardinal numbers.
@@ -645,7 +645,7 @@ Note the difference between `1` (exactly `1`) and `one` (ending in `1`, except e
 | Any Category Name | The phrase that is used when `value` belongs to the named category. Available categories depend on the language. |
 | Any Integer | The phrase that is used when `value` is that exact integer. |
 
-## `prepend`
+## `{prepend}`
 
 If a string should be prepended to the value of a variable, `prepend` can be used:
 
@@ -663,7 +663,7 @@ If the variables does not exist yet, `prepend` creates a new one with the given 
 If `prepend` is used on an array as the variable, the value is prepended to all elements of the array.
 
 
-## `shortUnit`
+## `|shortUnit`
 
 `shortUnit` shortens numbers larger than 1000 by using unit suffixes:
 
@@ -673,12 +673,12 @@ If `prepend` is used on an array as the variable, the value is prepended to all 
 ```
 
 
-## `smallpages`
+## `{smallpages}`
 
 `smallpages` generates a smaller version of `pages` by using adding the `small` CSS class to the generated `<nav>` element and only showing 7 instead of 9 links. 
 
 
-## `tableWordwrap`
+## `|tableWordwrap`
 
 `tableWordwrap` inserts zero width spaces every 30 characters in words longer than 30 characters.
 
@@ -687,7 +687,7 @@ If `prepend` is used on an array as the variable, the value is prepended to all 
 ```
 
 
-## `time`
+## `|time`
 
 `time` generates an HTML `time` elements based on a timestamp that shows a relative time or the absolute time if the timestamp more than six days ago.
 
@@ -696,7 +696,7 @@ If `prepend` is used on an array as the variable, the value is prepended to all 
 ```
 
 
-## `truncate`
+## `|truncate`
 
 `truncate` truncates a long string into a shorter one:
 
@@ -715,7 +715,7 @@ If `prepend` is used on an array as the variable, the value is prepended to all 
 | 3 | if `true`, words can be broken up in the middle; `false` by default |
 
 
-## `user`
+## `{user}`
 
 `user` generates links to user profiles.
 The mandatory `object` parameter requires an instances of `UserProfile`.
