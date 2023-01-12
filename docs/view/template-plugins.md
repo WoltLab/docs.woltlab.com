@@ -673,11 +673,6 @@ If `prepend` is used on an array as the variable, the value is prepended to all 
 ```
 
 
-## `{smallpages}`
-
-`smallpages` generates a smaller version of `pages` by using adding the `small` CSS class to the generated `<nav>` element and only showing 7 instead of 9 links. 
-
-
 ## `|tableWordwrap`
 
 `tableWordwrap` inserts zero width spaces every 30 characters in words longer than 30 characters.
