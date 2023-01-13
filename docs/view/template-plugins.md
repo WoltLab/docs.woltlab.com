@@ -461,6 +461,8 @@ If a dynamic phrase should be registered, the [`jslang`](#jslang) plugin needs t
 ```smarty
 <script data-relocate="true">
 {jsphrase name='app.foo.bar'}
+
+// …
 </script>
 ```
 
