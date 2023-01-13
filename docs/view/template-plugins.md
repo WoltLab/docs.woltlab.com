@@ -459,7 +459,7 @@ This plugin only supports static phrase names.
 If a dynamic phrase should be registered, the [`jslang`](#jslang) plugin needs to be used.
 
 ```smarty
-<script>
+<script data-relocate="true">
 {jsphrase name='app.foo.bar'}
 </script>
 ```
