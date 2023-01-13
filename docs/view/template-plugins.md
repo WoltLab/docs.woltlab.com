@@ -452,6 +452,21 @@ let data = { "title": {@$foo->getTitle()|json} };
 ```
 
 
+## <span class="label label-info">6.0+</span> `{jsphrase}`
+
+`jsphrase` generates the necessary JavaScript code to register a phrase in the JavaScript language store.
+This plugin only supports static phrase names.
+If a dynamic phrase should be registered, the [`jslang`](#jslang) plugin needs to be used.
+
+```smarty
+<script data-relocate="true">
+{jsphrase name='app.foo.bar'}
+
+// …
+</script>
+```
+
+
 ## `{lang}`
 
 `lang` replaces a language items with its value.
