@@ -946,6 +946,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#60-jsphrase" class="md-nav__link">
+    6.0+ {jsphrase}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lang" class="md-nav__link">
     {lang}
   </a>
@@ -3076,6 +3083,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#60-jsphrase" class="md-nav__link">
+    6.0+ {jsphrase}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lang" class="md-nav__link">
     {lang}
   </a>
@@ -3773,6 +3787,20 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 <span class="x">let data = </span><span class="cp">{</span> <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="cp">{</span><span class="o">@</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="o">()|</span><span class="na">json</span><span class="cp">}</span> <span class="cp">}</span><span class="x">;</span>
 <span class="x">&lt;/script&gt;</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="60-jsphrase"><span class="label label-info">6.0+</span> <code>{jsphrase}</code><a class="headerlink" href="#60-jsphrase" title="Permanent link">#</a></h2>
+<p><code>jsphrase</code> generates the necessary JavaScript code to register a phrase in the JavaScript language store.
+This plugin only supports static phrase names.
+If a dynamic phrase should be registered, the <a href="#jslang"><code>jslang</code></a> plugin needs to be used.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;script data-relocate=&quot;true&quot;&gt;</span>
+<span class="cp">{</span><span class="nf">jsphrase</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;app.foo.bar&#39;</span><span class="cp">}</span>
+
+<span class="x">// …</span>
+<span class="x">&lt;/script&gt;</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="lang"><code>{lang}</code><a class="headerlink" href="#lang" title="Permanent link">#</a></h2>
 <p><code>lang</code> replaces a language items with its value.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -4125,7 +4153,7 @@ The optional <code>type</code> parameter is responsible for what the generated l
   <small>
     
       Last update:
-      2023-01-12
+      2023-01-13
     
   </small>
 </div>
