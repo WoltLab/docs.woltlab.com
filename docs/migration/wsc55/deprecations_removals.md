@@ -75,6 +75,8 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 #### Classes
 
+- `gallery\data\GalleryDatabaseObject`
+- `gallery\system\image\ImageDataHandler`
 - `wbb\system\user\object\watch\BoardUserObjectWatch` and the corresponding object type
 - `wbb\system\user\object\watch\ThreadUserObjectWatch` and the corresponding object type
 - `wcf\acp\form\ApplicationEditForm` ([WoltLab/WCF#4785](https://github.com/WoltLab/WCF/pull/4785))
