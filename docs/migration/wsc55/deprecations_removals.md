@@ -2,8 +2,6 @@
 
 With version 6.0, we have deprecated certain components and removed several other components that have been deprecated for many years.
 
-
-
 ## Deprecations
 
 ### PHP
@@ -57,7 +55,6 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Controller/Map/Route/Planner` ([WoltLab/WCF#4972](https://github.com/WoltLab/WCF/pull/4972))
 - `WoltLabSuite/Core/NumberUtil` ([WoltLab/WCF#5071](https://github.com/WoltLab/WCF/pull/5071))
 - `WoltLabSuite/Core/Ui/User/List` ([WoltLab/WCF#5039](https://github.com/WoltLab/WCF/pull/5039))
-
 
 ### Database Tables
 
@@ -232,6 +229,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `jQuery.browser.smartphone` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `Prism.wscSplitIntoLines` ([WoltLab/WCF#4940](https://github.com/WoltLab/WCF/pull/4940))
 - `SID_ARG_2ND` ([WoltLab/WCF#4998](https://github.com/WoltLab/WCF/pull/4998))
+- `WBB.Board.Collapsible`
 - `WBB.Board.IgnoreBoards`
 - `WBB.Post.IPAddressHandler`
 - `WBB.Post.Preview`
