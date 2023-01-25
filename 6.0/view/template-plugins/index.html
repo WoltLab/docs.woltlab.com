@@ -3238,7 +3238,7 @@ The easiest way to use the template plugin is to pass it an instance of <code>IT
 <p>If an <code>object</code> attribute is present, the object also implements <code>IPopoverObject</code> and if the return value of <code>IPopoverObject::getPopoverLinkClass()</code> is included in the <code>class</code> attribute of the <code>anchor</code> tag, <code>data-object-id</code> is automatically added.
 This functionality makes it easy to generate links with popover support.
 Instead of</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot; class=&quot;blogEntryLink&quot; data-object-id=&quot;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">entryID</span><span class="cp">}</span><span class="x">&quot;&gt;</span><span class="cp">{</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">subject</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot; class=&quot;blogEntryLink&quot; data-object-id=&quot;</span><span class="cp">{</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">entryID</span><span class="cp">}</span><span class="x">&quot;&gt;</span><span class="cp">{</span><span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">subject</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>using</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">anchor</span> <span class="na">object</span><span class="o">=</span><span class="nv">$entry</span> <span class="na">class</span><span class="o">=</span><span class="s1">&#39;blogEntryLink&#39;</span><span class="cp">}</span>
@@ -4153,7 +4153,7 @@ The optional <code>type</code> parameter is responsible for what the generated l
   <small>
     
       Last update:
-      2023-01-13
+      2023-01-25
     
   </small>
 </div>
