@@ -88,7 +88,7 @@ Example:
     
     <tbody>
         {foreach from=$objects item=foo}
-            <tr class="jsObjectActionObject" data-object-id="{@$foo->getObjectID()}">
+            <tr class="jsObjectActionObject" data-object-id="{$foo->getObjectID()}">
                 <td class="columnIcon">
                     {objectAction action="toggle" isDisabled=$foo->isDisabled}
                     {objectAction action="delete" objectTitle=$foo->getTitle()}
