@@ -65,7 +65,7 @@ and thus avoid outdated caches by relying on a unique value, without invalidatin
 the cache more often that it needs to be.
 
 ```html
-<script data-relocate="true" src="{@$__wcf->getPath('app')}js/App.js?t={@LAST_UPDATE_TIME}"></script>
+<script data-relocate="true" src="{$__wcf->getPath('app')}js/App.js?t={@LAST_UPDATE_TIME}"></script>
 ```
 
 For small scripts you can simply serve the full, non-minified version to the user
@@ -80,7 +80,7 @@ the minified and optimized file to the average visitor. You should use the
 `ENABLE_DEBUG_MODE` constant to decide which version should be loaded.
 
 ```html
-<script data-relocate="true" src="{@$__wcf->getPath('app')}js/App{if !ENABLE_DEBUG_MODE}.min{/if}.js?t={@LAST_UPDATE_TIME}"></script>
+<script data-relocate="true" src="{$__wcf->getPath('app')}js/App{if !ENABLE_DEBUG_MODE}.min{/if}.js?t={@LAST_UPDATE_TIME}"></script>
 ```
 
 ### The Accelerated Guest View ("Tiny Builds")
@@ -91,7 +91,7 @@ The “Accelerated Guest View” aims to decrease page size and to improve respo
 If you are providing a separate compiled build for this mode, you'll need to include yet another switch to serve the right version to the visitor.
 
 ```html
-<script data-relocate="true" src="{@$__wcf->getPath('app')}js/App{if !ENABLE_DEBUG_MODE}{if VISITOR_USE_TINY_BUILD}.tiny{/if}.min{/if}.js?t={@LAST_UPDATE_TIME}"></script>
+<script data-relocate="true" src="{$__wcf->getPath('app')}js/App{if !ENABLE_DEBUG_MODE}{if VISITOR_USE_TINY_BUILD}.tiny{/if}.min{/if}.js?t={@LAST_UPDATE_TIME}"></script>
 ```
 
 ### The `{js}` Template Plugin

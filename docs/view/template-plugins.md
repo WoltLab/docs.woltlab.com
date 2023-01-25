@@ -32,7 +32,7 @@ This functionality makes it easy to generate links with popover support.
 Instead of
 
 ```smarty
-<a href="{$entry->getLink()}" class="blogEntryLink" data-object-id="{@$entry->entryID}">{$entry->subject}</a>
+<a href="{$entry->getLink()}" class="blogEntryLink" data-object-id="{$entry->entryID}">{$entry->subject}</a>
 ```
 
 using
