@@ -2806,47 +2806,47 @@ It does not rely on references to existing objects and does not use arbitrary ca
 <span class="normal">38</span>
 <span class="normal">39</span>
 <span class="normal">40</span>
-<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Ajax</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./Ajax&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Ajax</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./Ajax&quot;</span><span class="p">;</span>
 
-<span class="kr">type</span><span class="w"> </span><span class="nx">ResponseGetLatestFoo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">template</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="kr">type</span><span class="w"> </span><span class="nx">ResponseGetLatestFoo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">template</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="p">};</span>
 
-<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyModule</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">objectId</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyModule</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">objectId</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
 
-<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">objectId</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">buttonId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">bar</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">objectId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">objectId</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">objectId</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">buttonId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">bar</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">objectId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">objectId</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">buttonId</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="nx">button</span><span class="o">?</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">event</span><span class="p">));</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">buttonId</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">button</span><span class="o">?</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">event</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">click</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="kt">MouseEvent</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">click</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="kt">MouseEvent</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
 
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">HTMLElement</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="nx">button</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">HTMLElement</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nx">button</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">);</span>
 
-<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">Ajax</span><span class="p">.</span><span class="nx">dboAction</span><span class="p">(</span><span class="s2">&quot;getLatestFoo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;wcf\\data\\foo\\FooAction&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="nx">objectIds</span><span class="p">([</span><span class="k">this</span><span class="p">.</span><span class="nx">objectId</span><span class="p">])</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="nx">payload</span><span class="p">({</span><span class="w"> </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kt">this.bar</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="nx">dispatch</span><span class="p">())</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">ResponseGetLatestFoo</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">Ajax</span><span class="p">.</span><span class="nx">dboAction</span><span class="p">(</span><span class="s2">&quot;getLatestFoo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;wcf\\data\\foo\\FooAction&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="nx">objectIds</span><span class="p">([</span><span class="k">this</span><span class="p">.</span><span class="nx">objectId</span><span class="p">])</span>
+<span class="w">        </span><span class="p">.</span><span class="nx">payload</span><span class="p">({</span><span class="w"> </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kt">this.bar</span><span class="w"> </span><span class="p">})</span>
+<span class="w">        </span><span class="p">.</span><span class="nx">dispatch</span><span class="p">())</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">ResponseGetLatestFoo</span><span class="p">;</span>
 
-<span class="w">      </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;latestFoo&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">template</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nx">button</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;latestFoo&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">template</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">button</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">MyModule</span><span class="p">;</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">MyModule</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>The actual code to dispatch and evaluate a request is only four lines long and offers full IDE auto completion support.
 This example uses a <code>finally</code> block to reset the button class once the request has finished, regardless of the result.</p>
@@ -2885,37 +2885,37 @@ This applies to either long running requests or requests that are dispatched in 
 <span class="normal">28</span>
 <span class="normal">29</span>
 <span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Ajax</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./Ajax&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Ajax</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./Ajax&quot;</span><span class="p">;</span>
 
-<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">RapidRequests</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">lastRequest</span><span class="o">:</span><span class="w"> </span><span class="kt">AbortController</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">undefined</span><span class="p">;</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">RapidRequests</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">lastRequest</span><span class="o">:</span><span class="w"> </span><span class="kt">AbortController</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">undefined</span><span class="p">;</span>
 
-<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">inputId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">inputId</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">HTMLInputElement</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nx">input</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">input</span><span class="p">(</span><span class="nx">event</span><span class="p">));</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">inputId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">inputId</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">HTMLInputElement</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">input</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">input</span><span class="p">(</span><span class="nx">event</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">input</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="kt">Event</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">input</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="kt">Event</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
 
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">HTMLInputElement</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">HTMLInputElement</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">();</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">lastRequest</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">lastRequest</span><span class="p">.</span><span class="nx">abort</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">lastRequest</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">lastRequest</span><span class="p">.</span><span class="nx">abort</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Ajax</span><span class="p">.</span><span class="nx">dboAction</span><span class="p">(</span><span class="s2">&quot;getSuggestions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;wcf\\data\\bar\\BarAction&quot;</span><span class="p">).</span><span class="nx">payload</span><span class="p">({</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
-<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">lastRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nx">getAbortController</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Ajax</span><span class="p">.</span><span class="nx">dboAction</span><span class="p">(</span><span class="s2">&quot;getSuggestions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;wcf\\data\\bar\\BarAction&quot;</span><span class="p">).</span><span class="nx">payload</span><span class="p">({</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="p">});</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">lastRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nx">getAbortController</span><span class="p">();</span>
 
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">();</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// Handle the response</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">();</span>
+<span class="w">      </span><span class="c1">// Handle the response</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">RapidRequests</span><span class="p">;</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">RapidRequests</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="ajax-inside-modules-legacy-api">Ajax inside Modules (Legacy API)<a class="headerlink" href="#ajax-inside-modules-legacy-api" title="Permanent link">#</a></h2>
 <p>The Ajax component was designed to be used from inside modules where an object
@@ -2965,42 +2965,42 @@ when these requests share the same properties, such as accessing the same endpoi
 <span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
-<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// App/Foo.js</span><span class="w"></span>
-<span class="nx">define</span><span class="p">([</span><span class="s2">&quot;Ajax&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Ajax</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// App/Foo.js</span>
+<span class="nx">define</span><span class="p">([</span><span class="s2">&quot;Ajax&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Ajax</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
 
-<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">Foo</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
-<span class="w">  </span><span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">one</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// this will issue an ajax request with the parameter `value` set to `1`</span><span class="w"></span>
-<span class="w">      </span><span class="nx">Ajax</span><span class="p">.</span><span class="nx">api</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">Foo</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">  </span><span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">one</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// this will issue an ajax request with the parameter `value` set to `1`</span>
+<span class="w">      </span><span class="nx">Ajax</span><span class="p">.</span><span class="nx">api</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w">    </span><span class="p">},</span>
 
-<span class="w">    </span><span class="nx">two</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// this request is almost identical to the one issued with `.one()`, but</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// the value is now set to `2` for this invocation only.</span><span class="w"></span>
-<span class="w">      </span><span class="nx">Ajax</span><span class="p">.</span><span class="nx">api</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">parameters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">});</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nx">two</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// this request is almost identical to the one issued with `.one()`, but</span>
+<span class="w">      </span><span class="c1">// the value is now set to `2` for this invocation only.</span>
+<span class="w">      </span><span class="nx">Ajax</span><span class="p">.</span><span class="nx">api</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">parameters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+<span class="w">    </span><span class="p">},</span>
 
-<span class="w">    </span><span class="nx">_ajaxSetup</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="nx">actionName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;makeSnafucated&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="nx">className</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;app\\data\\foo\\FooAction&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="nx">parameters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="nx">_ajaxSetup</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">actionName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;makeSnafucated&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">className</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;app\\data\\foo\\FooAction&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">parameters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">Foo</span><span class="p">;</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">Foo</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="request-settings">Request Settings<a class="headerlink" href="#request-settings" title="Permanent link">#</a></h3>
 <p>The object returned by the aforementioned <code>_ajaxSetup()</code> callback can contain these
@@ -3127,21 +3127,21 @@ modules from altering the behavior. It is strongly  recommended to always use
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span><span class="w"></span>
-<span class="w">  </span><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Ajax&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Ajax</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Ajax</span><span class="p">.</span><span class="nx">apiOnce</span><span class="p">({</span><span class="w"></span>
-<span class="w">      </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">actionName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;makeSnafucated&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">className</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;app\\data\\foo\\FooAction&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">parameters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">},</span><span class="w"></span>
-<span class="w">      </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">elBySel</span><span class="p">(</span><span class="s2">&quot;.some-element&quot;</span><span class="p">).</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">bar</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">})</span><span class="w"></span>
-<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Ajax&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Ajax</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">Ajax</span><span class="p">.</span><span class="nx">apiOnce</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">actionName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;makeSnafucated&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">className</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;app\\data\\foo\\FooAction&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">parameters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">elBySel</span><span class="p">(</span><span class="s2">&quot;.some-element&quot;</span><span class="p">).</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">bar</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">  </span><span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 

@@ -2666,7 +2666,7 @@
 <h2 id="forms">Forms<a class="headerlink" href="#forms" title="Permanent link">#</a></h2>
 <p>The input tag for session ids <code>SID_INPUT_TAG</code> has been deprecated and no longer yields any content, it can be safely removed. In previous versions forms have been wrapped in <code>&lt;div class="container containerPadding marginTop"&gt;…&lt;/div&gt;</code> which no longer has any effect and should be removed.</p>
 <p>If you're using the preview feature for WYSIWYG-powered input fields, you need to alter the preview button include instruction:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;messageFormPreviewButton&#39;</span> <span class="na">previewMessageObjectType</span><span class="o">=</span><span class="s1">&#39;com.example.foo.bar&#39;</span> <span class="na">previewMessageObjectID</span><span class="o">=</span><span class="m">0</span><span class="cp">}</span><span class="x"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;messageFormPreviewButton&#39;</span> <span class="na">previewMessageObjectType</span><span class="o">=</span><span class="s1">&#39;com.example.foo.bar&#39;</span> <span class="na">previewMessageObjectID</span><span class="o">=</span><span class="m">0</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <p><em>The message object id should be non-zero when editing.</em></p>
 <h2 id="icons">Icons<a class="headerlink" href="#icons" title="Permanent link">#</a></h2>
@@ -2700,13 +2700,13 @@
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;header&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;header&#39;</span><span class="cp">}</span>
 
 <span class="x">&lt;div class=&quot;section&quot;&gt;</span>
 <span class="x">    Hello World!</span>
 <span class="x">&lt;/div&gt;</span>
 
-<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;footer&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;footer&#39;</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="full-example">Full Example<a class="headerlink" href="#full-example" title="Permanent link">#</a></h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2783,63 +2783,63 @@
 <span class="c">    The page title is automatically set using the page definition, avoid setting it if you can!</span>
 <span class="c">    If you really need to modify the title, you can still reference the original title with:</span>
 <span class="c">    {$__wcf-&gt;getActivePage()-&gt;getTitle()}</span>
-<span class="c">*</span><span class="cp">}</span><span class="x"></span>
-<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;pageTitle&#39;</span><span class="cp">}</span><span class="x">Custom Page Title</span><span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span><span class="x"></span>
+<span class="c">*</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;pageTitle&#39;</span><span class="cp">}</span><span class="x">Custom Page Title</span><span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span>
 
 <span class="cp">{</span><span class="c">*</span>
 <span class="c">    NOTICE: The content header goes here, see the section after this to learn more.</span>
-<span class="c">*</span><span class="cp">}</span><span class="x"></span>
+<span class="c">*</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="c">* you must not use `headContent` for JavaScript *</span><span class="cp">}</span><span class="x"></span>
-<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;headContent&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="c">* you must not use `headContent` for JavaScript *</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;headContent&#39;</span><span class="cp">}</span>
 <span class="x">    &lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.button.rss</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&quot; href=&quot;…&quot;&gt;</span>
-<span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="c">* optional, content will be added to the top of the left sidebar *</span><span class="cp">}</span><span class="x"></span>
-<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;sidebarLeft&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="c">* optional, content will be added to the top of the left sidebar *</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;sidebarLeft&#39;</span><span class="cp">}</span>
 <span class="x">    …</span>
 
-<span class="x">    </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;boxes&#39;</span><span class="cp">}</span><span class="x"></span>
-<span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;boxes&#39;</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="c">* optional, content will be added to the top of the right sidebar *</span><span class="cp">}</span><span class="x"></span>
-<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;sidebarRight&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="c">* optional, content will be added to the top of the right sidebar *</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;sidebarRight&#39;</span><span class="cp">}</span>
 <span class="x">    …</span>
 
-<span class="x">    </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;boxes&#39;</span><span class="cp">}</span><span class="x"></span>
-<span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;boxes&#39;</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;headerNavigation&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;headerNavigation&#39;</span><span class="cp">}</span>
 <span class="x">    &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;Custom Button&quot; class=&quot;jsTooltip&quot;&gt;&lt;span class=&quot;icon icon16 fa-check&quot;&gt;&lt;/span&gt; &lt;span class=&quot;invisible&quot;&gt;Custom Button&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-<span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;header&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;header&#39;</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nf">hascontent</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">hascontent</span><span class="cp">}</span>
 <span class="x">    &lt;div class=&quot;paginationTop&quot;&gt;</span>
-<span class="x">        </span><span class="cp">{</span><span class="nf">content</span><span class="cp">}</span><span class="x"></span>
-<span class="x">            </span><span class="cp">{</span><span class="nf">pages</span> <span class="err">…</span><span class="cp">}</span><span class="x"></span>
-<span class="x">        </span><span class="cp">{</span><span class="nf">/content</span><span class="cp">}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{</span><span class="nf">content</span><span class="cp">}</span>
+<span class="x">            </span><span class="cp">{</span><span class="nf">pages</span> <span class="err">…</span><span class="cp">}</span>
+<span class="x">        </span><span class="cp">{</span><span class="nf">/content</span><span class="cp">}</span>
 <span class="x">    &lt;/div&gt;</span>
-<span class="cp">{</span><span class="nf">/hascontent</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">/hascontent</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="c">* the actual content *</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="c">* the actual content *</span><span class="cp">}</span>
 <span class="x">&lt;div class=&quot;section&quot;&gt;</span>
 <span class="x">    …</span>
 <span class="x">&lt;/div&gt;</span>
 
 <span class="x">&lt;footer class=&quot;contentFooter&quot;&gt;</span>
-<span class="x">    </span><span class="cp">{</span><span class="c">* skip this if you&#39;re not using any pagination *</span><span class="cp">}</span><span class="x"></span>
-<span class="x">    </span><span class="cp">{</span><span class="nf">hascontent</span><span class="cp">}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{</span><span class="c">* skip this if you&#39;re not using any pagination *</span><span class="cp">}</span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">hascontent</span><span class="cp">}</span>
 <span class="x">        &lt;div class=&quot;paginationBottom&quot;&gt;</span>
-<span class="x">            </span><span class="cp">{</span><span class="nf">content</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$pagesLinks</span><span class="cp">}{</span><span class="nf">/content</span><span class="cp">}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{</span><span class="nf">content</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$pagesLinks</span><span class="cp">}{</span><span class="nf">/content</span><span class="cp">}</span>
 <span class="x">        &lt;/div&gt;</span>
-<span class="x">    </span><span class="cp">{</span><span class="nf">/hascontent</span><span class="cp">}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">/hascontent</span><span class="cp">}</span>
 
 <span class="x">    &lt;nav class=&quot;contentFooterNavigation&quot;&gt;</span>
 <span class="x">        &lt;ul&gt;</span>
 <span class="x">            &lt;li&gt;&lt;a href=&quot;…&quot; class=&quot;button&quot;&gt;&lt;span class=&quot;icon icon16 fa-plus&quot;&gt;&lt;/span&gt; &lt;span&gt;Custom Button&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-<span class="x">            </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;contentFooterNavigation&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;contentFooterNavigation&#39;</span><span class="cp">}</span>
 <span class="x">        &lt;/ul&gt;</span>
 <span class="x">    &lt;/nav&gt;</span>
 <span class="x">&lt;/footer&gt;</span>
@@ -2848,8 +2848,8 @@
 <span class="x">    /* any JavaScript code you need */</span>
 <span class="x">&lt;/script&gt;</span>
 
-<span class="cp">{</span><span class="c">* do not include `&lt;/body&gt;&lt;/html&gt;` here, the footer template is the last bit of code! *</span><span class="cp">}</span><span class="x"></span>
-<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;footer&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="c">* do not include `&lt;/body&gt;&lt;/html&gt;` here, the footer template is the last bit of code! *</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;footer&#39;</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="content-header">Content Header<a class="headerlink" href="#content-header" title="Permanent link">#</a></h3>
 <p>There are two different methods to set the content header, one sets only the actual values, but leaves the outer HTML untouched, that is generated by the <code>header</code> template. This is the recommended approach and you should avoid using the alternative method whenever possible.</p>
@@ -2859,12 +2859,12 @@
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="c">* This is automatically set using the page data and should not be set manually! *</span><span class="cp">}</span><span class="x"></span>
-<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;contentTitle&#39;</span><span class="cp">}</span><span class="x">Custom Content Title</span><span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span><span class="x"></span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="c">* This is automatically set using the page data and should not be set manually! *</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;contentTitle&#39;</span><span class="cp">}</span><span class="x">Custom Content Title</span><span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;contentDescription&#39;</span><span class="cp">}</span><span class="x">Optional description that is displayed right after the title.</span><span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;contentDescription&#39;</span><span class="cp">}</span><span class="x">Optional description that is displayed right after the title.</span><span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;contentHeaderNavigation&#39;</span><span class="cp">}</span><span class="x">List of navigation buttons displayed right next to the title.</span><span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;contentHeaderNavigation&#39;</span><span class="cp">}</span><span class="x">List of navigation buttons displayed right next to the title.</span><span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="alternative">Alternative<a class="headerlink" href="#alternative" title="Permanent link">#</a></h4>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2881,7 +2881,7 @@
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;contentHeader&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;contentHeader&#39;</span><span class="cp">}</span>
 <span class="x">    &lt;header class=&quot;contentHeader&quot;&gt;</span>
 <span class="x">        &lt;div class=&quot;contentHeaderTitle&quot;&gt;</span>
 <span class="x">            &lt;h1 class=&quot;contentTitle&quot;&gt;Custom Content Title&lt;/h1&gt;</span>
@@ -2891,11 +2891,11 @@
 <span class="x">        &lt;nav class=&quot;contentHeaderNavigation&quot;&gt;</span>
 <span class="x">            &lt;ul&gt;</span>
 <span class="x">                &lt;li&gt;&lt;a href=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;CustomController&#39;</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot; class=&quot;button&quot;&gt;&lt;span class=&quot;icon icon16 fa-plus&quot;&gt;&lt;/span&gt; &lt;span&gt;Custom Button&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;contentHeaderNavigation&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;contentHeaderNavigation&#39;</span><span class="cp">}</span>
 <span class="x">            &lt;/ul&gt;</span>
 <span class="x">        &lt;/nav&gt;</span>
 <span class="x">    &lt;/header&gt;</span>
-<span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 
   <hr>

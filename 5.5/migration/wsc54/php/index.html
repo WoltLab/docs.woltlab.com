@@ -3172,10 +3172,10 @@ Likewise you should explicitly check for the interface before attempting to acce
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;language</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span> <span class="na">languagecode=</span><span class="s">&quot;en&quot;</span> <span class="na">languagename=</span><span class="s">&quot;English&quot;</span> <span class="na">countrycode=</span><span class="s">&quot;gb&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;category</span> <span class="na">name=</span><span class="s">&quot;wcf.foo&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;wcf.foo.bar&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
-    <span class="nt">&lt;/category&gt;</span>
+<span class="nt">&lt;language</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span><span class="w"> </span><span class="na">languagecode=</span><span class="s">&quot;en&quot;</span><span class="w"> </span><span class="na">languagename=</span><span class="s">&quot;English&quot;</span><span class="w"> </span><span class="na">countrycode=</span><span class="s">&quot;gb&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.foo&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.foo.bar&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/category&gt;</span>
 <span class="nt">&lt;/language&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>is deprecated and should be replaced with the new structure with an explicit <code>&lt;import&gt;</code> element like in the other package installation plugins:</p>
@@ -3187,12 +3187,12 @@ Likewise you should explicitly check for the interface before attempting to acce
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;language</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span> <span class="na">languagecode=</span><span class="s">&quot;en&quot;</span> <span class="na">languagename=</span><span class="s">&quot;English&quot;</span> <span class="na">countrycode=</span><span class="s">&quot;gb&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;import&gt;</span>
-        <span class="nt">&lt;category</span> <span class="na">name=</span><span class="s">&quot;wcf.foo&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;wcf.foo.bar&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
-        <span class="nt">&lt;/category&gt;</span>
-    <span class="nt">&lt;/import&gt;</span>
+<span class="nt">&lt;language</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span><span class="w"> </span><span class="na">languagecode=</span><span class="s">&quot;en&quot;</span><span class="w"> </span><span class="na">languagename=</span><span class="s">&quot;English&quot;</span><span class="w"> </span><span class="na">countrycode=</span><span class="s">&quot;gb&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;import&gt;</span>
+<span class="w">        </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.foo&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.foo.bar&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/category&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/language&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>Additionally, to now also support deleting phrases with this package installation plugin, support for a <code>&lt;delete&gt;</code> element has been added:</p>
@@ -3207,15 +3207,15 @@ Likewise you should explicitly check for the interface before attempting to acce
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;language</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span> <span class="na">languagecode=</span><span class="s">&quot;en&quot;</span> <span class="na">languagename=</span><span class="s">&quot;English&quot;</span> <span class="na">countrycode=</span><span class="s">&quot;gb&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;import&gt;</span>
-        <span class="nt">&lt;category</span> <span class="na">name=</span><span class="s">&quot;wcf.foo&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;wcf.foo.bar&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
-        <span class="nt">&lt;/category&gt;</span>
-    <span class="nt">&lt;/import&gt;</span>
-    <span class="nt">&lt;delete&gt;</span>
-        <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;wcf.foo.barrr&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/delete&gt;</span>
+<span class="nt">&lt;language</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span><span class="w"> </span><span class="na">languagecode=</span><span class="s">&quot;en&quot;</span><span class="w"> </span><span class="na">languagename=</span><span class="s">&quot;English&quot;</span><span class="w"> </span><span class="na">countrycode=</span><span class="s">&quot;gb&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;import&gt;</span>
+<span class="w">        </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.foo&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.foo.bar&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/category&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/import&gt;</span>
+<span class="w">    </span><span class="nt">&lt;delete&gt;</span>
+<span class="w">        </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.foo.barrr&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/delete&gt;</span>
 <span class="nt">&lt;/language&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>Note that when deleting phrases, the category does not have to be specified because phrase identifiers are unique globally.</p>
