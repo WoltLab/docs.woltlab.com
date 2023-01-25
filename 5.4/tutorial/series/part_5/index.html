@@ -3068,27 +3068,27 @@ To generate such an output, <code>HtmlOutputProcessor::process()</code> is used 
 <span class="normal">138</span>
 <span class="normal">139</span>
 <span class="normal">140</span>
-<span class="normal">141</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;pageTitle&#39;</span><span class="cp">}{</span><span class="nv">$person</span><span class="cp">}</span><span class="x"> - </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.list</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}{</span><span class="nf">/capture</span><span class="cp">}</span><span class="x"></span>
+<span class="normal">141</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;pageTitle&#39;</span><span class="cp">}{</span><span class="nv">$person</span><span class="cp">}</span><span class="x"> - </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.list</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}{</span><span class="nf">/capture</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;contentTitle&#39;</span><span class="cp">}{</span><span class="nv">$person</span><span class="cp">}{</span><span class="nf">/capture</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;contentTitle&#39;</span><span class="cp">}{</span><span class="nv">$person</span><span class="cp">}{</span><span class="nf">/capture</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;header&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;header&#39;</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nf">if</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">informationCount</span> <span class="o">||</span> <span class="nv">$__wcf</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="o">(</span><span class="s1">&#39;user.person.canAddInformation&#39;</span><span class="o">)</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">if</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">informationCount</span> <span class="o">||</span> <span class="nv">$__wcf</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="o">(</span><span class="s1">&#39;user.person.canAddInformation&#39;</span><span class="o">)</span><span class="cp">}</span>
 <span class="x">    &lt;section class=&quot;section sectionContainerList&quot;&gt;</span>
 <span class="x">        &lt;header class=&quot;sectionHeader&quot;&gt;</span>
 <span class="x">            &lt;h2 class=&quot;sectionTitle&quot;&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.information.list</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">informationCount</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.information.list</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span>
+<span class="x">                </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">informationCount</span><span class="cp">}</span>
 <span class="x">                    &lt;span class=&quot;badge&quot;&gt;</span><span class="cp">{</span><span class="err">#</span><span class="nv">$person</span><span class="o">-&gt;</span><span class="na">informationCount</span><span class="cp">}</span><span class="x">&lt;/span&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 <span class="x">            &lt;/h2&gt;</span>
 <span class="x">        &lt;/header&gt;</span>
 
 <span class="x">        &lt;ul class=&quot;commentList containerList personInformationList jsObjectActionContainer&quot; </span><span class="cp">{</span><span class="c">*</span>
 <span class="c">            *</span><span class="cp">}</span><span class="x">data-object-action-class-name=&quot;wcf\data\person\information\PersonInformationAction&quot;</span><span class="cp">{</span><span class="c">*</span>
 <span class="c">        *</span><span class="cp">}</span><span class="x">&gt;</span>
-<span class="x">            </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$__wcf</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="o">(</span><span class="s1">&#39;user.person.canAddInformation&#39;</span><span class="o">)</span><span class="cp">}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$__wcf</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="o">(</span><span class="s1">&#39;user.person.canAddInformation&#39;</span><span class="o">)</span><span class="cp">}</span>
 <span class="x">                &lt;li class=&quot;containerListButtonGroup&quot;&gt;</span>
 <span class="x">                    &lt;ul class=&quot;buttonGroup&quot;&gt;</span>
 <span class="x">                        &lt;li&gt;</span>
@@ -3099,73 +3099,73 @@ To generate such an output, <code>HtmlOutputProcessor::process()</code> is used 
 <span class="x">                        &lt;/li&gt;</span>
 <span class="x">                    &lt;/ul&gt;</span>
 <span class="x">                &lt;/li&gt;</span>
-<span class="x">            </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 
-<span class="x">            </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$person</span><span class="o">-&gt;</span><span class="na">getInformation</span><span class="o">()</span> <span class="na">item</span><span class="o">=</span><span class="nv">$information</span><span class="cp">}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$person</span><span class="o">-&gt;</span><span class="na">getInformation</span><span class="o">()</span> <span class="na">item</span><span class="o">=</span><span class="nv">$information</span><span class="cp">}</span>
 <span class="x">                &lt;li class=&quot;comment personInformation jsObjectActionObject&quot; data-object-id=&quot;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$information</span><span class="o">-&gt;</span><span class="na">getObjectID</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot;&gt;</span>
 <span class="x">                    &lt;div class=&quot;box48</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$__wcf</span><span class="o">-&gt;</span><span class="na">getUserProfileHandler</span><span class="o">()-&gt;</span><span class="na">isIgnoredUser</span><span class="o">(</span><span class="nv">$information</span><span class="o">-&gt;</span><span class="na">userID</span><span class="o">,</span> <span class="m">2</span><span class="o">)</span><span class="cp">}</span><span class="x"> ignoredUserContent</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&quot;&gt;</span>
-<span class="x">                        </span><span class="cp">{</span><span class="nf">user</span> <span class="na">object</span><span class="o">=</span><span class="nv">$information</span><span class="o">-&gt;</span><span class="na">getUserProfile</span><span class="o">()</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;avatar48&#39;</span> <span class="na">ariaHidden</span><span class="o">=</span><span class="s1">&#39;true&#39;</span> <span class="na">tabindex</span><span class="o">=</span><span class="s1">&#39;-1&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                        </span><span class="cp">{</span><span class="nf">user</span> <span class="na">object</span><span class="o">=</span><span class="nv">$information</span><span class="o">-&gt;</span><span class="na">getUserProfile</span><span class="o">()</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;avatar48&#39;</span> <span class="na">ariaHidden</span><span class="o">=</span><span class="s1">&#39;true&#39;</span> <span class="na">tabindex</span><span class="o">=</span><span class="s1">&#39;-1&#39;</span><span class="cp">}</span>
 
 <span class="x">                        &lt;div class=&quot;commentContentContainer&quot;&gt;</span>
 <span class="x">                            &lt;div class=&quot;commentContent&quot;&gt;</span>
 <span class="x">                                &lt;div class=&quot;containerHeadline&quot;&gt;</span>
 <span class="x">                                    &lt;h3&gt;</span>
-<span class="x">                                        </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$information</span><span class="o">-&gt;</span><span class="na">userID</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                                            </span><span class="cp">{</span><span class="nf">user</span> <span class="na">object</span><span class="o">=</span><span class="nv">$information</span><span class="o">-&gt;</span><span class="na">getUserProfile</span><span class="o">()</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                                        </span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                                        </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$information</span><span class="o">-&gt;</span><span class="na">userID</span><span class="cp">}</span>
+<span class="x">                                            </span><span class="cp">{</span><span class="nf">user</span> <span class="na">object</span><span class="o">=</span><span class="nv">$information</span><span class="o">-&gt;</span><span class="na">getUserProfile</span><span class="o">()</span><span class="cp">}</span>
+<span class="x">                                        </span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span>
 <span class="x">                                            &lt;span&gt;</span><span class="cp">{</span><span class="nv">$information</span><span class="o">-&gt;</span><span class="na">username</span><span class="cp">}</span><span class="x">&lt;/span&gt;</span>
-<span class="x">                                        </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                                        </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 
 <span class="x">                                        &lt;small class=&quot;separatorLeft&quot;&gt;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$information</span><span class="o">-&gt;</span><span class="na">time</span><span class="o">|</span><span class="na">time</span><span class="cp">}</span><span class="x">&lt;/small&gt;</span>
 <span class="x">                                    &lt;/h3&gt;</span>
 <span class="x">                                &lt;/div&gt;</span>
 
 <span class="x">                                &lt;div class=&quot;htmlContent userMessage&quot; id=&quot;personInformation</span><span class="cp">{</span><span class="o">@</span><span class="nv">$information</span><span class="o">-&gt;</span><span class="na">getObjectID</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot;&gt;</span>
-<span class="x">                                    </span><span class="cp">{</span><span class="o">@</span><span class="nv">$information</span><span class="o">-&gt;</span><span class="na">getFormattedInformation</span><span class="o">()</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                                    </span><span class="cp">{</span><span class="o">@</span><span class="nv">$information</span><span class="o">-&gt;</span><span class="na">getFormattedInformation</span><span class="o">()</span><span class="cp">}</span>
 <span class="x">                                &lt;/div&gt;</span>
 
 <span class="x">                                &lt;nav class=&quot;jsMobileNavigation buttonGroupNavigation&quot;&gt;</span>
 <span class="x">                                    &lt;ul class=&quot;buttonList iconList&quot;&gt;</span>
-<span class="x">                                        </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$information</span><span class="o">-&gt;</span><span class="na">canEdit</span><span class="o">()</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                                        </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$information</span><span class="o">-&gt;</span><span class="na">canEdit</span><span class="o">()</span><span class="cp">}</span>
 <span class="x">                                            &lt;li class=&quot;jsOnly&quot;&gt;</span>
 <span class="x">                                                &lt;a href=&quot;#&quot; title=&quot;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.button.edit</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&quot; class=&quot;jsEditInformation jsTooltip&quot;&gt;</span>
 <span class="x">                                                    &lt;span class=&quot;icon icon16 fa-pencil&quot;&gt;&lt;/span&gt;</span>
 <span class="x">                                                    &lt;span class=&quot;invisible&quot;&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.button.edit</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/span&gt;</span>
 <span class="x">                                                &lt;/a&gt;</span>
 <span class="x">                                            &lt;/li&gt;</span>
-<span class="x">                                        </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                                        </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$information</span><span class="o">-&gt;</span><span class="na">canDelete</span><span class="o">()</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                                        </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
+<span class="x">                                        </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$information</span><span class="o">-&gt;</span><span class="na">canDelete</span><span class="o">()</span><span class="cp">}</span>
 <span class="x">                                            &lt;li class=&quot;jsOnly&quot;&gt;</span>
 <span class="x">                                                &lt;a href=&quot;#&quot; title=&quot;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.button.delete</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&quot; class=&quot;jsObjectAction jsTooltip&quot; data-object-action=&quot;delete&quot; data-confirm-message=&quot;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.information.delete.confirmMessage</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&quot;&gt;</span>
 <span class="x">                                                    &lt;span class=&quot;icon icon16 fa-times&quot;&gt;&lt;/span&gt;</span>
 <span class="x">                                                    &lt;span class=&quot;invisible&quot;&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.button.edit</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/span&gt;</span>
 <span class="x">                                                &lt;/a&gt;</span>
 <span class="x">                                            &lt;/li&gt;</span>
-<span class="x">                                        </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                                        </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 
-<span class="x">                                        </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;informationOptions&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                                        </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;informationOptions&#39;</span><span class="cp">}</span>
 <span class="x">                                    &lt;/ul&gt;</span>
 <span class="x">                                &lt;/nav&gt;</span>
 <span class="x">                            &lt;/div&gt;</span>
 <span class="x">                        &lt;/div&gt;</span>
 <span class="x">                    &lt;/div&gt;</span>
 <span class="x">                &lt;/li&gt;</span>
-<span class="x">            </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span>
 <span class="x">        &lt;/ul&gt;</span>
 <span class="x">    &lt;/section&gt;</span>
-<span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nf">if</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">enableComments</span><span class="cp">}</span><span class="x"></span>
-<span class="x">    </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$commentList</span><span class="o">|</span><span class="na">count</span> <span class="o">||</span> <span class="nv">$commentCanAdd</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">if</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">enableComments</span><span class="cp">}</span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$commentList</span><span class="o">|</span><span class="na">count</span> <span class="o">||</span> <span class="nv">$commentCanAdd</span><span class="cp">}</span>
 <span class="x">        &lt;section id=&quot;comments&quot; class=&quot;section sectionContainerList&quot;&gt;</span>
 <span class="x">            &lt;header class=&quot;sectionHeader&quot;&gt;</span>
 <span class="x">                &lt;h2 class=&quot;sectionTitle&quot;&gt;</span>
-<span class="x">                    </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.comments</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                    </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">comments</span><span class="cp">}</span><span class="x">&lt;span class=&quot;badge&quot;&gt;</span><span class="cp">{</span><span class="err">#</span><span class="nv">$person</span><span class="o">-&gt;</span><span class="na">comments</span><span class="cp">}</span><span class="x">&lt;/span&gt;</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                    </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.comments</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span>
+<span class="x">                    </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">comments</span><span class="cp">}</span><span class="x">&lt;span class=&quot;badge&quot;&gt;</span><span class="cp">{</span><span class="err">#</span><span class="nv">$person</span><span class="o">-&gt;</span><span class="na">comments</span><span class="cp">}</span><span class="x">&lt;/span&gt;</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 <span class="x">                &lt;/h2&gt;</span>
 <span class="x">            &lt;/header&gt;</span>
 
-<span class="x">            </span><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;__commentJavaScript&#39;</span> <span class="na">commentContainerID</span><span class="o">=</span><span class="s1">&#39;personCommentList&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;__commentJavaScript&#39;</span> <span class="na">commentContainerID</span><span class="o">=</span><span class="s1">&#39;personCommentList&#39;</span><span class="cp">}</span>
 
 <span class="x">            &lt;div class=&quot;personComments&quot;&gt;</span>
 <span class="x">                &lt;ul id=&quot;personCommentList&quot; class=&quot;commentList containerList&quot; </span><span class="cp">{</span><span class="c">*</span>
@@ -3175,22 +3175,22 @@ To generate such an output, <code>HtmlOutputProcessor::process()</code> is used 
 <span class="c">                    *</span><span class="cp">}</span><span class="x">data-comments=&quot;</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">comments</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$commentList</span><span class="o">-&gt;</span><span class="na">countObjects</span><span class="o">()</span><span class="cp">}{</span><span class="nf">else</span><span class="cp">}</span><span class="x">0</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&quot; </span><span class="cp">{</span><span class="c">*</span>
 <span class="c">                    *</span><span class="cp">}</span><span class="x">data-last-comment-time=&quot;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$lastCommentTime</span><span class="cp">}</span><span class="x">&quot; </span><span class="cp">{</span><span class="c">*</span>
 <span class="c">                *</span><span class="cp">}</span><span class="x">&gt;</span>
-<span class="x">                    </span><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;commentListAddComment&#39;</span> <span class="na">wysiwygSelector</span><span class="o">=</span><span class="s1">&#39;personCommentListAddComment&#39;</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                    </span><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;commentList&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                    </span><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;commentListAddComment&#39;</span> <span class="na">wysiwygSelector</span><span class="o">=</span><span class="s1">&#39;personCommentListAddComment&#39;</span><span class="cp">}</span>
+<span class="x">                    </span><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;commentList&#39;</span><span class="cp">}</span>
 <span class="x">                &lt;/ul&gt;</span>
 <span class="x">            &lt;/div&gt;</span>
 <span class="x">        &lt;/section&gt;</span>
-<span class="x">    </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
-<span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 
 <span class="x">&lt;footer class=&quot;contentFooter&quot;&gt;</span>
-<span class="x">    </span><span class="cp">{</span><span class="nf">hascontent</span><span class="cp">}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">hascontent</span><span class="cp">}</span>
 <span class="x">        &lt;nav class=&quot;contentFooterNavigation&quot;&gt;</span>
 <span class="x">            &lt;ul&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="nf">content</span><span class="cp">}{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;contentFooterNavigation&#39;</span><span class="cp">}{</span><span class="nf">/content</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                </span><span class="cp">{</span><span class="nf">content</span><span class="cp">}{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;contentFooterNavigation&#39;</span><span class="cp">}{</span><span class="nf">/content</span><span class="cp">}</span>
 <span class="x">            &lt;/ul&gt;</span>
 <span class="x">        &lt;/nav&gt;</span>
-<span class="x">    </span><span class="cp">{</span><span class="nf">/hascontent</span><span class="cp">}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">/hascontent</span><span class="cp">}</span>
 <span class="x">&lt;/footer&gt;</span>
 
 <span class="x">&lt;script data-relocate=&quot;true&quot;&gt;</span>
@@ -3208,7 +3208,7 @@ To generate such an output, <code>HtmlOutputProcessor::process()</code> is used 
     <span class="cp">}</span><span class="x">);</span>
 <span class="x">&lt;/script&gt;</span>
 
-<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;footer&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;footer&#39;</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 
@@ -3334,98 +3334,98 @@ Additionally, we extract the information text from the <code>information_htmlInp
 <span class="cm"> * @copyright  2001-2021 WoltLab GmbH</span>
 <span class="cm"> * @license  GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="cm"> * @module  WoltLabSuite/Core/Controller/Person</span>
-<span class="cm"> */</span><span class="w"></span>
+<span class="cm"> */</span>
 
-<span class="k">import</span><span class="w"> </span><span class="nx">FormBuilderDialog</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Form/Builder/Dialog&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Language</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Language&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">UiNotification</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Ui/Notification&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">FormBuilderDialog</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Form/Builder/Dialog&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Language</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Language&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">UiNotification</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Ui/Notification&quot;</span><span class="p">;</span>
 
-<span class="kd">let</span><span class="w"> </span><span class="nx">addDialog</span><span class="o">:</span><span class="w"> </span><span class="kt">FormBuilderDialog</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">editDialogs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">FormBuilderDialog</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">addDialog</span><span class="o">:</span><span class="w"> </span><span class="kt">FormBuilderDialog</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">editDialogs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">FormBuilderDialog</span><span class="o">&gt;</span><span class="p">();</span>
 
-<span class="kd">interface</span><span class="w"> </span><span class="nx">EditReturnValues</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">formattedInformation</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="nx">informationID</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kd">interface</span><span class="w"> </span><span class="nx">EditReturnValues</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">formattedInformation</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">informationID</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="kd">interface</span><span class="w"> </span><span class="nx">Options</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">canAddInformation</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kd">interface</span><span class="w"> </span><span class="nx">Options</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">canAddInformation</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">;</span>
+<span class="p">}</span>
 
 <span class="cm">/**</span>
 <span class="cm"> * Opens the edit dialog after clicking on the edit button for a piece of information.</span>
-<span class="cm"> */</span><span class="w"></span>
-<span class="kd">function</span><span class="w"> </span><span class="nx">editInformation</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="kt">Event</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
+<span class="cm"> */</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">editInformation</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="kt">Event</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
 
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">currentTarget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">HTMLElement</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">information</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">closest</span><span class="p">(</span><span class="s2">&quot;.jsObjectActionObject&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">HTMLElement</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">informationId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">information</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">objectId</span><span class="o">!</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">currentTarget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">HTMLElement</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">information</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">closest</span><span class="p">(</span><span class="s2">&quot;.jsObjectActionObject&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">HTMLElement</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">informationId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">information</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">objectId</span><span class="o">!</span><span class="p">;</span>
 
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">editDialogs</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">informationId</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">editDialogs</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="nx">informationId</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">FormBuilderDialog</span><span class="p">(</span><span class="w"></span>
-<span class="w">        </span><span class="sb">`personInformationEditDialog</span><span class="si">${</span><span class="nx">informationId</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;wcf\\data\\person\\information\\PersonInformationAction&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;getEditDialog&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="nx">actionParameters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">informationID</span><span class="o">:</span><span class="w"> </span><span class="kt">informationId</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="p">},</span><span class="w"></span>
-<span class="w">          </span><span class="nx">dialog</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="kt">Language.get</span><span class="p">(</span><span class="s2">&quot;wcf.person.information.edit&quot;</span><span class="p">),</span><span class="w"></span>
-<span class="w">          </span><span class="p">},</span><span class="w"></span>
-<span class="w">          </span><span class="nx">submitActionName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;submitEditDialog&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="nx">successCallback</span><span class="p">(</span><span class="nx">returnValues</span><span class="o">:</span><span class="w"> </span><span class="kt">EditReturnValues</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="sb">`personInformation</span><span class="si">${</span><span class="nx">returnValues</span><span class="p">.</span><span class="nx">informationID</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">              </span><span class="nx">returnValues</span><span class="p">.</span><span class="nx">formattedInformation</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">editDialogs</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">informationId</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">editDialogs</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span>
+<span class="w">      </span><span class="nx">informationId</span><span class="p">,</span>
+<span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">FormBuilderDialog</span><span class="p">(</span>
+<span class="w">        </span><span class="sb">`personInformationEditDialog</span><span class="si">${</span><span class="nx">informationId</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;wcf\\data\\person\\information\\PersonInformationAction&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;getEditDialog&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">actionParameters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">informationID</span><span class="o">:</span><span class="w"> </span><span class="kt">informationId</span><span class="p">,</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nx">dialog</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="kt">Language.get</span><span class="p">(</span><span class="s2">&quot;wcf.person.information.edit&quot;</span><span class="p">),</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nx">submitActionName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;submitEditDialog&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">successCallback</span><span class="p">(</span><span class="nx">returnValues</span><span class="o">:</span><span class="w"> </span><span class="kt">EditReturnValues</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="sb">`personInformation</span><span class="si">${</span><span class="nx">returnValues</span><span class="p">.</span><span class="nx">informationID</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span>
+<span class="w">              </span><span class="nx">returnValues</span><span class="p">.</span><span class="nx">formattedInformation</span><span class="p">;</span>
 
-<span class="w">            </span><span class="nx">UiNotification</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;wcf.person.information.edit.success&quot;</span><span class="p">));</span><span class="w"></span>
-<span class="w">          </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">      </span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="nx">UiNotification</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;wcf.person.information.edit.success&quot;</span><span class="p">));</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">      </span><span class="p">),</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="nx">editDialogs</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">informationId</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">editDialogs</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">informationId</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+<span class="p">}</span>
 
 <span class="cm">/**</span>
 <span class="cm"> * Initializes the JavaScript code for the person page.</span>
-<span class="cm"> */</span><span class="w"></span>
-<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">init</span><span class="p">(</span><span class="nx">personId</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="kt">Options</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">canAddInformation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Initialize the dialog to add new information.</span><span class="w"></span>
-<span class="w">    </span><span class="nx">addDialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FormBuilderDialog</span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="s2">&quot;personInformationAddDialog&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="s2">&quot;wcf\\data\\person\\information\\PersonInformationAction&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="s2">&quot;getAddDialog&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">actionParameters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="nx">personID</span><span class="o">:</span><span class="w"> </span><span class="kt">personId</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nx">dialog</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="kt">Language.get</span><span class="p">(</span><span class="s2">&quot;wcf.person.information.add&quot;</span><span class="p">),</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nx">submitActionName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;submitAddDialog&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">successCallback</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="nx">UiNotification</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;wcf.person.information.add.success&quot;</span><span class="p">),</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">());</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">      </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="p">);</span><span class="w"></span>
+<span class="cm"> */</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">init</span><span class="p">(</span><span class="nx">personId</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="kt">Options</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">canAddInformation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize the dialog to add new information.</span>
+<span class="w">    </span><span class="nx">addDialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FormBuilderDialog</span><span class="p">(</span>
+<span class="w">      </span><span class="s2">&quot;personInformationAddDialog&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;wcf\\data\\person\\information\\PersonInformationAction&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;getAddDialog&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">actionParameters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">personID</span><span class="o">:</span><span class="w"> </span><span class="kt">personId</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">dialog</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="kt">Language.get</span><span class="p">(</span><span class="s2">&quot;wcf.person.information.add&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">submitActionName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;submitAddDialog&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">successCallback</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">UiNotification</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;wcf.person.information.add.success&quot;</span><span class="p">),</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">());</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">    </span><span class="p">);</span>
 
-<span class="w">    </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;personInformationAddButton&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;personInformationAddButton&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
 
-<span class="w">      </span><span class="nx">addDialog</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">});</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="nx">addDialog</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="nb">document</span><span class="w"></span>
-<span class="w">    </span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;.jsEditInformation&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">ev</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">editInformation</span><span class="p">(</span><span class="nx">ev</span><span class="p">)));</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nb">document</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;.jsEditInformation&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">ev</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">editInformation</span><span class="p">(</span><span class="nx">ev</span><span class="p">)));</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 
@@ -4472,33 +4472,33 @@ After editing a piece of information, we do not reload the page but dynamically 
 <span class="normal">27</span>
 <span class="normal">28</span>
 <span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;data</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/eventListener.xsd&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;import&gt;</span>
-        <span class="nt">&lt;eventlistener</span> <span class="na">name=</span><span class="s">&quot;rename@wcf\data\user\UserAction&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;eventclassname&gt;</span>wcf\data\user\UserAction<span class="nt">&lt;/eventclassname&gt;</span>
-            <span class="nt">&lt;eventname&gt;</span>rename<span class="nt">&lt;/eventname&gt;</span>
-            <span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\PersonUserActionRenameListener<span class="nt">&lt;/listenerclassname&gt;</span>
-            <span class="nt">&lt;environment&gt;</span>all<span class="nt">&lt;/environment&gt;</span>
-        <span class="nt">&lt;/eventlistener&gt;</span>
-        <span class="nt">&lt;eventlistener</span> <span class="na">name=</span><span class="s">&quot;save@wcf\acp\form\UserMergeForm&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;eventclassname&gt;</span>wcf\acp\form\UserMergeForm<span class="nt">&lt;/eventclassname&gt;</span>
-            <span class="nt">&lt;eventname&gt;</span>save<span class="nt">&lt;/eventname&gt;</span>
-            <span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\PersonUserMergeListener<span class="nt">&lt;/listenerclassname&gt;</span>
-            <span class="nt">&lt;environment&gt;</span>admin<span class="nt">&lt;/environment&gt;</span>
-        <span class="nt">&lt;/eventlistener&gt;</span>
-        <span class="nt">&lt;eventlistener</span> <span class="na">name=</span><span class="s">&quot;execute@wcf\system\cronjob\PruneIpAddressesCronjob&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;eventclassname&gt;</span>wcf\system\cronjob\PruneIpAddressesCronjob<span class="nt">&lt;/eventclassname&gt;</span>
-            <span class="nt">&lt;eventname&gt;</span>execute<span class="nt">&lt;/eventname&gt;</span>
-            <span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\PersonPruneIpAddressesCronjobListener<span class="nt">&lt;/listenerclassname&gt;</span>
-            <span class="nt">&lt;environment&gt;</span>all<span class="nt">&lt;/environment&gt;</span>
-        <span class="nt">&lt;/eventlistener&gt;</span>
-        <span class="nt">&lt;eventlistener</span> <span class="na">name=</span><span class="s">&quot;export@wcf\acp\action\UserExportGdprAction&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;eventclassname&gt;</span>wcf\acp\action\UserExportGdprAction<span class="nt">&lt;/eventclassname&gt;</span>
-            <span class="nt">&lt;eventname&gt;</span>export<span class="nt">&lt;/eventname&gt;</span>
-            <span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\PersonUserExportGdprListener<span class="nt">&lt;/listenerclassname&gt;</span>
-            <span class="nt">&lt;environment&gt;</span>admin<span class="nt">&lt;/environment&gt;</span>
-        <span class="nt">&lt;/eventlistener&gt;</span>
-    <span class="nt">&lt;/import&gt;</span>
+<span class="nt">&lt;data</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/eventListener.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;import&gt;</span>
+<span class="w">        </span><span class="nt">&lt;eventlistener</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;rename@wcf\data\user\UserAction&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;eventclassname&gt;</span>wcf\data\user\UserAction<span class="nt">&lt;/eventclassname&gt;</span>
+<span class="w">            </span><span class="nt">&lt;eventname&gt;</span>rename<span class="nt">&lt;/eventname&gt;</span>
+<span class="w">            </span><span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\PersonUserActionRenameListener<span class="nt">&lt;/listenerclassname&gt;</span>
+<span class="w">            </span><span class="nt">&lt;environment&gt;</span>all<span class="nt">&lt;/environment&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/eventlistener&gt;</span>
+<span class="w">        </span><span class="nt">&lt;eventlistener</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;save@wcf\acp\form\UserMergeForm&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;eventclassname&gt;</span>wcf\acp\form\UserMergeForm<span class="nt">&lt;/eventclassname&gt;</span>
+<span class="w">            </span><span class="nt">&lt;eventname&gt;</span>save<span class="nt">&lt;/eventname&gt;</span>
+<span class="w">            </span><span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\PersonUserMergeListener<span class="nt">&lt;/listenerclassname&gt;</span>
+<span class="w">            </span><span class="nt">&lt;environment&gt;</span>admin<span class="nt">&lt;/environment&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/eventlistener&gt;</span>
+<span class="w">        </span><span class="nt">&lt;eventlistener</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;execute@wcf\system\cronjob\PruneIpAddressesCronjob&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;eventclassname&gt;</span>wcf\system\cronjob\PruneIpAddressesCronjob<span class="nt">&lt;/eventclassname&gt;</span>
+<span class="w">            </span><span class="nt">&lt;eventname&gt;</span>execute<span class="nt">&lt;/eventname&gt;</span>
+<span class="w">            </span><span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\PersonPruneIpAddressesCronjobListener<span class="nt">&lt;/listenerclassname&gt;</span>
+<span class="w">            </span><span class="nt">&lt;environment&gt;</span>all<span class="nt">&lt;/environment&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/eventlistener&gt;</span>
+<span class="w">        </span><span class="nt">&lt;eventlistener</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;export@wcf\acp\action\UserExportGdprAction&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;eventclassname&gt;</span>wcf\acp\action\UserExportGdprAction<span class="nt">&lt;/eventclassname&gt;</span>
+<span class="w">            </span><span class="nt">&lt;eventname&gt;</span>export<span class="nt">&lt;/eventname&gt;</span>
+<span class="w">            </span><span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\PersonUserExportGdprListener<span class="nt">&lt;/listenerclassname&gt;</span>
+<span class="w">            </span><span class="nt">&lt;environment&gt;</span>admin<span class="nt">&lt;/environment&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/eventlistener&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div></td></tr></table></div>
 </div>

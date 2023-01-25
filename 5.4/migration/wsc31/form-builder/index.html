@@ -2729,7 +2729,7 @@ This form is the perfect first examples as it is very simple with only two text 
 <span class="normal">65</span>
 <span class="normal">66</span>
 <span class="normal">67</span>
-<span class="normal">68</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;header&#39;</span> <span class="na">pageTitle</span><span class="o">=</span><span class="s1">&#39;wcf.acp.person.&#39;</span><span class="o">|</span><span class="na">concat</span><span class="o">:</span><span class="nv">$action</span><span class="cp">}</span><span class="x"></span>
+<span class="normal">68</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;header&#39;</span> <span class="na">pageTitle</span><span class="o">=</span><span class="s1">&#39;wcf.acp.person.&#39;</span><span class="o">|</span><span class="na">concat</span><span class="o">:</span><span class="nv">$action</span><span class="cp">}</span>
 
 <span class="x">&lt;header class=&quot;contentHeader&quot;&gt;</span>
 <span class="x">    &lt;div class=&quot;contentHeaderTitle&quot;&gt;</span>
@@ -2740,16 +2740,16 @@ This form is the perfect first examples as it is very simple with only two text 
 <span class="x">        &lt;ul&gt;</span>
 <span class="x">            &lt;li&gt;&lt;a href=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;PersonList&#39;</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot; class=&quot;button&quot;&gt;&lt;span class=&quot;icon icon16 fa-list&quot;&gt;&lt;/span&gt; &lt;span&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.acp.menu.link.person.list</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
 
-<span class="x">            </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;contentHeaderNavigation&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;contentHeaderNavigation&#39;</span><span class="cp">}</span>
 <span class="x">        &lt;/ul&gt;</span>
 <span class="x">    &lt;/nav&gt;</span>
 <span class="x">&lt;/header&gt;</span>
 
-<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;formError&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;formError&#39;</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nf">if</span> <span class="nv">$success</span><span class="o">|</span><span class="na">isset</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">if</span> <span class="nv">$success</span><span class="o">|</span><span class="na">isset</span><span class="cp">}</span>
 <span class="x">    &lt;p class=&quot;success&quot;&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.success.</span><span class="cp">{</span><span class="nv">$action</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/p&gt;</span>
-<span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 
 <span class="x">&lt;form method=&quot;post&quot; action=&quot;</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$action</span> <span class="o">==</span> <span class="s1">&#39;add&#39;</span><span class="cp">}{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;PersonAdd&#39;</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}{</span><span class="nf">else</span><span class="cp">}{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;PersonEdit&#39;</span> <span class="na">object</span><span class="o">=</span><span class="nv">$person</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&quot;&gt;</span>
 <span class="x">    &lt;div class=&quot;section&quot;&gt;</span>
@@ -2757,15 +2757,15 @@ This form is the perfect first examples as it is very simple with only two text 
 <span class="x">            &lt;dt&gt;&lt;label for=&quot;firstName&quot;&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.firstName</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/label&gt;&lt;/dt&gt;</span>
 <span class="x">            &lt;dd&gt;</span>
 <span class="x">                &lt;input type=&quot;text&quot; id=&quot;firstName&quot; name=&quot;firstName&quot; value=&quot;</span><span class="cp">{</span><span class="nv">$firstName</span><span class="cp">}</span><span class="x">&quot; required autofocus maxlength=&quot;255&quot; class=&quot;long&quot;&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">&#39;firstName&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">&#39;firstName&#39;</span><span class="cp">}</span>
 <span class="x">                    &lt;small class=&quot;innerError&quot;&gt;</span>
-<span class="x">                        </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorType</span> <span class="o">==</span> <span class="s1">&#39;empty&#39;</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                            </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.form.error.empty</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                        </span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                            </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.acp.person.firstName.error.</span><span class="cp">{</span><span class="nv">$errorType</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                        </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                        </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorType</span> <span class="o">==</span> <span class="s1">&#39;empty&#39;</span><span class="cp">}</span>
+<span class="x">                            </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.form.error.empty</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span>
+<span class="x">                        </span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span>
+<span class="x">                            </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.acp.person.firstName.error.</span><span class="cp">{</span><span class="nv">$errorType</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span>
+<span class="x">                        </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 <span class="x">                    &lt;/small&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 <span class="x">            &lt;/dd&gt;</span>
 <span class="x">        &lt;/dl&gt;</span>
 
@@ -2773,30 +2773,30 @@ This form is the perfect first examples as it is very simple with only two text 
 <span class="x">            &lt;dt&gt;&lt;label for=&quot;lastName&quot;&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.lastName</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/label&gt;&lt;/dt&gt;</span>
 <span class="x">            &lt;dd&gt;</span>
 <span class="x">                &lt;input type=&quot;text&quot; id=&quot;lastName&quot; name=&quot;lastName&quot; value=&quot;</span><span class="cp">{</span><span class="nv">$lastName</span><span class="cp">}</span><span class="x">&quot; required maxlength=&quot;255&quot; class=&quot;long&quot;&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">&#39;lastName&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">&#39;lastName&#39;</span><span class="cp">}</span>
 <span class="x">                    &lt;small class=&quot;innerError&quot;&gt;</span>
-<span class="x">                        </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorType</span> <span class="o">==</span> <span class="s1">&#39;empty&#39;</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                            </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.form.error.empty</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                        </span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                            </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.acp.person.lastName.error.</span><span class="cp">{</span><span class="nv">$errorType</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                        </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                        </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorType</span> <span class="o">==</span> <span class="s1">&#39;empty&#39;</span><span class="cp">}</span>
+<span class="x">                            </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.form.error.empty</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span>
+<span class="x">                        </span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span>
+<span class="x">                            </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.acp.person.lastName.error.</span><span class="cp">{</span><span class="nv">$errorType</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span>
+<span class="x">                        </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 <span class="x">                    &lt;/small&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 <span class="x">            &lt;/dd&gt;</span>
 <span class="x">        &lt;/dl&gt;</span>
 
-<span class="x">        </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;dataFields&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;dataFields&#39;</span><span class="cp">}</span>
 <span class="x">    &lt;/div&gt;</span>
 
-<span class="x">    </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;sections&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;sections&#39;</span><span class="cp">}</span>
 
 <span class="x">    &lt;div class=&quot;formSubmit&quot;&gt;</span>
 <span class="x">        &lt;input type=&quot;submit&quot; value=&quot;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.button.submit</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&quot; accesskey=&quot;s&quot;&gt;</span>
-<span class="x">        </span><span class="cp">{</span><span class="o">@</span><span class="na">SECURITY_TOKEN_INPUT_TAG</span><span class="cp">}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{</span><span class="o">@</span><span class="na">SECURITY_TOKEN_INPUT_TAG</span><span class="cp">}</span>
 <span class="x">    &lt;/div&gt;</span>
 <span class="x">&lt;/form&gt;</span>
 
-<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;footer&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;footer&#39;</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 
@@ -2824,7 +2824,7 @@ This form is the perfect first examples as it is very simple with only two text 
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;header&#39;</span> <span class="na">pageTitle</span><span class="o">=</span><span class="s1">&#39;wcf.acp.person.&#39;</span><span class="o">|</span><span class="na">concat</span><span class="o">:</span><span class="nv">$action</span><span class="cp">}</span><span class="x"></span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;header&#39;</span> <span class="na">pageTitle</span><span class="o">=</span><span class="s1">&#39;wcf.acp.person.&#39;</span><span class="o">|</span><span class="na">concat</span><span class="o">:</span><span class="nv">$action</span><span class="cp">}</span>
 
 <span class="x">&lt;header class=&quot;contentHeader&quot;&gt;</span>
 <span class="x">    &lt;div class=&quot;contentHeaderTitle&quot;&gt;</span>
@@ -2835,14 +2835,14 @@ This form is the perfect first examples as it is very simple with only two text 
 <span class="x">        &lt;ul&gt;</span>
 <span class="x">            &lt;li&gt;&lt;a href=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;PersonList&#39;</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot; class=&quot;button&quot;&gt;&lt;span class=&quot;icon icon16 fa-list&quot;&gt;&lt;/span&gt; &lt;span&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.acp.menu.link.person.list</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
 
-<span class="x">            </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;contentHeaderNavigation&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;contentHeaderNavigation&#39;</span><span class="cp">}</span>
 <span class="x">        &lt;/ul&gt;</span>
 <span class="x">    &lt;/nav&gt;</span>
 <span class="x">&lt;/header&gt;</span>
 
-<span class="cp">{</span><span class="o">@</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getHtml</span><span class="o">()</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="o">@</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getHtml</span><span class="o">()</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;footer&#39;</span><span class="cp">}</span><span class="x"></span>
+<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;footer&#39;</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 

@@ -2457,11 +2457,11 @@ Instead, use <code>click</code> directly:</p>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// before</span><span class="w"></span>
-<span class="nx">element</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">WCF_CLICK_EVENT</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">_click</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span><span class="w"></span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// before</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">WCF_CLICK_EVENT</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">_click</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
 
-<span class="c1">// after</span><span class="w"></span>
-<span class="nx">element</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">ev</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">_click</span><span class="p">(</span><span class="nx">ev</span><span class="p">));</span><span class="w"></span>
+<span class="c1">// after</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">ev</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">_click</span><span class="p">(</span><span class="nx">ev</span><span class="p">));</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="wcfactiondelete-and-wcfactiontoggle"><code>WCF.Action.Delete</code> and <code>WCF.Action.Toggle</code><a class="headerlink" href="#wcfactiondelete-and-wcfactiontoggle" title="Permanent link">#</a></h2>
 <p><code>WCF.Action.Delete</code> and <code>WCF.Action.Toggle</code> were used for buttons to delete or enable/disable objects via JavaScript.
@@ -2501,21 +2501,21 @@ Additionally, we have added a new <code>{objectAction}</code> template plugin, w
 <span class="c">    *</span><span class="cp">}</span><span class="x">data-object-action-class-name=&quot;wcf\data\foo\FooAction&quot;&gt;</span>
 <span class="x">    &lt;thead&gt;</span>
 <span class="x">        &lt;tr&gt;</span>
-<span class="x">            </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span>
 <span class="x">        &lt;/tr&gt;</span>
 <span class="x">    &lt;/thead&gt;</span>
 
 <span class="x">    &lt;tbody&gt;</span>
-<span class="x">        </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$objects</span> <span class="na">item</span><span class="o">=</span><span class="na">foo</span><span class="cp">}</span><span class="x"></span>
-<span class="x">            &lt;tr class=&quot;jsObjectActionObject&quot; data-object-id=&quot;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getObjectID</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot;&gt;</span>
+<span class="x">        </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$objects</span> <span class="na">item</span><span class="o">=</span><span class="na">foo</span><span class="cp">}</span>
+<span class="x">            &lt;tr class=&quot;jsObjectActionObject&quot; data-object-id=&quot;</span><span class="cp">{</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getObjectID</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot;&gt;</span>
 <span class="x">                &lt;td class=&quot;columnIcon&quot;&gt;</span>
-<span class="x">                    </span><span class="cp">{</span><span class="nf">objectAction</span> <span class="na">action</span><span class="o">=</span><span class="s2">&quot;toggle&quot;</span> <span class="na">isDisabled</span><span class="o">=</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">isDisabled</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                    </span><span class="cp">{</span><span class="nf">objectAction</span> <span class="na">action</span><span class="o">=</span><span class="s2">&quot;delete&quot;</span> <span class="na">objectTitle</span><span class="o">=</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="o">()</span><span class="cp">}</span><span class="x"></span>
-<span class="x">                    </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                    </span><span class="cp">{</span><span class="nf">objectAction</span> <span class="na">action</span><span class="o">=</span><span class="s2">&quot;toggle&quot;</span> <span class="na">isDisabled</span><span class="o">=</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">isDisabled</span><span class="cp">}</span>
+<span class="x">                    </span><span class="cp">{</span><span class="nf">objectAction</span> <span class="na">action</span><span class="o">=</span><span class="s2">&quot;delete&quot;</span> <span class="na">objectTitle</span><span class="o">=</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="o">()</span><span class="cp">}</span>
+<span class="x">                    </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span>
 <span class="x">                &lt;/td&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span>
 <span class="x">            &lt;/tr&gt;</span>
-<span class="x">        </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span>
 <span class="x">    &lt;/tbody&gt;</span>
 <span class="x">&lt;/table&gt;</span>
 </code></pre></div></td></tr></table></div>
@@ -2550,16 +2550,16 @@ To also cover scenarios in which there are fixed child elements that should not 
 <span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;table class=&quot;table&quot;&gt;</span>
 <span class="x">    &lt;thead&gt;</span>
 <span class="x">        &lt;tr&gt;</span>
-<span class="x">            </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span>
 <span class="x">        &lt;/tr&gt;</span>
 <span class="x">    &lt;/thead&gt;</span>
 
 <span class="x">    &lt;tbody class=&quot;jsReloadPageWhenEmpty&quot;&gt;</span>
-<span class="x">        </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$objects</span> <span class="na">item</span><span class="o">=</span><span class="na">object</span><span class="cp">}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$objects</span> <span class="na">item</span><span class="o">=</span><span class="na">object</span><span class="cp">}</span>
 <span class="x">            &lt;tr&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span>
 <span class="x">            &lt;/tr&gt;</span>
-<span class="x">        </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span>
 <span class="x">    &lt;/tbody&gt;</span>
 <span class="x">&lt;/table&gt;</span>
 </code></pre></div></td></tr></table></div>
@@ -2578,14 +2578,14 @@ To also cover scenarios in which there are fixed child elements that should not 
 <span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;div class=&quot;section tabularBox messageGroupList&quot;&gt;</span>
 <span class="x">    &lt;ol class=&quot;tabularList jsReloadPageWhenEmpty&quot;&gt;</span>
 <span class="x">        &lt;li class=&quot;tabularListRow tabularListRowHead&quot; data-reload-page-when-empty=&quot;ignore&quot;&gt;</span>
-<span class="x">            </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span>
 <span class="x">        &lt;/li&gt;</span>
 
-<span class="x">        </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$objects</span> <span class="na">item</span><span class="o">=</span><span class="na">object</span><span class="cp">}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$objects</span> <span class="na">item</span><span class="o">=</span><span class="na">object</span><span class="cp">}</span>
 <span class="x">            &lt;li&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span><span class="x"></span>
+<span class="x">                </span><span class="cp">{</span><span class="c">* … *</span><span class="cp">}</span>
 <span class="x">            &lt;/li&gt;</span>
-<span class="x">        </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span>
 <span class="x">    &lt;/ol&gt;</span>
 <span class="x">&lt;/div&gt;</span>
 </code></pre></div></td></tr></table></div>
@@ -2597,7 +2597,7 @@ To also cover scenarios in which there are fixed child elements that should not 
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-05-07
+      Last update: 2023-01-25
     
   </small>
 </div>

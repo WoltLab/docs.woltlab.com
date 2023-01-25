@@ -2434,22 +2434,22 @@ construct in ES5, they are represented by mere objects that act as an instance.<
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// App.js</span><span class="w"></span>
-<span class="nb">window</span><span class="p">.</span><span class="nx">App</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
-<span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// App.js</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">App</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+<span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">};</span>
 
-<span class="c1">// --- NEW API ---</span><span class="w"></span>
+<span class="c1">// --- NEW API ---</span>
 
-<span class="c1">// App/Foo.js</span><span class="w"></span>
-<span class="nx">define</span><span class="p">([],</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// App/Foo.js</span>
+<span class="nx">define</span><span class="p">([],</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="w">  </span><span class="p">};</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="regular-classes">Regular Classes<a class="headerlink" href="#regular-classes" title="Permanent link">#</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2470,25 +2470,25 @@ construct in ES5, they are represented by mere objects that act as an instance.<
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// App.js</span><span class="w"></span>
-<span class="nb">window</span><span class="p">.</span><span class="nx">App</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
-<span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span><span class="w"></span>
-<span class="w">  </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// App.js</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">App</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+<span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">});</span>
 
-<span class="c1">// --- NEW API ---</span><span class="w"></span>
+<span class="c1">// --- NEW API ---</span>
 
-<span class="c1">// App/Foo.js</span><span class="w"></span>
-<span class="nx">define</span><span class="p">([],</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// App/Foo.js</span>
+<span class="nx">define</span><span class="p">([],</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
 
-<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">Foo</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
-<span class="w">  </span><span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="w">  </span><span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">Foo</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">  </span><span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">};</span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">Foo</span><span class="p">;</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">Foo</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">#</a></h4>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2524,40 +2524,40 @@ construct in ES5, they are represented by mere objects that act as an instance.<
 <span class="normal">31</span>
 <span class="normal">32</span>
 <span class="normal">33</span>
-<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// App.js</span><span class="w"></span>
-<span class="nb">window</span><span class="p">.</span><span class="nx">App</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
-<span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span><span class="w"></span>
-<span class="w">  </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-<span class="nx">App</span><span class="p">.</span><span class="nx">Baz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span><span class="w"></span>
-<span class="w">  </span><span class="nx">makeSnafucated</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// App.js</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">App</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+<span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">});</span>
+<span class="nx">App</span><span class="p">.</span><span class="nx">Baz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">makeSnafucated</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">});</span>
 
-<span class="c1">// --- NEW API ---</span><span class="w"></span>
+<span class="c1">// --- NEW API ---</span>
 
-<span class="c1">// App/Foo.js</span><span class="w"></span>
-<span class="nx">define</span><span class="p">([],</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// App/Foo.js</span>
+<span class="nx">define</span><span class="p">([],</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
 
-<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">Foo</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
-<span class="w">  </span><span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="w">  </span><span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">Foo</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">  </span><span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">};</span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">Foo</span><span class="p">;</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">Foo</span><span class="p">;</span>
+<span class="p">});</span>
 
-<span class="c1">// App/Baz.js</span><span class="w"></span>
-<span class="nx">define</span><span class="p">([</span><span class="s2">&quot;Core&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;./Foo&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Core</span><span class="p">,</span><span class="w"> </span><span class="nx">Foo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// App/Baz.js</span>
+<span class="nx">define</span><span class="p">([</span><span class="s2">&quot;Core&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;./Foo&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Core</span><span class="p">,</span><span class="w"> </span><span class="nx">Foo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
 
-<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">Baz</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
-<span class="w">  </span><span class="nx">Core</span><span class="p">.</span><span class="nx">inherit</span><span class="p">(</span><span class="nx">Baz</span><span class="p">,</span><span class="w"> </span><span class="nx">Foo</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">makeSnafucated</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">Baz</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">  </span><span class="nx">Core</span><span class="p">.</span><span class="nx">inherit</span><span class="p">(</span><span class="nx">Baz</span><span class="p">,</span><span class="w"> </span><span class="nx">Foo</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">makeSnafucated</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">});</span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">Baz</span><span class="p">;</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">Baz</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="ajax-requests">Ajax Requests<a class="headerlink" href="#ajax-requests" title="Permanent link">#</a></h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2621,68 +2621,68 @@ construct in ES5, they are represented by mere objects that act as an instance.<
 <span class="normal">59</span>
 <span class="normal">60</span>
 <span class="normal">61</span>
-<span class="normal">62</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// App.js</span><span class="w"></span>
-<span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span><span class="w"></span>
-<span class="w">  </span><span class="nx">_proxy</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="normal">62</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// App.js</span>
+<span class="nx">App</span><span class="p">.</span><span class="nx">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">_proxy</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 
-<span class="w">  </span><span class="nx">init</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">_proxy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">WCF</span><span class="p">.</span><span class="nx">Action</span><span class="p">.</span><span class="nb">Proxy</span><span class="p">({</span><span class="w"></span>
-<span class="w">      </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="nx">$</span><span class="p">.</span><span class="nx">proxy</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_success</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">});</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nx">init</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">_proxy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">WCF</span><span class="p">.</span><span class="nx">Action</span><span class="p">.</span><span class="nb">Proxy</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="nx">$</span><span class="p">.</span><span class="nx">proxy</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_success</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">)</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">},</span>
 
-<span class="w">  </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">_proxy</span><span class="p">.</span><span class="nx">setOption</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nx">actionName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;baz&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nx">className</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;app\\foo\\FooAction&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nx">objectIDs</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">],</span><span class="w"></span>
-<span class="w">      </span><span class="nx">parameters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">foo</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">baz</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">});</span><span class="w"></span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">_proxy</span><span class="p">.</span><span class="nx">sendRequest</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">_proxy</span><span class="p">.</span><span class="nx">setOption</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">actionName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;baz&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">className</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;app\\foo\\FooAction&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">objectIDs</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">],</span>
+<span class="w">      </span><span class="nx">parameters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">foo</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">baz</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">_proxy</span><span class="p">.</span><span class="nx">sendRequest</span><span class="p">();</span>
+<span class="w">  </span><span class="p">},</span>
 
-<span class="w">  </span><span class="nx">_success</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// ajax request result</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="nx">_success</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// ajax request result</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
 
-<span class="c1">// --- NEW API ---</span><span class="w"></span>
+<span class="c1">// --- NEW API ---</span>
 
-<span class="c1">// App/Foo.js</span><span class="w"></span>
-<span class="nx">define</span><span class="p">([</span><span class="s2">&quot;Ajax&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Ajax</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// App/Foo.js</span>
+<span class="nx">define</span><span class="p">([</span><span class="s2">&quot;Ajax&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Ajax</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
 
-<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">Foo</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="w">  </span><span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nx">Ajax</span><span class="p">.</span><span class="nx">api</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">objectIDs</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">],</span><span class="w"></span>
-<span class="w">        </span><span class="nx">parameters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="nx">foo</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="nx">baz</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">});</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">Foo</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="nx">Foo</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">Ajax</span><span class="p">.</span><span class="nx">api</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">objectIDs</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">parameters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">foo</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">baz</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+<span class="w">    </span><span class="p">},</span>
 
-<span class="w">    </span><span class="c1">// magic method!</span><span class="w"></span>
-<span class="w">    </span><span class="nx">_ajaxSuccess</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// ajax request result</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// magic method!</span>
+<span class="w">    </span><span class="nx">_ajaxSuccess</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// ajax request result</span>
+<span class="w">    </span><span class="p">},</span>
 
-<span class="w">    </span><span class="c1">// magic method!</span><span class="w"></span>
-<span class="w">    </span><span class="nx">_ajaxSetup</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">actionName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;baz&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">className</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;app\\foo\\FooAction&quot;</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// magic method!</span>
+<span class="w">    </span><span class="nx">_ajaxSetup</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">actionName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;baz&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">className</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;app\\foo\\FooAction&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">Foo</span><span class="p">;</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">Foo</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="phrases">Phrases<a class="headerlink" href="#phrases" title="Permanent link">#</a></h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2705,26 +2705,26 @@ construct in ES5, they are represented by mere objects that act as an instance.<
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span><span class="w"></span>
-<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">WCF</span><span class="p">.</span><span class="nx">Language</span><span class="p">.</span><span class="nx">addObject</span><span class="p">({</span><span class="w"></span>
-<span class="w">    </span><span class="s1">&#39;app.foo.bar&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{lang}app.foo.bar{/lang}&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">WCF</span><span class="p">.</span><span class="nx">Language</span><span class="p">.</span><span class="nx">addObject</span><span class="p">({</span>
+<span class="w">    </span><span class="s1">&#39;app.foo.bar&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{lang}app.foo.bar{/lang}&#39;</span>
+<span class="w">  </span><span class="p">});</span>
 
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">WCF</span><span class="p">.</span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;app.foo.bar&quot;</span><span class="p">));</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">WCF</span><span class="p">.</span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;app.foo.bar&quot;</span><span class="p">));</span>
+<span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="cm">&lt;!-- NEW API --&gt;</span>
 
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span><span class="w"></span>
-<span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Language&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Language</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">Language</span><span class="p">.</span><span class="nx">addObject</span><span class="p">({</span><span class="w"></span>
-<span class="w">    </span><span class="s1">&#39;app.foo.bar&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{jslang}app.foo.bar{/jslang}&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+<span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Language&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">Language</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">Language</span><span class="p">.</span><span class="nx">addObject</span><span class="p">({</span>
+<span class="w">    </span><span class="s1">&#39;app.foo.bar&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{jslang}app.foo.bar{/jslang}&#39;</span>
+<span class="w">  </span><span class="p">});</span>
 
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;app.foo.bar&quot;</span><span class="p">));</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Language</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;app.foo.bar&quot;</span><span class="p">));</span>
+<span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="event-listener">Event-Listener<a class="headerlink" href="#event-listener" title="Permanent link">#</a></h2>
@@ -2748,26 +2748,26 @@ construct in ES5, they are represented by mere objects that act as an instance.<
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span><span class="w"></span>
-<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">WCF</span><span class="p">.</span><span class="nx">System</span><span class="p">.</span><span class="nx">Event</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;app.foo.bar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;makeSnafucated&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Event was invoked.&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">WCF</span><span class="p">.</span><span class="nx">System</span><span class="p">.</span><span class="nx">Event</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;app.foo.bar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;makeSnafucated&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Event was invoked.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
 
-<span class="w">  </span><span class="nx">WCF</span><span class="p">.</span><span class="nx">System</span><span class="p">.</span><span class="nx">Event</span><span class="p">.</span><span class="nx">fireEvent</span><span class="p">(</span><span class="s2">&quot;app.foo.bar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;makeSnafucated&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">some</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="nx">WCF</span><span class="p">.</span><span class="nx">System</span><span class="p">.</span><span class="nx">Event</span><span class="p">.</span><span class="nx">fireEvent</span><span class="p">(</span><span class="s2">&quot;app.foo.bar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;makeSnafucated&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">some</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="w"> </span><span class="p">});</span>
+<span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="cm">&lt;!-- NEW API --&gt;</span>
 
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span><span class="w"></span>
-<span class="nx">require</span><span class="p">([</span><span class="s2">&quot;EventHandler&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">EventHandler</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">EventHandler</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;app.foo.bar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;makeSnafucated&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Event was invoked&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+<span class="nx">require</span><span class="p">([</span><span class="s2">&quot;EventHandler&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">EventHandler</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">EventHandler</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;app.foo.bar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;makeSnafucated&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Event was invoked&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
 
-<span class="w">  </span><span class="nx">EventHandler</span><span class="p">.</span><span class="nx">fire</span><span class="p">(</span><span class="s2">&quot;app.foo.bar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;makeSnafucated&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">some</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="nx">EventHandler</span><span class="p">.</span><span class="nx">fire</span><span class="p">(</span><span class="s2">&quot;app.foo.bar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;makeSnafucated&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">some</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="w"> </span><span class="p">});</span>
+<span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
                 
