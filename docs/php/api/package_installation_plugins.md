@@ -105,13 +105,13 @@ You should make use of this data to remove the matching element from database.
 Example:
 ```php
 <?php
-$sql = "DELETE FROM	wcf".WCF_N."_".$this->tableName."
+$sql = "DELETE FROM	wcf1_{$this->tableName}
 	WHERE		packageID = ?
 			AND environment = ?
 			AND eventName = ?
 			AND name = ?
 			AND templateName = ?";
-$statement = WCF::getDB()->prepareStatement($sql);
+$statement = WCF::getDB()->prepare($sql);
 foreach ($items as $item) {
 	$statement->execute([
 		$this->installation->getPackageID(),
