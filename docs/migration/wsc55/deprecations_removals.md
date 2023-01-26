@@ -72,6 +72,8 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 #### Classes
 
+- `calendar\data\CALENDARDatabaseObject`
+- `calendar\system\image\EventDataHandler`
 - `gallery\data\GalleryDatabaseObject`
 - `gallery\system\image\ImageDataHandler`
 - `wbb\system\user\object\watch\BoardUserObjectWatch` and the corresponding object type
