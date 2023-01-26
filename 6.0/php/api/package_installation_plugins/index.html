@@ -3058,13 +3058,13 @@ You should make use of this data to remove the matching element from database.</
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tableName</span><span class="o">.</span><span class="s2">&quot;</span>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM wcf1_</span><span class="si">{</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tableName</span><span class="si">}</span>
 <span class="s2">    WHERE       packageID = ?</span>
 <span class="s2">            AND environment = ?</span>
 <span class="s2">            AND eventName = ?</span>
 <span class="s2">            AND name = ?</span>
 <span class="s2">            AND templateName = ?&quot;</span><span class="p">;</span>
-<span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepareStatement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+<span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$items</span> <span class="k">as</span> <span class="nv">$item</span><span class="p">)</span> <span class="p">{</span>
     <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span>
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">installation</span><span class="o">-&gt;</span><span class="na">getPackageID</span><span class="p">(),</span>
@@ -3095,7 +3095,7 @@ This allows options to store arbitrary data which can be accessed but were not i
   <small>
     
       Last update:
-      2021-07-08
+      2023-01-26
     
   </small>
 </div>
