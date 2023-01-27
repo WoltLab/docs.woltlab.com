@@ -107,6 +107,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\data\user\avatar\UserAvatarAction::enforceDimensions()` ([WoltLab/WCF#5007](https://github.com/WoltLab/WCF/pull/5007))
 - `wcf\data\user\avatar\UserAvatarAction::fetchRemoteAvatar()` ([WoltLab/WCF#5007](https://github.com/WoltLab/WCF/pull/5007))
 - `wcf\data\user\notification\UserNotificationAction::getOustandingNotifications()` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
+- `wcf\data\user\UserRegistrationAction::validatePassword()` ([WoltLab/WCF#5244](https://github.com/WoltLab/WCF/pull/5244))
 - `wcf\system\bbcode\BBCodeParser::getRemoveLinks()` ([WoltLab/WCF#4986](https://github.com/WoltLab/WCF/pull/4986))
 - `wcf\system\bbcode\HtmlBBCodeParser::setRemoveLinks()` ([WoltLab/WCF#4986](https://github.com/WoltLab/WCF/pull/4986))
 - `wcf\system\html\output\node\AbstractHtmlOutputNode::setRemoveLinks()` ([WoltLab/WCF#4986](https://github.com/WoltLab/WCF/pull/4986))
@@ -262,6 +263,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `WCF.Template` ([WoltLab/WCF#5070](https://github.com/WoltLab/WCF/pull/5070))
 - `WCF.ToggleOptions` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.User.Panel.Abstract` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
+- `WCF.User.Registration.Validation.Password` ([WoltLab/WCF#5244](https://github.com/WoltLab/WCF/pull/5244))
 - `window.shuffle()` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WSC_API_VERSION` ([WoltLab/WCF#4943](https://github.com/WoltLab/WCF/pull/4943))
 - `WCF.Infraction.Warning.ShowDetails`
