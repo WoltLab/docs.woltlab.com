@@ -49,6 +49,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 ### JavaScript
 
+- `WCF.Comment` ([WoltLab/WCF#5210](https://github.com/WoltLab/WCF/pull/5210))
 - `WCF.Location` ([WoltLab/WCF#4972](https://github.com/WoltLab/WCF/pull/4972))
 - `WCF.User.ObjectWatch.Subscribe` ([WoltLab/WCF#4962](https://github.com/WoltLab/WCF/pull/4962))
 - `WCF.User.List` ([WoltLab/WCF#5039](https://github.com/WoltLab/WCF/pull/5039))
@@ -59,6 +60,9 @@ With version 6.0, we have deprecated certain components and removed several othe
 ### Database Tables
 
 ### Templates
+
+- `__commentJavaScript` ([WoltLab/WCF#5210](https://github.com/WoltLab/WCF/pull/5210))
+- `commentListAddComment` ([WoltLab/WCF#5210](https://github.com/WoltLab/WCF/pull/5210))
 
 #### Template Modifiers
 
@@ -267,6 +271,10 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `window.shuffle()` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WSC_API_VERSION` ([WoltLab/WCF#4943](https://github.com/WoltLab/WCF/pull/4943))
 - `WCF.Infraction.Warning.ShowDetails`
+- `WoltLabSuite/Core/Ui/Comment/Add` ([WoltLab/WCF#5210](https://github.com/WoltLab/WCF/pull/5210))
+- `WoltLabSuite/Core/Ui/Comment/Edit` ([WoltLab/WCF#5210](https://github.com/WoltLab/WCF/pull/5210))
+- `WoltLabSuite/Core/Ui/Response/Comment/Add` ([WoltLab/WCF#5210](https://github.com/WoltLab/WCF/pull/5210))
+- `WoltLabSuite/Core/Ui/Response/Comment/Edit` ([WoltLab/WCF#5210](https://github.com/WoltLab/WCF/pull/5210))
 
 ### Database
 
