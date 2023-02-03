@@ -1896,6 +1896,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#content-negotiation" class="md-nav__link">
+    Content Negotiation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cronjobs" class="md-nav__link">
     Cronjobs
   </a>
@@ -2700,6 +2707,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#content-negotiation" class="md-nav__link">
+    Content Negotiation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cronjobs" class="md-nav__link">
     Cronjobs
   </a>
@@ -2750,6 +2764,11 @@ Instead the <a href="https://www.php.net/manual/en/function.idn-to-ascii.php"><c
 The <code>wcf\util\Diff::rawDiffFromSebastianDiff()</code> method was added as a compatibility helper to transform sebastian/diff's output format into Diff's output format.</p>
 <p>Refer to the documentation within the <a href="https://github.com/sebastianbergmann/diff">sebastianbergmann/diff</a> repository for details on how to use the library.</p>
 <p>See <a href="https://github.com/WoltLab/WCF/pull/4918">WoltLab/WCF#4918</a> for examples on how to use the compatibility helper if you need to preserve the output format for the time being.</p>
+<h2 id="content-negotiation">Content Negotiation<a class="headerlink" href="#content-negotiation" title="Permanent link">#</a></h2>
+<p>WoltLab Suite 6.0 ships with willdurand/negotiation to perform HTTP content negotiation based on the headers sent within the request.
+The <code>wcf\http\Helper::getPreferredContentType()</code> method provides a convenience interface to perform content negotiation with regard to the MIME type.
+It is strongly recommended to make use of this method instead of interacting with the library directly.</p>
+<p>In case the API provided by the helper method is insufficient, please refer to the documentation within the <a href="https://github.com/willdurand/Negotiation">willdurand/Negotiation</a> repository for details on how to use the library.</p>
 <h2 id="cronjobs">Cronjobs<a class="headerlink" href="#cronjobs" title="Permanent link">#</a></h2>
 <p>WoltLab Suite 6.0 ships with dragonmantank/cron-expression as a replacement for <code>wcf\util\CronjobUtil</code>.</p>
 <p>This library is considered an internal library / implementation detail and not covered by backwards compatibility promises of WoltLab Suite.</p>
@@ -2763,7 +2782,7 @@ The favicons are now delivered as PNG files.</p>
   <small>
     
       Last update:
-      2023-01-04
+      2023-02-03
     
   </small>
 </div>
