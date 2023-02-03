@@ -31,6 +31,14 @@ Refer to the documentation within the [sebastianbergmann/diff](https://github.co
 
 See [WoltLab/WCF#4918](https://github.com/WoltLab/WCF/pull/4918) for examples on how to use the compatibility helper if you need to preserve the output format for the time being.
 
+## Content Negotiation
+
+WoltLab Suite 6.0 ships with willdurand/negotiation to perform HTTP content negotiation based on the headers sent within the request.
+The `wcf\http\Helper::getPreferredContentType()` method provides a convenience interface to perform content negotiation with regard to the MIME type.
+It is strongly recommended to make use of this method instead of interacting with the library directly.
+
+In case the API provided by the helper method is insufficient, please refer to the documentation within the [willdurand/Negotiation](https://github.com/willdurand/Negotiation) repository for details on how to use the library.
+
 ## Cronjobs
 
 WoltLab Suite 6.0 ships with dragonmantank/cron-expression as a replacement for `wcf\util\CronjobUtil`.
