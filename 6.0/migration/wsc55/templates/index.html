@@ -1825,6 +1825,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    Comments
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1856,20 +1863,6 @@
     <li class="md-nav__item">
       <a href="../dialogs/" class="md-nav__link">
         Dialogs
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../comments/" class="md-nav__link">
-        Comments
       </a>
     </li>
   
@@ -2643,6 +2636,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    Comments
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2669,13 +2669,20 @@ This allow-list has proved to be a reliable solution against malicious templates
 To improve security and to reduce the number of differences between enterprise mode and non-enterprise mode the allow-list will always be enabled going forward.</p>
 <p>It is strongly recommended to keep the template logic as simple as possible by moving the heavy lifting into regular PHP code, reducing the number of (specialized) modifiers that need to be applied.</p>
 <p>See <a href="https://github.com/WoltLab/WCF/pull/4788">WoltLab/WCF#4788</a> for details.</p>
+<h2 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">#</a></h2>
+<p>In WoltLab Suite 6.0 the comment system has been overhauled.
+In the process, the integration of comments via templates has been significantly simplified:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;comments&#39;</span> <span class="na">commentContainerID</span><span class="o">=</span><span class="s1">&#39;someElementId&#39;</span> <span class="na">commentObjectID</span><span class="o">=</span><span class="nv">$someObjectID</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<p>An example for the migration of existing template integrations can be found <a href="https://github.com/WoltLab/WCF/commit/b1d5f7cc6b81ae7fd938603bb20a3a454a531a96#diff-3419ed2f17fa84a70caf0d99511d5ac2a7704c62f24cc7042984d7a9932525ce">here</a>.</p>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/5210">WoltLab/WCF#5210</a> for more details.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-07-21
+      2023-02-03
     
   </small>
 </div>
