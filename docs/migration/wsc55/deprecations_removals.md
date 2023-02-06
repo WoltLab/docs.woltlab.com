@@ -233,6 +233,8 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `flexibleArea.js` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `Gallery.Category.MarkAllAsRead`
 - `Gallery.Image.Delete`
+- `Gallery.Map.LargeMap`
+- `Gallery.Map.InfoWindowImageListDialog`
 - `jQuery.browser.smartphone` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `Prism.wscSplitIntoLines` ([WoltLab/WCF#4940](https://github.com/WoltLab/WCF/pull/4940))
 - `SID_ARG_2ND` ([WoltLab/WCF#4998](https://github.com/WoltLab/WCF/pull/4998))
