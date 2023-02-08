@@ -51,6 +51,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 - `WCF.Comment` ([WoltLab/WCF#5210](https://github.com/WoltLab/WCF/pull/5210))
 - `WCF.Location` ([WoltLab/WCF#4972](https://github.com/WoltLab/WCF/pull/4972))
+- `WCF.Message.Share.Content` ([WoltLab/WCF/commit/624b9db73daf8030aa1c3e49d4ffc785760a283f](https://github.com/WoltLab/WCF/commit/624b9db73daf8030aa1c3e49d4ffc785760a283f))
 - `WCF.User.ObjectWatch.Subscribe` ([WoltLab/WCF#4962](https://github.com/WoltLab/WCF/pull/4962))
 - `WCF.User.List` ([WoltLab/WCF#5039](https://github.com/WoltLab/WCF/pull/5039))
 - `WoltLabSuite/Core/Controller/Map/Route/Planner` ([WoltLab/WCF#4972](https://github.com/WoltLab/WCF/pull/4972))
