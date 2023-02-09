@@ -232,8 +232,10 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `Filebase.File.Preview`
 - `Filebase.File.Share`
 - `flexibleArea.js` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `Gallery.Album.Share`
 - `Gallery.Category.MarkAllAsRead`
 - `Gallery.Image.Delete`
+- `Gallery.Image.Share`
 - `Gallery.Map.LargeMap`
 - `Gallery.Map.InfoWindowImageListDialog`
 - `jQuery.browser.smartphone` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
