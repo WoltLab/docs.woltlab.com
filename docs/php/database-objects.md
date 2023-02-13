@@ -217,6 +217,8 @@ You can access the return values both by storing the return value of `executeAct
 
 ### Custom Method with AJAX Support
 
+!!! info "The AJAX interface of database object actions is considered soft-deprecated in WoltLab Suite 6.0. Instead a dedicated PSR-15 controller should be used. Please refer to the [migration guide](../migration/wsc55/php.md#request-processing)."
+
 This section is about adding the method `baz()` to `ExampleAction` and calling it via AJAX.
 
 #### AJAX Validation
