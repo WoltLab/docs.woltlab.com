@@ -3152,6 +3152,9 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
 <p>You can access the return values both by storing the return value of <code>executeAction()</code> or by retrieving it via <code>getReturnValues()</code>.</p>
 <p><span class="label label-info">Events</span> <code>initializeAction</code>, <code>validateAction</code> and <code>finalizeAction</code></p>
 <h3 id="custom-method-with-ajax-support">Custom Method with AJAX Support<a class="headerlink" href="#custom-method-with-ajax-support" title="Permanent link">#</a></h3>
+<div class="admonition info">
+<p class="admonition-title">The AJAX interface of database object actions is considered soft-deprecated in WoltLab Suite 6.0. Instead a dedicated PSR-15 controller should be used. Please refer to the <a href="../../migration/wsc55/php/#request-processing">migration guide</a>.</p>
+</div>
 <p>This section is about adding the method <code>baz()</code> to <code>ExampleAction</code> and calling it via AJAX.</p>
 <h4 id="ajax-validation">AJAX Validation<a class="headerlink" href="#ajax-validation" title="Permanent link">#</a></h4>
 <p>Methods of an action cannot be called via AJAX, unless they have a validation method. This means that <code>ExampleAction</code> must define both a <code>public function baz()</code> and <code>public function validateBaz()</code>, the name for the validation method is constructed by upper-casing the first character of the method name and prepending <code>validate</code>.</p>
@@ -3200,7 +3203,7 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
   <small>
     
       Last update:
-      2021-07-08
+      2023-02-13
     
   </small>
 </div>
