@@ -138,3 +138,13 @@ This can be replaced using a proper button element which also provides proper ac
     </button>
 </li>
 ```
+
+### Migrating Admin-Configurable Icons
+
+If admin-configurable icon names (e.g. created by [`IconFormField`](../../php/api/form_builder/form_fields.md#iconformfield)) are stored within the database, these need to be migrated with an [upgrade script](../../package/pip/script.md).
+
+The `FontAwesomeIcon::mapVersion4()` maps a Font Awesome 4 icon name to a string that may be passed to `FontAwesomeIcon::fromString()`.
+It will throw an `UnknownIcon` exception if the icon cannot be mapped.
+It is important to catch and handle this exception to ensure a reliable upgrade even when facing malformed data.
+
+See [WoltLab/WCF#5288](https://github.com/WoltLab/WCF/pull/5288) for an example script.
