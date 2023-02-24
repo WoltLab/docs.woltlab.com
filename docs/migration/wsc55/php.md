@@ -292,6 +292,13 @@ The latter check is intended to reject old and most likely incompatible packages
 
 ### Package Installation Plugins
 
+#### EventListener
+
+Installing unnamed event listeners is no longer supported.
+The `name` attribute needs to be specified for all event listeners.
+
+Deleting unnamed event listeners still is possible to allow for a clean migration of existing listeners.
+
 #### Database
 
 The `$name` parameter of `DatabaseTableIndex::create()` is no longer optional.
