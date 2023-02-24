@@ -1366,8 +1366,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#start" class="md-nav__link">
-    &lt;start*&gt;
+  <a href="#expression" class="md-nav__link">
+    &lt;expression&gt;
   </a>
   
 </li>
@@ -2707,8 +2707,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#start" class="md-nav__link">
-    &lt;start*&gt;
+  <a href="#expression" class="md-nav__link">
+    &lt;expression&gt;
   </a>
   
 </li>
@@ -2786,9 +2786,9 @@ the class has to implement the <code>wcf\system\cronjob\ICronjob</code> interfac
 <p class="admonition-title">The <code>language</code> attribute is optional and should specify the <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO-639-1</a> language code.</p>
 </div>
 <p>Provides a human readable description for the administrator.</p>
-<h3 id="start"><code>&lt;start*&gt;</code><a class="headerlink" href="#start" title="Permanent link">#</a></h3>
-<p>All of the five <code>startMinute</code>, <code>startHour</code>, <code>startDom</code> (Day Of Month), <code>startMonth</code>, <code>startDow</code> (Day Of Week) are required.
-They correspond to the fields in <code>crontab(5)</code> of a cron daemon and accept the same syntax.</p>
+<h3 id="expression"><code>&lt;expression&gt;</code><a class="headerlink" href="#expression" title="Permanent link">#</a></h3>
+<p>The cronjob schedule.
+The expression accepts the same syntax as described in <a href="https://linux.die.net/man/5/crontab"><code>crontab(5)</code></a> of a cron daemon.</p>
 <h3 id="canbeedited"><code>&lt;canbeedited&gt;</code><a class="headerlink" href="#canbeedited" title="Permanent link">#</a></h3>
 <p>Controls whether the administrator may edit the fields of the cronjob.
 Defaults to <code>1</code>.</p>
@@ -2813,22 +2813,14 @@ Defaults to <code>0</code>.</p>
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;data</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/2019/cronjob.xsd&quot;</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;import&gt;</span>
 <span class="w">        </span><span class="nt">&lt;cronjob</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;com.example.package.example&quot;</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="nt">&lt;classname&gt;</span>wcf\system\cronjob\ExampleCronjob<span class="nt">&lt;/classname&gt;</span>
 <span class="w">            </span><span class="nt">&lt;description&gt;</span>Serves<span class="w"> </span>as<span class="w"> </span>an<span class="w"> </span>example<span class="nt">&lt;/description&gt;</span>
 <span class="w">            </span><span class="nt">&lt;description</span><span class="w"> </span><span class="na">language=</span><span class="s">&quot;de&quot;</span><span class="nt">&gt;</span>Stellt<span class="w"> </span>ein<span class="w"> </span>Beispiel<span class="w"> </span>dar<span class="nt">&lt;/description&gt;</span>
-<span class="w">            </span><span class="nt">&lt;startminute&gt;</span>0<span class="nt">&lt;/startminute&gt;</span>
-<span class="w">            </span><span class="nt">&lt;starthour&gt;</span>2<span class="nt">&lt;/starthour&gt;</span>
-<span class="w">            </span><span class="nt">&lt;startdom&gt;</span>*/2<span class="nt">&lt;/startdom&gt;</span>
-<span class="w">            </span><span class="nt">&lt;startmonth&gt;</span>*<span class="nt">&lt;/startmonth&gt;</span>
-<span class="w">            </span><span class="nt">&lt;startdow&gt;</span>*<span class="nt">&lt;/startdow&gt;</span>
+<span class="w">            </span><span class="nt">&lt;expression&gt;</span>0<span class="w"> </span>2<span class="w"> </span>*/2<span class="w"> </span>*<span class="w"> </span>*<span class="nt">&lt;/expression&gt;</span>
 <span class="w">            </span><span class="nt">&lt;canbeedited&gt;</span>1<span class="nt">&lt;/canbeedited&gt;</span>
 <span class="w">            </span><span class="nt">&lt;canbedisabled&gt;</span>1<span class="nt">&lt;/canbedisabled&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/cronjob&gt;</span>
@@ -2841,7 +2833,7 @@ Defaults to <code>0</code>.</p>
   <small>
     
       Last update:
-      2021-07-08
+      2023-02-24
     
   </small>
 </div>

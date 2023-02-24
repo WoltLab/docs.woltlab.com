@@ -1956,6 +1956,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cronjob" class="md-nav__link">
+    Cronjob
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#database" class="md-nav__link">
     Database
   </a>
@@ -3004,6 +3011,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cronjob" class="md-nav__link">
+    Cronjob
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#database" class="md-nav__link">
     Database
   </a>
@@ -3407,6 +3421,11 @@ The latter check is intended to reject old and most likely incompatible packages
 <p>Installing unnamed event listeners is no longer supported.
 The <code>name</code> attribute needs to be specified for all event listeners.</p>
 <p>Deleting unnamed event listeners still is possible to allow for a clean migration of existing listeners.</p>
+<h4 id="cronjob">Cronjob<a class="headerlink" href="#cronjob" title="Permanent link">#</a></h4>
+<p>Installing unnamed cronjobs is no longer supported.
+The <code>name</code> attribute needs to be specified for all event listeners.</p>
+<p>Deleting unnamed cronjobs still is possible to allow for a clean migration of existing cronjobs.</p>
+<p>The cronjob PIP now supports the <code>&lt;expression&gt;</code> element, allowing to define the cronjob schedule using a full expression instead of specifying the five elements separately.</p>
 <h4 id="database">Database<a class="headerlink" href="#database" title="Permanent link">#</a></h4>
 <p>The <code>$name</code> parameter of <code>DatabaseTableIndex::create()</code> is no longer optional.
 Relying on the auto-generated index name is strongly discouraged, because of unfixable inconsistent behavior between the SQL PIP and the PHP DDL API.
