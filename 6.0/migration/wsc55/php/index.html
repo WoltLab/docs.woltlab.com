@@ -1949,6 +1949,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#eventlistener" class="md-nav__link">
+    EventListener
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#database" class="md-nav__link">
     Database
   </a>
@@ -2990,6 +2997,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#eventlistener" class="md-nav__link">
+    EventListener
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#database" class="md-nav__link">
     Database
   </a>
@@ -3389,6 +3403,10 @@ Any packages with a <code>&lt;compatibility&gt;</code> tag in their package.xml 
 Furthermore any packages without an explicit requirement for <code>com.woltlab.wcf</code> in at least version <code>5.4.22</code> are also assumed to not have been updated for WoltLab Suite 6.0 and will also be rejected.
 The latter check is intended to reject old and most likely incompatible packages where the author forgot to add either an <code>&lt;excludedpackage&gt;</code> or a <code>&lt;compatibility&gt;</code> tag before releasing it.</p>
 <h3 id="package-installation-plugins">Package Installation Plugins<a class="headerlink" href="#package-installation-plugins" title="Permanent link">#</a></h3>
+<h4 id="eventlistener">EventListener<a class="headerlink" href="#eventlistener" title="Permanent link">#</a></h4>
+<p>Installing unnamed event listeners is no longer supported.
+The <code>name</code> attribute needs to be specified for all event listeners.</p>
+<p>Deleting unnamed event listeners still is possible to allow for a clean migration of existing listeners.</p>
 <h4 id="database">Database<a class="headerlink" href="#database" title="Permanent link">#</a></h4>
 <p>The <code>$name</code> parameter of <code>DatabaseTableIndex::create()</code> is no longer optional.
 Relying on the auto-generated index name is strongly discouraged, because of unfixable inconsistent behavior between the SQL PIP and the PHP DDL API.
@@ -3515,7 +3533,7 @@ The class name of the worker is registered using the event’s <code>register()<
   <small>
     
       Last update:
-      2022-12-14
+      2023-02-24
     
   </small>
 </div>
