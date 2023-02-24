@@ -299,6 +299,16 @@ The `name` attribute needs to be specified for all event listeners.
 
 Deleting unnamed event listeners still is possible to allow for a clean migration of existing listeners.
 
+#### Cronjob
+
+Installing unnamed cronjobs is no longer supported.
+The `name` attribute needs to be specified for all event listeners.
+
+Deleting unnamed cronjobs still is possible to allow for a clean migration of existing cronjobs.
+
+The cronjob PIP now supports the `<expression>` element, allowing to define the cronjob schedule using a full expression instead of specifying the five elements separately.
+
+
 #### Database
 
 The `$name` parameter of `DatabaseTableIndex::create()` is no longer optional.

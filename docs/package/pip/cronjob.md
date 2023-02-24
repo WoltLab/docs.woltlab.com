@@ -20,10 +20,10 @@ the class has to implement the `wcf\system\cronjob\ICronjob` interface.
 
 Provides a human readable description for the administrator.
 
-### `<start*>`
+### `<expression>`
 
-All of the five `startMinute`, `startHour`, `startDom` (Day Of Month), `startMonth`, `startDow` (Day Of Week) are required.
-They correspond to the fields in `crontab(5)` of a cron daemon and accept the same syntax.
+The cronjob schedule.
+The expression accepts the same syntax as described in [`crontab(5)`](https://linux.die.net/man/5/crontab) of a cron daemon.
 
 ### `<canbeedited>`
 
