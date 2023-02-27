@@ -25,6 +25,8 @@ A complete `tsconfig.json` file that matches the configuration of WoltLab Suite 
 After this initial set-up, you would place your TypeScript source files into the `ts/` folder of your project.
 The generated JavaScript target files will be placed into `files/js/` and thus will be installed by the [file PIP](../package/pip/file.md).
 
+To update the TypeScript types, the commit hash in `package.json` needs to be updated to an appropriate commit in the [d.ts](https://github.com/WoltLab/d.ts) repository and `npm install` needs to be rerun.
+
 ## Additional Tools
 
 WoltLab Suite uses additional tools to ensure the high quality and a consistent code style of the TypeScript modules.
