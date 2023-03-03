@@ -2,13 +2,11 @@
 
 ## Abstract Form Fields
 
-The following form field classes cannot be instantiated directly because they are abstract, but they can/must be used when creating own form field classes. 
-
+The following form field classes cannot be instantiated directly because they are abstract, but they can/must be used when creating own form field classes.
 
 ### `AbstractFormField`
 
 `AbstractFormField` is the abstract default implementation of the `IFormField` interface and it is expected that every implementation of `IFormField` implements the interface by extending this class.
-
 
 ### `AbstractNumericFormField`
 
@@ -31,7 +29,6 @@ If the implementation of a more specific interface is required then the remainin
 
 The following form fields are general reusable fields without any underlying context.
 
-
 ### `BooleanFormField`
 
 `BooleanFormField` is used for boolean (`0` or `1`, `yes` or `no`) values.
@@ -39,13 +36,11 @@ Objects of this class require a label.
 The return value of `getSaveValue()` is the integer representation of the boolean value, i.e. `0` or `1`.
 The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFormField`, and `IImmutableFormField`.
 
-
 ### `CheckboxFormField`
 
 !!! info "Only available since version 5.3.2."
 
 `CheckboxFormField` extends `BooleanFormField` and offers a simple HTML checkbox.
-
 
 ### `ClassNameFormField`
 
@@ -62,7 +57,6 @@ The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFor
 
 Additionally, the default id of a `ClassNameFormField` object is `className`, the default label is `wcf.form.field.className`, and if either an interface or a parent class is required, a default description is set if no description has already been set (`wcf.form.field.className.description.interface` and `wcf.form.field.className.description.parentClass`, respectively).
 
-
 ### `DateFormField`
 
 `DateFormField` is a form field to enter a date (and optionally a time).
@@ -78,44 +72,36 @@ The following methods are specific to this form field class:
 - `supportTime($supportsTime = true)` and `supportsTime()` can be used to toggle whether, in addition to a date, a time can also be specified.
   By default, specifying a time is disabled.
 
-
 ### `DescriptionFormField`
 
 `DescriptionFormField` is a [multi-line text form field](#multilinetextformfield) with `description` as the default id and `wcf.global.description` as the default label.
-
 
 ### `EmailFormField`
 
 `EmailFormField` is a form field to enter an email address which is internally validated using `UserUtil::isValidEmail()`.
 The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `IAutoFocusFormField`, `ICssClassFormField`, `II18nFormField`, `IImmutableFormField`, `IInputModeFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
 
-
 ### `FloatFormField`
 
 `FloatFormField` is an implementation of [AbstractNumericFormField](#abstractnumericformfield) for floating point numbers.
-
 
 ### `HiddenFormField`
 
 `HiddenFormField` is a form field without any user-visible UI.
 Even though the form field is invisible to the user, the value can still be modified by the user, e.g. by leveraging the web browsers developer tools.
-The `HiddenFormField` *must not* be used to transfer sensitive information or information that the user should not be able to modify.
-
+The `HiddenFormField` _must not_ be used to transfer sensitive information or information that the user should not be able to modify.
 
 ### `IconFormField`
 
 `IconFormField` is a form field to select a FontAwesome icon.
 
-
 ### `IntegerFormField`
 
 `IntegerFormField` is an implementation of [AbstractNumericFormField](#abstractnumericformfield) for integers.
 
-
 ### `IsDisabledFormField`
 
 `IsDisabledFormField` is a [boolean form field](#booleanformfield) with `isDisabled` as the default id.
-
 
 ### `ItemListFormField`
 
@@ -133,7 +119,6 @@ By default, `ItemListFormField::SAVE_VALUE_TYPE_CSV` is used.
 
 If `ItemListFormField::SAVE_VALUE_TYPE_ARRAY` is used as save value type, `ItemListFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant array into the `$parameters` array directly using the object property as the array key.
 
-
 ### `MultilineTextFormField`
 
 `MultilineTextFormField` is a [text form field](#textformfield) that supports multiple rows of text.
@@ -141,19 +126,15 @@ The methods `rows($rows)` and `getRows()` can be used to set and get the number 
 The default number of rows is `10`.
 These methods do **not**, however, restrict the number of text rows that can be entered.
 
-
 ### `MultipleSelectionFormField`
 
 `MultipleSelectionFormField` is a form fields that allows the selection of multiple options out of a predefined list of available options.
-The class implements `IAttributeFormField`, `ICssClassFormField`, `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
-If the field is nullable and no option is selected, `null` is returned as the save value.
-
+The class implements `IAttributeFormField`, `ICssClassFormField`, `IFilterableSelectionFormField`, `IImmutableFormField`.
 
 ### `RadioButtonFormField`
 
 `RadioButtonFormField` is a form fields that allows the selection of a single option out of a predefined list of available options using radiobuttons.
 The class implements `IAttributeFormField`, `ICssClassFormField`, `IImmutableFormField`, and `ISelectionFormField`.
-
 
 ### `RatingFormField`
 
@@ -163,8 +144,7 @@ Form fields of this class have `rating` as their default id, `wcf.form.field.rat
 For this field, the minimum and maximum refer to the minimum and maximum rating an object can get.
 When the field is shown, there will be `maximum() - minimum() + 1` icons be shown with additional CSS classes that can be set and gotten via `defaultCssClasses(array $cssClasses)` and `getDefaultCssClasses()`.
 If a rating values is set, the first `getValue()` icons will instead use the classes that can be set and gotten via `activeCssClasses(array $cssClasses)` and `getActiveCssClasses()`.
-By default, the only default class is `fa-star-o` and the active classes are `fa-star` and `orange`. 
-
+By default, the only default class is `fa-star-o` and the active classes are `fa-star` and `orange`.
 
 ### `ShowOrderFormField`
 
@@ -175,40 +155,32 @@ The default id of instances of this class is `showOrder` and their default label
 
 !!! info "It is important that the relevant object property is always kept updated. Whenever a new object is added or an existing object is edited or delete, the values of the other objects have to be adjusted to ensure consecutive numbering."
 
-
 ### `SingleSelectionFormField`
 
 `SingleSelectionFormField` is a form fields that allows the selection of a single option out of a predefined list of available options.
 The class implements `ICssClassFormField`, `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
 If the field is nullable and the current form field value is considered `empty` by PHP, `null` is returned as the save value.
 
-
 ### `SortOrderFormField`
 
 `SingleSelectionFormField` is a [single selection form field](#singleselectionformfield) with default id `sortOrder`, default label `wcf.global.showOrder` and default options `ASC: wcf.global.sortOrder.ascending` and `DESC: wcf.global.sortOrder.descending`.
-
 
 ### `TextFormField`
 
 `TextFormField` is a form field that allows entering a single line of text.
 The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `ICssClassFormField`, `IImmutableFormField`, `II18nFormField`, `IInputModeFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
 
-
 ### `TitleFormField`
 
 `TitleFormField` is a [text form field](#textformfield) with `title` as the default id and `wcf.global.title` as the default label.
-
 
 ### `UrlFormField`
 
 `UrlFormField` is a [text form field](#textformfield) whose values are checked via `Url::is()`.
 
-
-
 ## Specific Fields
 
 The following form fields are reusable fields that generally are bound to a certain API or `DatabaseObject` implementation.
-
 
 ### `AclFormField`
 
@@ -222,7 +194,6 @@ A category name of `null` signals that no category filter is used.
 `AclFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant ACL object type id into the `$parameters` array directly using `{$objectProperty}_aclObjectTypeID` as the array key.
 The relevant database object action method is expected, based on the given ACL object type id, to save the ACL option values appropriately.
 
-
 ### `ButtonFormField`
 
 !!! info "Only available since version 5.4."
@@ -230,15 +201,13 @@ The relevant database object action method is expected, based on the given ACL o
 `ButtonFormField` shows a submit button as part of the form.
 The class implements `IAttributeFormField` and `ICssClassFormField`.
 
-Specifically for this form field, there is the `IsNotClickedFormFieldDependency` dependency with which certain parts of the form will only be processed if the relevent button has not clicked. 
-
+Specifically for this form field, there is the `IsNotClickedFormFieldDependency` dependency with which certain parts of the form will only be processed if the relevent button has not clicked.
 
 ### `CaptchaFormField`
 
 `CaptchaFormField` is used to add captcha protection to the form.
 
 You must specify a captcha object type (`com.woltlab.wcf.captcha`) using the `objectType()` method.
-
 
 ### `ColorFormField`
 
@@ -247,13 +216,11 @@ You must specify a captcha object type (`com.woltlab.wcf.captcha`) using the `ob
 `ColorFormField` is used to specify RGBA colors using the `rgba(r, g, b, a)` format.
 The class implements `IImmutableFormField`.
 
-
 ### `ContentLanguageFormField`
 
 `ContentLanguageFormField` is used to select the content language of an object.
-Fields of this class are only available if multilingualism is enabled and if there are content languages. 
+Fields of this class are only available if multilingualism is enabled and if there are content languages.
 The class implements `IImmutableFormField`.
-
 
 ### `LabelFormField`
 
@@ -264,13 +231,11 @@ The `labelGroup(ViewableLabelGroup $labelGroup)` and `getLabelGroup()` methods a
 Additionally, there is the static method `createFields($objectType, array $labelGroups, $objectProperty = 'labelIDs)` that can be used to create all relevant label form fields for a given list of label groups.
 In most cases, `LabelFormField::createFields()` should be used.
 
-
 ### `OptionFormField`
 
 `OptionFormField` is an [item list form field](#itemlistformfield) to set a list of options.
 The class implements `IPackagesFormField` and only options of the set packages are considered available.
 The default label of instances of this class is `wcf.form.field.option` and their default id is `options`.
-
 
 ### `SimpleAclFormField`
 
@@ -292,7 +257,6 @@ The following methods are specific to this form field class:
 - `imageOnly($imageOnly = true)` and `isImageOnly()` can be used to set and check if only images may be selected.
 - `getMedia()` returns the media file based on the current field value if a field is set.
 
-
 ### `TagFormField`
 
 `TagFormField` is a form field to enter tags.
@@ -302,25 +266,24 @@ The default label of instances of this class is `wcf.tagging.tags` and their def
 
 `TagFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the array with entered tag names into the `$parameters` array directly using the object property as the array key.
 
-
 ### `UploadFormField`
 
 `UploadFormField` is a form field that allows uploading files by the user.
 
-`UploadFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the array of `wcf\system\file\upload\UploadFile\UploadFile` into the `$parameters` array directly using the object property as the array key. Also it registers the removed files as an array of `wcf\system\file\upload\UploadFile\UploadFile` into the `$parameters` array directly using the object property with the suffix `_removedFiles` as the array key.  
+`UploadFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the array of `wcf\system\file\upload\UploadFile\UploadFile` into the `$parameters` array directly using the object property as the array key. Also it registers the removed files as an array of `wcf\system\file\upload\UploadFile\UploadFile` into the `$parameters` array directly using the object property with the suffix `_removedFiles` as the array key.
 
-The field supports additional settings: 
+The field supports additional settings:
+
 - `imageOnly($imageOnly = true)` and `isImageOnly()` can be used to ensure that the uploaded files are only images.
 - `allowSvgImage($allowSvgImages = true)` and `svgImageAllowed()` can be used to allow SVG images, if the image only mode is enabled (otherwise, the method will throw an exception). By default, SVG images are not allowed.
 
-#### Provide value from database object 
+#### Provide value from database object
 
 To provide values from a database object, you should implement the method `get{$objectProperty}UploadFileLocations()` to your database object class. This method must return an array of strings with the locations of the files.
 
-#### Process files 
+#### Process files
 
 To process files in the database object action class, you must [`rename`](https://secure.php.net/manual/en/function.rename.php) the file to the final destination. You get the temporary location, by calling the method `getLocation()` on the given `UploadFile` objects. After that, you call `setProcessed($location)` with `$location` contains the new file location. This method sets the `isProcessed` flag to true and saves the new location. For updating files, it is relevant, whether a given file is already processed or not. For this case, the `UploadFile` object has an method `isProcessed()` which indicates, whether a file is already processed or new uploaded.
-
 
 ### `UserFormField`
 
@@ -329,7 +292,6 @@ The class implements `IAutoCompleteFormField`, `IAutoFocusFormField`, `IImmutabl
 While the user is presented the names of the specified users in the user interface, the field returns the ids of the users as data.
 The relevant `UserProfile` objects can be accessed via the `getUsers()` method.
 
-
 ### `UserPasswordField`
 
 !!! info "Only available since version 5.4."
@@ -337,21 +299,17 @@ The relevant `UserProfile` objects can be accessed via the `getUsers()` method.
 `UserPasswordField` is a form field for users' to enter their current password.
 The class implements `IAttributeFormField`, `IAttributeFormField`, `IAutoCompleteFormField`, `IAutoFocusFormField`, and `IPlaceholderFormField`
 
-
 ### `UserGroupOptionFormField`
 
 `UserGroupOptionFormField` is an [item list form field](#itemlistformfield) to set a list of user group options/permissions.
 The class implements `IPackagesFormField` and only user group options of the set packages are considered available.
 The default label of instances of this class is `wcf.form.field.userGroupOption` and their default id is `permissions`.
 
-
 ### `UsernameFormField`
 
 `UsernameFormField` is used for entering one non-existing username.
 The class implements `IAttributeFormField`, `IImmutableFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `INullableFormField`, and `IPlaceholderFormField`.
 As usernames have a system-wide restriction of a minimum length of 3 and a maximum length of 100 characters, these values are also used as the default value for the field’s minimum and maximum length.
-
-
 
 ## Wysiwyg form container
 
@@ -435,7 +393,6 @@ WysiwygFormContainer::create('message')
 	->supportQuotes()
 ```
 
-
 ### `WysiwygFormField`
 
 `WysiwygFormField` is used for wysiwyg editor form fields.
@@ -449,19 +406,16 @@ The following methods are specific to this form field class:
   `0` signals that no last edit time has been set.
 - `supportAttachments($supportAttachments)` and `supportsAttachments()` can be used to set and check if the form field supports attachments.
 
-    !!! warning "It is not sufficient to simply signal attachment support via these methods for attachments to work. These methods are relevant internally to signal the Javascript code that the editor supports attachments. Actual attachment support is provided by `WysiwygAttachmentFormField`."
+  !!! warning "It is not sufficient to simply signal attachment support via these methods for attachments to work. These methods are relevant internally to signal the Javascript code that the editor supports attachments. Actual attachment support is provided by `WysiwygAttachmentFormField`."
 
 - `supportMentions($supportMentions)` and `supportsMentions()` can be used to set and check if the form field supports mentions of other users.
 
 `WysiwygFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant simple ACL data array into the `$parameters` array directly using the object property as the array key.
 
-
 ### `TWysiwygFormNode`
 
 All form nodes that need to know the id of the `WysiwygFormField` field should use `TWysiwygFormNode`.
 This trait provides `getWysiwygId()` and `wysiwygId($wysiwygId)` to get and set the relevant wysiwyg editor id.
-
-
 
 ## Application-Specific Form Fields
 
@@ -485,32 +439,25 @@ The field supports additional settings:
   By default, external links are shown.
   Like in the example given before, in cases where only actual boards, in which threads can be posted, are relevant, this option allows to exclude external links.
 
-
-
 ## Single-Use Form Fields
 
 The following form fields are specific for certain forms and hardly reusable in other contexts.
-
 
 ### `BBCodeAttributesFormField`
 
 `DevtoolsProjectExcludedPackagesFormField` is a form field for setting the attributes of a BBCode.
 
-
 ### `DevtoolsProjectExcludedPackagesFormField`
 
 `DevtoolsProjectExcludedPackagesFormField` is a form field for setting the excluded packages of a devtools project.
-
 
 ### `DevtoolsProjectInstructionsFormField`
 
 `DevtoolsProjectExcludedPackagesFormField` is a form field for setting the installation and update instructions of a devtools project.
 
-
 ### `DevtoolsProjectOptionalPackagesFormField`
 
 `DevtoolsProjectExcludedPackagesFormField` is a form field for setting the optional packages of a devtools project.
-
 
 ### `DevtoolsProjectRequiredPackagesFormField`
 
