@@ -3420,7 +3420,7 @@
 
 <h1 id="form-builder-fields">Form Builder Fields<a class="headerlink" href="#form-builder-fields" title="Permanent link">#</a></h1>
 <h2 id="abstract-form-fields">Abstract Form Fields<a class="headerlink" href="#abstract-form-fields" title="Permanent link">#</a></h2>
-<p>The following form field classes cannot be instantiated directly because they are abstract, but they can/must be used when creating own form field classes. </p>
+<p>The following form field classes cannot be instantiated directly because they are abstract, but they can/must be used when creating own form field classes.</p>
 <h3 id="abstractformfield"><code>AbstractFormField</code><a class="headerlink" href="#abstractformfield" title="Permanent link">#</a></h3>
 <p><code>AbstractFormField</code> is the abstract default implementation of the <code>IFormField</code> interface and it is expected that every implementation of <code>IFormField</code> implements the interface by extending this class.</p>
 <h3 id="abstractnumericformfield"><code>AbstractNumericFormField</code><a class="headerlink" href="#abstractnumericformfield" title="Permanent link">#</a></h3>
@@ -3513,8 +3513,7 @@ The default number of rows is <code>10</code>.
 These methods do <strong>not</strong>, however, restrict the number of text rows that can be entered.</p>
 <h3 id="multipleselectionformfield"><code>MultipleSelectionFormField</code><a class="headerlink" href="#multipleselectionformfield" title="Permanent link">#</a></h3>
 <p><code>MultipleSelectionFormField</code> is a form fields that allows the selection of multiple options out of a predefined list of available options.
-The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField</code>, <code>IFilterableSelectionFormField</code>, <code>IImmutableFormField</code>, and <code>INullableFormField</code>.
-If the field is nullable and no option is selected, <code>null</code> is returned as the save value.</p>
+The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField</code>, <code>IFilterableSelectionFormField</code>, <code>IImmutableFormField</code>.</p>
 <h3 id="radiobuttonformfield"><code>RadioButtonFormField</code><a class="headerlink" href="#radiobuttonformfield" title="Permanent link">#</a></h3>
 <p><code>RadioButtonFormField</code> is a form fields that allows the selection of a single option out of a predefined list of available options using radiobuttons.
 The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField</code>, <code>IImmutableFormField</code>, and <code>ISelectionFormField</code>.</p>
@@ -3525,7 +3524,7 @@ Form fields of this class have <code>rating</code> as their default id, <code>wc
 For this field, the minimum and maximum refer to the minimum and maximum rating an object can get.
 When the field is shown, there will be <code>maximum() - minimum() + 1</code> icons be shown with additional CSS classes that can be set and gotten via <code>defaultCssClasses(array $cssClasses)</code> and <code>getDefaultCssClasses()</code>.
 If a rating values is set, the first <code>getValue()</code> icons will instead use the classes that can be set and gotten via <code>activeCssClasses(array $cssClasses)</code> and <code>getActiveCssClasses()</code>.
-By default, the only default class is <code>fa-star-o</code> and the active classes are <code>fa-star</code> and <code>orange</code>. </p>
+By default, the only default class is <code>fa-star-o</code> and the active classes are <code>fa-star</code> and <code>orange</code>.</p>
 <h3 id="showorderformfield"><code>ShowOrderFormField</code><a class="headerlink" href="#showorderformfield" title="Permanent link">#</a></h3>
 <p><code>ShowOrderFormField</code> is a <a href="#singleselectionformfield">single selection form field</a> for which the selected value determines the position at which an object is shown.
 The show order field provides a list of all siblings and the object will be positioned <strong>after</strong> the selected sibling.
@@ -3565,7 +3564,7 @@ The relevant database object action method is expected, based on the given ACL o
 </div>
 <p><code>ButtonFormField</code> shows a submit button as part of the form.
 The class implements <code>IAttributeFormField</code> and <code>ICssClassFormField</code>.</p>
-<p>Specifically for this form field, there is the <code>IsNotClickedFormFieldDependency</code> dependency with which certain parts of the form will only be processed if the relevent button has not clicked. </p>
+<p>Specifically for this form field, there is the <code>IsNotClickedFormFieldDependency</code> dependency with which certain parts of the form will only be processed if the relevent button has not clicked.</p>
 <h3 id="captchaformfield"><code>CaptchaFormField</code><a class="headerlink" href="#captchaformfield" title="Permanent link">#</a></h3>
 <p><code>CaptchaFormField</code> is used to add captcha protection to the form.</p>
 <p>You must specify a captcha object type (<code>com.woltlab.wcf.captcha</code>) using the <code>objectType()</code> method.</p>
@@ -3577,7 +3576,7 @@ The class implements <code>IAttributeFormField</code> and <code>ICssClassFormFie
 The class implements <code>IImmutableFormField</code>.</p>
 <h3 id="contentlanguageformfield"><code>ContentLanguageFormField</code><a class="headerlink" href="#contentlanguageformfield" title="Permanent link">#</a></h3>
 <p><code>ContentLanguageFormField</code> is used to select the content language of an object.
-Fields of this class are only available if multilingualism is enabled and if there are content languages. 
+Fields of this class are only available if multilingualism is enabled and if there are content languages.
 The class implements <code>IImmutableFormField</code>.</p>
 <h3 id="labelformfield"><code>LabelFormField</code><a class="headerlink" href="#labelformfield" title="Permanent link">#</a></h3>
 <p><code>LabelFormField</code> is used to select a label from a specific label group.
@@ -3612,10 +3611,12 @@ The default label of instances of this class is <code>wcf.tagging.tags</code> an
 <p><code>TagFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the array with entered tag names into the <code>$parameters</code> array directly using the object property as the array key.</p>
 <h3 id="uploadformfield"><code>UploadFormField</code><a class="headerlink" href="#uploadformfield" title="Permanent link">#</a></h3>
 <p><code>UploadFormField</code> is a form field that allows uploading files by the user.</p>
-<p><code>UploadFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the array of <code>wcf\system\file\upload\UploadFile\UploadFile</code> into the <code>$parameters</code> array directly using the object property as the array key. Also it registers the removed files as an array of <code>wcf\system\file\upload\UploadFile\UploadFile</code> into the <code>$parameters</code> array directly using the object property with the suffix <code>_removedFiles</code> as the array key.  </p>
-<p>The field supports additional settings: 
-- <code>imageOnly($imageOnly = true)</code> and <code>isImageOnly()</code> can be used to ensure that the uploaded files are only images.
-- <code>allowSvgImage($allowSvgImages = true)</code> and <code>svgImageAllowed()</code> can be used to allow SVG images, if the image only mode is enabled (otherwise, the method will throw an exception). By default, SVG images are not allowed.</p>
+<p><code>UploadFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the array of <code>wcf\system\file\upload\UploadFile\UploadFile</code> into the <code>$parameters</code> array directly using the object property as the array key. Also it registers the removed files as an array of <code>wcf\system\file\upload\UploadFile\UploadFile</code> into the <code>$parameters</code> array directly using the object property with the suffix <code>_removedFiles</code> as the array key.</p>
+<p>The field supports additional settings:</p>
+<ul>
+<li><code>imageOnly($imageOnly = true)</code> and <code>isImageOnly()</code> can be used to ensure that the uploaded files are only images.</li>
+<li><code>allowSvgImage($allowSvgImages = true)</code> and <code>svgImageAllowed()</code> can be used to allow SVG images, if the image only mode is enabled (otherwise, the method will throw an exception). By default, SVG images are not allowed.</li>
+</ul>
 <h4 id="provide-value-from-database-object">Provide value from database object<a class="headerlink" href="#provide-value-from-database-object" title="Permanent link">#</a></h4>
 <p>To provide values from a database object, you should implement the method <code>get{$objectProperty}UploadFileLocations()</code> to your database object class. This method must return an array of strings with the locations of the files.</p>
 <h4 id="process-files">Process files<a class="headerlink" href="#process-files" title="Permanent link">#</a></h4>
@@ -3723,15 +3724,11 @@ The following methods are specific to this form field class:</p>
   An empty string signals that autosaving is disabled.</li>
 <li><code>lastEditTime($lastEditTime)</code> and <code>getLastEditTime()</code> can be used to set the last time the contents have been edited and saved so that the JavaScript can determine if the contents stored in the browser are older or newer.
   <code>0</code> signals that no last edit time has been set.</li>
-<li>
-<p><code>supportAttachments($supportAttachments)</code> and <code>supportsAttachments()</code> can be used to set and check if the form field supports attachments.</p>
-<div class="admonition warning">
-<p class="admonition-title">It is not sufficient to simply signal attachment support via these methods for attachments to work. These methods are relevant internally to signal the Javascript code that the editor supports attachments. Actual attachment support is provided by <code>WysiwygAttachmentFormField</code>.</p>
-</div>
-</li>
-<li>
-<p><code>supportMentions($supportMentions)</code> and <code>supportsMentions()</code> can be used to set and check if the form field supports mentions of other users.</p>
-</li>
+<li><code>supportAttachments($supportAttachments)</code> and <code>supportsAttachments()</code> can be used to set and check if the form field supports attachments.</li>
+</ul>
+<p>!!! warning "It is not sufficient to simply signal attachment support via these methods for attachments to work. These methods are relevant internally to signal the Javascript code that the editor supports attachments. Actual attachment support is provided by <code>WysiwygAttachmentFormField</code>."</p>
+<ul>
+<li><code>supportMentions($supportMentions)</code> and <code>supportsMentions()</code> can be used to set and check if the form field supports mentions of other users.</li>
 </ul>
 <p><code>WysiwygFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the relevant simple ACL data array into the <code>$parameters</code> array directly using the object property as the array key.</p>
 <h3 id="twysiwygformnode"><code>TWysiwygFormNode</code><a class="headerlink" href="#twysiwygformnode" title="Permanent link">#</a></h3>
@@ -3774,7 +3771,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
   <small>
     
       Last update:
-      2022-10-10
+      2023-03-03
     
   </small>
 </div>
