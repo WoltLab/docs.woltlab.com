@@ -145,8 +145,7 @@ These methods do **not**, however, restrict the number of text rows that can be 
 ### `MultipleSelectionFormField`
 
 `MultipleSelectionFormField` is a form fields that allows the selection of multiple options out of a predefined list of available options.
-The class implements `IAttributeFormField`, `ICssClassFormField`, `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
-If the field is nullable and no option is selected, `null` is returned as the save value.
+The class implements `IAttributeFormField`, `ICssClassFormField`, `IFilterableSelectionFormField`, and `IImmutableFormField`.
 
 
 ### `RadioButtonFormField`
