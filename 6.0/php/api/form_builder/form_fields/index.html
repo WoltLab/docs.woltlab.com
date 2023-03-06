@@ -3703,8 +3703,7 @@ The default number of rows is <code>10</code>.
 These methods do <strong>not</strong>, however, restrict the number of text rows that can be entered.</p>
 <h3 id="multipleselectionformfield"><code>MultipleSelectionFormField</code><a class="headerlink" href="#multipleselectionformfield" title="Permanent link">#</a></h3>
 <p><code>MultipleSelectionFormField</code> is a form fields that allows the selection of multiple options out of a predefined list of available options.
-The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField</code>, <code>IFilterableSelectionFormField</code>, <code>IImmutableFormField</code>, and <code>INullableFormField</code>.
-If the field is nullable and no option is selected, <code>null</code> is returned as the save value.</p>
+The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField</code>, <code>IFilterableSelectionFormField</code>, and <code>IImmutableFormField</code>.</p>
 <h3 id="radiobuttonformfield"><code>RadioButtonFormField</code><a class="headerlink" href="#radiobuttonformfield" title="Permanent link">#</a></h3>
 <p><code>RadioButtonFormField</code> is a form fields that allows the selection of a single option out of a predefined list of available options using radiobuttons.
 The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField</code>, <code>IImmutableFormField</code>, and <code>ISelectionFormField</code>.</p>
@@ -3803,9 +3802,11 @@ The default label of instances of this class is <code>wcf.tagging.tags</code> an
 <h3 id="uploadformfield"><code>UploadFormField</code><a class="headerlink" href="#uploadformfield" title="Permanent link">#</a></h3>
 <p><code>UploadFormField</code> is a form field that allows uploading files by the user.</p>
 <p><code>UploadFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the array of <code>wcf\system\file\upload\UploadFile\UploadFile</code> into the <code>$parameters</code> array directly using the object property as the array key. Also it registers the removed files as an array of <code>wcf\system\file\upload\UploadFile\UploadFile</code> into the <code>$parameters</code> array directly using the object property with the suffix <code>_removedFiles</code> as the array key.  </p>
-<p>The field supports additional settings: 
-- <code>imageOnly($imageOnly = true)</code> and <code>isImageOnly()</code> can be used to ensure that the uploaded files are only images.
-- <code>allowSvgImage($allowSvgImages = true)</code> and <code>svgImageAllowed()</code> can be used to allow SVG images, if the image only mode is enabled (otherwise, the method will throw an exception). By default, SVG images are not allowed.</p>
+<p>The field supports additional settings:</p>
+<ul>
+<li><code>imageOnly($imageOnly = true)</code> and <code>isImageOnly()</code> can be used to ensure that the uploaded files are only images.</li>
+<li><code>allowSvgImage($allowSvgImages = true)</code> and <code>svgImageAllowed()</code> can be used to allow SVG images, if the image only mode is enabled (otherwise, the method will throw an exception). By default, SVG images are not allowed.</li>
+</ul>
 <h4 id="provide-value-from-database-object">Provide value from database object<a class="headerlink" href="#provide-value-from-database-object" title="Permanent link">#</a></h4>
 <p>To provide values from a database object, you should implement the method <code>get{$objectProperty}UploadFileLocations()</code> to your database object class. This method must return an array of strings with the locations of the files.</p>
 <h4 id="process-files">Process files<a class="headerlink" href="#process-files" title="Permanent link">#</a></h4>
@@ -3963,7 +3964,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
   <small>
     
       Last update:
-      2022-10-10
+      2023-03-06
     
   </small>
 </div>
