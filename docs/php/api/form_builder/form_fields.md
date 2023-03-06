@@ -143,8 +143,7 @@ These methods do **not**, however, restrict the number of text rows that can be 
 ### `MultipleSelectionFormField`
 
 `MultipleSelectionFormField` is a form fields that allows the selection of multiple options out of a predefined list of available options.
-The class implements `IAttributeFormField`, `ICssClassFormField`, `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
-If the field is nullable and no option is selected, `null` is returned as the save value.
+The class implements `IAttributeFormField`, `ICssClassFormField`, `IFilterableSelectionFormField`, and `IImmutableFormField`.
 
 
 ### `RadioButtonFormField`
@@ -307,7 +306,8 @@ The default label of instances of this class is `wcf.tagging.tags` and their def
 
 `UploadFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the array of `wcf\system\file\upload\UploadFile\UploadFile` into the `$parameters` array directly using the object property as the array key. Also it registers the removed files as an array of `wcf\system\file\upload\UploadFile\UploadFile` into the `$parameters` array directly using the object property with the suffix `_removedFiles` as the array key.  
 
-The field supports additional settings: 
+The field supports additional settings:
+
 - `imageOnly($imageOnly = true)` and `isImageOnly()` can be used to ensure that the uploaded files are only images.
 - `allowSvgImage($allowSvgImages = true)` and `svgImageAllowed()` can be used to allow SVG images, if the image only mode is enabled (otherwise, the method will throw an exception). By default, SVG images are not allowed.
 
