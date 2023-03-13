@@ -31,19 +31,19 @@ Holds the entire meta data of the package.
 #### `<packagename>`
 
 This is the actual package name displayed to the end user, this can be anything you want, try to keep it short.
-It supports the attribute `languagecode` which allows you to provide the package name in different languages, please be aware that if it is not present, `en` (English) is assumed:
+It supports the attribute `language` which allows you to provide the package name in different languages, please be aware that if it is not present, `en` (English) is assumed:
 
 ```xml
 <packageinformation>
 	<packagename>Simple Package</packagename>
-	<packagename languagecode="de">Einfaches Paket</packagename>
+	<packagename language="de">Einfaches Paket</packagename>
 </packageinformation>
 ```
 
 #### `<packagedescription>`
 
 Brief summary of the package, use it to explain what it does since the package name might not always be clear enough.
-The attribute `languagecode` is available here too, please reference to [`<packagename>`](#packageName) for details.
+The attribute `language` can also be used here, please reference to [`<packagename>`](#packageName) for details.
 
 #### `<version>`
 
