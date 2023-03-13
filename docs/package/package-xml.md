@@ -72,6 +72,12 @@ Invalid examples:
 
 Must be a valid [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) date, e.g. `2013-12-27`.
 
+#### `<packageurl>`
+
+> (optional)
+
+URL to the package website that provides detailed information about the package.
+
 ### `<authorinformation>`
 
 Holds meta data regarding the package's author.
