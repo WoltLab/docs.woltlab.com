@@ -78,6 +78,13 @@ Must be a valid [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) date, e.g. `20
 
 URL to the package website that provides detailed information about the package.
 
+#### `<license>`
+
+> (optional)
+
+Name of a generic license type or URL to a custom license.
+The attribute `language` can also be used here, please reference to [`<packagename>`](#packageName) for details.
+
 ### `<authorinformation>`
 
 Holds meta data regarding the package's author.
