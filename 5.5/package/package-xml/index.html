@@ -1156,6 +1156,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#packageurl" class="md-nav__link">
+    &lt;packageurl&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    &lt;license&gt;
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2693,6 +2707,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#packageurl" class="md-nav__link">
+    &lt;packageurl&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    &lt;license&gt;
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2939,18 +2967,18 @@ The resulting package identifier is <code>com.woltlab.wbb</code> (<code>&lt;tld&
 <p>Holds the entire meta data of the package.</p>
 <h4 id="packagename"><code>&lt;packagename&gt;</code><a class="headerlink" href="#packagename" title="Permanent link">#</a></h4>
 <p>This is the actual package name displayed to the end user, this can be anything you want, try to keep it short.
-It supports the attribute <code>languagecode</code> which allows you to provide the package name in different languages, please be aware that if it is not present, <code>en</code> (English) is assumed:</p>
+It supports the attribute <code>language</code> which allows you to provide the package name in different languages, please be aware that if it is not present, <code>en</code> (English) is assumed:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;packageinformation&gt;</span>
 <span class="w">    </span><span class="nt">&lt;packagename&gt;</span>Simple<span class="w"> </span>Package<span class="nt">&lt;/packagename&gt;</span>
-<span class="w">    </span><span class="nt">&lt;packagename</span><span class="w"> </span><span class="na">languagecode=</span><span class="s">&quot;de&quot;</span><span class="nt">&gt;</span>Einfaches<span class="w"> </span>Paket<span class="nt">&lt;/packagename&gt;</span>
+<span class="w">    </span><span class="nt">&lt;packagename</span><span class="w"> </span><span class="na">language=</span><span class="s">&quot;de&quot;</span><span class="nt">&gt;</span>Einfaches<span class="w"> </span>Paket<span class="nt">&lt;/packagename&gt;</span>
 <span class="nt">&lt;/packageinformation&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="packagedescription"><code>&lt;packagedescription&gt;</code><a class="headerlink" href="#packagedescription" title="Permanent link">#</a></h4>
 <p>Brief summary of the package, use it to explain what it does since the package name might not always be clear enough.
-The attribute <code>languagecode</code> is available here too, please reference to <a href="#packageName"><code>&lt;packagename&gt;</code></a> for details.</p>
+The attribute <code>language</code> can also be used here, please reference to <a href="#packageName"><code>&lt;packagename&gt;</code></a> for details.</p>
 <h4 id="version"><code>&lt;version&gt;</code><a class="headerlink" href="#version" title="Permanent link">#</a></h4>
 <p>The package's version number, this is a string consisting of three numbers separated with a dot and optionally followed by a keyword (must be followed with another number).</p>
 <p>The possible keywords are:</p>
@@ -2974,6 +3002,17 @@ The attribute <code>languagecode</code> is available here too, please reference 
 </ul>
 <h4 id="date"><code>&lt;date&gt;</code><a class="headerlink" href="#date" title="Permanent link">#</a></h4>
 <p>Must be a valid <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> date, e.g. <code>2013-12-27</code>.</p>
+<h4 id="packageurl"><code>&lt;packageurl&gt;</code><a class="headerlink" href="#packageurl" title="Permanent link">#</a></h4>
+<blockquote>
+<p>(optional)</p>
+</blockquote>
+<p>URL to the package website that provides detailed information about the package.</p>
+<h4 id="license"><code>&lt;license&gt;</code><a class="headerlink" href="#license" title="Permanent link">#</a></h4>
+<blockquote>
+<p>(optional)</p>
+</blockquote>
+<p>Name of a generic license type or URL to a custom license.
+The attribute <code>language</code> can also be used here, please reference to <a href="#packageName"><code>&lt;packagename&gt;</code></a> for details.</p>
 <h3 id="authorinformation"><code>&lt;authorinformation&gt;</code><a class="headerlink" href="#authorinformation" title="Permanent link">#</a></h3>
 <p>Holds meta data regarding the package's author.</p>
 <h4 id="author"><code>&lt;author&gt;</code><a class="headerlink" href="#author" title="Permanent link">#</a></h4>
@@ -3100,7 +3139,7 @@ Instead of using a dummy <code>&lt;instruction&gt;</code> that idempotently upda
   <small>
     
       Last update:
-      2022-01-17
+      2023-03-13
     
   </small>
 </div>
