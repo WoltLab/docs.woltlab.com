@@ -64,7 +64,7 @@ Depending on the specific column class implementing additional interfaces, the f
 Additionally, there are some additionally classes of commonly used columns with specific properties:
 
 - `DefaultFalseBooleanDatabaseTableColumn` (a `tinyint` column with length `1`, default value `0` and whose values cannot be `null`)
-- `DefaultTrueBooleanDatabaseTableColumn` (a `tinyint` column with length `0`, default value `0` and whose values cannot be `null`)
+- `DefaultTrueBooleanDatabaseTableColumn` (a `tinyint` column with length `1`, default value `1` and whose values cannot be `null`)
 - `NotNullInt10DatabaseTableColumn` (a `int` column with length `10` and whose values cannot be `null`)
 - `NotNullVarchar191DatabaseTableColumn` (a `varchar` column with length `191` and whose values cannot be `null`)
 - `NotNullVarchar255DatabaseTableColumn` (a `varchar` column with length `255` and whose values cannot be `null`)
