@@ -38,6 +38,27 @@ Form field validation errors are added to form fields via the `IFormField::addVa
 
 Form field validators are added to form fields via the `addValidator(IFormFieldValidator $validator)` method.
 
+#### Example
+
+The following source code adds a validator that validates whether the value in the input field matches a specific value.
+
+```php
+$container->appendChildren([
+	FooField::create('a')
+		->addValidator(new FormFieldValidator('b', function (FooField $formField) {
+			if ($formField->getValue() != 'value') {
+				$formField->addValidationError(
+					new FormFieldValidationError(
+						'type',
+						'phrase'
+					)
+				);
+			}
+		}
+	})),
+]);
+```
+
 
 ## Form Data
 
