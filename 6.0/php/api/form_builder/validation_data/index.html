@@ -593,6 +593,19 @@
     IFormFieldValidator / FormFieldValidator
   </a>
   
+    <nav class="md-nav" aria-label="IFormFieldValidator / FormFieldValidator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2720,6 +2733,19 @@
     IFormFieldValidator / FormFieldValidator
   </a>
   
+    <nav class="md-nav" aria-label="IFormFieldValidator / FormFieldValidator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2827,6 +2853,34 @@ Such additional validations can be added to (and removed from) the form field vi
 </ul>
 <p><code>FormFieldValidator</code> is a default implementation of the interface.</p>
 <p>Form field validators are added to form fields via the <code>addValidator(IFormFieldValidator $validator)</code> method.</p>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
+<p>The following source code adds a validator that validates whether the value in the input field matches a specific value.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$container</span><span class="o">-&gt;</span><span class="na">appendChildren</span><span class="p">([</span>
+    <span class="nx">FooField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">addValidator</span><span class="p">(</span><span class="k">new</span> <span class="nx">FormFieldValidator</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">FooField</span> <span class="nv">$formField</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$formField</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$formField</span><span class="o">-&gt;</span><span class="na">addValidationError</span><span class="p">(</span>
+                    <span class="k">new</span> <span class="nx">FormFieldValidationError</span><span class="p">(</span>
+                        <span class="s1">&#39;type&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;phrase&#39;</span>
+                    <span class="p">)</span>
+                <span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">})),</span>
+    <span class="p">]);</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="form-data">Form Data<a class="headerlink" href="#form-data" title="Permanent link">#</a></h2>
 <p>After a form is successfully validated, the data of the form fields (returned by <code>IFormDocument::getData()</code>) have to be extracted which is the job of the <code>IFormDataHandler</code> object returned by <code>IFormDocument::getDataHandler()</code>.
 Form data handlers themselves, however, are only iterating through all <code>IFormDataProcessor</code> instances that have been registered with the data handler.</p>
@@ -2877,7 +2931,7 @@ When the data processor is invoked, it checks whether the relevant entry in the 
   <small>
     
       Last update:
-      2022-02-25
+      2023-04-11
     
   </small>
 </div>
