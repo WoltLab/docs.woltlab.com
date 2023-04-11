@@ -54,9 +54,8 @@ $container->appendChildren([
 					)
 				);
 			}
-		}
-	})),
-]);
+		})),
+	]);
 ```
 
 
