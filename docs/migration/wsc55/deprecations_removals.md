@@ -327,3 +327,4 @@ With version 6.0, we have deprecated certain components and removed several othe
 - The global option to set a specific style with a request parameter (`$_REQUEST['styleID']`) is removed. ([WoltLab/WCF#4533](https://github.com/WoltLab/WCF/pull/4533))
 - Using non-standard ports for package servers is no longer supported. ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - Using the insecure `http://` scheme for package servers is no longer supported. The use of `https://` is enforced. ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
+- The support for AMP pages was removed.  ([WoltLab/WCF#5425](https://github.com/WoltLab/WCF/pull/5425))
