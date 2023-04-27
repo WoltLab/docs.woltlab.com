@@ -10,6 +10,14 @@ It is strongly recommended to keep the template logic as simple as possible by m
 
 See [WoltLab/WCF#4788](https://github.com/WoltLab/WCF/pull/4788) for details.
 
+## Time Rendering
+
+The `|time`, `|plainTime` and `|date` modifiers have been deprecated and replaced by a unified `{time}` function.
+
+The main benefit is that it is no longer necessary to specify the `@` symbol when rendering the interactive time element, making it easier to perform a security review of templates by searching for the `@` symbol.
+
+See [WoltLab/WCF#5459](https://github.com/WoltLab/WCF/pull/5459) for details.
+
 ## Comments
 
 In WoltLab Suite 6.0 the comment system has been overhauled.
