@@ -1830,6 +1830,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#time-rendering" class="md-nav__link">
+    Time Rendering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#comments" class="md-nav__link">
     Comments
   </a>
@@ -2641,6 +2648,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#time-rendering" class="md-nav__link">
+    Time Rendering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#comments" class="md-nav__link">
     Comments
   </a>
@@ -2672,6 +2686,10 @@ This allow-list has proved to be a reliable solution against malicious templates
 To improve security and to reduce the number of differences between enterprise mode and non-enterprise mode the allow-list will always be enabled going forward.</p>
 <p>It is strongly recommended to keep the template logic as simple as possible by moving the heavy lifting into regular PHP code, reducing the number of (specialized) modifiers that need to be applied.</p>
 <p>See <a href="https://github.com/WoltLab/WCF/pull/4788">WoltLab/WCF#4788</a> for details.</p>
+<h2 id="time-rendering">Time Rendering<a class="headerlink" href="#time-rendering" title="Permanent link">#</a></h2>
+<p>The <code>|time</code>, <code>|plainTime</code> and <code>|date</code> modifiers have been deprecated and replaced by a unified <code>{time}</code> function.</p>
+<p>The main benefit is that it is no longer necessary to specify the <code>@</code> symbol when rendering the interactive time element, making it easier to perform a security review of templates by searching for the <code>@</code> symbol.</p>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/5459">WoltLab/WCF#5459</a> for details.</p>
 <h2 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">#</a></h2>
 <p>In WoltLab Suite 6.0 the comment system has been overhauled.
 In the process, the integration of comments via templates has been significantly simplified:</p>
@@ -2685,7 +2703,7 @@ In the process, the integration of comments via templates has been significantly
   <small>
     
       Last update:
-      2023-02-03
+      2023-04-27
     
   </small>
 </div>
