@@ -14,11 +14,11 @@ Instead the [`idn_to_ascii`](https://www.php.net/manual/en/function.idn-to-ascii
 
 ## Laminas Diactoros
 
-Diactoros was updated from version 2.4 to 2.22.
+Diactoros was updated from version 2.4 to 2.25.
 
 ## Input Validation
 
-WoltLab Suite 6.0 ships with cuyz/valinor 1.0 as a reliable solution to validate untrusted external input values.
+WoltLab Suite 6.0 ships with cuyz/valinor 1.4 as a reliable solution to validate untrusted external input values.
 
 Refer to the documentation within the [CuyZ/Valinor](https://github.com/CuyZ/Valinor) repository for details.
 
