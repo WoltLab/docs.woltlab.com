@@ -11,6 +11,9 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\action\AbstractDialogAction` ([WoltLab/WCF#4947](https://github.com/WoltLab/WCF/pull/4947))
 - `wcf\SensitiveArgument` ([WoltLab/WCF#4802](https://github.com/WoltLab/WCF/pull/4802))
 - `wcf\system\cli\command\IArgumentedCLICommand` ([WoltLab/WCF#5185](https://github.com/WoltLab/WCF/pull/5185))
+- `wcf\system\template\plugin\DateModifierTemplatePlugin` ([WoltLab/WCF#5459](https://github.com/WoltLab/WCF/pull/5459))
+- `wcf\system\template\plugin\TimeModifierTemplatePlugin` ([WoltLab/WCF#5459](https://github.com/WoltLab/WCF/pull/5459))
+- `wcf\system\template\plugin\PlainTimeModifierTemplatePlugin` ([WoltLab/WCF#5459](https://github.com/WoltLab/WCF/pull/5459))
 - `wcf\util\CronjobUtil` ([WoltLab/WCF#4923](https://github.com/WoltLab/WCF/pull/4923))
 
 #### Methods
