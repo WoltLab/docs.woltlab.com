@@ -254,6 +254,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `WBB.Thread.UpdateHandler.Thread`
 - `WBB.Thread.WatchedThreadList`
 - `WCF.Action.Scroll` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.Comment` ([WoltLab/WCF@00d46429](https://github.com/WoltLab/WCF/commit/00d464295c42a8e1d775fa1b5010d5eb644840aa))
 - `WCF.Conversation.MarkAllAsRead`
 - `WCF.Conversation.MarkAsRead`
 - `WCF.Conversation.Message.QuoteHandler`
@@ -268,6 +269,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `WCF.ModeratedUserGroup.AddMembers`
 - `WCF.Moderation.Queue.MarkAllAsRead`
 - `WCF.Moderation.Queue.MarkAsRead`
+- `WCF.Poll` ([WoltLab/WCF#5465](https://github.com/WoltLab/WCF/pull/5465))
 - `WCF.Search.Message.KeywordList` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.System.FlexibleMenu` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.System.Fullscreen` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
