@@ -70,6 +70,10 @@ With version 6.0, we have deprecated certain components and removed several othe
 
 #### Template Modifiers
 
+- `|date` ([WoltLab/WCF#5459](https://github.com/WoltLab/WCF/pull/5459))
+- `|time` ([WoltLab/WCF#5459](https://github.com/WoltLab/WCF/pull/5459))
+- `|plainTime` ([WoltLab/WCF#5459](https://github.com/WoltLab/WCF/pull/5459))
+
 #### Template Events
 
 ### Miscellaneous
