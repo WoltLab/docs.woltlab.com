@@ -14,7 +14,7 @@ Instead the [`idn_to_ascii`](https://www.php.net/manual/en/function.idn-to-ascii
 
 ## Laminas Diactoros
 
-Diactoros was updated from version 2.4 to 2.25.
+Diactoros was updated from version 2.4 to 3.0.
 
 ## Input Validation
 
