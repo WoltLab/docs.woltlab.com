@@ -1049,6 +1049,13 @@
       
         <li class="md-nav__item">
   <a href="#time" class="md-nav__link">
+    {time}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time_1" class="md-nav__link">
     |time
   </a>
   
@@ -3186,6 +3193,13 @@
       
         <li class="md-nav__item">
   <a href="#time" class="md-nav__link">
+    {time}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time_1" class="md-nav__link">
     |time
   </a>
   
@@ -4094,7 +4108,62 @@ If <code>prepend</code> is used on an array as the variable, the value is prepen
 <p><code>tableWordwrap</code> inserts zero width spaces every 30 characters in words longer than 30 characters.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">tableWordwrap</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="time"><code>|time</code><a class="headerlink" href="#time" title="Permanent link">#</a></h2>
+<h2 id="time"><code>{time}</code><a class="headerlink" href="#time" title="Permanent link">#</a></h2>
+<p><code>time</code> allows to output times in different (human readable) formats.
+Acceptables inputs are either a <code>\DateTimeInterface</code> or an integer representing a Unix timestamp.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">time</span> <span class="na">time</span><span class="o">=</span><span class="nv">$time</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">time</span> <span class="na">time</span><span class="o">=</span><span class="nv">$time</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;plainTime&#39;</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">time</span> <span class="na">time</span><span class="o">=</span><span class="nv">$time</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;plainDate&#39;</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">time</span> <span class="na">time</span><span class="o">=</span><span class="nv">$time</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;custom&#39;</span> <span class="na">format</span><span class="o">=</span><span class="s1">&#39;Y-m-d&#39;</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>time</td>
+<td>The <code>\DateTimeInterface</code> or Unix timestamp to format.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>The output format.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–</td>
+<td>An interactive <code>&lt;woltlab-core-date-time&gt;</code> element that renders as dynamically updated relative times.</td>
+</tr>
+<tr>
+<td>plainTime</td>
+<td>Date with time in the user’s locale and timezone as a plain string.</td>
+</tr>
+<tr>
+<td>plainDate</td>
+<td>Date without time in the user’s locale and timezone as a plain string.</td>
+</tr>
+<tr>
+<td>custom</td>
+<td>A custom format that is passed to <code>\DateTimeInterface::format()</code>. The timezone will be the user’s timezone.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="time_1"><code>|time</code><a class="headerlink" href="#time_1" title="Permanent link">#</a></h2>
 <div class="admonition info">
 <p class="admonition-title">This template plugin has been deprecated in WoltLab Suite 6.0.</p>
 </div>
