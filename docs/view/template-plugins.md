@@ -199,6 +199,8 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 
 ## `|date`
 
+!!! info "This template plugin has been deprecated in WoltLab Suite 6.0."
+
 `date` generated a formatted date using `wcf\util\DateUtil::format()` with `DateUtil::DATE_FORMAT` internally.
 
 ```smarty
@@ -598,6 +600,8 @@ This modifier is useful when assigning the value directly to a variable.
 
 ## `|plainTime`
 
+!!! info "This template plugin has been deprecated in WoltLab Suite 6.0."
+
 `plainTime` formats a timestamp to include year, month, day, hour, and minutes.
 The exact formatting depends on the current language (via the language items `wcf.date.dateTimeFormat`, `wcf.date.dateFormat`, and `wcf.date.timeFormat`).
 
@@ -700,6 +704,8 @@ If `prepend` is used on an array as the variable, the value is prepended to all 
 
 
 ## `|time`
+
+!!! info "This template plugin has been deprecated in WoltLab Suite 6.0."
 
 `time` generates an HTML `time` elements based on a timestamp that shows a relative time or the absolute time if the timestamp more than six days ago.
 
