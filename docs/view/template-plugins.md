@@ -703,6 +703,31 @@ If `prepend` is used on an array as the variable, the value is prepended to all 
 ```
 
 
+## `{time}`
+
+`time` allows to output times in different (human readable) formats.
+Acceptables inputs are either a `\DateTimeInterface` or an integer representing a Unix timestamp.
+
+```smarty
+{time time=$time}
+{time time=$time type='plainTime'}
+{time time=$time type='plainDate'}
+{time time=$time type='custom' format='Y-m-d'}
+```
+
+| Attribute | Description |
+|-----------|-------------|
+| time | The `\DateTimeInterface` or Unix timestamp to format. |
+| type | The output format. |
+
+| Type      | Description |
+|-----------|-------------|
+| –         | An interactive `<woltlab-core-date-time>` element that renders as dynamically updated relative times. |
+| plainTime | Date with time in the user’s locale and timezone as a plain string. |
+| plainDate | Date without time in the user’s locale and timezone as a plain string. |
+| custom    | A custom format that is passed to `\DateTimeInterface::format()`. The timezone will be the user’s timezone. |
+
+
 ## `|time`
 
 !!! info "This template plugin has been deprecated in WoltLab Suite 6.0."
