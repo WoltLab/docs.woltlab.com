@@ -102,6 +102,15 @@ element.innerHTML = '<fa-icon name="bell" solid></fa-icon>';
 You can alter the size by changing the `size` property which accepts the numbers `16`, `24`, `32`, `48`, `64`, `96`, `128` and `144`.
 The icon itself should be always set through the `setIcon(name: string, isSolid: boolean)` function which validates the values and rejects unknown icons.
 
+```ts
+const div = document.createElement("div");
+div.innerHTML = '<fa-icon name="user"></fa-icon>';
+
+const icon = div.querySelector("fa-icon");
+icon.size = 24;
+icon.setIcon("bell", true);
+```
+
 ## Migrating Icons
 
 We provide a helper script that eases the transition by replacing icons in templates, JavaScript and TypeScript files.
