@@ -2893,6 +2893,18 @@ You can explicitly request a solid version of the icon by specifying it with <co
 <h3 id="changing-an-icon-on-runtime">Changing an Icon on Runtime<a class="headerlink" href="#changing-an-icon-on-runtime" title="Permanent link">#</a></h3>
 <p>You can alter the size by changing the <code>size</code> property which accepts the numbers <code>16</code>, <code>24</code>, <code>32</code>, <code>48</code>, <code>64</code>, <code>96</code>, <code>128</code> and <code>144</code>.
 The icon itself should be always set through the <code>setIcon(name: string, isSolid: boolean)</code> function which validates the values and rejects unknown icons.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">div</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">);</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;fa-icon name=&quot;user&quot;&gt;&lt;/fa-icon&gt;&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">div</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;fa-icon&quot;</span><span class="p">);</span>
+<span class="nx">icon</span><span class="p">.</span><span class="nx">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">24</span><span class="p">;</span>
+<span class="nx">icon</span><span class="p">.</span><span class="nx">setIcon</span><span class="p">(</span><span class="s2">&quot;bell&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="migrating-icons">Migrating Icons<a class="headerlink" href="#migrating-icons" title="Permanent link">#</a></h2>
 <p>We provide a helper script that eases the transition by replacing icons in templates, JavaScript and TypeScript files.
 The script itself is very defensive and only replaces obvious matches, it will leave icons with additional CSS classes or attributes as-is and will need to be manually adjusted.</p>
@@ -2934,7 +2946,7 @@ It is important to catch and handle this exception to ensure a reliable upgrade 
   <small>
     
       Last update:
-      2023-02-17
+      2023-05-16
     
   </small>
 </div>
