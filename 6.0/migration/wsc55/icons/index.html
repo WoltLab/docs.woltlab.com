@@ -1920,6 +1920,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#replacing-icons-in-css" class="md-nav__link">
+    Replacing Icons in CSS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#migrating-admin-configurable-icons" class="md-nav__link">
     Migrating Admin-Configurable Icons
   </a>
@@ -2798,6 +2805,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#replacing-icons-in-css" class="md-nav__link">
+    Replacing Icons in CSS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#migrating-admin-configurable-icons" class="md-nav__link">
     Migrating Admin-Configurable Icons
   </a>
@@ -2934,6 +2948,12 @@ It will not replace occurrences that are formatted differently and/or make use o
 <span class="x">    &lt;/button&gt;</span>
 <span class="x">&lt;/li&gt;</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="replacing-icons-in-css">Replacing Icons in CSS<a class="headerlink" href="#replacing-icons-in-css" title="Permanent link">#</a></h3>
+<p>Icons created through CSS properties are generally not supported.
+It was often used as a convenient way to introduce a new icon with little hassle, but has way too many downsides, including but not limited to accessibility.</p>
+<p>Existing icons injected through CSS properties are dysfunctional and must be converted into regular icons that are injected into the DOM.
+If you cannot embed them directly in the template, you should inject those using JavaScript on runtime.
+It is possible to inject icons using JavaScript on page load by relying entierly on native JavaScript, because the icon component is eagerly loaded ahead of time, preventing any flicker or layout shifts.</p>
 <h3 id="migrating-admin-configurable-icons">Migrating Admin-Configurable Icons<a class="headerlink" href="#migrating-admin-configurable-icons" title="Permanent link">#</a></h3>
 <p>If admin-configurable icon names (e.g. created by <a href="../../../php/api/form_builder/form_fields/#iconformfield"><code>IconFormField</code></a>) are stored within the database, these need to be migrated with an <a href="../../../package/pip/script/">upgrade script</a>.</p>
 <p>The <code>FontAwesomeIcon::mapVersion4()</code> maps a Font Awesome 4 icon name to a string that may be passed to <code>FontAwesomeIcon::fromString()</code>.
