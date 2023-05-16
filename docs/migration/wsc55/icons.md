@@ -155,7 +155,7 @@ It was often used as a convenient way to introduce a new icon with little hassle
 
 Existing icons injected through CSS properties are dysfunctional and must be converted into regular icons that are injected into the DOM.
 If you cannot embed them directly in the template, you should inject those using JavaScript on runtime.
-It is possible to inject icons using JavaScript on page load by relying entierly on native JavaScript, because the icon component is eagerly loaded ahead of time, preventing any flicker or layout shifts.
+It is possible to inject icons using JavaScript on page load by relying entirely on native JavaScript, because the icon component is eagerly loaded ahead of time, preventing any flicker or layout shifts.
 
 ### Migrating Admin-Configurable Icons
 
