@@ -148,6 +148,15 @@ This can be replaced using a proper button element which also provides proper ac
 </li>
 ```
 
+### Replacing Icons in CSS
+
+Icons created through CSS properties are generally not supported.
+It was often used as a convenient way to introduce a new icon with little hassle, but has way too many downsides, including but not limited to accessibility.
+
+Existing icons injected through CSS properties are dysfunctional and must be converted into regular icons that are injected into the DOM.
+If you cannot embed them directly in the template, you should inject those using JavaScript on runtime.
+It is possible to inject icons using JavaScript on page load by relying entierly on native JavaScript, because the icon component is eagerly loaded ahead of time, preventing any flicker or layout shifts.
+
 ### Migrating Admin-Configurable Icons
 
 If admin-configurable icon names (e.g. created by [`IconFormField`](../../php/api/form_builder/form_fields.md#iconformfield)) are stored within the database, these need to be migrated with an [upgrade script](../../package/pip/script.md).
