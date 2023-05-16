@@ -337,3 +337,4 @@ With version 6.0, we have deprecated certain components and removed several othe
 - Using non-standard ports for package servers is no longer supported. ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - Using the insecure `http://` scheme for package servers is no longer supported. The use of `https://` is enforced. ([WoltLab/WCF#4790](https://github.com/WoltLab/WCF/pull/4790))
 - The support for AMP pages was removed.  ([WoltLab/WCF#5425](https://github.com/WoltLab/WCF/pull/5425))
+- The support for style API version was removed. All styles are treated as if they are fully compatible with the latest version. ([WoltLab/WCF#5036](https://github.com/WoltLab/WCF/issues/5036))
