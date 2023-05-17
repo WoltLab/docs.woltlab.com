@@ -100,3 +100,36 @@ if (result) {
   console.log("The user has requested to delete the object.");
 }
 ```
+
+## Custom Confirmation Prompts
+
+The `custom()` permits a custom confirmation dialog with a user-defined dialog content.
+
+```ts
+const result = await confirmationFactory()
+  .custom(theQuestionToAsk)
+  .message(someLengthyExplanation);
+if (result) {
+  console.log("The user has confirmed the dialog.");
+}
+```
+
+### Use Custom HTML in the Dialog Body
+
+Some dialogs require additional input elements, for example, the prompt to remove an element has an optional text field for a reason.
+
+```ts
+const { result, dialog } = await confirmationFactory()
+  .custom(theQuestionToAsk)
+  .withFormElements((dialog) => {
+    const p = document.createElement("<p>Hello World</p>");
+    dialog.content.append(p);
+  });
+if (result) {
+  console.log("The user has confirmed the dialog.");
+  console.log(
+    "The DOM of the dialog can be accessed through `dialog.content`",
+    dialog.content
+  );
+}
+```
