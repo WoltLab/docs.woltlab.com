@@ -949,6 +949,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#custom-confirmation-prompts" class="md-nav__link">
+    Custom Confirmation Prompts
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Confirmation Prompts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-custom-html-in-the-dialog-body" class="md-nav__link">
+    Use Custom HTML in the Dialog Body
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2729,6 +2749,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#custom-confirmation-prompts" class="md-nav__link">
+    Custom Confirmation Prompts
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Confirmation Prompts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-custom-html-in-the-dialog-body" class="md-nav__link">
+    Use Custom HTML in the Dialog Body
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2849,13 +2889,55 @@ You can simply omit the value if you do not use the reason.</p>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The user has requested to delete the object.&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="custom-confirmation-prompts">Custom Confirmation Prompts<a class="headerlink" href="#custom-confirmation-prompts" title="Permanent link">#</a></h2>
+<p>The <code>custom()</code> permits a custom confirmation dialog with a user-defined dialog content.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">()</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">custom</span><span class="p">(</span><span class="nx">theQuestionToAsk</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">message</span><span class="p">(</span><span class="nx">someLengthyExplanation</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The user has confirmed the dialog.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="use-custom-html-in-the-dialog-body">Use Custom HTML in the Dialog Body<a class="headerlink" href="#use-custom-html-in-the-dialog-body" title="Permanent link">#</a></h3>
+<p>Some dialogs require additional input elements, for example, the prompt to remove an element has an optional text field for a reason.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">()</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">custom</span><span class="p">(</span><span class="nx">theQuestionToAsk</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">withFormElements</span><span class="p">((</span><span class="nx">dialog</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello World&lt;/p&gt;&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The user has confirmed the dialog.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;The DOM of the dialog can be accessed through `dialog.content`&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2023-01-03
+      2023-05-17
     
   </small>
 </div>
