@@ -1843,6 +1843,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-button-element" class="md-nav__link">
+    The &lt;button&gt; Element
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2661,6 +2668,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-button-element" class="md-nav__link">
+    The &lt;button&gt; Element
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2697,13 +2711,36 @@ In the process, the integration of comments via templates has been significantly
 </code></pre></div></td></tr></table></div>
 <p>An example for the migration of existing template integrations can be found <a href="https://github.com/WoltLab/WCF/commit/b1d5f7cc6b81ae7fd938603bb20a3a454a531a96#diff-3419ed2f17fa84a70caf0d99511d5ac2a7704c62f24cc7042984d7a9932525ce">here</a>.</p>
 <p>See <a href="https://github.com/WoltLab/WCF/pull/5210">WoltLab/WCF#5210</a> for more details.</p>
+<h2 id="the-button-element">The <code>&lt;button&gt;</code> Element<a class="headerlink" href="#the-button-element" title="Permanent link">#</a></h2>
+<p>The styling of the <code>&lt;button&gt;</code> has been completely removed in WoltLab Suite 6.0 and the element has no longer any kind of styling.
+This change allows the element to be used in a lot of places that previously had to use an <code>a[href="#"][role="button"]</code> to replicate the same behavior.</p>
+<p>If you have previously used the button element as an actual button, you should add the CSS class <code>.button</code> to it.</p>
+<p>It is recommended to identify an uses of the anchor element to replicate a native button and to use the proper <code>&lt;button&gt;</code> element from now on.
+Buttons will implicitly submit a form, therefore you should set the <code>type</code> attribute to explicitly define its behavior.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- These two buttons will submit the form. --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>Button 1<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Button 2<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+    <span class="cm">&lt;!-- Clicking this button does nothing on its own. --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span><span class="p">&gt;</span>Button 3<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>See <a href="https://github.com/WoltLab/WCF/issues/4834">WoltLab/WCF#4834</a> for more details.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2023-04-27
+      2023-05-17
     
   </small>
 </div>
