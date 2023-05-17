@@ -915,6 +915,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#icon" class="md-nav__link">
+    {icon}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#implode" class="md-nav__link">
     {implode}
   </a>
@@ -3059,6 +3066,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#icon" class="md-nav__link">
+    {icon}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#implode" class="md-nav__link">
     {implode}
   </a>
@@ -3715,6 +3729,34 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 </tbody>
 </table>
 <p>All additional attributes are added as attributes of the <code>select</code> HTML element.</p>
+<h2 id="icon"><code>{icon}</code><a class="headerlink" href="#icon" title="Permanent link">#</a></h2>
+<p><code>{icon}</code> renders a “Font Awesome” icon with support for brand icons.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">icon</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;magnifying-glass&#39;</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">icon</span> <span class="na">size</span><span class="o">=</span><span class="m">24</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;github&#39;</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;brand&#39;</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">icon</span> <span class="na">size</span><span class="o">=</span><span class="m">32</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;user&#39;</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">icon</span> <span class="na">size</span><span class="o">=</span><span class="m">64</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;bell&#39;</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>size</code></td>
+<td>the size of the icon, possible values are <code>16</code>, <code>24</code>, <code>32</code>, <code>48</code>, <code>64</code>, <code>96</code>, <code>128</code> and <code>144</code>; defaults to <code>16</code></td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>requests the least “thick” icon when omitted, the solid variant with <code>'solid'</code> and a brand icon with <code>'brand'</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="implode"><code>{implode}</code><a class="headerlink" href="#implode" title="Permanent link">#</a></h2>
 <p><code>implodes</code> transforms an array into a string and prints it.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">implode</span> <span class="na">from</span><span class="o">=</span><span class="nv">$array</span> <span class="na">key</span><span class="o">=</span><span class="na">key</span> <span class="na">item</span><span class="o">=</span><span class="na">item</span> <span class="na">glue</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="cp">}{</span><span class="nv">$key</span><span class="cp">}</span><span class="x">: </span><span class="cp">{</span><span class="nv">$value</span><span class="cp">}{</span><span class="nf">/implode</span><span class="cp">}</span>
@@ -4234,7 +4276,7 @@ The optional <code>type</code> parameter is responsible for what the generated l
   <small>
     
       Last update:
-      2023-05-05
+      2023-05-17
     
   </small>
 </div>
