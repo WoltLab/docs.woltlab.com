@@ -379,6 +379,23 @@ Like `foreach`, `hascontent` also supports an `else` part:
 All additional attributes are added as attributes of the `select` HTML element.
 
 
+## `{icon}`
+
+`{icon}` renders a “Font Awesome” icon with support for brand icons.
+
+```smarty
+{icon name='magnifying-glass'}
+{icon size=24 name='github' type='brand'}
+{icon size=32 name='user' type='solid'}
+{icon size=64 name='bell'}
+```
+
+| Attribute | Description |
+|-----------|-------------|
+| `size` | the size of the icon, possible values are `16`, `24`, `32`, `48`, `64`, `96`, `128` and `144`; defaults to `16` |
+| `type` | requests the least “thick” icon when omitted, the solid variant with `'solid'` and a brand icon with `'brand'` |
+
+
 ## `{implode}`
 
 `implodes` transforms an array into a string and prints it.
