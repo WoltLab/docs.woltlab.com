@@ -729,6 +729,7 @@ Acceptables inputs are either a `\DateTimeInterface` or an integer representing 
 {time time=$time}
 {time time=$time type='plainTime'}
 {time time=$time type='plainDate'}
+{time time=$time type='machine'}
 {time time=$time type='custom' format='Y-m-d'}
 ```
 
@@ -742,6 +743,7 @@ Acceptables inputs are either a `\DateTimeInterface` or an integer representing 
 | –         | An interactive `<woltlab-core-date-time>` element that renders as dynamically updated relative times. |
 | plainTime | Date with time in the user’s locale and timezone as a plain string. |
 | plainDate | Date without time in the user’s locale and timezone as a plain string. |
+| machine   | A machine readable string in ISO-8601 format. |
 | custom    | A custom format that is passed to `\DateTimeInterface::format()`. The timezone will be the user’s timezone. |
 
 
