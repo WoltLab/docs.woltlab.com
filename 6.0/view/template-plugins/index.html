@@ -4156,9 +4156,11 @@ Acceptables inputs are either a <code>\DateTimeInterface</code> or an integer re
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">time</span> <span class="na">time</span><span class="o">=</span><span class="nv">$time</span><span class="cp">}</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">time</span> <span class="na">time</span><span class="o">=</span><span class="nv">$time</span><span class="cp">}</span>
 <span class="cp">{</span><span class="nf">time</span> <span class="na">time</span><span class="o">=</span><span class="nv">$time</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;plainTime&#39;</span><span class="cp">}</span>
 <span class="cp">{</span><span class="nf">time</span> <span class="na">time</span><span class="o">=</span><span class="nv">$time</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;plainDate&#39;</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">time</span> <span class="na">time</span><span class="o">=</span><span class="nv">$time</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;machine&#39;</span><span class="cp">}</span>
 <span class="cp">{</span><span class="nf">time</span> <span class="na">time</span><span class="o">=</span><span class="nv">$time</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;custom&#39;</span> <span class="na">format</span><span class="o">=</span><span class="s1">&#39;Y-m-d&#39;</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <table>
@@ -4198,6 +4200,10 @@ Acceptables inputs are either a <code>\DateTimeInterface</code> or an integer re
 <tr>
 <td>plainDate</td>
 <td>Date without time in the user’s locale and timezone as a plain string.</td>
+</tr>
+<tr>
+<td>machine</td>
+<td>A machine readable string in ISO-8601 format.</td>
 </tr>
 <tr>
 <td>custom</td>
@@ -4276,7 +4282,7 @@ The optional <code>type</code> parameter is responsible for what the generated l
   <small>
     
       Last update:
-      2023-05-17
+      2023-05-25
     
   </small>
 </div>
