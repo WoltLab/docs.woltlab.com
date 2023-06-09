@@ -192,8 +192,21 @@ WCF::getTPL()->assign([
 
 #### Modifiers
 
-If you want to call a function on a variable, you can use the modifier syntax:
-`{@$foo|trim}`, for example, results in the trimmed contents of `$foo` to be printed.
+Variable modifiers are used to modify the output of variables within templates.
+These modifiers allow you to perform various operations on the variables before displaying them.
+The general syntax for applying a variable modifier is `{$variable|modifier}`.
+
+Modifiers can be chained together to perform multiple operations on a variable. In such cases, the modifiers are applied from left to right. For example:
+```smarty
+{$variable|modifier1|modifier2|modifier3}
+```
+
+A modifier may accept additional parameters that affect its behavior. These parameters follow the modifier name and are separated by a `:`. For example:
+```smarty
+{$variable|modifier:'param1':'param2'}
+```
+
+An overview of all available modifiers can be found [here](template-modifiers.md).
 
 #### System Template Variable
 
