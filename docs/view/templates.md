@@ -206,7 +206,7 @@ A modifier may accept additional parameters that affect its behavior. These para
 {$variable|modifier:'param1':'param2'}
 ```
 
-An overview of all available modifiers can be found [here](template-modifiers.md).
+An [overview of all available modifiers](template-modifiers.md) is available on a [dedicated page](template-modifiers.md).
 
 #### System Template Variable
 

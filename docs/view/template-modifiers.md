@@ -199,7 +199,7 @@ The exact formatting depends on the current language (via the language items `wc
 
 ## PHP Functions
 
-A whitelisted set of PHP functions can also be used as variable modifiers:
+A limited number of safe native PHP functions may also be used as variable modifiers:
 
 * `abs`
 * `addslashes`
