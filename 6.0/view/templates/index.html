@@ -14,7 +14,7 @@
         <link rel="prev" href="../languages/">
       
       
-        <link rel="next" href="../template-plugins/">
+        <link rel="next" href="../template-modifiers/">
       
       <link rel="icon" href="../../assets/default.favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
@@ -907,6 +907,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-modifiers/" class="md-nav__link">
+        Template Modifiers
+      </a>
     </li>
   
 
@@ -3191,8 +3205,16 @@ More information about installing templates can be found on those pages. </p>
 <span class="p">]);</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="modifiers">Modifiers<a class="headerlink" href="#modifiers" title="Permanent link">#</a></h4>
-<p>If you want to call a function on a variable, you can use the modifier syntax:
-<code>{@$foo|trim}</code>, for example, results in the trimmed contents of <code>$foo</code> to be printed.</p>
+<p>Variable modifiers are used to modify the output of variables within templates.
+These modifiers allow you to perform various operations on the variables before displaying them.
+The general syntax for applying a variable modifier is <code>{$variable|modifier}</code>.</p>
+<p>Modifiers can be chained together to perform multiple operations on a variable. In such cases, the modifiers are applied from left to right. For example:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$variable</span><span class="o">|</span><span class="na">modifier1</span><span class="o">|</span><span class="na">modifier2</span><span class="o">|</span><span class="na">modifier3</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p>A modifier may accept additional parameters that affect its behavior. These parameters follow the modifier name and are separated by a <code>:</code>. For example:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$variable</span><span class="o">|</span><span class="na">modifier</span><span class="o">:</span><span class="s1">&#39;param1&#39;</span><span class="o">:</span><span class="s1">&#39;param2&#39;</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p>An <a href="../template-modifiers/">overview of all available modifiers</a> is available on a <a href="../template-modifiers/">dedicated page</a>.</p>
 <h4 id="system-template-variable">System Template Variable<a class="headerlink" href="#system-template-variable" title="Permanent link">#</a></h4>
 <ul>
 <li><code>$__wcf</code> contains the <code>WCF</code> object (or <code>WCFACP</code> object in the backend).</li>
@@ -3295,7 +3317,7 @@ If the foreach loop has a name assigned to it via the <code>name</code> attribut
   <small>
     
       Last update:
-      2022-10-21
+      2023-06-12
     
   </small>
 </div>

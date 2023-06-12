@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://docs.woltlab.com/6.0/javascript/new-api_ui/">
+        <link rel="canonical" href="https://docs.woltlab.com/6.0/view/template-modifiers/">
       
       
-        <link rel="prev" href="../new-api_browser/">
+        <link rel="prev" href="../templates/">
       
       
-        <link rel="next" href="../legacy-api/">
+        <link rel="next" href="../template-plugins/">
       
       <link rel="icon" href="../../assets/default.favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>User Interface - WoltLab Suite Documentation</title>
+        <title>Template Modifiers - WoltLab Suite Documentation</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#user-interface-javascript-api" class="md-skip">
+        <a href="#template-modifiers" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              User Interface
+              Template Modifiers
             
           </span>
         </div>
@@ -682,14 +682,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
       
@@ -698,7 +700,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Languages, Templates & CSS
@@ -711,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../view/languages/" class="md-nav__link">
+      <a href="../languages/" class="md-nav__link">
         Languages
       </a>
     </li>
@@ -725,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../view/templates/" class="md-nav__link">
+      <a href="../templates/" class="md-nav__link">
         Templates
       </a>
     </li>
@@ -737,11 +739,184 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../view/template-modifiers/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Template Modifiers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Template Modifiers
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build-in-modifiers" class="md-nav__link">
+    Build-in Modifiers
+  </a>
+  
+    <nav class="md-nav" aria-label="Build-in Modifiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concat" class="md-nav__link">
+    |concat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#currency" class="md-nav__link">
+    |currency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#date" class="md-nav__link">
+    |date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encodejs" class="md-nav__link">
+    |encodeJS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escapecdata" class="md-nav__link">
+    |escapeCDATA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filesizebinary" class="md-nav__link">
+    |filesizeBinary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filesize" class="md-nav__link">
+    |filesize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipsearch" class="md-nav__link">
+    |ipSearch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    |json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language" class="md-nav__link">
+    |language
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newlinetobreak" class="md-nav__link">
+    |newlineToBreak
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phrase" class="md-nav__link">
+    |phrase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plaintime" class="md-nav__link">
+    |plainTime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shortunit" class="md-nav__link">
+    |shortUnit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tablewordwrap" class="md-nav__link">
+    |tableWordwrap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    |time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#truncate" class="md-nav__link">
+    |truncate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#php-functions" class="md-nav__link">
+    PHP Functions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -753,7 +928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../view/template-plugins/" class="md-nav__link">
+      <a href="../template-plugins/" class="md-nav__link">
         Template Plugins
       </a>
     </li>
@@ -767,7 +942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../view/css/" class="md-nav__link">
+      <a href="../css/" class="md-nav__link">
         CSS
       </a>
     </li>
@@ -787,16 +962,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
       
@@ -805,7 +978,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           TypeScript and JavaScript API
@@ -818,7 +991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../general-usage/" class="md-nav__link">
+      <a href="../../javascript/general-usage/" class="md-nav__link">
         General Usage
       </a>
     </li>
@@ -832,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../typescript/" class="md-nav__link">
+      <a href="../../javascript/typescript/" class="md-nav__link">
         TypeScript
       </a>
     </li>
@@ -873,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../components_confirmation/" class="md-nav__link">
+      <a href="../../javascript/components_confirmation/" class="md-nav__link">
         Confirmation
       </a>
     </li>
@@ -887,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../components_dialog/" class="md-nav__link">
+      <a href="../../javascript/components_dialog/" class="md-nav__link">
         Dialog
       </a>
     </li>
@@ -901,7 +1074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../components_google_maps/" class="md-nav__link">
+      <a href="../../javascript/components_google_maps/" class="md-nav__link">
         Google Maps
       </a>
     </li>
@@ -915,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../components_pagination/" class="md-nav__link">
+      <a href="../../javascript/components_pagination/" class="md-nav__link">
         Pagination
       </a>
     </li>
@@ -934,16 +1107,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
       
       
       
@@ -952,7 +1123,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_4">
           <span class="md-nav__icon md-icon"></span>
           New API
@@ -965,7 +1136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../new-api_writing-a-module/" class="md-nav__link">
+      <a href="../../javascript/new-api_writing-a-module/" class="md-nav__link">
         Writing a module
       </a>
     </li>
@@ -979,7 +1150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../new-api_core/" class="md-nav__link">
+      <a href="../../javascript/new-api_core/" class="md-nav__link">
         Core Functions
       </a>
     </li>
@@ -993,7 +1164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../new-api_dom/" class="md-nav__link">
+      <a href="../../javascript/new-api_dom/" class="md-nav__link">
         DOM
       </a>
     </li>
@@ -1007,7 +1178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../new-api_events/" class="md-nav__link">
+      <a href="../../javascript/new-api_events/" class="md-nav__link">
         Event Handling
       </a>
     </li>
@@ -1021,7 +1192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../new-api_ajax/" class="md-nav__link">
+      <a href="../../javascript/new-api_ajax/" class="md-nav__link">
         Ajax
       </a>
     </li>
@@ -1035,7 +1206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../new-api_dialogs/" class="md-nav__link">
+      <a href="../../javascript/new-api_dialogs/" class="md-nav__link">
         Dialogs
       </a>
     </li>
@@ -1049,7 +1220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../new-api_browser/" class="md-nav__link">
+      <a href="../../javascript/new-api_browser/" class="md-nav__link">
         Browser and Screen Sizes
       </a>
     </li>
@@ -1061,235 +1232,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          User Interface
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../javascript/new-api_ui/" class="md-nav__link">
         User Interface
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#uialignment" class="md-nav__link">
-    Ui/Alignment
-  </a>
-  
-    <nav class="md-nav" aria-label="Ui/Alignment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#setelement-element-referenceelement-element-options-object" class="md-nav__link">
-    set(element: Element, referenceElement: Element, options: Object)
-  </a>
-  
-    <nav class="md-nav" aria-label="set(element: Element, referenceElement: Element, options: Object)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#verticaloffset-number" class="md-nav__link">
-    verticalOffset: number
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pointer-boolean" class="md-nav__link">
-    pointer: boolean
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pointeroffset-number" class="md-nav__link">
-    pointerOffset: number
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pointerclassnames-string" class="md-nav__link">
-    pointerClassNames: string[]
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#refdimensionselement-element" class="md-nav__link">
-    refDimensionsElement: Element
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#horizontal-string" class="md-nav__link">
-    horizontal: string
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vertical-string" class="md-nav__link">
-    vertical: string
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#allowflip-string" class="md-nav__link">
-    allowFlip: string
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uicloseoverlay" class="md-nav__link">
-    Ui/CloseOverlay
-  </a>
-  
-    <nav class="md-nav" aria-label="Ui/CloseOverlay">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#addidentifier-string-callback-void" class="md-nav__link">
-    add(identifier: string, callback: () =&gt; void)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uiconfirmation" class="md-nav__link">
-    Ui/Confirmation
-  </a>
-  
-    <nav class="md-nav" aria-label="Ui/Confirmation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#showoptions-object" class="md-nav__link">
-    show(options: Object)
-  </a>
-  
-    <nav class="md-nav" aria-label="show(options: Object)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cancel-parameters-object-void" class="md-nav__link">
-    cancel: (parameters: Object) =&gt; void
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#confirm-parameters-object-void" class="md-nav__link">
-    confirm: (parameters: Object) =&gt; void
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#message-string" class="md-nav__link">
-    message: string
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#messageishtml" class="md-nav__link">
-    messageIsHtml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#parameters-object" class="md-nav__link">
-    parameters: Object
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#template-string" class="md-nav__link">
-    template: string
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uinotification" class="md-nav__link">
-    Ui/Notification
-  </a>
-  
-    <nav class="md-nav" aria-label="Ui/Notification">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#showmessage-string-callback-void-cssclassname-string" class="md-nav__link">
-    show(message: string, callback?: () =&gt; void, cssClassName?: string)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1308,7 +1255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../legacy-api/" class="md-nav__link">
+      <a href="../../javascript/legacy-api/" class="md-nav__link">
         Legacy API
       </a>
     </li>
@@ -1322,7 +1269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../code-snippets/" class="md-nav__link">
+      <a href="../../javascript/code-snippets/" class="md-nav__link">
         Code Snippets
       </a>
     </li>
@@ -2824,167 +2771,129 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#uialignment" class="md-nav__link">
-    Ui/Alignment
+  <a href="#build-in-modifiers" class="md-nav__link">
+    Build-in Modifiers
   </a>
   
-    <nav class="md-nav" aria-label="Ui/Alignment">
+    <nav class="md-nav" aria-label="Build-in Modifiers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setelement-element-referenceelement-element-options-object" class="md-nav__link">
-    set(element: Element, referenceElement: Element, options: Object)
-  </a>
-  
-    <nav class="md-nav" aria-label="set(element: Element, referenceElement: Element, options: Object)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#verticaloffset-number" class="md-nav__link">
-    verticalOffset: number
+  <a href="#concat" class="md-nav__link">
+    |concat
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pointer-boolean" class="md-nav__link">
-    pointer: boolean
+  <a href="#currency" class="md-nav__link">
+    |currency
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pointeroffset-number" class="md-nav__link">
-    pointerOffset: number
+  <a href="#date" class="md-nav__link">
+    |date
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pointerclassnames-string" class="md-nav__link">
-    pointerClassNames: string[]
+  <a href="#encodejs" class="md-nav__link">
+    |encodeJS
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#refdimensionselement-element" class="md-nav__link">
-    refDimensionsElement: Element
+  <a href="#escapecdata" class="md-nav__link">
+    |escapeCDATA
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#horizontal-string" class="md-nav__link">
-    horizontal: string
+  <a href="#filesizebinary" class="md-nav__link">
+    |filesizeBinary
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#vertical-string" class="md-nav__link">
-    vertical: string
+  <a href="#filesize" class="md-nav__link">
+    |filesize
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#allowflip-string" class="md-nav__link">
-    allowFlip: string
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uicloseoverlay" class="md-nav__link">
-    Ui/CloseOverlay
-  </a>
-  
-    <nav class="md-nav" aria-label="Ui/CloseOverlay">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#addidentifier-string-callback-void" class="md-nav__link">
-    add(identifier: string, callback: () =&gt; void)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uiconfirmation" class="md-nav__link">
-    Ui/Confirmation
-  </a>
-  
-    <nav class="md-nav" aria-label="Ui/Confirmation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#showoptions-object" class="md-nav__link">
-    show(options: Object)
-  </a>
-  
-    <nav class="md-nav" aria-label="show(options: Object)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cancel-parameters-object-void" class="md-nav__link">
-    cancel: (parameters: Object) =&gt; void
+  <a href="#ipsearch" class="md-nav__link">
+    |ipSearch
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#confirm-parameters-object-void" class="md-nav__link">
-    confirm: (parameters: Object) =&gt; void
+  <a href="#json" class="md-nav__link">
+    |json
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#message-string" class="md-nav__link">
-    message: string
+  <a href="#language" class="md-nav__link">
+    |language
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#messageishtml" class="md-nav__link">
-    messageIsHtml
+  <a href="#newlinetobreak" class="md-nav__link">
+    |newlineToBreak
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#parameters-object" class="md-nav__link">
-    parameters: Object
+  <a href="#phrase" class="md-nav__link">
+    |phrase
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#template-string" class="md-nav__link">
-    template: string
+  <a href="#plaintime" class="md-nav__link">
+    |plainTime
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#shortunit" class="md-nav__link">
+    |shortUnit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tablewordwrap" class="md-nav__link">
+    |tableWordwrap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    |time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#truncate" class="md-nav__link">
+    |truncate
+  </a>
   
 </li>
         
@@ -2994,22 +2903,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#uinotification" class="md-nav__link">
-    Ui/Notification
+  <a href="#php-functions" class="md-nav__link">
+    PHP Functions
   </a>
-  
-    <nav class="md-nav" aria-label="Ui/Notification">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#showmessage-string-callback-void-cssclassname-string" class="md-nav__link">
-    show(message: string, callback?: () =&gt; void, cssClassName?: string)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3031,160 +2927,268 @@
   
 
 
-<h1 id="user-interface-javascript-api">User Interface - JavaScript API<a class="headerlink" href="#user-interface-javascript-api" title="Permanent link">#</a></h1>
-<h2 id="uialignment"><code>Ui/Alignment</code><a class="headerlink" href="#uialignment" title="Permanent link">#</a></h2>
-<p>Calculates the alignment of one element relative to another element, with support
-for boundary constraints, alignment restrictions and additional pointer elements.</p>
-<h3 id="setelement-element-referenceelement-element-options-object"><code>set(element: Element, referenceElement: Element, options: Object)</code><a class="headerlink" href="#setelement-element-referenceelement-element-options-object" title="Permanent link">#</a></h3>
-<p>Calculates and sets the alignment of the element <code>element</code>.</p>
-<h4 id="verticaloffset-number"><code>verticalOffset: number</code><a class="headerlink" href="#verticaloffset-number" title="Permanent link">#</a></h4>
-<p><em>Defaults to <code>0</code>.</em></p>
-<p>Creates a gap between the element and the reference element, in pixels.</p>
-<h4 id="pointer-boolean"><code>pointer: boolean</code><a class="headerlink" href="#pointer-boolean" title="Permanent link">#</a></h4>
-<p><em>Defaults to <code>false</code>.</em></p>
-<p>Sets the position of the pointer element, requires an existing child of the
-element with the CSS class <code>.elementPointer</code>.</p>
-<h4 id="pointeroffset-number"><code>pointerOffset: number</code><a class="headerlink" href="#pointeroffset-number" title="Permanent link">#</a></h4>
-<p><em>Defaults to <code>4</code>.</em></p>
-<p>The margin from the left/right edge of the element and is used to avoid the
-arrow from being placed right at the edge.</p>
-<p>Does not apply when aligning the element to the reference elemnent's center.</p>
-<h4 id="pointerclassnames-string"><code>pointerClassNames: string[]</code><a class="headerlink" href="#pointerclassnames-string" title="Permanent link">#</a></h4>
-<p><em>Defaults to <code>[]</code>.</em></p>
-<p>If your element uses CSS-only pointers, such as using the <code>::before</code> or <code>::after</code>
-pseudo selectors, you can specifiy two separate CSS class names that control the
-alignment:</p>
-<ul>
-<li><code>pointerClassNames[0]</code> is applied to the element when the pointer is displayed
-   at the bottom.</li>
-<li><code>pointerClassNames[1]</code> is used to align the pointer to the right side of the
-  element.</li>
-</ul>
-<h4 id="refdimensionselement-element"><code>refDimensionsElement: Element</code><a class="headerlink" href="#refdimensionselement-element" title="Permanent link">#</a></h4>
-<p><em>Defaults to <code>null</code>.</em></p>
-<p>An alternative element that will be used to determine the position and dimensions
-of the reference element. This can be useful if you reference element is contained
-in a wrapper element with alternating dimensions.</p>
-<h4 id="horizontal-string"><code>horizontal: string</code><a class="headerlink" href="#horizontal-string" title="Permanent link">#</a></h4>
+<h1 id="template-modifiers">Template Modifiers<a class="headerlink" href="#template-modifiers" title="Permanent link">#</a></h1>
+<p>Variable modifiers are used to modify the output of variables within templates.
+These modifiers allow you to perform various operations on the variables before displaying them.
+The general syntax for applying a variable modifier is <code>{$variable|modifier}</code>.</p>
+<p>Modifiers can be chained together to perform multiple operations on a variable. In such cases, the modifiers are applied from left to right. For example:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$variable</span><span class="o">|</span><span class="na">modifier1</span><span class="o">|</span><span class="na">modifier2</span><span class="o">|</span><span class="na">modifier3</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p>A modifier may accept additional parameters that affect its behavior. These parameters follow the modifier name and are separated by a <code>:</code>. For example:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$variable</span><span class="o">|</span><span class="na">modifier</span><span class="o">:</span><span class="s1">&#39;param1&#39;</span><span class="o">:</span><span class="s1">&#39;param2&#39;</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="build-in-modifiers">Build-in Modifiers<a class="headerlink" href="#build-in-modifiers" title="Permanent link">#</a></h2>
+<h3 id="concat"><code>|concat</code><a class="headerlink" href="#concat" title="Permanent link">#</a></h3>
+<p><code>concat</code> is a modifier used to concatenate multiple strings:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">foo</span> <span class="na">value</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="cp">}</span>
+
+<span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="o">|</span><span class="na">concat</span><span class="o">:</span><span class="nv">$foo</span><span class="cp">}</span>
+
+<span class="cp">{</span><span class="nv">$templateVariable</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;foobar *</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="currency"><code>|currency</code><a class="headerlink" href="#currency" title="Permanent link">#</a></h3>
+<p><code>currency</code> is a modifier used to format currency values with two decimals using language dependent thousands separators and decimal point:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">currencyValue</span> <span class="na">value</span><span class="o">=</span><span class="m">12.345</span><span class="cp">}</span>
+
+<span class="cp">{</span><span class="nv">$currencyValue</span><span class="o">|</span><span class="na">currency</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;12.34&#39; *</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="date"><code>|date</code><a class="headerlink" href="#date" title="Permanent link">#</a></h3>
 <div class="admonition info">
-<p class="admonition-title">This value is automatically flipped for RTL (right-to-left) languages, <code>left</code> is changed into <code>right</code> and vice versa.</p>
+<p class="admonition-title">This template plugin has been deprecated in WoltLab Suite 6.0. Use <code>{time type='plainDate'}</code> or <code>{time type='custom'}</code> instead.</p>
 </div>
-<p><em>Defaults to <code>"left"</code>.</em></p>
-<p>Sets the prefered alignment, accepts either <code>left</code> or <code>right</code>. The value <code>left</code>
-instructs the module to align the element with the left boundary of the reference
-element.</p>
-<p>The <code>horizontal</code> alignment is used as the default and a flip only occurs, if there
-is not enough space in the desired direction. If the element exceeds the boundaries
-in both directions, the value of <code>horizontal</code> is used.</p>
-<h4 id="vertical-string"><code>vertical: string</code><a class="headerlink" href="#vertical-string" title="Permanent link">#</a></h4>
-<p><em>Defaults to <code>"bottom"</code>.</em></p>
-<p>Sets the prefered alignment, accepts either <code>bottom</code> or <code>top</code>. The value <code>bottom</code>
-instructs the module to align the element below the reference element.</p>
-<p>The <code>vertical</code> alignment is used as the default and a flip only occurs, if there
-is not enough space in the desired direction. If the element exceeds the boundaries
-in both directions, the value of <code>vertical</code> is used.</p>
-<h4 id="allowflip-string"><code>allowFlip: string</code><a class="headerlink" href="#allowflip-string" title="Permanent link">#</a></h4>
+<p><code>date</code> generated a formatted date using <code>wcf\util\DateUtil::format()</code> with <code>DateUtil::DATE_FORMAT</code> internally.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$timestamp</span><span class="o">|</span><span class="na">date</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="encodejs"><code>|encodeJS</code><a class="headerlink" href="#encodejs" title="Permanent link">#</a></h3>
+<p><code>encodeJS</code> encodes a string to be used as a single-quoted string in JavaScript by replacing <code>\\</code> with <code>\\\\</code>, <code>'</code> with <code>\'</code>, linebreaks with <code>\n</code>, and <code>/</code> with <code>\/</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;script&gt;</span>
+<span class="x">    var foo = &#39;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$foo</span><span class="o">|</span><span class="na">encodeJS</span><span class="cp">}</span><span class="x">&#39;;</span>
+<span class="x">&lt;/script&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="escapecdata"><code>|escapeCDATA</code><a class="headerlink" href="#escapecdata" title="Permanent link">#</a></h3>
+<p><code>escapeCDATA</code> encodes a string to be used in a <code>CDATA</code> element by replacing <code>]]&gt;</code> with <code>]]]]&gt;&lt;![CDATA[&gt;</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;![CDATA[</span><span class="cp">{</span><span class="o">@</span><span class="nv">$foo</span><span class="o">|</span><span class="na">encodeCDATA</span><span class="cp">}</span><span class="x">]]&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="filesizebinary"><code>|filesizeBinary</code><a class="headerlink" href="#filesizebinary" title="Permanent link">#</a></h3>
+<p><code>filesizeBinary</code> formats the filesize using binary filesize (in bytes).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$filesize</span><span class="o">|</span><span class="na">filesizeBinary</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="filesize"><code>|filesize</code><a class="headerlink" href="#filesize" title="Permanent link">#</a></h3>
+<p><code>filesize</code> formats the filesize using filesize (in bytes).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$filesize</span><span class="o">|</span><span class="na">filesize</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="ipsearch"><code>|ipSearch</code><a class="headerlink" href="#ipsearch" title="Permanent link">#</a></h3>
+<p><code>ipSearch</code> generates a link to search for an IP address.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="o">|</span><span class="na">ipSearch</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="json"><code>|json</code><a class="headerlink" href="#json" title="Permanent link">#</a></h3>
+<p><code>json</code> JSON-encodes the given value.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;script&gt;</span>
+<span class="x">let data = </span><span class="cp">{</span> <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="cp">{</span><span class="o">@</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="o">()|</span><span class="na">json</span><span class="cp">}</span> <span class="cp">}</span><span class="x">;</span>
+<span class="x">&lt;/script&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="language"><code>|language</code><a class="headerlink" href="#language" title="Permanent link">#</a></h3>
+<p><code>language</code> replaces a language items with its value.
+If the template variable <code>__language</code> exists, this language object will be used instead of <code>WCF::getLanguage()</code>.
+This modifier is useful when assigning the value directly to a variable.</p>
+<p>Note that template scripting is applied to the output of the variable, which can lead to unwanted side effects. Use <code>phrase</code> instead if you don't want to use template scripting.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$languageItem</span><span class="o">|</span><span class="na">language</span><span class="cp">}</span>
+
+<span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">foo</span> <span class="na">value</span><span class="o">=</span><span class="nv">$languageItem</span><span class="o">|</span><span class="na">language</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="newlinetobreak"><code>|newlineToBreak</code><a class="headerlink" href="#newlinetobreak" title="Permanent link">#</a></h3>
+<p><code>newlineToBreak</code> transforms newlines into HTML <code>&lt;br&gt;</code> elements after encoding the content via <code>wcf\util\StringUtil::encodeHTML()</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">newlineToBreak</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="phrase"><code>|phrase</code><a class="headerlink" href="#phrase" title="Permanent link">#</a></h3>
+<p><code>phrase</code> replaces a language items with its value.
+If the template variable <code>__language</code> exists, this language object will be used instead of <code>WCF::getLanguage()</code>.
+This modifier is useful when assigning the value directly to a variable.</p>
+<p><code>phrase</code> should be used instead of <code>language</code> unless you want to explicitly allow template scripting on a variable's output.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$languageItem</span><span class="o">|</span><span class="na">phrase</span><span class="cp">}</span>
+
+<span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">foo</span> <span class="na">value</span><span class="o">=</span><span class="nv">$languageItem</span><span class="o">|</span><span class="na">phrase</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="plaintime"><code>|plainTime</code><a class="headerlink" href="#plaintime" title="Permanent link">#</a></h3>
 <div class="admonition info">
-<p class="admonition-title">The value for <code>horizontal</code> is automatically flipped for RTL (right-to-left) languages, <code>left</code> is changed into <code>right</code> and vice versa. This setting only controls the behavior when violating space constraints, therefore the aforementioned transformation is always applied.</p>
+<p class="admonition-title">This template plugin has been deprecated in WoltLab Suite 6.0. Use <code>{time type='plainTime'}</code> instead.</p>
 </div>
-<p><em>Defaults to <code>"both"</code>.</em></p>
-<p>Restricts the automatic alignment flipping if the element exceeds the window
-boundaries in the instructed direction.</p>
+<p><code>plainTime</code> formats a timestamp to include year, month, day, hour, and minutes.
+The exact formatting depends on the current language (via the language items <code>wcf.date.dateTimeFormat</code>, <code>wcf.date.dateFormat</code>, and <code>wcf.date.timeFormat</code>).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$timestamp</span><span class="o">|</span><span class="na">plainTime</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="shortunit"><code>|shortUnit</code><a class="headerlink" href="#shortunit" title="Permanent link">#</a></h3>
+<p><code>shortUnit</code> shortens numbers larger than 1000 by using unit suffixes:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="m">10000</span><span class="o">|</span><span class="na">shortUnit</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints 10k *</span><span class="cp">}</span>
+<span class="cp">{</span><span class="m">5400000</span><span class="o">|</span><span class="na">shortUnit</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints 5.4M *</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="tablewordwrap"><code>|tableWordwrap</code><a class="headerlink" href="#tablewordwrap" title="Permanent link">#</a></h3>
+<p><code>tableWordwrap</code> inserts zero width spaces every 30 characters in words longer than 30 characters.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">tableWordwrap</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="time"><code>|time</code><a class="headerlink" href="#time" title="Permanent link">#</a></h3>
+<div class="admonition info">
+<p class="admonition-title">This template plugin has been deprecated in WoltLab Suite 6.0. Use <code>{time}</code> instead.</p>
+</div>
+<p><code>time</code> generates an HTML <code>time</code> elements based on a timestamp that shows a relative time or the absolute time if the timestamp more than six days ago.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$timestamp</span><span class="o">|</span><span class="na">time</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints a &#39;&lt;time&gt;&#39; element *</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="truncate"><code>|truncate</code><a class="headerlink" href="#truncate" title="Permanent link">#</a></h3>
+<p><code>truncate</code> truncates a long string into a shorter one:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">truncate</span><span class="o">:</span><span class="m">35</span><span class="cp">}</span>
+
+<span class="cp">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">truncate</span><span class="o">:</span><span class="m">35</span><span class="o">:</span><span class="s1">&#39;_&#39;</span><span class="o">:</span><span class="kc">true</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>Parameter Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>truncated string</td>
+</tr>
+<tr>
+<td>1</td>
+<td>truncated length; <code>80</code> by default</td>
+</tr>
+<tr>
+<td>2</td>
+<td>ellipsis symbol; <code>wcf\util\StringUtil::HELLIP</code> by default</td>
+</tr>
+<tr>
+<td>3</td>
+<td>if <code>true</code>, words can be broken up in the middle; <code>false</code> by default</td>
+</tr>
+</tbody>
+</table>
+<h2 id="php-functions">PHP Functions<a class="headerlink" href="#php-functions" title="Permanent link">#</a></h2>
+<p>A limited number of safe native PHP functions may also be used as variable modifiers:</p>
 <ul>
-<li><code>both</code> - No restrictions.</li>
-<li><code>horizontal</code> - Element can be aligned with the left <em>or</em> the right boundary of
-  the reference element, but the vertical position is fixed.</li>
-<li><code>vertical</code> - Element can be aligned below <em>or</em> above the reference element,
-  but the vertical position is fixed.</li>
-<li><code>none</code> - No flipping can occur, the element will be aligned regardless of
-  any space constraints.</li>
+<li><code>abs</code></li>
+<li><code>addslashes</code></li>
+<li><code>array_diff</code></li>
+<li><code>array_fill</code></li>
+<li><code>array_key_exists</code></li>
+<li><code>array_keys</code></li>
+<li><code>array_pop</code></li>
+<li><code>array_slice</code></li>
+<li><code>array_values</code></li>
+<li><code>base64_decode</code></li>
+<li><code>base64_encode</code></li>
+<li><code>basename</code></li>
+<li><code>ceil</code></li>
+<li><code>concat</code></li>
+<li><code>constant</code></li>
+<li><code>count</code></li>
+<li><code>currency</code></li>
+<li><code>current</code></li>
+<li><code>date</code></li>
+<li><code>defined</code></li>
+<li><code>doubleval</code></li>
+<li><code>empty</code></li>
+<li><code>end</code></li>
+<li><code>explode</code></li>
+<li><code>file_exists</code></li>
+<li><code>filesize</code></li>
+<li><code>floatval</code></li>
+<li><code>floor</code></li>
+<li><code>function_exists</code></li>
+<li><code>get_class</code></li>
+<li><code>gmdate</code></li>
+<li><code>hash</code></li>
+<li><code>htmlspecialchars</code></li>
+<li><code>html_entity_decode</code></li>
+<li><code>http_build_query</code></li>
+<li><code>implode</code></li>
+<li><code>in_array</code></li>
+<li><code>is_array</code></li>
+<li><code>is_null</code></li>
+<li><code>is_numeric</code></li>
+<li><code>is_object</code></li>
+<li><code>is_string</code></li>
+<li><code>iterator_count</code></li>
+<li><code>intval</code></li>
+<li><code>is_subclass_of</code></li>
+<li><code>isset</code></li>
+<li><code>json_encode</code></li>
+<li><code>key</code></li>
+<li><code>lcfirst</code></li>
+<li><code>ltrim</code></li>
+<li><code>max</code></li>
+<li><code>mb_strpos</code></li>
+<li><code>mb_strlen</code></li>
+<li><code>mb_strpos</code></li>
+<li><code>mb_strtolower</code></li>
+<li><code>mb_strtoupper</code></li>
+<li><code>mb_substr</code></li>
+<li><code>md5</code></li>
+<li><code>method_exists</code></li>
+<li><code>microtime</code></li>
+<li><code>min</code></li>
+<li><code>nl2br</code></li>
+<li><code>number_format</code></li>
+<li><code>parse_url</code></li>
+<li><code>preg_match</code></li>
+<li><code>preg_replace</code></li>
+<li><code>print_r</code></li>
+<li><code>random_int</code></li>
+<li><code>rawurlencode</code></li>
+<li><code>reset</code></li>
+<li><code>round</code></li>
+<li><code>sha1</code></li>
+<li><code>spl_object_hash</code></li>
+<li><code>sprintf</code></li>
+<li><code>strip_tags</code></li>
+<li><code>strlen</code></li>
+<li><code>strpos</code></li>
+<li><code>strtolower</code></li>
+<li><code>strtotime</code></li>
+<li><code>strtoupper</code></li>
+<li><code>str_contains</code></li>
+<li><code>str_ends_with</code></li>
+<li><code>str_ireplace</code></li>
+<li><code>str_pad</code></li>
+<li><code>str_repeat</code></li>
+<li><code>str_replace</code></li>
+<li><code>str_starts_with</code></li>
+<li><code>substr</code></li>
+<li><code>trim</code></li>
+<li><code>ucfirst</code></li>
+<li><code>uniqid</code></li>
+<li><code>urlencode</code></li>
+<li><code>var_dump</code></li>
+<li><code>version_compare</code></li>
+<li><code>wcfDebug</code></li>
+<li><code>wordwrap</code></li>
 </ul>
-<h2 id="uicloseoverlay"><code>Ui/CloseOverlay</code><a class="headerlink" href="#uicloseoverlay" title="Permanent link">#</a></h2>
-<p>Register elements that should be closed when the user clicks anywhere else, such
-as drop-down menus or tooltips.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Ui/CloseOverlay&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">UiCloseOverlay</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">UiCloseOverlay</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;App/Foo&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// invoked, close something</span>
-<span class="w">  </span><span class="p">});</span>
-<span class="p">});</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="addidentifier-string-callback-void"><code>add(identifier: string, callback: () =&gt; void)</code><a class="headerlink" href="#addidentifier-string-callback-void" title="Permanent link">#</a></h3>
-<p>Adds a callback that will be invoked when the user clicks anywhere else.</p>
-<h2 id="uiconfirmation"><code>Ui/Confirmation</code><a class="headerlink" href="#uiconfirmation" title="Permanent link">#</a></h2>
-<p>Prompt the user to make a decision before carrying out an action, such as a safety
-warning before permanently deleting content.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Ui/Confirmation&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">UiConfirmation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">UiConfirmation</span><span class="p">.</span><span class="nx">show</span><span class="p">({</span>
-<span class="w">    </span><span class="nx">confirm</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="c1">// the user has confirmed the dialog</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Do you really want to continue?&quot;</span>
-<span class="w">  </span><span class="p">});</span>
-<span class="p">});</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="showoptions-object"><code>show(options: Object)</code><a class="headerlink" href="#showoptions-object" title="Permanent link">#</a></h3>
-<p>Displays a dialog overlay with actions buttons to confirm or reject the dialog.</p>
-<h4 id="cancel-parameters-object-void"><code>cancel: (parameters: Object) =&gt; void</code><a class="headerlink" href="#cancel-parameters-object-void" title="Permanent link">#</a></h4>
-<p><em>Defaults to <code>null</code>.</em></p>
-<p>Callback that is invoked when the dialog was rejected.</p>
-<h4 id="confirm-parameters-object-void"><code>confirm: (parameters: Object) =&gt; void</code><a class="headerlink" href="#confirm-parameters-object-void" title="Permanent link">#</a></h4>
-<p><em>Defaults to <code>null</code>.</em></p>
-<p>Callback that is invoked when the user has confirmed the dialog.</p>
-<h4 id="message-string"><code>message: string</code><a class="headerlink" href="#message-string" title="Permanent link">#</a></h4>
-<p><em>Defaults to '""'.</em></p>
-<p>Text that is displayed in the content area of the dialog, optionally this can
-be HTML, but this requires <code>messageIsHtml</code> to be enabled.</p>
-<h4 id="messageishtml"><code>messageIsHtml</code><a class="headerlink" href="#messageishtml" title="Permanent link">#</a></h4>
-<p><em>Defaults to <code>false</code>.</em></p>
-<p>The <code>message</code> option is interpreted as text-only, setting this option to <code>true</code>
-will cause the <code>message</code> to be evaluated as HTML.</p>
-<h4 id="parameters-object"><code>parameters: Object</code><a class="headerlink" href="#parameters-object" title="Permanent link">#</a></h4>
-<p>Optional list of parameter options that will be passed to the <code>cancel()</code> and
-<code>confirm()</code> callbacks.</p>
-<h4 id="template-string"><code>template: string</code><a class="headerlink" href="#template-string" title="Permanent link">#</a></h4>
-<p>An optional HTML template that will be inserted into the dialog content area,
-but after the <code>message</code> section.</p>
-<h2 id="uinotification"><code>Ui/Notification</code><a class="headerlink" href="#uinotification" title="Permanent link">#</a></h2>
-<p>Displays a simple notification at the very top of the window, such as a success
-message for Ajax based actions.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;Ui/Notification&quot;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">UiNotification</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">UiNotification</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span>
-<span class="w">    </span><span class="s2">&quot;Your changes have been saved.&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="c1">// this callback will be invoked after 2 seconds</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;success&quot;</span>
-<span class="w">  </span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="showmessage-string-callback-void-cssclassname-string"><code>show(message: string, callback?: () =&gt; void, cssClassName?: string)</code><a class="headerlink" href="#showmessage-string-callback-void-cssclassname-string" title="Permanent link">#</a></h3>
-<p>Shows the notification and executes the callback after 2 seconds.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2021-01-08
+      2023-06-12
     
   </small>
 </div>
