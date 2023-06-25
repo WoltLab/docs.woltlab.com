@@ -491,7 +491,7 @@ The following form fields are specific for certain forms and hardly reusable in 
 
 ### `BBCodeAttributesFormField`
 
-`DevtoolsProjectExcludedPackagesFormField` is a form field for setting the attributes of a BBCode.
+`BBCodeAttributesFormField` is a form field for setting the attributes of a BBCode.
 
 
 ### `DevtoolsProjectExcludedPackagesFormField`
@@ -501,14 +501,14 @@ The following form fields are specific for certain forms and hardly reusable in 
 
 ### `DevtoolsProjectInstructionsFormField`
 
-`DevtoolsProjectExcludedPackagesFormField` is a form field for setting the installation and update instructions of a devtools project.
+`DevtoolsProjectInstructionsFormField` is a form field for setting the installation and update instructions of a devtools project.
 
 
 ### `DevtoolsProjectOptionalPackagesFormField`
 
-`DevtoolsProjectExcludedPackagesFormField` is a form field for setting the optional packages of a devtools project.
+`DevtoolsProjectOptionalPackagesFormField` is a form field for setting the optional packages of a devtools project.
 
 
 ### `DevtoolsProjectRequiredPackagesFormField`
 
-`DevtoolsProjectExcludedPackagesFormField` is a form field for setting the required packages of a devtools project.
+`DevtoolsProjectRequiredPackagesFormField` is a form field for setting the required packages of a devtools project.
