@@ -3392,9 +3392,6 @@ Every form field has to implement the <code>IFormField</code> interface which ex
 <h3 id="form-field-interfaces-and-traits">Form Field Interfaces and Traits<a class="headerlink" href="#form-field-interfaces-and-traits" title="Permanent link">#</a></h3>
 <p>WoltLab Suite Core provides a variety of interfaces and matching traits with default implementations for several common features of form fields:</p>
 <h4 id="iattributeformfield"><code>IAttributeFormField</code><a class="headerlink" href="#iattributeformfield" title="Permanent link">#</a></h4>
-<div class="admonition info">
-<p class="admonition-title">Only available since version 5.4.</p>
-</div>
 <p><code>IAttributeFormField</code> has to be implemented by form fields for which attributes can be added to the actual form element (in addition to adding attributes to the surrounding element via the attribute-related methods of <code>IFormNode</code>).
 The implementing class has to implement the methods <code>fieldAttribute(string $name, string $value = null): self</code> and <code>getFieldAttribute(string $name): self</code>/<code>getFieldAttributes(): array</code>, which are used to add and get the attributes, respectively.
 Additionally, <code>hasFieldAttribute(string $name): bool</code> has to implemented to check if a certain attribute is present, <code>removeFieldAttribute(string $name): self</code> to remove an attribute, and <code>static validateFieldAttribute(string $name)</code> to check if the attribute is valid for this specific class.
@@ -3402,9 +3399,6 @@ Additionally, <code>hasFieldAttribute(string $name): bool</code> has to implemen
 These two traits also ensure that if a specific interface that handles a specific attribute is implemented, like <code>IAutoCompleteFormField</code> handling <code>autocomplete</code>, this attribute cannot be set with this API.
 Instead, the dedicated API provided by the relevant interface has to be used.</p>
 <h4 id="iautocompleteformfield"><code>IAutoCompleteFormField</code><a class="headerlink" href="#iautocompleteformfield" title="Permanent link">#</a></h4>
-<div class="admonition info">
-<p class="admonition-title">Only available since version 5.4.</p>
-</div>
 <p><code>IAutoCompleteFormField</code> has to be implemented by form fields that support the <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute"><code>autocomplete</code> attribute</a>.
 The implementing class has to implement the methods <code>autoComplete(?string $autoComplete): self</code> and <code>getAutoComplete(): ?string</code>, which are used to set and get the autocomplete value, respectively.
 <code>TAutoCompleteFormField</code> provides a default implementation of these two methods and <code>TTextAutoCompleteFormField</code> specializes the trait for text form fields.
@@ -3415,9 +3409,6 @@ The implementing class has to implement the methods <code>autoFocus($autoFocus =
 By default, form fields are not auto-focused.
 <code>TAutoFocusFormField</code> provides a default implementation of these two methods.</p>
 <h4 id="icssclassformfield"><code>ICssClassFormField</code><a class="headerlink" href="#icssclassformfield" title="Permanent link">#</a></h4>
-<div class="admonition info">
-<p class="admonition-title">Only available since version 5.4.</p>
-</div>
 <p><code>ICssClassFormField</code> has to be implemented by form fields for which CSS classes can be added to the actual form element (in addition to adding CSS classes to the surrounding element via the class-related methods of <code>IFormNode</code>).
 The implementing class has to implement the methods <code>addFieldClass(string $class): self</code>/<code>addFieldClasses(array $classes): self</code> and <code>getFieldClasses(): array</code>, which are used to add and get the CSS classes, respectively.
 Additionally, <code>hasFieldClass(string $class): bool</code> has to implemented to check if a certain CSS class is present and <code>removeFieldClass(string $class): self</code> to remove a CSS class.
@@ -3448,9 +3439,6 @@ If multilingual input is enabled but only a monolingual value is entered, the cu
 The implementing class has to implement the methods <code>immutable($immutable = true)</code> and <code>isImmutable()</code> that can be used to determine if the value of the form field is mutable or immutable.
 By default, form field are mutable.</p>
 <h4 id="iinputmodeformfield"><code>IInputModeFormField</code><a class="headerlink" href="#iinputmodeformfield" title="Permanent link">#</a></h4>
-<div class="admonition info">
-<p class="admonition-title">Only available since version 5.4.</p>
-</div>
 <p><code>IInputModeFormField</code> has to be implemented by form fields that support the <a href="https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-inputmode-attribute"><code>inputmode</code> attribute</a>.
 The implementing class has to implement the methods <code>inputMode(?string $inputMode): self</code> and <code>getInputMode(): ?string</code>, which are used to set and get the input mode, respectively.
 <code>TInputModeFormField</code> provides a default implementation of these two methods.</p>
@@ -3512,9 +3500,6 @@ The implementing class has to implement the methods <code>nullable($nullable = t
 The implementing class has to implement the methods <code>packageIDs(array $packageIDs)</code> and <code>getPackageIDs()</code>.
 <code>TPackagesFormField</code> provides a default implementation of these two methods.</p>
 <h4 id="ipatternformfield"><code>IPatternFormField</code><a class="headerlink" href="#ipatternformfield" title="Permanent link">#</a></h4>
-<div class="admonition info">
-<p class="admonition-title">Only available since version 5.4.</p>
-</div>
 <p><code>IPatternFormField</code> has to be implemented by form fields that support the <a href="https://html.spec.whatwg.org/multipage/input.html#the-pattern-attribute"><code>pattern</code> attribute</a>.
 The implementing class has to implement the methods <code>pattern(?string $pattern): self</code> and <code>getPattern(): ?string</code>, which are used to set and get the pattern, respectively.
 <code>TPatternFormField</code> provides a default implementation of these two methods.</p>
@@ -3544,7 +3529,7 @@ The implementing class has to implement the methods <code>suffix($languageItem =
   <small>
     
       Last update:
-      2021-01-16
+      2023-07-05
     
   </small>
 </div>

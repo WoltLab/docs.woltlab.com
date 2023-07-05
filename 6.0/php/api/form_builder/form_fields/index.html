@@ -3642,9 +3642,6 @@ The methods <code>step($step = null)</code> and <code>getStep()</code> can be us
 The default step for form fields with integer values is <code>1</code>.
 Otherwise, the default step is <code>any</code>.</p>
 <h3 id="abstractformfielddecorator"><code>AbstractFormFieldDecorator</code><a class="headerlink" href="#abstractformfielddecorator" title="Permanent link">#</a></h3>
-<div class="admonition info">
-<p class="admonition-title">Only available since version 5.4.5.</p>
-</div>
 <p><code>AbstractFormFieldDecorator</code> is a default implementation of a decorator for form fields that forwards calls to all methods defined in <code>IFormField</code> to the respective method of the decorated object.
 The class implements <code>IFormfield</code>.
 If the implementation of a more specific interface is required then the remaining methods must be implemented in the concrete decorator derived from <code>AbstractFormFieldDecorator</code> and the type of the <code>$field</code> property must be narrowed appropriately.</p>
@@ -3767,9 +3764,6 @@ A category name of <code>null</code> signals that no category filter is used.</p
 <p><code>AclFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the relevant ACL object type id into the <code>$parameters</code> array directly using <code>{$objectProperty}_aclObjectTypeID</code> as the array key.
 The relevant database object action method is expected, based on the given ACL object type id, to save the ACL option values appropriately.</p>
 <h3 id="buttonformfield"><code>ButtonFormField</code><a class="headerlink" href="#buttonformfield" title="Permanent link">#</a></h3>
-<div class="admonition info">
-<p class="admonition-title">Only available since version 5.4.</p>
-</div>
 <p><code>ButtonFormField</code> shows a submit button as part of the form.
 The class implements <code>IAttributeFormField</code> and <code>ICssClassFormField</code>.</p>
 <p>Specifically for this form field, there is the <code>IsNotClickedFormFieldDependency</code> dependency with which certain parts of the form will only be processed if the relevent button has not clicked. </p>
@@ -3777,9 +3771,6 @@ The class implements <code>IAttributeFormField</code> and <code>ICssClassFormFie
 <p><code>CaptchaFormField</code> is used to add captcha protection to the form.</p>
 <p>You must specify a captcha object type (<code>com.woltlab.wcf.captcha</code>) using the <code>objectType()</code> method.</p>
 <h3 id="colorformfield"><code>ColorFormField</code><a class="headerlink" href="#colorformfield" title="Permanent link">#</a></h3>
-<div class="admonition info">
-<p class="admonition-title">Only available since version 5.5.</p>
-</div>
 <p><code>ColorFormField</code> is used to specify RGBA colors using the <code>rgba(r, g, b, a)</code> format.
 The class implements <code>IImmutableFormField</code>.</p>
 <h3 id="contentlanguageformfield"><code>ContentLanguageFormField</code><a class="headerlink" href="#contentlanguageformfield" title="Permanent link">#</a></h3>
@@ -3835,9 +3826,6 @@ The class implements <code>IAutoCompleteFormField</code>, <code>IAutoFocusFormFi
 While the user is presented the names of the specified users in the user interface, the field returns the ids of the users as data.
 The relevant <code>UserProfile</code> objects can be accessed via the <code>getUsers()</code> method.</p>
 <h3 id="userpasswordfield"><code>UserPasswordField</code><a class="headerlink" href="#userpasswordfield" title="Permanent link">#</a></h3>
-<div class="admonition info">
-<p class="admonition-title">Only available since version 5.4.</p>
-</div>
 <p><code>UserPasswordField</code> is a form field for users' to enter their current password.
 The class implements <code>IAttributeFormField</code>, <code>IAttributeFormField</code>, <code>IAutoCompleteFormField</code>, <code>IAutoFocusFormField</code>, and <code>IPlaceholderFormField</code></p>
 <h3 id="usergroupoptionformfield"><code>UserGroupOptionFormField</code><a class="headerlink" href="#usergroupoptionformfield" title="Permanent link">#</a></h3>
@@ -3948,9 +3936,6 @@ This trait provides <code>getWysiwygId()</code> and <code>wysiwygId($wysiwygId)<
 <h2 id="application-specific-form-fields">Application-Specific Form Fields<a class="headerlink" href="#application-specific-form-fields" title="Permanent link">#</a></h2>
 <h3 id="woltlab-suite-forum">WoltLab Suite Forum<a class="headerlink" href="#woltlab-suite-forum" title="Permanent link">#</a></h3>
 <h4 id="multipleboardselectionformfield"><code>MultipleBoardSelectionFormField</code><a class="headerlink" href="#multipleboardselectionformfield" title="Permanent link">#</a></h4>
-<div class="admonition info">
-<p class="admonition-title">Only available since version 5.5.</p>
-</div>
 <p><code>MultipleBoardSelectionFormField</code> is used to select multiple forums.
 The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField</code>, and <code>IImmutableFormField</code>.</p>
 <p>The field supports additional settings:</p>
@@ -3982,7 +3967,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
   <small>
     
       Last update:
-      2023-06-26
+      2023-07-05
     
   </small>
 </div>
