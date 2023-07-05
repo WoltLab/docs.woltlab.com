@@ -21,8 +21,6 @@ Otherwise, the default step is `any`.
 
 ### `AbstractFormFieldDecorator`
 
-!!! info "Only available since version 5.4.5."
-
 `AbstractFormFieldDecorator` is a default implementation of a decorator for form fields that forwards calls to all methods defined in `IFormField` to the respective method of the decorated object.
 The class implements `IFormfield`.
 If the implementation of a more specific interface is required then the remaining methods must be implemented in the concrete decorator derived from `AbstractFormFieldDecorator` and the type of the `$field` property must be narrowed appropriately.
@@ -222,8 +220,6 @@ The relevant database object action method is expected, based on the given ACL o
 
 ### `ButtonFormField`
 
-!!! info "Only available since version 5.4."
-
 `ButtonFormField` shows a submit button as part of the form.
 The class implements `IAttributeFormField` and `ICssClassFormField`.
 
@@ -238,8 +234,6 @@ You must specify a captcha object type (`com.woltlab.wcf.captcha`) using the `ob
 
 
 ### `ColorFormField`
-
-!!! info "Only available since version 5.5."
 
 `ColorFormField` is used to specify RGBA colors using the `rgba(r, g, b, a)` format.
 The class implements `IImmutableFormField`.
@@ -329,8 +323,6 @@ The relevant `UserProfile` objects can be accessed via the `getUsers()` method.
 
 
 ### `UserPasswordField`
-
-!!! info "Only available since version 5.4."
 
 `UserPasswordField` is a form field for users' to enter their current password.
 The class implements `IAttributeFormField`, `IAttributeFormField`, `IAutoCompleteFormField`, `IAutoFocusFormField`, and `IPlaceholderFormField`
@@ -465,8 +457,6 @@ This trait provides `getWysiwygId()` and `wysiwygId($wysiwygId)` to get and set 
 ### WoltLab Suite Forum
 
 #### `MultipleBoardSelectionFormField`
-
-!!! info "Only available since version 5.5."
 
 `MultipleBoardSelectionFormField` is used to select multiple forums.
 The class implements `IAttributeFormField`, `ICssClassFormField`, and `IImmutableFormField`.

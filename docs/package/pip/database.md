@@ -1,7 +1,5 @@
 # Database Package Installation Plugin
 
-!!! info "Available since WoltLab Suite 5.4."
-
 Update the database layout using [the PHP API](../database-php-api.md).
 
 !!! warning "You must install the PHP script through the [file package installation plugin](file.md)."
