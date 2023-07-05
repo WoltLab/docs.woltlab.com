@@ -716,6 +716,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#selectformfield" class="md-nav__link">
+    SelectFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#showorderformfield" class="md-nav__link">
     ShowOrderFormField
   </a>
@@ -3278,6 +3285,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#selectformfield" class="md-nav__link">
+    SelectFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#showorderformfield" class="md-nav__link">
     ShowOrderFormField
   </a>
@@ -3730,6 +3744,14 @@ For this field, the minimum and maximum refer to the minimum and maximum rating 
 When the field is shown, there will be <code>maximum() - minimum() + 1</code> icons be shown with additional CSS classes that can be set and gotten via <code>defaultCssClasses(array $cssClasses)</code> and <code>getDefaultCssClasses()</code>.
 If a rating values is set, the first <code>getValue()</code> icons will instead use the classes that can be set and gotten via <code>activeCssClasses(array $cssClasses)</code> and <code>getActiveCssClasses()</code>.
 By default, the only default class is <code>fa-star-o</code> and the active classes are <code>fa-star</code> and <code>orange</code>. </p>
+<h3 id="selectformfield"><code>SelectFormField</code><a class="headerlink" href="#selectformfield" title="Permanent link">#</a></h3>
+<p><code>SelectFormField</code> is a form fields that allows the selection of a single option out of a predefined list of available options.
+The class implements <code>ICssClassFormField</code> and <code>IImmutableFormField</code>.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">SelectFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;select&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">options</span><span class="p">([</span><span class="s1">&#39;option1&#39;</span><span class="p">,</span> <span class="s1">&#39;option2&#39;</span><span class="p">,</span> <span class="s1">&#39;option3&#39;</span><span class="p">]);</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="showorderformfield"><code>ShowOrderFormField</code><a class="headerlink" href="#showorderformfield" title="Permanent link">#</a></h3>
 <p><code>ShowOrderFormField</code> is a <a href="#singleselectionformfield">single selection form field</a> for which the selected value determines the position at which an object is shown.
 The show order field provides a list of all siblings and the object will be positioned <strong>after</strong> the selected sibling.
