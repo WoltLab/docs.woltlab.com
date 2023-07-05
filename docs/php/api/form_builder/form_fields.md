@@ -161,6 +161,18 @@ If a rating values is set, the first `getValue()` icons will instead use the cla
 By default, the only default class is `fa-star-o` and the active classes are `fa-star` and `orange`. 
 
 
+### `SelectFormField`
+
+`SelectFormField` is a form fields that allows the selection of a single option out of a predefined list of available options.
+The class implements `ICssClassFormField` and `IImmutableFormField`.
+
+Example:
+
+```php
+SelectFormField::create('select')
+  ->options(['option1', 'option2', 'option3']);
+```
+
 ### `ShowOrderFormField`
 
 `ShowOrderFormField` is a [single selection form field](#singleselectionformfield) for which the selected value determines the position at which an object is shown.
