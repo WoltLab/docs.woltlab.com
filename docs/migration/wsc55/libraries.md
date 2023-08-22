@@ -18,7 +18,7 @@ Diactoros was updated from version 2.4 to 3.0.
 
 ## Input Validation
 
-WoltLab Suite 6.0 ships with cuyz/valinor 1.4 as a reliable solution to validate untrusted external input values.
+WoltLab Suite 6.0 ships with cuyz/valinor 1.5 as a reliable solution to validate untrusted external input values.
 
 Refer to the documentation within the [CuyZ/Valinor](https://github.com/CuyZ/Valinor) repository for details.
 
