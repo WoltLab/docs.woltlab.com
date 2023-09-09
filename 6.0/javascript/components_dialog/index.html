@@ -3958,7 +3958,11 @@ Please see the following list to make a quick decision of what kind of dialog yo
 <p>Dialogs may contain just an explanation or extra information that should be presented to the viewer without requiring any further interaction.
 The dialog can be closed via the “X” button or by clicking the modal backdrop.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello World&lt;/p&gt;&quot;</span><span class="p">).</span><span class="nx">withoutControls</span><span class="p">();</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Component/Dialog&quot;</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello World&lt;/p&gt;&quot;</span><span class="p">).</span><span class="nx">withoutControls</span><span class="p">();</span>
 <span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;Greetings from my dialog&quot;</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">#</a></h3>
@@ -3974,7 +3978,11 @@ The dialog itself will be limited to a width of 500px, the title can wrap into m
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">()</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Component/Dialog&quot;</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">()</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">fromHtml</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;ERROR: Something went wrong!&lt;/p&gt;&quot;</span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">asAlert</span><span class="p">();</span>
 <span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s2">&quot;Server Error&quot;</span><span class="p">);</span>
@@ -4041,15 +4049,19 @@ A possible use case for an “extra” button would be a dialog that includes an
   <span class="p">&lt;/</span><span class="nt">dl</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;showMyDialog&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Component/Dialog&quot;</span><span class="p">;</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;showMyDialog&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">fromId</span><span class="p">(</span><span class="s2">&quot;myDialog&quot;</span><span class="p">).</span><span class="nx">asPrompt</span><span class="p">();</span>
 
 <span class="w">  </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;primary&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
@@ -4294,7 +4306,7 @@ Canceling this event is interpreted as a form validation failure.</p>
   <small>
     
       Last update:
-      2022-10-14
+      2023-09-09
     
   </small>
 </div>
