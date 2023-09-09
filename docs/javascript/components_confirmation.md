@@ -8,6 +8,8 @@ You can exclude extra information or form elements in confirmation dialogs, but 
 ## Example
 
 ```ts
+import { confirmationFactory } from "WoltLabSuite/Core/Component/Confirmation";
+
 const result = await confirmationFactory()
   .custom("Do you want a cookie?")
   .withoutMessage();

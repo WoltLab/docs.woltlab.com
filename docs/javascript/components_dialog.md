@@ -21,6 +21,8 @@ Dialogs may contain just an explanation or extra information that should be pres
 The dialog can be closed via the “X” button or by clicking the modal backdrop.
 
 ```ts
+import { dialogFactory } from "WoltLabSuite/Core/Component/Dialog";
+
 const dialog = dialogFactory().fromHtml("<p>Hello World</p>").withoutControls();
 dialog.show("Greetings from my dialog");
 ```
@@ -43,6 +45,8 @@ An alert will only provide a single button to acknowledge the dialog and must no
 The dialog itself will be limited to a width of 500px, the title can wrap into multiple lines and there will be no “X” button to close the dialog.
 
 ```ts
+import { dialogFactory } from "WoltLabSuite/Core/Component/Dialog";
+
 const dialog = dialogFactory()
   .fromHtml("<p>ERROR: Something went wrong!</p>")
   .asAlert();
@@ -106,6 +110,8 @@ A possible use case for an “extra” button would be a dialog that includes an
 ```
 
 ```ts
+import { dialogFactory } from "WoltLabSuite/Core/Component/Dialog";
+
 document.getElementById("showMyDialog")!.addEventListener("click", () => {
   const dialog = dialogFactory().fromId("myDialog").asPrompt();
 
