@@ -2614,45 +2614,39 @@ printWidth: 120
 <span class="normal">31</span>
 <span class="normal">32</span>
 <span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">root</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">parser</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;@typescript-eslint/parser&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">parserOptions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">tsconfigRootDir</span><span class="o">:</span><span class="w"> </span><span class="nx">__dirname</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">project</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;./tsconfig.json&quot;</span><span class="p">]</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;@typescript-eslint&quot;</span><span class="p">],</span>
-<span class="w">    </span><span class="k">extends</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="s2">&quot;eslint:recommended&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;plugin:@typescript-eslint/recommended&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;plugin:@typescript-eslint/recommended-requiring-type-checking&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;prettier&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;prettier/@typescript-eslint&quot;</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">root</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">parser</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;@typescript-eslint/parser&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">parserOptions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">tsconfigRootDir</span><span class="o">:</span><span class="w"> </span><span class="nx">__dirname</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">project</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;./tsconfig.json&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;@typescript-eslint&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="k">extends</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;eslint:recommended&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;plugin:@typescript-eslint/recommended&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;plugin:@typescript-eslint/recommended-type-checked&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;plugin:@typescript-eslint/strict&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;plugin:@typescript-eslint/strict-type-checked&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;plugin:@typescript-eslint/stylistic&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;plugin:@typescript-eslint/stylistic-type-checked&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;prettier&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;@typescript-eslint/no-non-null-assertion&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;@typescript-eslint/consistent-type-definitions&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;@typescript-eslint/prefer-nullish-coalescing&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;@typescript-eslint/no-unused-vars&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;error&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;argsIgnorePattern&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^_&quot;</span>
+<span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;@typescript-eslint/ban-types&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;error&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="nx">types</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;object&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
-<span class="w">                </span><span class="p">},</span>
-<span class="w">                </span><span class="nx">extendDefaults</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">],</span>
-<span class="w">        </span><span class="s2">&quot;@typescript-eslint/no-explicit-any&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;@typescript-eslint/no-non-null-assertion&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;@typescript-eslint/no-unsafe-assignment&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;@typescript-eslint/no-unsafe-call&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;@typescript-eslint/no-unsafe-member-access&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;@typescript-eslint/no-unsafe-return&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;@typescript-eslint/no-unused-vars&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s2">&quot;error&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;argsIgnorePattern&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^_&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="s2">&quot;@typescript-eslint/strict-boolean-expressions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;error&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;allowNullableBoolean&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.eslintignore <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/5.5/snippets/typescript/.eslintignore" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>**/*.js
