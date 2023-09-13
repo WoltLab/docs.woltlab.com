@@ -268,6 +268,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `WCF.Date.Util` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.Dropdown.Interactive.Handler` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
 - `WCF.Dropdown.Interactive.Instance` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
+- `WCF.Label.ACPList`
 - `WCF.Message.Share.Page` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.Message.Smilies` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.ModeratedUserGroup.AddMembers`
@@ -280,7 +281,9 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `WCF.System.PageNavigation` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WCF.Template` ([WoltLab/WCF#5070](https://github.com/WoltLab/WCF/pull/5070))
 - `WCF.ToggleOptions` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
+- `WCF.User.LikeLoader`
 - `WCF.User.Panel.Abstract` ([WoltLab/WCF#4944](https://github.com/WoltLab/WCF/pull/4944))
+- `WCF.User.ProfilePreview`
 - `WCF.User.Registration.Validation.Password` ([WoltLab/WCF#5244](https://github.com/WoltLab/WCF/pull/5244))
 - `window.shuffle()` ([WoltLab/WCF#4945](https://github.com/WoltLab/WCF/pull/4945))
 - `WSC_API_VERSION` ([WoltLab/WCF#4943](https://github.com/WoltLab/WCF/pull/4943))

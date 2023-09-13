@@ -246,8 +246,6 @@ WoltLab Suite Core provides a variety of interfaces and matching traits with def
 
 #### `IAttributeFormField`
 
-!!! info "Only available since version 5.4."
-
 `IAttributeFormField` has to be implemented by form fields for which attributes can be added to the actual form element (in addition to adding attributes to the surrounding element via the attribute-related methods of `IFormNode`).
 The implementing class has to implement the methods `fieldAttribute(string $name, string $value = null): self` and `getFieldAttribute(string $name): self`/`getFieldAttributes(): array`, which are used to add and get the attributes, respectively.
 Additionally, `hasFieldAttribute(string $name): bool` has to implemented to check if a certain attribute is present, `removeFieldAttribute(string $name): self` to remove an attribute, and `static validateFieldAttribute(string $name)` to check if the attribute is valid for this specific class.
@@ -257,8 +255,6 @@ Instead, the dedicated API provided by the relevant interface has to be used.
 
 
 #### `IAutoCompleteFormField`
-
-!!! info "Only available since version 5.4."
 
 `IAutoCompleteFormField` has to be implemented by form fields that support the [`autocomplete` attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute).
 The implementing class has to implement the methods `autoComplete(?string $autoComplete): self` and `getAutoComplete(): ?string`, which are used to set and get the autocomplete value, respectively.
@@ -275,8 +271,6 @@ By default, form fields are not auto-focused.
 
 
 #### `ICssClassFormField`
-
-!!! info "Only available since version 5.4."
 
 `ICssClassFormField` has to be implemented by form fields for which CSS classes can be added to the actual form element (in addition to adding CSS classes to the surrounding element via the class-related methods of `IFormNode`).
 The implementing class has to implement the methods `addFieldClass(string $class): self`/`addFieldClasses(array $classes): self` and `getFieldClasses(): array`, which are used to add and get the CSS classes, respectively.
@@ -321,8 +315,6 @@ By default, form field are mutable.
 
 
 #### `IInputModeFormField`
-
-!!! info "Only available since version 5.4."
 
 `IInputModeFormField` has to be implemented by form fields that support the [`inputmode` attribute](https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-inputmode-attribute).
 The implementing class has to implement the methods `inputMode(?string $inputMode): self` and `getInputMode(): ?string`, which are used to set and get the input mode, respectively.
@@ -404,8 +396,6 @@ The implementing class has to implement the methods `packageIDs(array $packageID
 
 
 #### `IPatternFormField`
-
-!!! info "Only available since version 5.4."
 
 `IPatternFormField` has to be implemented by form fields that support the [`pattern` attribute](https://html.spec.whatwg.org/multipage/input.html#the-pattern-attribute).
 The implementing class has to implement the methods `pattern(?string $pattern): self` and `getPattern(): ?string`, which are used to set and get the pattern, respectively.

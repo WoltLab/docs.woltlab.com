@@ -3,7 +3,7 @@
 ## Symfony PHP Polyfills
 
 The Symfony Polyfills for 7.3, 7.4, and 8.0 were removed, as the minimum PHP version was increased to PHP 8.1.
-The Polyfill for PHP 8.2 was added.
+The Polyfills for PHP 8.2 and PHP 8.3 were added.
 
 Refer to the documentation within the [symfony/polyfill](https://github.com/symfony/polyfill/) repository for details.
 
@@ -18,7 +18,7 @@ Diactoros was updated from version 2.4 to 3.0.
 
 ## Input Validation
 
-WoltLab Suite 6.0 ships with cuyz/valinor 1.4 as a reliable solution to validate untrusted external input values.
+WoltLab Suite 6.0 ships with cuyz/valinor 1.6 as a reliable solution to validate untrusted external input values.
 
 Refer to the documentation within the [CuyZ/Valinor](https://github.com/CuyZ/Valinor) repository for details.
 

@@ -48,9 +48,13 @@ If the nice value of two event listeners is equal, they are sorted by the listen
 
 ### `<options>`
 
+!!! info "The use of `<options>` has been deprecated in WoltLab Suite 6.0. Use a regular `{if}` statement in the template instead."
+
 The options element can contain a comma-separated list of options of which at least one needs to be enabled for the event listener to be executed.
 
 ### `<permissions>`
+
+!!! info "The use of `<permissions>` has been deprecated in WoltLab Suite 6.0. Use a regular `{if}` statement in the template instead."
 
 The permissions element can contain a comma-separated list of permissions of which the active user needs to have at least one for the event listener to be executed.
 

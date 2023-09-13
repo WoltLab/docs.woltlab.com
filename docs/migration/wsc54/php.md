@@ -244,7 +244,6 @@ See [WoltLab/WCF#4356](https://github.com/WoltLab/WCF/pull/4356) for details.
 
 [WoltLab/WCF#4275](https://github.com/WoltLab/WCF/pull/4275) added support for embedded objects like mentions for comments and comment responses.
 To properly render embedded objects whenever you are using comments in your packages, you have to use `ViewableCommentList`/`ViewableCommentResponseList` in these places or `ViewableCommentRuntimeCache`/`ViewableCommentResponseRuntimeCache`.
-While these runtime caches are only available since version 5.5, the viewable list classes have always been available so that changing `CommentList` to `ViewableCommentList`, for example, is a backwards-compatible change.
 
 ## Emails
 

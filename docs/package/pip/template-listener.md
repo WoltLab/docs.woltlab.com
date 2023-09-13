@@ -46,11 +46,15 @@ If the nice value of two template listeners is equal, the order is undefined.
 
 <span class="label label-info">Optional</span>
 
+!!! info "The use of `<options>` has been deprecated in WoltLab Suite 6.0. Use a regular `{if}` statement in the template instead."
+
 The options element can contain a comma-separated list of options of which at least one needs to be enabled for the template listener to be executed.
 
 ### `<permissions>`
 
 <span class="label label-info">Optional</span>
+
+!!! info "The use of `<permissions>` has been deprecated in WoltLab Suite 6.0. Use a regular `{if}` statement in the template instead."
 
 The permissions element can contain a comma-separated list of permissions of which the active user needs to have at least one for the template listener to be executed.
 

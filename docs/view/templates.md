@@ -73,7 +73,7 @@ More information about installing templates can be found on those pages.
 
 ### Forms
 
-!!! info "For new forms, use the new [form builder API](../php/api/form_builder/overview.md) introduced with WoltLab Suite 5.2."
+!!! info "For new forms, use the [form builder API](../php/api/form_builder/overview.md)."
 
 ```smarty
 <form method="post" action="{link controller='FooBar'}{/link}">
