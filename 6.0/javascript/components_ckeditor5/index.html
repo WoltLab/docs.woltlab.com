@@ -1197,6 +1197,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#creating-plugins" class="md-nav__link">
+    Creating Plugins
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3611,6 +3618,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#creating-plugins" class="md-nav__link">
+    Creating Plugins
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3712,13 +3726,42 @@ The contents of the editor is provided through the <code>html</code> key.</p>
 <span class="w">  </span><span class="c1">// Do something with the resulting `html`.</span>
 <span class="p">});</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="creating-plugins">Creating Plugins<a class="headerlink" href="#creating-plugins" title="Permanent link">#</a></h2>
+<p>CKEditor 5 was designed to be compiled as a single bundle, relying a lot on identity checks to access and associate data.
+Any extra plugin that should be added to the editor must be built using the modules exposed through the <code>setupConfiguration()</code> event otherwise the identity checks will fail.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">listenToCkeditor</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">setupConfiguration</span><span class="p">(({</span><span class="w"> </span><span class="nx">configuration</span><span class="p">,</span><span class="w"> </span><span class="nx">CKEditor5</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">class</span><span class="w"> </span><span class="nx">FooPlugin</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">CKEditor5</span><span class="p">.</span><span class="nx">Core</span><span class="p">.</span><span class="nx">Plugin</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">pluginName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;FooPlugin&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">init</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// …</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">configuration</span><span class="p">.</span><span class="nx">extraPlugins</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">FooPlugin</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2023-08-11
+      2023-09-14
     
   </small>
 </div>
