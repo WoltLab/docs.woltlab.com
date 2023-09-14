@@ -85,3 +85,24 @@ listenToCkeditor(element).submitOnEnter(({ ckeditor, html }) => {
   // Do something with the resulting `html`.
 });
 ```
+
+## Creating Plugins
+
+CKEditor 5 was designed to be compiled as a single bundle, relying a lot on identity checks to access and associate data.
+Any extra plugin that should be added to the editor must be built using the modules exposed through the `setupConfiguration()` event otherwise the identity checks will fail.
+
+```ts
+listenToCkeditor(element).setupConfiguration(({ configuration, CKEditor5 }) => {
+  class FooPlugin extends CKEditor5.Core.Plugin {
+    static get pluginName() {
+      return "FooPlugin";
+    }
+
+    init(): void {
+      // …
+    }
+  }
+
+  configuration.extraPlugins.push(FooPlugin);
+});
+```
