@@ -1,0 +1,4464 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.woltlab.com/6.1/migration/wsc55/deprecations_removals/">
+      
+      
+        <link rel="prev" href="../libraries/">
+      
+      
+        <link rel="next" href="../../wsc54/php/">
+      
+      
+      <link rel="icon" href="../../../assets/default.favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>Deprecations and Removals - WoltLab Suite Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#migrating-from-woltlab-suite-55-deprecations-and-removals" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+    <a href="https://www.woltlab.com">Back to <strong>woltlab.com</strong></a>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="WoltLab Suite Documentation" class="md-header__button md-logo" aria-label="WoltLab Suite Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WoltLab Suite Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deprecations and Removals
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/WoltLab/docs.woltlab.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="WoltLab Suite Documentation" class="md-nav__button md-logo" aria-label="WoltLab Suite Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    WoltLab Suite Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/WoltLab/docs.woltlab.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            PHP API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/pages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/database-objects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database Objects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/database-access/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database Access
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/exceptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exceptions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_1" >
+        
+          <label class="md-nav__link" for="__nav_2_5_1" id="__nav_2_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Caches
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Caches
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/caches/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/caches_persistent-caches/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Persistent Caches
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/caches_runtime-caches/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Runtime Caches
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/comments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/cronjobs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cronjobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Events
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_5" >
+        
+          <label class="md-nav__link" for="__nav_2_5_5" id="__nav_2_5_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Form Builder
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Form Builder
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/form_fields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fields
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/validation_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Validation and Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/dependencies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dependencies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/package_installation_plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Package Installation Plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/user_activity_points/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Activity Points
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/user_notifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Notifications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/sitemaps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sitemaps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/code-style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code Style
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/apps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/gdpr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GDPR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Languages, Templates & CSS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Languages, Templates & CSS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../view/languages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Languages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../view/templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../view/template-modifiers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Template Modifiers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../view/template-plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Template Plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../view/css/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    TypeScript and JavaScript API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            TypeScript and JavaScript API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/general-usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/typescript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Components
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_ckeditor5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CKEditor 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_confirmation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Confirmation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_dialog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dialog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_google_maps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Maps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_pagination/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pagination
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    New API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            New API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_writing-a-module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Writing a module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Core Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_dom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Event Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_ajax/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ajax
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_dialogs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dialogs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_browser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Browser and Screen Sizes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_ui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/legacy-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Legacy API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/code-snippets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code Snippets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Package Components
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Package Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/package-xml/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    package.xml
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PIPs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            PIPs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/acl-option/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    aclOption
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/acp-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    acpMenu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/acp-search-provider/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    acpSearchProvider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/acp-template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    acpTemplate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/acp-template-delete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    acpTemplateDelete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/bbcode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bbcode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/box/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    box
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/clipboard-action/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    clipboardAction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/core-object/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    coreObject
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/cronjob/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cronjob
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/event-listener/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    eventListener
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/file/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    file
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/file-delete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    fileDelete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/language/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/media-provider/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mediaProvider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/menu-item/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    menuItem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/object-type/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    objectType
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/object-type-definition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    objectTypeDefinition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/option/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    option
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/page/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    page
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/pip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pip
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/script/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    script
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/smiley/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    smiley
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/sql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sql
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    style
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/template-delete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    templateDelete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/template-listener/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    templateListener
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/user-group-option/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    userGroupOption
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/user-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    userMenu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/user-notification-event/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    userNotificationEvent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/user-option/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    userOption
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/user-profile-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    userProfileMenu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/database-php-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database PHP API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Migration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Migration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" checked>
+        
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    From WoltLab Suite 5.5
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            From WoltLab Suite 5.5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../php/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript and JavaScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../icons/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Icons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dialogs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dialogs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Third Party Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Deprecations and Removals
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Deprecations and Removals
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deprecations" class="md-nav__link">
+    Deprecations
+  </a>
+  
+    <nav class="md-nav" aria-label="Deprecations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#php" class="md-nav__link">
+    PHP
+  </a>
+  
+    <nav class="md-nav" aria-label="PHP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript" class="md-nav__link">
+    JavaScript
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-tables" class="md-nav__link">
+    Database Tables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    Templates
+  </a>
+  
+    <nav class="md-nav" aria-label="Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template-modifiers" class="md-nav__link">
+    Template Modifiers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-events" class="md-nav__link">
+    Template Events
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miscellaneous" class="md-nav__link">
+    Miscellaneous
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removals" class="md-nav__link">
+    Removals
+  </a>
+  
+    <nav class="md-nav" aria-label="Removals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#php_1" class="md-nav__link">
+    PHP
+  </a>
+  
+    <nav class="md-nav" aria-label="PHP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classes_1" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    Events
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constants_1" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions_1" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options_1" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files" class="md-nav__link">
+    Files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript_1" class="md-nav__link">
+    JavaScript
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    Database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templates_1" class="md-nav__link">
+    Templates
+  </a>
+  
+    <nav class="md-nav" aria-label="Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#templates_2" class="md-nav__link">
+    Templates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-plugins" class="md-nav__link">
+    Template Plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-events_1" class="md-nav__link">
+    Template Events
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-variables" class="md-nav__link">
+    Template Variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miscellaneous_1" class="md-nav__link">
+    Miscellaneous
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    From WoltLab Suite 5.4
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            From WoltLab Suite 5.4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc54/php/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc54/javascript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript and JavaScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc54/templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc54/libraries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Third Party Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc54/deprecations_removals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deprecations and Removals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    From WoltLab Suite 5.3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            From WoltLab Suite 5.3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc53/php/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc53/session/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Session Handling and Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc53/javascript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript and JavaScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc53/templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc53/libraries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Third Party Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    From WoltLab Suite 5.2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            From WoltLab Suite 5.2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc52/php/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc52/templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates and Languages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc52/libraries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Third Party Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    From WoltLab Suite 3.1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            From WoltLab Suite 3.1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc31/php/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+        
+          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    From WoltLab Suite 3.0
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            From WoltLab Suite 3.0
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc30/php/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc30/javascript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaScript API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc30/templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc30/css/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc30/package/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Package Components
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_7" >
+        
+          <label class="md-nav__link" for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    From WCF 2.1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            From WCF 2.1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wcf21/php/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wcf21/templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wcf21/css/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wcf21/package/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Package Components
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorial Series
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial Series
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/part_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/part_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/part_3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/part_4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/part_5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/part_6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part 6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deprecations" class="md-nav__link">
+    Deprecations
+  </a>
+  
+    <nav class="md-nav" aria-label="Deprecations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#php" class="md-nav__link">
+    PHP
+  </a>
+  
+    <nav class="md-nav" aria-label="PHP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript" class="md-nav__link">
+    JavaScript
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-tables" class="md-nav__link">
+    Database Tables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    Templates
+  </a>
+  
+    <nav class="md-nav" aria-label="Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template-modifiers" class="md-nav__link">
+    Template Modifiers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-events" class="md-nav__link">
+    Template Events
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miscellaneous" class="md-nav__link">
+    Miscellaneous
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removals" class="md-nav__link">
+    Removals
+  </a>
+  
+    <nav class="md-nav" aria-label="Removals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#php_1" class="md-nav__link">
+    PHP
+  </a>
+  
+    <nav class="md-nav" aria-label="PHP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classes_1" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    Events
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constants_1" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions_1" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options_1" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files" class="md-nav__link">
+    Files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript_1" class="md-nav__link">
+    JavaScript
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    Database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templates_1" class="md-nav__link">
+    Templates
+  </a>
+  
+    <nav class="md-nav" aria-label="Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#templates_2" class="md-nav__link">
+    Templates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-plugins" class="md-nav__link">
+    Template Plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-events_1" class="md-nav__link">
+    Template Events
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-variables" class="md-nav__link">
+    Template Variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miscellaneous_1" class="md-nav__link">
+    Miscellaneous
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="migrating-from-woltlab-suite-55-deprecations-and-removals">Migrating from WoltLab Suite 5.5 - Deprecations and Removals<a class="headerlink" href="#migrating-from-woltlab-suite-55-deprecations-and-removals" title="Permanent link">#</a></h1>
+<p>With version 6.0, we have deprecated certain components and removed several other components that have been deprecated for many years.</p>
+<h2 id="deprecations">Deprecations<a class="headerlink" href="#deprecations" title="Permanent link">#</a></h2>
+<h3 id="php">PHP<a class="headerlink" href="#php" title="Permanent link">#</a></h3>
+<h4 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">#</a></h4>
+<ul>
+<li><code>wcf\action\AbstractDialogAction</code> (<a href="https://github.com/WoltLab/WCF/pull/4947">WoltLab/WCF#4947</a>)</li>
+<li><code>wcf\SensitiveArgument</code> (<a href="https://github.com/WoltLab/WCF/pull/4802">WoltLab/WCF#4802</a>)</li>
+<li><code>wcf\system\cli\command\IArgumentedCLICommand</code> (<a href="https://github.com/WoltLab/WCF/pull/5185">WoltLab/WCF#5185</a>)</li>
+<li><code>wcf\system\template\plugin\DateModifierTemplatePlugin</code> (<a href="https://github.com/WoltLab/WCF/pull/5459">WoltLab/WCF#5459</a>)</li>
+<li><code>wcf\system\template\plugin\TimeModifierTemplatePlugin</code> (<a href="https://github.com/WoltLab/WCF/pull/5459">WoltLab/WCF#5459</a>)</li>
+<li><code>wcf\system\template\plugin\PlainTimeModifierTemplatePlugin</code> (<a href="https://github.com/WoltLab/WCF/pull/5459">WoltLab/WCF#5459</a>)</li>
+<li><code>wcf\util\CronjobUtil</code> (<a href="https://github.com/WoltLab/WCF/pull/4923">WoltLab/WCF#4923</a>)</li>
+</ul>
+<h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">#</a></h4>
+<ul>
+<li><code>wcf\data\cronjob\CronjobAction::executeCronjobs()</code> (<a href="https://github.com/WoltLab/WCF/pull/5171">WoltLab/WCF#5171</a>)</li>
+<li><code>wcf\data\package\update\server\PackageUpdateServer::attemptSecureConnection()</code> (<a href="https://github.com/WoltLab/WCF/pull/4790">WoltLab/WCF#4790</a>)</li>
+<li><code>wcf\data\package\update\server\PackageUpdateServer::isValidServerURL()</code> (<a href="https://github.com/WoltLab/WCF/pull/4790">WoltLab/WCF#4790</a>)</li>
+<li><code>wcf\data\page\Page::setAsLandingPage()</code> (<a href="https://github.com/WoltLab/WCF/pull/4842">WoltLab/WCF#4842</a>)</li>
+<li><code>wcf\data\style\Style::getRelativeFavicon()</code> (<a href="https://github.com/WoltLab/WCF/pull/5201">WoltLab/WCF#5201</a>)</li>
+<li><code>wcf\system\cli\command\CLICommandHandler::getCommands()</code> (<a href="https://github.com/WoltLab/WCF/pull/5185">WoltLab/WCF#5185</a>)</li>
+<li><code>wcf\system\io\RemoteFile::disableSSL()</code> (<a href="https://github.com/WoltLab/WCF/pull/4790">WoltLab/WCF#4790</a>)</li>
+<li><code>wcf\system\io\RemoteFile::supportsSSL()</code> (<a href="https://github.com/WoltLab/WCF/pull/4790">WoltLab/WCF#4790</a>)</li>
+<li><code>wcf\system\request\RequestHandler::inRescueMode()</code> (<a href="https://github.com/WoltLab/WCF/pull/4831">WoltLab/WCF#4831</a>)</li>
+<li><code>wcf\system\session\SessionHandler::getLanguageIDs()</code> (<a href="https://github.com/WoltLab/WCF/pull/4839">WoltLab/WCF#4839</a>)</li>
+<li><code>wcf\system\user\multifactor\webauthn\Challenge::getOptionsAsJson()</code></li>
+<li><code>wcf\system\WCF::getActivePath()</code> (<a href="https://github.com/WoltLab/WCF/pull/4827">WoltLab/WCF#4827</a>)</li>
+<li><code>wcf\system\WCF::getFavicon()</code> (<a href="https://github.com/WoltLab/WCF/pull/4785">WoltLab/WCF#4785</a>)</li>
+<li><code>wcf\system\WCF::useDesktopNotifications()</code> (<a href="https://github.com/WoltLab/WCF/pull/4785">WoltLab/WCF#4785</a>)</li>
+<li><code>wcf\util\CryptoUtil::validateSignedString()</code> (<a href="https://github.com/WoltLab/WCF/pull/5083">WoltLab/WCF#5083</a>)</li>
+<li><code>wcf\util\Diff::__construct()</code> (<a href="https://github.com/WoltLab/WCF/pull/4918">WoltLab/WCF#4918</a>)</li>
+<li><code>wcf\util\Diff::__toString()</code> (<a href="https://github.com/WoltLab/WCF/pull/4918">WoltLab/WCF#4918</a>)</li>
+<li><code>wcf\util\Diff::getLCS()</code> (<a href="https://github.com/WoltLab/WCF/pull/4918">WoltLab/WCF#4918</a>)</li>
+<li><code>wcf\util\Diff::getRawDiff()</code> (<a href="https://github.com/WoltLab/WCF/pull/4918">WoltLab/WCF#4918</a>)</li>
+<li><code>wcf\util\Diff::getUnixDiff()</code> (<a href="https://github.com/WoltLab/WCF/pull/4918">WoltLab/WCF#4918</a>)</li>
+<li><code>wcf\util\StringUtil::convertEncoding()</code> (<a href="https://github.com/WoltLab/WCF/pull/4800">WoltLab/WCF#4800</a>)</li>
+</ul>
+<h4 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h4>
+<h4 id="constants">Constants<a class="headerlink" href="#constants" title="Permanent link">#</a></h4>
+<ul>
+<li><code>wcf\system\condition\UserAvatarCondition::GRAVATAR</code> (<a href="https://github.com/WoltLab/WCF/pull/4929">WoltLab/WCF#4929</a>)</li>
+</ul>
+<h4 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">#</a></h4>
+<h4 id="options">Options<a class="headerlink" href="#options" title="Permanent link">#</a></h4>
+<h3 id="javascript">JavaScript<a class="headerlink" href="#javascript" title="Permanent link">#</a></h3>
+<ul>
+<li><code>WCF.Comment</code> (<a href="https://github.com/WoltLab/WCF/pull/5210">WoltLab/WCF#5210</a>)</li>
+<li><code>WCF.Location</code> (<a href="https://github.com/WoltLab/WCF/pull/4972">WoltLab/WCF#4972</a>)</li>
+<li><code>WCF.Message.Share.Content</code> (<a href="https://github.com/WoltLab/WCF/commit/624b9db73daf8030aa1c3e49d4ffc785760a283f">WoltLab/WCF/commit/624b9db73daf8030aa1c3e49d4ffc785760a283f</a>)</li>
+<li><code>WCF.User.ObjectWatch.Subscribe</code> (<a href="https://github.com/WoltLab/WCF/pull/4962">WoltLab/WCF#4962</a>)</li>
+<li><code>WCF.User.List</code> (<a href="https://github.com/WoltLab/WCF/pull/5039">WoltLab/WCF#5039</a>)</li>
+<li><code>WoltLabSuite/Core/Controller/Map/Route/Planner</code> (<a href="https://github.com/WoltLab/WCF/pull/4972">WoltLab/WCF#4972</a>)</li>
+<li><code>WoltLabSuite/Core/NumberUtil</code> (<a href="https://github.com/WoltLab/WCF/pull/5071">WoltLab/WCF#5071</a>)</li>
+<li><code>WoltLabSuite/Core/Ui/User/List</code> (<a href="https://github.com/WoltLab/WCF/pull/5039">WoltLab/WCF#5039</a>)</li>
+</ul>
+<h3 id="database-tables">Database Tables<a class="headerlink" href="#database-tables" title="Permanent link">#</a></h3>
+<h3 id="templates">Templates<a class="headerlink" href="#templates" title="Permanent link">#</a></h3>
+<ul>
+<li><code>__commentJavaScript</code> (<a href="https://github.com/WoltLab/WCF/pull/5210">WoltLab/WCF#5210</a>)</li>
+<li><code>commentListAddComment</code> (<a href="https://github.com/WoltLab/WCF/pull/5210">WoltLab/WCF#5210</a>)</li>
+</ul>
+<h4 id="template-modifiers">Template Modifiers<a class="headerlink" href="#template-modifiers" title="Permanent link">#</a></h4>
+<ul>
+<li><code>|date</code> (<a href="https://github.com/WoltLab/WCF/pull/5459">WoltLab/WCF#5459</a>)</li>
+<li><code>|time</code> (<a href="https://github.com/WoltLab/WCF/pull/5459">WoltLab/WCF#5459</a>)</li>
+<li><code>|plainTime</code> (<a href="https://github.com/WoltLab/WCF/pull/5459">WoltLab/WCF#5459</a>)</li>
+</ul>
+<h4 id="template-events">Template Events<a class="headerlink" href="#template-events" title="Permanent link">#</a></h4>
+<h3 id="miscellaneous">Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permanent link">#</a></h3>
+<h2 id="removals">Removals<a class="headerlink" href="#removals" title="Permanent link">#</a></h2>
+<h3 id="php_1">PHP<a class="headerlink" href="#php_1" title="Permanent link">#</a></h3>
+<h4 id="classes_1">Classes<a class="headerlink" href="#classes_1" title="Permanent link">#</a></h4>
+<ul>
+<li><code>calendar\data\CALENDARDatabaseObject</code></li>
+<li><code>calendar\system\image\EventDataHandler</code></li>
+<li><code>gallery\data\GalleryDatabaseObject</code></li>
+<li><code>gallery\system\image\ImageDataHandler</code></li>
+<li><code>wbb\system\user\object\watch\BoardUserObjectWatch</code> and the corresponding object type</li>
+<li><code>wbb\system\user\object\watch\ThreadUserObjectWatch</code> and the corresponding object type</li>
+<li><code>wcf\acp\form\ApplicationEditForm</code> (<a href="https://github.com/WoltLab/WCF/pull/4785">WoltLab/WCF#4785</a>)</li>
+<li><code>wcf\action\GravatarDownloadAction</code> (<a href="https://github.com/WoltLab/WCF/pull/4929">WoltLab/WCF#4929</a>)</li>
+<li><code>wcf\data\user\avatar\Gravatar</code> (<a href="https://github.com/WoltLab/WCF/pull/4929">WoltLab/WCF#4929</a>)</li>
+<li><code>wcf\system\bbcode\highlighter\*Highlighter</code> (<a href="https://github.com/WoltLab/WCF/pull/4926">WoltLab/WCF#4926</a>)</li>
+<li><code>wcf\system\bbcode\highlighter\Highlighter</code> (<a href="https://github.com/WoltLab/WCF/pull/4926">WoltLab/WCF#4926</a>)</li>
+<li><code>wcf\system\cache\source\MemcachedCacheSource</code> (<a href="https://github.com/WoltLab/WCF/pull/4928">WoltLab/WCF#4928</a>)</li>
+<li><code>wcf\system\cli\command\CLICommandNameCompleter</code> (<a href="https://github.com/WoltLab/WCF/pull/5185">WoltLab/WCF#5185</a>)</li>
+<li><code>wcf\system\cli\command\CommandsCLICommand</code> (<a href="https://github.com/WoltLab/WCF/pull/5185">WoltLab/WCF#5185</a>)</li>
+<li><code>wcf\system\cli\command\CronjobCLICommand</code> (<a href="https://github.com/WoltLab/WCF/pull/5171">WoltLab/WCF#5171</a>)</li>
+<li><code>wcf\system\cli\command\HelpCLICommand</code> (<a href="https://github.com/WoltLab/WCF/pull/5185">WoltLab/WCF#5185</a>)</li>
+<li><code>wcf\system\cli\command\PackageCLICommand</code> (<a href="https://github.com/WoltLab/WCF/pull/4946">WoltLab/WCF#4946</a>)</li>
+<li><code>wcf\system\cli\DatabaseCLICommandHistory</code> (<a href="https://github.com/WoltLab/WCF/pull/5058">WoltLab/WCF#5058</a>)</li>
+<li><code>wcf\system\database\table\column/\UnsupportedDefaultValue</code> (<a href="https://github.com/WoltLab/WCF/pull/5012">WoltLab/WCF#5012</a>)</li>
+<li><code>wcf\system\exception\ILoggingAwareException</code> (and associated functionality) (<a href="https://github.com/WoltLab/WCF/pull/5086">WoltLab/WCF#5086</a>)</li>
+<li><code>wcf\system\mail\Mail</code> (<a href="https://github.com/WoltLab/WCF/pull/4941">WoltLab/WCF#4941</a>)</li>
+<li><code>wcf\system\option\DesktopNotificationApplicationSelectOptionType</code> (<a href="https://github.com/WoltLab/WCF/pull/4785">WoltLab/WCF#4785</a>)</li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchException</code></li>
+</ul>
+<h4 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">#</a></h4>
+<ul>
+<li>The <code>$forceHTTP</code> parameter of <code>wcf\data\package\update\server\PackageUpdateServer::getListURL()</code> (<a href="https://github.com/WoltLab/WCF/pull/4790">WoltLab/WCF#4790</a>)</li>
+<li>The <code>$forceHTTP</code> parameter of <code>wcf\system\package\PackageUpdateDispatcher::getPackageUpdateXML()</code> (<a href="https://github.com/WoltLab/WCF/pull/4790">WoltLab/WCF#4790</a>)</li>
+<li><code>wcf\data\bbcode\BBCodeCache::getHighlighters()</code> (<a href="https://github.com/WoltLab/WCF/pull/4926">WoltLab/WCF#4926</a>)</li>
+<li><code>wcf\data\conversation\ConversationAction::getMixedConversationList()</code> (<a href="https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/176">WoltLab/com.woltlab.wcf.conversation#176</a>)</li>
+<li><code>wcf\data\moderation\queue\ModerationQueueAction::getOutstandingQueues()</code> (<a href="https://github.com/WoltLab/WCF/pull/4944">WoltLab/WCF#4944</a>)</li>
+<li><code>wcf\data\package\installation\queue\PackageInstallationQueueAction::prepareQueue()</code> (<a href="https://github.com/WoltLab/WCF/pull/4997">WoltLab/WCF#4997</a>)</li>
+<li><code>wcf\data\user\avatar\UserAvatarAction::enforceDimensions()</code> (<a href="https://github.com/WoltLab/WCF/pull/5007">WoltLab/WCF#5007</a>)</li>
+<li><code>wcf\data\user\avatar\UserAvatarAction::fetchRemoteAvatar()</code> (<a href="https://github.com/WoltLab/WCF/pull/5007">WoltLab/WCF#5007</a>)</li>
+<li><code>wcf\data\user\notification\UserNotificationAction::getOustandingNotifications()</code> (<a href="https://github.com/WoltLab/WCF/pull/4944">WoltLab/WCF#4944</a>)</li>
+<li><code>wcf\data\user\UserRegistrationAction::validatePassword()</code> (<a href="https://github.com/WoltLab/WCF/pull/5244">WoltLab/WCF#5244</a>)</li>
+<li><code>wcf\system\bbcode\BBCodeParser::getRemoveLinks()</code> (<a href="https://github.com/WoltLab/WCF/pull/4986">WoltLab/WCF#4986</a>)</li>
+<li><code>wcf\system\bbcode\HtmlBBCodeParser::setRemoveLinks()</code> (<a href="https://github.com/WoltLab/WCF/pull/4986">WoltLab/WCF#4986</a>)</li>
+<li><code>wcf\system\html\output\node\AbstractHtmlOutputNode::setRemoveLinks()</code> (<a href="https://github.com/WoltLab/WCF/pull/4986">WoltLab/WCF#4986</a>)</li>
+<li><code>wcf\system\package\PackageArchive::downloadArchive()</code> (<a href="https://github.com/WoltLab/WCF/pull/5006">WoltLab/WCF#5006</a>)</li>
+<li><code>wcf\system\package\PackageArchive::filterUpdateInstructions()</code> (<a href="https://github.com/WoltLab/WCF/pull/5129">WoltLab/WCF#5129</a>)</li>
+<li><code>wcf\system\package\PackageArchive::getAllExistingRequirements()</code> (<a href="https://github.com/WoltLab/WCF/pull/5125">WoltLab/WCF#5125</a>)</li>
+<li><code>wcf\system\package\PackageArchive::getInstructions()</code> (<a href="https://github.com/WoltLab/WCF/pull/5120">WoltLab/WCF#5120</a>)</li>
+<li><code>wcf\system\package\PackageArchive::getUpdateInstructions()</code> (<a href="https://github.com/WoltLab/WCF/pull/5129">WoltLab/WCF#5129</a>)</li>
+<li><code>wcf\system\package\PackageArchive::isValidInstall()</code> (<a href="https://github.com/WoltLab/WCF/pull/5125">WoltLab/WCF#5125</a>)</li>
+<li><code>wcf\system\package\PackageArchive::isValidUpdate()</code> (<a href="https://github.com/WoltLab/WCF/pull/5126">WoltLab/WCF#5126</a>)</li>
+<li><code>wcf\system\package\PackageArchive::setPackage()</code> (<a href="https://github.com/WoltLab/WCF/pull/5120">WoltLab/WCF#5120</a>)</li>
+<li><code>wcf\system\package\PackageArchive::unzipPackageArchive()</code> (<a href="https://github.com/WoltLab/WCF/pull/4949">WoltLab/WCF#4949</a>)</li>
+<li><code>wcf\system\package\PackageInstallationDispatcher::checkPackageInstallationQueue()</code> (<a href="https://github.com/WoltLab/WCF/pull/4947">WoltLab/WCF#4947</a>)</li>
+<li><code>wcf\system\package\PackageInstallationDispatcher::completeSetup()</code> (<a href="https://github.com/WoltLab/WCF/pull/4947">WoltLab/WCF#4947</a>)</li>
+<li><code>wcf\system\package\PackageInstallationDispatcher::convertShorthandByteValue()</code> (<a href="https://github.com/WoltLab/WCF/pull/4949">WoltLab/WCF#4949</a>)</li>
+<li><code>wcf\system\package\PackageInstallationDispatcher::functionExists()</code> (<a href="https://github.com/WoltLab/WCF/pull/4949">WoltLab/WCF#4949</a>)</li>
+<li><code>wcf\system\package\PackageInstallationDispatcher::openQueue()</code> (<a href="https://github.com/WoltLab/WCF/pull/4947">WoltLab/WCF#4947</a>)</li>
+<li><code>wcf\system\package\PackageInstallationDispatcher::validatePHPRequirements()</code> (<a href="https://github.com/WoltLab/WCF/pull/4949">WoltLab/WCF#4949</a>)</li>
+<li><code>wcf\system\package\PackageInstallationNodeBuilder::insertNode()</code> (<a href="https://github.com/WoltLab/WCF/pull/4997">WoltLab/WCF#4997</a>)</li>
+<li><code>wcf\system\package\PackageUpdateDispatcher::prepareInstallation()</code> (<a href="https://github.com/WoltLab/WCF/pull/4997">WoltLab/WCF#4997</a>)</li>
+<li><code>wcf\system\request\Request::execute()</code> (<a href="https://github.com/WoltLab/WCF/pull/4820">WoltLab/WCF#4820</a>)</li>
+<li><code>wcf\system\request\Request::getPageType()</code> (<a href="https://github.com/WoltLab/WCF/pull/4822">WoltLab/WCF#4822</a>)</li>
+<li><code>wcf\system\request\Request::getPageType()</code> (<a href="https://github.com/WoltLab/WCF/pull/4822">WoltLab/WCF#4822</a>)</li>
+<li><code>wcf\system\request\Request::isExecuted()</code></li>
+<li><code>wcf\system\request\Request::setIsLandingPage()</code></li>
+<li><code>wcf\system\request\RouteHandler::getDefaultController()</code> (<a href="https://github.com/WoltLab/WCF/pull/4832">WoltLab/WCF#4832</a>)</li>
+<li><code>wcf\system\request\RouteHandler::loadDefaultControllers()</code> (<a href="https://github.com/WoltLab/WCF/pull/4832">WoltLab/WCF#4832</a>)</li>
+<li><code>wcf\system\search\AbstractSearchEngine::getFulltextMinimumWordLength()</code> (<a href="https://github.com/WoltLab/WCF/pull/4933">WoltLab/WCF#4933</a>)</li>
+<li><code>wcf\system\search\AbstractSearchEngine::parseSearchQuery()</code> (<a href="https://github.com/WoltLab/WCF/pull/4933">WoltLab/WCF#4933</a>)</li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchSearchEngine::getFulltextMinimumWordLength()</code></li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::query()</code></li>
+<li><code>wcf\system\search\SearchIndexManager::add()</code> (<a href="https://github.com/WoltLab/WCF/pull/4925">WoltLab/WCF#4925</a>)</li>
+<li><code>wcf\system\search\SearchIndexManager::update()</code> (<a href="https://github.com/WoltLab/WCF/pull/4925">WoltLab/WCF#4925</a>)</li>
+<li><code>wcf\system\session\SessionHandler::getStyleID()</code> (<a href="https://github.com/WoltLab/WCF/pull/4837">WoltLab/WCF#4837</a>)</li>
+<li><code>wcf\system\session\SessionHandler::setStyleID()</code> (<a href="https://github.com/WoltLab/WCF/pull/4837">WoltLab/WCF#4837</a>)</li>
+<li><code>wcf\system\CLIWCF::checkForUpdates()</code> (<a href="https://github.com/WoltLab/WCF/pull/5058">WoltLab/WCF#5058</a>)</li>
+<li><code>wcf\system\WCFACP::checkMasterPassword()</code> (<a href="https://github.com/WoltLab/WCF/pull/4977">WoltLab/WCF#4977</a>)</li>
+<li><code>wcf\system\WCFACP::getFrontendMenu()</code> (<a href="https://github.com/WoltLab/WCF/pull/4812">WoltLab/WCF#4812</a>)</li>
+<li><code>wcf\system\WCFACP::initPackage()</code> (<a href="https://github.com/WoltLab/WCF/pull/4794">WoltLab/WCF#4794</a>)</li>
+<li><code>wcf\util\CryptoUtil::randomBytes()</code> (<a href="https://github.com/WoltLab/WCF/pull/4924">WoltLab/WCF#4924</a>)</li>
+<li><code>wcf\util\CryptoUtil::randomInt()</code> (<a href="https://github.com/WoltLab/WCF/pull/4924">WoltLab/WCF#4924</a>)</li>
+<li><code>wcf\util\CryptoUtil::secureCompare()</code> (<a href="https://github.com/WoltLab/WCF/pull/4924">WoltLab/WCF#4924</a>)</li>
+<li><code>wcf\util\FileUtil::downloadFileFromHttp()</code> (<a href="https://github.com/WoltLab/WCF/pull/4942">WoltLab/WCF#4942</a>)</li>
+<li><code>wcf\util\PasswordUtil::secureCompare()</code> (<a href="https://github.com/WoltLab/WCF/pull/4924">WoltLab/WCF#4924</a>)</li>
+<li><code>wcf\util\PasswordUtil::secureRandomNumber()</code> (<a href="https://github.com/WoltLab/WCF/pull/4924">WoltLab/WCF#4924</a>)</li>
+<li><code>wcf\util\StringUtil::encodeJSON()</code> (<a href="https://github.com/WoltLab/WCF/pull/5073">WoltLab/WCF#5073</a>)</li>
+<li><code>wcf\util\StyleUtil::updateStyleFile()</code> (<a href="https://github.com/WoltLab/WCF/pull/4977">WoltLab/WCF#4977</a>)</li>
+<li><code>wcf\util\UserRegistrationUtil::isSecurePassword()</code> (<a href="https://github.com/WoltLab/WCF/pull/4977">WoltLab/WCF#4977</a>)</li>
+</ul>
+<h4 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h4>
+<ul>
+<li><code>wcf\acp\form\PageAddForm::$isLandingPage</code> (<a href="https://github.com/WoltLab/WCF/pull/4842">WoltLab/WCF#4842</a>)</li>
+<li><code>wcf\system\appliation\ApplicationHandler::$isMultiDomain</code> (<a href="https://github.com/WoltLab/WCF/pull/4785">WoltLab/WCF#4785</a>)</li>
+<li><code>wcf\system\package\PackageArchive::$package</code> (<a href="https://github.com/WoltLab/WCF/pull/5129">WoltLab/WCF#5129</a>)</li>
+<li><code>wcf\system\request\RequestHandler::$inRescueMode</code> (<a href="https://github.com/WoltLab/WCF/pull/4831">WoltLab/WCF#4831</a>)</li>
+<li><code>wcf\system\request\RouteHandler::$defaultControllers</code> (<a href="https://github.com/WoltLab/WCF/pull/4832">WoltLab/WCF#4832</a>)</li>
+<li><code>wcf\system\template\TemplateScriptingCompiler::$disabledPHPFunctions</code> (<a href="https://github.com/WoltLab/WCF/pull/4788">WoltLab/WCF#4788</a>)</li>
+<li><code>wcf\system\template\TemplateScriptingCompiler::$enterpriseFunctions</code> (<a href="https://github.com/WoltLab/WCF/pull/4788">WoltLab/WCF#4788</a>)</li>
+<li><code>wcf\system\WCF::$forceLogout</code> (<a href="https://github.com/WoltLab/WCF/pull/4799">WoltLab/WCF#4799</a>)</li>
+</ul>
+<h4 id="events">Events<a class="headerlink" href="#events" title="Permanent link">#</a></h4>
+<ul>
+<li><code>beforeArgumentParsing@wcf\system\CLIWCF</code> (<a href="https://github.com/WoltLab/WCF/pull/5058">WoltLab/WCF#5058</a>)</li>
+<li><code>afterArgumentParsing@wcf\system\CLIWCF</code> (<a href="https://github.com/WoltLab/WCF/pull/5058">WoltLab/WCF#5058</a>)</li>
+</ul>
+<h4 id="constants_1">Constants<a class="headerlink" href="#constants_1" title="Permanent link">#</a></h4>
+<ul>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::DELETE</code></li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::GET</code></li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::POST</code></li>
+<li><code>wcf\system\search\elasticsearch\ElasticsearchHandler::PUT</code></li>
+<li><code>PACKAGE_NAME</code> (<a href="https://github.com/WoltLab/WCF/pull/5006">WoltLab/WCF#5006</a>)</li>
+<li><code>PACKAGE_VERSION</code> (<a href="https://github.com/WoltLab/WCF/pull/5006">WoltLab/WCF#5006</a>)</li>
+<li><code>SECURITY_TOKEN_INPUT_TAG</code> (<a href="https://github.com/WoltLab/WCF/pull/4934">WoltLab/WCF#4934</a>)</li>
+<li><code>SECURITY_TOKEN</code> (<a href="https://github.com/WoltLab/WCF/pull/4934">WoltLab/WCF#4934</a>)</li>
+<li><code>WSC_API_VERSION</code> (<a href="https://github.com/WoltLab/WCF/pull/4943">WoltLab/WCF#4943</a>)</li>
+</ul>
+<h4 id="functions_1">Functions<a class="headerlink" href="#functions_1" title="Permanent link">#</a></h4>
+<ul>
+<li>The global <code>escapeString</code> helper (<a href="https://github.com/WoltLab/WCF/pull/5085">WoltLab/WCF#5085</a>)</li>
+</ul>
+<h4 id="options_1">Options<a class="headerlink" href="#options_1" title="Permanent link">#</a></h4>
+<ul>
+<li><code>CACHE_SOURCE_MEMCACHED_HOST</code> (<a href="https://github.com/WoltLab/WCF/pull/4928">WoltLab/WCF#4928</a>)</li>
+<li><code>DESKTOP_NOTIFICATION_PACKAGE_ID</code> (<a href="https://github.com/WoltLab/WCF/pull/4785">WoltLab/WCF#4785</a>)</li>
+<li><code>GRAVATAR_DEFAULT_TYPE</code> (<a href="https://github.com/WoltLab/WCF/pull/4929">WoltLab/WCF#4929</a>)</li>
+<li><code>HTTP_SEND_X_FRAME_OPTIONS</code> (<a href="https://github.com/WoltLab/WCF/pull/4786">WoltLab/WCF#4786</a>)</li>
+<li><code>MODULE_GRAVATAR</code> (<a href="https://github.com/WoltLab/WCF/pull/4929">WoltLab/WCF#4929</a>)</li>
+</ul>
+<h4 id="files">Files<a class="headerlink" href="#files" title="Permanent link">#</a></h4>
+<ul>
+<li>The <code>scss.inc.php</code> compatibility include. (<a href="https://github.com/WoltLab/WCF/pull/4932">WoltLab/WCF#4932</a>)</li>
+<li>The <code>config.inc.php</code> in app directories. (<a href="https://github.com/WoltLab/WCF/pull/5006">WoltLab/WCF#5006</a>)</li>
+</ul>
+<h3 id="javascript_1">JavaScript<a class="headerlink" href="#javascript_1" title="Permanent link">#</a></h3>
+<ul>
+<li><code>Blog.Blog.Archive</code></li>
+<li><code>Blog.Category.MarkAllAsRead</code></li>
+<li><code>Blog.Entry.Delete</code></li>
+<li><code>Blog.Entry.Preview</code></li>
+<li><code>Blog.Entry.QuoteHandler</code></li>
+<li><code>Calendar.Category.MarkAllAsRead</code> (<a href="https://github.com/WoltLab/com.woltlab.calendar/pull/169">WoltLab/com.woltlab.calendar#169</a>)</li>
+<li><code>Calendar.Event.Coordinates</code></li>
+<li><code>Calendar.Event.Date.FullDay</code> (<a href="https://github.com/WoltLab/com.woltlab.calendar/pull/171">WoltLab/com.woltlab.calendar#171</a>)</li>
+<li><code>Calendar.Event.Date.Participation.RemoveParticipant</code></li>
+<li><code>Calendar.Event.Preview</code></li>
+<li><code>Calendar.Event.QuoteHandler</code></li>
+<li><code>Calendar.Event.Share</code></li>
+<li><code>Calendar.Event.TabMenu</code></li>
+<li><code>Calendar.Event.Thread.ShowParticipants</code></li>
+<li><code>Calendar.Map</code></li>
+<li><code>Calendar.UI.Calendar</code></li>
+<li><code>Calendar/Ui/Event/Date/Cancel.js</code></li>
+<li><code>Calendar.Export.iCal</code></li>
+<li><code>Filebase.Category.MarkAllAsRead</code></li>
+<li><code>Filebase.File.MarkAsRead</code></li>
+<li><code>Filebase.File.Preview</code></li>
+<li><code>Filebase.File.Share</code></li>
+<li><code>flexibleArea.js</code> (<a href="https://github.com/WoltLab/WCF/pull/4945">WoltLab/WCF#4945</a>)</li>
+<li><code>Gallery.Album.Share</code></li>
+<li><code>Gallery.Category.MarkAllAsRead</code></li>
+<li><code>Gallery.Image.Delete</code></li>
+<li><code>Gallery.Image.Share</code></li>
+<li><code>Gallery.Map.LargeMap</code></li>
+<li><code>Gallery.Map.InfoWindowImageListDialog</code></li>
+<li><code>jQuery.browser.smartphone</code> (<a href="https://github.com/WoltLab/WCF/pull/4945">WoltLab/WCF#4945</a>)</li>
+<li><code>Prism.wscSplitIntoLines</code> (<a href="https://github.com/WoltLab/WCF/pull/4940">WoltLab/WCF#4940</a>)</li>
+<li><code>SID_ARG_2ND</code> (<a href="https://github.com/WoltLab/WCF/pull/4998">WoltLab/WCF#4998</a>)</li>
+<li><code>WBB.Board.Collapsible</code></li>
+<li><code>WBB.Board.IgnoreBoards</code></li>
+<li><code>WBB.Post.IPAddressHandler</code></li>
+<li><code>WBB.Post.Preview</code></li>
+<li><code>WBB.Post.QuoteHandler</code></li>
+<li><code>WBB.Thread.LastPageHandler</code></li>
+<li><code>WBB.Thread.SimilarThreads</code></li>
+<li><code>WBB.Thread.UpdateHandler.Thread</code></li>
+<li><code>WBB.Thread.WatchedThreadList</code></li>
+<li><code>WCF.Action.Scroll</code> (<a href="https://github.com/WoltLab/WCF/pull/4945">WoltLab/WCF#4945</a>)</li>
+<li><code>WCF.Comment</code> (<a href="https://github.com/WoltLab/WCF/commit/00d464295c42a8e1d775fa1b5010d5eb644840aa">WoltLab/WCF@00d46429</a>)</li>
+<li><code>WCF.Conversation.MarkAllAsRead</code></li>
+<li><code>WCF.Conversation.MarkAsRead</code></li>
+<li><code>WCF.Conversation.Message.QuoteHandler</code></li>
+<li><code>WCF.Conversation.Preview</code></li>
+<li><code>WCF.Conversation.RemoveParticipant</code></li>
+<li><code>WCF.Date.Picker</code> (<a href="https://github.com/WoltLab/WCF/pull/4945">WoltLab/WCF#4945</a>)</li>
+<li><code>WCF.Date.Util</code> (<a href="https://github.com/WoltLab/WCF/pull/4945">WoltLab/WCF#4945</a>)</li>
+<li><code>WCF.Dropdown.Interactive.Handler</code> (<a href="https://github.com/WoltLab/WCF/pull/4944">WoltLab/WCF#4944</a>)</li>
+<li><code>WCF.Dropdown.Interactive.Instance</code> (<a href="https://github.com/WoltLab/WCF/pull/4944">WoltLab/WCF#4944</a>)</li>
+<li><code>WCF.Label.ACPList</code></li>
+<li><code>WCF.Message.Share.Page</code> (<a href="https://github.com/WoltLab/WCF/pull/4945">WoltLab/WCF#4945</a>)</li>
+<li><code>WCF.Message.Smilies</code> (<a href="https://github.com/WoltLab/WCF/pull/4945">WoltLab/WCF#4945</a>)</li>
+<li><code>WCF.ModeratedUserGroup.AddMembers</code></li>
+<li><code>WCF.Moderation.Queue.MarkAllAsRead</code></li>
+<li><code>WCF.Moderation.Queue.MarkAsRead</code></li>
+<li><code>WCF.Poll</code> (<a href="https://github.com/WoltLab/WCF/pull/5465">WoltLab/WCF#5465</a>)</li>
+<li><code>WCF.Search.Message.KeywordList</code> (<a href="https://github.com/WoltLab/WCF/pull/4945">WoltLab/WCF#4945</a>)</li>
+<li><code>WCF.System.FlexibleMenu</code> (<a href="https://github.com/WoltLab/WCF/pull/4945">WoltLab/WCF#4945</a>)</li>
+<li><code>WCF.System.Fullscreen</code> (<a href="https://github.com/WoltLab/WCF/pull/4945">WoltLab/WCF#4945</a>)</li>
+<li><code>WCF.System.PageNavigation</code> (<a href="https://github.com/WoltLab/WCF/pull/4945">WoltLab/WCF#4945</a>)</li>
+<li><code>WCF.Template</code> (<a href="https://github.com/WoltLab/WCF/pull/5070">WoltLab/WCF#5070</a>)</li>
+<li><code>WCF.ToggleOptions</code> (<a href="https://github.com/WoltLab/WCF/pull/4945">WoltLab/WCF#4945</a>)</li>
+<li><code>WCF.User.LikeLoader</code></li>
+<li><code>WCF.User.Panel.Abstract</code> (<a href="https://github.com/WoltLab/WCF/pull/4944">WoltLab/WCF#4944</a>)</li>
+<li><code>WCF.User.ProfilePreview</code></li>
+<li><code>WCF.User.Registration.Validation.Password</code> (<a href="https://github.com/WoltLab/WCF/pull/5244">WoltLab/WCF#5244</a>)</li>
+<li><code>window.shuffle()</code> (<a href="https://github.com/WoltLab/WCF/pull/4945">WoltLab/WCF#4945</a>)</li>
+<li><code>WSC_API_VERSION</code> (<a href="https://github.com/WoltLab/WCF/pull/4943">WoltLab/WCF#4943</a>)</li>
+<li><code>WCF.Infraction.Warning.ShowDetails</code></li>
+<li><code>WoltLabSuite/Core/Ui/Comment/Add</code> (<a href="https://github.com/WoltLab/WCF/pull/5210">WoltLab/WCF#5210</a>)</li>
+<li><code>WoltLabSuite/Core/Ui/Comment/Edit</code> (<a href="https://github.com/WoltLab/WCF/pull/5210">WoltLab/WCF#5210</a>)</li>
+<li><code>WoltLabSuite/Core/Ui/Response/Comment/Add</code> (<a href="https://github.com/WoltLab/WCF/pull/5210">WoltLab/WCF#5210</a>)</li>
+<li><code>WoltLabSuite/Core/Ui/Response/Comment/Edit</code> (<a href="https://github.com/WoltLab/WCF/pull/5210">WoltLab/WCF#5210</a>)</li>
+</ul>
+<h3 id="database">Database<a class="headerlink" href="#database" title="Permanent link">#</a></h3>
+<ul>
+<li><code>wcf1_cli_history</code> (<a href="https://github.com/WoltLab/WCF/pull/5058">WoltLab/WCF#5058</a>)</li>
+<li><code>wcf1_package_compatibility</code> (<a href="https://github.com/WoltLab/WCF/pull/4992">WoltLab/WCF#4992</a>)</li>
+<li><code>wcf1_package_update_compatibility</code> (<a href="https://github.com/WoltLab/WCF/pull/5005">WoltLab/WCF#5005</a>)</li>
+<li><code>wcf1_package_update_optional</code> (<a href="https://github.com/WoltLab/WCF/pull/5005">WoltLab/WCF#5005</a>)</li>
+<li><code>wcf1_user_notification_to_user</code> (<a href="https://github.com/WoltLab/WCF/pull/5005">WoltLab/WCF#5005</a>)</li>
+<li><code>wcf1_user.enableGravatar</code> (<a href="https://github.com/WoltLab/WCF/pull/4929">WoltLab/WCF#4929</a>)</li>
+<li><code>wcf1_user.gravatarFileExtension</code> (<a href="https://github.com/WoltLab/WCF/pull/4929">WoltLab/WCF#4929</a>)</li>
+</ul>
+<h3 id="templates_1">Templates<a class="headerlink" href="#templates_1" title="Permanent link">#</a></h3>
+<h4 id="templates_2">Templates<a class="headerlink" href="#templates_2" title="Permanent link">#</a></h4>
+<ul>
+<li><code>conversationListUserPanel</code> (<a href="https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/176">WoltLab/com.woltlab.wcf.conversation#176</a>)</li>
+<li><code>moderationQueueList</code> (<a href="https://github.com/WoltLab/WCF/pull/4944">WoltLab/WCF#4944</a>)</li>
+<li><code>notificationListUserPanel</code> (<a href="https://github.com/WoltLab/WCF/pull/4944">WoltLab/WCF#4944</a>)</li>
+</ul>
+<h4 id="template-plugins">Template Plugins<a class="headerlink" href="#template-plugins" title="Permanent link">#</a></h4>
+<ul>
+<li><code>{fetch}</code> (<a href="https://github.com/WoltLab/WCF/pull/4892">WoltLab/WCF#4892</a>)</li>
+<li><code>|encodeJSON</code> (<a href="https://github.com/WoltLab/WCF/pull/5073">WoltLab/WCF#5073</a>)</li>
+</ul>
+<h4 id="template-events_1">Template Events<a class="headerlink" href="#template-events_1" title="Permanent link">#</a></h4>
+<ul>
+<li><code>headInclude::javascriptInclude</code> (<a href="https://github.com/WoltLab/WCF/pull/4801">WoltLab/WCF#4801</a>)</li>
+<li><code>headInclude::javascriptInit</code> (<a href="https://github.com/WoltLab/WCF/pull/4801">WoltLab/WCF#4801</a>)</li>
+<li><code>headInclude::javascriptLanguageImport</code> (<a href="https://github.com/WoltLab/WCF/pull/4801">WoltLab/WCF#4801</a>)</li>
+</ul>
+<h4 id="template-variables">Template Variables<a class="headerlink" href="#template-variables" title="Permanent link">#</a></h4>
+<ul>
+<li><code>$__sessionKeepAlive</code> (<a href="https://github.com/WoltLab/WCF/pull/5055">WoltLab/WCF#5055</a>)</li>
+<li><code>$__wcfVersion</code> (<a href="https://github.com/WoltLab/WCF/pull/4927">WoltLab/WCF#4927</a>)</li>
+<li><code>$tpl.cookie</code> (<a href="https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36">WoltLab/WCF@7cfd5578ede22e</a>)</li>
+<li><code>$tpl.env</code> (<a href="https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36">WoltLab/WCF@7cfd5578ede22e</a>)</li>
+<li><code>$tpl.get</code> (<a href="https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36">WoltLab/WCF@7cfd5578ede22e</a>)</li>
+<li><code>$tpl.now</code> (<a href="https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36">WoltLab/WCF@7cfd5578ede22e</a>)</li>
+<li><code>$tpl.post</code> (<a href="https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36">WoltLab/WCF@7cfd5578ede22e</a>)</li>
+<li><code>$tpl.server</code> (<a href="https://github.com/WoltLab/WCF/commit/7cfd5578ede22e798b770262c0cdf1e9dfe25d36">WoltLab/WCF@7cfd5578ede22e</a>)</li>
+</ul>
+<h3 id="miscellaneous_1">Miscellaneous<a class="headerlink" href="#miscellaneous_1" title="Permanent link">#</a></h3>
+<ul>
+<li>The use of a non-<code>1</code> <code>WCF_N</code> in WCFSetup. (<a href="https://github.com/WoltLab/WCF/pull/4791">WoltLab/WCF#4791</a>)</li>
+<li>The global option to set a specific style with a request parameter (<code>$_REQUEST['styleID']</code>) is removed. (<a href="https://github.com/WoltLab/WCF/pull/4533">WoltLab/WCF#4533</a>)</li>
+<li>Using non-standard ports for package servers is no longer supported. (<a href="https://github.com/WoltLab/WCF/pull/4790">WoltLab/WCF#4790</a>)</li>
+<li>Using the insecure <code>http://</code> scheme for package servers is no longer supported. The use of <code>https://</code> is enforced. (<a href="https://github.com/WoltLab/WCF/pull/4790">WoltLab/WCF#4790</a>)</li>
+<li>The support for AMP pages was removed.  (<a href="https://github.com/WoltLab/WCF/pull/5425">WoltLab/WCF#5425</a>)</li>
+<li>The support for style API version was removed. All styles are treated as if they are fully compatible with the latest version. (<a href="https://github.com/WoltLab/WCF/issues/5036">WoltLab/WCF#5036</a>)</li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2023-09-11
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2020 WoltLab GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-copyright">
+	<a href="https://www.woltlab.com/legal-notice/">Legal Notice</a> 
+	<a href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,4526 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.woltlab.com/6.1/migration/wsc55/php/">
+      
+      
+        <link rel="prev" href="../../../package/database-php-api/">
+      
+      
+        <link rel="next" href="../javascript/">
+      
+      
+      <link rel="icon" href="../../../assets/default.favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>PHP API - WoltLab Suite Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#migrating-from-woltlab-suite-55-php" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+    <a href="https://www.woltlab.com">Back to <strong>woltlab.com</strong></a>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="WoltLab Suite Documentation" class="md-header__button md-logo" aria-label="WoltLab Suite Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WoltLab Suite Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PHP API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/WoltLab/docs.woltlab.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="WoltLab Suite Documentation" class="md-nav__button md-logo" aria-label="WoltLab Suite Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    WoltLab Suite Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/WoltLab/docs.woltlab.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            PHP API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/pages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/database-objects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database Objects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/database-access/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database Access
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/exceptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exceptions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_1" >
+        
+          <label class="md-nav__link" for="__nav_2_5_1" id="__nav_2_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Caches
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Caches
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/caches/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/caches_persistent-caches/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Persistent Caches
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/caches_runtime-caches/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Runtime Caches
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/comments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/cronjobs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cronjobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Events
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_5" >
+        
+          <label class="md-nav__link" for="__nav_2_5_5" id="__nav_2_5_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Form Builder
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Form Builder
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/form_fields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fields
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/validation_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Validation and Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/dependencies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dependencies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/package_installation_plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Package Installation Plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/user_activity_points/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Activity Points
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/user_notifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Notifications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/sitemaps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sitemaps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/code-style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code Style
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/apps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/gdpr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GDPR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Languages, Templates & CSS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Languages, Templates & CSS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../view/languages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Languages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../view/templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../view/template-modifiers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Template Modifiers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../view/template-plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Template Plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../view/css/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    TypeScript and JavaScript API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            TypeScript and JavaScript API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/general-usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/typescript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Components
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_ckeditor5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CKEditor 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_confirmation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Confirmation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_dialog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dialog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_google_maps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Maps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_pagination/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pagination
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    New API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            New API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_writing-a-module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Writing a module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Core Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_dom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Event Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_ajax/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ajax
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_dialogs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dialogs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_browser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Browser and Screen Sizes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_ui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/legacy-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Legacy API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/code-snippets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code Snippets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Package Components
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Package Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/package-xml/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    package.xml
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PIPs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            PIPs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/acl-option/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    aclOption
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/acp-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    acpMenu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/acp-search-provider/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    acpSearchProvider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/acp-template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    acpTemplate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/acp-template-delete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    acpTemplateDelete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/bbcode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bbcode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/box/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    box
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/clipboard-action/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    clipboardAction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/core-object/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    coreObject
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/cronjob/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cronjob
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/event-listener/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    eventListener
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/file/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    file
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/file-delete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    fileDelete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/language/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/media-provider/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mediaProvider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/menu-item/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    menuItem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/object-type/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    objectType
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/object-type-definition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    objectTypeDefinition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/option/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    option
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/page/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    page
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/pip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pip
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/script/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    script
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/smiley/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    smiley
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/sql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sql
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    style
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/template-delete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    templateDelete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/template-listener/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    templateListener
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/user-group-option/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    userGroupOption
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/user-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    userMenu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/user-notification-event/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    userNotificationEvent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/user-option/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    userOption
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/user-profile-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    userProfileMenu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/database-php-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database PHP API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Migration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Migration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" checked>
+        
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    From WoltLab Suite 5.5
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            From WoltLab Suite 5.5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#minimum-requirements" class="md-nav__link">
+    Minimum requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    Inheritance
+  </a>
+  
+    <nav class="md-nav" aria-label="Inheritance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-return-property-types" class="md-nav__link">
+    Parameter / Return / Property Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final" class="md-nav__link">
+    final
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-boot" class="md-nav__link">
+    Application Boot
+  </a>
+  
+    <nav class="md-nav" aria-label="Application Boot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-specific-logic-will-no-longer-happen-during-boot" class="md-nav__link">
+    Request-specific logic will no longer happen during boot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bootstrap-scripts" class="md-nav__link">
+    Bootstrap Scripts
+  </a>
+  
+    <nav class="md-nav" aria-label="Bootstrap Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registering-ievent-listeners" class="md-nav__link">
+    Registering IEvent listeners
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-processing" class="md-nav__link">
+    Request Processing
+  </a>
+  
+    <nav class="md-nav" aria-label="Request Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-changes-for-woltlab-suite-60" class="md-nav__link">
+    Recommended changes for WoltLab Suite 6.0
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommended changes for WoltLab Suite 6.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#querying-requesthandlerinterface-based-controllers-via-javascript" class="md-nav__link">
+    Querying RequestHandlerInterface-based controllers via JavaScript
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formbuilder" class="md-nav__link">
+    FormBuilder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-system" class="md-nav__link">
+    Package System
+  </a>
+  
+    <nav class="md-nav" aria-label="Package System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-minversion-for-required-packages" class="md-nav__link">
+    Required “minversion” for required packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rejection-of-pl-versions" class="md-nav__link">
+    Rejection of “pl” versions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removal-of-api-compatibility" class="md-nav__link">
+    Removal of API compatibility
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package-installation-plugins" class="md-nav__link">
+    Package Installation Plugins
+  </a>
+  
+    <nav class="md-nav" aria-label="Package Installation Plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eventlistener" class="md-nav__link">
+    EventListener
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cronjob" class="md-nav__link">
+    Cronjob
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    Database
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internationalization" class="md-nav__link">
+    Internationalization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indicating-parameters-that-hold-sensitive-information" class="md-nav__link">
+    Indicating parameters that hold sensitive information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditions" class="md-nav__link">
+    Conditions
+  </a>
+  
+    <nav class="md-nav" aria-label="Conditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstractintegercondition" class="md-nav__link">
+    AbstractIntegerCondition
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebuild-workers" class="md-nav__link">
+    Rebuild Workers
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript and JavaScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../icons/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Icons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dialogs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dialogs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Third Party Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deprecations_removals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deprecations and Removals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    From WoltLab Suite 5.4
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            From WoltLab Suite 5.4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc54/php/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc54/javascript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript and JavaScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc54/templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc54/libraries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Third Party Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc54/deprecations_removals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deprecations and Removals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    From WoltLab Suite 5.3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            From WoltLab Suite 5.3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc53/php/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc53/session/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Session Handling and Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc53/javascript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript and JavaScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc53/templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc53/libraries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Third Party Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    From WoltLab Suite 5.2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            From WoltLab Suite 5.2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc52/php/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc52/templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates and Languages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc52/libraries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Third Party Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    From WoltLab Suite 3.1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            From WoltLab Suite 3.1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc31/php/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+        
+          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    From WoltLab Suite 3.0
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            From WoltLab Suite 3.0
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc30/php/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc30/javascript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaScript API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc30/templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc30/css/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc30/package/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Package Components
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_7" >
+        
+          <label class="md-nav__link" for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    From WCF 2.1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            From WCF 2.1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wcf21/php/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PHP API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wcf21/templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wcf21/css/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wcf21/package/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Package Components
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorial Series
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial Series
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/part_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/part_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/part_3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/part_4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/part_5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/part_6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part 6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#minimum-requirements" class="md-nav__link">
+    Minimum requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    Inheritance
+  </a>
+  
+    <nav class="md-nav" aria-label="Inheritance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-return-property-types" class="md-nav__link">
+    Parameter / Return / Property Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final" class="md-nav__link">
+    final
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-boot" class="md-nav__link">
+    Application Boot
+  </a>
+  
+    <nav class="md-nav" aria-label="Application Boot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-specific-logic-will-no-longer-happen-during-boot" class="md-nav__link">
+    Request-specific logic will no longer happen during boot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bootstrap-scripts" class="md-nav__link">
+    Bootstrap Scripts
+  </a>
+  
+    <nav class="md-nav" aria-label="Bootstrap Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registering-ievent-listeners" class="md-nav__link">
+    Registering IEvent listeners
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-processing" class="md-nav__link">
+    Request Processing
+  </a>
+  
+    <nav class="md-nav" aria-label="Request Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-changes-for-woltlab-suite-60" class="md-nav__link">
+    Recommended changes for WoltLab Suite 6.0
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommended changes for WoltLab Suite 6.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#querying-requesthandlerinterface-based-controllers-via-javascript" class="md-nav__link">
+    Querying RequestHandlerInterface-based controllers via JavaScript
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formbuilder" class="md-nav__link">
+    FormBuilder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-system" class="md-nav__link">
+    Package System
+  </a>
+  
+    <nav class="md-nav" aria-label="Package System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-minversion-for-required-packages" class="md-nav__link">
+    Required “minversion” for required packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rejection-of-pl-versions" class="md-nav__link">
+    Rejection of “pl” versions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removal-of-api-compatibility" class="md-nav__link">
+    Removal of API compatibility
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package-installation-plugins" class="md-nav__link">
+    Package Installation Plugins
+  </a>
+  
+    <nav class="md-nav" aria-label="Package Installation Plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eventlistener" class="md-nav__link">
+    EventListener
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cronjob" class="md-nav__link">
+    Cronjob
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    Database
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internationalization" class="md-nav__link">
+    Internationalization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indicating-parameters-that-hold-sensitive-information" class="md-nav__link">
+    Indicating parameters that hold sensitive information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditions" class="md-nav__link">
+    Conditions
+  </a>
+  
+    <nav class="md-nav" aria-label="Conditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstractintegercondition" class="md-nav__link">
+    AbstractIntegerCondition
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebuild-workers" class="md-nav__link">
+    Rebuild Workers
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="migrating-from-woltlab-suite-55-php">Migrating from WoltLab Suite 5.5 - PHP<a class="headerlink" href="#migrating-from-woltlab-suite-55-php" title="Permanent link">#</a></h1>
+<h2 id="minimum-requirements">Minimum requirements<a class="headerlink" href="#minimum-requirements" title="Permanent link">#</a></h2>
+<p>The minimum requirements have been increased to the following:</p>
+<ul>
+<li><strong>PHP:</strong> 8.1.2 (64 bit only); <code>intl</code> extension</li>
+<li><strong>MySQL:</strong> 8.0.30</li>
+<li><strong>MariaDB:</strong> 10.5.12</li>
+</ul>
+<p>It is recommended to make use of the newly introduced features whereever possible.
+Please refer to the PHP documentation for details.</p>
+<h2 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">#</a></h2>
+<h3 id="parameter-return-property-types">Parameter / Return / Property Types<a class="headerlink" href="#parameter-return-property-types" title="Permanent link">#</a></h3>
+<p>Parameter, return, and property types have been added to methods of various classes/interfaces.
+This might cause errors during inheritance, because the types are not compatible with the newly added types in the parent class.</p>
+<p>Return types may already be added in package versions for older WoltLab Suite branches to be forward compatible, because return types are covariant.</p>
+<h3 id="final">final<a class="headerlink" href="#final" title="Permanent link">#</a></h3>
+<p>The <code>final</code> modifier was added to several classes that were not usefully set up for inheritance in the first place to make it explicit that inheriting from these classes is unsupported.</p>
+<h2 id="application-boot">Application Boot<a class="headerlink" href="#application-boot" title="Permanent link">#</a></h2>
+<h3 id="request-specific-logic-will-no-longer-happen-during-boot">Request-specific logic will no longer happen during boot<a class="headerlink" href="#request-specific-logic-will-no-longer-happen-during-boot" title="Permanent link">#</a></h3>
+<p>Historically the application boot in <code>WCF</code>’s constructor performed processing based on fundamentally request-specific values, such as the accessed URL, the request body, or cookies.
+This is problematic, because this makes the boot dependent on the HTTP environment which may not be be available, e.g. when using the CLI interface for maintenance jobs.
+The latter needs to emulate certain aspects of the HTTP environment for the boot to succeed.
+Furthermore one of the goals of the introduction of PSR-7/PSR-15-based request processing that <a href="../../wsc54/php/#initial-psr-7-support">was started in WoltLab Suite 5.5</a> is the removal of implicit global state in favor of explicitly provided values by means of a <code>ServerRequestInterface</code> and thus to achieve a cleaner architecture.</p>
+<p>To achieve a clean separation this type of request-specific logic will incrementally be moved out of the application boot in <code>WCF</code>’s constructor and into the request processing stack that is launched by <code>RequestHandler</code>, e.g. by running appropriate PSR-15 middleware.</p>
+<p>An example of this type of request-specific logic that was previously happening during application boot is the check that verifies whether a user is banned and denies access otherwise.
+This check is based on a request-specific value, namely the user’s session which in turn is based on a provided (HTTP) cookie.
+It is now <a href="https://github.com/WoltLab/WCF/commit/51154ba3f8f1d09b54560d5d1933f9053ef409cb">moved into the <code>CheckUserBan</code> middleware</a>.</p>
+<p>This move implies that custom scripts that include WoltLab Suite Core’s <code>global.php</code>, without also invoking <code>RequestHandler</code> will no longer be able to rely on this type of access control having happened and will need to implement it themselves, e.g. by manually running the appropriate middlewares.</p>
+<p>Notably the following checks have been moved into a middleware:</p>
+<ul>
+<li>Denying access to banned users (<a href="https://github.com/WoltLab/WCF/pull/4935">WoltLab/WCF#4935</a>)</li>
+<li>ACP authentication (<a href="https://github.com/WoltLab/WCF/pull/4939">WoltLab/WCF#4939</a>)</li>
+</ul>
+<p>The initialization of the session itself and dependent subsystems (e.g. the user object and thus the current language) is still running during application boot for now.
+However it is planned to also move the session initialization into the middleware in a future version and then providing access to the session by adding an attribute on the <code>ServerRequestInterface</code>, instead of querying the session via <code>WCF::getSession()</code>.
+As such you should begin to stop relying on the session and user outside of <code>RequestHandler</code>’s middleware stack and should also avoid calling <code>WCF::getUser()</code> and <code>WCF::getSession()</code> outside of a controller, instead adding a <code>User</code> parameter to your methods to allow an appropriate user to be passed from the outside.</p>
+<p>An example of a method that implicitly relies on these global values is the <a href="https://github.com/WoltLab/WCF/blob/7cfd5578ede22e798b770262c0cdf1e9dfe25d36/wcfsetup/install/files/lib/system/visitTracker/VisitTracker.class.php#L199">VisitTracker's <code>trackObjectVisit()</code> method</a>.
+It only takes the object type, object ID and timestamp as the parameter and will determine the <code>userID</code> by itself.
+The <code>trackObjectVisitByUserIDs()</code> method on the other hand does not rely on global values.
+Instead the relevant user IDs need to be passed explicitly from the controller as parameters, thus making the information the method works with explicit.
+This also makes the method reusable for use cases where an object should be marked as visited for a user other than the active user, without needing to temporarily switch the active user in the session.</p>
+<p>The same is true for “permission checking” methods on <code>DatabaseObject</code>s.
+Instead of having a <code>$myObject-&gt;canView()</code> method that uses <code>WCF::getSession()</code> or <code>WCF::getUser()</code> internally, the user should explicitly be passed to the method as a parameter, allowing for permission checks to happen in a different context, for example send sending notification emails.</p>
+<p>Likewise event listeners should not access these request-specific values at all, because they are unable to know whether the event was fired based on these request-specific values or whether some programmatic action fired the event for another arbitrary user.
+Instead they must retrieve the appropriate information from the event data only.</p>
+<h3 id="bootstrap-scripts">Bootstrap Scripts<a class="headerlink" href="#bootstrap-scripts" title="Permanent link">#</a></h3>
+<p>WoltLab Suite 6.0 adds package-specific bootstrap scripts allowing a package to execute logic during the application boot to prepare the environment before the request is passed through the middleware pipeline into the controller in <code>RequestHandler</code>.</p>
+<p>Bootstrap scripts are stored in the <code>lib/bootstrap/</code> directory of WoltLab Suite Core with the package identifier as the file name.
+They do not need to be registered explicitly, as one future goal of the bootstrap scripts is reducing the amount of system state that needs to be stored within the database.
+Instead WoltLab Suite Core will automatically create a bootstrap loader that includes all installed bootstrap scripts as part of the package installation and uninstallation process.</p>
+<p>Bootstrap scripts will be loaded and the bootstrap functions will executed based on a topological sorting of all installed packages.
+A package can rely on all bootstrap scripts of its dependencies being loaded before its own bootstrap script is loaded.
+It can also rely on all bootstrap functions of its dependencies having executed before its own bootstrap functions is executed.
+However it cannot rely on any specific loading and execution order of non-dependencies.</p>
+<p>As hinted at in the previous paragraph, executing the bootstrap scripts happens in two phases:</p>
+<ol>
+<li>All bootstrap scripts will be <code>include()</code>d in topological order. The script is expected to return a <code>Closure</code> that is executed in phase 2.</li>
+<li>Once all bootstrap scripts have been included, the returned <code>Closure</code>s will be executed in the same order the bootstrap scripts were loaded.</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/bootstrap/com.example.foo.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Phase (1).</span>
+
+<span class="k">return</span> <span class="k">static</span> <span class="k">function</span> <span class="p">()</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
+    <span class="c1">// Phase (2).</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>For the vast majority of packages it is expected that the phase (1) bootstrapping is not used, except to return the <code>Closure</code>.
+Instead the logic should reside in the <code>Closure</code>s body that is executed in phase (2).</p>
+<h4 id="registering-ievent-listeners">Registering <code>IEvent</code> listeners<a class="headerlink" href="#registering-ievent-listeners" title="Permanent link">#</a></h4>
+<p>An example use case for bootstrap scripts with WoltLab Suite 6.0 is registering event listeners for <code>IEvent</code>-based events that <a href="../../wsc54/php/#events">were added with WoltLab Suite 5.5</a>, instead of using the <a href="../../../package/pip/event-listener/">eventListener PIP</a>.
+Registering event listeners within the bootstrap script allows you to leverage your IDE’s autocompletion for class names and and prevents forgetting the explicit uninstallation of old event listeners during a package upgrade.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/bootstrap/com.example.bar.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">wcf\system\event\EventHandler</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\event\listener\ValueDumpListener</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\foo\event\ValueAvailable</span><span class="p">;</span>
+
+<span class="k">return</span> <span class="k">static</span> <span class="k">function</span> <span class="p">()</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
+    <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span>
+        <span class="nx">ValueAvailable</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="nx">ValueDumpListener</span><span class="o">::</span><span class="na">class</span>
+    <span class="p">);</span>
+
+    <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span>
+        <span class="nx">ValueAvailable</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">ValueAvailable</span> <span class="nv">$event</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
+            <span class="c1">// For simple use cases a `Closure` instead of a class name may be used.</span>
+            <span class="nx">\var_dump</span><span class="p">(</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="request-processing">Request Processing<a class="headerlink" href="#request-processing" title="Permanent link">#</a></h2>
+<p>As previously mentioned in the <a href="#application-boot">Application Boot</a> section, WoltLab Suite 6.0 improves support for PSR-7/PSR-15-based request processing <a href="../../wsc54/php/#initial-psr-7-support">that was initially announced with WoltLab Suite 5.5</a>.</p>
+<p>WoltLab Suite 5.5 added support for returning a PSR-7 <code>ResponseInterface</code> from a controller and recommended to migrate existing controllers based on <code>AbstractAction</code> to make use of <code>RedirectResponse</code> and <code>JsonResponse</code> instead of using <code>HeaderUtil::redirect()</code> or manually emitting JSON with appropriate headers.
+Processing the request values still used PHP’s superglobals (specifically <code>$_GET</code> and <code>$_POST</code>).</p>
+<p>WoltLab Suite 6.0 adds support for controllers based on PSR-15’s <code>RequestHandlerInterface</code>, supporting request processing based on a provided PSR-7 <code>ServerRequestInterface</code> object.</p>
+<h3 id="recommended-changes-for-woltlab-suite-60">Recommended changes for WoltLab Suite 6.0<a class="headerlink" href="#recommended-changes-for-woltlab-suite-60" title="Permanent link">#</a></h3>
+<p>It is recommended to use <code>RequestHandlerInterface</code>-based controllers whenever an <code>AbstractAction</code> would previously be used.
+Furthermore any AJAX-based logic that would previously rely on <code>AJAXProxyAction</code> combined with a method in an <code>AbstractDatabaseObjectAction</code> should also be implemented using a dedicated <code>RequestHandlerInterface</code>-based controller.
+Both <code>AbstractAction</code> and <code>AJAXProxyAction</code>-based AJAX requests should be considered soft-deprecated going forward.</p>
+<p>When creating a <code>RequestHandlerInterface</code>-based controller, care should be taken to ensure no mutable state is stored in object properties of the controller itself.
+The state of the controller object must be identical before, during and after a request was processed.
+Any required values must be passed explicitly by means of method parameters and return values.
+Likewise any functionality called by the controller’s <code>handle()</code> method should not rely on implicit global values, such as <code>WCF::getUser()</code>, as was explained in the previous <a href="#request-specific-logic-will-no-longer-happen-during-boot">section about request-specific logic</a>.</p>
+<p>The recommended pattern for a <code>RequestHandlerInterface</code>-based controller looks as follows:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/action/MyFancyAction.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">wcf\action</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Laminas\Diactoros\Response</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Psr\Http\Message\ServerRequestInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Psr\Http\Message\ResponseInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Psr\Http\Server\RequestHandlerInterface</span><span class="p">;</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">MyFancyAction</span> <span class="k">implements</span> <span class="nx">RequestHandlerInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="cm">/* 0. Explicitly register services used by the controller, to</span>
+<span class="cm">         *    make dependencies explicit and to avoid accidentally using</span>
+<span class="cm">         *    global state outside of a controller.</span>
+<span class="cm">         */</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">handle</span><span class="p">(</span><span class="nx">ServerRequestInterface</span> <span class="nv">$request</span><span class="p">)</span><span class="o">:</span> <span class="nx">ResponseInterface</span>
+    <span class="p">{</span>
+        <span class="cm">/* 1. Perform permission checks and input validation. */</span>
+
+        <span class="cm">/* 2. Perform the action. The action must not rely on global state,</span>
+<span class="cm">         *    but instead only on explicitly passed values. It should assume</span>
+<span class="cm">         *    that permissions have already been validated by the controller,</span>
+<span class="cm">         *    allowing it to be reusable programmatically.</span>
+<span class="cm">         */</span>
+
+        <span class="cm">/* 3. Perform post processing. */</span>
+
+        <span class="cm">/* 4. Prepare the response, e.g. by querying an updated object from</span>
+<span class="cm">         *    the database.</span>
+<span class="cm">         */</span>
+
+        <span class="cm">/* 5. Send the response. */</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>It is recommended to leverage <a href="../libraries/#input-validation">Valinor</a> for structural validation of input values if using the <a href="../../../php/api/form_builder/overview/">FormBuilder</a> is not a good fit, specifically for any values that are provided implicitly and are expected to be correct.
+WoltLab Suite includes a middleware that will automatically convert unhandled <code>MappingError</code>s into a response with status HTTP 400 Bad Request.</p>
+<p>XSRF validation will implicitly be performed for any request that uses a HTTP verb other than <code>GET</code>.
+Likewise any requests with a JSON body will automatically be decoded by a middleware and stored as the <code>ServerRequestInterface</code>’s parsed body.</p>
+<h4 id="querying-requesthandlerinterface-based-controllers-via-javascript">Querying RequestHandlerInterface-based controllers via JavaScript<a class="headerlink" href="#querying-requesthandlerinterface-based-controllers-via-javascript" title="Permanent link">#</a></h4>
+<p>The new <code>WoltLabSuite/Core/Ajax/Backend</code> module may be used to easily query a <code>RequestHandlerInterface</code>-based controller.
+The JavaScript code must not make any assumptions about the URI structure to reach the controller.
+Instead the endpoint must be generated using <code>LinkHandler</code> and explicitly provided, e.g. by storing it in a <code>data-endpoint</code> attribute:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;button</span>
+<span class="x">    class=&quot;button fancyButton&quot;</span>
+<span class="x">    data-endpoint=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;MyFancy&#39;</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">&gt;Click me!&lt;/button&gt;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.fancyButton&#39;</span><span class="p">);</span>
+<span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">prepareRequest</span><span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">endpoint</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="nx">get</span><span class="p">();</span><span class="w"> </span><span class="c1">// or: .post(…)</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nx">fetchAsResponse</span><span class="p">();</span><span class="w"> </span><span class="c1">// or: .fetchAsJson()</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="formbuilder">FormBuilder<a class="headerlink" href="#formbuilder" title="Permanent link">#</a></h4>
+<p>The <code>Psr15DialogForm</code> class combined with the <code>usingFormBuilder()</code> method of <a href="../dialogs/"><code>dialogFactory()</code></a> provides a “batteries-included” solution to create a AJAX- and <a href="../../../php/api/form_builder/overview/">FormBuilder</a>-based <code>RequestHandlerInterface</code>-based controller.</p>
+<p>Within the JavaScript code the endpoint is queried using:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ok</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">usingFormBuilder</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">fromEndpoint</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>The returned <code>Promise</code> will resolve when the dialog is closed, either by successfully submitting the form or by manually closing it and thus aborting the process.
+If the form was submitted successfully <code>ok</code> will be <code>true</code> and <code>result</code> will contain the controller’s response.
+If the dialog was closed without successfully submitting the form, <code>ok</code> will be <code>false</code> and <code>result</code> will be set to <code>undefined</code>.</p>
+<p>Within the PHP code, the form may be created as usual, but use <code>Psr15DialogForm</code> as the form document.
+The controller must return <code>$dialogForm-&gt;toJsonResponse()</code> for <code>GET</code> requests and validate the <code>ServerRequestInterface</code> using <code>$dialogForm-&gt;validateRequest($request)</code> for <code>POST</code> requests.
+The latter will return a <code>ResponseInterface</code> to be returned if the validation fails, otherwise <code>null</code> is returned.
+If validation succeeded, the controller must perform the resulting action and return a <code>JsonResponse</code> with the <code>result</code> key:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$dialogForm</span><span class="o">-&gt;</span><span class="na">toResponse</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$dialogForm</span><span class="o">-&gt;</span><span class="na">validateRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$response</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$dialogForm</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
+
+    <span class="c1">// Use $data.</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">JsonResponse</span><span class="p">([</span>
+        <span class="s1">&#39;result&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;some&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">]);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// The used method is validated by a middleware. Methods that are not</span>
+    <span class="c1">// GET or POST need to be explicitly allowed using the &#39;AllowHttpMethod&#39;</span>
+    <span class="c1">// attribute.</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nx">\LogicException</span><span class="p">(</span><span class="s1">&#39;Unreachable&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
+<p>A complete example, showcasing all the patterns can be found in <a href="https://github.com/WoltLab/WCF/pull/5106">WoltLab/WCF#5106</a>.
+This example showcases how to:</p>
+<ul>
+<li>Store used services within the controller’s constructor.</li>
+<li>Perform validation of inputs using Valinor.</li>
+<li>Perform permission checks.</li>
+<li>Use the FormBuilder.</li>
+<li>Delegate the actual processing to a reusable command that does not rely on global state.</li>
+<li>Store the request endpoint as a <code>data-*</code> attribute.</li>
+</ul>
+<h2 id="package-system">Package System<a class="headerlink" href="#package-system" title="Permanent link">#</a></h2>
+<h3 id="required-minversion-for-required-packages">Required “minversion” for required packages<a class="headerlink" href="#required-minversion-for-required-packages" title="Permanent link">#</a></h3>
+<p>The <code>minversion</code> attribute of the <code>&lt;requiredpackage&gt;</code> tag is now required.</p>
+<h3 id="rejection-of-pl-versions">Rejection of “pl” versions<a class="headerlink" href="#rejection-of-pl-versions" title="Permanent link">#</a></h3>
+<p>Woltlab Suite 6.0 no longer accepts package versions with the “pl” suffix as valid.</p>
+<h3 id="removal-of-api-compatibility">Removal of API compatibility<a class="headerlink" href="#removal-of-api-compatibility" title="Permanent link">#</a></h3>
+<p>WoltLab Suite 6.0 removes support for the deprecated API compatibility functionality.
+Any packages with a <code>&lt;compatibility&gt;</code> tag in their package.xml are assumed to not have been updated for WoltLab Suite 6.0 and will be rejected during installation.
+Furthermore any packages without an explicit requirement for <code>com.woltlab.wcf</code> in at least version <code>5.4.22</code> are also assumed to not have been updated for WoltLab Suite 6.0 and will also be rejected.
+The latter check is intended to reject old and most likely incompatible packages where the author forgot to add either an <code>&lt;excludedpackage&gt;</code> or a <code>&lt;compatibility&gt;</code> tag before releasing it.</p>
+<h3 id="package-installation-plugins">Package Installation Plugins<a class="headerlink" href="#package-installation-plugins" title="Permanent link">#</a></h3>
+<h4 id="eventlistener">EventListener<a class="headerlink" href="#eventlistener" title="Permanent link">#</a></h4>
+<p>Installing unnamed event listeners is no longer supported.
+The <code>name</code> attribute needs to be specified for all event listeners.</p>
+<p>Deleting unnamed event listeners still is possible to allow for a clean migration of existing listeners.</p>
+<h4 id="cronjob">Cronjob<a class="headerlink" href="#cronjob" title="Permanent link">#</a></h4>
+<p>Installing unnamed cronjobs is no longer supported.
+The <code>name</code> attribute needs to be specified for all event listeners.</p>
+<p>Deleting unnamed cronjobs still is possible to allow for a clean migration of existing cronjobs.</p>
+<p>The cronjob PIP now supports the <code>&lt;expression&gt;</code> element, allowing to define the cronjob schedule using a full expression instead of specifying the five elements separately.</p>
+<h4 id="database">Database<a class="headerlink" href="#database" title="Permanent link">#</a></h4>
+<p>The <code>$name</code> parameter of <code>DatabaseTableIndex::create()</code> is no longer optional.
+Relying on the auto-generated index name is strongly discouraged, because of unfixable inconsistent behavior between the SQL PIP and the PHP DDL API.
+See <a href="https://github.com/WoltLab/WCF/issues/4505">WoltLab/WCF#4505</a> for further background information.</p>
+<p>The autogenerated name can still be requested by passing an empty string as the <code>$name</code>.
+This should only be done for backwards compatibility purposes and to migrate an index with an autogenerated name to an index with an explicit name.
+An example script can be found in <a href="https://github.com/WoltLab/com.woltlab.wcf.conversation/commit/a33677ca051f76e1ddda1de7f8dc62a5484de16e">WoltLab/com.woltlab.wcf.conversation@a33677ca051f</a>.</p>
+<h2 id="internationalization">Internationalization<a class="headerlink" href="#internationalization" title="Permanent link">#</a></h2>
+<p>WoltLab Suite 6.0 <a href="#minimum-requirements">increases the System Requirements</a> to require <a href="https://www.php.net/manual/en/book.intl.php">PHP’s intl extension</a> to be installed and enabled, allowing you to rely on the functionality provided by it to better match the rules and conventions of the different languages and regions of the world.</p>
+<p>One example would be the formatting of numbers.
+WoltLab Suite included a feature to group digits within large numbers since early versions using the <code>StringUtil::addThousandsSeparator()</code> method.
+While this method was able to account for <em>some</em> language-specific differences, e.g. by selecting an appropriate separator character based on a phrase, it failed to account for all the differences in number formatting across countries and cultures.</p>
+<p>As an example, English as written in the United States of America uses commas to create groups of three digits within large numbers: 123,456,789.
+English as written in India on the other hand also uses commas, but digits are not grouped into groups of three.
+Instead the right-most three digits form a group and then another comma is added every <em>two</em> digits: 12,34,56,789.</p>
+<p>Another example would be German as used within Germany and Switzerland.
+While both countries use groups of three, the separator character differs.
+Germany uses a dot (123.456.789), whereas Switzerland uses an apostrophe (123’456’789).
+The correct choice of separator could already be configured using the afore-mentioned phrase, but this is both inconvenient and fails to account for other differences between the two countries.
+It also made it hard to keep the behavior up to date when rules change.</p>
+<p>PHP’s intl extension on the other hand builds on the official Unicode rules, by relying on the ICU library published by the Unicode consortium.
+As such it is aware of the rules of all relevant languages and regions of the world and it is already kept up to date by the operating system’s package manager.</p>
+<p>For the four example regions (en_US, en_IN, de_DE, de_CH) intl’s <code>NumberFormatter</code> class will format the number 123456789 as follows, correctly implementing the rules:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>php &gt; var_dump((new NumberFormatter(&#39;en_US&#39;, \NumberFormatter::DEFAULT_STYLE))-&gt;format(123_456_789));
+string(11) &quot;123,456,789&quot;
+php &gt; var_dump((new NumberFormatter(&#39;en_IN&#39;, \NumberFormatter::DEFAULT_STYLE))-&gt;format(123_456_789));
+string(12) &quot;12,34,56,789&quot;
+php &gt; var_dump((new NumberFormatter(&#39;de_DE&#39;, \NumberFormatter::DEFAULT_STYLE))-&gt;format(123_456_789));
+string(11) &quot;123.456.789&quot;
+php &gt; var_dump((new NumberFormatter(&#39;de_CH&#39;, \NumberFormatter::DEFAULT_STYLE))-&gt;format(123_456_789));
+string(15) &quot;123’456’789&quot;
+</code></pre></div></td></tr></table></div>
+<p>WoltLab Suite’s <code>StringUtil::formatNumeric()</code> method is updated to leverage the <code>NumberFormatter</code> internally.
+However your package might have special requirements regarding formatting, for example when formatting currencies where the position of the currency symbol differs across languages.
+In those cases your package should manually create an appropriately configured class from Intl’s feature set.
+The correct locale can be queried by the new <code>Language::getLocale()</code> method.</p>
+<p>Another use case that showcases the <code>Language::getLocale()</code> method might be localizing a country name using <a href="https://www.php.net/manual/en/locale.getdisplayregion.php"><code>locale_get_display_region()</code></a>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>php &gt; var_dump(\wcf\system\WCF::getLanguage()-&gt;getLocale());
+string(5) &quot;en_US&quot;
+php &gt; var_dump(locale_get_display_region(&#39;_DE&#39;, \wcf\system\WCF::getLanguage()-&gt;getLocale()));
+string(7) &quot;Germany&quot;
+php &gt; var_dump(locale_get_display_region(&#39;_US&#39;, \wcf\system\WCF::getLanguage()-&gt;getLocale()));
+string(13) &quot;United States&quot;
+php &gt; var_dump(locale_get_display_region(&#39;_IN&#39;, \wcf\system\WCF::getLanguage()-&gt;getLocale()));
+string(5) &quot;India&quot;
+php &gt; var_dump(locale_get_display_region(&#39;_BR&#39;, \wcf\system\WCF::getLanguage()-&gt;getLocale()));
+string(6) &quot;Brazil&quot;
+</code></pre></div></td></tr></table></div>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/5048">WoltLab/WCF#5048</a> for details.</p>
+<h2 id="indicating-parameters-that-hold-sensitive-information">Indicating parameters that hold sensitive information<a class="headerlink" href="#indicating-parameters-that-hold-sensitive-information" title="Permanent link">#</a></h2>
+<p>PHP 8.2 adds native support for redacting parameters holding sensitive information in stack traces.
+Parameters with the <code>#[\SensitiveParameter]</code> attribute will show a placeholder value within the stack trace and the error log.</p>
+<p>WoltLab Suite’s exception handler contains logic to manually apply the sanitization for PHP versions before 8.2.</p>
+<p>It is strongly recommended to add this attribute to all parameters holding sensitive information.
+Examples for sensitive parameters include passwords/passphrases, access tokens, plaintext values to be encrypted, or private keys.</p>
+<p>As attributes are fully backwards and forwards compatible it is possible to apply the attribute to packages targeting older WoltLab Suite or PHP versions without causing errors.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">function</span> <span class="nf">checkPassword</span><span class="p">(</span>
+    <span class="p">#[</span><span class="nd">\SensitiveParameter</span><span class="p">]</span>
+    <span class="nv">$password</span><span class="p">,</span>
+<span class="p">)</span><span class="o">:</span> <span class="nx">bool</span> <span class="p">{</span>
+    <span class="c1">// …</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>See the <a href="https://wiki.php.net/rfc/redact_parameters_in_back_traces">PHP RFC: Redacting parameters in back traces</a> for more details.</p>
+<h2 id="conditions">Conditions<a class="headerlink" href="#conditions" title="Permanent link">#</a></h2>
+<h3 id="abstractintegercondition">AbstractIntegerCondition<a class="headerlink" href="#abstractintegercondition" title="Permanent link">#</a></h3>
+<p>Deriving from <code>AbstractIntegerCondition</code> now requires to explicitly implement <code>protected function getIdentifier(): string</code>, instead of setting the <code>$identifier</code> property.
+This is to ensure that all conditions specify a unique identifier, instead of accidentally relying on a default value.
+The <code>$identifier</code> property will no longer be used and may be removed.</p>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/5077">WoltLab/WCF#5077</a> for details.</p>
+<h2 id="rebuild-workers">Rebuild Workers<a class="headerlink" href="#rebuild-workers" title="Permanent link">#</a></h2>
+<p>Rebuild workers should no longer be registered using the <code>com.woltlab.wcf.rebuildData</code> object type definition.
+You can attach an event listener to the <code>wcf\system\worker\event\RebuildWorkerCollecting</code> event inside a <a href="#bootstrap-scripts">bootstrap script</a> to lazily register workers.
+The class name of the worker is registered using the event’s <code>register()</code> method:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/bootstrap/com.example.bar.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">wcf\system\event\EventHandler</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\worker\event\RebuildWorkerCollecting</span><span class="p">;</span>
+
+<span class="k">return</span> <span class="k">static</span> <span class="k">function</span> <span class="p">()</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
+    <span class="nv">$eventHandler</span> <span class="o">=</span> <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">();</span>
+
+    <span class="nv">$eventHandler</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">RebuildWorkerCollecting</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">RebuildWorkerCollecting</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">\bar\system\worker\BazWorker</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2023-07-05
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2020 WoltLab GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-copyright">
+	<a href="https://www.woltlab.com/legal-notice/">Legal Notice</a> 
+	<a href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>
