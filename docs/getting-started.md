@@ -32,14 +32,14 @@ Create a new file called `package.xml` and insert the code below:
 		<packagename>Simple Package</packagename>
 		<packagedescription>A simple package to demonstrate the package system of WoltLab Suite Core</packagedescription>
 		<version>1.0.0</version>
-		<date>2019-04-28</date>
+		<date>2023-09-15</date>
 	</packageinformation>
 	<authorinformation>
 		<author>Your Name</author>
 		<authorurl>http://www.example.com</authorurl>
 	</authorinformation>
 	<excludedpackages>
-		<excludedpackage version="6.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+		<excludedpackage version="7.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
 	</excludedpackages>
 	<instructions type="install">
 		<instruction type="file" />
