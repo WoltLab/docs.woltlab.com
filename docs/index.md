@@ -1,4 +1,4 @@
-# WoltLab Suite 6.0 Documentation
+# WoltLab Suite 6.1 Documentation
 
 ## Introduction
 
