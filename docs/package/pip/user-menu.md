@@ -32,7 +32,10 @@ the full external link otherwise.
 
 !!! info "Use an icon only for top-level items."
 
-Name of the Font Awesome icon class.
+Specifiy the name of the Font Awesome icon.
+For regular icons, the solid variant can be requested with the attribute `solid="true"`.
+
+Brand icons are supported using the separate attribute `type="brand"`.
 
 ### `<options>`
 
