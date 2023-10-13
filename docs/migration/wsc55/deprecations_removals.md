@@ -39,6 +39,7 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `wcf\util\Diff::getRawDiff()` ([WoltLab/WCF#4918](https://github.com/WoltLab/WCF/pull/4918))
 - `wcf\util\Diff::getUnixDiff()` ([WoltLab/WCF#4918](https://github.com/WoltLab/WCF/pull/4918))
 - `wcf\util\StringUtil::convertEncoding()` ([WoltLab/WCF#4800](https://github.com/WoltLab/WCF/pull/4800))
+- `wcf\system\bbcode\AttachmentBBCode::setAttachmentList()` ([WoltLab/WCF#5587](https://github.com/WoltLab/WCF/pull/5587))
 
 #### Properties
 
