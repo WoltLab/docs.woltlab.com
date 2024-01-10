@@ -23,7 +23,7 @@
 					<ul class="buttonGroup">
 						<li>
 							<a href="#" class="button" id="personInformationAddButton">
-								<span class="icon icon16 fa-plus"></span>
+								{icon name='plus'}
 								<span>{lang}wcf.person.information.add{/lang}</span>
 							</a>
 						</li>
@@ -59,7 +59,7 @@
 										{if $information->canEdit()}
 											<li class="jsOnly">
 												<a href="#" title="{lang}wcf.global.button.edit{/lang}" class="jsEditInformation jsTooltip">
-													<span class="icon icon16 fa-pencil"></span>
+													{icon name='pencil'}
 													<span class="invisible">{lang}wcf.global.button.edit{/lang}</span>
 												</a>
 											</li>
@@ -67,7 +67,7 @@
 										{if $information->canDelete()}
 											<li class="jsOnly">
 												<a href="#" title="{lang}wcf.global.button.delete{/lang}" class="jsObjectAction jsTooltip" data-object-action="delete" data-confirm-message="{lang}wcf.person.information.delete.confirmMessage{/lang}">
-													<span class="icon icon16 fa-times"></span>
+													{icon name='times'}
 													<span class="invisible">{lang}wcf.global.button.edit{/lang}</span>
 												</a>
 											</li>

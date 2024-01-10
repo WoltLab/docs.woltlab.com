@@ -158,7 +158,7 @@ Form fields of this class have `rating` as their default id, `wcf.form.field.rat
 For this field, the minimum and maximum refer to the minimum and maximum rating an object can get.
 When the field is shown, there will be `maximum() - minimum() + 1` icons be shown with additional CSS classes that can be set and gotten via `defaultCssClasses(array $cssClasses)` and `getDefaultCssClasses()`.
 If a rating values is set, the first `getValue()` icons will instead use the classes that can be set and gotten via `activeCssClasses(array $cssClasses)` and `getActiveCssClasses()`.
-By default, the only default class is `fa-star-o` and the active classes are `fa-star` and `orange`. 
+By default, the only default class is `star-o` and the active classes are `star` and `orange`. 
 
 
 ### `SelectFormField`
