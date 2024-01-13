@@ -130,6 +130,18 @@ By default, `ItemListFormField::SAVE_VALUE_TYPE_CSV` is used.
 If `ItemListFormField::SAVE_VALUE_TYPE_ARRAY` is used as save value type, `ItemListFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant array into the `$parameters` array directly using the object property as the array key.
 
 
+### `LanguageItemFormNode`
+
+`LanguageItemFormNode` is a form node that shows a language item without any surrounding HTML code.
+
+Example:
+
+```php
+LanguageItemFormNode::create('name')
+  ->languageItem('name_of_language_item');
+```
+
+
 ### `MultilineTextFormField`
 
 `MultilineTextFormField` is a [text form field](#textformfield) that supports multiple rows of text.
