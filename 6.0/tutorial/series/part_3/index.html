@@ -4642,7 +4642,7 @@ Compared to the pre-existing <code>com.woltlab.wcf.people.PersonList</code> page
         <span class="nv">$results</span> <span class="o">=</span> <span class="p">[];</span>
         <span class="k">foreach</span> <span class="p">(</span><span class="nv">$personList</span> <span class="k">as</span> <span class="nv">$person</span><span class="p">)</span> <span class="p">{</span>
             <span class="nv">$results</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="s1">&#39;image&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;fa-user&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;image&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span>
                 <span class="s1">&#39;link&#39;</span> <span class="o">=&gt;</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">(),</span>
                 <span class="s1">&#39;objectID&#39;</span> <span class="o">=&gt;</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">personID</span><span class="p">,</span>
                 <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nv">$person</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="p">(),</span>
@@ -4679,7 +4679,7 @@ As we want  administrators to link to specific people in menus, for example, we 
    Here, we use <code>PersonRuntimeCache::getObject()</code> again and check if the return value is <code>null</code>, which is the case for non-existing people.</li>
 <li><code>lookup($searchString)</code> is used when setting up an internal link and when searching for the linked person.
    This method simply searches the first and last name of the people and returns an array with the person data.
-   While the <code>link</code>, the <code>objectID</code>, and the <code>title</code> element are self-explanatory, the <code>image</code> element can either contain an HTML <code>&lt;img&gt;</code> tag, which is displayed next to the search result (WoltLab Suite uses an image tag for users showing their avatar, for example), or a FontAwesome icon class (starting with <code>fa-</code>).</li>
+   While the <code>link</code>, the <code>objectID</code>, and the <code>title</code> element are self-explanatory, the <code>image</code> element can either contain an HTML <code>&lt;img&gt;</code> tag, which is displayed next to the search result (WoltLab Suite uses an image tag for users showing their avatar, for example), or a FontAwesome icon class.</li>
 </ol>
 <p>Additionally, the class also implements <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/IOnlineLocationPageHandler.class.php">IOnlineLocationPageHandler</a> which is used to determine the online location of users.
 To ensure upwards-compatibility if the <code>IOnlineLocationPageHandler</code> interface changes, the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/TOnlineLocationPageHandler.class.php">TOnlineLocationPageHandler</a> trait is used.
@@ -4699,7 +4699,7 @@ The <code>IOnlineLocationPageHandler</code> interface requires two methods to be
   <small>
     
       Last update:
-      2021-04-23
+      2024-01-10
     
   </small>
 </div>

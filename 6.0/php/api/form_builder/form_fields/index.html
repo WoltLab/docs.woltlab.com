@@ -813,6 +813,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#languageitemformnode" class="md-nav__link">
+    LanguageItemFormNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#multilinetextformfield" class="md-nav__link">
     MultilineTextFormField
   </a>
@@ -4153,6 +4160,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#languageitemformnode" class="md-nav__link">
+    LanguageItemFormNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#multilinetextformfield" class="md-nav__link">
     MultilineTextFormField
   </a>
@@ -4621,6 +4635,13 @@ The following save value types are supported:</p>
 </ul>
 <p>By default, <code>ItemListFormField::SAVE_VALUE_TYPE_CSV</code> is used.</p>
 <p>If <code>ItemListFormField::SAVE_VALUE_TYPE_ARRAY</code> is used as save value type, <code>ItemListFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the relevant array into the <code>$parameters</code> array directly using the object property as the array key.</p>
+<h3 id="languageitemformnode"><code>LanguageItemFormNode</code><a class="headerlink" href="#languageitemformnode" title="Permanent link">#</a></h3>
+<p><code>LanguageItemFormNode</code> is a form node that shows a language item without any surrounding HTML code.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">LanguageItemFormNode</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">languageItem</span><span class="p">(</span><span class="s1">&#39;name_of_language_item&#39;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="multilinetextformfield"><code>MultilineTextFormField</code><a class="headerlink" href="#multilinetextformfield" title="Permanent link">#</a></h3>
 <p><code>MultilineTextFormField</code> is a <a href="#textformfield">text form field</a> that supports multiple rows of text.
 The methods <code>rows($rows)</code> and <code>getRows()</code> can be used to set and get the number of rows of the <code>textarea</code> elements.
@@ -4639,7 +4660,7 @@ Form fields of this class have <code>rating</code> as their default id, <code>wc
 For this field, the minimum and maximum refer to the minimum and maximum rating an object can get.
 When the field is shown, there will be <code>maximum() - minimum() + 1</code> icons be shown with additional CSS classes that can be set and gotten via <code>defaultCssClasses(array $cssClasses)</code> and <code>getDefaultCssClasses()</code>.
 If a rating values is set, the first <code>getValue()</code> icons will instead use the classes that can be set and gotten via <code>activeCssClasses(array $cssClasses)</code> and <code>getActiveCssClasses()</code>.
-By default, the only default class is <code>fa-star-o</code> and the active classes are <code>fa-star</code> and <code>orange</code>. </p>
+By default, the only default class is <code>star-o</code> and the active classes are <code>star</code> and <code>orange</code>. </p>
 <h3 id="selectformfield"><code>SelectFormField</code><a class="headerlink" href="#selectformfield" title="Permanent link">#</a></h3>
 <p><code>SelectFormField</code> is a form fields that allows the selection of a single option out of a predefined list of available options.
 The class implements <code>ICssClassFormField</code> and <code>IImmutableFormField</code>.</p>
@@ -4885,7 +4906,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
   <small>
     
       Last update:
-      2023-07-05
+      2024-01-13
     
   </small>
 </div>
