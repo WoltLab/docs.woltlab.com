@@ -130,6 +130,18 @@ By default, `ItemListFormField::SAVE_VALUE_TYPE_CSV` is used.
 If `ItemListFormField::SAVE_VALUE_TYPE_ARRAY` is used as save value type, `ItemListFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant array into the `$parameters` array directly using the object property as the array key.
 
 
+### `LanguageItemFormNode`
+
+`LanguageItemFormNode` is a form node that shows a language item without any surrounding HTML code.
+
+Example:
+
+```php
+LanguageItemFormNode::create('name')
+  ->languageItem('name_of_language_item');
+```
+
+
 ### `MultilineTextFormField`
 
 `MultilineTextFormField` is a [text form field](#textformfield) that supports multiple rows of text.
@@ -158,7 +170,7 @@ Form fields of this class have `rating` as their default id, `wcf.form.field.rat
 For this field, the minimum and maximum refer to the minimum and maximum rating an object can get.
 When the field is shown, there will be `maximum() - minimum() + 1` icons be shown with additional CSS classes that can be set and gotten via `defaultCssClasses(array $cssClasses)` and `getDefaultCssClasses()`.
 If a rating values is set, the first `getValue()` icons will instead use the classes that can be set and gotten via `activeCssClasses(array $cssClasses)` and `getActiveCssClasses()`.
-By default, the only default class is `fa-star-o` and the active classes are `fa-star` and `orange`. 
+By default, the only default class is `star-o` and the active classes are `star` and `orange`. 
 
 
 ### `SelectFormField`

@@ -7,7 +7,7 @@
 	
 	<nav class="contentHeaderNavigation">
 		<ul>
-			<li><a href="{link controller='PersonAdd'}{/link}" class="button"><span class="icon icon16 fa-plus"></span> <span>{lang}wcf.acp.menu.link.person.add{/lang}</span></a></li>
+			<li><a href="{link controller='PersonAdd'}{/link}" class="button">{icon name='plus'} <span>{lang}wcf.acp.menu.link.person.add{/lang}</span></a></li>
 			
 			{event name='contentHeaderNavigation'}
 		</ul>
@@ -37,7 +37,7 @@
 				{foreach from=$objects item=person}
 					<tr class="jsObjectActionObject" data-object-id="{@$person->getObjectID()}">
 						<td class="columnIcon">
-							<a href="{link controller='PersonEdit' object=$person}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip"><span class="icon icon16 fa-pencil"></span></a>
+							<a href="{link controller='PersonEdit' object=$person}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip">{icon name='pencil'}</a>
 							{objectAction action="delete" objectTitle=$person->getTitle()}
 							
 							{event name='rowButtons'}
@@ -62,7 +62,7 @@
 		
 		<nav class="contentFooterNavigation">
 			<ul>
-				<li><a href="{link controller='PersonAdd'}{/link}" class="button"><span class="icon icon16 fa-plus"></span> <span>{lang}wcf.acp.menu.link.person.add{/lang}</span></a></li>
+				<li><a href="{link controller='PersonAdd'}{/link}" class="button">{icon name='plus'} <span>{lang}wcf.acp.menu.link.person.add{/lang}</span></a></li>
 				
 				{event name='contentFooterNavigation'}
 			</ul>

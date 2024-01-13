@@ -186,7 +186,7 @@ For the `ILookupPageHandler` interface, we need to implement three methods:
    Here, we use `PersonRuntimeCache::getObject()` again and check if the return value is `null`, which is the case for non-existing people.
 1. `lookup($searchString)` is used when setting up an internal link and when searching for the linked person.
    This method simply searches the first and last name of the people and returns an array with the person data.
-   While the `link`, the `objectID`, and the `title` element are self-explanatory, the `image` element can either contain an HTML `<img>` tag, which is displayed next to the search result (WoltLab Suite uses an image tag for users showing their avatar, for example), or a FontAwesome icon class (starting with `fa-`).
+   While the `link`, the `objectID`, and the `title` element are self-explanatory, the `image` element can either contain an HTML `<img>` tag, which is displayed next to the search result (WoltLab Suite uses an image tag for users showing their avatar, for example), or a FontAwesome icon class.
 
 Additionally, the class also implements [IOnlineLocationPageHandler](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/IOnlineLocationPageHandler.class.php) which is used to determine the online location of users.
 To ensure upwards-compatibility if the `IOnlineLocationPageHandler` interface changes, the [TOnlineLocationPageHandler](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/page/handler/TOnlineLocationPageHandler.class.php) trait is used.

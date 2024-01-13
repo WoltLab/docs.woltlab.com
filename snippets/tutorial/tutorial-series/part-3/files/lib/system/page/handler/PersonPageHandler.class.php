@@ -76,7 +76,7 @@ final class PersonPageHandler extends AbstractLookupPageHandler implements IOnli
         $results = [];
         foreach ($personList as $person) {
             $results[] = [
-                'image' => 'fa-user',
+                'image' => 'user',
                 'link' => $person->getLink(),
                 'objectID' => $person->personID,
                 'title' => $person->getTitle(),

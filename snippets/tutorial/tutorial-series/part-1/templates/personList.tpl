@@ -55,7 +55,7 @@
 			{foreach from=$objects item=person}
 				<li>
 					<div class="box48">
-						<span class="icon icon48 fa-user"></span>
+						{icon name='user' size=48}
 						
 						<div class="details personInformation">
 							<div class="containerHeadline">
