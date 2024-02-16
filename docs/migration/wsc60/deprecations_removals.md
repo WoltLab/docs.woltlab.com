@@ -7,9 +7,11 @@ With version 6.1, we have deprecated certain components and removed several othe
 ### JavaScript
 
 - `WCF.User.Action.Follow` ([WoltLab/WCF#5747](https://github.com/WoltLab/WCF/pull/5747))
-- `WCF.User.Registration.Validation`
-- `WCF.User.Registration.Validation.Username`
-- `WCF.User.Registration.Validation.EmailAddress`
+- `WCF.User.Registration.Validation` ([WoltLab/WCF#5716](https://github.com/WoltLab/WCF/pull/5716))
+- `WCF.User.Registration.Validation.Username` ([WoltLab/WCF#5716](https://github.com/WoltLab/WCF/pull/5716))
+- `WCF.User.Registration.Validation.EmailAddress` ([WoltLab/WCF#5716](https://github.com/WoltLab/WCF/pull/5716))
+- `WCF.User.RecentActivityLoader` ([WoltLab/WCF#5804](https://github.com/WoltLab/WCF/pull/5804))
+- `WoltLabSuite/Core/Ui/User/Activity/Recent` ([WoltLab/WCF#5804](https://github.com/WoltLab/WCF/pull/5804))
 
 ## Removals
 
