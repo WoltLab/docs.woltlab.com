@@ -3831,10 +3831,12 @@ You can simply omit the value if you do not use the reason.</p>
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">()</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">()</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">custom</span><span class="p">(</span><span class="nx">theQuestionToAsk</span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">withFormElements</span><span class="p">((</span><span class="nx">dialog</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello World&lt;/p&gt;&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">p</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
 <span class="w">    </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
 <span class="w">  </span><span class="p">});</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3851,7 +3853,7 @@ You can simply omit the value if you do not use the reason.</p>
   <small>
     
       Last update:
-      2023-09-09
+      2024-02-23
     
   </small>
 </div>
