@@ -124,7 +124,8 @@ Some dialogs require additional input elements, for example, the prompt to remov
 const { result, dialog } = await confirmationFactory()
   .custom(theQuestionToAsk)
   .withFormElements((dialog) => {
-    const p = document.createElement("<p>Hello World</p>");
+    const p = document.createElement("p");
+    p.textContent = "Hello World";
     dialog.content.append(p);
   });
 if (result) {
