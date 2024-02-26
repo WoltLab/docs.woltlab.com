@@ -1,6 +1,6 @@
 # Migrating from WoltLab Suite 6.0 - Templates
 
-### Shared Templates
+## Shared Templates
 
 Shared templates, applicable both in the frontend and the backend, are now standardized to begin with the
 prefix `shared_`.
