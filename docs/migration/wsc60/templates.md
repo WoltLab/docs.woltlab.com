@@ -128,7 +128,8 @@ new `shared_` prefixed names:
 #### Migration
 
 We provide a helper script that automates the task of updating the template includes. The script will search
-for `{include file='old_template_name'}` and replace it with `{include file='shared_new_template_name'}`.
+for `{include file='old_template_name'}` and ensure that any content before or after
+the `file='old_template_name'` remains available within the `{include}` tag.
 
 The helper script is part of WoltLab Suite Core and can be found in the repository
 at `extra/migrate-shared-template.php`. The script must be executed from CLI and requires PHP 8.1.
