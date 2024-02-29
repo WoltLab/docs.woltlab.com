@@ -39,4 +39,4 @@ The event can be canceled to prevent navigation.
 
 ### `jumpToPage`
 
-The `switchPage` event will be fired when the user clicks on one of the ellipsis buttons within the pagination.
+The `jumpToPage` event will be fired when the user clicks on one of the ellipsis buttons within the pagination.
