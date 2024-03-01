@@ -4640,7 +4640,15 @@ The fourth level menu item <code>wcf.acp.menu.link.person.add</code> will only b
 <span class="normal">72</span>
 <span class="normal">73</span>
 <span class="normal">74</span>
-<span class="normal">75</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;header&#39;</span> <span class="na">pageTitle</span><span class="o">=</span><span class="s1">&#39;wcf.acp.person.list&#39;</span><span class="cp">}</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;header&#39;</span> <span class="na">pageTitle</span><span class="o">=</span><span class="s1">&#39;wcf.acp.person.list&#39;</span><span class="cp">}</span>
 
 <span class="x">&lt;header class=&quot;contentHeader&quot;&gt;</span>
 <span class="x">    &lt;div class=&quot;contentHeaderTitle&quot;&gt;</span>
@@ -4656,11 +4664,15 @@ The fourth level menu item <code>wcf.acp.menu.link.person.add</code> will only b
 <span class="x">    &lt;/nav&gt;</span>
 <span class="x">&lt;/header&gt;</span>
 
-<span class="cp">{</span><span class="nf">hascontent</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">if</span> <span class="nv">$pages</span> <span class="o">&gt;</span> <span class="m">1</span><span class="cp">}</span>
 <span class="x">    &lt;div class=&quot;paginationTop&quot;&gt;</span>
-<span class="x">        </span><span class="cp">{</span><span class="nf">content</span><span class="cp">}{</span><span class="nf">pages</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span> <span class="na">assign</span><span class="o">=</span><span class="na">pagesLinks</span> <span class="na">controller</span><span class="o">=</span><span class="s2">&quot;PersonList&quot;</span> <span class="na">link</span><span class="o">=</span><span class="s2">&quot;pageNo=%d&amp;sortField=$sortField&amp;sortOrder=$sortOrder&quot;</span><span class="cp">}{</span><span class="nf">/content</span><span class="cp">}</span>
+<span class="x">        &lt;woltlab-core-pagination</span>
+<span class="x">            page=&quot;</span><span class="cp">{</span><span class="nv">$pageNo</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">            count=&quot;</span><span class="cp">{</span><span class="nv">$pages</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">            url=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;PersonList&#39;</span><span class="cp">}</span><span class="x">sortField=</span><span class="cp">{</span><span class="nv">$sortField</span><span class="cp">}</span><span class="x">&amp;sortOrder=</span><span class="cp">{</span><span class="nv">$sortOrder</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">        &gt;&lt;/woltlab-core-pagination&gt;</span>
 <span class="x">    &lt;/div&gt;</span>
-<span class="cp">{</span><span class="nf">/hascontent</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 
 <span class="cp">{</span><span class="nf">if</span> <span class="nv">$objects</span><span class="o">|</span><span class="na">count</span><span class="cp">}</span>
 <span class="x">    &lt;div class=&quot;section tabularBox&quot;&gt;</span>
@@ -4696,11 +4708,15 @@ The fourth level menu item <code>wcf.acp.menu.link.person.add</code> will only b
 <span class="x">    &lt;/div&gt;</span>
 
 <span class="x">    &lt;footer class=&quot;contentFooter&quot;&gt;</span>
-<span class="x">        </span><span class="cp">{</span><span class="nf">hascontent</span><span class="cp">}</span>
+<span class="x">        </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$pages</span> <span class="o">&gt;</span> <span class="m">1</span><span class="cp">}</span>
 <span class="x">            &lt;div class=&quot;paginationBottom&quot;&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="nf">content</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$pagesLinks</span><span class="cp">}{</span><span class="nf">/content</span><span class="cp">}</span>
+<span class="x">                &lt;woltlab-core-pagination</span>
+<span class="x">                    page=&quot;</span><span class="cp">{</span><span class="nv">$pageNo</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">                    count=&quot;</span><span class="cp">{</span><span class="nv">$pages</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">                    url=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;PersonList&#39;</span><span class="cp">}</span><span class="x">sortField=</span><span class="cp">{</span><span class="nv">$sortField</span><span class="cp">}</span><span class="x">&amp;sortOrder=</span><span class="cp">{</span><span class="nv">$sortOrder</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">                &gt;&lt;/woltlab-core-pagination&gt;</span>
 <span class="x">            &lt;/div&gt;</span>
-<span class="x">        </span><span class="cp">{</span><span class="nf">/hascontent</span><span class="cp">}</span>
+<span class="x">        </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 
 <span class="x">        &lt;nav class=&quot;contentFooterNavigation&quot;&gt;</span>
 <span class="x">            &lt;ul&gt;</span>
@@ -5265,7 +5281,13 @@ In the front end, we explicitly set the <code>$defaultSortField</code> so that t
 <span class="normal"> 99</span>
 <span class="normal">100</span>
 <span class="normal">101</span>
-<span class="normal">102</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;contentTitle&#39;</span><span class="cp">}{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.list</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x"> &lt;span class=&quot;badge&quot;&gt;</span><span class="cp">{</span><span class="err">#</span><span class="nv">$items</span><span class="cp">}</span><span class="x">&lt;/span&gt;</span><span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;contentTitle&#39;</span><span class="cp">}{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.person.list</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x"> &lt;span class=&quot;badge&quot;&gt;</span><span class="cp">{</span><span class="err">#</span><span class="nv">$items</span><span class="cp">}</span><span class="x">&lt;/span&gt;</span><span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span>
 
 <span class="cp">{</span><span class="nf">capture</span> <span class="na">assign</span><span class="o">=</span><span class="s1">&#39;headContent&#39;</span><span class="cp">}</span>
 <span class="x">    </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$pageNo</span> <span class="o">&lt;</span> <span class="nv">$pages</span><span class="cp">}</span>
@@ -5308,13 +5330,15 @@ In the front end, we explicitly set the <code>$defaultSortField</code> so that t
 
 <span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;header&#39;</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nf">hascontent</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">if</span> <span class="nv">$pages</span> <span class="o">&gt;</span> <span class="m">1</span><span class="cp">}</span>
 <span class="x">    &lt;div class=&quot;paginationTop&quot;&gt;</span>
-<span class="x">        </span><span class="cp">{</span><span class="nf">content</span><span class="cp">}</span>
-<span class="x">            </span><span class="cp">{</span><span class="nf">pages</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span> <span class="na">assign</span><span class="o">=</span><span class="na">pagesLinks</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;PersonList&#39;</span> <span class="na">link</span><span class="o">=</span><span class="s2">&quot;pageNo=%d&amp;sortField=$sortField&amp;sortOrder=$sortOrder&quot;</span><span class="cp">}</span>
-<span class="x">        </span><span class="cp">{</span><span class="nf">/content</span><span class="cp">}</span>
+<span class="x">        &lt;woltlab-core-pagination</span>
+<span class="x">            page=&quot;</span><span class="cp">{</span><span class="nv">$pageNo</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">            count=&quot;</span><span class="cp">{</span><span class="nv">$pages</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">            url=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;PersonList&#39;</span><span class="cp">}</span><span class="x">sortField=</span><span class="cp">{</span><span class="nv">$sortField</span><span class="cp">}</span><span class="x">&amp;sortOrder=</span><span class="cp">{</span><span class="nv">$sortOrder</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">        &gt;&lt;/woltlab-core-pagination&gt;</span>
 <span class="x">    &lt;/div&gt;</span>
-<span class="cp">{</span><span class="nf">/hascontent</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 
 <span class="cp">{</span><span class="nf">if</span> <span class="nv">$items</span><span class="cp">}</span>
 <span class="x">    &lt;div class=&quot;section sectionContainerList&quot;&gt;</span>
@@ -5351,11 +5375,15 @@ In the front end, we explicitly set the <code>$defaultSortField</code> so that t
 <span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 
 <span class="x">&lt;footer class=&quot;contentFooter&quot;&gt;</span>
-<span class="x">    </span><span class="cp">{</span><span class="nf">hascontent</span><span class="cp">}</span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$pages</span> <span class="o">&gt;</span> <span class="m">1</span><span class="cp">}</span>
 <span class="x">        &lt;div class=&quot;paginationBottom&quot;&gt;</span>
-<span class="x">            </span><span class="cp">{</span><span class="nf">content</span><span class="cp">}{</span><span class="o">@</span><span class="nv">$pagesLinks</span><span class="cp">}{</span><span class="nf">/content</span><span class="cp">}</span>
+<span class="x">            &lt;woltlab-core-pagination</span>
+<span class="x">                page=&quot;</span><span class="cp">{</span><span class="nv">$pageNo</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">                count=&quot;</span><span class="cp">{</span><span class="nv">$pages</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">                url=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;PersonList&#39;</span><span class="cp">}</span><span class="x">sortField=</span><span class="cp">{</span><span class="nv">$sortField</span><span class="cp">}</span><span class="x">&amp;sortOrder=</span><span class="cp">{</span><span class="nv">$sortOrder</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">            &gt;&lt;/woltlab-core-pagination&gt;</span>
 <span class="x">        &lt;/div&gt;</span>
-<span class="x">    </span><span class="cp">{</span><span class="nf">/hascontent</span><span class="cp">}</span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 
 <span class="x">    </span><span class="cp">{</span><span class="nf">hascontent</span><span class="cp">}</span>
 <span class="x">        &lt;nav class=&quot;contentFooterNavigation&quot;&gt;</span>
