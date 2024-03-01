@@ -14,11 +14,15 @@
 	</nav>
 </header>
 
-{hascontent}
+{if $pages > 1}
 	<div class="paginationTop">
-		{content}{pages print=true assign=pagesLinks controller="PersonList" link="pageNo=%d&sortField=$sortField&sortOrder=$sortOrder"}{/content}
+		<woltlab-core-pagination
+			page="{$pageNo}"
+			count="{$pages}"
+			url="{link controller='PersonList'}sortField={$sortField}&sortOrder={$sortOrder}{/link}"
+		></woltlab-core-pagination>
 	</div>
-{/hascontent}
+{/if}
 
 {if $objects|count}
 	<div class="section tabularBox">
@@ -54,11 +58,15 @@
 	</div>
 	
 	<footer class="contentFooter">
-		{hascontent}
+		{if $pages > 1}
 			<div class="paginationBottom">
-				{content}{@$pagesLinks}{/content}
+				<woltlab-core-pagination
+					page="{$pageNo}"
+					count="{$pages}"
+					url="{link controller='PersonList'}sortField={$sortField}&sortOrder={$sortOrder}{/link}"
+				></woltlab-core-pagination>
 			</div>
-		{/hascontent}
+		{/if}
 		
 		<nav class="contentFooterNavigation">
 			<ul>
