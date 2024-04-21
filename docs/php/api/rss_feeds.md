@@ -77,9 +77,9 @@ $channel->item($item);
 
 ## `RssFeedSource`
 
-[RssFeedSource](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/rssFeed/RssFeedSource.class.php) represents the scource of a feed item. A feed item can only have one scource.
+[RssFeedSource](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/rssFeed/RssFeedSource.class.php) represents the source of a feed item. A feed item can only have one source.
 
-An instance of `RssFeedSource` is created implicitly when an scource is assigned to a feed item.
+An instance of `RssFeedSource` is created implicitly when an source is assigned to a feed item.
 
 Example:
 
