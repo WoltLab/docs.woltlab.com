@@ -28,3 +28,7 @@ class MyForm extends AbstractForm {
     }
 }
 ```
+
+## RSS Feeds
+
+A [new API](../../php/api/rss_feeds.md) for the output of content as an RSS feed has been introduced. 
