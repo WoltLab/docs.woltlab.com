@@ -4,6 +4,16 @@ With version 6.1, we have deprecated certain components and removed several othe
 
 ## Deprecations
 
+### PHP
+
+#### Classes
+
+- `wcf\system\exception\ValidateActionException`
+
+#### Methods
+
+- `wcf\system\session\SessionHandler::resetSessions()` ([WoltLab/WCF#3767](https://github.com/WoltLab/WCF/pull/3767))
+
 ### JavaScript
 
 - `WCF.User.Action.Follow` ([WoltLab/WCF#5747](https://github.com/WoltLab/WCF/pull/5747))
@@ -14,6 +24,17 @@ With version 6.1, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Ui/User/Activity/Recent` ([WoltLab/WCF#5804](https://github.com/WoltLab/WCF/pull/5804))
 
 ## Removals
+
+### PHP
+
+#### Classes
+
+- `wcf\data\spider\Spider` ([WoltLab/WCF#5823](https://github.com/WoltLab/WCF/pull/5823))
+- `wcf\data\spider\SpiderAction` ([WoltLab/WCF#5823](https://github.com/WoltLab/WCF/pull/5823))
+- `wcf\data\spider\SpiderEditor` ([WoltLab/WCF#5823](https://github.com/WoltLab/WCF/pull/5823))
+- `wcf\data\spider\SpiderList` ([WoltLab/WCF#5823](https://github.com/WoltLab/WCF/pull/5823))
+- `wcf\system\cache\SpiderCacheBuilder` ([WoltLab/WCF#5823](https://github.com/WoltLab/WCF/pull/5823))
+- `wcf\system\cronjob\RefreshSearchRobotsCronjob` ([WoltLab/WCF#5823](https://github.com/WoltLab/WCF/pull/5823))
 
 ### JavaScript
 
