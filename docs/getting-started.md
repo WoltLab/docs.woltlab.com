@@ -8,11 +8,9 @@ next project.
 
 There are some requirements you should met before starting:
 
-- Text editor with syntax highlighting for PHP, [Notepad++](https://notepad-plus-plus.org/) is a solid pick
+- Text editor with syntax highlighting for PHP, [Notepad++](https://notepad-plus-plus.org/) or [Visual Studio Code](https://code.visualstudio.com/) are a solid pick
  - `*.php` and `*.tpl` should be encoded with ANSI/ASCII
  - `*.xml` are always encoded with UTF-8, but omit the BOM (byte-order-mark)
- - Use tabs instead of spaces to indent lines
- - It is recommended to set the tab width to `8` spaces, this is used in the entire software and will ease reading the source files
 - An active installation of WoltLab Suite
 - An application to create `*.tar` archives, e.g. [7-Zip](http://www.7-zip.org/) on Windows
 
