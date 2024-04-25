@@ -9,6 +9,7 @@ With version 6.1, we have deprecated certain components and removed several othe
 #### Classes
 
 - `wcf\system\exception\ValidateActionException`
+- `wcf\system\bbcode\HtmlBBCodeParser` ([WoltLab/WCF#5874](https://github.com/WoltLab/WCF/pull/5874/files))
 
 #### Methods
 
