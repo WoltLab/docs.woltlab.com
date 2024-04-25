@@ -48,6 +48,54 @@ In addition to the existing methods inherited by `AbstractForm`, `AbstractFormBu
 - `$objectActionName` can be used to set an alternative action to be executed by the database object action that deviates from the default action determined by the value of `$formAction`.
 - `$objectActionClass` is the name of the database object action class that is used to create or update the database object.
 
+Example:
+
+```php
+<?php
+
+namespace wcf\acp\form;
+
+use wcf\form\AbstractFormBuilderForm;
+use wcf\system\form\builder\field\BooleanFormField;
+use wcf\system\form\builder\field\TextFormField;
+use wcf\system\form\builder\field\validation\FormFieldValidationError;
+use wcf\system\form\builder\field\validation\FormFieldValidator;
+
+class FooAddForm extends AbstractFormBuilderForm
+{
+    /**
+     * @inheritDoc
+     */
+    public $objectActionClass = FooAction::class;
+
+    #[\Override]
+    protected function createForm()
+    {
+        parent::createForm();
+
+        $this->form->appendChildren([
+            TextFormField::create('name')
+                ->label('wcf.foo.name')
+                ->description('wcf.foo.name.description')
+                ->required()
+                ->maximumLength(255)
+                ->addValidator(new FormFieldValidator('notFoo', function (TextFormField $formField) {
+                    if ($formField->getValue() === 'foo') {
+                        $formField->addValidationError(
+                            new FormFieldValidationError(
+                                'isFoo',
+                                'wcf.foo.name.error.isFoo'
+                            )
+                        );
+                    }
+                })),
+            BooleanFormField::create('isCool')
+                ->label('wcf.foo.isCool')
+                ->value(true)
+        ]);
+    }
+}
+```
 
 ## `DialogFormDocument`
 
