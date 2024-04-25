@@ -59,6 +59,19 @@ The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFor
 Additionally, the default id of a `ClassNameFormField` object is `className`, the default label is `wcf.form.field.className`, and if either an interface or a parent class is required, a default description is set if no description has already been set (`wcf.form.field.className.description.interface` and `wcf.form.field.className.description.parentClass`, respectively).
 
 
+### `CurrencyFormField`
+
+`CurrencyFormField` is an implementation designed for two-decimal currencies like EUR or USD. The API expect amounts to be provided in the smallest unit. For example, to set a value to 10 USD, provide an amount value of 1000 (i.e., 1000 cents).
+
+Example:
+
+```php
+CurrencyFormField::create('name')
+  ->currency('USD')
+  ->value(1000); // = USD 10
+```
+
+
 ### `DateFormField`
 
 `DateFormField` is a form field to enter a date (and optionally a time).
