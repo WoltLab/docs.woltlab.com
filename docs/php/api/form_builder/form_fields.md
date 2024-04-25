@@ -169,6 +169,19 @@ These methods do **not**, however, restrict the number of text rows that can be 
 The class implements `IAttributeFormField`, `ICssClassFormField`, `IFilterableSelectionFormField`, and `IImmutableFormField`.
 
 
+### `NoticeFormNode`
+
+`NoticeFormNode` is a form node that shows a notice without any surrounding HTML code.
+
+Example:
+
+```php
+NoticeFormNode::create('name')
+  ->type(NoticeFormNodeType::Success)
+  ->languageItem('name_of_language_item');
+```
+
+
 ### `RadioButtonFormField`
 
 `RadioButtonFormField` is a form fields that allows the selection of a single option out of a predefined list of available options using radiobuttons.
