@@ -758,6 +758,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#currencyformfield" class="md-nav__link">
+    CurrencyFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dateformfield" class="md-nav__link">
     DateFormField
   </a>
@@ -4261,6 +4268,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#currencyformfield" class="md-nav__link">
+    CurrencyFormField
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dateformfield" class="md-nav__link">
     DateFormField
   </a>
@@ -4755,6 +4769,15 @@ The class implements <code>IAttributeFormField</code>, <code>IAutoFocusFormField
   By default, entered classes have to instantiable.</li>
 </ul>
 <p>Additionally, the default id of a <code>ClassNameFormField</code> object is <code>className</code>, the default label is <code>wcf.form.field.className</code>, and if either an interface or a parent class is required, a default description is set if no description has already been set (<code>wcf.form.field.className.description.interface</code> and <code>wcf.form.field.className.description.parentClass</code>, respectively).</p>
+<h3 id="currencyformfield"><code>CurrencyFormField</code><a class="headerlink" href="#currencyformfield" title="Permanent link">#</a></h3>
+<p><code>CurrencyFormField</code> is an implementation designed for two-decimal currencies like EUR or USD. The API expect amounts to be provided in the smallest unit. For example, to set a value to 10 USD, provide an amount value of 1000 (i.e., 1000 cents).</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">CurrencyFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">currency</span><span class="p">(</span><span class="s1">&#39;USD&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span> <span class="c1">// = USD 10</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="dateformfield"><code>DateFormField</code><a class="headerlink" href="#dateformfield" title="Permanent link">#</a></h3>
 <p><code>DateFormField</code> is a form field to enter a date (and optionally a time).
 The class implements <code>IAttributeFormField</code>, <code>IAutoFocusFormField</code>, <code>ICssClassFormField</code>, <code>IImmutableFormField</code>, and <code>INullableFormField</code>.
@@ -5070,7 +5093,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
   <small>
     
       Last update:
-      2024-01-13
+      2024-04-25
     
   </small>
 </div>
