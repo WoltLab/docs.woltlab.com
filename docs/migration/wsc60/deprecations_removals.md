@@ -10,6 +10,7 @@ With version 6.1, we have deprecated certain components and removed several othe
 
 - `wcf\system\exception\ValidateActionException`
 - `wcf\system\bbcode\HtmlBBCodeParser` ([WoltLab/WCF#5874](https://github.com/WoltLab/WCF/pull/5874/))
+- `wcf\action\AbstractOauth2Action` ([WoltLab/WCF#5891](https://github.com/WoltLab/WCF/pull/5891/))
 
 #### Methods
 
