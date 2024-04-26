@@ -669,8 +669,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dialogformdocument" class="md-nav__link">
-    DialogFormDocument
+  <a href="#psr15dialogform" class="md-nav__link">
+    Psr15DialogForm
   </a>
   
 </li>
@@ -3731,8 +3731,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dialogformdocument" class="md-nav__link">
-    DialogFormDocument
+  <a href="#psr15dialogform" class="md-nav__link">
+    Psr15DialogForm
   </a>
   
 </li>
@@ -3892,32 +3892,8 @@ It will then automatically generate the necessary HTML with full interactivity t
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="dialogformdocument"><code>DialogFormDocument</code><a class="headerlink" href="#dialogformdocument" title="Permanent link">#</a></h2>
-<p>Form builder forms can also be used in dialogs.
-For such forms, <code>DialogFormDocument</code> should be used which provides the additional methods <code>cancelable($cancelable = true)</code> and <code>isCancelable()</code> to set and check if the dialog can be canceled.
-If a dialog form can be canceled, a cancel button is added.</p>
-<p>If the dialog form is fetched via an AJAX request, <code>IFormDocument::ajax()</code> has to be called.
-AJAX forms are registered with <code>WoltLabSuite/Core/Form/Builder/Manager</code> which also supports getting all of the data of a form via the <code>getData(formId)</code> function.
-The <code>getData()</code> function relies on all form fields creating and registering a <code>WoltLabSuite/Core/Form/Builder/Field/Field</code> object that provides the data of a specific field.</p>
-<p>To make it as easy as possible to work with AJAX forms in dialogs, <code>WoltLabSuite/Core/Form/Builder/Dialog</code> (abbreviated as <code>FormBuilderDialog</code> from now on) should generally be used instead of <code>WoltLabSuite/Core/Form/Builder/Manager</code> directly. 
-The constructor of <code>FormBuilderDialog</code> expects the following parameters:</p>
-<ul>
-<li><code>dialogId</code>: id of the dialog element</li>
-<li><code>className</code>: PHP class used to get the form dialog (and save the data if <code>options.submitActionName</code> is set)</li>
-<li><code>actionName</code>: name of the action/method of <code>className</code> that returns the dialog; the method is expected to return an array with <code>formId</code> containg the id of the returned form and <code>dialog</code> containing the rendered form dialog</li>
-<li><code>options</code>: additional options:</li>
-<li><code>actionParameters</code> (default: empty): additional parameters sent during AJAX requests</li>
-<li><code>destroyOnClose</code> (default: <code>false</code>): if <code>true</code>, whenever the dialog is closed, the form is destroyed so that a new form is fetched if the dialog is opened again</li>
-<li><code>dialog</code>: additional dialog options used as <code>options</code> during dialog setup</li>
-<li><code>onSubmit</code>: callback when the form is submitted (takes precedence over <code>submitActionName</code>)</li>
-<li><code>submitActionName</code> (default: not set): name of the action/method of <code>className</code> called when the form is submitted</li>
-</ul>
-<p>The three public functions of <code>FormBuilderDialog</code> are:</p>
-<ul>
-<li><code>destroy()</code> destroys the dialog, the form, and all of the form fields.</li>
-<li><code>getData()</code> returns a Promise that returns the form data.</li>
-<li><code>open()</code> opens the dialog.</li>
-</ul>
+<h2 id="psr15dialogform"><code>Psr15DialogForm</code><a class="headerlink" href="#psr15dialogform" title="Permanent link">#</a></h2>
+<p>Form builder forms can also be used in dialogs. For such forms, <code>Psr15DialogForm</code> should be used which provides the additional methods <code>validateRequest(ServerRequestInterface $request)</code> and <code>toResponse()</code> to enable processing of the form via an AJAX request.</p>
 <p>Example:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3936,23 +3912,139 @@ The constructor of <code>FormBuilderDialog</code> expects the following paramete
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s1">&#39;WoltLabSuite/Core/Form/Builder/Dialog&#39;</span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">FormBuilderDialog</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FormBuilderDialog</span><span class="p">(</span>
-<span class="w">        </span><span class="s1">&#39;testDialog&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;wcf\\data\\test\\TestAction&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;getDialog&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">destroyOnClose</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">dialog</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Test Dialog&#39;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="nx">submitActionName</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;saveDialog&#39;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">);</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
-<span class="w">    </span><span class="nx">elById</span><span class="p">(</span><span class="s1">&#39;testDialogButton&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
-<span class="w">    </span><span class="p">});</span>
+<span class="k">namespace</span> <span class="nx">wcf\action</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Psr\Http\Message\ResponseInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Psr\Http\Message\ServerRequestInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Psr\Http\Server\RequestHandlerInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\form\builder\field\validation\FormFieldValidationError</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\form\builder\field\validation\FormFieldValidator</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\form\builder\Psr15DialogForm</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\WCF</span><span class="p">;</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">FooAction</span> <span class="k">implements</span> <span class="nx">RequestHandlerInterface</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @inheritDoc</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">handle</span><span class="p">(</span><span class="nx">ServerRequestInterface</span> <span class="nv">$request</span><span class="p">)</span><span class="o">:</span> <span class="nx">ResponseInterface</span>
+    <span class="p">{</span>
+        <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getForm</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">toResponse</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">validateRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$response</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">];</span>
+
+            <span class="c1">// process data</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">\LogicException</span><span class="p">(</span><span class="s1">&#39;Unreachable&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">getForm</span><span class="p">()</span><span class="o">:</span> <span class="nx">Psr15DialogForm</span>
+    <span class="p">{</span>
+        <span class="nv">$form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Psr15DialogForm</span><span class="p">(</span>
+            <span class="k">static</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+            <span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;wcf.foo.dialog.name&#39;</span><span class="p">)</span>
+        <span class="p">);</span>
+        <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">appendChildren</span><span class="p">([</span>
+            <span class="nx">TextFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;wcf.foo.name&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">description</span><span class="p">(</span><span class="s1">&#39;wcf.foo.name.description&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">required</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">maximumLength</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">addValidator</span><span class="p">(</span><span class="k">new</span> <span class="nx">FormFieldValidator</span><span class="p">(</span><span class="s1">&#39;notFoo&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">TextFormField</span> <span class="nv">$formField</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="nv">$formField</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;foo&#39;</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nv">$formField</span><span class="o">-&gt;</span><span class="na">addValidationError</span><span class="p">(</span>
+                            <span class="k">new</span> <span class="nx">FormFieldValidationError</span><span class="p">(</span>
+                                <span class="s1">&#39;isFoo&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;wcf.foo.name.error.isFoo&#39;</span>
+                            <span class="p">)</span>
+                        <span class="p">);</span>
+                    <span class="p">}</span>
+                <span class="p">})),</span>
+            <span class="nx">BooleanFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;isCool&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;wcf.foo.isCool&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+        <span class="p">]);</span>
+        <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">build</span><span class="p">();</span>
+
+        <span class="k">return</span> <span class="nv">$form</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>On the client side, the dialog is loaded using the <a href="../../../../javascript/components_dialog/">dialog API</a>. A tuple is made available as a return, which provides the status of the successful form submission (<code>ok: boolean</code>) and the server-side return (<code>result: any</code>).</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">require</span><span class="p">([</span><span class="s1">&#39;WoltLabSuite/Core/Component/Dialog&#39;</span><span class="p">],</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ok</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">dialogFactory</span><span class="p">().</span><span class="nx">usingFormBuilder</span><span class="p">().</span><span class="nx">fromEndpoint</span><span class="p">(</span><span class="s1">&#39;endpoint_url&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Form submission was successful</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 
