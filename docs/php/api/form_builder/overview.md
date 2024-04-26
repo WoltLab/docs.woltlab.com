@@ -97,54 +97,93 @@ class FooAddForm extends AbstractFormBuilderForm
 }
 ```
 
-## `DialogFormDocument`
+## `Psr15DialogForm`
 
-Form builder forms can also be used in dialogs.
-For such forms, `DialogFormDocument` should be used which provides the additional methods `cancelable($cancelable = true)` and `isCancelable()` to set and check if the dialog can be canceled.
-If a dialog form can be canceled, a cancel button is added.
+Form builder forms can also be used in dialogs. For such forms, `Psr15DialogForm` should be used which provides the additional methods `validateRequest(ServerRequestInterface $request)` and `toResponse()` to enable processing of the form via an AJAX request.
 
-If the dialog form is fetched via an AJAX request, `IFormDocument::ajax()` has to be called.
-AJAX forms are registered with `WoltLabSuite/Core/Form/Builder/Manager` which also supports getting all of the data of a form via the `getData(formId)` function.
-The `getData()` function relies on all form fields creating and registering a `WoltLabSuite/Core/Form/Builder/Field/Field` object that provides the data of a specific field.
+Example:
 
-To make it as easy as possible to work with AJAX forms in dialogs, `WoltLabSuite/Core/Form/Builder/Dialog` (abbreviated as `FormBuilderDialog` from now on) should generally be used instead of `WoltLabSuite/Core/Form/Builder/Manager` directly. 
-The constructor of `FormBuilderDialog` expects the following parameters:
+```php
+<?php
 
-- `dialogId`: id of the dialog element
-- `className`: PHP class used to get the form dialog (and save the data if `options.submitActionName` is set)
-- `actionName`: name of the action/method of `className` that returns the dialog; the method is expected to return an array with `formId` containg the id of the returned form and `dialog` containing the rendered form dialog
-- `options`: additional options:
-  - `actionParameters` (default: empty): additional parameters sent during AJAX requests
-  - `destroyOnClose` (default: `false`): if `true`, whenever the dialog is closed, the form is destroyed so that a new form is fetched if the dialog is opened again
-  - `dialog`: additional dialog options used as `options` during dialog setup
-  - `onSubmit`: callback when the form is submitted (takes precedence over `submitActionName`)
-  - `submitActionName` (default: not set): name of the action/method of `className` called when the form is submitted
+namespace wcf\action;
 
-The three public functions of `FormBuilderDialog` are:
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
+use wcf\system\form\builder\field\validation\FormFieldValidationError;
+use wcf\system\form\builder\field\validation\FormFieldValidator;
+use wcf\system\form\builder\Psr15DialogForm;
+use wcf\system\WCF;
 
-- `destroy()` destroys the dialog, the form, and all of the form fields.
-- `getData()` returns a Promise that returns the form data.
-- `open()` opens the dialog.
+final class FooAction implements RequestHandlerInterface
+{
+    /**
+     * @inheritDoc
+     */
+    public function handle(ServerRequestInterface $request): ResponseInterface
+    {
+        $form = $this->getForm();
+
+        if ($request->getMethod() === 'GET') {
+            return $form->toResponse();
+        } elseif ($request->getMethod() === 'POST') {
+            $response = $form->validateRequest($request);
+            if ($response !== null) {
+                return $response;
+            }
+
+            $data = $form->getData()['data'];
+
+            // process data
+        } else {
+            throw new \LogicException('Unreachable');
+        }
+    }
+
+    private function getForm(): Psr15DialogForm
+    {
+        $form = new Psr15DialogForm(
+            static::class,
+            WCF::getLanguage()->get('wcf.foo.dialog.name')
+        );
+        $form->appendChildren([
+            TextFormField::create('name')
+                ->label('wcf.foo.name')
+                ->description('wcf.foo.name.description')
+                ->required()
+                ->maximumLength(255)
+                ->addValidator(new FormFieldValidator('notFoo', function (TextFormField $formField) {
+                    if ($formField->getValue() === 'foo') {
+                        $formField->addValidationError(
+                            new FormFieldValidationError(
+                                'isFoo',
+                                'wcf.foo.name.error.isFoo'
+                            )
+                        );
+                    }
+                })),
+            BooleanFormField::create('isCool')
+                ->label('wcf.foo.isCool')
+                ->value(true)
+        ]);
+        $form->build();
+
+        return $form;
+    }
+}
+```
+
+On the client side, the dialog is loaded using the [dialog API](../../../javascript/components_dialog.md). A tuple is made available as a return, which provides the status of the successful form submission (`ok: boolean`) and the server-side return (`result: any`).
 
 Example:
 
 ```javascript
-require(['WoltLabSuite/Core/Form/Builder/Dialog'], function(FormBuilderDialog) {
-	var dialog = new FormBuilderDialog(
-		'testDialog',
-		'wcf\\data\\test\\TestAction',
-		'getDialog',
-		{
-			destroyOnClose: true,
-			dialog: {
-				title: 'Test Dialog'
-			},
-			submitActionName: 'saveDialog'
-		}
-	);
-	
-	elById('testDialogButton').addEventListener('click', function() {
-		dialog.open();
-	});
+require(['WoltLabSuite/Core/Component/Dialog'], async ({ dialogFactory }) => {
+	const { ok, result } = await dialogFactory().usingFormBuilder().fromEndpoint('endpoint_url');
+
+	if (ok) {
+		// Form submission was successful
+	}
 });
 ```
