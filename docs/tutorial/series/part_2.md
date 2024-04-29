@@ -138,13 +138,13 @@ As the relevant template codes are only one line each, we will simply put them d
 The code for the table head is similar to the other `th` elements:
 
 ```smarty
-<th class="columnDate columnBirthday{if $sortField == 'birthday'} active {$sortOrder}{/if}"><a href="{link controller='PersonList'}pageNo={@$pageNo}&sortField=birthday&sortOrder={if $sortField == 'birthday' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.person.birthday{/lang}</a></th>
+<th class="columnDate columnBirthday{if $sortField == 'birthday'} active {$sortOrder}{/if}"><a href="{link controller='PersonList'}pageNo={$pageNo}&sortField=birthday&sortOrder={if $sortField == 'birthday' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.person.birthday{/lang}</a></th>
 ```
 
 For the table body’s column, we need to make sure that the birthday is only show if it is actually set:
 
 ```smarty
-<td class="columnDate columnBirthday">{if $person->birthday}{@$person->birthday|strtotime|date}{/if}</td>
+<td class="columnDate columnBirthday">{if $person->birthday}{$person->birthday|strtotime|date}{/if}</td>
 ```
 
 

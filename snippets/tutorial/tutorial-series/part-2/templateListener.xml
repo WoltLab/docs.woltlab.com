@@ -5,13 +5,13 @@
 		<templatelistener name="personListBirthdayColumnHead">
 			<eventname>columnHeads</eventname>
 			<environment>admin</environment>
-			<templatecode><![CDATA[<th class="columnDate columnBirthday{if $sortField == 'birthday'} active {@$sortOrder}{/if}"><a href="{link controller='PersonList'}pageNo={@$pageNo}&sortField=birthday&sortOrder={if $sortField == 'birthday' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.person.birthday{/lang}</a></th>]]></templatecode>
+			<templatecode><![CDATA[<th class="columnDate columnBirthday{if $sortField == 'birthday'} active {$sortOrder}{/if}"><a href="{link controller='PersonList'}pageNo={$pageNo}&sortField=birthday&sortOrder={if $sortField == 'birthday' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.person.birthday{/lang}</a></th>]]></templatecode>
 			<templatename>personList</templatename>
 		</templatelistener>
 		<templatelistener name="personListBirthdayColumn">
 			<eventname>columns</eventname>
 			<environment>admin</environment>
-			<templatecode><![CDATA[<td class="columnDate columnBirthday">{if $person->birthday}{@$person->birthday|strtotime|date}{/if}</td>]]></templatecode>
+			<templatecode><![CDATA[<td class="columnDate columnBirthday">{if $person->birthday}{$person->birthday|strtotime|date}{/if}</td>]]></templatecode>
 			<templatename>personList</templatename>
 		</templatelistener>
 		<!-- /admin -->

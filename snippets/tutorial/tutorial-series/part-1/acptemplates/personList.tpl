@@ -25,9 +25,9 @@
 		<table class="table jsObjectActionContainer" data-object-action-class-name="wcf\data\person\PersonAction">
 			<thead>
 				<tr>
-					<th class="columnID columnPersonID{if $sortField == 'personID'} active {@$sortOrder}{/if}" colspan="2"><a href="{link controller='PersonList'}pageNo={@$pageNo}&sortField=personID&sortOrder={if $sortField == 'personID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.objectID{/lang}</a></th>
-					<th class="columnTitle columnFirstName{if $sortField == 'firstName'} active {@$sortOrder}{/if}"><a href="{link controller='PersonList'}pageNo={@$pageNo}&sortField=firstName&sortOrder={if $sortField == 'firstName' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.person.firstName{/lang}</a></th>
-					<th class="columnTitle columnLastName{if $sortField == 'lastName'} active {@$sortOrder}{/if}"><a href="{link controller='PersonList'}pageNo={@$pageNo}&sortField=lastName&sortOrder={if $sortField == 'lastName' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.person.lastName{/lang}</a></th>
+					<th class="columnID columnPersonID{if $sortField == 'personID'} active {$sortOrder}{/if}" colspan="2"><a href="{link controller='PersonList'}pageNo={$pageNo}&sortField=personID&sortOrder={if $sortField == 'personID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.objectID{/lang}</a></th>
+					<th class="columnTitle columnFirstName{if $sortField == 'firstName'} active {$sortOrder}{/if}"><a href="{link controller='PersonList'}pageNo={$pageNo}&sortField=firstName&sortOrder={if $sortField == 'firstName' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.person.firstName{/lang}</a></th>
+					<th class="columnTitle columnLastName{if $sortField == 'lastName'} active {$sortOrder}{/if}"><a href="{link controller='PersonList'}pageNo={$pageNo}&sortField=lastName&sortOrder={if $sortField == 'lastName' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.person.lastName{/lang}</a></th>
 					
 					{event name='columnHeads'}
 				</tr>
@@ -35,7 +35,7 @@
 			
 			<tbody class="jsReloadPageWhenEmpty">
 				{foreach from=$objects item=person}
-					<tr class="jsObjectActionObject" data-object-id="{@$person->getObjectID()}">
+					<tr class="jsObjectActionObject" data-object-id="{$person->getObjectID()}">
 						<td class="columnIcon">
 							<a href="{link controller='PersonEdit' object=$person}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip">{icon name='pencil'}</a>
 							{objectAction action="delete" objectTitle=$person->getTitle()}
@@ -56,7 +56,7 @@
 	<footer class="contentFooter">
 		{hascontent}
 			<div class="paginationBottom">
-				{content}{@$pagesLinks}{/content}
+				{content}{unsafe:$pagesLinks}{/content}
 			</div>
 		{/hascontent}
 		

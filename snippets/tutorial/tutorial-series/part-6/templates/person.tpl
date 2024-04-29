@@ -32,7 +32,7 @@
 			{/if}
 			
 			{foreach from=$person->getInformation() item=$information}
-				<li class="comment personInformation jsObjectActionObject" data-object-id="{@$information->getObjectID()}">
+				<li class="comment personInformation jsObjectActionObject" data-object-id="{$information->getObjectID()}">
 					<div class="box48{if $__wcf->getUserProfileHandler()->isIgnoredUser($information->userID, 2)} ignoredUserContent{/if}">
 						{user object=$information->getUserProfile() type='avatar48' ariaHidden='true' tabindex='-1'}
 						
@@ -46,12 +46,12 @@
 											<span>{$information->username}</span>
 										{/if}
 										
-										<small class="separatorLeft">{@$information->time|time}</small>
+										<small class="separatorLeft">{unsafe:$information->time|time}</small>
 									</h3>
 								</div>
 								
-								<div class="htmlContent userMessage" id="personInformation{@$information->getObjectID()}">
-									{@$information->getFormattedInformation()}
+								<div class="htmlContent userMessage" id="personInformation{$information->getObjectID()}">
+									{unsafe:$information->getFormattedInformation()}
 								</div>
 								
 								<nav class="jsMobileNavigation buttonGroupNavigation">
@@ -100,10 +100,10 @@
 			<div class="personComments">
 				<ul id="personCommentList" class="commentList containerList" {*
 					*}data-can-add="{if $commentCanAdd}true{else}false{/if}" {*
-					*}data-object-id="{@$person->personID}" {*
-					*}data-object-type-id="{@$commentObjectTypeID}" {*
-					*}data-comments="{if $person->comments}{@$commentList->countObjects()}{else}0{/if}" {*
-					*}data-last-comment-time="{@$lastCommentTime}" {*
+					*}data-object-id="{$person->personID}" {*
+					*}data-object-type-id="{$commentObjectTypeID}" {*
+					*}data-comments="{if $person->comments}{$commentList->countObjects()}{else}0{/if}" {*
+					*}data-last-comment-time="{$lastCommentTime}" {*
 				*}>
 					{include file='commentListAddComment' wysiwygSelector='personCommentListAddComment'}
 					{include file='commentList'}
@@ -132,7 +132,7 @@
 			'wcf.person.information.edit.success': '{jslang}wcf.person.information.edit.success{/jslang}',
 		});
 		
-		ControllerPerson.init({@$person->personID}, {
+		ControllerPerson.init({$person->personID}, {
 			canAddInformation: {if $__wcf->session->getPermission('user.person.canAddInformation')}true{else}false{/if},
 		});
 	});

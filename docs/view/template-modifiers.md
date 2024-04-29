@@ -54,7 +54,7 @@ A modifier may accept additional parameters that affect its behavior. These para
 
 ```smarty
 <script>
-	var foo = '{@$foo|encodeJS}';
+	var foo = '{unsafe:$foo|encodeJS}';
 </script>
 ```
 
@@ -63,7 +63,7 @@ A modifier may accept additional parameters that affect its behavior. These para
 `escapeCDATA` encodes a string to be used in a `CDATA` element by replacing `]]>` with `]]]]><![CDATA[>`.
 
 ```smarty
-<![CDATA[{@$foo|encodeCDATA}]]>
+<![CDATA[{unsafe:$foo|encodeCDATA}]]>
 ```
 
 
@@ -98,7 +98,7 @@ A modifier may accept additional parameters that affect its behavior. These para
 
 ```smarty
 <script>
-let data = { "title": {@$foo->getTitle()|json} };
+let data = { "title": {unsafe:$foo->getTitle()|json} };
 </script>
 ```
 

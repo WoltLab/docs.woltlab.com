@@ -434,7 +434,7 @@ Form fields that have a default id have to use `TDefaultIdFormField` and have to
 The only thing to do in a template to display the **whole** form including all of the necessary JavaScript is to put
 
 ```smarty
-{@$form->getHtml()}
+{unsafe:$form->getHtml()}
 ```
 
 into the template file at the relevant position.

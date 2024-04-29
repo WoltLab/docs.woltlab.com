@@ -87,7 +87,7 @@ More information about installing templates can be found on those pages.
 						{if $errorType == 'empty'}
 							{lang}wcf.global.form.error.empty{/lang}
 						{else}
-							{lang}foo.bar.baz.error.{@$errorType}{/lang}
+							{lang}foo.bar.baz.error.{$errorType}{/lang}
 						{/if}
 					</small>
 				{/if}
@@ -99,7 +99,7 @@ More information about installing templates can be found on those pages.
 			<dd>
 				<textarea name="bar" id="bar" cols="40" rows="10">{$bar}</textarea>
 				{if $errorField == 'bar'}
-					<small class="innerError">{lang}foo.bar.bar.error.{@$errorType}{/lang}</small>
+					<small class="innerError">{lang}foo.bar.bar.error.{$errorType}{/lang}</small>
 				{/if}
 			</dd>
 		</dl>
@@ -178,8 +178,9 @@ Template variables can be assigned via `WCF::getTPL()->assign('foo', 'bar')` and
 - `{$foo}` will result in the contents of `$foo` to be passed to `StringUtil::encodeHTML()` before being printed.
 - `{#$foo}` will result in the contents of `$foo` to be passed to `StringUtil::formatNumeric()` before being printed.
   Thus, this method is relevant when printing numbers and having them formatted correctly according the the user’s language.
-- `{@$foo}` will result in the contents of `$foo` to be printed directly.
-  In general, this method should not be used for user-generated input.
+- `{unsafe:$foo}` will result in the contents of `$foo` to be printed directly.
+  This method should only be used if you want to output the content of the variable directly and unfiltered.
+  Never use this method for user-generated input that has not already been sanitized by other means.
 
 Multiple template variables can be assigned by passing an array:
 

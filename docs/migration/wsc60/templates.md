@@ -1,5 +1,18 @@
 # Migrating from WoltLab Suite 6.0 - Templates
 
+## `unsafe` Prefix
+
+The `unsafe` prefix is intended as a replacement for the `@` prefix in order to output the content of a variable unfiltered. The new prefix offers better readability and makes it easier to find places where the prefix is used unintentionally. The old `@` prefix is still supported, but we recommend using the new prefix for new code.
+
+Usage:
+
+```smarty
+Old: {@$foo}
+New: {unsafe:$foo}
+```
+
+The code listed above outputs the raw content of the variable `$foo`.
+
 ## Shared Templates
 
 Shared templates, applicable both in the frontend and the backend, are now standardized to begin with the

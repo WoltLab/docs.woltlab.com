@@ -470,7 +470,7 @@ For detailed information on its usage, we refer to the extensive documentation i
 ```smarty
 {pages controller='FooList' link="pageNo=%d" print=true assign=pagesLinks} {* prints pagination *}
 
-{@$pagesLinks} {* prints same pagination again *}
+{unsafe:$pagesLinks} {* prints same pagination again *}
 ```
 
 | Attribute | Description |
@@ -611,7 +611,7 @@ Examples:
 generates
 
 ```smarty
-<a href="{$user->getLink()}" data-object-id="{$user->userID}" class="userLink">{@$user->getFormattedUsername()}</a>
+<a href="{$user->getLink()}" data-object-id="{$user->userID}" class="userLink">{unsafe:$user->getFormattedUsername()}</a>
 ```
 
 and
@@ -623,5 +623,5 @@ and
 generates
 
 ```smarty
-<a href="{$user->getLink()}" foo="bar">{@$object->getAvatar()->getImageTag(48)}</a>
+<a href="{$user->getLink()}" foo="bar">{unsafe:$object->getAvatar()->getImageTag(48)}</a>
 ```
