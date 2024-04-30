@@ -3870,7 +3870,7 @@ appending the special <code>LAST_UPDATE_TIME</code> constant to your file path. 
 the unix timestamp of the last time any package was installed, updated or removed
 and thus avoid outdated caches by relying on a unique value, without invalidating
 the cache more often that it needs to be.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{$__wcf-&gt;getPath(&#39;app&#39;)}js/App.js?t={@LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{$__wcf-&gt;getPath(&#39;app&#39;)}js/App.js?t={LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>For small scripts you can simply serve the full, non-minified version to the user
 at all times, the differences in size and execution speed are insignificant and
@@ -3881,7 +3881,7 @@ is never called.</p>
 include a switch to load the uncompressed version in the debug mode, while serving
 the minified and optimized file to the average visitor. You should use the
 <code>ENABLE_DEBUG_MODE</code> constant to decide which version should be loaded.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{$__wcf-&gt;getPath(&#39;app&#39;)}js/App{if !ENABLE_DEBUG_MODE}.min{/if}.js?t={@LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{$__wcf-&gt;getPath(&#39;app&#39;)}js/App{if !ENABLE_DEBUG_MODE}.min{/if}.js?t={LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="the-accelerated-guest-view-tiny-builds">The Accelerated Guest View ("Tiny Builds")<a class="headerlink" href="#the-accelerated-guest-view-tiny-builds" title="Permanent link">#</a></h3>
 <div class="admonition info">
@@ -3889,7 +3889,7 @@ the minified and optimized file to the average visitor. You should use the
 </div>
 <p>The “Accelerated Guest View” aims to decrease page size and to improve responsiveness by enabling a read-only mode for visitors.
 If you are providing a separate compiled build for this mode, you'll need to include yet another switch to serve the right version to the visitor.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{$__wcf-&gt;getPath(&#39;app&#39;)}js/App{if !ENABLE_DEBUG_MODE}{if VISITOR_USE_TINY_BUILD}.tiny{/if}.min{/if}.js?t={@LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{$__wcf-&gt;getPath(&#39;app&#39;)}js/App{if !ENABLE_DEBUG_MODE}{if VISITOR_USE_TINY_BUILD}.tiny{/if}.min{/if}.js?t={LAST_UPDATE_TIME}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="the-js-template-plugin">The <code>{js}</code> Template Plugin<a class="headerlink" href="#the-js-template-plugin" title="Permanent link">#</a></h3>
 <p>The <code>{js}</code> template plugin exists solely to provide a much easier and less error-prone
@@ -3904,7 +3904,7 @@ entirely if you do not provide a tiny build for your file.</p>
   <small>
     
       Last update:
-      2023-01-25
+      2024-04-29
     
   </small>
 </div>

@@ -4030,12 +4030,12 @@ The general syntax for applying a variable modifier is <code>{$variable|modifier
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;script&gt;</span>
-<span class="x">    var foo = &#39;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$foo</span><span class="o">|</span><span class="na">encodeJS</span><span class="cp">}</span><span class="x">&#39;;</span>
+<span class="x">    var foo = &#39;</span><span class="cp">{</span><span class="nf">unsafe</span><span class="o">:</span><span class="nv">$foo</span><span class="o">|</span><span class="na">encodeJS</span><span class="cp">}</span><span class="x">&#39;;</span>
 <span class="x">&lt;/script&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="escapecdata"><code>|escapeCDATA</code><a class="headerlink" href="#escapecdata" title="Permanent link">#</a></h3>
 <p><code>escapeCDATA</code> encodes a string to be used in a <code>CDATA</code> element by replacing <code>]]&gt;</code> with <code>]]]]&gt;&lt;![CDATA[&gt;</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;![CDATA[</span><span class="cp">{</span><span class="o">@</span><span class="nv">$foo</span><span class="o">|</span><span class="na">encodeCDATA</span><span class="cp">}</span><span class="x">]]&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;![CDATA[</span><span class="cp">{</span><span class="nf">unsafe</span><span class="o">:</span><span class="nv">$foo</span><span class="o">|</span><span class="na">encodeCDATA</span><span class="cp">}</span><span class="x">]]&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="filesizebinary"><code>|filesizeBinary</code><a class="headerlink" href="#filesizebinary" title="Permanent link">#</a></h3>
 <p><code>filesizeBinary</code> formats the filesize using binary filesize (in bytes).</p>
@@ -4054,7 +4054,7 @@ The general syntax for applying a variable modifier is <code>{$variable|modifier
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;script&gt;</span>
-<span class="x">let data = </span><span class="cp">{</span> <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="cp">{</span><span class="o">@</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="o">()|</span><span class="na">json</span><span class="cp">}</span> <span class="cp">}</span><span class="x">;</span>
+<span class="x">let data = </span><span class="cp">{</span> <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="cp">{</span><span class="na">unsafe</span><span class="o">:</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="o">()|</span><span class="na">json</span><span class="cp">}</span> <span class="cp">}</span><span class="x">;</span>
 <span class="x">&lt;/script&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="language"><code>|language</code><a class="headerlink" href="#language" title="Permanent link">#</a></h3>
@@ -4248,7 +4248,7 @@ The exact formatting depends on the current language (via the language items <co
   <small>
     
       Last update:
-      2023-06-12
+      2024-04-29
     
   </small>
 </div>

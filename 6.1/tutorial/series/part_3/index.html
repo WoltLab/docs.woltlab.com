@@ -4529,10 +4529,10 @@ The <code>assignVariables()</code> method assigns some additional template varia
             &lt;div class=&quot;personComments&quot;&gt;
                 &lt;ul id=&quot;personCommentList&quot; class=&quot;commentList containerList&quot; {*
                     *}data-can-add=&quot;{if $commentCanAdd}true{else}false{/if}&quot; {*
-                    *}data-object-id=&quot;{@$person-&gt;personID}&quot; {*
-                    *}data-object-type-id=&quot;{@$commentObjectTypeID}&quot; {*
-                    *}data-comments=&quot;{if $person-&gt;comments}{@$commentList-&gt;countObjects()}{else}0{/if}&quot; {*
-                    *}data-last-comment-time=&quot;{@$lastCommentTime}&quot; {*
+                    *}data-object-id=&quot;{$person-&gt;personID}&quot; {*
+                    *}data-object-type-id=&quot;{$commentObjectTypeID}&quot; {*
+                    *}data-comments=&quot;{if $person-&gt;comments}{$commentList-&gt;countObjects()}{else}0{/if}&quot; {*
+                    *}data-last-comment-time=&quot;{$lastCommentTime}&quot; {*
                 *}&gt;
                     {include file=&#39;commentListAddComment&#39; wysiwygSelector=&#39;personCommentListAddComment&#39;}
                     {include file=&#39;commentList&#39;}

@@ -4126,7 +4126,7 @@ More information about installing templates can be found on those pages. </p>
 <span class="x">                        </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorType</span> <span class="o">==</span> <span class="s1">&#39;empty&#39;</span><span class="cp">}</span>
 <span class="x">                            </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.form.error.empty</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span>
 <span class="x">                        </span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span>
-<span class="x">                            </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.baz.error.</span><span class="cp">{</span><span class="o">@</span><span class="nv">$errorType</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span>
+<span class="x">                            </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.baz.error.</span><span class="cp">{</span><span class="nv">$errorType</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span>
 <span class="x">                        </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 <span class="x">                    &lt;/small&gt;</span>
 <span class="x">                </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
@@ -4138,7 +4138,7 @@ More information about installing templates can be found on those pages. </p>
 <span class="x">            &lt;dd&gt;</span>
 <span class="x">                &lt;textarea name=&quot;bar&quot; id=&quot;bar&quot; cols=&quot;40&quot; rows=&quot;10&quot;&gt;</span><span class="cp">{</span><span class="nv">$bar</span><span class="cp">}</span><span class="x">&lt;/textarea&gt;</span>
 <span class="x">                </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">&#39;bar&#39;</span><span class="cp">}</span>
-<span class="x">                    &lt;small class=&quot;innerError&quot;&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.bar.error.</span><span class="cp">{</span><span class="o">@</span><span class="nv">$errorType</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/small&gt;</span>
+<span class="x">                    &lt;small class=&quot;innerError&quot;&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.bar.error.</span><span class="cp">{</span><span class="nv">$errorType</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/small&gt;</span>
 <span class="x">                </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 <span class="x">            &lt;/dd&gt;</span>
 <span class="x">        &lt;/dl&gt;</span>
@@ -4252,8 +4252,9 @@ More information about installing templates can be found on those pages. </p>
 <li><code>{$foo}</code> will result in the contents of <code>$foo</code> to be passed to <code>StringUtil::encodeHTML()</code> before being printed.</li>
 <li><code>{#$foo}</code> will result in the contents of <code>$foo</code> to be passed to <code>StringUtil::formatNumeric()</code> before being printed.
   Thus, this method is relevant when printing numbers and having them formatted correctly according the the user’s language.</li>
-<li><code>{@$foo}</code> will result in the contents of <code>$foo</code> to be printed directly.
-  In general, this method should not be used for user-generated input.</li>
+<li><code>{unsafe:$foo}</code> will result in the contents of <code>$foo</code> to be printed directly.
+  This method should only be used if you want to output the content of the variable directly and unfiltered.
+  Never use this method for user-generated input that has not already been sanitized by other means.</li>
 </ul>
 <p>Multiple template variables can be assigned by passing an array:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -4377,7 +4378,7 @@ If the foreach loop has a name assigned to it via the <code>name</code> attribut
   <small>
     
       Last update:
-      2023-07-05
+      2024-04-29
     
   </small>
 </div>

@@ -2489,6 +2489,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#unsafe-prefix" class="md-nav__link">
+    unsafe Prefix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#shared-templates" class="md-nav__link">
     Shared Templates
   </a>
@@ -3714,6 +3721,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#unsafe-prefix" class="md-nav__link">
+    unsafe Prefix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#shared-templates" class="md-nav__link">
     Shared Templates
   </a>
@@ -3752,6 +3766,14 @@
 
 
 <h1 id="migrating-from-woltlab-suite-60-templates">Migrating from WoltLab Suite 6.0 - Templates<a class="headerlink" href="#migrating-from-woltlab-suite-60-templates" title="Permanent link">#</a></h1>
+<h2 id="unsafe-prefix"><code>unsafe</code> Prefix<a class="headerlink" href="#unsafe-prefix" title="Permanent link">#</a></h2>
+<p>The <code>unsafe</code> prefix is intended as a replacement for the <code>@</code> prefix in order to output the content of a variable unfiltered. The new prefix offers better readability and makes it easier to find places where the prefix is used unintentionally. The old <code>@</code> prefix is still supported, but we recommend using the new prefix for new code.</p>
+<p>Usage:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">Old: </span><span class="cp">{</span><span class="o">@</span><span class="nv">$foo</span><span class="cp">}</span>
+<span class="x">New: </span><span class="cp">{</span><span class="nf">unsafe</span><span class="o">:</span><span class="nv">$foo</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The code listed above outputs the raw content of the variable <code>$foo</code>.</p>
 <h2 id="shared-templates">Shared Templates<a class="headerlink" href="#shared-templates" title="Permanent link">#</a></h2>
 <p>Shared templates, applicable both in the frontend and the backend, are now standardized to begin with the
 prefix <code>shared_</code>.
@@ -4226,7 +4248,7 @@ at <code>extra/migrate-shared-template.php</code>. The script must be executed f
   <small>
     
       Last update:
-      2024-04-26
+      2024-04-29
     
   </small>
 </div>

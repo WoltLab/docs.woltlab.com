@@ -4760,7 +4760,7 @@ For detailed information on its usage, we refer to the extensive documentation i
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">pages</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;FooList&#39;</span> <span class="na">link</span><span class="o">=</span><span class="s2">&quot;pageNo=%d&quot;</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span> <span class="na">assign</span><span class="o">=</span><span class="na">pagesLinks</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints pagination *</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="o">@</span><span class="nv">$pagesLinks</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints same pagination again *</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">unsafe</span><span class="o">:</span><span class="nv">$pagesLinks</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints same pagination again *</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <table>
 <thead>
@@ -4960,13 +4960,13 @@ The optional <code>type</code> parameter is responsible for what the generated l
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">user</span> <span class="na">object</span><span class="o">=</span><span class="nv">$user</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <p>generates</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot; data-object-id=&quot;</span><span class="cp">{</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">userID</span><span class="cp">}</span><span class="x">&quot; class=&quot;userLink&quot;&gt;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getFormattedUsername</span><span class="o">()</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot; data-object-id=&quot;</span><span class="cp">{</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">userID</span><span class="cp">}</span><span class="x">&quot; class=&quot;userLink&quot;&gt;</span><span class="cp">{</span><span class="nf">unsafe</span><span class="o">:</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getFormattedUsername</span><span class="o">()</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>and</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">user</span> <span class="na">object</span><span class="o">=</span><span class="nv">$user</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;avatar48&#39;</span> <span class="na">foo</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <p>generates</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot; foo=&quot;bar&quot;&gt;</span><span class="cp">{</span><span class="o">@</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getAvatar</span><span class="o">()-&gt;</span><span class="na">getImageTag</span><span class="o">(</span><span class="m">48</span><span class="o">)</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">()</span><span class="cp">}</span><span class="x">&quot; foo=&quot;bar&quot;&gt;</span><span class="cp">{</span><span class="nf">unsafe</span><span class="o">:</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getAvatar</span><span class="o">()-&gt;</span><span class="na">getImageTag</span><span class="o">(</span><span class="m">48</span><span class="o">)</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
 </code></pre></div></td></tr></table></div>
 
   <hr>
@@ -4974,7 +4974,7 @@ The optional <code>type</code> parameter is responsible for what the generated l
   <small>
     
       Last update:
-      2023-06-09
+      2024-04-29
     
   </small>
 </div>
