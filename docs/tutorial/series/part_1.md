@@ -257,7 +257,7 @@ Because of using form builder, we only have to set up the two form fields for en
 We will now only concentrate on the new parts compared to `personList.tpl`:
 
 1. We use the `$action` variable to distinguish between the languages items used for adding a person and for creating a person.
-1. Because of form builder, we only have to call `{@$form->getHtml()}` to generate all relevant output for the form.
+1. Because of form builder, we only have to call `{unsafe:$form->getHtml()}` to generate all relevant output for the form.
 
 ### Person Edit Form
 

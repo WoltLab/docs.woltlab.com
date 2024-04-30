@@ -19,10 +19,10 @@
 			<div class="personComments">
 				<ul id="personCommentList" class="commentList containerList" {*
 					*}data-can-add="{if $commentCanAdd}true{else}false{/if}" {*
-					*}data-object-id="{@$person->personID}" {*
-					*}data-object-type-id="{@$commentObjectTypeID}" {*
-					*}data-comments="{if $person->comments}{@$commentList->countObjects()}{else}0{/if}" {*
-					*}data-last-comment-time="{@$lastCommentTime}" {*
+					*}data-object-id="{$person->personID}" {*
+					*}data-object-type-id="{$commentObjectTypeID}" {*
+					*}data-comments="{if $person->comments}{$commentList->countObjects()}{else}0{/if}" {*
+					*}data-last-comment-time="{$lastCommentTime}" {*
 				*}>
 					{include file='commentListAddComment' wysiwygSelector='personCommentListAddComment'}
 					{include file='commentList'}
