@@ -32,3 +32,7 @@ class MyForm extends AbstractForm {
 ## RSS Feeds
 
 A [new API](../../php/api/rss_feeds.md) for the output of content as an RSS feed has been introduced. 
+
+## ACP Menu Items
+
+A [new API](../../package/acp-menu-items.md) for adding ACP menu items has been introduced. The previous option of adding menu entries via PIP is still supported, but is to be discontinued in the long term.
