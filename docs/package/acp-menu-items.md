@@ -1,6 +1,6 @@
 # ACP Menu Items
 
-The API for the ACP menu items allows you to add your own menu items in the admin panel with your package.
+The API for the ACP menu items allows you to add your own menu items in the admin panel for your package.
 
 Since WoltLab Suite 6.1 you can attach an event listener to the `wcf\system\menu\acp\event\AcpMenuCollecting` event inside a bootstrap script to lazily register your ACP menu items.
 
@@ -12,7 +12,7 @@ The `register` method of the event expects an object of the type `wcf\system\men
 | `$title` | string | (Optional) title of the item; if omitted `$menuItem` is used as language variable |
 | `$parentMenuItem` | string | (Optional) identifier of the parent item |
 | `$link` | string | (Optional) URL of the linked page |
-| `$icon` | string | (Optional) icon of the item |
+| `$icon` | ?FontAwesomeIcon | (Optional) icon of the item |
 
 Example:
 
@@ -23,6 +23,7 @@ use wcf\system\event\EventHandler;
 use wcf\system\menu\acp\AcpMenuItem;
 use wcf\system\menu\acp\event\AcpMenuCollecting;
 use wcf\system\request\LinkHandler;
+use wcf\system\style\FontAwesomeIcon;
 
 return static function (): void {
     EventHandler::getInstance()->register(AcpMenuCollecting::class, static function (AcpMenuCollecting $event) {
@@ -32,13 +33,13 @@ return static function (): void {
             'wcf.acp.menu.link.application'
         ));
 
-        if (true) {
+        if ($currentUserHasSomeSpecificPermission) {
             $event->register(new AcpMenuItem(
                 "com.woltlab.foor.bar.add",
                 'Example Add Title',
                 "com.woltlab.foor.bar",
                 LinkHandler::getInstance()->getControllerLink(FooAddForm::class),
-                'plus;false'
+                FontAwesomeIcon::fromString('plus;false')
             ));
         }
     });
