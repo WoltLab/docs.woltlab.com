@@ -66,3 +66,25 @@ $event->setDescription(
 );
 $event->setLink($object->getLink());
 ```
+
+## Box Configuration
+
+The Methods `wcf\system\box\BoxHandler::createBoxCondition()` and `wcf\system\box\BoxHandler::addBoxToPageAssignments()` were used for the configuration of boxes during package installation. These methods were deprecated with version 6.1, as they led to an initialization of the box handler and can therefore cause undesirable side effects.
+
+The new commands `wcf\system\box\command\CreateBoxCondition` and `wcf\system\box\command\CreateBoxToPageAssignments` can be used instead.
+
+Example:
+
+```php
+(new \wcf\system\box\command\CreateBoxCondition(
+    'boxIdentifier',
+    'conditionDefinition',
+    'conditionObjectType',
+    ['parameter' => 12345]
+))();
+
+(new \wcf\system\box\command\CreateBoxToPageAssignments(
+    'boxIdentifier',
+    ['pageIdentifier']
+))();
+```
