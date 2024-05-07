@@ -49,12 +49,12 @@ This includes the following changes:
 * The description is a simple text version of the content (no formatting) truncated to 500 characters.
 * The event as a whole can be linked with a link that leads to the content (the entire area is clickable).
 
-The changes are backwards compatible, but we recommend apply them to ensure a uniform user experience.
+The changes are backwards compatible, but we recommend to apply them for a uniform user experience.
 
 #### Example
 
 ```php
-$object = new FooBarrObject(1);
+$object = new FooBarObject(1);
 $event->setTitle(WCF::getLanguage()->getDynamicVariable('com.foo.bar', [
     // variables
 ]));
