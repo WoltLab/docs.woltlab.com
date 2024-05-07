@@ -36,3 +36,33 @@ A [new API](../../php/api/rss_feeds.md) for the output of content as an RSS feed
 ## ACP Menu Items
 
 A [new API](../../package/acp-menu-items.md) for adding ACP menu items has been introduced. The previous option of adding menu entries via PIP is still supported, but is to be discontinued in the long term.
+
+## User Activity Events
+
+The user activity events have been redesigned for a modern look and better user experience.
+
+This includes the following changes:
+
+* The title now includes the author's name and forms a complete sentence. Example: `<strong>{$author}</strong> replied to a comment by <strong>{$commentAuthor}</strong> on article <strong>{$article->getTitle()}</strong>.`
+* The title no longer contains links.
+* Keywords in the title are highlighted in bold (e.g. author's name, topic title).
+* The description is a simple text version of the content (no formatting) truncated to 500 characters.
+* The event as a whole can be linked with a link that leads to the content (the entire area is clickable).
+
+The changes are backwards compatible, but we recommend to apply them for a uniform user experience.
+
+#### Example
+
+```php
+$object = new FooBarObject(1);
+$event->setTitle(WCF::getLanguage()->getDynamicVariable('com.foo.bar', [
+    // variables
+]));
+$event->setDescription(
+    StringUtil::encodeHTML(
+        StringUtil::truncate($object->getPlainTextMessage(), 500)
+    ),
+    true
+);
+$event->setLink($object->getLink());
+```
