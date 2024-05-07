@@ -2582,6 +2582,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#user-activity-events" class="md-nav__link">
+    User Activity Events
+  </a>
+  
+    <nav class="md-nav" aria-label="User Activity Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3841,6 +3861,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#user-activity-events" class="md-nav__link">
+    User Activity Events
+  </a>
+  
+    <nav class="md-nav" aria-label="User Activity Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3904,13 +3944,47 @@ the <code>assignVariables</code> method.</p>
 <p>A <a href="../../../php/api/rss_feeds/">new API</a> for the output of content as an RSS feed has been introduced. </p>
 <h2 id="acp-menu-items">ACP Menu Items<a class="headerlink" href="#acp-menu-items" title="Permanent link">#</a></h2>
 <p>A <a href="../../../package/acp-menu-items/">new API</a> for adding ACP menu items has been introduced. The previous option of adding menu entries via PIP is still supported, but is to be discontinued in the long term.</p>
+<h2 id="user-activity-events">User Activity Events<a class="headerlink" href="#user-activity-events" title="Permanent link">#</a></h2>
+<p>The user activity events have been redesigned for a modern look and better user experience.</p>
+<p>This includes the following changes:</p>
+<ul>
+<li>The title now includes the author's name and forms a complete sentence. Example: <code>&lt;strong&gt;{$author}&lt;/strong&gt; replied to a comment by &lt;strong&gt;{$commentAuthor}&lt;/strong&gt; on article &lt;strong&gt;{$article-&gt;getTitle()}&lt;/strong&gt;.</code></li>
+<li>The title no longer contains links.</li>
+<li>Keywords in the title are highlighted in bold (e.g. author's name, topic title).</li>
+<li>The description is a simple text version of the content (no formatting) truncated to 500 characters.</li>
+<li>The event as a whole can be linked with a link that leads to the content (the entire area is clickable).</li>
+</ul>
+<p>The changes are backwards compatible, but we recommend to apply them for a uniform user experience.</p>
+<h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">#</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$object</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FooBarObject</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">&#39;com.foo.bar&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="c1">// variables</span>
+<span class="p">]));</span>
+<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setDescription</span><span class="p">(</span>
+    <span class="nx">StringUtil</span><span class="o">::</span><span class="na">encodeHTML</span><span class="p">(</span>
+        <span class="nx">StringUtil</span><span class="o">::</span><span class="na">truncate</span><span class="p">(</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getPlainTextMessage</span><span class="p">(),</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="k">true</span>
+<span class="p">);</span>
+<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setLink</span><span class="p">(</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">());</span>
+</code></pre></div></td></tr></table></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2024-05-01
+      2024-05-07
     
   </small>
 </div>
