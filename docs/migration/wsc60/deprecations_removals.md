@@ -16,6 +16,8 @@ With version 6.1, we have deprecated certain components and removed several othe
 
 - `wcf\system\session\SessionHandler::resetSessions()` ([WoltLab/WCF#3767](https://github.com/WoltLab/WCF/pull/3767))
 - `wcf\system\comment\manager\ICommentManager::canModerate()` ([WoltLab/WCF#5852](https://github.com/WoltLab/WCF/pull/5852/))
+- `wcf\system\box\BoxHandler::createBoxCondition()` ([WoltLab/WCF#5906](https://github.com/WoltLab/WCF/pull/5906))
+- `wcf\system\box\BoxHandler::addBoxToPageAssignments()` ([WoltLab/WCF#5906](https://github.com/WoltLab/WCF/pull/5906))
 
 ### JavaScript
 
