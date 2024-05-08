@@ -2602,6 +2602,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#box-configuration" class="md-nav__link">
+    Box Configuration
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3881,6 +3888,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#box-configuration" class="md-nav__link">
+    Box Configuration
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3977,6 +3991,32 @@ the <code>assignVariables</code> method.</p>
     <span class="k">true</span>
 <span class="p">);</span>
 <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setLink</span><span class="p">(</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">());</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="box-configuration">Box Configuration<a class="headerlink" href="#box-configuration" title="Permanent link">#</a></h2>
+<p>The Methods <code>wcf\system\box\BoxHandler::createBoxCondition()</code> and <code>wcf\system\box\BoxHandler::addBoxToPageAssignments()</code> were used for the configuration of boxes during package installation. These methods were deprecated with version 6.1, as they led to an initialization of the box handler and can therefore cause undesirable side effects.</p>
+<p>The new commands <code>wcf\system\box\command\CreateBoxCondition</code> and <code>wcf\system\box\command\CreateBoxToPageAssignments</code> can be used instead.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">(</span><span class="k">new</span> <span class="nx">\wcf\system\box\command\CreateBoxCondition</span><span class="p">(</span>
+    <span class="s1">&#39;boxIdentifier&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;conditionDefinition&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;conditionObjectType&#39;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">&#39;parameter&#39;</span> <span class="o">=&gt;</span> <span class="mi">12345</span><span class="p">]</span>
+<span class="p">))();</span>
+
+<span class="p">(</span><span class="k">new</span> <span class="nx">\wcf\system\box\command\CreateBoxToPageAssignments</span><span class="p">(</span>
+    <span class="s1">&#39;boxIdentifier&#39;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">&#39;pageIdentifier&#39;</span><span class="p">]</span>
+<span class="p">))();</span>
 </code></pre></div></td></tr></table></div>
 
   <hr>
