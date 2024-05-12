@@ -88,3 +88,11 @@ Example:
     ['pageIdentifier']
 ))();
 ```
+
+## PSR-14 Events
+
+The old practice of placing events where they are used is somewhat inconsistent and worst of all highly intransparent for discovery purposes. WoltLab Suite 6.1 therefore introduces a unified directory structure grouped by the app namespace.
+
+All PSR-14 events now use the new `event` namespace (located under `lib/event`). See the [PSR-14 event documentation](../../php/api/events.md) for details.
+
+The changes are backwards compatible, the old namespaces can still be used.

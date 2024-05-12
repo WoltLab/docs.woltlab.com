@@ -11,6 +11,22 @@ With version 6.1, we have deprecated certain components and removed several othe
 - `wcf\system\exception\ValidateActionException`
 - `wcf\system\bbcode\HtmlBBCodeParser` ([WoltLab/WCF#5874](https://github.com/WoltLab/WCF/pull/5874/))
 - `wcf\action\AbstractOauth2Action` ([WoltLab/WCF#5891](https://github.com/WoltLab/WCF/pull/5891/))
+- `wcf\data\user\menu\item\event\UserMenuItemIconResolving` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
+- `wcf\system\cache\event\CacheCleared` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
+- `wcf\system\event\IEvent` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
+- `wcf\system\event\IInterruptableEvent` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
+- `wcf\system\event\TInterruptableEvent` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
+- `wcf\system\language\event\LanguageContentCopying` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
+- `wcf\system\language\event\LanguageImported` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
+- `wcf\system\language\event\PhraseChanged` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
+- `wcf\system\language\event\PreloadPhrasesCollecting` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
+- `wcf\system\moderation\queue\event\UserAssigned` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
+- `wcf\system\package\event\PackageInstallationPluginSynced` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
+- `wcf\system\package\event\PackageListChanged` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
+- `wcf\system\package\event\PackageUpdateListChanged` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
+- `wcf\system\user\authentication\event\UserLoggedIn` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
+- `wcf\system\user\event\UsernameValidating` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
+- `wcf\system\worker\event\RebuildWorkerCollecting` ([WoltLab/WCF#5912](https://github.com/WoltLab/WCF/pull/5912/))
 
 #### Methods
 

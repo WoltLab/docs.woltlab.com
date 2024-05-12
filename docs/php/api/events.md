@@ -158,3 +158,127 @@ Lastly, the following XML file has to be used to register the event listeners (y
   language="xml",
   filepath="php/api/events/eventListener.xml",
 ) }}
+
+
+## PSR-14 Events
+
+WoltLab Suite 5.5 introduces the concept of dedicated, reusable event classes.
+Any newly introduced event will receive a dedicated class, implementing the `wcf\event\IPsr14Event` interface.
+These event classes may be fired from multiple locations, making them reusable to convey that a conceptual action happened, instead of a specific class doing something.
+An example for using the new event system could be a user logging in:
+Instead of listening on a the login form being submitted and the Facebook login action successfully running, an event `UserLoggedIn` might be fired whenever a user logs in, no matter how the login is performed.
+
+Additionally, these dedicated event classes will benefit from full IDE support.
+All the relevant values may be stored as real properties on the event object.
+
+Event classes should not have an `Event` suffix and should be stored in an `event` namespace in a matching location.
+Thus, the `UserLoggedIn` example might have a FQCN of `\wcf\event\user\authentication\UserLoggedIn`.
+
+Event listeners for events implementing `IPsr14Event` need to follow [PSR-14](https://www.php-fig.org/psr/psr-14/), i.e. they need to be callable.
+In practice, this means that the event listener class needs to implement `__invoke()`.
+No interface has to be implemented in this case.
+
+Previously:
+
+```php
+$parameters = [
+    'value' => \random_int(1, 1024),
+];
+
+EventHandler::getInstance()->fireAction($this, 'valueAvailable', $parameters);
+```
+
+```php title="lib/system/event/listener/ValueDumpListener.class.php"
+<?php
+
+namespace wcf\system\event\listener;
+
+use wcf\form\ValueForm;
+
+final class ValueDumpListener implements IParameterizedEventListener
+{
+    /**
+     * @inheritDoc
+     * @param ValueForm $eventObj
+     */
+    public function execute($eventObj, $className, $eventName, array &$parameters)
+    {
+        var_dump($parameters['value']);
+    }
+}
+```
+
+Now:
+
+```php
+EventHandler::getInstance()->fire(new ValueAvailable(\random_int(1, 1024)));
+```
+
+```php title="lib/event/foo/ValueAvailable.class.php"
+<?php
+
+namespace wcf\event\foo;
+
+use wcf\event\IPsr14Event;
+
+final class ValueAvailable implements IPsr14Event
+{
+    /**
+     * @var int
+     */
+    private $value;
+
+    public function __construct(int $value)
+    {
+        $this->value = $value;
+    }
+
+    public function getValue(): int
+    {
+        return $this->value;
+    }
+}
+```
+
+```php title="lib/system/event/listener/ValueDumpListener.class.php"
+<?php
+
+namespace wcf\system\event\listener;
+
+use wcf\event\foo\ValueAvailable;
+
+final class ValueDumpListener
+{
+    public function __invoke(ValueAvailable $event): void
+    {
+        \var_dump($event->getValue());
+    }
+}
+```
+
+### Available PSR-14 Events
+
+| Class | Description |
+|-------|-------------|
+| `wcf\event\user\UsernameValidating` | Indicates that a username is currently validated. If this event is interrupted, the username is considered to be invalid. |
+| `wcf\event\acp\dashboard\box\BoxCollecting` | Requests the collection of boxes for the acp dashboard. |
+| `wcf\event\acp\dashboard\box\PHPExtensionCollecting` | Requests the collection of PHP extensions for the system info ACP dashboard box. |
+| `wcf\event\acp\dashboard\box\StatusMessageCollecting` | Requests the collection of status messages for the status message dashboard box. |
+| `wcf\event\acp\menu\item\ItemCollecting` | Requests the collection of acp menu items. |
+| `wcf\event\cache\CacheCleared` | Indicates that a full cache clear was performed. |
+| `wcf\event\endpoint\ControllerCollecting` | Collects the list of API controllers. |
+| `wcf\event\language\LanguageContentCopying` | Indicates that the contents of a language should be copied to another one. |
+| `wcf\event\language\LanguageImported` | Indicates that a language was created or updated through a manual import. |
+| `wcf\event\language\PhraseChanged` | Indicates that a phrase has been modified by the user. |
+| `wcf\event\language\PreloadPhrasesCollecting` | Requests the collection of phrases that should be included in the preload cache. |
+| `wcf\event\moderation\queue\UserAssigned` | Indicates that a user was assigned or reassigned to a moderation queue entry. |
+| `wcf\event\package\PackageInstallationPluginSynced` | Indicates that the a package installation plugin was executed through the developer tools. |
+| `wcf\event\package\PackageListChanged` | Indicates that the there have been changes to the package list. These changes include the installation, removal or update of existing packages. |
+| `wcf\event\package\PackageUpdateListChanged` | Indicates that the there have been changes to the package update list. |
+| `wcf\event\request\ActivePageResolving` | Indicates that the `RequestHandler` could not determine the active page. |
+| `wcf\event\session\PreserveVariablesCollecting` | This event allows the configuration of session variables that are to be preserved when the user changes. |
+| `wcf\event\spider\SpiderCollecting` | Requests the collection of spiders. |
+| `wcf\event\user\authentication\UserLoggedIn` | Indicates that the user actively logged in, i.e. that a user change happened in response to a user's request based off proper authentication. |
+| `wcf\event\user\authentication\configuration\ConfigurationLoading` | Indicates the loading of the user auth configuration. |
+| `wcf\event\user\menu\item\IconResolving` | Resolves the icon of a user menu item. |
+| `wcf\event\worker\RebuildWorkerCollecting` | Requests the collection of workers that should be included in the list of rebuild workers. |
