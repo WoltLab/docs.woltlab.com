@@ -13,9 +13,6 @@ Example:
 <?php
 namespace wcf\system\acp\dashboard\box;
 
-use wcf\system\event\EventHandler;
-use wcf\system\acp\dashboard\event\AcpDashboardCollecting;
-
 final class FooBox extends AbstractAcpDashboardBox {
     public function getTitle(): string
     {
@@ -36,19 +33,19 @@ final class FooBox extends AbstractAcpDashboardBox {
 
 ## Register a Custom Box
 
-You can attach an event listener to the `wcf\system\acp\dashboard\event\AcpDashboardCollecting` event inside a bootstrap script to lazily register custom boxes.
+You can attach an event listener to the `wcf\event\acp\dashboard\box\BoxCollecting` event inside a bootstrap script to lazily register custom boxes.
 The class name of the box is registered using the event’s `register()` method:
 
 ```php title="files/lib/bootstrap/com.example.bar.php"
 <?php
 
 use wcf\system\event\EventHandler;
-use wcf\system\acp\dashboard\event\AcpDashboardCollecting;
+use wcf\event\acp\dashboard\box\BoxCollecting;
 
 return static function (): void {
     $eventHandler = EventHandler::getInstance();
 
-    $eventHandler->register(AcpDashboardCollecting::class, static function (AcpDashboardCollecting $event) {
+    $eventHandler->register(BoxCollecting::class, static function (BoxCollecting $event) {
         $event->register(\wcf\system\acp\dashboard\box\FooBox::class);
     });
 };
