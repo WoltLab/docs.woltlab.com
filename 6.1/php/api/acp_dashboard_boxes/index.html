@@ -3843,14 +3843,8 @@ It is recommended to extend the class <a href="https://github.com/WoltLab/WCF/bl
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">namespace</span> <span class="nx">wcf\system\acp\dashboard\box</span><span class="p">;</span>
-
-<span class="k">use</span> <span class="nx">wcf\system\event\EventHandler</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">wcf\system\acp\dashboard\event\AcpDashboardCollecting</span><span class="p">;</span>
 
 <span class="k">final</span> <span class="k">class</span> <span class="nc">FooBox</span> <span class="k">extends</span> <span class="nx">AbstractAcpDashboardBox</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getTitle</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
@@ -3870,7 +3864,7 @@ It is recommended to extend the class <a href="https://github.com/WoltLab/WCF/bl
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="register-a-custom-box">Register a Custom Box<a class="headerlink" href="#register-a-custom-box" title="Permanent link">#</a></h2>
-<p>You can attach an event listener to the <code>wcf\system\acp\dashboard\event\AcpDashboardCollecting</code> event inside a bootstrap script to lazily register custom boxes.
+<p>You can attach an event listener to the <code>wcf\event\acp\dashboard\box\BoxCollecting</code> event inside a bootstrap script to lazily register custom boxes.
 The class name of the box is registered using the event’s <code>register()</code> method:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/bootstrap/com.example.bar.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3886,12 +3880,12 @@ The class name of the box is registered using the event’s <code>register()</co
 <span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">use</span> <span class="nx">wcf\system\event\EventHandler</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">wcf\system\acp\dashboard\event\AcpDashboardCollecting</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\event\acp\dashboard\box\BoxCollecting</span><span class="p">;</span>
 
 <span class="k">return</span> <span class="k">static</span> <span class="k">function</span> <span class="p">()</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
     <span class="nv">$eventHandler</span> <span class="o">=</span> <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">();</span>
 
-    <span class="nv">$eventHandler</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">AcpDashboardCollecting</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">AcpDashboardCollecting</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$eventHandler</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">BoxCollecting</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">BoxCollecting</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
         <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">\wcf\system\acp\dashboard\box\FooBox</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
     <span class="p">});</span>
 <span class="p">};</span>
@@ -3902,7 +3896,7 @@ The class name of the box is registered using the event’s <code>register()</co
   <small>
     
       Last update:
-      2024-04-30
+      2024-05-13
     
   </small>
 </div>

@@ -657,6 +657,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#psr-14-events" class="md-nav__link">
+    PSR-14 Events
+  </a>
+  
+    <nav class="md-nav" aria-label="PSR-14 Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#available-psr-14-events" class="md-nav__link">
+    Available PSR-14 Events
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3855,6 +3875,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#psr-14-events" class="md-nav__link">
+    PSR-14 Events
+  </a>
+  
+    <nav class="md-nav" aria-label="PSR-14 Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#available-psr-14-events" class="md-nav__link">
+    Available PSR-14 Events
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4243,13 +4283,245 @@ Furthermore, the type-hinting of the parameter illustrates in which contexts the
 <span class="w">    </span><span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="psr-14-events">PSR-14 Events<a class="headerlink" href="#psr-14-events" title="Permanent link">#</a></h2>
+<p>WoltLab Suite 5.5 introduces the concept of dedicated, reusable event classes.
+Any newly introduced event will receive a dedicated class, implementing the <code>wcf\event\IPsr14Event</code> interface.
+These event classes may be fired from multiple locations, making them reusable to convey that a conceptual action happened, instead of a specific class doing something.
+An example for using the new event system could be a user logging in:
+Instead of listening on a the login form being submitted and the Facebook login action successfully running, an event <code>UserLoggedIn</code> might be fired whenever a user logs in, no matter how the login is performed.</p>
+<p>Additionally, these dedicated event classes will benefit from full IDE support.
+All the relevant values may be stored as real properties on the event object.</p>
+<p>Event classes should not have an <code>Event</code> suffix and should be stored in an <code>event</code> namespace in a matching location.
+Thus, the <code>UserLoggedIn</code> example might have a FQCN of <code>\wcf\event\user\authentication\UserLoggedIn</code>.</p>
+<p>Event listeners for events implementing <code>IPsr14Event</code> need to follow <a href="https://www.php-fig.org/psr/psr-14/">PSR-14</a>, i.e. they need to be callable.
+In practice, this means that the event listener class needs to implement <code>__invoke()</code>.
+No interface has to be implemented in this case.</p>
+<p>Previously:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="nx">\random_int</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1024</span><span class="p">),</span>
+<span class="p">];</span>
+
+<span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;valueAvailable&#39;</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">lib/system/event/listener/ValueDumpListener.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">wcf\system\event\listener</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">wcf\form\ValueForm</span><span class="p">;</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">ValueDumpListener</span> <span class="k">implements</span> <span class="nx">IParameterizedEventListener</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @inheritDoc</span>
+<span class="sd">     * @param ValueForm $eventObj</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Now:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fire</span><span class="p">(</span><span class="k">new</span> <span class="nx">ValueAvailable</span><span class="p">(</span><span class="nx">\random_int</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)));</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">lib/event/foo/ValueAvailable.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">wcf\event\foo</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">wcf\event\IPsr14Event</span><span class="p">;</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">ValueAvailable</span> <span class="k">implements</span> <span class="nx">IPsr14Event</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @var int</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$value</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">value</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getValue</span><span class="p">()</span><span class="o">:</span> <span class="nx">int</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">value</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">lib/system/event/listener/ValueDumpListener.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">wcf\system\event\listener</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">wcf\event\foo\ValueAvailable</span><span class="p">;</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">ValueDumpListener</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__invoke</span><span class="p">(</span><span class="nx">ValueAvailable</span> <span class="nv">$event</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="nx">\var_dump</span><span class="p">(</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="available-psr-14-events">Available PSR-14 Events<a class="headerlink" href="#available-psr-14-events" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wcf\event\user\UsernameValidating</code></td>
+<td>Indicates that a username is currently validated. If this event is interrupted, the username is considered to be invalid.</td>
+</tr>
+<tr>
+<td><code>wcf\event\acp\dashboard\box\BoxCollecting</code></td>
+<td>Requests the collection of boxes for the acp dashboard.</td>
+</tr>
+<tr>
+<td><code>wcf\event\acp\dashboard\box\PHPExtensionCollecting</code></td>
+<td>Requests the collection of PHP extensions for the system info ACP dashboard box.</td>
+</tr>
+<tr>
+<td><code>wcf\event\acp\dashboard\box\StatusMessageCollecting</code></td>
+<td>Requests the collection of status messages for the status message dashboard box.</td>
+</tr>
+<tr>
+<td><code>wcf\event\acp\menu\item\ItemCollecting</code></td>
+<td>Requests the collection of acp menu items.</td>
+</tr>
+<tr>
+<td><code>wcf\event\cache\CacheCleared</code></td>
+<td>Indicates that a full cache clear was performed.</td>
+</tr>
+<tr>
+<td><code>wcf\event\endpoint\ControllerCollecting</code></td>
+<td>Collects the list of API controllers.</td>
+</tr>
+<tr>
+<td><code>wcf\event\language\LanguageContentCopying</code></td>
+<td>Indicates that the contents of a language should be copied to another one.</td>
+</tr>
+<tr>
+<td><code>wcf\event\language\LanguageImported</code></td>
+<td>Indicates that a language was created or updated through a manual import.</td>
+</tr>
+<tr>
+<td><code>wcf\event\language\PhraseChanged</code></td>
+<td>Indicates that a phrase has been modified by the user.</td>
+</tr>
+<tr>
+<td><code>wcf\event\language\PreloadPhrasesCollecting</code></td>
+<td>Requests the collection of phrases that should be included in the preload cache.</td>
+</tr>
+<tr>
+<td><code>wcf\event\moderation\queue\UserAssigned</code></td>
+<td>Indicates that a user was assigned or reassigned to a moderation queue entry.</td>
+</tr>
+<tr>
+<td><code>wcf\event\package\PackageInstallationPluginSynced</code></td>
+<td>Indicates that the a package installation plugin was executed through the developer tools.</td>
+</tr>
+<tr>
+<td><code>wcf\event\package\PackageListChanged</code></td>
+<td>Indicates that the there have been changes to the package list. These changes include the installation, removal or update of existing packages.</td>
+</tr>
+<tr>
+<td><code>wcf\event\package\PackageUpdateListChanged</code></td>
+<td>Indicates that the there have been changes to the package update list.</td>
+</tr>
+<tr>
+<td><code>wcf\event\request\ActivePageResolving</code></td>
+<td>Indicates that the <code>RequestHandler</code> could not determine the active page.</td>
+</tr>
+<tr>
+<td><code>wcf\event\session\PreserveVariablesCollecting</code></td>
+<td>This event allows the configuration of session variables that are to be preserved when the user changes.</td>
+</tr>
+<tr>
+<td><code>wcf\event\spider\SpiderCollecting</code></td>
+<td>Requests the collection of spiders.</td>
+</tr>
+<tr>
+<td><code>wcf\event\user\authentication\UserLoggedIn</code></td>
+<td>Indicates that the user actively logged in, i.e. that a user change happened in response to a user's request based off proper authentication.</td>
+</tr>
+<tr>
+<td><code>wcf\event\user\authentication\configuration\ConfigurationLoading</code></td>
+<td>Indicates the loading of the user auth configuration.</td>
+</tr>
+<tr>
+<td><code>wcf\event\user\menu\item\IconResolving</code></td>
+<td>Resolves the icon of a user menu item.</td>
+</tr>
+<tr>
+<td><code>wcf\event\worker\RebuildWorkerCollecting</code></td>
+<td>Requests the collection of workers that should be included in the list of rebuild workers.</td>
+</tr>
+</tbody>
+</table>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2021-05-19
+      2024-05-12
     
   </small>
 </div>
