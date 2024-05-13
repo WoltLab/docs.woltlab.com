@@ -38,6 +38,9 @@ Create a new file called `package.xml` and insert the code below:
 		<author>Your Name</author>
 		<authorurl>http://www.example.com</authorurl>
 	</authorinformation>
+	<requiredpackages>
+		<requiredpackage minversion="6.0.0">com.woltlab.wcf</requiredpackage>
+	</requiredpackages>
 	<excludedpackages>
 		<excludedpackage version="7.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
 	</excludedpackages>
