@@ -1,5 +1,7 @@
 <?php
+
 namespace example\system\user\notification\event;
+
 use example\system\cache\runtime\BazRuntimeCache;
 use example\system\user\notification\object\FooUserNotificationObject;
 use wcf\system\email\Email;
@@ -16,7 +18,8 @@ use wcf\system\user\notification\event\AbstractSharedUserNotificationEvent;
  *
  * @method	FooUserNotificationObject	getUserNotificationObject()
  */
-class FooUserNotificationEvent extends AbstractSharedUserNotificationEvent {
+class FooUserNotificationEvent extends AbstractSharedUserNotificationEvent
+{
     /**
      * @inheritDoc
      */
@@ -26,7 +29,8 @@ class FooUserNotificationEvent extends AbstractSharedUserNotificationEvent {
     /**
      * @inheritDoc
      */
-    public function checkAccess() {
+    public function checkAccess()
+    {
         $this->getUserNotificationObject()->setBaz(BazRuntimeCache::getInstance()->getObject($this->getUserNotificationObject()->bazID));
 
         if (!$this->getUserNotificationObject()->isAccessible()) {
@@ -42,15 +46,16 @@ class FooUserNotificationEvent extends AbstractSharedUserNotificationEvent {
     /**
      * @inheritDoc
      */
-    public function getEmailMessage($notificationType = 'instant') {
+    public function getEmailMessage($notificationType = 'instant')
+    {
         $this->getUserNotificationObject()->setBaz(BazRuntimeCache::getInstance()->getObject($this->getUserNotificationObject()->bazID));
 
-        $messageID = '<com.woltlab.example.baz/'.$this->getUserNotificationObject()->bazID.'@'.Email::getHost().'>';
+        $messageID = '<com.woltlab.example.baz/' . $this->getUserNotificationObject()->bazID . '@' . Email::getHost() . '>';
 
         return [
             'application' => 'example',
             'in-reply-to' => [$messageID],
-            'message-id' => 'com.woltlab.example.foo/'.$this->getUserNotificationObject()->fooID,
+            'message-id' => 'com.woltlab.example.foo/' . $this->getUserNotificationObject()->fooID,
             'references' => [$messageID],
             'template' => 'email_notification_foo'
         ];
@@ -60,7 +65,8 @@ class FooUserNotificationEvent extends AbstractSharedUserNotificationEvent {
      * @inheritDoc
      * @since	5.0
      */
-    public function getEmailTitle() {
+    public function getEmailTitle()
+    {
         $this->getUserNotificationObject()->setBaz(BazRuntimeCache::getInstance()->getObject($this->getUserNotificationObject()->bazID));
 
         return $this->getLanguage()->getDynamicVariable('example.foo.notification.mail.title', [
@@ -72,14 +78,16 @@ class FooUserNotificationEvent extends AbstractSharedUserNotificationEvent {
     /**
      * @inheritDoc
      */
-    public function getEventHash() {
+    public function getEventHash()
+    {
         return sha1($this->eventID . '-' . $this->getUserNotificationObject()->bazID);
     }
 
     /**
      * @inheritDoc
      */
-    public function getLink() {
+    public function getLink(): string
+    {
         return LinkHandler::getInstance()->getLink('Foo', [
             'application' => 'example',
             'object' => $this->getUserNotificationObject()->getDecoratedObject()
@@ -89,7 +97,8 @@ class FooUserNotificationEvent extends AbstractSharedUserNotificationEvent {
     /**
      * @inheritDoc
      */
-    public function getMessage() {
+    public function getMessage()
+    {
         $authors = $this->getAuthors();
         $count = count($authors);
 
@@ -118,7 +127,8 @@ class FooUserNotificationEvent extends AbstractSharedUserNotificationEvent {
     /**
      * @inheritDoc
      */
-    public function getTitle() {
+    public function getTitle(): string
+    {
         $count = count($this->getAuthors());
         if ($count > 1) {
             return $this->getLanguage()->getDynamicVariable('example.foo.notification.title.stacked', [
@@ -133,7 +143,8 @@ class FooUserNotificationEvent extends AbstractSharedUserNotificationEvent {
     /**
      * @inheritDoc
      */
-    protected function prepare() {
+    protected function prepare()
+    {
         BazRuntimeCache::getInstance()->cacheObjectID($this->getUserNotificationObject()->bazID);
     }
 }

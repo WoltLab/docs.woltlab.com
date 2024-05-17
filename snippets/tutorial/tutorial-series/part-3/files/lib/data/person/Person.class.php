@@ -35,7 +35,7 @@ class Person extends DatabaseObject implements ITitledLinkObject
     /**
      * @inheritDoc
      */
-    public function getLink()
+    public function getLink(): string
     {
         return LinkHandler::getInstance()->getControllerLink(PersonPage::class, [
             'object' => $this,
@@ -45,7 +45,7 @@ class Person extends DatabaseObject implements ITitledLinkObject
     /**
      * @inheritDoc
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->firstName . ' ' . $this->lastName;
     }
