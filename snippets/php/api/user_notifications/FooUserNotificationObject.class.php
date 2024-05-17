@@ -1,5 +1,7 @@
 <?php
+
 namespace example\system\user\notification\object;
+
 use example\data\foo\Foo;
 use wcf\data\DatabaseObjectDecorator;
 use wcf\system\user\notification\object\IUserNotificationObject;
@@ -15,7 +17,8 @@ use wcf\system\user\notification\object\IUserNotificationObject;
  * @method	Foo	getDecoratedObject()
  * @mixin	Foo
  */
-class FooUserNotificationObject extends DatabaseObjectDecorator implements IUserNotificationObject {
+class FooUserNotificationObject extends DatabaseObjectDecorator implements IUserNotificationObject
+{
     /**
      * @inheritDoc
      */
@@ -24,21 +27,24 @@ class FooUserNotificationObject extends DatabaseObjectDecorator implements IUser
     /**
      * @inheritDoc
      */
-    public function getTitle() {
+    public function getTitle(): string
+    {
         return $this->getDecoratedObject()->getTitle();
     }
 
     /**
      * @inheritDoc
      */
-    public function getURL() {
+    public function getURL()
+    {
         return $this->getDecoratedObject()->getLink();
     }
 
     /**
      * @inheritDoc
      */
-    public function getAuthorID() {
+    public function getAuthorID()
+    {
         return $this->getDecoratedObject()->userID;
     }
 }
