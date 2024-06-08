@@ -98,6 +98,7 @@ new `shared_` prefixed names:
 | `booleanOptionType`                  | `shared_booleanOptionType`                |
 | `booleanSearchableOptionType`        | `shared_booleanSearchableOptionType`      |
 | `captcha`                            | `shared_captcha`                          |
+| `captchaQuestion`                    | `shared_captchaQuestiona`                 |
 | `categoryOptionList`                 | `shared_categoryOptionList`               |
 | `checkboxesOptionType`               | `shared_checkboxesOptionType`             |
 | `checkboxesSearchableOptionType`     | `shared_checkboxesSearchableOptionType`   |
