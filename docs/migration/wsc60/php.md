@@ -96,3 +96,10 @@ The old practice of placing events where they are used is somewhat inconsistent 
 All PSR-14 events now use the new `event` namespace (located under `lib/event`). See the [PSR-14 event documentation](../../php/api/events.md) for details.
 
 The changes are backwards compatible, the old namespaces can still be used.
+
+
+## Comment Backend
+
+The backend of the comment system has been revised and is now based on the new RPC controllers and commands.
+The previous backend (the methods of `CommentAction` and `CommentResponseAction`) remains for backward compatibility reasons, but has been deprecated.
+If you do not interact directly with the backend, no changes are usually required. [See](https://github.com/WoltLab/WCF/pull/5944) for more details.

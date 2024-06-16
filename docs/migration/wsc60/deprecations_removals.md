@@ -34,6 +34,8 @@ With version 6.1, we have deprecated certain components and removed several othe
 - `wcf\system\comment\manager\ICommentManager::canModerate()` ([WoltLab/WCF#5852](https://github.com/WoltLab/WCF/pull/5852/))
 - `wcf\system\box\BoxHandler::createBoxCondition()` ([WoltLab/WCF#5906](https://github.com/WoltLab/WCF/pull/5906))
 - `wcf\system\box\BoxHandler::addBoxToPageAssignments()` ([WoltLab/WCF#5906](https://github.com/WoltLab/WCF/pull/5906))
+- Non-standard methods of `wcf\data\comment\CommentAction` ([WoltLab/WCF#5944](https://github.com/WoltLab/WCF/pull/5944))
+- Non-standard methods of `wcf\data\comment\response\CommentResponseAction` ([WoltLab/WCF#5944](https://github.com/WoltLab/WCF/pull/5944))
 
 ### JavaScript
 
