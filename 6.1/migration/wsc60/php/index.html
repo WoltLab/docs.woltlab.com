@@ -2616,6 +2616,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#comment-backend" class="md-nav__link">
+    Comment Backend
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3909,6 +3916,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#comment-backend" class="md-nav__link">
+    Comment Backend
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4036,13 +4050,17 @@ the <code>assignVariables</code> method.</p>
 <p>The old practice of placing events where they are used is somewhat inconsistent and worst of all highly intransparent for discovery purposes. WoltLab Suite 6.1 therefore introduces a unified directory structure grouped by the app namespace.</p>
 <p>All PSR-14 events now use the new <code>event</code> namespace (located under <code>lib/event</code>). See the <a href="../../../php/api/events/">PSR-14 event documentation</a> for details.</p>
 <p>The changes are backwards compatible, the old namespaces can still be used.</p>
+<h2 id="comment-backend">Comment Backend<a class="headerlink" href="#comment-backend" title="Permanent link">#</a></h2>
+<p>The backend of the comment system has been revised and is now based on the new RPC controllers and commands.
+The previous backend (the methods of <code>CommentAction</code> and <code>CommentResponseAction</code>) remains for backward compatibility reasons, but has been deprecated.
+If you do not interact directly with the backend, no changes are usually required. <a href="https://github.com/WoltLab/WCF/pull/5944">See</a> for more details.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2024-05-12
+      2024-06-16
     
   </small>
 </div>
