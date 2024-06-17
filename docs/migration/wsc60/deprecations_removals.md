@@ -64,3 +64,4 @@ With version 6.1, we have deprecated certain components and removed several othe
 - `WCF.User.Registration.LostPassword`
 - `WCF.Message.BBCode.CodeViewer`
 - `WCF.ACL` ([WoltLab/WCF#5860](https://github.com/WoltLab/WCF/pull/5860))
+- `WoltLabSuite/Core/Component/Comment/GuestDialog` ([WoltLab/WCF#5944](https://github.com/WoltLab/WCF/pull/5944))
