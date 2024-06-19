@@ -33,7 +33,7 @@ final class FooBox extends AbstractAcpDashboardBox {
 
 ## Register a Custom Box
 
-You can attach an event listener to the `wcf\event\acp\dashboard\box\BoxCollecting` event inside a bootstrap script to lazily register custom boxes.
+You can attach an event listener to the `wcf\event\acp\dashboard\box\BoxCollecting` event inside a [bootstrap script](../../package/bootstrap-scripts.md) to lazily register custom boxes.
 The class name of the box is registered using the event’s `register()` method:
 
 ```php title="files/lib/bootstrap/com.example.bar.php"

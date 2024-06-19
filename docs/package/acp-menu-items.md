@@ -2,7 +2,7 @@
 
 The API for the ACP menu items allows you to add your own menu items in the admin panel for your package.
 
-Since WoltLab Suite 6.1 you can attach an event listener to the `wcf\event\acp\menu\item\ItemCollecting` event inside a bootstrap script to lazily register your ACP menu items.
+Since WoltLab Suite 6.1 you can attach an event listener to the `wcf\event\acp\menu\item\ItemCollecting` event inside a [bootstrap script](../package/bootstrap-scripts.md) to lazily register your ACP menu items.
 
 The `register` method of the event expects an object of the type `wcf\system\menu\acp\AcpMenuItem` as a parameter. An `AcpMenuItem` object consists of the following parameters:
 
