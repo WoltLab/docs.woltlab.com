@@ -260,25 +260,36 @@ final class ValueDumpListener
 
 | Class | Description |
 |-------|-------------|
-| `wcf\event\user\UsernameValidating` | Indicates that a username is currently validated. If this event is interrupted, the username is considered to be invalid. |
 | `wcf\event\acp\dashboard\box\BoxCollecting` | Requests the collection of boxes for the acp dashboard. |
 | `wcf\event\acp\dashboard\box\PHPExtensionCollecting` | Requests the collection of PHP extensions for the system info ACP dashboard box. |
 | `wcf\event\acp\dashboard\box\StatusMessageCollecting` | Requests the collection of status messages for the status message dashboard box. |
 | `wcf\event\acp\menu\item\ItemCollecting` | Requests the collection of acp menu items. |
 | `wcf\event\cache\CacheCleared` | Indicates that a full cache clear was performed. |
+| `wcf\event\comment\CommentCreated` | Indicates that a new comment has been created. |
+| `wcf\event\comment\CommentPublished` | Indicates that a new comment has been published. This can happen directly when a comment is created or be delayed if a comment has first been checked and approved by a moderator. |
+| `wcf\event\comment\CommentUpdated` | Indicates that a comment has been updated. |
+| `wcf\event\comment\CommentsDeleted` | Indicates that multiple comments have been deleted. |
+| `wcf\event\comment\response\ResponseCreated` | Indicates that a new comment response has been created. |
+| `wcf\event\comment\response\ResponsePublished` | Indicates that a new comment response has been published. This can happen directly when a comment is created or be delayed if a response has first been checked and approved by a moderator. |
+| `wcf\event\comment\response\ResponseUpdated` | Indicates that a response has been updated. |
+| `wcf\event\comment\response\ResponsesDeleted` | Indicates that multiple responses have been deleted. |
 | `wcf\event\endpoint\ControllerCollecting` | Collects the list of API controllers. |
 | `wcf\event\language\LanguageContentCopying` | Indicates that the contents of a language should be copied to another one. |
 | `wcf\event\language\LanguageImported` | Indicates that a language was created or updated through a manual import. |
 | `wcf\event\language\PhraseChanged` | Indicates that a phrase has been modified by the user. |
 | `wcf\event\language\PreloadPhrasesCollecting` | Requests the collection of phrases that should be included in the preload cache. |
+| `wcf\event\message\MessageSpamChecking` | Indicates that a new message by a user is currently validated. If this event is interrupted, the message is considered to be spam. |
 | `wcf\event\moderation\queue\UserAssigned` | Indicates that a user was assigned or reassigned to a moderation queue entry. |
 | `wcf\event\package\PackageInstallationPluginSynced` | Indicates that the a package installation plugin was executed through the developer tools. |
-| `wcf\event\package\PackageListChanged` | Indicates that the there have been changes to the package list. These changes include the installation, removal or update of existing packages. |
+| `wcf\event\package\PackageListChanged` | Indicates that the there have been changes to the package list. These changes include the installation, removal or update of existing packages. The event is fired at the end of the overall process and not for each package that has been modified. |
 | `wcf\event\package\PackageUpdateListChanged` | Indicates that the there have been changes to the package update list. |
+| `wcf\event\page\ContactFormSpamChecking` | Indicates that a new contact form message is currently validated. If this event is interrupted, the message is considered to be spam. |
 | `wcf\event\request\ActivePageResolving` | Indicates that the `RequestHandler` could not determine the active page. |
 | `wcf\event\session\PreserveVariablesCollecting` | This event allows the configuration of session variables that are to be preserved when the user changes. |
 | `wcf\event\spider\SpiderCollecting` | Requests the collection of spiders. |
-| `wcf\event\user\authentication\UserLoggedIn` | Indicates that the user actively logged in, i.e. that a user change happened in response to a user's request based off proper authentication. |
+| `wcf\event\user\RegistrationSpamChecking` | Indicates that a registration by a new user is currently validated. If $matches is not empty, the registration is considered to be a spammer or an undesirable user. |
+| `wcf\event\user\UsernameValidating` | Indicates that a username is currently validated. If this event is interrupted, the username is considered to be invalid. This event will not be fired for usernames changed by an administrator. |
+| `wcf\event\user\authentication\UserLoggedIn` | Indicates that the user actively logged in, i.e. that a user change happened in response to a user's request based off proper authentication. This event specifically must not be used if the active user is changed for technical reasons, e.g. when switching back to the real user after executing some logic with guest permissions. |
 | `wcf\event\user\authentication\configuration\ConfigurationLoading` | Indicates the loading of the user auth configuration. |
 | `wcf\event\user\menu\item\IconResolving` | Resolves the icon of a user menu item. |
 | `wcf\event\worker\RebuildWorkerCollecting` | Requests the collection of workers that should be included in the list of rebuild workers. |
