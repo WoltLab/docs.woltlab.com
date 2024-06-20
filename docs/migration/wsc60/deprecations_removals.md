@@ -65,3 +65,8 @@ With version 6.1, we have deprecated certain components and removed several othe
 - `WCF.Message.BBCode.CodeViewer`
 - `WCF.ACL` ([WoltLab/WCF#5860](https://github.com/WoltLab/WCF/pull/5860))
 - `WoltLabSuite/Core/Component/Comment/GuestDialog` ([WoltLab/WCF#5944](https://github.com/WoltLab/WCF/pull/5944))
+
+### Other
+
+- Option category `security.blacklist` and `security.blacklist.custom`
+- Option `BLACKLIST_SFS_ACTION` (replaced by `REGISTER_ANTISPAM_ACTION`)
