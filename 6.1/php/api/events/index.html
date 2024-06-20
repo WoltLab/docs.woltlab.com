@@ -4426,10 +4426,6 @@ No interface has to be implemented in this case.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>wcf\event\user\UsernameValidating</code></td>
-<td>Indicates that a username is currently validated. If this event is interrupted, the username is considered to be invalid.</td>
-</tr>
-<tr>
 <td><code>wcf\event\acp\dashboard\box\BoxCollecting</code></td>
 <td>Requests the collection of boxes for the acp dashboard.</td>
 </tr>
@@ -4448,6 +4444,38 @@ No interface has to be implemented in this case.</p>
 <tr>
 <td><code>wcf\event\cache\CacheCleared</code></td>
 <td>Indicates that a full cache clear was performed.</td>
+</tr>
+<tr>
+<td><code>wcf\event\comment\CommentCreated</code></td>
+<td>Indicates that a new comment has been created.</td>
+</tr>
+<tr>
+<td><code>wcf\event\comment\CommentPublished</code></td>
+<td>Indicates that a new comment has been published. This can happen directly when a comment is created or be delayed if a comment has first been checked and approved by a moderator.</td>
+</tr>
+<tr>
+<td><code>wcf\event\comment\CommentUpdated</code></td>
+<td>Indicates that a comment has been updated.</td>
+</tr>
+<tr>
+<td><code>wcf\event\comment\CommentsDeleted</code></td>
+<td>Indicates that multiple comments have been deleted.</td>
+</tr>
+<tr>
+<td><code>wcf\event\comment\response\ResponseCreated</code></td>
+<td>Indicates that a new comment response has been created.</td>
+</tr>
+<tr>
+<td><code>wcf\event\comment\response\ResponsePublished</code></td>
+<td>Indicates that a new comment response has been published. This can happen directly when a comment is created or be delayed if a response has first been checked and approved by a moderator.</td>
+</tr>
+<tr>
+<td><code>wcf\event\comment\response\ResponseUpdated</code></td>
+<td>Indicates that a response has been updated.</td>
+</tr>
+<tr>
+<td><code>wcf\event\comment\response\ResponsesDeleted</code></td>
+<td>Indicates that multiple responses have been deleted.</td>
 </tr>
 <tr>
 <td><code>wcf\event\endpoint\ControllerCollecting</code></td>
@@ -4470,6 +4498,10 @@ No interface has to be implemented in this case.</p>
 <td>Requests the collection of phrases that should be included in the preload cache.</td>
 </tr>
 <tr>
+<td><code>wcf\event\message\MessageSpamChecking</code></td>
+<td>Indicates that a new message by a user is currently validated. If this event is interrupted, the message is considered to be spam.</td>
+</tr>
+<tr>
 <td><code>wcf\event\moderation\queue\UserAssigned</code></td>
 <td>Indicates that a user was assigned or reassigned to a moderation queue entry.</td>
 </tr>
@@ -4479,11 +4511,15 @@ No interface has to be implemented in this case.</p>
 </tr>
 <tr>
 <td><code>wcf\event\package\PackageListChanged</code></td>
-<td>Indicates that the there have been changes to the package list. These changes include the installation, removal or update of existing packages.</td>
+<td>Indicates that the there have been changes to the package list. These changes include the installation, removal or update of existing packages. The event is fired at the end of the overall process and not for each package that has been modified.</td>
 </tr>
 <tr>
 <td><code>wcf\event\package\PackageUpdateListChanged</code></td>
 <td>Indicates that the there have been changes to the package update list.</td>
+</tr>
+<tr>
+<td><code>wcf\event\page\ContactFormSpamChecking</code></td>
+<td>Indicates that a new contact form message is currently validated. If this event is interrupted, the message is considered to be spam.</td>
 </tr>
 <tr>
 <td><code>wcf\event\request\ActivePageResolving</code></td>
@@ -4498,8 +4534,16 @@ No interface has to be implemented in this case.</p>
 <td>Requests the collection of spiders.</td>
 </tr>
 <tr>
+<td><code>wcf\event\user\RegistrationSpamChecking</code></td>
+<td>Indicates that a registration by a new user is currently validated. If $matches is not empty, the registration is considered to be a spammer or an undesirable user.</td>
+</tr>
+<tr>
+<td><code>wcf\event\user\UsernameValidating</code></td>
+<td>Indicates that a username is currently validated. If this event is interrupted, the username is considered to be invalid. This event will not be fired for usernames changed by an administrator.</td>
+</tr>
+<tr>
 <td><code>wcf\event\user\authentication\UserLoggedIn</code></td>
-<td>Indicates that the user actively logged in, i.e. that a user change happened in response to a user's request based off proper authentication.</td>
+<td>Indicates that the user actively logged in, i.e. that a user change happened in response to a user's request based off proper authentication. This event specifically must not be used if the active user is changed for technical reasons, e.g. when switching back to the real user after executing some logic with guest permissions.</td>
 </tr>
 <tr>
 <td><code>wcf\event\user\authentication\configuration\ConfigurationLoading</code></td>
@@ -4521,7 +4565,7 @@ No interface has to be implemented in this case.</p>
   <small>
     
       Last update:
-      2024-05-12
+      2024-06-20
     
   </small>
 </div>
