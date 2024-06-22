@@ -143,3 +143,7 @@ Expects `$className` to be derived from `wcf\data\DatabaseObject` and attempts t
 Afterwards the object is tested to have a non-falsy object id, otherwise a `UserInputException` is raised.
 
 Returns the fetched object on success.
+
+# Interacting with the PHP RPC API in TypeScript
+
+You can find an introduction to the [TypeScript API for the RPC API](../../javascript/components_rpc_api.md) in the documentation.
