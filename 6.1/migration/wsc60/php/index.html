@@ -2742,6 +2742,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#enable-the-sandbox-for-templates-inside-of-bbcodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable the Sandbox for Templates Inside of BBCodes
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4108,6 +4117,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#enable-the-sandbox-for-templates-inside-of-bbcodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable the Sandbox for Templates Inside of BBCodes
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4168,7 +4186,7 @@ the <code>assignVariables</code> method.</p>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="rss-feeds">RSS Feeds<a class="headerlink" href="#rss-feeds" title="Permanent link">#</a></h2>
-<p>A <a href="../../../php/api/rss_feeds/">new API</a> for the output of content as an RSS feed has been introduced. </p>
+<p>A <a href="../../../php/api/rss_feeds/">new API</a> for the output of content as an RSS feed has been introduced.</p>
 <h2 id="acp-menu-items">ACP Menu Items<a class="headerlink" href="#acp-menu-items" title="Permanent link">#</a></h2>
 <p>A <a href="../../../package/acp-menu-items/">new API</a> for adding ACP menu items has been introduced. The previous option of adding menu entries via PIP is still supported, but is to be discontinued in the long term.</p>
 <h2 id="user-activity-events">User Activity Events<a class="headerlink" href="#user-activity-events" title="Permanent link">#</a></h2>
@@ -4238,7 +4256,31 @@ the <code>assignVariables</code> method.</p>
 <h2 id="comment-backend">Comment Backend<a class="headerlink" href="#comment-backend" title="Permanent link">#</a></h2>
 <p>The backend of the comment system has been revised and is now based on the new RPC controllers and commands.
 The previous backend (the methods of <code>CommentAction</code> and <code>CommentResponseAction</code>) remains for backward compatibility reasons, but has been deprecated.
-If you do not interact directly with the backend, no changes are usually required. <a href="https://github.com/WoltLab/WCF/pull/5944">See</a> for more details.</p>
+If you do not interact directly with the backend, no changes are usually required. See <a href="https://github.com/WoltLab/WCF/pull/5944">WoltLab/WCF#5944</a> for more details.</p>
+<h2 id="enable-the-sandbox-for-templates-inside-of-bbcodes">Enable the Sandbox for Templates Inside of BBCodes<a class="headerlink" href="#enable-the-sandbox-for-templates-inside-of-bbcodes" title="Permanent link">#</a></h2>
+<p>BBCodes can appear in a lot of different places and assigning template variables through <code>WCF::getTPL()-&gt;assign()</code> can cause variables from the ambient enviroment to be overwritten.
+You should not use this method in BBCodes at all and instead pass the variables as the third argument to <code>WCF::getTPL()-&gt;fetch()</code> as well as enabling the sandbox.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Before</span>
+<span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
+    <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+<span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">(</span><span class="s1">&#39;templateName&#39;</span><span class="p">,</span> <span class="s1">&#39;application&#39;</span><span class="p">);</span>
+
+<span class="c1">// After</span>
+<span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">(</span><span class="s1">&#39;templateName&#39;</span><span class="p">,</span> <span class="s1">&#39;application&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+<span class="p">],</span> <span class="k">true</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>See <a href="https://github.com/WoltLab/WCF/issues/5910">WoltLab/WCF#5910</a> for more details.</p>
 
 
 
@@ -4259,7 +4301,7 @@ If you do not interact directly with the backend, no changes are usually require
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    2024-06-16
+    2024-06-23
   </span>
 
     
