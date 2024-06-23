@@ -15,13 +15,13 @@ namespace wcf\form;
 use wcf\system\html\upcast\HtmlUpcastProcessor;
 
 class MyForm extends AbstractForm {
-   
+
     public string $messageObjectType = ''; // object type of `com.woltlab.wcf.message`
     public string $text = '';
-    
+
     public function assignVariables() {
         parent::assignVariables();
-        
+
         $upcastProcessor = new HtmlUpcastProcessor();
         $upcastProcessor->process($this->text ?? '', $this->messageObjectType, 0);
         WCF::getTPL()->assign('text', $upcastProcessor->getHtml());
@@ -31,7 +31,7 @@ class MyForm extends AbstractForm {
 
 ## RSS Feeds
 
-A [new API](../../php/api/rss_feeds.md) for the output of content as an RSS feed has been introduced. 
+A [new API](../../php/api/rss_feeds.md) for the output of content as an RSS feed has been introduced.
 
 ## ACP Menu Items
 
@@ -43,11 +43,11 @@ The user activity events have been redesigned for a modern look and better user 
 
 This includes the following changes:
 
-* The title now includes the author's name and forms a complete sentence. Example: `<strong>{$author}</strong> replied to a comment by <strong>{$commentAuthor}</strong> on article <strong>{$article->getTitle()}</strong>.`
-* The title no longer contains links.
-* Keywords in the title are highlighted in bold (e.g. author's name, topic title).
-* The description is a simple text version of the content (no formatting) truncated to 500 characters.
-* The event as a whole can be linked with a link that leads to the content (the entire area is clickable).
+- The title now includes the author's name and forms a complete sentence. Example: `<strong>{$author}</strong> replied to a comment by <strong>{$commentAuthor}</strong> on article <strong>{$article->getTitle()}</strong>.`
+- The title no longer contains links.
+- Keywords in the title are highlighted in bold (e.g. author's name, topic title).
+- The description is a simple text version of the content (no formatting) truncated to 500 characters.
+- The event as a whole can be linked with a link that leads to the content (the entire area is clickable).
 
 The changes are backwards compatible, but we recommend to apply them for a uniform user experience.
 
@@ -97,9 +97,28 @@ All PSR-14 events now use the new `event` namespace (located under `lib/event`).
 
 The changes are backwards compatible, the old namespaces can still be used.
 
-
 ## Comment Backend
 
 The backend of the comment system has been revised and is now based on the new RPC controllers and commands.
 The previous backend (the methods of `CommentAction` and `CommentResponseAction`) remains for backward compatibility reasons, but has been deprecated.
-If you do not interact directly with the backend, no changes are usually required. [See](https://github.com/WoltLab/WCF/pull/5944) for more details.
+If you do not interact directly with the backend, no changes are usually required. See [WoltLab/WCF#5944](https://github.com/WoltLab/WCF/pull/5944) for more details.
+
+## Enable the Sandbox for Templates Inside of BBCodes
+
+BBCodes can appear in a lot of different places and assigning template variables through `WCF::getTPL()->assign()` can cause variables from the ambient enviroment to be overwritten.
+You should not use this method in BBCodes at all and instead pass the variables as the third argument to `WCF::getTPL()->fetch()` as well as enabling the sandbox.
+
+```php
+// Before
+WCF::getTPL()->assign([
+    'foo' => 'bar',
+]);
+return WCF::getTPL()->fetch('templateName', 'application');
+
+// After
+return WCF::getTPL()->fetch('templateName', 'application', [
+    'foo' => 'bar',
+], true);
+```
+
+See [WoltLab/WCF#5910](https://github.com/WoltLab/WCF/issues/5910) for more details.
