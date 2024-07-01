@@ -53,3 +53,11 @@ Buttons will implicitly submit a form, therefore you should set the `type` attri
 ```
 
 See [WoltLab/WCF#4834](https://github.com/WoltLab/WCF/issues/4834) for more details.
+
+## Pagination
+
+The `{pages}` template function has been deprecated and replaced by the new [`<woltlab-core-pagination>` web component](../../javascript/components_pagination.md).
+
+If you continue to use the `{pages}` template function, it will automatically generate the code for the web component. 
+
+See [WoltLab/WCF#5158](https://github.com/WoltLab/WCF/pull/5158) for more details.
