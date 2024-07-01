@@ -69,11 +69,12 @@ With version 6.0, we have deprecated certain components and removed several othe
 - `__commentJavaScript` ([WoltLab/WCF#5210](https://github.com/WoltLab/WCF/pull/5210))
 - `commentListAddComment` ([WoltLab/WCF#5210](https://github.com/WoltLab/WCF/pull/5210))
 
-#### Template Modifiers
+#### Template Modifiers/Functions
 
 - `|date` ([WoltLab/WCF#5459](https://github.com/WoltLab/WCF/pull/5459))
 - `|time` ([WoltLab/WCF#5459](https://github.com/WoltLab/WCF/pull/5459))
 - `|plainTime` ([WoltLab/WCF#5459](https://github.com/WoltLab/WCF/pull/5459))
+- `{pages}` ([WoltLab/WCF#5158](https://github.com/WoltLab/WCF/pull/5158))
 
 #### Template Events
 
