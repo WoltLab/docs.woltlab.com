@@ -472,6 +472,13 @@ The class implements `IAttributeFormField` and `ICssClassFormField`.
 
 Specifically for this form field, there is the `IsNotClickedFormFieldDependency` dependency with which certain parts of the form will only be processed if the relevent button has not clicked. 
 
+Example:
+
+```php
+ButtonFormField::create('example')
+  ->buttonLabel('foo.bar.example')
+```
+
 
 ### `CaptchaFormField`
 
@@ -479,11 +486,26 @@ Specifically for this form field, there is the `IsNotClickedFormFieldDependency`
 
 You must specify a captcha object type (`com.woltlab.wcf.captcha`) using the `objectType()` method.
 
+Example:
+
+```php
+CaptchaFormField::create('captcha')
+  ->objectType(CAPTCHA_TYPE)
+```
+
 
 ### `ColorFormField`
 
 `ColorFormField` is used to specify RGBA colors using the `rgba(r, g, b, a)` format.
 The class implements `IImmutableFormField`.
+
+Example:
+
+```php
+ColorFormField::create('example')
+  ->label('foo.bar.example')
+  ->value('rgba(1,1,1,1)')
+```
 
 
 ### `ContentLanguageFormField`
@@ -491,6 +513,12 @@ The class implements `IImmutableFormField`.
 `ContentLanguageFormField` is used to select the content language of an object.
 Fields of this class are only available if multilingualism is enabled and if there are content languages. 
 The class implements `IImmutableFormField`.
+
+Example:
+
+```php
+ContentLanguageFormField::create()
+```
 
 
 ### `LabelFormField`
@@ -502,12 +530,28 @@ The `labelGroup(ViewableLabelGroup $labelGroup)` and `getLabelGroup()` methods a
 Additionally, there is the static method `createFields($objectType, array $labelGroups, $objectProperty = 'labelIDs)` that can be used to create all relevant label form fields for a given list of label groups.
 In most cases, `LabelFormField::createFields()` should be used.
 
+Example:
+
+```php
+LabelFormField::create('example')
+  ->objectType('foo.bar.example.object.type')
+  ->labelGroup(LabelHandler::getInstance()->getLabelGroup($groupID))
+```
+
 
 ### `OptionFormField`
 
 `OptionFormField` is an [item list form field](#itemlistformfield) to set a list of options.
 The class implements `IPackagesFormField` and only options of the set packages are considered available.
 The default label of instances of this class is `wcf.form.field.option` and their default id is `options`.
+
+Example:
+
+```php
+OptionFormField::create()
+  ->description('foo.bar.example')
+  ->packageIDs([1, 2])
+```
 
 
 ### `SimpleAclFormField`
@@ -520,6 +564,19 @@ The default label of instances of this class is `wcf.form.field.option` and thei
 
 The `SimpleAclFormField` supports inverted permissions, allowing the administrator to grant access to all non-selected users and groups. If this behavior is desired, it needs to be enabled by calling `supportInvertedPermissions`. An `invertPermissions` key containing a boolean value with the users selection will be provided together with the ACL values when saving the field.
 
+Example:
+
+```php
+SimpleAclFormField::create('example')
+  ->label('foo.bar.example')
+  ->supportInvertedPermissions(true)
+  ->value([
+      'allowAll' => false,
+      'user' => [1, 2],
+  ])
+```
+
+
 ### `SingleMediaSelectionFormField`
 
 `SingleMediaSelectionFormField` is used to select a specific media file.
@@ -530,6 +587,13 @@ The following methods are specific to this form field class:
 - `imageOnly($imageOnly = true)` and `isImageOnly()` can be used to set and check if only images may be selected.
 - `getMedia()` returns the media file based on the current field value if a field is set.
 
+Example:
+
+```php
+SingleMediaSelectionFormField::create('example')
+  ->label('foo.bar.example')
+```
+
 
 ### `TagFormField`
 
@@ -539,6 +603,13 @@ Arrays passed to `TagFormField::values()` can contain tag names as strings and `
 The default label of instances of this class is `wcf.tagging.tags` and their default description is `wcf.tagging.tags.description`.
 
 `TagFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the array with entered tag names into the `$parameters` array directly using the object property as the array key.
+
+Example:
+
+```php
+TagFormField::create()
+  ->objectType('foo.bar.example.object.type')
+```
 
 
 ### `UploadFormField`
@@ -551,6 +622,16 @@ The field supports additional settings:
 
 - `imageOnly($imageOnly = true)` and `isImageOnly()` can be used to ensure that the uploaded files are only images.
 - `allowSvgImage($allowSvgImages = true)` and `svgImageAllowed()` can be used to allow SVG images, if the image only mode is enabled (otherwise, the method will throw an exception). By default, SVG images are not allowed.
+
+Example:
+
+```php
+UploadFormField::create('example')
+	->label('foo.bar.example')
+	->maximum(1)
+	->imageOnly(true)
+```
+
 
 #### Provide value from database object 
 
@@ -568,11 +649,25 @@ The class implements `IAutoCompleteFormField`, `IAutoFocusFormField`, `IImmutabl
 While the user is presented the names of the specified users in the user interface, the field returns the ids of the users as data.
 The relevant `UserProfile` objects can be accessed via the `getUsers()` method.
 
+Example:
+
+```php
+UserFormField::create('example')
+	->label('foo.bar.example')
+```
+
 
 ### `UserPasswordField`
 
 `UserPasswordField` is a form field for users' to enter their current password.
 The class implements `IAttributeFormField`, `IAttributeFormField`, `IAutoCompleteFormField`, `IAutoFocusFormField`, and `IPlaceholderFormField`
+
+Example:
+
+```php
+UserPasswordField::create()
+	->autocomplete('current-password')
+```
 
 
 ### `UserGroupOptionFormField`
@@ -581,6 +676,13 @@ The class implements `IAttributeFormField`, `IAttributeFormField`, `IAutoComplet
 The class implements `IPackagesFormField` and only user group options of the set packages are considered available.
 The default label of instances of this class is `wcf.form.field.userGroupOption` and their default id is `permissions`.
 
+Example:
+
+```php
+UserGroupOptionFormField::create()
+  ->packageIDs([1, 2])
+```
+
 
 ### `UsernameFormField`
 
@@ -588,6 +690,12 @@ The default label of instances of this class is `wcf.form.field.userGroupOption`
 The class implements `IAttributeFormField`, `IImmutableFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `INullableFormField`, and `IPlaceholderFormField`.
 As usernames have a system-wide restriction of a minimum length of 3 and a maximum length of 100 characters, these values are also used as the default value for the field’s minimum and maximum length.
 
+Example:
+
+```php
+UsernameFormField::create('example')
+  ->label('foo.bar.example')
+```
 
 
 ## Wysiwyg form container
