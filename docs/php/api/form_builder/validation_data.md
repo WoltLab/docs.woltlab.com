@@ -111,6 +111,38 @@ This way, the relevant database object action method has access to the data to s
 The constructor of `CustomFormDataProcessor` requires an id (that is primarily used in error messages during the validation of the second parameter) and callables for `IFormDataProcessor::processFormData()` and `IFormDataProcessor::processObjectData()` which are passed the same parameters as the `IFormDataProcessor` methods.
 Only one of the callables has to be given, the other one then defaults to simply returning the relevant array unchanged.
 
+##### Example
+
+The following source code adds a custom processor that handles the return of `MultilineItemListFormField` and converts the content of an array into a multiline string in order to store it in the database.
+
+```php
+$form->getDataHandler()->addProcessor(
+    new CustomFormDataProcessor(
+        'additionalItems',
+        static function (IFormDocument $document, array $parameters) {
+            $additionalItems = $document->getNodeById('additionalItems');
+            \assert($additionalItems instanceof MultilineItemListFormField);
+
+            $value = $additionalItems->getValue();
+            if ($value === null || $value === []) {
+                $parameters['data']['additionalItems'] = null;
+            } else {
+                $parameters['data']['additionalItems'] = \implode("\n", $value);
+            }
+
+            return $parameters;
+        },
+        static function (IFormDocument $document, array $data, IStorableObject $object) {
+            if ($object->additionalItems !== null) {
+                $data['additionalItems'] = \explode("\n", $data['additionalItems']);
+            }
+
+            return $data;
+        }
+    )
+);
+```
+
 
 #### `VoidFormDataProcessor`
 
