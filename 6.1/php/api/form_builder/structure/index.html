@@ -4770,6 +4770,11 @@ The implementing class has to implement the methods <code>objectType($objectType
 <div class="admonition warning">
 <p class="admonition-title">This class should generally not be relied on. Instead, <code>TemplateFormNode</code> should be used.</p>
 </div>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">CustomFormNode</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">content</span><span class="p">(</span><span class="s1">&#39;html code&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="templateformnode"><code>TemplateFormNode</code><a class="headerlink" href="#templateformnode" title="Permanent link">#</a></h3>
 <p><code>TemplateFormNode</code> is a form node whose contents are read from a template.
 <code>TemplateFormNode</code> has the following additional methods:</p>
@@ -4780,6 +4785,11 @@ The implementing class has to implement the methods <code>objectType($objectType
   If no template has been set and the node is rendered, an exception will be thrown.</li>
 <li><code>variables(array $variables)</code> and <code>getVariables()</code> can be used to set and get additional variables passed to the template.</li>
 </ul>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">TemplateFormNode</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">templateName</span><span class="p">(</span><span class="s1">&#39;example_template_name&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="form-document">Form Document<a class="headerlink" href="#form-document" title="Permanent link">#</a></h2>
 <p>A form document object represents the form as a whole and has to implement the <code>IFormDocument</code> interface.
 WoltLab Suite provides a default implementation with the <code>FormDocument</code> class.
@@ -4858,6 +4868,15 @@ Every form container has to implement the <code>IFormContainer</code> interface 
 <li><code>appendChild(IFormChildNode $child)</code>, <code>appendChildren(array $children)</code>, and <code>insertBefore(IFormChildNode $child, $referenceNodeId)</code> are used to insert new children into the form container.</li>
 <li><code>description($languageItem = null, array $variables = [])</code> and <code>label($languageItem = null, array $variables = [])</code> are used to set the description and the label or title of the form container.</li>
 </ul>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">appendChild</span><span class="p">(</span>
+  <span class="nx">FormContainer</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">appendChildren</span><span class="p">([</span> <span class="o">...</span> <span class="p">])</span>
+  <span class="p">);</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="form-field">Form Field<a class="headerlink" href="#form-field" title="Permanent link">#</a></h2>
 <p>A form field object represents a concrete form field that allows entering data.
 Every form field has to implement the <code>IFormField</code> interface which extends <code>IFormChildNode</code> and <code>IFormElement</code>.</p>
@@ -5035,7 +5054,7 @@ The implementing class has to implement the methods <code>suffix($languageItem =
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    2024-04-29
+    2024-07-30
   </span>
 
     
