@@ -267,6 +267,36 @@ A category name of `null` signals that no category filter is used.
 `AclFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant ACL object type id into the `$parameters` array directly using `{$objectProperty}_aclObjectTypeID` as the array key.
 The relevant database object action method is expected, based on the given ACL object type id, to save the ACL option values appropriately.
 
+#### Example
+
+The following source code creates an `AclFormField` with the object type `foo.bar.acl`:
+
+```php
+FormContainer::create('aclContainer')
+  ->label('foo.bar.acl')
+  ->appendChildren([
+      AclFormField::create('acl')
+          ->objectType('foo.bar.acl')
+  ])
+```
+
+After submitting the form, the id of the object type is passed to the DatabaseObjectAction and can be used there to process the data with the help of the `ACLHandler`.
+
+```php
+use wcf\data\AbstractDatabaseObjectAction;
+use wcf\system\acl\ACLHandler;
+
+class FooAction extends AbstractDatabaseObjectAction {
+  public function create() {
+    $object = parent::create();
+
+    if (!empty($this->parameters['acl_aclObjectTypeID'])) {
+      ACLHandler::getInstance()->save($object->getObjectID(), $this->parameters['acl_aclObjectTypeID']);
+    }
+  }
+}
+```
+
 
 ### `ButtonFormField`
 
