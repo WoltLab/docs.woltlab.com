@@ -115,6 +115,13 @@ The implementing class has to implement the methods `objectType($objectType)`, `
 
 !!! warning "This class should generally not be relied on. Instead, `TemplateFormNode` should be used."
 
+Example:
+
+```php
+CustomFormNode::create('example')
+  ->content('html code')
+```
+
 
 ### `TemplateFormNode`
 
@@ -126,6 +133,13 @@ The implementing class has to implement the methods `objectType($objectType)`, `
 - `templateName($templateName)` and `getTemplateName()` can be used to set and get the name of the template containing the node contents.
   If no template has been set and the node is rendered, an exception will be thrown.
 - `variables(array $variables)` and `getVariables()` can be used to set and get additional variables passed to the template.
+
+Example:
+
+```php
+TemplateFormNode::create('example')
+  ->templateName('example_template_name')
+```
 
 
 ## Form Document
@@ -209,6 +223,15 @@ The methods of the interfaces that `FormContainer` is implementing are well docu
 
 - `appendChild(IFormChildNode $child)`, `appendChildren(array $children)`, and `insertBefore(IFormChildNode $child, $referenceNodeId)` are used to insert new children into the form container.
 - `description($languageItem = null, array $variables = [])` and `label($languageItem = null, array $variables = [])` are used to set the description and the label or title of the form container.
+
+Example:
+
+```php
+$form->appendChild(
+  FormContainer::create('example')
+    ->appendChildren([ ... ])
+  );
+```
 
 
 ## Form Field
