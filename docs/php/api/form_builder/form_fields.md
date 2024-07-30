@@ -37,10 +37,25 @@ Objects of this class require a label.
 The return value of `getSaveValue()` is the integer representation of the boolean value, i.e. `0` or `1`.
 The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFormField`, and `IImmutableFormField`.
 
+Example:
+
+```php
+BooleanFormField::create('example')
+  ->label('foo.bar.example')
+  ->value(true)
+```
+
 
 ### `CheckboxFormField`
 
 `CheckboxFormField` extends `BooleanFormField` and offers a simple HTML checkbox.
+
+Example:
+
+```php
+CheckboxFormField::create('example')
+  ->label('foo.bar.example')
+```
 
 
 ### `ClassNameFormField`
@@ -57,6 +72,15 @@ The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFor
   By default, entered classes have to instantiable.
 
 Additionally, the default id of a `ClassNameFormField` object is `className`, the default label is `wcf.form.field.className`, and if either an interface or a parent class is required, a default description is set if no description has already been set (`wcf.form.field.className.description.interface` and `wcf.form.field.className.description.parentClass`, respectively).
+
+Example:
+
+```php
+ClassNameFormField::create('example')
+  ->label('foo.bar.example')
+  ->classExists()
+  ->implementedInterface(ExampleInterface::class)
+```
 
 
 ### `CurrencyFormField`
@@ -87,10 +111,24 @@ The following methods are specific to this form field class:
 - `supportTime($supportsTime = true)` and `supportsTime()` can be used to toggle whether, in addition to a date, a time can also be specified.
   By default, specifying a time is disabled.
 
+Example:
+
+```php
+DateFormField::create('example')
+  ->label('foo.bar.example')
+  ->saveValueFormat('Y-m-d')
+  ->value(DateUtil::format(DateUtil::getDateTimeByTimestamp(TIME_NOW), 'Y-m-d'))
+```
 
 ### `DescriptionFormField`
 
 `DescriptionFormField` is a [multi-line text form field](#multilinetextformfield) with `description` as the default id and `wcf.global.description` as the default label.
+
+Example:
+
+```php
+DescriptionFormField::create('example')
+```
 
 
 ### `EmailFormField`
@@ -98,10 +136,25 @@ The following methods are specific to this form field class:
 `EmailFormField` is a form field to enter an email address which is internally validated using `UserUtil::isValidEmail()`.
 The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `IAutoFocusFormField`, `ICssClassFormField`, `II18nFormField`, `IImmutableFormField`, `IInputModeFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
 
+Example:
+
+```php
+EmailFormField::create('example')
+  ->label('foo.bar.example')
+```
+
 
 ### `FloatFormField`
 
 `FloatFormField` is an implementation of [AbstractNumericFormField](#abstractnumericformfield) for floating point numbers.
+
+Example:
+
+```php
+FloatFormField::create('example')
+  ->label('foo.bar.example')
+  ->value(0.5)
+```
 
 
 ### `HiddenFormField`
@@ -110,20 +163,48 @@ The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `IAutoFocu
 Even though the form field is invisible to the user, the value can still be modified by the user, e.g. by leveraging the web browsers developer tools.
 The `HiddenFormField` *must not* be used to transfer sensitive information or information that the user should not be able to modify.
 
+Example:
+
+```php
+HiddenFormField::create('example')
+  ->value('hidden value')
+```
+
 
 ### `IconFormField`
 
 `IconFormField` is a form field to select a FontAwesome icon.
+
+Example:
+
+```php
+IconFormField::create('example')
+  ->label('foo.bar.example')
+```
 
 
 ### `IntegerFormField`
 
 `IntegerFormField` is an implementation of [AbstractNumericFormField](#abstractnumericformfield) for integers.
 
+Example:
+
+```php
+IntegerFormField::create('example')
+  ->label('foo.bar.example')
+  ->value(10)
+```
 
 ### `IsDisabledFormField`
 
 `IsDisabledFormField` is a [boolean form field](#booleanformfield) with `isDisabled` as the default id.
+
+Example:
+
+```php
+IsDisabledFormField::create()
+  ->label('foo.bar.example')
+```
 
 
 ### `ItemListFormField`
@@ -141,6 +222,14 @@ The following save value types are supported:
 By default, `ItemListFormField::SAVE_VALUE_TYPE_CSV` is used.
 
 If `ItemListFormField::SAVE_VALUE_TYPE_ARRAY` is used as save value type, `ItemListFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant array into the `$parameters` array directly using the object property as the array key.
+
+Example:
+
+```php
+ItemListFormField::create('example')
+  ->label('foo.bar.example')
+  ->saveValueType(ItemListFormField::SAVE_VALUE_TYPE_CSV)
+```
 
 
 ### `LanguageItemFormNode`
@@ -162,11 +251,31 @@ The methods `rows($rows)` and `getRows()` can be used to set and get the number 
 The default number of rows is `10`.
 These methods do **not**, however, restrict the number of text rows that can be entered.
 
+Example:
+
+```php
+MultilineTextFormField::create('example')
+  ->label('foo.bar.example')
+  ->maximumLength(5000)
+  ->rows(5)
+```
+
 
 ### `MultipleSelectionFormField`
 
 `MultipleSelectionFormField` is a form fields that allows the selection of multiple options out of a predefined list of available options.
 The class implements `IAttributeFormField`, `ICssClassFormField`, `IFilterableSelectionFormField`, and `IImmutableFormField`.
+
+Example:
+
+```php
+MultipleSelectionFormField::create('example')
+  ->label('foo.bar.example')
+  ->options([
+    1 => 'one',
+    2 => 'two',
+  ])
+```
 
 
 ### `NoticeFormNode`
@@ -187,6 +296,16 @@ NoticeFormNode::create('name')
 `RadioButtonFormField` is a form fields that allows the selection of a single option out of a predefined list of available options using radiobuttons.
 The class implements `IAttributeFormField`, `ICssClassFormField`, `IImmutableFormField`, and `ISelectionFormField`.
 
+Example:
+
+```php
+RadioButtonFormField::create('example')
+  ->label('foo.bar.example')
+  ->options([
+    1 => 'one',
+    2 => 'two',
+  ])
+```
 
 ### `RatingFormField`
 
@@ -197,6 +316,15 @@ For this field, the minimum and maximum refer to the minimum and maximum rating 
 When the field is shown, there will be `maximum() - minimum() + 1` icons be shown with additional CSS classes that can be set and gotten via `defaultCssClasses(array $cssClasses)` and `getDefaultCssClasses()`.
 If a rating values is set, the first `getValue()` icons will instead use the classes that can be set and gotten via `activeCssClasses(array $cssClasses)` and `getActiveCssClasses()`.
 By default, the only default class is `star-o` and the active classes are `star` and `orange`. 
+
+Example:
+
+```php
+RatingFormField::create('example')
+  ->label('foo.bar.example')
+  ->minimum(1)
+  ->maximum(5)
+```
 
 
 ### `SelectFormField`
@@ -220,6 +348,13 @@ The default id of instances of this class is `showOrder` and their default label
 
 !!! info "It is important that the relevant object property is always kept updated. Whenever a new object is added or an existing object is edited or delete, the values of the other objects have to be adjusted to ensure consecutive numbering."
 
+Example:
+
+```php
+ShowOrderFormField::create('example')
+  ->options(new FooList())
+```
+
 
 ### `SingleSelectionFormField`
 
@@ -227,10 +362,23 @@ The default id of instances of this class is `showOrder` and their default label
 The class implements `ICssClassFormField`, `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
 If the field is nullable and the current form field value is considered `empty` by PHP, `null` is returned as the save value.
 
+Example:
+
+```php
+SingleSelectionFormField::create('example')
+  ->options(['option1', 'option2', 'option3'])
+```
+
 
 ### `SortOrderFormField`
 
 `SingleSelectionFormField` is a [single selection form field](#singleselectionformfield) with default id `sortOrder`, default label `wcf.global.showOrder` and default options `ASC: wcf.global.sortOrder.ascending` and `DESC: wcf.global.sortOrder.descending`.
+
+Example:
+
+```php
+SingleSelectionFormField::create('example')
+```
 
 
 ### `TextFormField`
@@ -238,16 +386,35 @@ If the field is nullable and the current form field value is considered `empty` 
 `TextFormField` is a form field that allows entering a single line of text.
 The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `ICssClassFormField`, `IImmutableFormField`, `II18nFormField`, `IInputModeFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
 
+Example:
+
+```php
+TextFormField::create('example')
+  ->label('foo.bar.example')
+```
+
 
 ### `TitleFormField`
 
 `TitleFormField` is a [text form field](#textformfield) with `title` as the default id and `wcf.global.title` as the default label.
+
+Example:
+
+```php
+TitleFormField::create()
+```
 
 
 ### `UrlFormField`
 
 `UrlFormField` is a [text form field](#textformfield) whose values are checked via `Url::is()`.
 
+Example:
+
+```php
+UrlFormField::create('example')
+  ->label('foo.bar.example')
+```
 
 
 ## Specific Fields
