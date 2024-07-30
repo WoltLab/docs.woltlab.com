@@ -5354,8 +5354,20 @@ If the implementation of a more specific interface is required then the remainin
 Objects of this class require a label.
 The return value of <code>getSaveValue()</code> is the integer representation of the boolean value, i.e. <code>0</code> or <code>1</code>.
 The class implements <code>IAttributeFormField</code>, <code>IAutoFocusFormField</code>, <code>ICssClassFormField</code>, and <code>IImmutableFormField</code>.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">BooleanFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="checkboxformfield"><code>CheckboxFormField</code><a class="headerlink" href="#checkboxformfield" title="Permanent link">#</a></h3>
 <p><code>CheckboxFormField</code> extends <code>BooleanFormField</code> and offers a simple HTML checkbox.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">CheckboxFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="classnameformfield"><code>ClassNameFormField</code><a class="headerlink" href="#classnameformfield" title="Permanent link">#</a></h3>
 <p><code>ClassNameFormField</code> is a <a href="#textformfield">text form field</a> that supports additional settings, specific to entering a PHP class name:</p>
 <ul>
@@ -5369,6 +5381,15 @@ The class implements <code>IAttributeFormField</code>, <code>IAutoFocusFormField
   By default, entered classes have to instantiable.</li>
 </ul>
 <p>Additionally, the default id of a <code>ClassNameFormField</code> object is <code>className</code>, the default label is <code>wcf.form.field.className</code>, and if either an interface or a parent class is required, a default description is set if no description has already been set (<code>wcf.form.field.className.description.interface</code> and <code>wcf.form.field.className.description.parentClass</code>, respectively).</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">ClassNameFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">classExists</span><span class="p">()</span>
+  <span class="o">-&gt;</span><span class="na">implementedInterface</span><span class="p">(</span><span class="nx">ExampleInterface</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="currencyformfield"><code>CurrencyFormField</code><a class="headerlink" href="#currencyformfield" title="Permanent link">#</a></h3>
 <p><code>CurrencyFormField</code> is an implementation designed for two-decimal currencies like EUR or USD. The API expect amounts to be provided in the smallest unit. For example, to set a value to 10 USD, provide an amount value of 1000 (i.e., 1000 cents).</p>
 <p>Example:</p>
@@ -5392,23 +5413,69 @@ The following methods are specific to this form field class:</p>
 <li><code>supportTime($supportsTime = true)</code> and <code>supportsTime()</code> can be used to toggle whether, in addition to a date, a time can also be specified.
   By default, specifying a time is disabled.</li>
 </ul>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">DateFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">saveValueFormat</span><span class="p">(</span><span class="s1">&#39;Y-m-d&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="nx">DateUtil</span><span class="o">::</span><span class="na">format</span><span class="p">(</span><span class="nx">DateUtil</span><span class="o">::</span><span class="na">getDateTimeByTimestamp</span><span class="p">(</span><span class="nx">TIME_NOW</span><span class="p">),</span> <span class="s1">&#39;Y-m-d&#39;</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="descriptionformfield"><code>DescriptionFormField</code><a class="headerlink" href="#descriptionformfield" title="Permanent link">#</a></h3>
 <p><code>DescriptionFormField</code> is a <a href="#multilinetextformfield">multi-line text form field</a> with <code>description</code> as the default id and <code>wcf.global.description</code> as the default label.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">DescriptionFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="emailformfield"><code>EmailFormField</code><a class="headerlink" href="#emailformfield" title="Permanent link">#</a></h3>
 <p><code>EmailFormField</code> is a form field to enter an email address which is internally validated using <code>UserUtil::isValidEmail()</code>.
 The class implements <code>IAttributeFormField</code>, <code>IAutoCompleteFormField</code>, <code>IAutoFocusFormField</code>, <code>ICssClassFormField</code>, <code>II18nFormField</code>, <code>IImmutableFormField</code>, <code>IInputModeFormField</code>, <code>IPatternFormField</code>, and <code>IPlaceholderFormField</code>.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">EmailFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="floatformfield"><code>FloatFormField</code><a class="headerlink" href="#floatformfield" title="Permanent link">#</a></h3>
 <p><code>FloatFormField</code> is an implementation of <a href="#abstractnumericformfield">AbstractNumericFormField</a> for floating point numbers.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">FloatFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="hiddenformfield"><code>HiddenFormField</code><a class="headerlink" href="#hiddenformfield" title="Permanent link">#</a></h3>
 <p><code>HiddenFormField</code> is a form field without any user-visible UI.
 Even though the form field is invisible to the user, the value can still be modified by the user, e.g. by leveraging the web browsers developer tools.
 The <code>HiddenFormField</code> <em>must not</em> be used to transfer sensitive information or information that the user should not be able to modify.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">HiddenFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="s1">&#39;hidden value&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="iconformfield"><code>IconFormField</code><a class="headerlink" href="#iconformfield" title="Permanent link">#</a></h3>
 <p><code>IconFormField</code> is a form field to select a FontAwesome icon.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">IconFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="integerformfield"><code>IntegerFormField</code><a class="headerlink" href="#integerformfield" title="Permanent link">#</a></h3>
 <p><code>IntegerFormField</code> is an implementation of <a href="#abstractnumericformfield">AbstractNumericFormField</a> for integers.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">IntegerFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="isdisabledformfield"><code>IsDisabledFormField</code><a class="headerlink" href="#isdisabledformfield" title="Permanent link">#</a></h3>
 <p><code>IsDisabledFormField</code> is a <a href="#booleanformfield">boolean form field</a> with <code>isDisabled</code> as the default id.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">IsDisabledFormField</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="itemlistformfield"><code>ItemListFormField</code><a class="headerlink" href="#itemlistformfield" title="Permanent link">#</a></h3>
 <p><code>ItemListFormField</code> is a form field in which multiple values can be entered and returned in different formats as save value.
 The class implements <code>IAttributeFormField</code>, <code>IAutoFocusFormField</code>, <code>ICssClassFormField</code>, <code>IImmutableFormField</code>, and <code>IMultipleFormField</code>.
@@ -5422,6 +5489,13 @@ The following save value types are supported:</p>
 </ul>
 <p>By default, <code>ItemListFormField::SAVE_VALUE_TYPE_CSV</code> is used.</p>
 <p>If <code>ItemListFormField::SAVE_VALUE_TYPE_ARRAY</code> is used as save value type, <code>ItemListFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the relevant array into the <code>$parameters</code> array directly using the object property as the array key.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">ItemListFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">saveValueType</span><span class="p">(</span><span class="nx">ItemListFormField</span><span class="o">::</span><span class="na">SAVE_VALUE_TYPE_CSV</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="languageitemformnode"><code>LanguageItemFormNode</code><a class="headerlink" href="#languageitemformnode" title="Permanent link">#</a></h3>
 <p><code>LanguageItemFormNode</code> is a form node that shows a language item without any surrounding HTML code.</p>
 <p>Example:</p>
@@ -5434,9 +5508,31 @@ The following save value types are supported:</p>
 The methods <code>rows($rows)</code> and <code>getRows()</code> can be used to set and get the number of rows of the <code>textarea</code> elements.
 The default number of rows is <code>10</code>.
 These methods do <strong>not</strong>, however, restrict the number of text rows that can be entered.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">MultilineTextFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">maximumLength</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">rows</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="multipleselectionformfield"><code>MultipleSelectionFormField</code><a class="headerlink" href="#multipleselectionformfield" title="Permanent link">#</a></h3>
 <p><code>MultipleSelectionFormField</code> is a form fields that allows the selection of multiple options out of a predefined list of available options.
 The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField</code>, <code>IFilterableSelectionFormField</code>, and <code>IImmutableFormField</code>.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">MultipleSelectionFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">options</span><span class="p">([</span>
+    <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span>
+    <span class="mi">2</span> <span class="o">=&gt;</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span>
+  <span class="p">])</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="noticeformnode"><code>NoticeFormNode</code><a class="headerlink" href="#noticeformnode" title="Permanent link">#</a></h3>
 <p><code>NoticeFormNode</code> is a form node that shows a notice without any surrounding HTML code.</p>
 <p>Example:</p>
@@ -5449,6 +5545,19 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
 <h3 id="radiobuttonformfield"><code>RadioButtonFormField</code><a class="headerlink" href="#radiobuttonformfield" title="Permanent link">#</a></h3>
 <p><code>RadioButtonFormField</code> is a form fields that allows the selection of a single option out of a predefined list of available options using radiobuttons.
 The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField</code>, <code>IImmutableFormField</code>, and <code>ISelectionFormField</code>.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">RadioButtonFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">options</span><span class="p">([</span>
+    <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span>
+    <span class="mi">2</span> <span class="o">=&gt;</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span>
+  <span class="p">])</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="ratingformfield"><code>RatingFormField</code><a class="headerlink" href="#ratingformfield" title="Permanent link">#</a></h3>
 <p><code>RatingFormField</code> is a form field to set a rating for an object.
 The class implements <code>IImmutableFormField</code>, <code>IMaximumFormField</code>, <code>IMinimumFormField</code>, and <code>INullableFormField</code>.
@@ -5457,6 +5566,15 @@ For this field, the minimum and maximum refer to the minimum and maximum rating 
 When the field is shown, there will be <code>maximum() - minimum() + 1</code> icons be shown with additional CSS classes that can be set and gotten via <code>defaultCssClasses(array $cssClasses)</code> and <code>getDefaultCssClasses()</code>.
 If a rating values is set, the first <code>getValue()</code> icons will instead use the classes that can be set and gotten via <code>activeCssClasses(array $cssClasses)</code> and <code>getActiveCssClasses()</code>.
 By default, the only default class is <code>star-o</code> and the active classes are <code>star</code> and <code>orange</code>. </p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">RatingFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">minimum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">maximum</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="selectformfield"><code>SelectFormField</code><a class="headerlink" href="#selectformfield" title="Permanent link">#</a></h3>
 <p><code>SelectFormField</code> is a form fields that allows the selection of a single option out of a predefined list of available options.
 The class implements <code>ICssClassFormField</code> and <code>IImmutableFormField</code>.</p>
@@ -5473,19 +5591,45 @@ The default id of instances of this class is <code>showOrder</code> and their de
 <div class="admonition info">
 <p class="admonition-title">It is important that the relevant object property is always kept updated. Whenever a new object is added or an existing object is edited or delete, the values of the other objects have to be adjusted to ensure consecutive numbering.</p>
 </div>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">ShowOrderFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">options</span><span class="p">(</span><span class="k">new</span> <span class="nx">FooList</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="singleselectionformfield"><code>SingleSelectionFormField</code><a class="headerlink" href="#singleselectionformfield" title="Permanent link">#</a></h3>
 <p><code>SingleSelectionFormField</code> is a form fields that allows the selection of a single option out of a predefined list of available options.
 The class implements <code>ICssClassFormField</code>, <code>IFilterableSelectionFormField</code>, <code>IImmutableFormField</code>, and <code>INullableFormField</code>.
 If the field is nullable and the current form field value is considered <code>empty</code> by PHP, <code>null</code> is returned as the save value.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">SingleSelectionFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">options</span><span class="p">([</span><span class="s1">&#39;option1&#39;</span><span class="p">,</span> <span class="s1">&#39;option2&#39;</span><span class="p">,</span> <span class="s1">&#39;option3&#39;</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="sortorderformfield"><code>SortOrderFormField</code><a class="headerlink" href="#sortorderformfield" title="Permanent link">#</a></h3>
 <p><code>SingleSelectionFormField</code> is a <a href="#singleselectionformfield">single selection form field</a> with default id <code>sortOrder</code>, default label <code>wcf.global.showOrder</code> and default options <code>ASC: wcf.global.sortOrder.ascending</code> and <code>DESC: wcf.global.sortOrder.descending</code>.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">SingleSelectionFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="textformfield"><code>TextFormField</code><a class="headerlink" href="#textformfield" title="Permanent link">#</a></h3>
 <p><code>TextFormField</code> is a form field that allows entering a single line of text.
 The class implements <code>IAttributeFormField</code>, <code>IAutoCompleteFormField</code>, <code>ICssClassFormField</code>, <code>IImmutableFormField</code>, <code>II18nFormField</code>, <code>IInputModeFormField</code>, <code>IMaximumLengthFormField</code>, <code>IMinimumLengthFormField</code>, <code>IPatternFormField</code>, and <code>IPlaceholderFormField</code>.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">TextFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="titleformfield"><code>TitleFormField</code><a class="headerlink" href="#titleformfield" title="Permanent link">#</a></h3>
 <p><code>TitleFormField</code> is a <a href="#textformfield">text form field</a> with <code>title</code> as the default id and <code>wcf.global.title</code> as the default label.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">TitleFormField</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="urlformfield"><code>UrlFormField</code><a class="headerlink" href="#urlformfield" title="Permanent link">#</a></h3>
 <p><code>UrlFormField</code> is a <a href="#textformfield">text form field</a> whose values are checked via <code>Url::is()</code>.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">UrlFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="specific-fields">Specific Fields<a class="headerlink" href="#specific-fields" title="Permanent link">#</a></h2>
 <p>The following form fields are reusable fields that generally are bound to a certain API or <code>DatabaseObject</code> implementation.</p>
 <h3 id="aclformfield"><code>AclFormField</code><a class="headerlink" href="#aclformfield" title="Permanent link">#</a></h3>
@@ -5541,26 +5685,60 @@ The relevant database object action method is expected, based on the given ACL o
 <p><code>ButtonFormField</code> shows a submit button as part of the form.
 The class implements <code>IAttributeFormField</code> and <code>ICssClassFormField</code>.</p>
 <p>Specifically for this form field, there is the <code>IsNotClickedFormFieldDependency</code> dependency with which certain parts of the form will only be processed if the relevent button has not clicked. </p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">ButtonFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">buttonLabel</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="captchaformfield"><code>CaptchaFormField</code><a class="headerlink" href="#captchaformfield" title="Permanent link">#</a></h3>
 <p><code>CaptchaFormField</code> is used to add captcha protection to the form.</p>
 <p>You must specify a captcha object type (<code>com.woltlab.wcf.captcha</code>) using the <code>objectType()</code> method.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">CaptchaFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;captcha&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">objectType</span><span class="p">(</span><span class="nx">CAPTCHA_TYPE</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="colorformfield"><code>ColorFormField</code><a class="headerlink" href="#colorformfield" title="Permanent link">#</a></h3>
 <p><code>ColorFormField</code> is used to specify RGBA colors using the <code>rgba(r, g, b, a)</code> format.
 The class implements <code>IImmutableFormField</code>.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">ColorFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="s1">&#39;rgba(1,1,1,1)&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="contentlanguageformfield"><code>ContentLanguageFormField</code><a class="headerlink" href="#contentlanguageformfield" title="Permanent link">#</a></h3>
 <p><code>ContentLanguageFormField</code> is used to select the content language of an object.
 Fields of this class are only available if multilingualism is enabled and if there are content languages. 
 The class implements <code>IImmutableFormField</code>.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">ContentLanguageFormField</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="labelformfield"><code>LabelFormField</code><a class="headerlink" href="#labelformfield" title="Permanent link">#</a></h3>
 <p><code>LabelFormField</code> is used to select a label from a specific label group.
 The class implements <code>IObjectTypeFormNode</code>.</p>
 <p>The <code>labelGroup(ViewableLabelGroup $labelGroup)</code> and <code>getLabelGroup()</code> methods are specific to this form field class and can be used to set and get the label group whose labels can be selected.
 Additionally, there is the static method <code>createFields($objectType, array $labelGroups, $objectProperty = 'labelIDs)</code> that can be used to create all relevant label form fields for a given list of label groups.
 In most cases, <code>LabelFormField::createFields()</code> should be used.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">LabelFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">objectType</span><span class="p">(</span><span class="s1">&#39;foo.bar.example.object.type&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">labelGroup</span><span class="p">(</span><span class="nx">LabelHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLabelGroup</span><span class="p">(</span><span class="nv">$groupID</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="optionformfield"><code>OptionFormField</code><a class="headerlink" href="#optionformfield" title="Permanent link">#</a></h3>
 <p><code>OptionFormField</code> is an <a href="#itemlistformfield">item list form field</a> to set a list of options.
 The class implements <code>IPackagesFormField</code> and only options of the set packages are considered available.
 The default label of instances of this class is <code>wcf.form.field.option</code> and their default id is <code>options</code>.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">OptionFormField</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
+  <span class="o">-&gt;</span><span class="na">description</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">packageIDs</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="simpleaclformfield"><code>SimpleAclFormField</code><a class="headerlink" href="#simpleaclformfield" title="Permanent link">#</a></h3>
 <p><code>SimpleAclFormField</code> is used for setting up simple acl values (one <code>yes</code>/<code>no</code> option per user and user group) for specific objects.</p>
 <p><code>SimpleAclFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the relevant simple ACL data array into the <code>$parameters</code> array directly using the object property as the array key.</p>
@@ -5568,6 +5746,21 @@ The default label of instances of this class is <code>wcf.form.field.option</cod
 <p class="admonition-title">Since version 5.5, the field also supports inverted permissions, see <a href="https://github.com/WoltLab/WCF/pull/4570">WoltLab/WCF#4570</a>.</p>
 </div>
 <p>The <code>SimpleAclFormField</code> supports inverted permissions, allowing the administrator to grant access to all non-selected users and groups. If this behavior is desired, it needs to be enabled by calling <code>supportInvertedPermissions</code>. An <code>invertPermissions</code> key containing a boolean value with the users selection will be provided together with the ACL values when saving the field.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">SimpleAclFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">supportInvertedPermissions</span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">value</span><span class="p">([</span>
+      <span class="s1">&#39;allowAll&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+      <span class="s1">&#39;user&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+  <span class="p">])</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="singlemediaselectionformfield"><code>SingleMediaSelectionFormField</code><a class="headerlink" href="#singlemediaselectionformfield" title="Permanent link">#</a></h3>
 <p><code>SingleMediaSelectionFormField</code> is used to select a specific media file.
 The class implements <code>IImmutableFormField</code>.</p>
@@ -5576,12 +5769,22 @@ The class implements <code>IImmutableFormField</code>.</p>
 <li><code>imageOnly($imageOnly = true)</code> and <code>isImageOnly()</code> can be used to set and check if only images may be selected.</li>
 <li><code>getMedia()</code> returns the media file based on the current field value if a field is set.</li>
 </ul>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">SingleMediaSelectionFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="tagformfield"><code>TagFormField</code><a class="headerlink" href="#tagformfield" title="Permanent link">#</a></h3>
 <p><code>TagFormField</code> is a form field to enter tags.
 The class implements <code>IAttributeFormField</code> and <code>IObjectTypeFormNode</code>.
 Arrays passed to <code>TagFormField::values()</code> can contain tag names as strings and <code>Tag</code> objects.
 The default label of instances of this class is <code>wcf.tagging.tags</code> and their default description is <code>wcf.tagging.tags.description</code>.</p>
 <p><code>TagFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the array with entered tag names into the <code>$parameters</code> array directly using the object property as the array key.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">TagFormField</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
+  <span class="o">-&gt;</span><span class="na">objectType</span><span class="p">(</span><span class="s1">&#39;foo.bar.example.object.type&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="uploadformfield"><code>UploadFormField</code><a class="headerlink" href="#uploadformfield" title="Permanent link">#</a></h3>
 <p><code>UploadFormField</code> is a form field that allows uploading files by the user.</p>
 <p><code>UploadFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the array of <code>wcf\system\file\upload\UploadFile\UploadFile</code> into the <code>$parameters</code> array directly using the object property as the array key. Also it registers the removed files as an array of <code>wcf\system\file\upload\UploadFile\UploadFile</code> into the <code>$parameters</code> array directly using the object property with the suffix <code>_removedFiles</code> as the array key.  </p>
@@ -5590,6 +5793,15 @@ The default label of instances of this class is <code>wcf.tagging.tags</code> an
 <li><code>imageOnly($imageOnly = true)</code> and <code>isImageOnly()</code> can be used to ensure that the uploaded files are only images.</li>
 <li><code>allowSvgImage($allowSvgImages = true)</code> and <code>svgImageAllowed()</code> can be used to allow SVG images, if the image only mode is enabled (otherwise, the method will throw an exception). By default, SVG images are not allowed.</li>
 </ul>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">UploadFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">maximum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">imageOnly</span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h4 id="provide-value-from-database-object">Provide value from database object<a class="headerlink" href="#provide-value-from-database-object" title="Permanent link">#</a></h4>
 <p>To provide values from a database object, you should implement the method <code>get{$objectProperty}UploadFileLocations()</code> to your database object class. This method must return an array of strings with the locations of the files.</p>
 <h4 id="process-files">Process files<a class="headerlink" href="#process-files" title="Permanent link">#</a></h4>
@@ -5599,17 +5811,37 @@ The default label of instances of this class is <code>wcf.tagging.tags</code> an
 The class implements <code>IAutoCompleteFormField</code>, <code>IAutoFocusFormField</code>, <code>IImmutableFormField</code>, <code>IMultipleFormField</code>, and <code>INullableFormField</code>.
 While the user is presented the names of the specified users in the user interface, the field returns the ids of the users as data.
 The relevant <code>UserProfile</code> objects can be accessed via the <code>getUsers()</code> method.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">UserFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="userpasswordfield"><code>UserPasswordField</code><a class="headerlink" href="#userpasswordfield" title="Permanent link">#</a></h3>
 <p><code>UserPasswordField</code> is a form field for users' to enter their current password.
 The class implements <code>IAttributeFormField</code>, <code>IAttributeFormField</code>, <code>IAutoCompleteFormField</code>, <code>IAutoFocusFormField</code>, and <code>IPlaceholderFormField</code></p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">UserPasswordField</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">autocomplete</span><span class="p">(</span><span class="s1">&#39;current-password&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="usergroupoptionformfield"><code>UserGroupOptionFormField</code><a class="headerlink" href="#usergroupoptionformfield" title="Permanent link">#</a></h3>
 <p><code>UserGroupOptionFormField</code> is an <a href="#itemlistformfield">item list form field</a> to set a list of user group options/permissions.
 The class implements <code>IPackagesFormField</code> and only user group options of the set packages are considered available.
 The default label of instances of this class is <code>wcf.form.field.userGroupOption</code> and their default id is <code>permissions</code>.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">UserGroupOptionFormField</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
+  <span class="o">-&gt;</span><span class="na">packageIDs</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="usernameformfield"><code>UsernameFormField</code><a class="headerlink" href="#usernameformfield" title="Permanent link">#</a></h3>
 <p><code>UsernameFormField</code> is used for entering one non-existing username.
 The class implements <code>IAttributeFormField</code>, <code>IImmutableFormField</code>, <code>IMaximumLengthFormField</code>, <code>IMinimumLengthFormField</code>, <code>INullableFormField</code>, and <code>IPlaceholderFormField</code>.
 As usernames have a system-wide restriction of a minimum length of 3 and a maximum length of 100 characters, these values are also used as the default value for the field’s minimum and maximum length.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">UsernameFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="wysiwyg-form-container">Wysiwyg form container<a class="headerlink" href="#wysiwyg-form-container" title="Permanent link">#</a></h2>
 <p>To integrate a wysiwyg editor into a form, you have to create a <code>WysiwygFormContainer</code> object.
 This container takes care of creating all necessary form nodes listed below for a wysiwyg editor.</p>
