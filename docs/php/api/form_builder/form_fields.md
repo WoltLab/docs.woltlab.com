@@ -553,8 +553,9 @@ When this button is pressed, the `fileProcessorCustomAction` event is fired, whi
 Example:
 
 ```ts
-document.getElementById('exampleFileIDContainer').addEventListener('fileProcessorCustomAction', (event) => {
-  // event.detail is the $actionName
+document.getElementById('exampleFileIDContainer').addEventListener('fileProcessorCustomAction', (event: CustomEvent<string>) => {
+  const actionName = event.detail;
+  // Perform your action
 });
 ```
 
