@@ -535,7 +535,7 @@ __The field supports other settings:__
 - `context(array $context)` and `getContext()` can be used to set and get the context of the file processor.
 - `singleFileUpload($singleFileUpload = true)` and `isSingleFileUpload()` can be used to set and check if only one file can be uploaded.
 
-__Example:__
+Example:
 
 ```php
 FileProcessorFormField::create('exampleFileID')
@@ -545,12 +545,12 @@ FileProcessorFormField::create('exampleFileID')
   ->bigPreview()
 ```
 
-__Additional Buttons__
+#### Additional Buttons
 
 Additional buttons can be added with `addActionButton(string $actionName, string $title, string $template, string $application = 'wcf', ?IFontAwesomeIcon $icon = null)`.
 When this button is pressed, the `fileProcessorCustomAction` event is fired, which can be used via JavaScript to perform additional actions.
 
-__Example:__
+Example:
 
 ```ts
 document.getElementById('exampleFileID').parentElement.addEventListener('fileProcessorCustomAction', (event) => {
