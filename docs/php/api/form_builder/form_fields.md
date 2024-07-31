@@ -520,6 +520,43 @@ Example:
 ContentLanguageFormField::create()
 ```
 
+### FileProcessorFormField
+
+The `FileProcessorFormField` is used to upload files to the server via the file processor.
+
+By default, `FileProcessorFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the appropriate array of fileIDs to the `$parameters` array directly, using the object property as the array key.
+If `isSingleFileUpload()` is enabled, the value will be added to the data sub-array of the parameters array and the value can be null.
+
+The checks for the correct file size or extension don't take place in the FormField, this must be defined in the `IFileProcessor`.
+
+__The field supports other settings:__
+
+- `bigPreview($bigPreview = true)` and `isBigPreview()` can be used to set and check if the big preview is enabled. The big preview can only be enabled if single file upload is enabled and the file processor only supports images.
+- `context(array $context)` and `getContext()` can be used to set and get the context of the file processor.
+- `singleFileUpload($singleFileUpload = true)` and `isSingleFileUpload()` can be used to set and check if only one file can be uploaded.
+
+__Example:__
+
+```php
+FileProcessorFormField::create('exampleFileID')
+  ->objectType('foo.bar.example')
+  ->label('foo.bar.example.title')
+  ->singleFileUpload()
+  ->bigPreview()
+```
+
+__Additional Buttons__
+
+Additional buttons can be added with `addActionButton(string $actionName, string $title, string $template, string $application = 'wcf', ?IFontAwesomeIcon $icon = null)`.
+When this button is pressed, the `fileProcessorCustomAction` event is fired, which can be used via JavaScript to perform additional actions.
+
+__Example:__
+
+```ts
+document.getElementById('exampleFileID').parentElement.addEventListener('fileProcessorCustomAction', (event) => {
+  // event.detail is the $actionName
+});
+```
 
 ### `LabelFormField`
 
