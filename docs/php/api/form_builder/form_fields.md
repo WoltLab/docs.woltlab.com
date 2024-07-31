@@ -553,7 +553,7 @@ When this button is pressed, the `fileProcessorCustomAction` event is fired, whi
 Example:
 
 ```ts
-document.getElementById('exampleFileID').parentElement.addEventListener('fileProcessorCustomAction', (event) => {
+document.getElementById('exampleFileIDContainer').addEventListener('fileProcessorCustomAction', (event) => {
   // event.detail is the $actionName
 });
 ```
