@@ -46,7 +46,7 @@ return static function (): void {
     $eventHandler = EventHandler::getInstance();
 
     $eventHandler->register(BoxCollecting::class, static function (BoxCollecting $event) {
-        $event->register(\wcf\system\acp\dashboard\box\FooBox::class);
+        $event->register(new \wcf\system\acp\dashboard\box\FooBox());
     });
 };
 ```
