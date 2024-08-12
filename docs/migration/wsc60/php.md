@@ -122,3 +122,27 @@ return WCF::getTPL()->fetch('templateName', 'application', [
 ```
 
 See [WoltLab/WCF#5910](https://github.com/WoltLab/WCF/issues/5910) for more details.
+
+## Creating Categories Based on the Formbuilder
+
+A new basic implementation based on the FormBuilder for creating and editing categories has been introduced.
+The old implementation (`AbstractCategoryAddForm`) remains for backward compatibility reasons, but has been deprecated.
+
+Usage (form for creating categories):
+
+```php
+class FooBarCategoryAddForm extends CategoryAddFormBuilderForm {
+    public string $objectTypeName = 'foo.bar.category';
+}
+```
+
+Usage (form for editing categories):
+
+```php
+class FooBarCategoryEditForm extends FooBarCategoryAddForm {
+    public $formAction = 'edit';
+}
+```
+
+See [WoltLab/WCF#5657](https://github.com/WoltLab/WCF/pull/5657
+) for more details. 
