@@ -15,7 +15,7 @@ A comprehensive implementation can be found in `WoltLabSuite/Core/Api/Comments/R
 
 ```ts
 import { prepareRequest } from "WoltLabSuite/Core/Ajax/Backend";
-import { ApiResult, apiResultFromError, apiResultFromValue } from "../Result";
+import { ApiResult, apiResultFromError, apiResultFromValue } from "WoltLabSuite/Core/Api/Result";
 
 type Response = {
   template: string;
