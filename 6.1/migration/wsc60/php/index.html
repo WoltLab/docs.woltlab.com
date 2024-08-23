@@ -2823,6 +2823,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#loading-embedded-objects-for-quotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading embedded objects for quotes
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4207,6 +4216,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#loading-embedded-objects-for-quotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading embedded objects for quotes
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4380,6 +4398,97 @@ The old implementation (<code>AbstractCategoryAddForm</code>) remains for backwa
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>See <a href="https://github.com/WoltLab/WCF/pull/5657">WoltLab/WCF#5657</a> for more details. </p>
+<h2 id="loading-embedded-objects-for-quotes">Loading embedded objects for quotes<a class="headerlink" href="#loading-embedded-objects-for-quotes" title="Permanent link">#</a></h2>
+<p>When saving a quote, it is necessary to load embedded objects before adding the quote to the <code>MessageQuoteManager</code>.
+This is to ensure that the embedded objects are displayed correctly in the quote preview.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">FooBarAction</span> <span class="k">extends</span> <span class="nx">AbstractDatabaseObjectAction</span> <span class="k">implements</span> <span class="nx">IMessageQuoteAction</span>
+<span class="p">{</span>   
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">loadEmbeddedObjects</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">hasEmbeddedObjects</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">ObjectTypeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">getObjectTypeByName</span><span class="p">(</span><span class="s1">&#39;com.woltlab.wcf.attachment.objectType&#39;</span><span class="p">,</span> <span class="s1">&#39;foo.bar.attachment&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">getProcessor</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">cacheObjects</span><span class="p">([</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">objectID</span><span class="p">]);</span>
+            <span class="nx">MessageEmbeddedObjectManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">loadObjects</span><span class="p">(</span>
+                <span class="s1">&#39;foo.bar.message&#39;</span><span class="p">,</span>
+                <span class="p">[</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">objectID</span><span class="p">]</span>
+            <span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">saveFullQuote</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">loadEmbeddedObjects</span><span class="p">();</span>
+
+        <span class="nv">$quoteID</span> <span class="o">=</span> <span class="nx">MessageQuoteManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">addQuote</span><span class="p">(</span>
+            <span class="s1">&#39;foo.bar.message&#39;</span><span class="p">,</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">parentObjectID</span><span class="p">,</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">objectID</span><span class="p">,</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">getExcerpt</span><span class="p">(),</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">()</span>
+        <span class="p">);</span>
+        <span class="nx">…</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">saveQuote</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">loadEmbeddedObjects</span><span class="p">();</span>
+
+        <span class="nv">$quoteID</span> <span class="o">=</span> <span class="nx">MessageQuoteManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">addQuote</span><span class="p">(</span>
+            <span class="s1">&#39;foo.bar.message&#39;</span><span class="p">,</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">parentObjectID</span><span class="p">,</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">objectID</span><span class="p">,</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parameters</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">],</span>
+            <span class="k">false</span>
+        <span class="p">);</span>
+        <span class="nx">…</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 
 
 
@@ -4400,7 +4509,7 @@ The old implementation (<code>AbstractCategoryAddForm</code>) remains for backwa
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    2024-08-12
+    2024-08-23
   </span>
 
     
