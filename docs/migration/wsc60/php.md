@@ -146,3 +146,55 @@ class FooBarCategoryEditForm extends FooBarCategoryAddForm {
 
 See [WoltLab/WCF#5657](https://github.com/WoltLab/WCF/pull/5657
 ) for more details. 
+
+## Loading embedded objects for quotes
+
+When saving a quote, it is necessary to load embedded objects before adding the quote to the `MessageQuoteManager`.
+This is to ensure that the embedded objects are displayed correctly in the quote preview.
+
+```PHP
+public class FooBarAction extends AbstractDatabaseObjectAction implements IMessageQuoteAction
+{   
+    private function loadEmbeddedObjects(): void
+    {
+        if ($this->object->hasEmbeddedObjects) {
+            ObjectTypeCache::getInstance()
+                ->getObjectTypeByName('com.woltlab.wcf.attachment.objectType', 'foo.bar.attachment')
+                ->getProcessor()
+                ->cacheObjects([$this->object->objectID]);
+            MessageEmbeddedObjectManager::getInstance()->loadObjects(
+                'foo.bar.message',
+                [$this->object->objectID]
+            );
+        }
+    }
+
+    public function saveFullQuote()
+    {
+        $this->loadEmbeddedObjects();
+
+        $quoteID = MessageQuoteManager::getInstance()->addQuote(
+            'foo.bar.message',
+            $this->object->parentObjectID,
+            $this->object->objectID,
+            $this->object->getExcerpt(),
+            $this->object->getMessage()
+        );
+        …
+    }
+
+    public function saveQuote()
+    {
+        $this->loadEmbeddedObjects();
+
+        $quoteID = MessageQuoteManager::getInstance()->addQuote(
+            'foo.bar.message',
+            $this->object->parentObjectID,
+            $this->object->objectID,
+            $this->parameters['message'],
+            false
+        );
+        …
+    }
+}
+```
