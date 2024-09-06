@@ -29,7 +29,7 @@ export async function renderComment(
   objectTypeId: number | undefined = undefined
 ): Promise<ApiResult<Response>> {
   const url = new URL(
-    `${window.WSC_API_URL}index.php?api/rpc/core/comments/${commentId}/render`
+    `${window.WSC_RPC_API_URL}core/comments/${commentId}/render`
   );
   url.searchParams.set("messageOnly", messageOnly.toString());
   if (responseId !== undefined) {
