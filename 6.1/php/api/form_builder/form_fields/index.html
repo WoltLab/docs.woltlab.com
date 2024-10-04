@@ -1095,6 +1095,30 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#fileprocessorformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      FileProcessorFormField
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FileProcessorFormField">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Buttons
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#labelformfield" class="md-nav__link">
     <span class="md-ellipsis">
       LabelFormField
@@ -5033,6 +5057,30 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#fileprocessorformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      FileProcessorFormField
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FileProcessorFormField">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Buttons
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#labelformfield" class="md-nav__link">
     <span class="md-ellipsis">
       LabelFormField
@@ -5736,6 +5784,40 @@ The class implements <code>IImmutableFormField</code>.</p>
 <p>Example:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">ContentLanguageFormField</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="fileprocessorformfield">FileProcessorFormField<a class="headerlink" href="#fileprocessorformfield" title="Permanent link">#</a></h3>
+<p>The <code>FileProcessorFormField</code> is used to upload files to the server via the file processor.</p>
+<p>By default, <code>FileProcessorFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the appropriate array of fileIDs to the <code>$parameters</code> array directly, using the object property as the array key.
+If <code>isSingleFileUpload()</code> is enabled, the value will be added to the data sub-array of the parameters array and the value can be null.</p>
+<p>The checks for the correct file size or extension don't take place in the FormField, this must be defined in the <code>IFileProcessor</code>.</p>
+<p><strong>The field supports other settings:</strong></p>
+<ul>
+<li><code>bigPreview($bigPreview = true)</code> and <code>isBigPreview()</code> can be used to set and check if the big preview is enabled. The big preview can only be enabled if single file upload is enabled and the file processor only supports images.</li>
+<li><code>context(array $context)</code> and <code>getContext()</code> can be used to set and get the context of the file processor.</li>
+<li><code>singleFileUpload($singleFileUpload = true)</code> and <code>isSingleFileUpload()</code> can be used to set and check if only one file can be uploaded.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">FileProcessorFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;exampleFileID&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">objectType</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example.title&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">singleFileUpload</span><span class="p">()</span>
+  <span class="o">-&gt;</span><span class="na">bigPreview</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="additional-buttons">Additional Buttons<a class="headerlink" href="#additional-buttons" title="Permanent link">#</a></h4>
+<p>Additional buttons can be added with <code>addActionButton(string $actionName, string $title, string $template, string $application = 'wcf', ?IFontAwesomeIcon $icon = null)</code>.
+When this button is pressed, the <code>fileProcessorCustomAction</code> event is fired, which can be used via JavaScript to perform additional actions.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;exampleFileIDContainer&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;fileProcessorCustomAction&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="kt">CustomEvent</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">actionName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">detail</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// Perform your action</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="labelformfield"><code>LabelFormField</code><a class="headerlink" href="#labelformfield" title="Permanent link">#</a></h3>
 <p><code>LabelFormField</code> is used to select a label from a specific label group.
 The class implements <code>IObjectTypeFormNode</code>.</p>
@@ -6008,7 +6090,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    2024-07-30
+    2024-07-31
   </span>
 
     
