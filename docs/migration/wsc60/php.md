@@ -198,3 +198,184 @@ public class FooBarAction extends AbstractDatabaseObjectAction implements IMessa
     }
 }
 ```
+
+## Migration to `FileProcessorFormField`
+
+Previously, the `UploadFormField` class was used to create file upload fields in forms.
+Now, the new `FileProcessorFormField` should be used,
+which separates file validation and processing into a dedicated class, the `IFileProcessor`.
+
+#### Example using `FileProcessorFormField`
+
+With the new `FileProcessorFormField`, file validation and processing is handled by a separate class,
+the `IFileProcessor`.
+The form field now provides information about which `IFileProcessor` should be used for the file upload,
+by specifying the object type of `com.woltlab.wcf.file`.
+
+```PHP
+#[\Override]
+protected function createForm(): void
+{
+    parent::createForm();
+    $this->form->appendChildren([
+        FormContainer::create('imageContainer')
+            ->appendChildren([
+                FileProcessorFormField::create('imageID')
+                    ->singleFileUpload()
+                    ->required()
+                    ->context($this->getContent())
+                    ->objectType('foo.bar.image')
+            ]),
+    ]);
+}
+
+protected function getContent(): array
+{
+     if ($this->formObject !== null) {
+        return [
+            'fooID' => $this->formObject->fooID,
+        ];
+    }
+    return [];
+}
+```
+
+#### Example for implementing an `IFileProcessor`
+
+```PHP
+final class FooImageFileProcessor extends AbstractFileProcessor
+{    
+    #[\Override]
+    public function acceptUpload(string $filename, int $fileSize, array $context): FileProcessorPreflightResult
+    {
+        if (isset($context['fooID'])) {
+            $foo = $this->getFoo($context);
+            if ($foo === null) {
+                return FileProcessorPreflightResult::InvalidContext;
+            }
+
+            if (!$foo->canEdit()) {
+                return FileProcessorPreflightResult::InsufficientPermissions;
+            }
+        } elseif (!WCF::getSession()->getPermission('foo.bar.canAdd')) {
+            return FileProcessorPreflightResult::InsufficientPermissions;
+        }
+
+        if ($fileSize > $this->getMaximumSize($context)) {
+            return FileProcessorPreflightResult::FileSizeTooLarge;
+        }
+
+        if (!FileUtil::endsWithAllowedExtension($filename, $this->getAllowedFileExtensions($context))) {
+            return FileProcessorPreflightResult::FileExtensionNotPermitted;
+        }
+
+        return FileProcessorPreflightResult::Passed;
+    }
+
+    #[\Override]
+    public function getMaximumSize(array $context): ?int
+    {
+        return WCF::getSession()->getPermission('foo.bar.image.maxSize');
+    }
+
+    #[\Override]
+    public function getAllowedFileExtensions(array $context): array
+    {
+        return \explode("\n", WCF::getSession()->getPermission('foo.bar.image.allowedFileExtensions'));
+    }
+
+    #[\Override]
+    public function canAdopt(File $file, array $context): bool
+    {
+        $fooFromContext = $this->getFoo($context);
+        $fooFromCoreFile = $this->getFooByFile($file);
+
+        if ($fooFromCoreFile === null) {
+            return true;
+        }
+
+        if ($fooFromCoreFile->fooID === $fooFromContext->fooID) {
+            return true;
+        }
+
+        return false;
+    }
+
+    #[\Override]
+    public function adopt(File $file, array $context): void
+    {
+        $foo = $this->getFoo($context);
+        if ($foo === null) {
+            return;
+        }
+
+        (new FooEditor($foo))->update([
+            'imageID' => $file->fileID,
+        ]);
+    }
+
+    #[\Override]
+    public function canDelete(File $file): bool
+    {
+        $foo = $this->getFooByFile($file);
+        if ($foo === null) {
+            return WCF::getSession()->getPermission('foo.bar.canAdd');
+        }
+
+        return false;
+    }
+
+    #[\Override]
+    public function canDownload(File $file): bool
+    {
+        $foo = $this->getFooByFile($file);
+        if ($foo === null) {
+            return WCF::getSession()->getPermission('foo.bar.canAdd');
+        }
+
+        return $foo->canRead();
+    }
+
+    #[\Override]
+    public function delete(array $fileIDs, array $thumbnailIDs): void
+    {
+        $fooList = new FooList();
+        $fooList->getConditionBuilder()->add('imageID IN (?)', [$fileIDs]);
+        $fooList->readObjects();
+
+        if ($fooList->count() === 0) {
+            return;
+        }
+
+        (new FooAction($fooList->getObjects(), 'delete'))->executeAction();
+    }
+
+    #[\Override]
+    public function getObjectTypeName(): string
+    {
+        return 'foo.bar.image';
+    }    
+    
+    #[\Override]
+    public function countExistingFiles(array $context): ?int
+    {
+        $foo = $this->getFoo($context);
+        if ($foo === null) {
+            return null;
+        }
+
+        return $foo->imageID === null ? 0 : 1;
+    }
+    
+    private function getFoo(array $context): ?Foo
+    {
+        // extract foo from context
+    }
+    
+    private function getFooByFile(File $file): ?Foo
+    {
+        // search foo in database by given file
+    }
+}
+```
+
