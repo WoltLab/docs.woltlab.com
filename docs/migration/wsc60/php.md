@@ -233,26 +233,16 @@ final class FooAddForm extends AbstractFormBuilderForm
                     FileProcessorFormField::create('imageID')
                         ->singleFileUpload()
                         ->required()
-                        ->context($this->getContent())
                         ->objectType('foo.bar.image')
                 ]),
         ]);
-    }
-
-    protected function getContent(): array
-    {
-        if ($this->formObject !== null) {
-            return [
-                'fooID' => $this->formObject->fooID,
-            ];
-        }
-
-        return [];
     }
 }
 ```
 
 #### Example for implementing an `IFileProcessor`
+
+The `objectID` in the `$context` comes from the form and corresponds to the objectID of the `FooAddForm::$formObject`.
 
 ```PHP
 final class FooImageFileProcessor extends AbstractFileProcessor
@@ -260,7 +250,7 @@ final class FooImageFileProcessor extends AbstractFileProcessor
     #[\Override]
     public function acceptUpload(string $filename, int $fileSize, array $context): FileProcessorPreflightResult
     {
-        if (isset($context['fooID'])) {
+        if (isset($context['objectID'])) {
             $foo = $this->getFoo($context);
             if ($foo === null) {
                 return FileProcessorPreflightResult::InvalidContext;
