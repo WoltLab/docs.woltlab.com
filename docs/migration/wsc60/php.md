@@ -205,38 +205,50 @@ Previously, the `UploadFormField` class was used to create file upload fields in
 Now, the new `FileProcessorFormField` should be used,
 which separates file validation and processing into a dedicated class, the `IFileProcessor`.
 
+Only the fileID or several fileIDs now need to be saved in the database.
+These should have a foreign key to `wcf1_file.fileID`.
+
+The previously required function (`getFooUploadFiles`) to get `UploadFile[]` is no longer needed and can be removed.
+
+### Example
+
+In this example, the `Foo` object will store the `imageID` of the uploaded file.
+
 #### Example using `FileProcessorFormField`
 
-With the new `FileProcessorFormField`, file validation and processing is handled by a separate class,
-the `IFileProcessor`.
 The form field now provides information about which `IFileProcessor` should be used for the file upload,
 by specifying the object type of `com.woltlab.wcf.file`.
 
 ```PHP
-#[\Override]
-protected function createForm(): void
+final class FooAddForm extends AbstractFormBuilderForm
 {
-    parent::createForm();
-    $this->form->appendChildren([
-        FormContainer::create('imageContainer')
-            ->appendChildren([
-                FileProcessorFormField::create('imageID')
-                    ->singleFileUpload()
-                    ->required()
-                    ->context($this->getContent())
-                    ->objectType('foo.bar.image')
-            ]),
-    ]);
-}
+    #[\Override]
+    protected function createForm(): void
+    {
+        parent::createForm();
 
-protected function getContent(): array
-{
-     if ($this->formObject !== null) {
-        return [
-            'fooID' => $this->formObject->fooID,
-        ];
+        $this->form->appendChildren([
+            FormContainer::create('imageContainer')
+                ->appendChildren([
+                    FileProcessorFormField::create('imageID')
+                        ->singleFileUpload()
+                        ->required()
+                        ->context($this->getContent())
+                        ->objectType('foo.bar.image')
+                ]),
+        ]);
     }
-    return [];
+
+    protected function getContent(): array
+    {
+        if ($this->formObject !== null) {
+            return [
+                'fooID' => $this->formObject->fooID,
+            ];
+        }
+
+        return [];
+    }
 }
 ```
 
@@ -354,7 +366,7 @@ final class FooImageFileProcessor extends AbstractFileProcessor
     public function getObjectTypeName(): string
     {
         return 'foo.bar.image';
-    }    
+    }
     
     #[\Override]
     public function countExistingFiles(array $context): ?int
@@ -379,3 +391,65 @@ final class FooImageFileProcessor extends AbstractFileProcessor
 }
 ```
 
+### Migrating existing files
+
+To insert existing files into the upload pipeline,
+a `RebuildDataWorker` should be used which calls `FileEditor::createFromExistingFile()`.
+
+#### Example for a `RebuildDataWorker`
+
+```PHP
+final class FooRebuildDataWorker extends AbstractLinearRebuildDataWorker
+{
+    /**
+     * @inheritDoc
+     */
+    protected $objectListClassName = FooList::class;
+
+    /**
+     * @inheritDoc
+     */
+    protected $limit = 100;
+
+    #[\Override]
+    public function execute()
+    {
+        parent::execute();
+
+        $fooToFileID = [];
+        $defunctFileIDs = [];
+
+        foreach ($this->objectList as $foo) {
+            if ($foo->imageID !== null) {
+                continue;
+            }
+
+            $file = FileEditor::createFromExistingFile(
+                $foo->getLocation(),
+                $foo->getFilename(),
+                'foo.bar.image'
+            );
+
+            if ($file === null) {
+                $defunctFileIDs[] = $foo->fooID;
+                continue;
+            }
+
+            $fooToFileID[$foo->fooID] = $file->fileID;
+        }
+
+        $this->saveFileIDs($fooToFileID);
+        // disable or delete defunct foo objects
+    }
+
+    /**
+     * @param array<int,int> $fooToFileID
+     */
+    private function saveFileIDs(array $fooToFileID): void
+    {
+        // store fileIDs in database
+    }
+}
+```
+
+See [WoltLab/WCF#5911](https://github.com/WoltLab/WCF/pull/5951) for more details.
