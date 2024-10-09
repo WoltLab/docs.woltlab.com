@@ -202,13 +202,12 @@ public class FooBarAction extends AbstractDatabaseObjectAction implements IMessa
 ## Migration to `FileProcessorFormField`
 
 Previously, the `UploadFormField` class was used to create file upload fields in forms.
-Now, the new `FileProcessorFormField` should be used,
-which separates file validation and processing into a dedicated class, the `IFileProcessor`.
+It is strongly recommended to use the new `FileProcessorFormField` instead which separates file validation and processing into a dedicated class, the `IFileProcessor`.
 
-Only the fileID or several fileIDs now need to be saved in the database.
-These should have a foreign key to `wcf1_file.fileID`.
+Only the fileID (or fileIDs) now need to be saved in the database.
+These should reference `wcf1_file.fileID` through a foreign key.
 
-The previously required function (`getFooUploadFiles`) to get `UploadFile[]` is no longer needed and can be removed.
+The previously required function (`getFooUploadFiles`) to retrieve `UploadFile[]` is no longer needed and can be removed.
 
 ### Example
 
@@ -216,8 +215,7 @@ In this example, the `Foo` object will store the `imageID` of the uploaded file.
 
 #### Example using `FileProcessorFormField`
 
-The form field now provides information about which `IFileProcessor` should be used for the file upload,
-by specifying the object type of `com.woltlab.wcf.file`.
+The form field now provides information about which `IFileProcessor` should be used for the file upload, by specifying the object type for the definition `com.woltlab.wcf.file`.
 
 ```PHP
 final class FooAddForm extends AbstractFormBuilderForm
@@ -243,6 +241,13 @@ final class FooAddForm extends AbstractFormBuilderForm
 #### Example for implementing an `IFileProcessor`
 
 The `objectID` in the `$context` comes from the form and corresponds to the objectID of the `FooAddForm::$formObject`.
+
+This is a rather exhaustive example and tries to cover a lot of different use cases including but not limited to fine-grained control through user group permissions.
+
+The `AbstractFileProcessor` implementation already provides a lot of sane defaults for less restricted uploads.
+For example, if your field allows arbitrary files to be uploaded, you can skip that check in `acceptUpload()` and also remove the overriden method `getAllowedFileExtensions()` because the base implementation already permits all types of files.
+
+Please see the explanation of the new [file uploads](../../php/api/file_uploads.md) to learn more.
 
 ```PHP
 final class FooImageFileProcessor extends AbstractFileProcessor
@@ -383,8 +388,7 @@ final class FooImageFileProcessor extends AbstractFileProcessor
 
 ### Migrating existing files
 
-To insert existing files into the upload pipeline,
-a `RebuildDataWorker` should be used which calls `FileEditor::createFromExistingFile()`.
+To insert existing files into the upload pipeline, a `RebuildDataWorker` should be used which calls `FileEditor::createFromExistingFile()`.
 
 #### Example for a `RebuildDataWorker`
 
