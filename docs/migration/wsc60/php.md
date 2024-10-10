@@ -198,3 +198,252 @@ public class FooBarAction extends AbstractDatabaseObjectAction implements IMessa
     }
 }
 ```
+
+## Migration to `FileProcessorFormField`
+
+Previously, the `UploadFormField` class was used to create file upload fields in forms.
+It is strongly recommended to use the new `FileProcessorFormField` instead which separates file validation and processing into a dedicated class, the `IFileProcessor`.
+
+Only the fileID (or fileIDs) now need to be saved in the database.
+These should reference `wcf1_file.fileID` through a foreign key.
+
+The previously required function (`getFooUploadFiles`) to retrieve `UploadFile[]` is no longer needed and can be removed.
+
+### Example
+
+In this example, the `Foo` object will store the `imageID` of the uploaded file.
+
+#### Example using `FileProcessorFormField`
+
+The form field now provides information about which `IFileProcessor` should be used for the file upload, by specifying the object type for the definition `com.woltlab.wcf.file`.
+
+```PHP
+final class FooAddForm extends AbstractFormBuilderForm
+{
+    #[\Override]
+    protected function createForm(): void
+    {
+        parent::createForm();
+
+        $this->form->appendChildren([
+            FormContainer::create('imageContainer')
+                ->appendChildren([
+                    FileProcessorFormField::create('imageID')
+                        ->singleFileUpload()
+                        ->required()
+                        ->objectType('foo.bar.image')
+                ]),
+        ]);
+    }
+}
+```
+
+#### Example for implementing an `IFileProcessor`
+
+The `objectID` in the `$context` comes from the form and corresponds to the objectID of the `FooAddForm::$formObject`.
+
+This is a rather exhaustive example and tries to cover a lot of different use cases including but not limited to fine-grained control through user group permissions.
+
+The `AbstractFileProcessor` implementation already provides a lot of sane defaults for less restricted uploads.
+For example, if your field allows arbitrary files to be uploaded, you can skip that check in `acceptUpload()` and also remove the overriden method `getAllowedFileExtensions()` because the base implementation already permits all types of files.
+
+Please see the explanation of the new [file uploads](../../php/api/file_uploads.md) to learn more.
+
+```PHP
+final class FooImageFileProcessor extends AbstractFileProcessor
+{    
+    #[\Override]
+    public function acceptUpload(string $filename, int $fileSize, array $context): FileProcessorPreflightResult
+    {
+        if (isset($context['objectID'])) {
+            $foo = $this->getFoo($context);
+            if ($foo === null) {
+                return FileProcessorPreflightResult::InvalidContext;
+            }
+
+            if (!$foo->canEdit()) {
+                return FileProcessorPreflightResult::InsufficientPermissions;
+            }
+        } elseif (!WCF::getSession()->getPermission('foo.bar.canAdd')) {
+            return FileProcessorPreflightResult::InsufficientPermissions;
+        }
+
+        if ($fileSize > $this->getMaximumSize($context)) {
+            return FileProcessorPreflightResult::FileSizeTooLarge;
+        }
+
+        if (!FileUtil::endsWithAllowedExtension($filename, $this->getAllowedFileExtensions($context))) {
+            return FileProcessorPreflightResult::FileExtensionNotPermitted;
+        }
+
+        return FileProcessorPreflightResult::Passed;
+    }
+
+    #[\Override]
+    public function getMaximumSize(array $context): ?int
+    {
+        return WCF::getSession()->getPermission('foo.bar.image.maxSize');
+    }
+
+    #[\Override]
+    public function getAllowedFileExtensions(array $context): array
+    {
+        return \explode("\n", WCF::getSession()->getPermission('foo.bar.image.allowedFileExtensions'));
+    }
+
+    #[\Override]
+    public function canAdopt(File $file, array $context): bool
+    {
+        $fooFromContext = $this->getFoo($context);
+        $fooFromCoreFile = $this->getFooByFile($file);
+
+        if ($fooFromCoreFile === null) {
+            return true;
+        }
+
+        if ($fooFromCoreFile->fooID === $fooFromContext->fooID) {
+            return true;
+        }
+
+        return false;
+    }
+
+    #[\Override]
+    public function adopt(File $file, array $context): void
+    {
+        $foo = $this->getFoo($context);
+        if ($foo === null) {
+            return;
+        }
+
+        (new FooEditor($foo))->update([
+            'imageID' => $file->fileID,
+        ]);
+    }
+
+    #[\Override]
+    public function canDelete(File $file): bool
+    {
+        $foo = $this->getFooByFile($file);
+        if ($foo === null) {
+            return WCF::getSession()->getPermission('foo.bar.canAdd');
+        }
+
+        return false;
+    }
+
+    #[\Override]
+    public function canDownload(File $file): bool
+    {
+        $foo = $this->getFooByFile($file);
+        if ($foo === null) {
+            return WCF::getSession()->getPermission('foo.bar.canAdd');
+        }
+
+        return $foo->canRead();
+    }
+
+    #[\Override]
+    public function delete(array $fileIDs, array $thumbnailIDs): void
+    {
+        $fooList = new FooList();
+        $fooList->getConditionBuilder()->add('imageID IN (?)', [$fileIDs]);
+        $fooList->readObjects();
+
+        if ($fooList->count() === 0) {
+            return;
+        }
+
+        (new FooAction($fooList->getObjects(), 'delete'))->executeAction();
+    }
+
+    #[\Override]
+    public function getObjectTypeName(): string
+    {
+        return 'foo.bar.image';
+    }
+    
+    #[\Override]
+    public function countExistingFiles(array $context): ?int
+    {
+        $foo = $this->getFoo($context);
+        if ($foo === null) {
+            return null;
+        }
+
+        return $foo->imageID === null ? 0 : 1;
+    }
+    
+    private function getFoo(array $context): ?Foo
+    {
+        // extract foo from context
+    }
+    
+    private function getFooByFile(File $file): ?Foo
+    {
+        // search foo in database by given file
+    }
+}
+```
+
+### Migrating existing files
+
+To insert existing files into the upload pipeline, a `RebuildDataWorker` should be used which calls `FileEditor::createFromExistingFile()`.
+
+#### Example for a `RebuildDataWorker`
+
+```PHP
+final class FooRebuildDataWorker extends AbstractLinearRebuildDataWorker
+{
+    /**
+     * @inheritDoc
+     */
+    protected $objectListClassName = FooList::class;
+
+    /**
+     * @inheritDoc
+     */
+    protected $limit = 100;
+
+    #[\Override]
+    public function execute()
+    {
+        parent::execute();
+
+        $fooToFileID = [];
+        $defunctFileIDs = [];
+
+        foreach ($this->objectList as $foo) {
+            if ($foo->imageID !== null) {
+                continue;
+            }
+
+            $file = FileEditor::createFromExistingFile(
+                $foo->getLocation(),
+                $foo->getFilename(),
+                'foo.bar.image'
+            );
+
+            if ($file === null) {
+                $defunctFileIDs[] = $foo->fooID;
+                continue;
+            }
+
+            $fooToFileID[$foo->fooID] = $file->fileID;
+        }
+
+        $this->saveFileIDs($fooToFileID);
+        // disable or delete defunct foo objects
+    }
+
+    /**
+     * @param array<int,int> $fooToFileID
+     */
+    private function saveFileIDs(array $fooToFileID): void
+    {
+        // store fileIDs in database
+    }
+}
+```
+
+See [WoltLab/WCF#5911](https://github.com/WoltLab/WCF/pull/5951) for more details.
