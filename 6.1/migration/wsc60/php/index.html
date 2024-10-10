@@ -2850,6 +2850,78 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#migration-to-fileprocessorformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migration to FileProcessorFormField
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration to FileProcessorFormField">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-using-fileprocessorformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example using FileProcessorFormField
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-for-implementing-an-ifileprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example for implementing an IFileProcessor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrating-existing-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrating existing files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migrating existing files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-for-a-rebuilddataworker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example for a RebuildDataWorker
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4225,6 +4297,78 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#migration-to-fileprocessorformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migration to FileProcessorFormField
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration to FileProcessorFormField">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-using-fileprocessorformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example using FileProcessorFormField
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-for-implementing-an-ifileprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example for implementing an IFileProcessor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrating-existing-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrating existing files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migrating existing files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-for-a-rebuilddataworker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example for a RebuildDataWorker
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4489,6 +4633,432 @@ This is to ensure that the embedded objects are displayed correctly in the quote
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="migration-to-fileprocessorformfield">Migration to <code>FileProcessorFormField</code><a class="headerlink" href="#migration-to-fileprocessorformfield" title="Permanent link">#</a></h2>
+<p>Previously, the <code>UploadFormField</code> class was used to create file upload fields in forms.
+It is strongly recommended to use the new <code>FileProcessorFormField</code> instead which separates file validation and processing into a dedicated class, the <code>IFileProcessor</code>.</p>
+<p>Only the fileID (or fileIDs) now need to be saved in the database.
+These should reference <code>wcf1_file.fileID</code> through a foreign key.</p>
+<p>The previously required function (<code>getFooUploadFiles</code>) to retrieve <code>UploadFile[]</code> is no longer needed and can be removed.</p>
+<h3 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">#</a></h3>
+<p>In this example, the <code>Foo</code> object will store the <code>imageID</code> of the uploaded file.</p>
+<h4 id="example-using-fileprocessorformfield">Example using <code>FileProcessorFormField</code><a class="headerlink" href="#example-using-fileprocessorformfield" title="Permanent link">#</a></h4>
+<p>The form field now provides information about which <code>IFileProcessor</code> should be used for the file upload, by specifying the object type for the definition <code>com.woltlab.wcf.file</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">final</span> <span class="k">class</span> <span class="nc">FooAddForm</span> <span class="k">extends</span> <span class="nx">AbstractFormBuilderForm</span>
+<span class="p">{</span>
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">createForm</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">createForm</span><span class="p">();</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">form</span><span class="o">-&gt;</span><span class="na">appendChildren</span><span class="p">([</span>
+            <span class="nx">FormContainer</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;imageContainer&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">appendChildren</span><span class="p">([</span>
+                    <span class="nx">FileProcessorFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;imageID&#39;</span><span class="p">)</span>
+                        <span class="o">-&gt;</span><span class="na">singleFileUpload</span><span class="p">()</span>
+                        <span class="o">-&gt;</span><span class="na">required</span><span class="p">()</span>
+                        <span class="o">-&gt;</span><span class="na">objectType</span><span class="p">(</span><span class="s1">&#39;foo.bar.image&#39;</span><span class="p">)</span>
+                <span class="p">]),</span>
+        <span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="example-for-implementing-an-ifileprocessor">Example for implementing an <code>IFileProcessor</code><a class="headerlink" href="#example-for-implementing-an-ifileprocessor" title="Permanent link">#</a></h4>
+<p>The <code>objectID</code> in the <code>$context</code> comes from the form and corresponds to the objectID of the <code>FooAddForm::$formObject</code>.</p>
+<p>This is a rather exhaustive example and tries to cover a lot of different use cases including but not limited to fine-grained control through user group permissions.</p>
+<p>The <code>AbstractFileProcessor</code> implementation already provides a lot of sane defaults for less restricted uploads.
+For example, if your field allows arbitrary files to be uploaded, you can skip that check in <code>acceptUpload()</code> and also remove the overriden method <code>getAllowedFileExtensions()</code> because the base implementation already permits all types of files.</p>
+<p>Please see the explanation of the new <a href="../../../php/api/file_uploads/">file uploads</a> to learn more.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">final</span> <span class="k">class</span> <span class="nc">FooImageFileProcessor</span> <span class="k">extends</span> <span class="nx">AbstractFileProcessor</span>
+<span class="p">{</span>    
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">acceptUpload</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$filename</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$fileSize</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$context</span><span class="p">)</span><span class="o">:</span> <span class="nx">FileProcessorPreflightResult</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$context</span><span class="p">[</span><span class="s1">&#39;objectID&#39;</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getFoo</span><span class="p">(</span><span class="nv">$context</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">FileProcessorPreflightResult</span><span class="o">::</span><span class="na">InvalidContext</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">canEdit</span><span class="p">())</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">FileProcessorPreflightResult</span><span class="o">::</span><span class="na">InsufficientPermissions</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="o">!</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">&#39;foo.bar.canAdd&#39;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">FileProcessorPreflightResult</span><span class="o">::</span><span class="na">InsufficientPermissions</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$fileSize</span> <span class="o">&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getMaximumSize</span><span class="p">(</span><span class="nv">$context</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">FileProcessorPreflightResult</span><span class="o">::</span><span class="na">FileSizeTooLarge</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">FileUtil</span><span class="o">::</span><span class="na">endsWithAllowedExtension</span><span class="p">(</span><span class="nv">$filename</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getAllowedFileExtensions</span><span class="p">(</span><span class="nv">$context</span><span class="p">)))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">FileProcessorPreflightResult</span><span class="o">::</span><span class="na">FileExtensionNotPermitted</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nx">FileProcessorPreflightResult</span><span class="o">::</span><span class="na">Passed</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getMaximumSize</span><span class="p">(</span><span class="k">array</span> <span class="nv">$context</span><span class="p">)</span><span class="o">:</span> <span class="o">?</span><span class="nx">int</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">&#39;foo.bar.image.maxSize&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getAllowedFileExtensions</span><span class="p">(</span><span class="k">array</span> <span class="nv">$context</span><span class="p">)</span><span class="o">:</span> <span class="k">array</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">\explode</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">&#39;foo.bar.image.allowedFileExtensions&#39;</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">canAdopt</span><span class="p">(</span><span class="nx">File</span> <span class="nv">$file</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$context</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
+    <span class="p">{</span>
+        <span class="nv">$fooFromContext</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getFoo</span><span class="p">(</span><span class="nv">$context</span><span class="p">);</span>
+        <span class="nv">$fooFromCoreFile</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getFooByFile</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$fooFromCoreFile</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$fooFromCoreFile</span><span class="o">-&gt;</span><span class="na">fooID</span> <span class="o">===</span> <span class="nv">$fooFromContext</span><span class="o">-&gt;</span><span class="na">fooID</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">adopt</span><span class="p">(</span><span class="nx">File</span> <span class="nv">$file</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$context</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getFoo</span><span class="p">(</span><span class="nv">$context</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="p">(</span><span class="k">new</span> <span class="nx">FooEditor</span><span class="p">(</span><span class="nv">$foo</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span>
+            <span class="s1">&#39;imageID&#39;</span> <span class="o">=&gt;</span> <span class="nv">$file</span><span class="o">-&gt;</span><span class="na">fileID</span><span class="p">,</span>
+        <span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">canDelete</span><span class="p">(</span><span class="nx">File</span> <span class="nv">$file</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
+    <span class="p">{</span>
+        <span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getFooByFile</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">&#39;foo.bar.canAdd&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">canDownload</span><span class="p">(</span><span class="nx">File</span> <span class="nv">$file</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
+    <span class="p">{</span>
+        <span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getFooByFile</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">&#39;foo.bar.canAdd&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">canRead</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">delete</span><span class="p">(</span><span class="k">array</span> <span class="nv">$fileIDs</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$thumbnailIDs</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="nv">$fooList</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FooList</span><span class="p">();</span>
+        <span class="nv">$fooList</span><span class="o">-&gt;</span><span class="na">getConditionBuilder</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;imageID IN (?)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$fileIDs</span><span class="p">]);</span>
+        <span class="nv">$fooList</span><span class="o">-&gt;</span><span class="na">readObjects</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$fooList</span><span class="o">-&gt;</span><span class="na">count</span><span class="p">()</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="p">(</span><span class="k">new</span> <span class="nx">FooAction</span><span class="p">(</span><span class="nv">$fooList</span><span class="o">-&gt;</span><span class="na">getObjects</span><span class="p">(),</span> <span class="s1">&#39;delete&#39;</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getObjectTypeName</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;foo.bar.image&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">countExistingFiles</span><span class="p">(</span><span class="k">array</span> <span class="nv">$context</span><span class="p">)</span><span class="o">:</span> <span class="o">?</span><span class="nx">int</span>
+    <span class="p">{</span>
+        <span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getFoo</span><span class="p">(</span><span class="nv">$context</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">imageID</span> <span class="o">===</span> <span class="k">null</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">getFoo</span><span class="p">(</span><span class="k">array</span> <span class="nv">$context</span><span class="p">)</span><span class="o">:</span> <span class="o">?</span><span class="nx">Foo</span>
+    <span class="p">{</span>
+        <span class="c1">// extract foo from context</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">getFooByFile</span><span class="p">(</span><span class="nx">File</span> <span class="nv">$file</span><span class="p">)</span><span class="o">:</span> <span class="o">?</span><span class="nx">Foo</span>
+    <span class="p">{</span>
+        <span class="c1">// search foo in database by given file</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="migrating-existing-files">Migrating existing files<a class="headerlink" href="#migrating-existing-files" title="Permanent link">#</a></h3>
+<p>To insert existing files into the upload pipeline, a <code>RebuildDataWorker</code> should be used which calls <code>FileEditor::createFromExistingFile()</code>.</p>
+<h4 id="example-for-a-rebuilddataworker">Example for a <code>RebuildDataWorker</code><a class="headerlink" href="#example-for-a-rebuilddataworker" title="Permanent link">#</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">final</span> <span class="k">class</span> <span class="nc">FooRebuildDataWorker</span> <span class="k">extends</span> <span class="nx">AbstractLinearRebuildDataWorker</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @inheritDoc</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$objectListClassName</span> <span class="o">=</span> <span class="nx">FooList</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @inheritDoc</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$limit</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">execute</span><span class="p">();</span>
+
+        <span class="nv">$fooToFileID</span> <span class="o">=</span> <span class="p">[];</span>
+        <span class="nv">$defunctFileIDs</span> <span class="o">=</span> <span class="p">[];</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">objectList</span> <span class="k">as</span> <span class="nv">$foo</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">imageID</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">continue</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="nv">$file</span> <span class="o">=</span> <span class="nx">FileEditor</span><span class="o">::</span><span class="na">createFromExistingFile</span><span class="p">(</span>
+                <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getLocation</span><span class="p">(),</span>
+                <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getFilename</span><span class="p">(),</span>
+                <span class="s1">&#39;foo.bar.image&#39;</span>
+            <span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$file</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$defunctFileIDs</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">fooID</span><span class="p">;</span>
+                <span class="k">continue</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="nv">$fooToFileID</span><span class="p">[</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">fooID</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$file</span><span class="o">-&gt;</span><span class="na">fileID</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">saveFileIDs</span><span class="p">(</span><span class="nv">$fooToFileID</span><span class="p">);</span>
+        <span class="c1">// disable or delete defunct foo objects</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @param array&lt;int,int&gt; $fooToFileID</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">saveFileIDs</span><span class="p">(</span><span class="k">array</span> <span class="nv">$fooToFileID</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="c1">// store fileIDs in database</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>See <a href="https://github.com/WoltLab/WCF/pull/5951">WoltLab/WCF#5911</a> for more details.</p>
 
 
 
@@ -4509,7 +5079,7 @@ This is to ensure that the embedded objects are displayed correctly in the quote
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2024-08-23
+    2024-10-09
   </span>
 
     

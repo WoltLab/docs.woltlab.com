@@ -610,6 +610,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    File Uploads
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -619,6 +630,100 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#provide-the-ifileprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provide the IFileProcessor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Provide the IFileProcessor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-methods-and-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important Methods and Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Important Methods and Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thumbnails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thumbnails
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resizing-images-before-uploading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resizing Images Before Uploading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adopting-files-and-thumbnails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adopting Files and Thumbnails
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracking-downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tracking Downloads
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registering-the-file-processor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registering the File Processor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3949,6 +4054,89 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#provide-the-ifileprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provide the IFileProcessor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Provide the IFileProcessor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-methods-and-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important Methods and Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Important Methods and Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thumbnails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thumbnails
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resizing-images-before-uploading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resizing Images Before Uploading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adopting-files-and-thumbnails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adopting Files and Thumbnails
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracking-downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tracking Downloads
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registering-the-file-processor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registering the File Processor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3970,12 +4158,12 @@
 The API covers the upload process, storage, thumbnail generation and serving of files to the browser.
 Attachments are implemented as an extra layer on top of the upload pipeline.</p>
 <p>The most common use cases are the attachment system that relies on the WYSIWYG editor as well as the <code>FileProcessorFormField</code>.</p>
-<h1 id="provide-the-ifileprocessor">Provide the <code>IFileProcessor</code><a class="headerlink" href="#provide-the-ifileprocessor" title="Permanent link">#</a></h1>
+<h2 id="provide-the-ifileprocessor">Provide the <code>IFileProcessor</code><a class="headerlink" href="#provide-the-ifileprocessor" title="Permanent link">#</a></h2>
 <p>At the very core of each uploadable type is an implementation of <code>IFileProcessor</code> that handles the validation and handling of new files.</p>
 <p>It is strongly recommended to derive from <code>AbstractFileProcessor</code> that makes it easy to opt out of some extra features and will provide backwards compatibility with new features.</p>
-<h2 id="important-methods-and-features">Important Methods and Features<a class="headerlink" href="#important-methods-and-features" title="Permanent link">#</a></h2>
+<h3 id="important-methods-and-features">Important Methods and Features<a class="headerlink" href="#important-methods-and-features" title="Permanent link">#</a></h3>
 <p>Please refer to the documentation in <code>IFileProcessor</code> for an explanation of methods that are not explained here.</p>
-<h3 id="thumbnails">Thumbnails<a class="headerlink" href="#thumbnails" title="Permanent link">#</a></h3>
+<h4 id="thumbnails">Thumbnails<a class="headerlink" href="#thumbnails" title="Permanent link">#</a></h4>
 <p>It is possible to automatically generate thumbnails for any uploaded file.
 The number of thumbnail variants is not limited but each thumbnail must have an identifier that is unique for your file processor.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -4019,7 +4207,7 @@ Changes to the thumbnail configuration, for example, updating the dimensions or 
 <p>The system tracks the configuration used to generate a thumbnail.
 The existing rebuild data worker for files will check the existing thumbnails against the formats provided by your processor and regenerate any thumbnail when possible.</p>
 <p>The identifier must be stable because it is used to verify if a specific thumbnail still matches the configured settings.</p>
-<h3 id="resizing-images-before-uploading">Resizing Images Before Uploading<a class="headerlink" href="#resizing-images-before-uploading" title="Permanent link">#</a></h3>
+<h4 id="resizing-images-before-uploading">Resizing Images Before Uploading<a class="headerlink" href="#resizing-images-before-uploading" title="Permanent link">#</a></h4>
 <p>You can opt-in to the resize feature by returning a custom <code>ResizeConfiguration</code> from <code>getResizeConfiguration</code>, otherwise images of arbitrary size will be accepted.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -4053,16 +4241,16 @@ The existing rebuild data worker for files will check the existing thumbnails ag
 </code></pre></div></td></tr></table></div>
 <p>The <code>ResizeFileType</code> controls the output format of the resized image.
 The available options are <code>jpeg</code> and <code>webp</code> but it is also possible to keep the existing image format.</p>
-<h3 id="adopting-files-and-thumbnails">Adopting Files and Thumbnails<a class="headerlink" href="#adopting-files-and-thumbnails" title="Permanent link">#</a></h3>
+<h4 id="adopting-files-and-thumbnails">Adopting Files and Thumbnails<a class="headerlink" href="#adopting-files-and-thumbnails" title="Permanent link">#</a></h4>
 <p>Files are associated with your object type after being uploaded but you possibly want to store the file id in your database table.
 This is where <code>adopt(File $file, array $context): void</code> comes into play which notifies you of the successful upload of a file while providing the context that is used to upload the file in the first place.</p>
 <p>Thumbnails are generated in a separate request for performance reasons and you are being notified through <code>adoptThumbnail(FileThumbnail $thumbnail): void</code>.
 This is meant to allow you to track the thumbnail id in the database.</p>
-<h3 id="tracking-downloads">Tracking Downloads<a class="headerlink" href="#tracking-downloads" title="Permanent link">#</a></h3>
+<h4 id="tracking-downloads">Tracking Downloads<a class="headerlink" href="#tracking-downloads" title="Permanent link">#</a></h4>
 <p>File downloads are handled through the <code>FileDownloadAction</code> which validates the requested file and permissions to download it.
 Every time a file is being downloaded, <code>trackDownload(File $file): void</code> is invoked to allow you to update any counters.</p>
 <p>Static images are served directly by the web server for performance reasons and it is not possible to track those accesses.</p>
-<h2 id="registering-the-file-processor">Registering the File Processor<a class="headerlink" href="#registering-the-file-processor" title="Permanent link">#</a></h2>
+<h3 id="registering-the-file-processor">Registering the File Processor<a class="headerlink" href="#registering-the-file-processor" title="Permanent link">#</a></h3>
 <p>The file processor is registered as an object type for <code>com.woltlab.wcf.file</code> through the <code>objectType.xml</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -4078,9 +4266,9 @@ Every time a file is being downloaded, <code>trackDownload(File $file): void</co
 <p>It is highly recommended that you take advantage of the existing form builder field <code>FileProcessorFormField</code>.
 The integration with the form builder enables you to focus on the file processing and does not require you to manually handle the integration of the upload field.</p>
 <p>Please see documentation for <a href="form_fields.md#fileprocessorformfield">FileProcessorFormField</a> to learn more.</p>
-<h1 id="implementing-an-unmanaged-file-upload">Implementing an Unmanaged File Upload<a class="headerlink" href="#implementing-an-unmanaged-file-upload" title="Permanent link">#</a></h1>
+<h2 id="implementing-an-unmanaged-file-upload">Implementing an Unmanaged File Upload<a class="headerlink" href="#implementing-an-unmanaged-file-upload" title="Permanent link">#</a></h2>
 <p>If you cannot use or want to use the existing form builder implementation you can still implement the UI yourself following this guide.</p>
-<h2 id="creating-the-context-for-new-files">Creating the Context for New Files<a class="headerlink" href="#creating-the-context-for-new-files" title="Permanent link">#</a></h2>
+<h3 id="creating-the-context-for-new-files">Creating the Context for New Files<a class="headerlink" href="#creating-the-context-for-new-files" title="Permanent link">#</a></h3>
 <p>The HTML element for the file upload is generated through the helper method <code>FileProcessor::getHtmlElement()</code> that expects a reference to your <code>IFileProcessor</code> as well as a context for new files.</p>
 <p>The context is an array with arbitrary values that will be provided to your <code>IFileProcessor</code> when processing uploaded files.
 You can provide anything you need in order to recognize what the file belongs to, for example, an identifier, object ids, et cetera.</p>
@@ -4108,7 +4296,7 @@ You can provide anything you need in order to recognize what the file belongs to
 </code></pre></div></td></tr></table></div>
 <p>This code will generate a <code>&lt;woltlab-core-file-upload&gt;</code> HTML element that can be inserted anywhere on the page.
 You do not need to initialize any extra JavaScript to make the element work, it will be initialized dynamically.</p>
-<h2 id="lifecycle-of-uploaded-files">Lifecycle of Uploaded Files<a class="headerlink" href="#lifecycle-of-uploaded-files" title="Permanent link">#</a></h2>
+<h3 id="lifecycle-of-uploaded-files">Lifecycle of Uploaded Files<a class="headerlink" href="#lifecycle-of-uploaded-files" title="Permanent link">#</a></h3>
 <p>Any file that passes the pre-upload validation will be uploaded to the server.
 This will trigger the <code>uploadStart</code> event on the <code>&lt;woltlab-core-file-upload&gt;</code> element, exposing a <code>&lt;woltlab-core-file&gt;</code> element as the only detail.</p>
 <p>It is your responsibility to insert this element at a location of your choice on the page, it represents the upload progress, reports any errors when uploading the file and shows the uploaded file on completion.</p>
@@ -4116,9 +4304,9 @@ This will trigger the <code>uploadStart</code> event on the <code>&lt;woltlab-co
 A successful upload will resolve the promise without any value, you can then access the file id through the <code>.fileId</code> property.</p>
 <p>A failed upload will reject the <code>.ready</code> promise without any value, instead you can retrieve the error through the <code>.apiError</code> property if you want to further process it.
 The UI is automatically updated with the error message, you only need to handle the <code>.apiError</code> property if you need to inspect the root cause.</p>
-<h2 id="deleting-a-file">Deleting a File<a class="headerlink" href="#deleting-a-file" title="Permanent link">#</a></h2>
+<h3 id="deleting-a-file">Deleting a File<a class="headerlink" href="#deleting-a-file" title="Permanent link">#</a></h3>
 <p>You can delete a file from the UI by invoking <code>deleteFile()</code> from <code>WoltLabSuite/Core/Api/Files</code> which takes the value of <code>.fileId</code>.</p>
-<h2 id="render-a-previously-uploaded-file">Render a Previously Uploaded File<a class="headerlink" href="#render-a-previously-uploaded-file" title="Permanent link">#</a></h2>
+<h3 id="render-a-previously-uploaded-file">Render a Previously Uploaded File<a class="headerlink" href="#render-a-previously-uploaded-file" title="Permanent link">#</a></h3>
 <p>You can render the <code>&lt;woltlab-core-file&gt;</code> element through <code>File::toHtmlElement()</code>.
 This method accepts an optional list of meta data that is serialized to JSON and exposed on the <code>data-meta-data</code> property.</p>
 <p>The <code>.ready</code> promise exists for these files too and will resolve immediately.</p>
@@ -4142,7 +4330,7 @@ This method accepts an optional list of meta data that is serialized to JSON and
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2024-10-02
+    2024-10-09
   </span>
 
     
