@@ -64,6 +64,8 @@ final class FooBBCode extends AbstractBBCode
             ], true);
         } elseif ($parser->getOutputType() == 'text/simplified-html') {
             return StringUtil::getAnchorTag($foo->getLink(), $foo->getTitle());
+        } else {
+            return StringUtil::encodeHTML($foo->getLink());
         }
     }
 }
