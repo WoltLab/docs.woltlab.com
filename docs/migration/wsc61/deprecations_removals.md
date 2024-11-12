@@ -22,3 +22,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 #### Properties
 
 - `wcf\system\option\user\DateUserOptionOutput::$dateFormat` ([WoltLab/WCF#6042](https://github.com/WoltLab/WCF/pull/6042/))
+
+### JavaScript
+
+- `WCF.ImageViewer` ([WoltLab/WCF#6035](https://github.com/WoltLab/WCF/pull/6035/))
