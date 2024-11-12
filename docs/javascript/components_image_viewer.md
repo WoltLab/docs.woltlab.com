@@ -4,7 +4,7 @@ The Image Viewer component enables interactive image viewing in a modal, using t
 It supports automatic or manual opening and grouping of images.
 
 Not only images, but also Videos, YouTube Videos, PDFs, HTML, [...](https://fancyapps.com/fancybox/) are supported and can be displayed in the modal.
-The appropriate `data-type` must be set, the system tries to determine this if it has not been set.
+The appropriate `data-type` can be set, the system tries to determine this if it has not been set.
 For example, the following can be used:
 
 - `image` - Image
