@@ -10,6 +10,10 @@ With version 6.2, we have deprecated certain components and removed several othe
 
 - `wcf\util\DateUtil::format()` ([WoltLab/WCF#6042](https://github.com/WoltLab/WCF/pull/6042/))
 
+### JavaScript
+
+- `WCF.Category.NestedList`
+
 ## Removals
 
 ### PHP
