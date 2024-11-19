@@ -22,6 +22,8 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WCF.DOMNodeRemovedHandler`
 - `WCF.EditableItemList`
 - `WCF.Effect.Scroll`
+- `WCF.Message.FormGuard`
+- `WCF.Message.Multilingualism`
 - `WCF.Message.Submit`
 - `WCF.PageVisibilityHandler`
 - `WCF.System.DisableScrolling`
@@ -51,3 +53,5 @@ With version 6.2, we have deprecated certain components and removed several othe
 ### JavaScript
 
 - `WCF.ACP.Cronjob.LogList` ([WoltLab/WCF#6077](https://github.com/WoltLab/WCF/pull/6077))
+- `WCF.Moderation.Queue.MarkAsRead`
+- `WCF.Moderation.Queue.MarkAllAsRead`
