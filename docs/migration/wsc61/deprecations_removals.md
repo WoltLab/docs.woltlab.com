@@ -12,6 +12,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 
 ### JavaScript
 
+- `WCF.ACP.Package.Server.Installation`
 - `WCF.Action.SimpleProxy`
 - `WCF.Browser`
 - `WCF.Category.NestedList`
