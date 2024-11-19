@@ -12,7 +12,27 @@ With version 6.2, we have deprecated certain components and removed several othe
 
 ### JavaScript
 
+- `WCF.Action.SimpleProxy`
+- `WCF.Browser`
 - `WCF.Category.NestedList`
+- `WCF.Collapsible.Simple`
+- `WCF.Collapsible.Remote`
+- `WCF.Collapsible.SimpleRemote`
+- `WCF.Dictionary`
+- `WCF.DOMNodeRemovedHandler`
+- `WCF.EditableItemList`
+- `WCF.Effect.Scroll`
+- `WCF.Message.Submit`
+- `WCF.PageVisibilityHandler`
+- `WCF.System.DisableScrolling`
+- `WCF.System.DisableZoom`
+- `WCF.System.ObjectStore`
+- `WCF.System.PushNotification`
+- `WCF.System.Worker`
+- `WCF.TabMenu`
+- `ui.wcfSlideshow` (jQuery Widget)
+- `wcfTabs` (jQuery Widget)
+- `datepicker` (jQuery Widget)
 
 ## Removals
 
