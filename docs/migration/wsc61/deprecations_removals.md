@@ -10,6 +10,10 @@ With version 6.2, we have deprecated certain components and removed several othe
 
 - `wcf\util\DateUtil::format()` ([WoltLab/WCF#6042](https://github.com/WoltLab/WCF/pull/6042/))
 
+#### Variables
+
+- `wcf\form\AbstractFormBuilderForm::$objectEditLinkApplication` ([WoltLab/WCF#6110](https://github.com/WoltLab/WCF/pull/6110))
+
 ### JavaScript
 
 - `WCF.ACP.Package.Server.Installation`
@@ -23,8 +27,12 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WCF.DOMNodeRemovedHandler`
 - `WCF.EditableItemList`
 - `WCF.Effect.Scroll`
+- `WCF.Message.DefaultPreview` ([WoltLab/WCF#6114](https://github.com/WoltLab/WCF/pull/6114))
+- `WCF.Message.EditHistory` ([WoltLab/WCF#6113](https://github.com/WoltLab/WCF/pull/6113))
 - `WCF.Message.FormGuard`
+- `WCF.Message.I18nPreview` ([WoltLab/WCF#6114](https://github.com/WoltLab/WCF/pull/6114))
 - `WCF.Message.Multilingualism`
+- `WCF.Message.Preview` ([WoltLab/WCF#6114](https://github.com/WoltLab/WCF/pull/6114))
 - `WCF.Message.Submit`
 - `WCF.PageVisibilityHandler`
 - `WCF.System.DisableScrolling`
@@ -33,6 +41,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WCF.System.PushNotification`
 - `WCF.System.Worker`
 - `WCF.TabMenu`
+- `WCF.User.SignaturePreview` ([WoltLab/WCF#6114](https://github.com/WoltLab/WCF/pull/6114))
 - `ui.wcfSlideshow` (jQuery Widget)
 - `wcfTabs` (jQuery Widget)
 - `datepicker` (jQuery Widget)
