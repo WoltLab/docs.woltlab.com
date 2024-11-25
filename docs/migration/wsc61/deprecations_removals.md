@@ -40,6 +40,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WCF.Moderation.Management` ([WoltLab/WCF#6116](https://github.com/WoltLab/WCF/pull/6116/))
 - `WCF.Moderation.Activation.Management` ([WoltLab/WCF#6116](https://github.com/WoltLab/WCF/pull/6116/))
 - `WCF.Moderation.Report.Management` ([WoltLab/WCF#6116](https://github.com/WoltLab/WCF/pull/6116/))
+- `WCF.Notification.List` ([WoltLab/WCF#6120](https://github.com/WoltLab/WCF/pull/6120/))
 - `WCF.PageVisibilityHandler`
 - `WCF.System.DisableScrolling`
 - `WCF.System.DisableZoom`
