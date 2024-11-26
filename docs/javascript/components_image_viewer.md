@@ -19,7 +19,7 @@ The following code example adds an image to the global modal and groups it with 
 
 ```smarty
 <a href="{$imageLink}" data-caption="{$caption}" data-fancybox>
-	<img src="{$imageLink}">
+	<img src="{$thumbnailUrl}" width="…" height="…" alt="">
 </a>
 ```
 
@@ -27,7 +27,7 @@ If you want to display several images in a group, you can group them using the `
 
 ```smarty
 <a href="{$imageLink}" data-caption="{$caption}" data-fancybox="fooBar">
-	<img src="{$imageLink}">
+	<img src="{$thumbnailUrl}" width="…" height="…" alt="">
 </a>
 ```
 
@@ -73,7 +73,7 @@ final class FooBBCode extends AbstractBBCode
 
 ```smarty title="shared_bbcode_foo.tpl"
 <a href="{$imageLink}" data-caption="{$caption}" data-fancybox="message-{$activeMessageObjectType}-{$activeMessageObjectID}">
-	<img src="{$imageLink}">
+	<img src="{$thumbnailUrl}" width="…" height="…" alt="">
 </a>
 ```
 
