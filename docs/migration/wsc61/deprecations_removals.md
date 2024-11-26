@@ -6,6 +6,10 @@ With version 6.2, we have deprecated certain components and removed several othe
 
 ### PHP
 
+#### Classes
+
+- `wcf\data\IImageViewerAction` ([WoltLab/WCF#6035](https://github.com/WoltLab/WCF/pull/6035/))
+
 #### Methods
 
 - `wcf\util\DateUtil::format()` ([WoltLab/WCF#6042](https://github.com/WoltLab/WCF/pull/6042/))
@@ -71,6 +75,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 
 ### JavaScript
 
+- `WCF.ImageViewer` ([WoltLab/WCF#6035](https://github.com/WoltLab/WCF/pull/6035/))
 - `WCF.ACP.Cronjob.LogList` ([WoltLab/WCF#6077](https://github.com/WoltLab/WCF/pull/6077))
 - `WCF.Moderation.Queue.MarkAsRead`
 - `WCF.Moderation.Queue.MarkAllAsRead`
