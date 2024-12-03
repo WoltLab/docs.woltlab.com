@@ -144,7 +144,7 @@ The code for the table head is similar to the other `th` elements:
 For the table body’s column, we need to make sure that the birthday is only show if it is actually set:
 
 ```smarty
-<td class="columnDate columnBirthday">{if $person->birthday}{$person->birthday|strtotime|date}{/if}</td>
+<td class="columnDate columnBirthday">{if $person->birthday}{$person->birthday}{/if}</td>
 ```
 
 
