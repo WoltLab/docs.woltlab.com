@@ -55,11 +55,15 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WCF.System.Worker`
 - `WCF.TabMenu`
 - `WCF.User.Profile.ActivityPointList` ([WoltLab/WCF#6119](https://github.com/WoltLab/WCF/pull/6119))
+- `WCF.User.Profile.TabMenu` ([WoltLab/WCF#6123](https://github.com/WoltLab/WCF/pull/6123))
 - `WCF.User.SignaturePreview` ([WoltLab/WCF#6114](https://github.com/WoltLab/WCF/pull/6114))
 - `ui.wcfSlideshow` (jQuery Widget)
 - `wcfTabs` (jQuery Widget)
 - `datepicker` (jQuery Widget)
 - `wcf.messageTabMenu` (jQuery Widget) ([WoltLab/WCF#6115](https://github.com/WoltLab/WCF/pull/6115/))
+- `WoltLabSuite/Core/Ui/User/Profile/Menu/Item/Abstract` ([WoltLab/WCF#6126](https://github.com/WoltLab/WCF/pull/6126/))
+- `WoltLabSuite/Core/Ui/User/Profile/Menu/Item/Follow` ([WoltLab/WCF#6126](https://github.com/WoltLab/WCF/pull/6126/))
+- `WoltLabSuite/Core/Ui/User/Profile/Menu/Item/Ignore` ([WoltLab/WCF#6126](https://github.com/WoltLab/WCF/pull/6126/))
 
 ## Removals
 

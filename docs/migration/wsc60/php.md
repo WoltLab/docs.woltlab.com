@@ -301,7 +301,7 @@ final class FooImageFileProcessor extends AbstractFileProcessor
             return true;
         }
 
-        if ($fooFromCoreFile->fooID === $fooFromContext->fooID) {
+        if ($fooFromCoreFile->fooID === $fooFromContext?->fooID) {
             return true;
         }
 
