@@ -25,6 +25,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WCF.ACP.Package.Server.Installation`
 - `WCF.Action.SimpleProxy`
 - `WCF.Browser`
+- `WCF.Category.FlexibleCategoryList` ([WoltLab/WCF#6128](https://github.com/WoltLab/WCF/pull/6128))
 - `WCF.Category.NestedList`
 - `WCF.Collapsible.Simple`
 - `WCF.Collapsible.Remote`
@@ -46,6 +47,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WCF.Moderation.Report.Management` ([WoltLab/WCF#6116](https://github.com/WoltLab/WCF/pull/6116/))
 - `WCF.Notification.List` ([WoltLab/WCF#6120](https://github.com/WoltLab/WCF/pull/6120/))
 - `WCF.PageVisibilityHandler`
+- `WCF.Sortable.List` ([WoltLab/WCF#6124](https://github.com/WoltLab/WCF/pull/6124))
 - `WCF.System.DisableScrolling`
 - `WCF.System.DisableZoom`
 - `WCF.System.ObjectStore`
@@ -79,3 +81,9 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WCF.ACP.Cronjob.LogList` ([WoltLab/WCF#6077](https://github.com/WoltLab/WCF/pull/6077))
 - `WCF.Moderation.Queue.MarkAsRead`
 - `WCF.Moderation.Queue.MarkAllAsRead`
+- `WCF.ACP.Language` ([WoltLab/WCF#6129](https://github.com/WoltLab/WCF/pull/6129))
+- `WCF.ACP.Language.ItemList` ([WoltLab/WCF#6129](https://github.com/WoltLab/WCF/pull/6129))
+- `WCF.ACP.Tag` ([WoltLab/WCF#6130](https://github.com/WoltLab/WCF/pull/6130))
+- `WCF.ACP.Tag.SetAsSynonymsHandler` ([WoltLab/WCF#6130](https://github.com/WoltLab/WCF/pull/6130))
+- `WCF.ACP.User.Group` ([WoltLab/WCF#6131](https://github.com/WoltLab/WCF/pull/6131))
+- `WCF.ACP.User.Group.Copy` ([WoltLab/WCF#6131](https://github.com/WoltLab/WCF/pull/6131))
