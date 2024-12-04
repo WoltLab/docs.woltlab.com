@@ -92,3 +92,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WCF.ACP.Tag.SetAsSynonymsHandler` ([WoltLab/WCF#6130](https://github.com/WoltLab/WCF/pull/6130))
 - `WCF.ACP.User.Group` ([WoltLab/WCF#6131](https://github.com/WoltLab/WCF/pull/6131))
 - `WCF.ACP.User.Group.Copy` ([WoltLab/WCF#6131](https://github.com/WoltLab/WCF/pull/6131))
+- `WCF.ACP.User` ([WoltLab/WCF#6136](https://github.com/WoltLab/WCF/pull/6136))
+- `WCF.ACP.User.BanHandler` ([WoltLab/WCF#6136](https://github.com/WoltLab/WCF/pull/6136))
+- `WCF.ACP.User.EnableHandler` ([WoltLab/WCF#6136](https://github.com/WoltLab/WCF/pull/6136))
+- `WCF.ACP.User.SendNewPasswordHandler` ([WoltLab/WCF#6136](https://github.com/WoltLab/WCF/pull/6136))
