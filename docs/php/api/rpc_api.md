@@ -111,7 +111,7 @@ Endpoints are defined using a strict rule set:
 
 ## Convention for File Name and Location
 
-It is strongly recommended to place the files in `lib/system/endpoint/<namespace>/<objects>/<nameOfTheAction>.class.php`.
+It is strongly recommended to place the files in `lib/system/endpoint/controller/<namespace>/<objects>/<nameOfTheAction>.class.php`.
 The file name should reflect the action itself, following the pattern `<Verb><Object>`, for example, `DeleteFile` or `CreatePost`.
 
 ## Registering the Route of an Endpoint
