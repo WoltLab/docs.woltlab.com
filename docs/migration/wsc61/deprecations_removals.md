@@ -9,6 +9,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 #### Classes
 
 - `wcf\data\IImageViewerAction` ([WoltLab/WCF#6035](https://github.com/WoltLab/WCF/pull/6035/))
+- `wcf\data\IPopoverAction` ([WoltLab/WCF#6154](https://github.com/WoltLab/WCF/pull/6154/))
 
 #### Methods
 
@@ -75,6 +76,30 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\data\cronjob\log\CronjobLogAction::clearAll()` ([WoltLab/WCF#6077](https://github.com/WoltLab/WCF/pull/6077))
 - `wcf\util\CLIUtil::formatTime()` ([WoltLab/WCF#6042](https://github.com/WoltLab/WCF/pull/6042/))
 - `wcf\util\CLIUtil::formatDate()` ([WoltLab/WCF#6042](https://github.com/WoltLab/WCF/pull/6042/))
+- `wbb\data\post\PostAction::validateGetPopover()`
+- `wbb\data\post\PostAction::getPopover()`
+- `wbb\data\post\PostAction::validateGetPostPreview()`
+- `wbb\data\post\PostAction::getPostPreview()`
+- `wbb\data\thread\ThreadAction::validateGetPopover()`
+- `wbb\data\thread\ThreadAction::getPopover()`
+- `wbb\data\thread\ThreadAction::validateGetPostPreview()`
+- `wbb\data\thread\ThreadAction::getPostPreview()`
+- `blog\data\entry\EntryAction::validateGetPopover()`
+- `blog\data\entry\EntryAction::getPopover()`
+- `blog\data\entry\EntryAction::validateGetEntryPreview()`
+- `blog\data\entry\EntryAction::getEntryPreview()`
+- `filebase\data\file\FileAction::validateGetPopover()`
+- `filebase\data\file\FileAction::getPopover()`
+- `filebase\data\file\FileAction::validateGetFilePreview()`
+- `filebase\data\file\FileAction::getFilePreview()`
+- `calendar\data\event\date\EventDateAction::validateGetPopover()`
+- `calendar\data\event\date\EventDateAction::getPopover()`
+- `calendar\data\event\date\EventDateAction::validateGetEventPreview()`
+- `calendar\data\event\date\EventDateAction::getEventPreview()`
+- `wcf\data\conversation\ConversationAction::validateGetPopover()`
+- `wcf\data\conversation\ConversationAction::getPopover()`
+- `wcf\data\conversation\ConversationAction::validateGetMessagePreview()`
+- `wcf\data\conversation\ConversationAction::getMessagePreview()`
 
 #### Properties
 
