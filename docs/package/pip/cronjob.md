@@ -42,7 +42,7 @@ Defaults to `0`.
 
 ### `<options>`
 
-The options element can contain a comma-separated list of options of which at least one needs to be enabled for the template listener to be executed.
+The options element can contain a comma-separated list of options of which at least one needs to be enabled for the cronjob to be executed.
 
 ## Example
 
