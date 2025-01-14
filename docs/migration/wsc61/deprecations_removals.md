@@ -106,10 +106,10 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\data\conversation\ConversationAction::getPopover()`
 - `wcf\data\conversation\ConversationAction::validateGetMessagePreview()`
 - `wcf\data\conversation\ConversationAction::getMessagePreview()`
-- `wcf\data\user\UserAction::validateUploadCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
-- `wcf\data\user\UserAction::uploadCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
-- `wcf\data\user\UserAction::validateDeleteCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
-- `wcf\data\user\UserAction::deleteCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
+- `wcf\data\user\UserProfileAction::validateUploadCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
+- `wcf\data\user\UserProfileAction::uploadCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
+- `wcf\data\user\UserProfileAction::validateDeleteCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
+- `wcf\data\user\UserProfileAction::deleteCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 
 #### Properties
 
