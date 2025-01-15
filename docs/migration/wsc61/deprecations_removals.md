@@ -10,6 +10,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 
 - `wcf\data\IImageViewerAction` ([WoltLab/WCF#6035](https://github.com/WoltLab/WCF/pull/6035/))
 - `wcf\data\IPopoverAction` ([WoltLab/WCF#6154](https://github.com/WoltLab/WCF/pull/6154/))
+- `wcf\data\user\cover\photo\IWebpUserCoverPhoto` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 - `wcf\data\user\avatar\UserAvatar` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
 - `wcf\data\user\avatar\UserAvatarAction` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
 - `wcf\data\user\avatar\UserAvatarEditor` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
@@ -77,6 +78,8 @@ With version 6.2, we have deprecated certain components and removed several othe
 
 #### Classes
 
+- `wcf\system\upload\UserCoverPhotoUploadFileSaveStrategy` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
+- `wcf\system\upload\UserCoverPhotoUploadFileValidationStrategy` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 - `wcf\form\AvatarEditForm` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
 - `wcf\system\upload\AvatarUploadFileSaveStrategy` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
 - `wcf\system\upload\AvatarUploadFileValidationStrategy` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
@@ -110,11 +113,18 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\data\conversation\ConversationAction::getPopover()`
 - `wcf\data\conversation\ConversationAction::validateGetMessagePreview()`
 - `wcf\data\conversation\ConversationAction::getMessagePreview()`
+- `wcf\data\user\UserProfileAction::validateUploadCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
+- `wcf\data\user\UserProfileAction::uploadCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
+- `wcf\data\user\UserProfileAction::validateDeleteCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
+- `wcf\data\user\UserProfileAction::deleteCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 - `wcf\data\user\UserProfileAction::setAvatar()` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
 
 #### Properties
 
 - `wcf\system\option\user\DateUserOptionOutput::$dateFormat` ([WoltLab/WCF#6042](https://github.com/WoltLab/WCF/pull/6042/))
+- `wcf\data\user\User::$coverPhotoHash` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
+- `wcf\data\user\User::$coverPhotoExtension` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
+- `wcf\data\user\User::$coverPhotoHasWebP` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 
 ### JavaScript
 
@@ -132,5 +142,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WCF.ACP.User.BanHandler` ([WoltLab/WCF#6136](https://github.com/WoltLab/WCF/pull/6136))
 - `WCF.ACP.User.EnableHandler` ([WoltLab/WCF#6136](https://github.com/WoltLab/WCF/pull/6136))
 - `WCF.ACP.User.SendNewPasswordHandler` ([WoltLab/WCF#6136](https://github.com/WoltLab/WCF/pull/6136))
+- `WoltLabSuite/Core/Ui/User/CoverPhoto/Delete` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
+- `WoltLabSuite/Core/Ui/User/CoverPhoto/Upload` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 - `WCF.User.Avatar` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 - `WCF.User.Avatar.Upload` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
