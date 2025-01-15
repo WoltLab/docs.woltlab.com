@@ -77,7 +77,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 
 #### Classes
 
-- `wcf\form\AvatarEditoForm` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
+- `wcf\form\AvatarEditForm` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
 - `wcf\system\upload\AvatarUploadFileSaveStrategy` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
 - `wcf\system\upload\AvatarUploadFileValidationStrategy` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
 
