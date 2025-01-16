@@ -40,11 +40,9 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\system\message\quote\MessageQuoteManager::renderQuote()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\message\quote\MessageQuoteManager::removeMarkedQuotes()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\message\quote\MessageQuoteManager::countQuotes()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
-- `wcf\system\message\quote\MessageQuoteManager::countQuotes()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\message\quote\MessageQuoteManager::initObjects()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\message\quote\MessageQuoteManager::readParameters()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\message\quote\MessageQuoteManager::assignVariables()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
-- `wcf\system\message\quote\MessageQuoteManager::getQuoteMessageID()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\message\quote\MessageQuoteManager::getQuoteMessageID()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\message\quote\MessageQuoteManager::isFullQuote()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 
