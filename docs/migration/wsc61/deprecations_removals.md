@@ -15,7 +15,6 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\data\user\avatar\UserAvatarAction` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 - `wcf\data\user\avatar\UserAvatarEditor` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 - `wcf\data\user\avatar\UserAvatarList` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
-- `wcf\data\user\avatar\UserAvatarList` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 - `wcf\data\IMessageQuoteAction` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\message\quote\AbstractMessageQuoteHandler` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\message\quote\IMessageQuoteHandler` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
