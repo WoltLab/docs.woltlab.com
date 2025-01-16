@@ -45,7 +45,7 @@ use wcf\system\message\quote\MessageQuoteManager;
 class FooAddForm extends \wcf\form\MessageForm {
 
     #[\Override]
-    protected function readFormParameters()
+    public function readFormParameters()
     {
         parent::readFormParameters();
 
