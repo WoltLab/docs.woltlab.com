@@ -152,6 +152,14 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\data\user\User::$coverPhotoHash` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 - `wcf\data\user\User::$coverPhotoExtension` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 - `wcf\data\user\User::$coverPhotoHasWebP` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
+- `wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer::$quoteData` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\form\builder\field\wysiwyg\WysiwygFormField::$quoteData` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::$objectIDs` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::$objectType` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::$objectTypes` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::$quotes` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::$quoteData` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::$quoteMessageID` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 
 ### JavaScript
 
