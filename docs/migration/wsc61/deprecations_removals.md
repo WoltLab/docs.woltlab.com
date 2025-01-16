@@ -112,6 +112,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\action\MessageQuoteAction` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `calendar\system\message\quote\EventMessageQuoteHandler`
 - `wbb\system\message\quote\PostMessageQuoteHandler`
+- `blog\system\message\quote\EntryMessageQuoteHandler`
 
 #### Methods
 
@@ -159,6 +160,12 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wbb\data\post\PostAction::saveQuote()`
 - `wbb\data\post\PostAction::validateGetRenderedQuotes()`
 - `wbb\data\post\PostAction::getRenderedQuotes()`
+- `blog\data\entry\EntryAction::validateSaveFullQuote()`
+- `blog\data\entry\EntryAction::saveFullQuote()`
+- `blog\data\entry\EntryAction::validateSaveQuote()`
+- `blog\data\entry\EntryAction::saveQuote()`
+- `blog\data\entry\EntryAction::validateGetRenderedQuotes()`
+- `blog\data\entry\EntryAction::getRenderedQuotes()`
 
 #### Properties
 
@@ -196,4 +203,5 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WCF.User.Avatar` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 - `WCF.User.Avatar.Upload` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 - `WoltLabSuite/Calendar/Ui/Event/Quote`
-- `WoltLabSuite/Ui/Post/Quote`
+- `WoltLabSuite/Forum/Ui/Post/Quote`
+- `WoltLabSuite/Blog/Ui/Entry/Quote`
