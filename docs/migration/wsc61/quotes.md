@@ -6,6 +6,19 @@ Quotes are now stored client-side in the browser's local storage, allowing synch
 ## Using the New Quote System
 
 The interfaces `wcf\data\IMessageQuoteAction` and `wcf\system\message\quote\IMessageQuoteHandler` are no longer required to generate the quotes, and the implemented classes or functions can be completely removed.
+Since the interface `IMessageQuoteHandler` has been deprecated, the ObjectType no longer requires any information about an associated class.
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/6.0/objectType.xsd">
+	<import>
+		<type>
+			<name>com.woltlab.foo</name>
+			<definitionname>com.woltlab.wcf.message.quote</definitionname>
+		</type>
+	</import>
+</data>
+```
 
 The object that can be quoted:
 
