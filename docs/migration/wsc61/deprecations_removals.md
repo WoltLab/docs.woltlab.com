@@ -11,10 +11,10 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\data\IImageViewerAction` ([WoltLab/WCF#6035](https://github.com/WoltLab/WCF/pull/6035/))
 - `wcf\data\IPopoverAction` ([WoltLab/WCF#6154](https://github.com/WoltLab/WCF/pull/6154/))
 - `wcf\data\user\cover\photo\IWebpUserCoverPhoto` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
-- `wcf\data\user\avatar\UserAvatar` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
-- `wcf\data\user\avatar\UserAvatarAction` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
-- `wcf\data\user\avatar\UserAvatarEditor` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
-- `wcf\data\user\avatar\UserAvatarList` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
+- `wcf\data\user\avatar\UserAvatar` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
+- `wcf\data\user\avatar\UserAvatarAction` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
+- `wcf\data\user\avatar\UserAvatarEditor` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
+- `wcf\data\user\avatar\UserAvatarList` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 
 #### Methods
 
@@ -80,9 +80,9 @@ With version 6.2, we have deprecated certain components and removed several othe
 
 - `wcf\system\upload\UserCoverPhotoUploadFileSaveStrategy` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 - `wcf\system\upload\UserCoverPhotoUploadFileValidationStrategy` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
-- `wcf\form\AvatarEditForm` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
-- `wcf\system\upload\AvatarUploadFileSaveStrategy` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
-- `wcf\system\upload\AvatarUploadFileValidationStrategy` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
+- `wcf\form\AvatarEditForm` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
+- `wcf\system\upload\AvatarUploadFileSaveStrategy` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
+- `wcf\system\upload\AvatarUploadFileValidationStrategy` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 
 #### Methods
 
