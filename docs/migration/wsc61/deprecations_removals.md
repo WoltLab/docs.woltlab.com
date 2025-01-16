@@ -110,6 +110,8 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\system\upload\AvatarUploadFileSaveStrategy` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 - `wcf\system\upload\AvatarUploadFileValidationStrategy` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 - `wcf\action\MessageQuoteAction` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `calendar\system\message\quote\EventMessageQuoteHandler`
+- `wbb\system\message\quote\PostMessageQuoteHandler`
 
 #### Methods
 
@@ -145,6 +147,18 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\data\user\UserProfileAction::validateDeleteCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 - `wcf\data\user\UserProfileAction::deleteCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 - `wcf\data\user\UserProfileAction::setAvatar()` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
+- `calendar\data\event\EventAction::validateSaveFullQuote()`
+- `calendar\data\event\EventAction::saveFullQuote()`
+- `calendar\data\event\EventAction::validateSaveQuote()`
+- `calendar\data\event\EventAction::saveQuote()`
+- `calendar\data\event\EventAction::validateGetRenderedQuotes()`
+- `calendar\data\event\EventAction::getRenderedQuotes()`
+- `wbb\data\post\PostAction::validateSaveFullQuote()`
+- `wbb\data\post\PostAction::saveFullQuote()`
+- `wbb\data\post\PostAction::validateSaveQuote()`
+- `wbb\data\post\PostAction::saveQuote()`
+- `wbb\data\post\PostAction::validateGetRenderedQuotes()`
+- `wbb\data\post\PostAction::getRenderedQuotes()`
 
 #### Properties
 
@@ -181,3 +195,5 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Ui/User/CoverPhoto/Upload` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 - `WCF.User.Avatar` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 - `WCF.User.Avatar.Upload` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
+- `WoltLabSuite/Calendar/Ui/Event/Quote`
+- `WoltLabSuite/Ui/Post/Quote`
