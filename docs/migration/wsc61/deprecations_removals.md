@@ -15,12 +15,36 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\data\user\avatar\UserAvatarAction` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 - `wcf\data\user\avatar\UserAvatarEditor` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 - `wcf\data\user\avatar\UserAvatarList` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
+- `wcf\data\IMessageQuoteAction` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\AbstractMessageQuoteHandler` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\IMessageQuoteHandler` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\QuotedMessage` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 
 #### Methods
 
 - `wcf\util\DateUtil::format()` ([WoltLab/WCF#6042](https://github.com/WoltLab/WCF/pull/6042/))
 - `wcf\data\smiley\category\SmileyCategoryAction::getSmilies()` ([WoltLab/WCF#6115](https://github.com/WoltLab/WCF/pull/6115/))
 - `wcf\data\smiley\category\SmileyCategoryAction::validateGetSmilies()` ([WoltLab/WCF#6115](https://github.com/WoltLab/WCF/pull/6115/))
+- `wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer::quoteData()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\form\builder\field\wysiwyg\WysiwygFormField::quoteData()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\form\builder\field\wysiwyg\WysiwygFormField::getQuoteData()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::addQuote()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::getQuoteID()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::removeQuote()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::removeQuote()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::getQuotes()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::getQuotesByObjectIDs()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::getQuotesByParentObjectID()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::getQuote()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::getObjectID()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::renderQuote()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::removeMarkedQuotes()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::countQuotes()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::initObjects()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::readParameters()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::assignVariables()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::getQuoteMessageID()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::isFullQuote()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 
 #### Variables
 
@@ -48,6 +72,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WCF.Message.Preview` ([WoltLab/WCF#6114](https://github.com/WoltLab/WCF/pull/6114))
 - `WCF.Message.SmileyCategories` ([WoltLab/WCF#6115](https://github.com/WoltLab/WCF/pull/6115/))
 - `WCF.Message.Submit`
+- `WCF.Message.Quote.Manager` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `WCF.Moderation.Management` ([WoltLab/WCF#6116](https://github.com/WoltLab/WCF/pull/6116/))
 - `WCF.Moderation.Activation.Management` ([WoltLab/WCF#6116](https://github.com/WoltLab/WCF/pull/6116/))
 - `WCF.Moderation.Report.Management` ([WoltLab/WCF#6116](https://github.com/WoltLab/WCF/pull/6116/))
@@ -71,6 +96,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Ui/User/Profile/Menu/Item/Abstract` ([WoltLab/WCF#6126](https://github.com/WoltLab/WCF/pull/6126/))
 - `WoltLabSuite/Core/Ui/User/Profile/Menu/Item/Follow` ([WoltLab/WCF#6126](https://github.com/WoltLab/WCF/pull/6126/))
 - `WoltLabSuite/Core/Ui/User/Profile/Menu/Item/Ignore` ([WoltLab/WCF#6126](https://github.com/WoltLab/WCF/pull/6126/))
+- `WoltLabSuite/Core/Ui/Message/Quote` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 
 ## Removals
 
@@ -83,6 +109,10 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\form\AvatarEditForm` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 - `wcf\system\upload\AvatarUploadFileSaveStrategy` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 - `wcf\system\upload\AvatarUploadFileValidationStrategy` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
+- `wcf\action\MessageQuoteAction` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `calendar\system\message\quote\EventMessageQuoteHandler`
+- `wbb\system\message\quote\PostMessageQuoteHandler`
+- `blog\system\message\quote\EntryMessageQuoteHandler`
 
 #### Methods
 
@@ -118,6 +148,24 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\data\user\UserProfileAction::validateDeleteCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 - `wcf\data\user\UserProfileAction::deleteCoverPhoto()` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 - `wcf\data\user\UserProfileAction::setAvatar()` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))`
+- `calendar\data\event\EventAction::validateSaveFullQuote()`
+- `calendar\data\event\EventAction::saveFullQuote()`
+- `calendar\data\event\EventAction::validateSaveQuote()`
+- `calendar\data\event\EventAction::saveQuote()`
+- `calendar\data\event\EventAction::validateGetRenderedQuotes()`
+- `calendar\data\event\EventAction::getRenderedQuotes()`
+- `wbb\data\post\PostAction::validateSaveFullQuote()`
+- `wbb\data\post\PostAction::saveFullQuote()`
+- `wbb\data\post\PostAction::validateSaveQuote()`
+- `wbb\data\post\PostAction::saveQuote()`
+- `wbb\data\post\PostAction::validateGetRenderedQuotes()`
+- `wbb\data\post\PostAction::getRenderedQuotes()`
+- `blog\data\entry\EntryAction::validateSaveFullQuote()`
+- `blog\data\entry\EntryAction::saveFullQuote()`
+- `blog\data\entry\EntryAction::validateSaveQuote()`
+- `blog\data\entry\EntryAction::saveQuote()`
+- `blog\data\entry\EntryAction::validateGetRenderedQuotes()`
+- `blog\data\entry\EntryAction::getRenderedQuotes()`
 
 #### Properties
 
@@ -125,6 +173,14 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\data\user\User::$coverPhotoHash` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 - `wcf\data\user\User::$coverPhotoExtension` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 - `wcf\data\user\User::$coverPhotoHasWebP` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
+- `wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer::$quoteData` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\form\builder\field\wysiwyg\WysiwygFormField::$quoteData` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::$objectIDs` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::$objectType` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::$objectTypes` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::$quotes` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::$quoteData` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\message\quote\MessageQuoteManager::$quoteMessageID` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 
 ### JavaScript
 
@@ -146,3 +202,6 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Ui/User/CoverPhoto/Upload` ([WoltLab/WCF#6127](https://github.com/WoltLab/WCF/pull/6127/))
 - `WCF.User.Avatar` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
 - `WCF.User.Avatar.Upload` ([WoltLab/WCF#6051](https://github.com/WoltLab/WCF/pull/6051))
+- `WoltLabSuite/Calendar/Ui/Event/Quote`
+- `WoltLabSuite/Forum/Ui/Post/Quote`
+- `WoltLabSuite/Blog/Ui/Entry/Quote`
