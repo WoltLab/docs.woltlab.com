@@ -22,8 +22,8 @@ Since the interface `IMessageQuoteHandler` has been deprecated, the ObjectType n
 
 The object that can be quoted:
 
-- **must** have implemented the interface `wcf\data\IMessage`.
-- should have implemented the interface `wcf\data\IEmbeddedMessageObject`.
+- MUST implement the interface `wcf\data\IMessage`.
+- SHOULD implement the interface `wcf\data\IEmbeddedMessageObject`.
 
 Using of `WoltLabSuite/Core/Ui/Message/Quote` is no longer required and only `WoltLabSuite/Core/Component/Quote/Message::registerContainer()` should be used so that a message can be quoted
 
