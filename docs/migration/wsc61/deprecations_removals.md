@@ -205,3 +205,4 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Calendar/Ui/Event/Quote`
 - `WoltLabSuite/Forum/Ui/Post/Quote`
 - `WoltLabSuite/Blog/Ui/Entry/Quote`
+- `WCF.ACP.Style.List` ([WoltLab/WCF#6187](https://github.com/WoltLab/WCF/pull/6187))
