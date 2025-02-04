@@ -97,6 +97,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Ui/User/Profile/Menu/Item/Follow` ([WoltLab/WCF#6126](https://github.com/WoltLab/WCF/pull/6126/))
 - `WoltLabSuite/Core/Ui/User/Profile/Menu/Item/Ignore` ([WoltLab/WCF#6126](https://github.com/WoltLab/WCF/pull/6126/))
 - `WoltLabSuite/Core/Ui/Message/Quote` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `WoltLabSuite/Core/Ui/Notification` ([WoltLab/WCF/commit/bc4ed044790cea4c73f9691866a9b0f031b87440](https://github.com/WoltLab/WCF/commit/bc4ed044790cea4c73f9691866a9b0f031b87440))
 
 ## Removals
 
