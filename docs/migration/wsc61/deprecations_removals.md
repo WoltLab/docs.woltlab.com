@@ -207,3 +207,5 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Forum/Ui/Post/Quote`
 - `WoltLabSuite/Blog/Ui/Entry/Quote`
 - `WCF.ACP.Style.List` ([WoltLab/WCF#6187](https://github.com/WoltLab/WCF/pull/6187))
+- `WCF.ACP.Style.CopyStyle` ([WoltLab/WCF#6231](https://github.com/WoltLab/WCF/pull/6231))
+- `WoltLabSuite/Core/Ui/Style/DarkMode` ([WoltLab/WCF#6231](https://github.com/WoltLab/WCF/pull/6231))
