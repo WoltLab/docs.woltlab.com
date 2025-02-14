@@ -107,7 +107,7 @@ The file processor is registered as an object type for `com.woltlab.wcf.file` th
 It is highly recommended that you take advantage of the existing form builder field `FileProcessorFormField`.
 The integration with the form builder enables you to focus on the file processing and does not require you to manually handle the integration of the upload field.
 
-Please see documentation for [FileProcessorFormField](form_fields.md#fileprocessorformfield) to learn more.
+Please see documentation for [FileProcessorFormField](form_builder/form_fields.md#fileprocessorformfield) to learn more.
 
 ## Implementing an Unmanaged File Upload
 
