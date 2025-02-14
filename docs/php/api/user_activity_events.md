@@ -27,6 +27,7 @@ use wcf\data\user\activity\event\ViewableUserActivityEvent;
 use wcf\system\user\activity\event\IUserActivityEvent;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
+use wcf\system\file\processor\ImageData;
 
 final class FooUserActivityEvent implements IUserActivityEvent
 {
@@ -57,6 +58,8 @@ final class FooUserActivityEvent implements IUserActivityEvent
             true
         );
         $event->setLink($foo->getLink());
+        // Optionally set an image.
+        $event->setImage(new ImageData('image_src', 800, 600));
     }
 }
 ```
