@@ -20,8 +20,7 @@ Performing a full cache reset will still have the same latency impact as before.
 
 - MUST NOT rely on any (runtime) cache.
 - Return a `CacheData` object instead of an `array`.
-- (Optional) For parameterized caches with state:
-  - Use `readonly` properties in the constructor.
+- Parametrized caches are supported through `readonly` properties in the constructor.
   ```php
   namespace wcf\system\cache\tolerant;
 
