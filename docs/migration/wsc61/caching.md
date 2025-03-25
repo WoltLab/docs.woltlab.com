@@ -12,7 +12,7 @@ The new caching systems solves this moving the any request for a cache rebuild i
 
 This will add the burden to rebuild these caches onto the current request which is usually an (in comparison) expensive request anyway.
 The idea behind this is that adding a few miliseconds to a request that already takes half a second makes no difference to the user.
-On the other hand, accessing a thread and suddenly have a significantly longer loading time is unexpected to the visitor.
+On the other hand, accessing a page and suddenly have a significantly longer loading time is unexpected to the visitor.
 
 Performing a full cache reset will still have the same latency impact as before.
 
@@ -23,6 +23,8 @@ Performing a full cache reset will still have the same latency impact as before.
 - (Optional) For parameterized caches with state:
   - Use `readonly` properties in the constructor.
   ```php
+  namespace wcf\system\cache\tolerant;
+
   final class FooCache extends AbstractTolerantCache {
       public function __construct(
           public readonly int $categoryID
@@ -43,6 +45,10 @@ An eager cache is guaranteed to be always present, either by fetching the cached
 #### Example
 
 ```php
+namespace wcf\system\cache\eager;
+
+use wcf\system\cache\eager\data\FooCacheData;
+
 /**
 * @extends AbstractEagerCache<FooCacheData>
 */
@@ -76,11 +82,15 @@ The cache content will be refreshed eventually, but callees must not expect the 
 
 The cache is updated by a background job when the lifetime expires or by a [probabilistic early expiration](https://en.wikipedia.org/wiki/Cache_stampede#Probabilistic_early_expiration).
 The early expiration will randomly queue a tolerant cache for a rebuild before it exceeds its maximum lifetime.
-The odds of an early rebuild increase significantly the less time is remaining, making it very likely that a tolerant does not become stale.
+The odds of an early rebuild increases significantly the less time is remaining, making it very likely that a tolerant does not become stale.
 
 #### Example
 
 ```php
+namespace wcf\system\cache\tolerant;
+
+use wcf\system\cache\tolerant\data\BarCacheData;
+
 /**
 * @extends AbstractTolerantCache<BarCacheData>
 */
@@ -101,10 +111,8 @@ final class BarCache extends AbstractTolerantCache
 }
 ```
 
-This cache can be used as follows
+This cache can be used as follows:
 
 ```php
 $cache = (new BarCache())->getCache();
-// with a state
-$cache = (new BarCache($parameterOne, $parameterTwo, …))->getCache();
 ```
