@@ -1484,6 +1484,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      behavior
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#url" class="md-nav__link">
     <span class="md-ellipsis">
       url
@@ -4318,6 +4327,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      behavior
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#url" class="md-nav__link">
     <span class="md-ellipsis">
       url
@@ -4395,10 +4413,33 @@ This component supports both static URLs and dynamic navigation using DOM events
 <h3 id="count"><code>count</code><a class="headerlink" href="#count" title="Permanent link">#</a></h3>
 <p>Defaults to <code>0</code>.</p>
 <p>Number of available pages. Must be greater than <code>1</code> for the pagination to be displayed.</p>
+<h3 id="behavior"><code>behavior</code><a class="headerlink" href="#behavior" title="Permanent link">#</a></h3>
+<p>Defines the behavior of the pagination. Defaults to <code>auto</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>auto</code></td>
+<td>If a <code>url</code> parameter has been passed, the behavior is automatically set to <code>link</code>, otherwise to <code>button</code>.</td>
+</tr>
+<tr>
+<td><code>link</code></td>
+<td>The pagination creates static links using <code>&lt;a&gt;</code> tags. Requires the <code>url</code> parameter to be set.</td>
+</tr>
+<tr>
+<td><code>button</code></td>
+<td>The pagination creates buttons that will fire the <code>switchPage</code> event when clicked. If you combine <code>behavior="button"</code> with a value for the <code>url</code> parameter, the pagination will create static links using <code>&lt;a&gt;</code> tags, but will still fire the <code>switchPage</code> event when a link is clicked.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="url"><code>url</code><a class="headerlink" href="#url" title="Permanent link">#</a></h3>
 <p>Defaults to an empty string.</p>
-<p>If defined, static pagination links are created based on the URL with the <code>pageNo</code> parameter appended to it.
-Otherwise only the <code>switchPage</code> event will be fired if a user clicks on a pagination link.</p>
+<p>Used to create static links using <code>&lt;a&gt;</code> tags with the <code>pageNo</code> parameter appended to it.</p>
 <h2 id="events">Events<a class="headerlink" href="#events" title="Permanent link">#</a></h2>
 <h3 id="switchpage"><code>switchPage</code><a class="headerlink" href="#switchpage" title="Permanent link">#</a></h3>
 <p>The <code>switchPage</code> event will be fired when the user clicks on a pagination link. The event detail will contain the number of the selected page.
@@ -4425,7 +4466,7 @@ The event can be canceled to prevent navigation.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2024-02-29
+    2025-03-29
   </span>
 
     
