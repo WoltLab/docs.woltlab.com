@@ -1191,9 +1191,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#54-csrftoken" class="md-nav__link">
+  <a href="#csrftoken" class="md-nav__link">
     <span class="md-ellipsis">
-      5.4+ csrfToken
+      {csrfToken}
     </span>
   </a>
   
@@ -1290,9 +1290,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#60-jsphrase" class="md-nav__link">
+  <a href="#jsphrase" class="md-nav__link">
     <span class="md-ellipsis">
-      6.0+ {jsphrase}
+      {jsphrase}
     </span>
   </a>
   
@@ -1317,9 +1317,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#54-objectaction" class="md-nav__link">
+  <a href="#objectaction" class="md-nav__link">
     <span class="md-ellipsis">
-      5.4+ objectAction
+      {objectAction}
     </span>
   </a>
   
@@ -4281,9 +4281,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#54-csrftoken" class="md-nav__link">
+  <a href="#csrftoken" class="md-nav__link">
     <span class="md-ellipsis">
-      5.4+ csrfToken
+      {csrfToken}
     </span>
   </a>
   
@@ -4380,9 +4380,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#60-jsphrase" class="md-nav__link">
+  <a href="#jsphrase" class="md-nav__link">
     <span class="md-ellipsis">
-      6.0+ {jsphrase}
+      {jsphrase}
     </span>
   </a>
   
@@ -4407,9 +4407,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#54-objectaction" class="md-nav__link">
+  <a href="#objectaction" class="md-nav__link">
     <span class="md-ellipsis">
-      5.4+ objectAction
+      {objectAction}
     </span>
   </a>
   
@@ -4489,7 +4489,7 @@
 
 <h1 id="template-plugins">Template Plugins<a class="headerlink" href="#template-plugins" title="Permanent link">#</a></h1>
 <h2 id="anchor"><code>{anchor}</code><a class="headerlink" href="#anchor" title="Permanent link">#</a></h2>
-<p>The <code>anchor</code> template plugin creates <code>a</code> HTML elements.
+<p>The <code>{anchor}</code> template plugin creates <code>a</code> HTML elements.
 The easiest way to use the template plugin is to pass it an instance of <code>ITitledLinkObject</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">anchor</span> <span class="na">object</span><span class="o">=</span><span class="nv">$object</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
@@ -4512,7 +4512,7 @@ Instead of</p>
 </code></pre></div></td></tr></table></div>
 <p>is sufficient if <code>Entry::getPopoverLinkClass()</code> returns <code>blogEntryLink</code>.</p>
 <h2 id="anchorattributes"><code>{anchorAttributes}</code><a class="headerlink" href="#anchorattributes" title="Permanent link">#</a></h2>
-<p><code>anchorAttributes</code> compliments the <code>StringUtil::getAnchorTagAttributes(string, bool): string</code> method.
+<p><code>{anchorAttributes}</code> compliments the <code>StringUtil::getAnchorTagAttributes(string, bool): string</code> method.
 It allows to easily generate the necessary attributes for an anchor tag based off the destination URL.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;a href=&quot;https://www.example.com&quot; </span><span class="cp">{</span><span class="nf">anchorAttributes</span> <span class="na">url</span><span class="o">=</span><span class="s1">&#39;https://www.example.com&#39;</span> <span class="na">appendHref</span><span class="o">=</span><span class="kc">false</span> <span class="na">appendClassname</span><span class="o">=</span><span class="kc">true</span> <span class="na">isUgc</span><span class="o">=</span><span class="kc">true</span><span class="cp">}</span><span class="x">&gt;</span>
 </code></pre></div></td></tr></table></div>
@@ -4543,7 +4543,7 @@ It allows to easily generate the necessary attributes for an anchor tag based of
 </tbody>
 </table>
 <h2 id="append"><code>{append}</code><a class="headerlink" href="#append" title="Permanent link">#</a></h2>
-<p>If a string should be appended to the value of a variable, <code>append</code> can be used:</p>
+<p>If a string should be appended to the value of a variable, <code>{append}</code> can be used:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -4558,10 +4558,10 @@ It allows to easily generate the necessary attributes for an anchor tag based of
 
 <span class="cp">{</span><span class="nv">$templateVariable</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* now prints &#39;newValue2 *</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
-<p>If the variables does not exist yet, <code>append</code> creates a new one with the given value.
-If <code>append</code> is used on an array as the variable, the value is appended to all elements of the array.</p>
+<p>If the variables does not exist yet, <code>{append}</code> creates a new one with the given value.
+If <code>{append}</code> is used on an array as the variable, the value is appended to all elements of the array.</p>
 <h2 id="assign"><code>{assign}</code><a class="headerlink" href="#assign" title="Permanent link">#</a></h2>
-<p>New template variables can be declared and new values can be assigned to existing template variables using <code>assign</code>:</p>
+<p>New template variables can be declared and new values can be assigned to existing template variables using <code>{assign}</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">&#39;newValue&#39;</span><span class="cp">}</span>
@@ -4569,8 +4569,8 @@ If <code>append</code> is used on an array as the variable, the value is appende
 <span class="cp">{</span><span class="nv">$templateVariable</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;newValue *</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="capture"><code>{capture}</code><a class="headerlink" href="#capture" title="Permanent link">#</a></h2>
-<p>In some situations, <code>assign</code> is not sufficient to assign values to variables in templates if the value is complex.
-Instead, <code>capture</code> can be used:</p>
+<p>In some situations, <code>{assign}</code> is not sufficient to assign values to variables in templates if the value is complex.
+Instead, <code>{capture}</code> can be used:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -4586,7 +4586,7 @@ Instead, <code>capture</code> can be used:</p>
 <span class="cp">{</span><span class="nf">/capture</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="counter"><code>{counter}</code><a class="headerlink" href="#counter" title="Permanent link">#</a></h2>
-<p><code>counter</code> can be used to generate and optionally print a counter:</p>
+<p><code>{counter}</code> can be used to generate and optionally print a counter:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -4636,7 +4636,7 @@ Instead, <code>capture</code> can be used:</p>
 </tr>
 </tbody>
 </table>
-<h2 id="54-csrftoken"><span class="label label-info">5.4+</span> <code>csrfToken</code><a class="headerlink" href="#54-csrftoken" title="Permanent link">#</a></h2>
+<h2 id="csrftoken"><code>{csrfToken}</code><a class="headerlink" href="#csrftoken" title="Permanent link">#</a></h2>
 <p><code>{csrfToken}</code> prints out the session's CSRF token (“Security Token”).</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -4652,7 +4652,7 @@ Instead, <code>capture</code> can be used:</p>
 Specifying this parameter might be required in rare situations.
 Please <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/template/plugin/CsrfTokenFunctionTemplatePlugin.class.php">check the implementation</a> for details.</p>
 <h2 id="cycle"><code>{cycle}</code><a class="headerlink" href="#cycle" title="Permanent link">#</a></h2>
-<p><code>cycle</code> can be used to cycle between different values:</p>
+<p><code>{cycle}</code> can be used to cycle between different values:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -4668,7 +4668,7 @@ Please <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/file
 <span class="cp">{</span><span class="nf">cycle</span> <span class="na">name</span><span class="o">=</span><span class="na">fooCycle</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;bar&#39; *</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <div class="admonition info">
-<p class="admonition-title">The values attribute only has to be present for the first call. If <code>cycle</code> is used in a loop, the presence of the same values in consecutive calls has no effect. Only once the values change, the cycle is reset.</p>
+<p class="admonition-title">The values attribute only has to be present for the first call. If <code>{cycle}</code> is used in a loop, the presence of the same values in consecutive calls has no effect. Only once the values change, the cycle is reset.</p>
 </div>
 <table>
 <thead>
@@ -4709,7 +4709,7 @@ Please <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/file
 </tbody>
 </table>
 <h2 id="dateinterval"><code>{dateInterval}</code><a class="headerlink" href="#dateinterval" title="Permanent link">#</a></h2>
-<p><code>dateInterval</code> calculates the difference between two unix timestamps and generated a textual date interval.</p>
+<p><code>{dateInterval}</code> calculates the difference between two unix timestamps and generated a textual date interval.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">dateInterval</span> <span class="na">start</span><span class="o">=</span><span class="nv">$startTimestamp</span> <span class="na">end</span><span class="o">=</span><span class="nv">$endTimestamp</span> <span class="na">full</span><span class="o">=</span><span class="kc">true</span> <span class="na">format</span><span class="o">=</span><span class="s1">&#39;sentence&#39;</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <table>
@@ -4739,7 +4739,7 @@ Please <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/file
 </tbody>
 </table>
 <h2 id="event"><code>{event}</code><a class="headerlink" href="#event" title="Permanent link">#</a></h2>
-<p><code>event</code> provides extension points in templates that <a href="../../package/pip/template-listener/">template listeners</a> can use.</p>
+<p><code>{event}</code> provides extension points in templates that <a href="../../package/pip/template-listener/">template listeners</a> can use.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="hascontent"><code>{hascontent}</code><a class="headerlink" href="#hascontent" title="Permanent link">#</a></h2>
@@ -4771,7 +4771,7 @@ One prominent example is a template event:</p>
 <span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <p>In this example, if <code>$foo !== 'bar'</code>, the list will not be shown, regardless of the additional template code provided by template listeners.
-In such a situation, <code>hascontent</code> has to be used:</p>
+In such a situation, <code>{hascontent}</code> has to be used:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -4794,9 +4794,9 @@ In such a situation, <code>hascontent</code> has to be used:</p>
 <span class="x">    &lt;/ul&gt;</span>
 <span class="cp">{</span><span class="nf">/hascontent</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
-<p>If the part of the template wrapped in the <code>content</code> tags has any (trimmed) content, the part of the template wrapped by <code>hascontent</code> tags is shown (including the part wrapped by the <code>content</code> tags), otherwise nothing is shown.
+<p>If the part of the template wrapped in the <code>{content}</code> tags has any (trimmed) content, the part of the template wrapped by <code>{hascontent}</code> tags is shown (including the part wrapped by the <code>{content}</code> tags), otherwise nothing is shown.
 Thus, this construct avoids an empty list compared to the <code>if</code> solution above.</p>
-<p>Like <code>foreach</code>, <code>hascontent</code> also supports an <code>else</code> part:</p>
+<p>Like <code>{foreach}</code>, <code>{hascontent}</code> also supports an <code>else</code> part:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -4816,7 +4816,7 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 <span class="cp">{</span><span class="nf">/hascontent</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="htmlcheckboxes"><code>{htmlCheckboxes}</code><a class="headerlink" href="#htmlcheckboxes" title="Permanent link">#</a></h2>
-<p><code>htmlCheckboxes</code> generates a list of HTML checkboxes.</p>
+<p><code>{htmlCheckboxes}</code> generates a list of HTML checkboxes.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">htmlCheckboxes</span> <span class="na">name</span><span class="o">=</span><span class="na">foo</span> <span class="na">options</span><span class="o">=</span><span class="nv">$fooOptions</span> <span class="na">selected</span><span class="o">=</span><span class="nv">$currentFoo</span><span class="cp">}</span>
@@ -4866,7 +4866,7 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 </tbody>
 </table>
 <h2 id="htmloptions"><code>{htmlOptions}</code><a class="headerlink" href="#htmloptions" title="Permanent link">#</a></h2>
-<p><code>htmlOptions</code> generates an <code>select</code> HTML element.</p>
+<p><code>{htmlOptions}</code> generates an <code>&lt;select&gt;</code> HTML element.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -4917,7 +4917,7 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 </tr>
 </tbody>
 </table>
-<p>All additional attributes are added as attributes of the <code>select</code> HTML element.</p>
+<p>All additional attributes are added as attributes of the <code>&lt;select&gt;</code> HTML element.</p>
 <h2 id="icon"><code>{icon}</code><a class="headerlink" href="#icon" title="Permanent link">#</a></h2>
 <p><code>{icon}</code> renders a “Font Awesome” icon with support for brand icons.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -4947,7 +4947,7 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 </tbody>
 </table>
 <h2 id="implode"><code>{implode}</code><a class="headerlink" href="#implode" title="Permanent link">#</a></h2>
-<p><code>implodes</code> transforms an array into a string and prints it.</p>
+<p><code>{implodes}</code> transforms an array into a string and prints it.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">implode</span> <span class="na">from</span><span class="o">=</span><span class="nv">$array</span> <span class="na">key</span><span class="o">=</span><span class="na">key</span> <span class="na">item</span><span class="o">=</span><span class="na">item</span> <span class="na">glue</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="cp">}{</span><span class="nv">$key</span><span class="cp">}</span><span class="x">: </span><span class="cp">{</span><span class="nv">$value</span><span class="cp">}{</span><span class="nf">/implode</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <table>
@@ -4977,7 +4977,7 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 </tbody>
 </table>
 <h2 id="js"><code>{js}</code><a class="headerlink" href="#js" title="Permanent link">#</a></h2>
-<p><code>js</code> generates script tags based on whether <code>ENABLE_DEBUG_MODE</code> and <code>VISITOR_USE_TINY_BUILD</code> are enabled.</p>
+<p><code>{js}</code> generates script tags based on whether <code>ENABLE_DEBUG_MODE</code> and <code>VISITOR_USE_TINY_BUILD</code> are enabled.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -5011,7 +5011,7 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
 <span class="x">    </span><span class="cp">{</span><span class="c">* generates &#39;http://example.com/wcf/js/WCF.Combined.tiny.min.js&#39; if ENABLE_DEBUG_MODE=0 and VISITOR_USE_TINY_BUILD=1 *</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="jslang"><code>{jslang}</code><a class="headerlink" href="#jslang" title="Permanent link">#</a></h2>
-<p><code>jslang</code> works like <a href="#lang"><code>lang</code></a> with the difference that the resulting string is automatically passed through <a href="#encodejs"><code>encodeJS</code></a>.</p>
+<p><code>{jslang}</code> works like <a href="#lang"><code>lang</code></a> with the difference that the resulting string is automatically passed through <a href="#encodejs"><code>encodeJS</code></a>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -5026,8 +5026,8 @@ Thus, this construct avoids an empty list compared to the <code>if</code> soluti
     <span class="o">//</span> <span class="err">…</span>
 <span class="cp">}</span><span class="x">);</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="60-jsphrase"><span class="label label-info">6.0+</span> <code>{jsphrase}</code><a class="headerlink" href="#60-jsphrase" title="Permanent link">#</a></h2>
-<p><code>jsphrase</code> generates the necessary JavaScript code to register a phrase in the JavaScript language store.
+<h2 id="jsphrase"><code>{jsphrase}</code><a class="headerlink" href="#jsphrase" title="Permanent link">#</a></h2>
+<p><code>{jsphrase}</code> generates the necessary JavaScript code to register a phrase in the JavaScript language store.
 This plugin only supports static phrase names.
 If a dynamic phrase should be registered, the <a href="#jslang"><code>jslang</code></a> plugin needs to be used.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -5041,7 +5041,7 @@ If a dynamic phrase should be registered, the <a href="#jslang"><code>jslang</co
 <span class="x">&lt;/script&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="lang"><code>{lang}</code><a class="headerlink" href="#lang" title="Permanent link">#</a></h2>
-<p><code>lang</code> replaces a language items with its value.</p>
+<p><code>{lang}</code> replaces a language items with its value.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -5080,7 +5080,7 @@ If a dynamic phrase should be registered, the <a href="#jslang"><code>jslang</co
 </table>
 <p>All additional attributes are available when parsing the language item.</p>
 <h2 id="link"><code>{link}</code><a class="headerlink" href="#link" title="Permanent link">#</a></h2>
-<p><code>link</code> generates internal links using <code>LinkHandler</code>.</p>
+<p><code>{link}</code> generates internal links using <code>LinkHandler</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;a href=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;FooList&#39;</span> <span class="na">application</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="cp">}</span><span class="x">param1=2&amp;param2=A</span><span class="cp">{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot;&gt;Foo&lt;/a&gt;</span>
 </code></pre></div></td></tr></table></div>
 <table>
@@ -5110,11 +5110,11 @@ If a dynamic phrase should be registered, the <a href="#jslang"><code>jslang</co
 </tbody>
 </table>
 <p>Additional attributes are passed to <code>LinkHandler::getLink()</code>.</p>
-<h2 id="54-objectaction"><span class="label label-info">5.4+</span> <code>objectAction</code><a class="headerlink" href="#54-objectaction" title="Permanent link">#</a></h2>
-<p><code>objectAction</code> generates action buttons to be used in combination with the <a href="../../migration/wsc53/javascript/#wcfactiondelete-and-wcfactiontoggle"><code>WoltLabSuite/Core/Ui/Object/Action</code> API</a>.
+<h2 id="objectaction"><code>{objectAction}</code><a class="headerlink" href="#objectaction" title="Permanent link">#</a></h2>
+<p><code>{objectAction}</code> generates action buttons to be used in combination with the <a href="../../migration/wsc53/javascript/#wcfactiondelete-and-wcfactiontoggle"><code>WoltLabSuite/Core/Ui/Object/Action</code> API</a>.
 For detailed information on its usage, we refer to the extensive documentation in the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/template/plugin/ObjectActionFunctionTemplatePlugin.class.php"><code>ObjectActionFunctionTemplatePlugin</code> class</a> itself.</p>
 <h2 id="page"><code>{page}</code><a class="headerlink" href="#page" title="Permanent link">#</a></h2>
-<p><code>page</code> generates an internal link to a CMS page.</p>
+<p><code>{page}</code> generates an internal link to a CMS page.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -5155,7 +5155,7 @@ For detailed information on its usage, we refer to the extensive documentation i
 <div class="admonition info">
 <p class="admonition-title">This template plugin has been deprecated in WoltLab Suite 6.0.</p>
 </div>
-<p><code>pages</code> generates a pagination.</p>
+<p><code>{pages}</code> generates a pagination.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">pages</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;FooList&#39;</span> <span class="na">link</span><span class="o">=</span><span class="s2">&quot;pageNo=%d&quot;</span> <span class="na">print</span><span class="o">=</span><span class="kc">true</span> <span class="na">assign</span><span class="o">=</span><span class="na">pagesLinks</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints pagination *</span><span class="cp">}</span>
@@ -5197,7 +5197,7 @@ For detailed information on its usage, we refer to the extensive documentation i
 </tbody>
 </table>
 <h2 id="plural"><code>{plural}</code><a class="headerlink" href="#plural" title="Permanent link">#</a></h2>
-<p><code>plural</code> allows to easily select the correct plural form of a phrase based on a given <code>value</code>.
+<p><code>{plural}</code> allows to easily select the correct plural form of a phrase based on a given <code>value</code>.
 The pluralization logic follows the <a href="https://unicode-org.github.io/cldr-staging/charts/37/supplemental/language_plural_rules.md">Unicode Language Plural Rules</a> for cardinal numbers.</p>
 <p>The <code>#</code> placeholder within the resulting phrase is replaced by the <code>value</code>.
 It is automatically formatted using <code>StringUtil::formatNumeric</code>.</p>
@@ -5266,7 +5266,7 @@ They are equivalent for English, but following this rule generalizes better to o
 </tbody>
 </table>
 <h2 id="prepend"><code>{prepend}</code><a class="headerlink" href="#prepend" title="Permanent link">#</a></h2>
-<p>If a string should be prepended to the value of a variable, <code>prepend</code> can be used:</p>
+<p>If a string should be prepended to the value of a variable, <code>{prepend}</code> can be used:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -5281,10 +5281,10 @@ They are equivalent for English, but following this rule generalizes better to o
 
 <span class="cp">{</span><span class="nv">$templateVariable</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* now prints &#39;2newValue&#39; *</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
-<p>If the variables does not exist yet, <code>prepend</code> creates a new one with the given value.
-If <code>prepend</code> is used on an array as the variable, the value is prepended to all elements of the array.</p>
+<p>If the variables does not exist yet, <code>{prepend}</code> creates a new one with the given value.
+If <code>{prepend}</code> is used on an array as the variable, the value is prepended to all elements of the array.</p>
 <h2 id="time"><code>{time}</code><a class="headerlink" href="#time" title="Permanent link">#</a></h2>
-<p><code>time</code> allows to output times in different (human readable) formats.
+<p><code>{time}</code> allows to output times in different (human readable) formats.
 Acceptables inputs are either a <code>\DateTimeInterface</code> or an integer representing a Unix timestamp.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -5345,7 +5345,7 @@ Acceptables inputs are either a <code>\DateTimeInterface</code> or an integer re
 </tbody>
 </table>
 <h2 id="user"><code>{user}</code><a class="headerlink" href="#user" title="Permanent link">#</a></h2>
-<p><code>user</code> generates links to user profiles.
+<p><code>{user}</code> generates links to user profiles.
 The mandatory <code>object</code> parameter requires an instances of <code>UserProfile</code>.
 The optional <code>type</code> parameter is responsible for what the generated link contains:</p>
 <ul>
@@ -5388,7 +5388,7 @@ The optional <code>type</code> parameter is responsible for what the generated l
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2024-04-29
+    2025-04-17
   </span>
 
     
