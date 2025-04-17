@@ -2,7 +2,7 @@
 
 ## `{anchor}`
 
-The `anchor` template plugin creates `a` HTML elements.
+The `{anchor}` template plugin creates `a` HTML elements.
 The easiest way to use the template plugin is to pass it an instance of `ITitledLinkObject`:
 
 ```smarty
@@ -45,7 +45,7 @@ is sufficient if `Entry::getPopoverLinkClass()` returns `blogEntryLink`.
 
 ## `{anchorAttributes}`
 
-`anchorAttributes` compliments the `StringUtil::getAnchorTagAttributes(string, bool): string` method.
+`{anchorAttributes}` compliments the `StringUtil::getAnchorTagAttributes(string, bool): string` method.
 It allows to easily generate the necessary attributes for an anchor tag based off the destination URL.
 
 ```smarty
@@ -61,7 +61,7 @@ It allows to easily generate the necessary attributes for an anchor tag based of
 
 ## `{append}`
 
-If a string should be appended to the value of a variable, `append` can be used:
+If a string should be appended to the value of a variable, `{append}` can be used:
 
 ```smarty
 {assign var=templateVariable value='newValue'}
@@ -73,13 +73,13 @@ If a string should be appended to the value of a variable, `append` can be used:
 {$templateVariable} {* now prints 'newValue2 *}
 ```
 
-If the variables does not exist yet, `append` creates a new one with the given value.
-If `append` is used on an array as the variable, the value is appended to all elements of the array.
+If the variables does not exist yet, `{append}` creates a new one with the given value.
+If `{append}` is used on an array as the variable, the value is appended to all elements of the array.
 
 
 ## `{assign}`
 
-New template variables can be declared and new values can be assigned to existing template variables using `assign`:
+New template variables can be declared and new values can be assigned to existing template variables using `{assign}`:
 
 ```smarty
 {assign var=templateVariable value='newValue'}
@@ -90,8 +90,8 @@ New template variables can be declared and new values can be assigned to existin
 
 ## `{capture}`
 
-In some situations, `assign` is not sufficient to assign values to variables in templates if the value is complex.
-Instead, `capture` can be used:
+In some situations, `{assign}` is not sufficient to assign values to variables in templates if the value is complex.
+Instead, `{capture}` can be used:
 
 ```smarty
 {capture var=templateVariable}
@@ -106,7 +106,7 @@ Instead, `capture` can be used:
 
 ## `{counter}`
 
-`counter` can be used to generate and optionally print a counter:
+`{counter}` can be used to generate and optionally print a counter:
 
 ```smarty
 {counter name=fooCounter print=true} {* prints '1' *}
@@ -130,7 +130,7 @@ Counter supports the following attributes:
 | `start` | start counter value; `1` by default |
 
 
-## <span class="label label-info">5.4+</span> `csrfToken`
+## `{csrfToken}`
 
 `{csrfToken}` prints out the session's CSRF token (“Security Token”).
 
@@ -149,7 +149,7 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 
 ## `{cycle}`
 
-`cycle` can be used to cycle between different values:
+`{cycle}` can be used to cycle between different values:
 
 ```smarty
 {cycle name=fooCycle values='bar,baz'} {* prints 'bar' *}
@@ -161,7 +161,7 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 {cycle name=fooCycle} {* prints 'bar' *}
 ```
 
-!!! info "The values attribute only has to be present for the first call. If `cycle` is used in a loop, the presence of the same values in consecutive calls has no effect. Only once the values change, the cycle is reset."
+!!! info "The values attribute only has to be present for the first call. If `{cycle}` is used in a loop, the presence of the same values in consecutive calls has no effect. Only once the values change, the cycle is reset."
 
 | Attribute | Description |
 |-----------|-------------|
@@ -176,7 +176,7 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 
 ## `{dateInterval}`
 
-`dateInterval` calculates the difference between two unix timestamps and generated a textual date interval.
+`{dateInterval}` calculates the difference between two unix timestamps and generated a textual date interval.
 
 ```smarty
 {dateInterval start=$startTimestamp end=$endTimestamp full=true format='sentence'}
@@ -192,7 +192,7 @@ Please [check the implementation](https://github.com/WoltLab/WCF/blob/master/wcf
 
 ## `{event}`
 
-`event` provides extension points in templates that [template listeners](../package/pip/template-listener.md) can use.
+`{event}` provides extension points in templates that [template listeners](../package/pip/template-listener.md) can use.
 
 ```smarty
 {event name='foo'}
@@ -224,7 +224,7 @@ One prominent example is a template event:
 ```
 
 In this example, if `$foo !== 'bar'`, the list will not be shown, regardless of the additional template code provided by template listeners.
-In such a situation, `hascontent` has to be used:
+In such a situation, `{hascontent}` has to be used:
 
 ```smarty
 {hascontent}
@@ -240,10 +240,10 @@ In such a situation, `hascontent` has to be used:
 {/hascontent}
 ```
 
-If the part of the template wrapped in the `content` tags has any (trimmed) content, the part of the template wrapped by `hascontent` tags is shown (including the part wrapped by the `content` tags), otherwise nothing is shown.
+If the part of the template wrapped in the `{content}` tags has any (trimmed) content, the part of the template wrapped by `{hascontent}` tags is shown (including the part wrapped by the `{content}` tags), otherwise nothing is shown.
 Thus, this construct avoids an empty list compared to the `if` solution above.
 
-Like `foreach`, `hascontent` also supports an `else` part:
+Like `{foreach}`, `{hascontent}` also supports an `else` part:
 
 ```smarty
 {hascontent}
@@ -260,7 +260,7 @@ Like `foreach`, `hascontent` also supports an `else` part:
 
 ## `{htmlCheckboxes}`
 
-`htmlCheckboxes` generates a list of HTML checkboxes.
+`{htmlCheckboxes}` generates a list of HTML checkboxes.
 
 ```smarty
 {htmlCheckboxes name=foo options=$fooOptions selected=$currentFoo}
@@ -282,7 +282,7 @@ Like `foreach`, `hascontent` also supports an `else` part:
 
 ## `{htmlOptions}`
 
-`htmlOptions` generates an `select` HTML element.
+`{htmlOptions}` generates an `<select>` HTML element.
 
 ```smarty
 {htmlOptions name='foo' options=$options selected=$selected}
@@ -303,7 +303,7 @@ Like `foreach`, `hascontent` also supports an `else` part:
 | `options` | array selectable options with the key used as `value` attribute and the value as the option label; if a value is an array, an `optgroup` is generated with the array key as the `optgroup` label |
 | `selected` | current selected value(s) |
 
-All additional attributes are added as attributes of the `select` HTML element.
+All additional attributes are added as attributes of the `<select>` HTML element.
 
 
 ## `{icon}`
@@ -325,7 +325,7 @@ All additional attributes are added as attributes of the `select` HTML element.
 
 ## `{implode}`
 
-`implodes` transforms an array into a string and prints it.
+`{implodes}` transforms an array into a string and prints it.
 
 ```smarty
 {implode from=$array key=key item=item glue=";"}{$key}: {$value}{/implode}
@@ -341,7 +341,7 @@ All additional attributes are added as attributes of the `select` HTML element.
 
 ## `{js}`
 
-`js` generates script tags based on whether `ENABLE_DEBUG_MODE` and `VISITOR_USE_TINY_BUILD` are enabled.
+`{js}` generates script tags based on whether `ENABLE_DEBUG_MODE` and `VISITOR_USE_TINY_BUILD` are enabled.
 
 ```smarty
 {js application='wbb' file='WBB'} {* generates 'http://example.com/js/WBB.js' *}
@@ -365,7 +365,7 @@ All additional attributes are added as attributes of the `select` HTML element.
 
 ## `{jslang}`
 
-`jslang` works like [`lang`](#lang) with the difference that the resulting string is automatically passed through [`encodeJS`](#encodejs).
+`{jslang}` works like [`lang`](#lang) with the difference that the resulting string is automatically passed through [`encodeJS`](#encodejs).
 
 ```smarty
 require(['Language', /* … */], function(Language, /* … */) {
@@ -378,9 +378,9 @@ require(['Language', /* … */], function(Language, /* … */) {
 ```
 
 
-## <span class="label label-info">6.0+</span> `{jsphrase}`
+## `{jsphrase}`
 
-`jsphrase` generates the necessary JavaScript code to register a phrase in the JavaScript language store.
+`{jsphrase}` generates the necessary JavaScript code to register a phrase in the JavaScript language store.
 This plugin only supports static phrase names.
 If a dynamic phrase should be registered, the [`jslang`](#jslang) plugin needs to be used.
 
@@ -395,7 +395,7 @@ If a dynamic phrase should be registered, the [`jslang`](#jslang) plugin needs t
 
 ## `{lang}`
 
-`lang` replaces a language items with its value.
+`{lang}` replaces a language items with its value.
 
 ```smarty
 {lang}foo.bar.baz{/lang}
@@ -418,7 +418,7 @@ All additional attributes are available when parsing the language item.
 
 ## `{link}`
 
-`link` generates internal links using `LinkHandler`.
+`{link}` generates internal links using `LinkHandler`.
 
 ```smarty
 <a href="{link controller='FooList' application='bar'}param1=2&param2=A{/link}">Foo</a>
@@ -434,15 +434,15 @@ All additional attributes are available when parsing the language item.
 Additional attributes are passed to `LinkHandler::getLink()`.
 
 
-## <span class="label label-info">5.4+</span> `objectAction`
+## `{objectAction}`
 
-`objectAction` generates action buttons to be used in combination with the [`WoltLabSuite/Core/Ui/Object/Action` API](../migration/wsc53/javascript.md#wcfactiondelete-and-wcfactiontoggle).
+`{objectAction}` generates action buttons to be used in combination with the [`WoltLabSuite/Core/Ui/Object/Action` API](../migration/wsc53/javascript.md#wcfactiondelete-and-wcfactiontoggle).
 For detailed information on its usage, we refer to the extensive documentation in the [`ObjectActionFunctionTemplatePlugin` class](https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/template/plugin/ObjectActionFunctionTemplatePlugin.class.php) itself.
 
 
 ## `{page}`
 
-`page` generates an internal link to a CMS page.
+`{page}` generates an internal link to a CMS page.
 
 ```smarty
 {page}com.woltlab.wcf.CookiePolicy{/page}
@@ -465,7 +465,7 @@ For detailed information on its usage, we refer to the extensive documentation i
 
 !!! info "This template plugin has been deprecated in WoltLab Suite 6.0."
 
-`pages` generates a pagination.
+`{pages}` generates a pagination.
 
 ```smarty
 {pages controller='FooList' link="pageNo=%d" print=true assign=pagesLinks} {* prints pagination *}
@@ -488,7 +488,7 @@ For detailed information on its usage, we refer to the extensive documentation i
 
 ## `{plural}`
 
-`plural` allows to easily select the correct plural form of a phrase based on a given `value`.
+`{plural}` allows to easily select the correct plural form of a phrase based on a given `value`.
 The pluralization logic follows the [Unicode Language Plural Rules](https://unicode-org.github.io/cldr-staging/charts/37/supplemental/language_plural_rules.md) for cardinal numbers.
 
 The `#` placeholder within the resulting phrase is replaced by the `value`.
@@ -544,7 +544,7 @@ Note the difference between `1` (exactly `1`) and `one` (ending in `1`, except e
 
 ## `{prepend}`
 
-If a string should be prepended to the value of a variable, `prepend` can be used:
+If a string should be prepended to the value of a variable, `{prepend}` can be used:
 
 ```smarty
 {assign var=templateVariable value='newValue'}
@@ -556,13 +556,13 @@ If a string should be prepended to the value of a variable, `prepend` can be use
 {$templateVariable} {* now prints '2newValue' *}
 ```
 
-If the variables does not exist yet, `prepend` creates a new one with the given value.
-If `prepend` is used on an array as the variable, the value is prepended to all elements of the array.
+If the variables does not exist yet, `{prepend}` creates a new one with the given value.
+If `{prepend}` is used on an array as the variable, the value is prepended to all elements of the array.
 
 
 ## `{time}`
 
-`time` allows to output times in different (human readable) formats.
+`{time}` allows to output times in different (human readable) formats.
 Acceptables inputs are either a `\DateTimeInterface` or an integer representing a Unix timestamp.
 
 ```smarty
@@ -589,7 +589,7 @@ Acceptables inputs are either a `\DateTimeInterface` or an integer representing 
 
 ## `{user}`
 
-`user` generates links to user profiles.
+`{user}` generates links to user profiles.
 The mandatory `object` parameter requires an instances of `UserProfile`.
 The optional `type` parameter is responsible for what the generated link contains:
 
