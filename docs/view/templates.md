@@ -250,7 +250,7 @@ More examples:
 
 ### Foreach Loops
 
-Foreach loops allow to iterate over arrays or iterable objects:
+Foreach loops allow to iterate over associative arrays or iterable objects:
 
 ```smarty
 <ul>
@@ -285,6 +285,39 @@ In contrast to PHP’s foreach loop, templates also support `foreachelse`:
 {foreachelse}
 	there is nothing to iterate over
 {/foreach}
+```
+
+### Sections
+
+Section loops allow iterations without the use associative arrays or iterable objects:
+
+```smarty
+{section name=month start=1 loop=12}
+	{$month}
+{/section}
+```
+
+#### Parameters
+
+| Name | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| name | string | Yes | n/a | The name of the section |
+| loop | mixed | Yes | n/a | Value to determine the number of loop iterations |
+| start | integer | No | 0 | The index position that the section will begin looping |
+| step | integer | No | 1 | The step value that will be used to traverse the loop array |
+| max | integer | No | n/a | The maximum number of times the section will loop |
+| show | boolean | No | true | Determines whether or not to show the section |
+
+#### `{sectionelse}`
+
+If the section loop does not perform any iterations, `{sectionelse}` can be defined for an alternative output:
+
+```smarty
+{section name=name start=1 loop=$loop}
+	…
+{sectionelse}
+	there is nothing to iterate over
+{/section}
 ```
 
 ### Including Other Templates
