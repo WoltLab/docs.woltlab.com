@@ -1249,6 +1249,39 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sections
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sectionelse" class="md-nav__link">
+    <span class="md-ellipsis">
+      {sectionelse}
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#including-other-templates" class="md-nav__link">
     <span class="md-ellipsis">
       Including Other Templates
@@ -4315,6 +4348,39 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sections
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sectionelse" class="md-nav__link">
+    <span class="md-ellipsis">
+      {sectionelse}
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#including-other-templates" class="md-nav__link">
     <span class="md-ellipsis">
       Including Other Templates
@@ -4674,7 +4740,7 @@ The general syntax for applying a variable modifier is <code>{$variable|modifier
 <span class="cp">{</span><span class="nf">if</span> <span class="nv">$bar</span><span class="o">|</span><span class="na">count</span> <span class="o">&gt;</span> <span class="m">3</span> <span class="o">&amp;&amp;</span> <span class="nv">$bar</span><span class="o">|</span><span class="na">count</span> <span class="o">&lt;</span> <span class="m">100</span><span class="cp">}</span><span class="x">…</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="foreach-loops">Foreach Loops<a class="headerlink" href="#foreach-loops" title="Permanent link">#</a></h3>
-<p>Foreach loops allow to iterate over arrays or iterable objects:</p>
+<p>Foreach loops allow to iterate over associative arrays or iterable objects:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -4720,6 +4786,82 @@ If the foreach loop has a name assigned to it via the <code>name</code> attribut
 <span class="x">    there is nothing to iterate over</span>
 <span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="sections">Sections<a class="headerlink" href="#sections" title="Permanent link">#</a></h3>
+<p>Section loops allow iterations without the use associative arrays or iterable objects:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">section</span> <span class="na">name</span><span class="o">=</span><span class="na">month</span> <span class="na">start</span><span class="o">=</span><span class="m">1</span> <span class="na">loop</span><span class="o">=</span><span class="m">12</span><span class="cp">}</span>
+<span class="x">    </span><span class="cp">{</span><span class="nv">$month</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">/section</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Yes</td>
+<td>n/a</td>
+<td>The name of the section</td>
+</tr>
+<tr>
+<td>loop</td>
+<td>mixed</td>
+<td>Yes</td>
+<td>n/a</td>
+<td>Value to determine the number of loop iterations</td>
+</tr>
+<tr>
+<td>start</td>
+<td>integer</td>
+<td>No</td>
+<td>0</td>
+<td>The index position that the section will begin looping</td>
+</tr>
+<tr>
+<td>step</td>
+<td>integer</td>
+<td>No</td>
+<td>1</td>
+<td>The step value that will be used to traverse the loop array</td>
+</tr>
+<tr>
+<td>max</td>
+<td>integer</td>
+<td>No</td>
+<td>n/a</td>
+<td>The maximum number of times the section will loop</td>
+</tr>
+<tr>
+<td>show</td>
+<td>boolean</td>
+<td>No</td>
+<td>true</td>
+<td>Determines whether or not to show the section</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sectionelse"><code>{sectionelse}</code><a class="headerlink" href="#sectionelse" title="Permanent link">#</a></h4>
+<p>If the section loop does not perform any iterations, <code>{sectionelse}</code> can be defined for an alternative output:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">section</span> <span class="na">name</span><span class="o">=</span><span class="na">name</span> <span class="na">start</span><span class="o">=</span><span class="m">1</span> <span class="na">loop</span><span class="o">=</span><span class="nv">$loop</span><span class="cp">}</span>
+<span class="x">    …</span>
+<span class="cp">{</span><span class="nf">sectionelse</span><span class="cp">}</span>
+<span class="x">    there is nothing to iterate over</span>
+<span class="cp">{</span><span class="nf">/section</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="including-other-templates">Including Other Templates<a class="headerlink" href="#including-other-templates" title="Permanent link">#</a></h3>
 <p>To include template named <code>foo</code> from the same domain (frontend/backend), you can use</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="cp">}</span>
@@ -4752,7 +4894,7 @@ If the foreach loop has a name assigned to it via the <code>name</code> attribut
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2024-04-29
+    2025-05-02
   </span>
 
     
