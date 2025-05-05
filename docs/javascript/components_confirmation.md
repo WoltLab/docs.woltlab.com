@@ -103,6 +103,17 @@ if (result) {
 }
 ```
 
+### Disable
+
+Disable an object:
+
+```ts
+const result = await confirmationFactory().disable(theObjectName);
+if (result) {
+  console.log("The user has requested to disable the object.");
+}
+```
+
 ## Custom Confirmation Prompts
 
 The `custom()` permits a custom confirmation dialog with a user-defined dialog content.
