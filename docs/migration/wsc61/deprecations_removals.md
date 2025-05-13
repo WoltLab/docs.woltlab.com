@@ -27,6 +27,8 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\system\tagging\ICombinedTaggable` ([WoltLab/WCF#6291](https://github.com/WoltLab/WCF/pull/6291))
 - `wcf\system\tagging\ITaggable` ([WoltLab/WCF#6291](https://github.com/WoltLab/WCF/pull/6291))
 - `wcf\system\tagging\ITagged` ([WoltLab/WCF#6291](https://github.com/WoltLab/WCF/pull/6291))
+- `wcf\system\moderation\AbstractDeletedContentProvider` ([WoltLab/WCF#6285](https://github.com/WoltLab/WCF/pull/6285))
+- `wcf\system\moderation\IDeletedContentProvider` ([WoltLab/WCF#6285](https://github.com/WoltLab/WCF/pull/6285))
 
 #### Methods
 
