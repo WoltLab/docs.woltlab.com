@@ -19,6 +19,14 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\system\message\quote\AbstractMessageQuoteHandler` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\message\quote\IMessageQuoteHandler` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\message\quote\QuotedMessage` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\data\article\TaggedArticleList` ([WoltLab/WCF#6291](https://github.com/WoltLab/WCF/pull/6291))
+- `wcf\page\CombinedTaggedPage` ([WoltLab/WCF#6291](https://github.com/WoltLab/WCF/pull/6291))
+- `wcf\page\TaggedPage` ([WoltLab/WCF#6291](https://github.com/WoltLab/WCF/pull/6291))
+- `wcf\system\tagging\AbstractCombinedTaggable` ([WoltLab/WCF#6291](https://github.com/WoltLab/WCF/pull/6291))
+- `wcf\system\tagging\AbstractTaggable` ([WoltLab/WCF#6291](https://github.com/WoltLab/WCF/pull/6291))
+- `wcf\system\tagging\ICombinedTaggable` ([WoltLab/WCF#6291](https://github.com/WoltLab/WCF/pull/6291))
+- `wcf\system\tagging\ITaggable` ([WoltLab/WCF#6291](https://github.com/WoltLab/WCF/pull/6291))
+- `wcf\system\tagging\ITagged` ([WoltLab/WCF#6291](https://github.com/WoltLab/WCF/pull/6291))
 
 #### Methods
 
