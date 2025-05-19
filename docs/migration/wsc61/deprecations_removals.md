@@ -177,7 +177,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `blog\data\entry\EntryAction::saveQuote()`
 - `blog\data\entry\EntryAction::validateGetRenderedQuotes()`
 - `blog\data\entry\EntryAction::getRenderedQuotes()`
-- `wcf\data\category\CategoryAction::toggleContainer()`
+- `wcf\data\category\CategoryAction::toggleContainer()` ([WoltLab/WCF#6298](https://github.com/WoltLab/WCF/pull/6298))`
 
 #### Properties
 
