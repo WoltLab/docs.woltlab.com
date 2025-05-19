@@ -120,6 +120,29 @@ DateFormField::create('example')
   ->value(DateUtil::format(DateUtil::getDateTimeByTimestamp(TIME_NOW), 'Y-m-d'))
 ```
 
+### `DateRangeFormField`
+
+`DateRangeFormField` is a form field to enter a date range, consisting of a start and an end date.
+The two values are separated by a semicolon in the value.
+The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFormField`, `IImmutableFormField`, and `INullableFormField`.
+
+The following methods are specific to this form field class:
+
+- `saveValueFormat($saveValueFormat)` and `getSaveValueFormat()` can be used to specify the date format of the value returned by `getSaveValue()`.
+  By default, `U` is used as format.
+  The [PHP manual](https://secure.php.net/manual/en/function.date.php) provides an overview of supported formats.
+- `supportTime($supportsTime = true)` and `supportsTime()` can be used to toggle whether, in addition to a date, a time can also be specified.
+  By default, specifying a time is disabled.
+
+Example:
+
+```php
+DateRangeFormField::create('example')
+  ->label('foo.bar.example')
+  ->saveValueFormat('Y-m-d')
+  ->value(DateUtil::format(DateUtil::getDateTimeByTimestamp(TIME_NOW - 86_400), 'Y-m-d') . ';' . DateUtil::format(DateUtil::getDateTimeByTimestamp(TIME_NOW), 'Y-m-d'))
+```
+
 ### `DescriptionFormField`
 
 `DescriptionFormField` is a [multi-line text form field](#multilinetextformfield) with `description` as the default id and `wcf.global.description` as the default label.
