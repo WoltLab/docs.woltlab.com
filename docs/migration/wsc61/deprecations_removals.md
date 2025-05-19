@@ -177,6 +177,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `blog\data\entry\EntryAction::saveQuote()`
 - `blog\data\entry\EntryAction::validateGetRenderedQuotes()`
 - `blog\data\entry\EntryAction::getRenderedQuotes()`
+- `wcf\data\category\CategoryAction::toggleContainer()`
 
 #### Properties
 
@@ -219,3 +220,4 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WCF.ACP.Style.List` ([WoltLab/WCF#6187](https://github.com/WoltLab/WCF/pull/6187))
 - `WCF.ACP.Style.CopyStyle` ([WoltLab/WCF#6231](https://github.com/WoltLab/WCF/pull/6231))
 - `WoltLabSuite/Core/Ui/Style/DarkMode` ([WoltLab/WCF#6231](https://github.com/WoltLab/WCF/pull/6231))
+- `WCF.ACP.Category.Collapsible` ([WoltLab/WCF#6298](https://github.com/WoltLab/WCF/pull/6298))
