@@ -961,6 +961,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#numericrangeformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      NumericRangeFormField
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#radiobuttonformfield" class="md-nav__link">
     <span class="md-ellipsis">
       RadioButtonFormField
@@ -5109,6 +5118,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#numericrangeformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      NumericRangeFormField
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#radiobuttonformfield" class="md-nav__link">
     <span class="md-ellipsis">
       RadioButtonFormField
@@ -5839,6 +5857,23 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">NoticeFormNode</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
   <span class="o">-&gt;</span><span class="na">type</span><span class="p">(</span><span class="nx">NoticeFormNodeType</span><span class="o">::</span><span class="na">Success</span><span class="p">)</span>
   <span class="o">-&gt;</span><span class="na">languageItem</span><span class="p">(</span><span class="s1">&#39;name_of_language_item&#39;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="numericrangeformfield"><code>NumericRangeFormField</code><a class="headerlink" href="#numericrangeformfield" title="Permanent link">#</a></h3>
+<p><code>NumericRangeFormField</code> is a form field to enter a numeric range, consisting of a minimum and a maximum value.
+The two values are separated by a semicolon in the value.
+The class implements <code>IAttributeFormField</code>, <code>IAutoFocusFormField</code>, <code>ICssClassFormField</code>, <code>IImmutableFormField</code>, and <code>INullableFormField</code>.</p>
+<p>The following methods are specific to this form field class:</p>
+<ul>
+<li><code>integerValues(bool $value = true)</code> can be used to toggle whether the field only accepts integers or also decimals. By default, decimals are accepted.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">NumericRangeFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">integerValues</span><span class="p">()</span>
+  <span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="s1">&#39;1;10&#39;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="radiobuttonformfield"><code>RadioButtonFormField</code><a class="headerlink" href="#radiobuttonformfield" title="Permanent link">#</a></h3>
 <p><code>RadioButtonFormField</code> is a form fields that allows the selection of a single option out of a predefined list of available options using radiobuttons.
