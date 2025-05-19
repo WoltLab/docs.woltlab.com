@@ -844,6 +844,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#daterangeformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      DateRangeFormField
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#descriptionformfield" class="md-nav__link">
     <span class="md-ellipsis">
       DescriptionFormField
@@ -4983,6 +4992,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#daterangeformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      DateRangeFormField
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#descriptionformfield" class="md-nav__link">
     <span class="md-ellipsis">
       DescriptionFormField
@@ -5681,6 +5699,27 @@ The following methods are specific to this form field class:</p>
   <span class="o">-&gt;</span><span class="na">saveValueFormat</span><span class="p">(</span><span class="s1">&#39;Y-m-d&#39;</span><span class="p">)</span>
   <span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="nx">DateUtil</span><span class="o">::</span><span class="na">format</span><span class="p">(</span><span class="nx">DateUtil</span><span class="o">::</span><span class="na">getDateTimeByTimestamp</span><span class="p">(</span><span class="nx">TIME_NOW</span><span class="p">),</span> <span class="s1">&#39;Y-m-d&#39;</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="daterangeformfield"><code>DateRangeFormField</code><a class="headerlink" href="#daterangeformfield" title="Permanent link">#</a></h3>
+<p><code>DateRangeFormField</code> is a form field to enter a date range, consisting of a start and an end date.
+The two values are separated by a semicolon in the value.
+The class implements <code>IAttributeFormField</code>, <code>IAutoFocusFormField</code>, <code>ICssClassFormField</code>, <code>IImmutableFormField</code>, and <code>INullableFormField</code>.</p>
+<p>The following methods are specific to this form field class:</p>
+<ul>
+<li><code>saveValueFormat($saveValueFormat)</code> and <code>getSaveValueFormat()</code> can be used to specify the date format of the value returned by <code>getSaveValue()</code>.
+  By default, <code>U</code> is used as format.
+  The <a href="https://secure.php.net/manual/en/function.date.php">PHP manual</a> provides an overview of supported formats.</li>
+<li><code>supportTime($supportsTime = true)</code> and <code>supportsTime()</code> can be used to toggle whether, in addition to a date, a time can also be specified.
+  By default, specifying a time is disabled.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">DateRangeFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">saveValueFormat</span><span class="p">(</span><span class="s1">&#39;Y-m-d&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="nx">DateUtil</span><span class="o">::</span><span class="na">format</span><span class="p">(</span><span class="nx">DateUtil</span><span class="o">::</span><span class="na">getDateTimeByTimestamp</span><span class="p">(</span><span class="nx">TIME_NOW</span> <span class="o">-</span> <span class="mi">86</span><span class="nx">_400</span><span class="p">),</span> <span class="s1">&#39;Y-m-d&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;;&#39;</span> <span class="o">.</span> <span class="nx">DateUtil</span><span class="o">::</span><span class="na">format</span><span class="p">(</span><span class="nx">DateUtil</span><span class="o">::</span><span class="na">getDateTimeByTimestamp</span><span class="p">(</span><span class="nx">TIME_NOW</span><span class="p">),</span> <span class="s1">&#39;Y-m-d&#39;</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="descriptionformfield"><code>DescriptionFormField</code><a class="headerlink" href="#descriptionformfield" title="Permanent link">#</a></h3>
 <p><code>DescriptionFormField</code> is a <a href="#multilinetextformfield">multi-line text form field</a> with <code>description</code> as the default id and <code>wcf.global.description</code> as the default label.</p>
 <p>Example:</p>
@@ -6280,7 +6319,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2024-07-31
+    2025-05-19
   </span>
 
     
