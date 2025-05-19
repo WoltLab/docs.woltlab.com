@@ -313,6 +313,26 @@ NoticeFormNode::create('name')
   ->languageItem('name_of_language_item');
 ```
 
+### `NumericRangeFormField`
+
+`NumericRangeFormField` is a form field to enter a numeric range, consisting of a minimum and a maximum value.
+The two values are separated by a semicolon in the value.
+The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFormField`, `IImmutableFormField`, and `INullableFormField`.
+
+The following methods are specific to this form field class:
+
+- `integerValues(bool $value = true)` can be used to toggle whether the field only accepts integers or also decimals. By default, decimals are accepted.
+
+
+Example:
+
+```php
+NumericRangeFormField::create('example')
+  ->label('foo.bar.example')
+  ->integerValues()
+  ->value('1;10')
+```
+
 
 ### `RadioButtonFormField`
 
