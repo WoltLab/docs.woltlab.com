@@ -24,3 +24,35 @@ $event->setDescription(
 $event->setLink($object->getLink());
 $event->setImage(new ImageData('image_src', 800, 600));
 ```
+
+## Forms
+
+The following forms have been migrated to FormBuilder forms.
+Plugins that have been hooked into these forms via event listeners must be adapted accordingly.
+
+- `wcf\acp\form\BBCodeMediaProviderAddForm`
+- `wcf\acp\form\BBCodeMediaProviderEditForm`
+- `wcf\acp\form\CaptchaQuestionAddForm`
+- `wcf\acp\form\CaptchaQuestionEditForm`
+- `wcf\acp\form\ContactOptionAddForm`
+- `wcf\acp\form\ContactOptionEditForm`
+- `wcf\acp\form\ContactRecipientAddForm`
+- `wcf\acp\form\ContactRecipientEditForm`
+- `wcf\acp\form\CronjobAddForm`
+- `wcf\acp\form\CronjobEditForm`
+- `wcf\acp\form\LabelAddForm`
+- `wcf\acp\form\LabelEditForm`
+- `wcf\acp\form\MenuAddForm`
+- `wcf\acp\form\MenuEditForm`
+- `wcf\acp\form\MenuItemAddForm`
+- `wcf\acp\form\MenuItemEditForm`
+- `wcf\acp\form\SitemapEditForm`
+- `wcf\acp\form\TagAddForm`
+- `wcf\acp\form\TagEditForm`
+- `wcf\acp\form\TemplateGroupAddForm`
+- `wcf\acp\form\TemplateGroupEditForm`
+- `wcf\acp\form\UserOptionAddForm`
+- `wcf\acp\form\UserOptionEditForm`
+- `wcf\acp\form\UserRankAddForm`
+- `wcf\acp\form\UserRankEditForm`
+- `wcf\form\ContactForm`
