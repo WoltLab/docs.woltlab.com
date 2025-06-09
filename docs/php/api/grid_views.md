@@ -1,7 +1,7 @@
 # Grid Views
 
-Grid views are a generic solution for the creation of listings, as they occur again and again in the software.
-In addition to rendering, the grid view also take care of sorting, filtering and pagination and ensure that a lot of boilerplating becomes obsolete.
+Grid views are a generic solution for the creation of listings that are ubiquitous in the software.
+In addition to rendering, the grid view also take care of sorting, filtering and pagination, and ensure that a lot of boilerplating becomes obsolete.
 
 The implementation essentially offers the following advantages:
 1. A uniform appearance and usability for the user.
@@ -141,7 +141,7 @@ GridViewColumn::for('foo')
 
 #### DefaultColumnRenderer
 
-The `DefaultColumnRenderer` is automatically applied to all columns if no other renderers have been set.
+The `DefaultColumnRenderer` is implicitly applied to all columns unless one ore more renderers have been explicitly set.
 
 #### EmailColumnRenderer
 
@@ -153,7 +153,7 @@ The `DefaultColumnRenderer` is automatically applied to all columns if no other 
 
 #### IpAddressColumnRenderer
 
-`IpAddressColumnRenderer` renders ipv6 embedded ipv4 address into ipv4 or returns input if true ipv6.
+`IpAddressColumnRenderer` outputs the value by attempting to interpret it as IPv4 if possible, otherwise shows the IPv6 address.
 
 #### LinkColumnRenderer
 
@@ -176,7 +176,7 @@ GridViewColumn::for('foo')
 
 #### PhraseColumnRenderer
 
-`PhraseColumnRenderer` formats the content of a column as a phrase.
+`PhraseColumnRenderer` attempts to evaluate the value as a phrase and outputs it as plain text otherwise.
 
 #### TimeColumnRenderer
 
@@ -250,7 +250,7 @@ Optionally, you can specify the name of an alternative database column to be use
 
 ```php
 GridViewColumn::for('foo')
-    ->sortable(sortByDatabaseColumn: "another_table.bar")
+    ->sortable(sortByDatabaseColumn: "table_alias.columnName")
 ```
 
 The default sorting can be defined after the column configuration has been defined:
@@ -297,7 +297,7 @@ GridViewColumn::for('categoryID')
 
 #### IpAddressFilter
 
-`IpAddressFilter` is a filter for columns that contain ipv6 addresses, allowing the user to enter addresses in the ipv4 format.
+`IpAddressFilter` is a filter for columns that contain IPv6 addresses, allowing the user to enter addresses in the IPv4 format too.
 
 #### NumericFilter
 
@@ -341,10 +341,13 @@ Example of adding an additional column:
 $eventHandler->register(
     \wcf\event\gridView\UserRankGridViewInitialized::class,
     static function (\wcf\event\gridView\UserRankGridViewInitialized $event) {
-        $event->gridView->addColumnBefore(GridViewColumn::for('hideTitle')
-            ->label('hideTitle')
-            ->renderer(new NumberColumnRenderer())
-            ->sortable(), 'requiredPoints');
+         $event->gridView->addColumnBefore(
+            GridViewColumn::for('hideTitle')
+                ->label('hideTitle')
+                ->renderer(new NumberColumnRenderer())
+                ->sortable(),
+            'requiredPoints'
+        );
     }
 );
 ```
