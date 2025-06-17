@@ -1,7 +1,8 @@
 # Grid Views
 
 Grid views are a generic solution for the creation of listings that are ubiquitous in the software.
-In addition to rendering, the grid view also take care of sorting, filtering and pagination, and ensure that a lot of boilerplating becomes obsolete.
+The layout is hard-coded and renders entries in the form of a table.
+In addition to rendering, the grid view also takes care of sorting, filtering and pagination, and ensure that a lot of boilerplating becomes obsolete.
 
 The implementation essentially offers the following advantages:
 1. A uniform appearance and usability for the user.
@@ -331,7 +332,7 @@ GridViewColumn::for('foo')
 
 `UserFilter` is a filter for columns that contain user ids.
 
-### Events
+## Events
 
 Existing grid views can be modified using events.
 
@@ -339,8 +340,8 @@ Example of adding an additional column:
 
 ```php
 $eventHandler->register(
-    \wcf\event\gridView\UserRankGridViewInitialized::class,
-    static function (\wcf\event\gridView\UserRankGridViewInitialized $event) {
+    \wcf\event\gridView\admin\UserRankGridViewInitialized::class,
+    static function (\wcf\event\gridView\admin\UserRankGridViewInitialized $event) {
          $event->gridView->addColumnBefore(
             GridViewColumn::for('hideTitle')
                 ->label('hideTitle')
