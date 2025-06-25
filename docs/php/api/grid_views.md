@@ -27,6 +27,9 @@ use wcf\system\gridView\AbstractGridView;
 use wcf\system\gridView\GridViewColumn;
 use wcf\system\gridView\renderer\ObjectIdColumnRenderer;
 
+/**
+ * @extends AbstractGridView<Example, ExampleList>
+ */
 final class ExampleGridView extends AbstractGridView
 {
     public function __construct()
@@ -70,6 +73,9 @@ namespace wcf\acp\page;
 
 use wcf\page\AbstractGridViewPage;
 
+/**
+ * @extends AbstractGridViewPage<ExampleGridView>
+ */
 final class ExampleListPage extends AbstractGridViewPage
 {
     #[\Override]
