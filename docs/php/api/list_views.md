@@ -156,6 +156,93 @@ class ExampleListView extends AbstractListView
 }
 ```
 
+### BooleanFilter
+
+`BooleanFilter` is a filter for columns that contain boolean values (`1` or `0`).
+
+### CategoryFilter
+
+`CategoryFilter` is a filter for columns that contain category ids.
+
+```php
+class ExampleListView extends AbstractListView
+{
+    public function __construct()
+    {
+        $this->addAvailableFilters([
+            new CategoryFilter((new CategoryNodeTree('identifier'))->getIterator()), 'categoryID'),
+        ]);
+    }
+}
+```
+
+### DateFilter
+
+`DateFilter` is a filter for columns that contain unix timestamps.
+
+### LabelFilter
+
+`LabelFilter` allows to filter a list view by labels.
+
+```php
+class ExampleListView extends AbstractListView
+{
+    public function __construct()
+    {
+        $objectTypeID = ObjectTypeCache::getInstance()->getObjectTypeIDByName(
+            'com.woltlab.wcf.label.object',
+            'example.identifier'
+        );
+
+        foreach (ExampleCategory::getAccessibleLabelGroups('canViewLabel') as $groupID => $categoryIDs) {
+            $this->addAvailableFilters([
+                new LabelFilter(
+                    LabelHandler::getInstance()->getLabelGroup($groupID),
+                    $objectTypeID,
+                    'labelIDs' . $groupID
+                )
+            ]);
+        }
+    }
+}
+```
+
+### NumericFilter
+
+`NumericFilter` is a filter for columns that contain numeric values.
+
+### SelectFilter
+
+`SelectFilter` allows a column to be filtered on the basis of a select dropdown.
+
+```php
+class ExampleListView extends AbstractListView
+{
+    public function __construct()
+    {
+        $this->addAvailableFilters([
+            new SelectFilter([
+                1 => 'value 1',
+                0 => 'value 0',
+            ], 'id', 'language.item'),
+        ]);
+    }
+}
+```
+
+### TextFilter
+
+`TextFilter` is a filter for text columns.
+
+### TimeFilter
+
+`TimeFilter` is a filter for columns that contain unix timestamps.
+In contrast to `DateFilter`, this filter also allows filtering by a specific time.
+
+### UserFilter
+
+`UserFilter` is a filter for columns that contain user ids.
+
 ## Customization
 
 ### Number of Items
