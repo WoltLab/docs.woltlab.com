@@ -885,6 +885,93 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Filtering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#booleanfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      BooleanFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categoryfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      CategoryFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datefilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      DateFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#labelfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      LabelFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numericfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      NumericFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selectfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      SelectFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      TextFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timefilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      TimeFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#userfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      UserFilter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -4389,6 +4476,93 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Filtering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#booleanfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      BooleanFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categoryfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      CategoryFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datefilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      DateFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#labelfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      LabelFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numericfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      NumericFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selectfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      SelectFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      TextFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timefilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      TimeFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#userfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      UserFilter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -4669,6 +4843,107 @@ Optionally, you can specify the name of an alternative database column to be use
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="booleanfilter">BooleanFilter<a class="headerlink" href="#booleanfilter" title="Permanent link">#</a></h3>
+<p><code>BooleanFilter</code> is a filter for columns that contain boolean values (<code>1</code> or <code>0</code>).</p>
+<h3 id="categoryfilter">CategoryFilter<a class="headerlink" href="#categoryfilter" title="Permanent link">#</a></h3>
+<p><code>CategoryFilter</code> is a filter for columns that contain category ids.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">ExampleListView</span> <span class="k">extends</span> <span class="nx">AbstractListView</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">addAvailableFilters</span><span class="p">([</span>
+            <span class="k">new</span> <span class="nx">CategoryFilter</span><span class="p">((</span><span class="k">new</span> <span class="nx">CategoryNodeTree</span><span class="p">(</span><span class="s1">&#39;identifier&#39;</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">getIterator</span><span class="p">()),</span> <span class="s1">&#39;categoryID&#39;</span><span class="p">),</span>
+        <span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="datefilter">DateFilter<a class="headerlink" href="#datefilter" title="Permanent link">#</a></h3>
+<p><code>DateFilter</code> is a filter for columns that contain unix timestamps.</p>
+<h3 id="labelfilter">LabelFilter<a class="headerlink" href="#labelfilter" title="Permanent link">#</a></h3>
+<p><code>LabelFilter</code> allows to filter a list view by labels.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">ExampleListView</span> <span class="k">extends</span> <span class="nx">AbstractListView</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$objectTypeID</span> <span class="o">=</span> <span class="nx">ObjectTypeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObjectTypeIDByName</span><span class="p">(</span>
+            <span class="s1">&#39;com.woltlab.wcf.label.object&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;example.identifier&#39;</span>
+        <span class="p">);</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nx">ExampleCategory</span><span class="o">::</span><span class="na">getAccessibleLabelGroups</span><span class="p">(</span><span class="s1">&#39;canViewLabel&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$groupID</span> <span class="o">=&gt;</span> <span class="nv">$categoryIDs</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">addAvailableFilters</span><span class="p">([</span>
+                <span class="k">new</span> <span class="nx">LabelFilter</span><span class="p">(</span>
+                    <span class="nx">LabelHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLabelGroup</span><span class="p">(</span><span class="nv">$groupID</span><span class="p">),</span>
+                    <span class="nv">$objectTypeID</span><span class="p">,</span>
+                    <span class="s1">&#39;labelIDs&#39;</span> <span class="o">.</span> <span class="nv">$groupID</span>
+                <span class="p">)</span>
+            <span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="numericfilter">NumericFilter<a class="headerlink" href="#numericfilter" title="Permanent link">#</a></h3>
+<p><code>NumericFilter</code> is a filter for columns that contain numeric values.</p>
+<h3 id="selectfilter">SelectFilter<a class="headerlink" href="#selectfilter" title="Permanent link">#</a></h3>
+<p><code>SelectFilter</code> allows a column to be filtered on the basis of a select dropdown.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">ExampleListView</span> <span class="k">extends</span> <span class="nx">AbstractListView</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">addAvailableFilters</span><span class="p">([</span>
+            <span class="k">new</span> <span class="nx">SelectFilter</span><span class="p">([</span>
+                <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s1">&#39;value 1&#39;</span><span class="p">,</span>
+                <span class="mi">0</span> <span class="o">=&gt;</span> <span class="s1">&#39;value 0&#39;</span><span class="p">,</span>
+            <span class="p">],</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;language.item&#39;</span><span class="p">),</span>
+        <span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="textfilter">TextFilter<a class="headerlink" href="#textfilter" title="Permanent link">#</a></h3>
+<p><code>TextFilter</code> is a filter for text columns.</p>
+<h3 id="timefilter">TimeFilter<a class="headerlink" href="#timefilter" title="Permanent link">#</a></h3>
+<p><code>TimeFilter</code> is a filter for columns that contain unix timestamps.
+In contrast to <code>DateFilter</code>, this filter also allows filtering by a specific time.</p>
+<h3 id="userfilter">UserFilter<a class="headerlink" href="#userfilter" title="Permanent link">#</a></h3>
+<p><code>UserFilter</code> is a filter for columns that contain user ids.</p>
 <h2 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">#</a></h2>
 <h3 id="number-of-items">Number of Items<a class="headerlink" href="#number-of-items" title="Permanent link">#</a></h3>
 <p>By default, list views use a pagination that shows 20 items per page. You can set a custom number of items per page:</p>

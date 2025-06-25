@@ -1055,6 +1055,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#datefilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      DateFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#i18ntextfilter" class="md-nav__link">
     <span class="md-ellipsis">
       I18nTextFilter
@@ -4808,6 +4817,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#datefilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      DateFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#i18ntextfilter" class="md-nav__link">
     <span class="md-ellipsis">
       I18nTextFilter
@@ -5231,6 +5249,8 @@ Optionally, you can specify the name of an alternative database column to be use
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">GridViewColumn</span><span class="o">::</span><span class="na">for</span><span class="p">(</span><span class="s1">&#39;categoryID&#39;</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="k">new</span> <span class="nx">CategoryFilter</span><span class="p">((</span><span class="k">new</span> <span class="nx">CategoryNodeTree</span><span class="p">(</span><span class="s1">&#39;identifier&#39;</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">getIterator</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
+<h4 id="datefilter">DateFilter<a class="headerlink" href="#datefilter" title="Permanent link">#</a></h4>
+<p><code>DateFilter</code> is a filter for columns that contain unix timestamps.</p>
 <h4 id="i18ntextfilter">I18nTextFilter<a class="headerlink" href="#i18ntextfilter" title="Permanent link">#</a></h4>
 <p><code>I18nTextFilter</code> is a filter for text columns that are using i18n phrases.</p>
 <h4 id="ipaddressfilter">IpAddressFilter<a class="headerlink" href="#ipaddressfilter" title="Permanent link">#</a></h4>
@@ -5254,7 +5274,8 @@ Optionally, you can specify the name of an alternative database column to be use
 <h4 id="textfilter">TextFilter<a class="headerlink" href="#textfilter" title="Permanent link">#</a></h4>
 <p><code>TextFilter</code> is a filter for text columns.</p>
 <h4 id="timefilter">TimeFilter<a class="headerlink" href="#timefilter" title="Permanent link">#</a></h4>
-<p><code>TimeFilter</code> is a filter for columns that contain unix timestamps.</p>
+<p><code>TimeFilter</code> is a filter for columns that contain unix timestamps.
+In contrast to <code>DateFilter</code>, this filter also allows filtering by a specific time.</p>
 <h4 id="userfilter">UserFilter<a class="headerlink" href="#userfilter" title="Permanent link">#</a></h4>
 <p><code>UserFilter</code> is a filter for columns that contain user ids.</p>
 <h2 id="events">Events<a class="headerlink" href="#events" title="Permanent link">#</a></h2>
