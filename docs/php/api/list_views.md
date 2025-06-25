@@ -27,6 +27,9 @@ use wcf\data\DatabaseObjectList;
 use wcf\system\listView\AbstractListView;
 use wcf\system\WCF;
 
+/**
+ * @extends AbstractListView<Example, ExampleList>
+ */
 class ExampleListView extends AbstractListView
 {
     #[\Override]
@@ -72,6 +75,9 @@ namespace wcf\page;
 
 use wcf\system\listView\user\ArticleListView;
 
+/**
+ * @extends AbstractListViewPage<ExampleListView>
+ */
 class ExampleListPage extends AbstractListViewPage
 {
     #[\Override]
@@ -222,13 +228,6 @@ class ExampleListView extends AbstractListView
 ```
 
 ```php
-<?php
-
-namespace wcf\page;
-
-use wcf\system\listView\AbstractListView;
-use wcf\system\request\LinkHandler;
-
 class ExampleListPage extends AbstractListViewPage
 {
     public int $categoryID = 0;
