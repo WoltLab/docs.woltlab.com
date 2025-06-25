@@ -298,6 +298,10 @@ GridViewColumn::for('categoryID')
     ->filter(new CategoryFilter((new CategoryNodeTree('identifier'))->getIterator()))
 ```
 
+#### DateFilter
+
+`DateFilter` is a filter for columns that contain unix timestamps.
+
 #### I18nTextFilter
 
 `I18nTextFilter` is a filter for text columns that are using i18n phrases.
@@ -333,6 +337,7 @@ GridViewColumn::for('foo')
 #### TimeFilter
 
 `TimeFilter` is a filter for columns that contain unix timestamps.
+In contrast to `DateFilter`, this filter also allows filtering by a specific time.
 
 #### UserFilter
 
