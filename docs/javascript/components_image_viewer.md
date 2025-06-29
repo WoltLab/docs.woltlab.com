@@ -5,7 +5,7 @@ It supports automatic or manual opening and grouping of images.
 
 Not only images, but also Videos, YouTube Videos, PDFs, HTML, [...](https://fancyapps.com/fancybox/) are supported and can be displayed in the modal.
 The appropriate `data-type` can be set, the system tries to determine this if it has not been set.
-If `href` or `data-src` contains `.php` or `.html`, it is recommended to add `data-type`. Otherwise, the content may be rendered as an iFrame.
+You must include the `data-type` property when showing images that are generated through `data-src` URLS that end in `.php` or `.html`.
 For example, the following can be used:
 
 - `image` - Image
