@@ -30,6 +30,11 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\system\moderation\AbstractDeletedContentProvider` ([WoltLab/WCF#6285](https://github.com/WoltLab/WCF/pull/6285))
 - `wcf\system\moderation\IDeletedContentProvider` ([WoltLab/WCF#6285](https://github.com/WoltLab/WCF/pull/6285))
 - `wcf\system\form\builder\field\MultipleSelectFormField`
+- `wcf\acp\form\AbstractAcpForm`
+- `wcf\acp\form\AbstractOptionListForm`
+- `wcf\acp\form\UserOptionListForm`
+- `wcf\form\AbstractCaptchaForm`
+- `wcf\form\MessageForm`
 
 #### Methods
 
@@ -109,6 +114,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Ui/User/Profile/Menu/Item/Ignore` ([WoltLab/WCF#6126](https://github.com/WoltLab/WCF/pull/6126/))
 - `WoltLabSuite/Core/Ui/Message/Quote` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `WoltLabSuite/Core/Ui/Notification` ([WoltLab/WCF/commit/bc4ed044790cea4c73f9691866a9b0f031b87440](https://github.com/WoltLab/WCF/commit/bc4ed044790cea4c73f9691866a9b0f031b87440))
+- `WoltLabSuite/Core/Acp/Ui/Article/InlineEditor` ([WoltLab/WCF#6373](https://github.com/WoltLab/WCF/pull/6373))
 
 ## Removals
 
