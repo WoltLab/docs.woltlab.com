@@ -8,7 +8,7 @@ The `setImage()` method expects an object of type `wcf\system\file\processor\Ima
 Classes that implement the interface `wcf\system\file\processor\IImageDataProvider` provide the `getImageData()` method,
 that returns a suitable `ImageData` object.
 
-#### Example
+### Example
 
 ```php
 $object = new FooBarObject(1);
@@ -25,10 +25,30 @@ $event->setLink($object->getLink());
 $event->setImage(new ImageData('image_src', 800, 600));
 ```
 
+## List Views
+
+The following pages have been migrated to list views.
+Plugins that have been hooked into these pages via event or template listeners must be adapted accordingly.
+
+- `blog\page\BlogEntryListPage`
+- `blog\page\BlogListPage`
+- `blog\page\CategoryEntryListPage`
+- `blog\page\EntryListPage`
+- `blog\page\MyBlogListPage`
+- `blog\page\MyEntryListPage`
+- `blog\page\UnreadEntryListPage`
+- `blog\page\UserEntryListPage`
+- `blog\page\WatchedEntryListPage`
+- `wcf\page\ArticleListPage`
+- `wcf\page\CategoryArticleListPage`
+- `wcf\page\ConversationListPage`
+- `wcf\page\UnreadArticleListPage`
+- `wcf\page\WatchedArticleListPage`
+
 ## Forms
 
 The following forms have been migrated to FormBuilder forms.
-Plugins that have been hooked into these forms via event listeners must be adapted accordingly.
+Plugins that have been hooked into these forms via event or template listeners must be adapted accordingly.
 
 - `blog\acp\form\CategoryAddForm`
 - `blog\acp\form\CategoryEditForm`
