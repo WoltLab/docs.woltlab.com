@@ -2881,6 +2881,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#list-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      List Views
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#forms" class="md-nav__link">
     <span class="md-ellipsis">
       Forms
@@ -4296,6 +4305,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#list-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      List Views
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#forms" class="md-nav__link">
     <span class="md-ellipsis">
       Forms
@@ -4328,7 +4346,7 @@
 The <code>setImage()</code> method expects an object of type <code>wcf\system\file\processor\ImageData</code> as a parameter.</p>
 <p>Classes that implement the interface <code>wcf\system\file\processor\IImageDataProvider</code> provide the <code>getImageData()</code> method,
 that returns a suitable <code>ImageData</code> object.</p>
-<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -4353,10 +4371,55 @@ that returns a suitable <code>ImageData</code> object.</p>
 <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setLink</span><span class="p">(</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">());</span>
 <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setImage</span><span class="p">(</span><span class="k">new</span> <span class="nx">ImageData</span><span class="p">(</span><span class="s1">&#39;image_src&#39;</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">));</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="list-views">List Views<a class="headerlink" href="#list-views" title="Permanent link">#</a></h2>
+<p>The following pages have been migrated to list views.
+Plugins that have been hooked into these pages via event or template listeners must be adapted accordingly.</p>
+<ul>
+<li><code>blog\page\BlogEntryListPage</code></li>
+<li><code>blog\page\BlogListPage</code></li>
+<li><code>blog\page\CategoryEntryListPage</code></li>
+<li><code>blog\page\EntryListPage</code></li>
+<li><code>blog\page\MyBlogListPage</code></li>
+<li><code>blog\page\MyEntryListPage</code></li>
+<li><code>blog\page\UnreadEntryListPage</code></li>
+<li><code>blog\page\UserEntryListPage</code></li>
+<li><code>blog\page\WatchedEntryListPage</code></li>
+<li><code>wcf\page\ArticleListPage</code></li>
+<li><code>wcf\page\CategoryArticleListPage</code></li>
+<li><code>wcf\page\ConversationListPage</code></li>
+<li><code>wcf\page\UnreadArticleListPage</code></li>
+<li><code>wcf\page\WatchedArticleListPage</code></li>
+</ul>
 <h2 id="forms">Forms<a class="headerlink" href="#forms" title="Permanent link">#</a></h2>
 <p>The following forms have been migrated to FormBuilder forms.
-Plugins that have been hooked into these forms via event listeners must be adapted accordingly.</p>
+Plugins that have been hooked into these forms via event or template listeners must be adapted accordingly.</p>
 <ul>
+<li><code>blog\acp\form\CategoryAddForm</code></li>
+<li><code>blog\acp\form\CategoryEditForm</code></li>
+<li><code>blog\form\BlogAddForm</code></li>
+<li><code>blog\form\BlogEditForm</code></li>
+<li><code>blog\form\EntryAddForm</code></li>
+<li><code>blog\form\EntryEditForm</code></li>
+<li><code>calendar\acp\form\CategoryAddForm</code></li>
+<li><code>calendar\acp\form\CategoryEditForm</code></li>
+<li><code>calendar\acp\form\EventImportAddForm</code></li>
+<li><code>calendar\acp\form\EventImportEditForm</code></li>
+<li><code>calendar\acp\form\EventOptionAddForm</code></li>
+<li><code>calendar\acp\form\EventOptionEditForm</code></li>
+<li><code>calendar\form\EventAddForm</code></li>
+<li><code>calendar\form\EventEditForm</code></li>
+<li><code>filebase\acp\form\CategoryAddForm</code></li>
+<li><code>filebase\acp\form\CategoryEditForm</code></li>
+<li><code>filebase\acp\form\FileOptionAddForm</code></li>
+<li><code>filebase\acp\form\FileOptionEditForm</code></li>
+<li><code>filebase\acp\form\LicenseAddForm</code></li>
+<li><code>filebase\acp\form\LicenseEditForm</code></li>
+<li><code>filebase\form\FileAddForm</code></li>
+<li><code>filebase\form\FileEditForm</code></li>
+<li><code>gallery\acp\form\CategoryAddForm</code></li>
+<li><code>gallery\acp\form\CategoryEditForm</code></li>
+<li><code>wbb\acp\form\RssFeedAddForm</code></li>
+<li><code>wbb\acp\form\RssFeedEditForm</code></li>
 <li><code>wcf\acp\form\BBCodeMediaProviderAddForm</code></li>
 <li><code>wcf\acp\form\BBCodeMediaProviderEditForm</code></li>
 <li><code>wcf\acp\form\CaptchaQuestionAddForm</code></li>
@@ -4373,7 +4436,10 @@ Plugins that have been hooked into these forms via event listeners must be adapt
 <li><code>wcf\acp\form\MenuEditForm</code></li>
 <li><code>wcf\acp\form\MenuItemAddForm</code></li>
 <li><code>wcf\acp\form\MenuItemEditForm</code></li>
+<li><code>wcf\acp\form\LoginForm</code></li>
 <li><code>wcf\acp\form\SitemapEditForm</code></li>
+<li><code>wcf\acp\form\SuspensionAddForm</code></li>
+<li><code>wcf\acp\form\SuspensionEditForm</code></li>
 <li><code>wcf\acp\form\TagAddForm</code></li>
 <li><code>wcf\acp\form\TagEditForm</code></li>
 <li><code>wcf\acp\form\TemplateGroupAddForm</code></li>
@@ -4382,7 +4448,12 @@ Plugins that have been hooked into these forms via event listeners must be adapt
 <li><code>wcf\acp\form\UserOptionEditForm</code></li>
 <li><code>wcf\acp\form\UserRankAddForm</code></li>
 <li><code>wcf\acp\form\UserRankEditForm</code></li>
+<li><code>wcf\acp\form\WarningAddForm</code></li>
+<li><code>wcf\acp\form\WarningEditForm</code></li>
 <li><code>wcf\form\ContactForm</code></li>
+<li><code>wcf\form\ConversationAddForm</code></li>
+<li><code>wcf\form\ConversationDraftEditForm</code></li>
+<li><code>wcf\form\LoginForm</code></li>
 </ul>
 
 
@@ -4404,7 +4475,7 @@ Plugins that have been hooked into these forms via event listeners must be adapt
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2025-05-31
+    2025-07-18
   </span>
 
     
