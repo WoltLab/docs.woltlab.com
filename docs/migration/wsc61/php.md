@@ -25,6 +25,60 @@ $event->setLink($object->getLink());
 $event->setImage(new ImageData('image_src', 800, 600));
 ```
 
+## Grid Views
+
+The following pages have been migrated to grid views.
+Plugins that have been hooked into these pages via event or template listeners must be adapted accordingly.
+
+- `calendar\acp\page\EventImportListPage`
+- `filebase\acp\page\LicenseListPage`
+- `wbb\acp\page\RssFeedListPage`
+- `wcf\acp\page\ACPSessionLogListPage`
+- `wcf\acp\page\ACPSessionLogPage`
+- `wcf\acp\page\AdListPage`
+- `wcf\acp\page\ArticleListPage`
+- `wcf\acp\page\AttachmentListPage`
+- `wcf\acp\page\BBCodeListPage`
+- `wcf\acp\page\BBCodeMediaProviderListPage`
+- `wcf\acp\page\BoxListPage`
+- `wcf\acp\page\CaptchaQuestionListPage`
+- `wcf\acp\page\CronjobListPage`
+- `wcf\acp\page\CronjobLogListPage`
+- `wcf\acp\page\EmailLogListPage`
+- `wcf\acp\page\ExceptionLogViewPage`
+- `wcf\acp\page\LabelGroupListPage`
+- `wcf\acp\page\LabelListPage`
+- `wcf\acp\page\LanguageItemListPage`
+- `wcf\acp\page\LanguageListPage`
+- `wcf\acp\page\MenuListPage`
+- `wcf\acp\page\ModificationLogListPage`
+- `wcf\acp\page\NoticeListPage`
+- `wcf\acp\page\PackageListPage`
+- `wcf\acp\page\PackageUpdateServerListPage`
+- `wcf\acp\page\PageListPage`
+- `wcf\acp\page\PaidSubscriptionListPage`
+- `wcf\acp\page\PaidSubscriptionTransactionLogListPage`
+- `wcf\acp\page\PaidSubscriptionUserListPage`
+- `wcf\acp\page\ReactionTypeListPage`
+- `wcf\acp\page\SmileyListPage`
+- `wcf\acp\page\StyleListPage`
+- `wcf\acp\page\TagListPage`
+- `wcf\acp\page\TemplateGroupListPage`
+- `wcf\acp\page\TemplateListPage`
+- `wcf\acp\page\TrophyListPage`
+- `wcf\acp\page\UserAuthenticationFailureListPage`
+- `wcf\acp\page\UserGroupAssignmentListPage`
+- `wcf\acp\page\UserGroupListPage`
+- `wcf\acp\page\UserOptionListPage`
+- `wcf\acp\page\UserRankListPage`
+- `wcf\acp\page\UserTrophyListPage`
+- `wcf\acp\page\SuspensionListPage`
+- `wcf\acp\page\UserSuspensionListPage`
+- `wcf\acp\page\UserWarningListPage`
+- `wcf\acp\page\WarningListPage`
+- `wcf\page\ConversationLabelListPage`
+- `wcf\page\ModerationListPage`
+
 ## List Views
 
 The following pages have been migrated to list views.
