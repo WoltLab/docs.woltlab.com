@@ -30,6 +30,32 @@ $event->setImage(new ImageData('image_src', 800, 600));
 The following forms have been migrated to FormBuilder forms.
 Plugins that have been hooked into these forms via event listeners must be adapted accordingly.
 
+- `blog\acp\form\CategoryAddForm`
+- `blog\acp\form\CategoryEditForm`
+- `blog\form\BlogAddForm`
+- `blog\form\BlogEditForm`
+- `blog\form\EntryAddForm`
+- `blog\form\EntryEditForm`
+- `calendar\acp\form\CategoryAddForm`
+- `calendar\acp\form\CategoryEditForm`
+- `calendar\acp\form\EventImportAddForm`
+- `calendar\acp\form\EventImportEditForm`
+- `calendar\acp\form\EventOptionAddForm`
+- `calendar\acp\form\EventOptionEditForm`
+- `calendar\form\EventAddForm`
+- `calendar\form\EventEditForm`
+- `filebase\acp\form\CategoryAddForm`
+- `filebase\acp\form\CategoryEditForm`
+- `filebase\acp\form\FileOptionAddForm`
+- `filebase\acp\form\FileOptionEditForm`
+- `filebase\acp\form\LicenseAddForm`
+- `filebase\acp\form\LicenseEditForm`
+- `filebase\form\FileAddForm`
+- `filebase\form\FileEditForm`
+- `gallery\acp\form\CategoryAddForm`
+- `gallery\acp\form\CategoryEditForm`
+- `wbb\acp\form\RssFeedAddForm`
+- `wbb\acp\form\RssFeedEditForm`
 - `wcf\acp\form\BBCodeMediaProviderAddForm`
 - `wcf\acp\form\BBCodeMediaProviderEditForm`
 - `wcf\acp\form\CaptchaQuestionAddForm`
@@ -46,7 +72,10 @@ Plugins that have been hooked into these forms via event listeners must be adapt
 - `wcf\acp\form\MenuEditForm`
 - `wcf\acp\form\MenuItemAddForm`
 - `wcf\acp\form\MenuItemEditForm`
+- `wcf\acp\form\LoginForm`
 - `wcf\acp\form\SitemapEditForm`
+- `wcf\acp\form\SuspensionAddForm`
+- `wcf\acp\form\SuspensionEditForm`
 - `wcf\acp\form\TagAddForm`
 - `wcf\acp\form\TagEditForm`
 - `wcf\acp\form\TemplateGroupAddForm`
@@ -55,4 +84,10 @@ Plugins that have been hooked into these forms via event listeners must be adapt
 - `wcf\acp\form\UserOptionEditForm`
 - `wcf\acp\form\UserRankAddForm`
 - `wcf\acp\form\UserRankEditForm`
+- `wcf\acp\form\WarningAddForm`
+- `wcf\acp\form\WarningEditForm`
 - `wcf\form\ContactForm`
+- `wcf\form\ConversationAddForm`
+- `wcf\form\ConversationDraftEditForm`
+- `wcf\form\LoginForm`
+
