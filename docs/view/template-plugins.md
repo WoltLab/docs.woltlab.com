@@ -94,7 +94,7 @@ In some situations, `{assign}` is not sufficient to assign values to variables i
 Instead, `{capture}` can be used:
 
 ```smarty
-{capture var=templateVariable}
+{capture assign=templateVariable}
 	{if $foo}
 		<p>{$bar}</p>
 	{else}
