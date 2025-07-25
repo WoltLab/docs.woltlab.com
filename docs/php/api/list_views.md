@@ -336,13 +336,11 @@ class ExampleListPage extends AbstractListViewPage
     }
 
     #[\Override]
-    protected function initListView(): void
+    protected function getBaseUrlParameters(): array
     {
-        parent::initListView();
-
-        $this->listView->setBaseUrl(LinkHandler::getInstance()->getControllerLink(static::class, [
+        return [
             'categoryID' => $this->categoryID,
-        ]));
+        ];
     }
 }
 ```
