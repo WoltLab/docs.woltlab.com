@@ -70,6 +70,8 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\data\conversation\Conversation::validateParticipants()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
 - `wcf\data\conversation\Conversation::validateGroupParticipants()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
 - `wcf\data\conversation\Conversation::validateParticipant()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
+- `wcf\data\user\group\UserGroupAction::copy()`
+- `wcf\data\user\group\UserGroupAction::validateCopy()`
 
 #### Variables
 
