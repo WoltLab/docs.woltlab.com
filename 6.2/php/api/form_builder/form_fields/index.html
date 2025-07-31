@@ -929,6 +929,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#googlemapsformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      GoogleMapsFormField
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#hiddenformfield" class="md-nav__link">
     <span class="md-ellipsis">
       HiddenFormField
@@ -5459,6 +5468,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#googlemapsformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      GoogleMapsFormField
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#hiddenformfield" class="md-nav__link">
     <span class="md-ellipsis">
       HiddenFormField
@@ -6183,6 +6201,17 @@ The class implements <code>IAttributeFormField</code>, <code>IAutoCompleteFormFi
   <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
   <span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="googlemapsformfield"><code>GoogleMapsFormField</code><a class="headerlink" href="#googlemapsformfield" title="Permanent link">#</a></h3>
+<p><code>GoogleMapsFormField</code> is a form field that allows to specify coordinates using a Google Maps instance.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">GoogleMapsFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>On submit the form field will populate 3 values to the data array:
+1. Human-readable address or place name (<code>location</code> in the example above).
+2. The latitude prefixed with the given ID (<code>location_latitude</code>).
+3. The longitude prefixed with the given ID (<code>location_longitude</code>).</p>
 <h3 id="hiddenformfield"><code>HiddenFormField</code><a class="headerlink" href="#hiddenformfield" title="Permanent link">#</a></h3>
 <p><code>HiddenFormField</code> is a form field without any user-visible UI.
 Even though the form field is invisible to the user, the value can still be modified by the user, e.g. by leveraging the web browsers developer tools.
@@ -6777,7 +6806,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2025-05-19
+    2025-07-31
   </span>
 
     
