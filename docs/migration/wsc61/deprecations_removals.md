@@ -35,9 +35,9 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\acp\form\UserOptionListForm`
 - `wcf\form\AbstractCaptchaForm`
 - `wcf\form\MessageForm`
-- `wcf\data\conversation\message\SimplifiedViewableConversationMessageList` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
-- `wcf\data\conversation\message\ViewableConversationMessage` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
-- `wcf\data\conversation\message\ViewableConversationMessageList` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
+- `wcf\data\conversation\message\SimplifiedViewableConversationMessageList` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
+- `wcf\data\conversation\message\ViewableConversationMessage` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
+- `wcf\data\conversation\message\ViewableConversationMessageList` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
 
 #### Methods
 
@@ -64,14 +64,15 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\system\message\quote\MessageQuoteManager::assignVariables()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\message\quote\MessageQuoteManager::getQuoteMessageID()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\message\quote\MessageQuoteManager::isFullQuote()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
-- `wcf\data\conversation\Conversation::getUserConversation()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
-- `wcf\data\conversation\Conversation::getUserConversations()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
-- `wcf\data\conversation\Conversation::hasOtherParticipants()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
-- `wcf\data\conversation\Conversation::validateParticipants()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
-- `wcf\data\conversation\Conversation::validateGroupParticipants()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
-- `wcf\data\conversation\Conversation::validateParticipant()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
+- `wcf\data\conversation\Conversation::getUserConversation()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
+- `wcf\data\conversation\Conversation::getUserConversations()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
+- `wcf\data\conversation\Conversation::hasOtherParticipants()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
+- `wcf\data\conversation\Conversation::validateParticipants()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
+- `wcf\data\conversation\Conversation::validateGroupParticipants()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
+- `wcf\data\conversation\Conversation::validateParticipant()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
 - `wcf\data\user\group\UserGroupAction::copy()`
 - `wcf\data\user\group\UserGroupAction::validateCopy()`
+- `wcf\data\unfurl\url\UnfurlUrlAction::findOrCreate()` ([WoltLab/WCF#6408](https://github.com/WoltLab/WCF/pull/6408))
 
 #### Variables
 
@@ -144,7 +145,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `calendar\system\message\quote\EventMessageQuoteHandler`
 - `wbb\system\message\quote\PostMessageQuoteHandler`
 - `blog\system\message\quote\EntryMessageQuoteHandler`
-- `wcf\data\conversation\ViewableConversation` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
+- `wcf\data\conversation\ViewableConversation` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
 
 #### Methods
 
@@ -198,10 +199,10 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `blog\data\entry\EntryAction::saveQuote()`
 - `blog\data\entry\EntryAction::validateGetRenderedQuotes()`
 - `blog\data\entry\EntryAction::getRenderedQuotes()`
-- `wcf\data\category\CategoryAction::toggleContainer()` ([WoltLab/WCF#6298](https://github.com/WoltLab/WCF/pull/6298))`
-- `wcf\data\conversation\Conversation::loadUserParticipation()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
-- `wcf\data\conversation\ConversationEditor::updateParticipantSummary()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
-- `wcf\data\conversation\ConversationEditor::updateParticipantSummaries()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))`
+- `wcf\data\category\CategoryAction::toggleContainer()` ([WoltLab/WCF#6298](https://github.com/WoltLab/WCF/pull/6298))
+- `wcf\data\conversation\Conversation::loadUserParticipation()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
+- `wcf\data\conversation\ConversationEditor::updateParticipantSummary()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
+- `wcf\data\conversation\ConversationEditor::updateParticipantSummaries()` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
 
 #### Properties
 
