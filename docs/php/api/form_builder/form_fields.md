@@ -180,6 +180,24 @@ FloatFormField::create('example')
 ```
 
 
+### `GoogleMapsFormField`
+
+`GoogleMapsFormField` is a form field that allows to specify coordinates using a Google Maps instance.
+
+Example:
+
+```php
+GoogleMapsFormField::create('location')
+  ->label('foo.bar.example')
+```
+
+On submit the form field will populate 3 values to the data array:
+1. Human-readable address or place name (`location` in the example above).
+2. The latitude prefixed with the given ID (`location_latitude`).
+3. The longitude prefixed with the given ID (`location_longitude`).
+
+
+
 ### `HiddenFormField`
 
 `HiddenFormField` is a form field without any user-visible UI.
