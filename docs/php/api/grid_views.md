@@ -363,3 +363,22 @@ $eventHandler->register(
     }
 );
 ```
+
+## Interactions
+
+Interaction providers can be specified using the methods `setInteractionProvider()` and `setBulkInteractionProvider()` (for bulk interactions). 
+
+Example: 
+
+```php
+final class ExampleGridView extends AbstractGridView
+{
+    public function __construct()
+    {
+        ...
+
+        $this->setInteractionProvider(new ExampleInteractions());
+        $this->setBulkInteractionProvider(new ExampleBulkInteractions());
+    }
+}
+```

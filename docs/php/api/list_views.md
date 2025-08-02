@@ -361,3 +361,34 @@ $eventHandler->register(
     }
 );
 ```
+
+## Interactions
+
+Interaction providers can be specified using the methods `setInteractionProvider()` and `setBulkInteractionProvider()` (for bulk interactions). 
+
+Example: 
+
+```php
+final class ExampleGridView extends AbstractListView
+{
+    public function __construct()
+    {
+        ...
+
+        $this->setInteractionProvider(new ExampleInteractions());
+        $this->setBulkInteractionProvider(new ExampleBulkInteractions());
+    }
+}
+```
+
+The following template code must be included in the template for rendering of the items so that the buttons for the interactions are displayed.
+
+```smarty
+{if $view->hasBulkInteractions()}
+    <label class="listView__selectItem__label jsTooltip" title="{lang}wcf.clipboard.item.mark{/lang}">
+        <input type="checkbox" class="listView__selectItem" aria-label="{lang}wcf.clipboard.item.mark{/lang}">
+    </label>
+{/if}
+
+{unsafe:$view->renderInteractionContextMenuButton($article)}
+```
