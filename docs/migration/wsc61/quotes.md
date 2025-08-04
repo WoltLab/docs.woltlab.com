@@ -5,27 +5,13 @@ Quotes are now stored client-side in the browser's local storage, allowing synch
 
 ## Using the New Quote System
 
-The interfaces `wcf\data\IMessageQuoteAction` and `wcf\system\message\quote\IMessageQuoteHandler` are no longer required to generate the quotes, and the implemented classes or functions can be completely removed.
-Since the interface `IMessageQuoteHandler` has been deprecated, the ObjectType no longer requires any information about an associated class.
+The interface `wcf\system\message\quote\IMessageQuoteHandler` has been modified to now only require the implementation of `getMessage()`.
+This new method is responsible to fetch the message, perform any validation and load embedded objects whenver applicable.
 
-```XML
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/6.0/objectType.xsd">
-	<import>
-		<type>
-			<name>com.woltlab.foo</name>
-			<definitionname>com.woltlab.wcf.message.quote</definitionname>
-		</type>
-	</import>
-</data>
-```
+All other methods previously implemented in quote handlers can be removed alongside with the methods required by the now deprecated interface `wcf\data\IMessageQuoteAction`.
 
-The object that can be quoted:
-
-- MUST implement the interface `wcf\data\IMessage`.
-- SHOULD implement the interface `wcf\data\IEmbeddedMessageObject`.
-
-Using of `WoltLabSuite/Core/Ui/Message/Quote` is no longer required and only `WoltLabSuite/Core/Component/Quote/Message::registerContainer()` should be used so that a message can be quoted
+`WoltLabSuite/Core/Ui/Message/Quote` is now deprecated and may only be used with legacy implementations relying on `wcf\data\IMessageQuoteAction`.
+Updated implementations must use `WoltLabSuite/Core/Component/Quote/Message::registerContainer()` which requires only the container selectors and the name of the object type.
 
 ```smarty
 <!-- Previous -->
@@ -34,7 +20,7 @@ Using of `WoltLabSuite/Core/Ui/Message/Quote` is no longer required and only `Wo
         require(["WoltLabSuite/Core/Ui/Message/Quote"], ({ UiMessageQuote }) => {
             {include file='shared_messageQuoteManager' wysiwygSelector='text' supportPaste=true}
             
-            new UiMessageQuote($quoteManager, "wcf\\data\\foo\\Foo", "com.woltlab.foo", ".message", ".messageBody", ".messageBody > .messageText", true);
+            new UiMessageQuote($quoteManager, "wcf\\data\\foo\\FooAction", "com.woltlab.foo", ".message", ".messageBody", ".messageBody > .messageText", true);
         });
     });
 </script>
@@ -42,17 +28,17 @@ Using of `WoltLabSuite/Core/Ui/Message/Quote` is no longer required and only `Wo
 <!-- Use instead -->
 <script data-relocate="true">
     require(["WoltLabSuite/Core/Component/Quote/Message"], ({ registerContainer }) => {
-        registerContainer(".message", ".messageBody", "wcf\\data\\foo\\Foo", "com.woltlab.foo");
+        registerContainer(".message", ".messageBody", "com.woltlab.foo");
     });
 </script>
 ```
 
 ## Adjustments to the forms
 
-The functions `MessageQuoteManager::readFormParameters()` and `MessageQuoteManager::saved()` must be called both in the form for creating and editing the entry.
-This is necessary if the text input does support quotes. Regardless of whether the entry itself can be quoted later or not.
+The functions `MessageQuoteManager::readFormParameters()` and `MessageQuoteManager::saved()` must be called in the forms for creating and editing an entry.
+These calls are required whenver a text input supports quotes, regardless of whether the entry itself can be quoted or not.
 
-```PHP
+```php
 use wcf\system\message\quote\MessageQuoteManager;
 
 class FooAddForm extends \wcf\form\MessageForm {
@@ -64,7 +50,7 @@ class FooAddForm extends \wcf\form\MessageForm {
 
         // …
 
-        // Read the quotes that are to be deleted after the message has been successfully saved
+        // Read the quotes that are to be deleted after the message has been successfully saved.
         MessageQuoteManager::getInstance()->readFormParameters();
     }
 
@@ -75,7 +61,7 @@ class FooAddForm extends \wcf\form\MessageForm {
 
         // …
 
-        // Save the used quotes so that they're deleted on the client with the next request
+        // Save the used quotes so that they're deleted on the client with the next request.
         MessageQuoteManager::getInstance()->saved();
     }
 }
