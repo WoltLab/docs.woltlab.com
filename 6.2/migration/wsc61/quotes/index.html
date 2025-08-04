@@ -4794,32 +4794,11 @@
 <p>In the upcoming version of WoltLab Suite, the handling of quotes has been revamped to enhance user experience.
 Quotes are now stored client-side in the browser's local storage, allowing synchronization across browser tabs.</p>
 <h2 id="using-the-new-quote-system">Using the New Quote System<a class="headerlink" href="#using-the-new-quote-system" title="Permanent link">#</a></h2>
-<p>The interfaces <code>wcf\data\IMessageQuoteAction</code> and <code>wcf\system\message\quote\IMessageQuoteHandler</code> are no longer required to generate the quotes, and the implemented classes or functions can be completely removed.
-Since the interface <code>IMessageQuoteHandler</code> has been deprecated, the ObjectType no longer requires any information about an associated class.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;data</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/6.0/objectType.xsd&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;import&gt;</span>
-<span class="w">        </span><span class="nt">&lt;type&gt;</span>
-<span class="w">            </span><span class="nt">&lt;name&gt;</span>com.woltlab.foo<span class="nt">&lt;/name&gt;</span>
-<span class="w">            </span><span class="nt">&lt;definitionname&gt;</span>com.woltlab.wcf.message.quote<span class="nt">&lt;/definitionname&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/type&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/import&gt;</span>
-<span class="nt">&lt;/data&gt;</span>
-</code></pre></div></td></tr></table></div>
-<p>The object that can be quoted:</p>
-<ul>
-<li>MUST implement the interface <code>wcf\data\IMessage</code>.</li>
-<li>SHOULD implement the interface <code>wcf\data\IEmbeddedMessageObject</code>.</li>
-</ul>
-<p>Using of <code>WoltLabSuite/Core/Ui/Message/Quote</code> is no longer required and only <code>WoltLabSuite/Core/Component/Quote/Message::registerContainer()</code> should be used so that a message can be quoted</p>
+<p>The interface <code>wcf\system\message\quote\IMessageQuoteHandler</code> has been modified to now only require the implementation of <code>getMessage()</code>.
+This new method is responsible to fetch the message, perform any validation and load embedded objects whenver applicable.</p>
+<p>All other methods previously implemented in quote handlers can be removed alongside with the methods required by the now deprecated interface <code>wcf\data\IMessageQuoteAction</code>.</p>
+<p><code>WoltLabSuite/Core/Ui/Message/Quote</code> is now deprecated and may only be used with legacy implementations relying on <code>wcf\data\IMessageQuoteAction</code>.
+Updated implementations must use <code>WoltLabSuite/Core/Component/Quote/Message::registerContainer()</code> which requires only the container selectors and the name of the object type.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -4842,7 +4821,7 @@ Since the interface <code>IMessageQuoteHandler</code> has been deprecated, the O
         <span class="na">require</span><span class="o">([</span><span class="s2">&quot;WoltLabSuite/Core/Ui/Message/Quote&quot;</span><span class="o">],</span> <span class="o">(</span><span class="cp">{</span> <span class="na">UiMessageQuote</span> <span class="cp">}</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="cp">{</span>
             <span class="cp">{</span><span class="na">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;shared_messageQuoteManager&#39;</span> <span class="na">wysiwygSelector</span><span class="o">=</span><span class="s1">&#39;text&#39;</span> <span class="na">supportPaste</span><span class="o">=</span><span class="kc">true</span><span class="cp">}</span>
 
-            <span class="na">new</span> <span class="na">UiMessageQuote</span><span class="o">(</span><span class="nv">$quoteManager</span><span class="o">,</span> <span class="s2">&quot;wcf\\data\\foo\\Foo&quot;</span><span class="o">,</span> <span class="s2">&quot;com.woltlab.foo&quot;</span><span class="o">,</span> <span class="s2">&quot;.message&quot;</span><span class="o">,</span> <span class="s2">&quot;.messageBody&quot;</span><span class="o">,</span> <span class="s2">&quot;.messageBody &gt; .messageText&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+            <span class="na">new</span> <span class="na">UiMessageQuote</span><span class="o">(</span><span class="nv">$quoteManager</span><span class="o">,</span> <span class="s2">&quot;wcf\\data\\foo\\FooAction&quot;</span><span class="o">,</span> <span class="s2">&quot;com.woltlab.foo&quot;</span><span class="o">,</span> <span class="s2">&quot;.message&quot;</span><span class="o">,</span> <span class="s2">&quot;.messageBody&quot;</span><span class="o">,</span> <span class="s2">&quot;.messageBody &gt; .messageText&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
         <span class="cp">}</span><span class="o">);</span>
     <span class="cp">}</span><span class="x">);</span>
 <span class="x">&lt;/script&gt;</span>
@@ -4850,13 +4829,13 @@ Since the interface <code>IMessageQuoteHandler</code> has been deprecated, the O
 <span class="x">&lt;!-- Use instead --&gt;</span>
 <span class="x">&lt;script data-relocate=&quot;true&quot;&gt;</span>
 <span class="x">    require([&quot;WoltLabSuite/Core/Component/Quote/Message&quot;], (</span><span class="cp">{</span> <span class="na">registerContainer</span> <span class="cp">}</span><span class="x">) =&gt; </span><span class="cp">{</span>
-        <span class="na">registerContainer</span><span class="o">(</span><span class="s2">&quot;.message&quot;</span><span class="o">,</span> <span class="s2">&quot;.messageBody&quot;</span><span class="o">,</span> <span class="s2">&quot;wcf\\data\\foo\\Foo&quot;</span><span class="o">,</span> <span class="s2">&quot;com.woltlab.foo&quot;</span><span class="o">);</span>
+        <span class="na">registerContainer</span><span class="o">(</span><span class="s2">&quot;.message&quot;</span><span class="o">,</span> <span class="s2">&quot;.messageBody&quot;</span><span class="o">,</span> <span class="s2">&quot;com.woltlab.foo&quot;</span><span class="o">);</span>
     <span class="cp">}</span><span class="x">);</span>
 <span class="x">&lt;/script&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="adjustments-to-the-forms">Adjustments to the forms<a class="headerlink" href="#adjustments-to-the-forms" title="Permanent link">#</a></h2>
-<p>The functions <code>MessageQuoteManager::readFormParameters()</code> and <code>MessageQuoteManager::saved()</code> must be called both in the form for creating and editing the entry.
-This is necessary if the text input does support quotes. Regardless of whether the entry itself can be quoted later or not.</p>
+<p>The functions <code>MessageQuoteManager::readFormParameters()</code> and <code>MessageQuoteManager::saved()</code> must be called in the forms for creating and editing an entry.
+These calls are required whenver a text input supports quotes, regardless of whether the entry itself can be quoted or not.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -4893,7 +4872,7 @@ This is necessary if the text input does support quotes. Regardless of whether t
 
         <span class="c1">// …</span>
 
-        <span class="c1">// Read the quotes that are to be deleted after the message has been successfully saved</span>
+        <span class="c1">// Read the quotes that are to be deleted after the message has been successfully saved.</span>
         <span class="nx">MessageQuoteManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">readFormParameters</span><span class="p">();</span>
     <span class="p">}</span>
 
@@ -4904,7 +4883,7 @@ This is necessary if the text input does support quotes. Regardless of whether t
 
         <span class="c1">// …</span>
 
-        <span class="c1">// Save the used quotes so that they&#39;re deleted on the client with the next request</span>
+        <span class="c1">// Save the used quotes so that they&#39;re deleted on the client with the next request.</span>
         <span class="nx">MessageQuoteManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">saved</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -4934,7 +4913,7 @@ The functions <code>MessageQuoteManager::readFormParameters()</code> and <code>M
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2025-01-23
+    2025-08-04
   </span>
 
     
