@@ -1,8 +1,11 @@
 # Interactions
 
-The interaction system enables users to perform context menu actions on specific `DatabaseObject` instances. These interactions are designed to be reusable and universally available, ensuring consistency across the application wherever database objects appear—whether in lists, detail views, or other components.
+The interaction system enables users to perform context menu actions on specific `DatabaseObject` instances.
+These interactions are designed to be reusable and universally available, ensuring consistency across the application wherever database objects appear – whether in lists, detail views, or other components.
 
-Interactions are registered centrally using a provider class dedicated to each object type. This architecture allows for modular extensibility, where plugins can contribute additional interactions by subscribing to specialized registration events. Once registered, these plugin-defined interactions are seamlessly integrated and become available across all relevant UI contexts.
+Interactions are registered centrally using a provider class dedicated to each object type.
+This architecture allows for modular extensibility, where plugins can contribute additional interactions by subscribing to specialized registration events.
+Once registered, these plugin-defined interactions are seamlessly integrated and become available across all relevant UI contexts.
 
 This system provides a clean, scalable way to define and extend user actions without duplicating logic or UI elements.
 
@@ -47,11 +50,13 @@ Bulk interactions are the successor to the “Clipboard” feature and are appli
 
 **Type:** `(object) => boolean`
 
-Interactions allows the configuration of callback function that determines whether a specific interaction can be applied to the given object. This function is responsible for:
-* Verifying that the user has the necessary permissions to perform the interaction.
-* Preventing invalid state transitions (e.g., attempting to set an item as default when it is already the default).
+Interactions allow the configuration of callback function that determines whether a specific interaction can be applied to the given object.
+This function is responsible for:
 
-If omitted, the interaction is considered unconditionally available.
+* Verifying that the user has the necessary permissions to perform the interaction.
+* Preventing invalid state transitions, for example, attempting to set an item as default when it is already the default.
+
+If omitted, the interaction is considered to be unconditionally available.
 
 Example: 
 
@@ -72,10 +77,10 @@ new RpcInteraction(
 | --------------------------------------------------- | ----------- |
 | `InteractionConfirmationType::None`                 | No confirmation |
 | `InteractionConfirmationType::SoftDelete`           | Predetermined confirmation message asking for a soft-delete. |
-| `InteractionConfirmationType::SoftDeleteWithReason` | Predetermined confirmation message asking for a soft-delete with the optional option to enter a reason. |
+| `InteractionConfirmationType::SoftDeleteWithReason` | Predetermined confirmation message asking for a soft-delete with an optional field for the reason. |
 | `InteractionConfirmationType::Restore`              | Predetermined confirmation message asking for a restore. |
-| `InteractionConfirmationType::Delete`               | Predetermined confirmation message asking for a delete. |
-| `InteractionConfirmationType::Disable`              | Predetermined confirmation message asking for a disable. |
+| `InteractionConfirmationType::Delete`               | Predetermined confirmation message asking for the permanent deletion. |
+| `InteractionConfirmationType::Disable`              | Predetermined confirmation message asking to disable the item. |
 | `InteractionConfirmationType::Custom`               | Allows you to specify a custom confirmation message. |
 
 Example:
@@ -149,7 +154,7 @@ new EditInteraction(ExampleEditForm::class)
 
 ### `FormBuilderDialogInteraction`
 
-Opens a form builder dialog using the given controller link.
+Opens a form builder dialog using the given controller link that is expected to provide a `Psr15DialogForm`.
 
 Example:
 
@@ -200,9 +205,9 @@ Example:
 
 ```php
 new LinkInteraction(
-    "id",
+    'id',
     ExampleForm::class,
-    "label"
+    'label'
 )
 ```
 
@@ -258,9 +263,9 @@ Example:
 
 ```php
 new ToggleInteraction(
-    "id",
-    "enable/endpoint/%s",
-    "disable/endpoint/%s"
+    'id',
+    'enable/endpoint/%s',
+    'disable/endpoint/%s'
 )
 ```
 
@@ -352,7 +357,7 @@ class ExamplePage extends AbstractPage
                 object: $this->exampleObject,
                 redirectUrl: LinkHandler::getInstance()->getControllerLink(ExampleListPage::class),
                 label: 'example label',
-                reloadHeaderEndpoint: "exmaple/{$this->exampleObject->getObjectID()}/content-header-title"
+                reloadHeaderEndpoint: "example/{$this->exampleObject->getObjectID()}/content-header-title"
             ),
         ]);
     }
@@ -366,7 +371,7 @@ class ExamplePage extends AbstractPage
 
 {include file='header'}
 
-...
+{* … *}
 
 {include file='footer'}
 ```
