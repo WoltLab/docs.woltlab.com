@@ -73,6 +73,10 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\data\user\group\UserGroupAction::copy()`
 - `wcf\data\user\group\UserGroupAction::validateCopy()`
 - `wcf\data\unfurl\url\UnfurlUrlAction::findOrCreate()` ([WoltLab/WCF#6408](https://github.com/WoltLab/WCF/pull/6408))
+- `wcf\data\conversation\ConversationAction::markAllAsRead()`
+- `wcf\data\conversation\ConversationAction::markAsRead()`
+- `wcf\data\conversation\ConversationAction::validateMarkAllAsRead()`
+- `wcf\data\conversation\ConversationAction::validateMarkAsRead()`
 
 #### Variables
 
@@ -246,3 +250,4 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WCF.ACP.Style.CopyStyle` ([WoltLab/WCF#6231](https://github.com/WoltLab/WCF/pull/6231))
 - `WoltLabSuite/Core/Ui/Style/DarkMode` ([WoltLab/WCF#6231](https://github.com/WoltLab/WCF/pull/6231))
 - `WCF.ACP.Category.Collapsible` ([WoltLab/WCF#6298](https://github.com/WoltLab/WCF/pull/6298))
+- `WoltLabSuite/Core/Conversation/MarkAsRead` ([WoltLab/com.woltlab.wcf.conversation#225](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/225))
