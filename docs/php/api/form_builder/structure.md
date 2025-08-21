@@ -368,7 +368,7 @@ A maximum of `null` signals that no maximum value has been set.
 `IMaximumLengthFormField` has to be implemented by form fields if the entered value must have a maximum length.
 The implementing class has to implement the methods `maximumLength($maximumLength = null)`, `getMaximumLength()`, and `validateMaximumLength($text, Language $language = null)`.
 A maximum length of `null` signals that no maximum length has been set.
-`TMaximumLengthFormField` provides a default implementation of these two methods.
+`TMaximumLengthFormField` provides a default implementation of these three methods.
 
 !!! warning "The implementing class has to validate the entered value against the maximum value manually by calling `validateMaximumLength()`."
 
