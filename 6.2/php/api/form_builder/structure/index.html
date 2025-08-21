@@ -925,6 +925,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#icensorshipformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      ICensorshipFormField
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#icssclassformfield" class="md-nav__link">
     <span class="md-ellipsis">
       ICssClassFormField
@@ -5198,6 +5207,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#icensorshipformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      ICensorshipFormField
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#icssclassformfield" class="md-nav__link">
     <span class="md-ellipsis">
       ICssClassFormField
@@ -5645,6 +5663,13 @@ When using <code>TAutoCompleteFormField</code>, you have to implement the <code>
 The implementing class has to implement the methods <code>autoFocus($autoFocus = true)</code> and <code>isAutoFocused()</code>.
 By default, form fields are not auto-focused.
 <code>TAutoFocusFormField</code> provides a default implementation of these two methods.</p>
+<h4 id="icensorshipformfield"><code>ICensorshipFormField</code><a class="headerlink" href="#icensorshipformfield" title="Permanent link">#</a></h4>
+<p><code>ICensorshipFormField</code> has to be implemented by form fields that support the censorship function.
+The implementing class has to implement the methods <code>censorship(bool $censorship = true): static</code>, <code>hasCensorship(): bool</code>, and <code>validateCensorship(string $text): void</code>.
+<code>TCensorshipFormField</code> provides a default implementation of these methods.</p>
+<div class="admonition warning">
+<p class="admonition-title">The implementing class has to validate the entered value manually by calling <code>validateCensorship()</code>.</p>
+</div>
 <h4 id="icssclassformfield"><code>ICssClassFormField</code><a class="headerlink" href="#icssclassformfield" title="Permanent link">#</a></h4>
 <p><code>ICssClassFormField</code> has to be implemented by form fields for which CSS classes can be added to the actual form element (in addition to adding CSS classes to the surrounding element via the class-related methods of <code>IFormNode</code>).
 The implementing class has to implement the methods <code>addFieldClass(string $class): self</code>/<code>addFieldClasses(array $classes): self</code> and <code>getFieldClasses(): array</code>, which are used to add and get the CSS classes, respectively.
@@ -5780,7 +5805,7 @@ The implementing class has to implement the methods <code>suffix($languageItem =
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2024-07-30
+    2025-08-21
   </span>
 
     
