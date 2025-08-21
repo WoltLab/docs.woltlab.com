@@ -293,6 +293,15 @@ By default, form fields are not auto-focused.
 `TAutoFocusFormField` provides a default implementation of these two methods.
 
 
+#### `ICensorshipFormField`
+
+`ICensorshipFormField` has to be implemented by form fields that support the censorship function.
+The implementing class has to implement the methods `censorship(bool $censorship = true): static`, `hasCensorship(): bool`, and `validateCensorship(string $text): void`.
+`TCensorshipFormField` provides a default implementation of these methods.
+
+!!! warning "The implementing class has to validate the entered value manually by calling `validateCensorship()`."
+
+
 #### `ICssClassFormField`
 
 `ICssClassFormField` has to be implemented by form fields for which CSS classes can be added to the actual form element (in addition to adding CSS classes to the surrounding element via the class-related methods of `IFormNode`).

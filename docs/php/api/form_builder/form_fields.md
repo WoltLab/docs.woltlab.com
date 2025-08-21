@@ -445,7 +445,7 @@ SingleSelectionFormField::create('example')
 ### `TextFormField`
 
 `TextFormField` is a form field that allows entering a single line of text.
-The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `ICssClassFormField`, `IImmutableFormField`, `II18nFormField`, `IInputModeFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
+The class implements `IAttributeFormField`, `IAutoCompleteFormField`, `ICensorshipFormField`, `ICssClassFormField`, `IImmutableFormField`, `II18nFormField`, `IInputModeFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, `IPatternFormField`, and `IPlaceholderFormField`.
 
 Example:
 
@@ -883,7 +883,7 @@ WysiwygFormContainer::create('message')
 
 `WysiwygFormField` is used for wysiwyg editor form fields.
 This class should, in general, not be used directly but only via `WysiwygFormContainer`.
-The class implements `IAttributeFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, and `IObjectTypeFormNode` and requires an object type of the object type definition `com.woltlab.wcf.message`.
+The class implements `IAttributeFormField`, `ICensorshipFormField`, `IMaximumLengthFormField`, `IMinimumLengthFormField`, and `IObjectTypeFormNode` and requires an object type of the object type definition `com.woltlab.wcf.message`.
 The following methods are specific to this form field class:
 
 - `autosaveId($autosaveId)` and `getAutosaveId()` can be used enable automatically saving the current editor contents in the browser using the given id.
