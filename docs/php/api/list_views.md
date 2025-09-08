@@ -392,3 +392,32 @@ The following template code must be included in the template for rendering of th
 
 {unsafe:$view->renderInteractionContextMenuButton($article)}
 ```
+
+## Mark as Read
+
+If your objects can be marked as read, list views provide an abstract implementation for this.
+The `setMarkAsReadEndpoints(string $endpoint): void` method allows you to configure the corresponding RPC endpoint.
+
+```php
+final class ExampleGridView extends AbstractListView
+{
+    public function __construct()
+    {
+        ...
+
+        $this->setMarkAsReadEndpoints('core/example/%s/mark-as-read');
+    }
+}
+```
+
+In the template code, the corresponding button can be created for each object using the `renderMarkAsReadButton(DatabaseObject $object): string` method.
+
+```smarty
+{foreach from=$view->getItems() item='item'}
+    ...
+    {if $item->isNew()}
+        {unsafe:$view->renderMarkAsReadButton($item)}
+    {/if}
+    ...
+{/foreach}
+```
