@@ -175,10 +175,10 @@ A Database Object Collection is a container for a group of `DatabaseObject` inst
 
 ### Motivation
 
-Some database objects require extra runtime data (e.g., a UserProfile or file attachments).
+Some database objects require extra runtime data, for example, a `UserProfile` or file attachments.
 Loading this data on demand per object is inefficient, as it requires repeated queries for each object.
 
-Earlier approaches (e.g., the Viewable* classes) tried to address this by preloading extra data:
+Earlier approaches like the `Viewable*` classes tried to address this by preloading extra data:
 
 - ✅ Efficient in some cases, especially when JOINs are used.
 - ❌ Can be wasteful if not all of the extra data is needed.
@@ -192,7 +192,7 @@ A Database Object Collection solves these issues by grouping objects and handlin
 - Objects are fetched together as a collection.
 - Extra data is not loaded upfront, but on first access.
 - When extra data is requested for one object, it is fetched for all objects in the collection at once.
-- This balances efficiency with flexibility—data is only loaded when needed, but subsequent lookups are inexpensive.
+- This balances efficiency with flexibility — data is only loaded when needed, but subsequent lookups are inexpensive.
 
 This leads to the following benefits:
 
@@ -216,7 +216,7 @@ class FooObject extends CollectionDatabaseObject {
 }
 ```
 
-When instantiating the collection, `CollectionDatabaseObject` searches by default for a class that matches the class name of the database object and contains the suffix `Collection.`
+When instantiating the collection, `CollectionDatabaseObject` attempts to find a class with the same name but with the added suffix `Collection`.
 However, by overwriting the `getCollectionClassName()` method, you can also use a custom class name.
 
 ```php
