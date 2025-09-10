@@ -169,6 +169,101 @@ Of course, you do not have to set the property after creating the list object, y
 ) }}
 
 
+## DatabaseObjectCollection
+
+A Database Object Collection is a container for a group of `DatabaseObject` instances that optimizes how additional runtime data is loaded and shared between objects.
+
+### Motivation
+
+Some database objects require extra runtime data, for example, a `UserProfile` or file attachments.
+Loading this data on demand per object is inefficient, as it requires repeated queries for each object.
+
+Earlier approaches like the `Viewable*` classes tried to address this by preloading extra data:
+
+- ✅ Efficient in some cases, especially when JOINs are used.
+- ❌ Can be wasteful if not all of the extra data is needed.
+- ❌ JOIN-based solutions lack reliable type hints, sometimes resulting in missing or inconsistent data.
+- ❌ Introduces additional wrapper classes, complicating inheritance and interface checks.
+
+### Concept
+
+A Database Object Collection solves these issues by grouping objects and handling extra data more intelligently:
+
+- Objects are fetched together as a collection.
+- Extra data is not loaded upfront, but on first access.
+- When extra data is requested for one object, it is fetched for all objects in the collection at once.
+- This balances efficiency with flexibility — data is only loaded when needed, but subsequent lookups are inexpensive.
+
+This leads to the following benefits:
+
+- Lazy loading: Extra data is only fetched when required.
+- Batch efficiency: Once requested, data for all objects in the collection is retrieved together.
+- Type safety: Avoids unreliable JOIN-based type ambiguities.
+- Cleaner design: Eliminates the need for complicated wrapper classes like Viewable*.
+
+### Usage Example
+
+A database object that is to be part of a collection should extend `CollectionDatabaseObject`.
+`CollectionDatabaseObject` takes care of instantiating the collection.
+Database objects that have been read together via a database object list are automatically combined into a shared collection.
+
+```php
+class FooObject extends CollectionDatabaseObject {
+    public function getUserProfile(): UserProfile
+    {
+        return $this->getCollection()->getUserProfile($this);
+    }
+}
+```
+
+When instantiating the collection, `CollectionDatabaseObject` attempts to find a class with the same name but with the added suffix `Collection`.
+However, by overwriting the `getCollectionClassName()` method, you can also use a custom class name.
+
+```php
+class FooObjectCollection extends DatabaseObjectCollection {
+    private bool $userProfilesLoaded = false;
+
+    public function getUserProfile(FooObject $object): UserProfile
+    {
+        $this->loadUserProfiles();
+
+        if ($object->userID) {
+            return UserProfileRuntimeCache::getInstance()->getObject($object->userID);
+        } else {
+            return UserProfile::getGuestUserProfile($object->username);
+        }
+    }
+
+    private function loadUserProfiles(): void
+    {
+        if ($this->userProfilesLoaded) {
+            return;
+        }
+
+        $this->userProfilesLoaded = true;
+
+        $userIDs = [];
+        foreach ($this->getObjects() as $object) {
+            if ($object->userID) {
+                $userIDs[] = $object->userID;
+            }
+        }
+
+        if ($userIDs !== []) {
+            UserProfileRuntimeCache::getInstance()->cacheObjectIDs($userIDs);
+        }
+    }
+}
+```
+
+### Traits
+
+Currently, two traits are available to handle typical standard use cases with a collection:
+
+* `TCollectionUserProfiles`: Handles the loading of user profiles that belong to the database objects.
+* `TCollectionEmbeddedObjects`: Handles the loading of embedded objects that belong to the database objects.
+
+
 ## AbstractDatabaseObjectAction
 
 Row creation and manipulation can be performed using the aforementioned `DatabaseObjectEditor` class, but this approach has two major issues:
