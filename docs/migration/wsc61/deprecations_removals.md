@@ -77,6 +77,22 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\data\conversation\ConversationAction::markAsRead()`
 - `wcf\data\conversation\ConversationAction::validateMarkAllAsRead()`
 - `wcf\data\conversation\ConversationAction::validateMarkAsRead()`
+- `wcf\data\ad\AdAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\data\bbcode\media\provider\BBCodeMediaProviderAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\data\box\BoxAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\data\captcha\question\CaptchaQuestionAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\data\contact\option\ContactOptionAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\data\contact\recipient\ContactRecipientAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\data\cronjob\CronjobAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\data\language\LanguageAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\data\notice\NoticeAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\data\package\update\server\PackageUpdateServerAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\data\page\PageAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\data\paid\subscription\PaidSubscriptionAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\data\reaction\type\ReactionTypeAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\data\style\StyleAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\data\trophy\TrophyAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\data\user\group\assignment\UserGroupAssignmentAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
 
 #### Variables
 
