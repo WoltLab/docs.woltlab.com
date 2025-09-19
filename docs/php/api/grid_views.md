@@ -44,6 +44,8 @@ final class ExampleGridView extends AbstractGridView
                 ->sortable()
                 ->titleColumn()
         ]);
+
+        $this->setDefaultSortField('title');
     }
 
     #[\Override]
@@ -270,8 +272,8 @@ final class FooGridView extends AbstractGridView
         GridViewColumn::for('title')
             ->sortable();
         
-        $this->setSortField('title');
-        $this->setSortOrder('ASC');
+        $this->setDefaultSortField('title');
+        $this->setDefaultSortOrder('ASC');
     }
 }
 ```
