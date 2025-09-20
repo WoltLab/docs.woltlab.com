@@ -134,8 +134,8 @@ class ExampleListView extends AbstractListView
             new ListViewSortField('title', 'wcf.global.title'),
         ]);
         
-        $this->setSortField('title');
-        $this->setSortOrder('ASC');
+        $this->setDefaultSortField('title');
+        $this->setDefaultSortOrder('ASC');
     }
 }
 ```
