@@ -180,6 +180,26 @@ class ExampleListView extends AbstractListView
 
 `DateFilter` is a filter for columns that contain unix timestamps.
 
+### FloatFilter
+
+`FloatFilter` is a filter for columns that contain float values.
+
+### FormOptionFilter
+
+`FormOptionFilter` is a filter for columns that are based on `IFormOption`.
+
+#### I18nTextFilter
+
+`I18nTextFilter` is a filter for text columns that are using i18n phrases.
+
+### IntegerFilter
+
+`IntegerFilter` is a filter for columns that contain integer values.
+
+#### IpAddressFilter
+
+`IpAddressFilter` is a filter for columns that contain IPv6 addresses, allowing the user to enter addresses in the IPv4 format too.
+
 ### LabelFilter
 
 `LabelFilter` allows to filter a list view by labels.
@@ -207,9 +227,28 @@ class ExampleListView extends AbstractListView
 }
 ```
 
-### NumericFilter
+### MultipleSelectFilter
 
-`NumericFilter` is a filter for columns that contain numeric values.
+`MultipleSelectFilter` allows a column to be filtered on the basis of a multi-select.
+
+```php
+class ExampleListView extends AbstractListView
+{
+    public function __construct()
+    {
+        $this->addAvailableFilters([
+            new MultipleSelectFilter([
+                1 => 'value 1',
+                0 => 'value 0',
+            ], 'id', 'language.item'),
+        ]);
+    }
+}
+```
+
+#### ObjectIdFilter
+
+`ObjectIdFilter` is a filter for columns that contain object ids.
 
 ### SelectFilter
 
