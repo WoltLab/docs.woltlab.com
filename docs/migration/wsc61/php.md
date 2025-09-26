@@ -142,11 +142,13 @@ Plugins that have been hooked into these forms via event or template listeners m
 - `wcf\acp\form\CronjobEditForm`
 - `wcf\acp\form\LabelAddForm`
 - `wcf\acp\form\LabelEditForm`
+- `wcf\acp\form\LoginForm`
 - `wcf\acp\form\MenuAddForm`
 - `wcf\acp\form\MenuEditForm`
 - `wcf\acp\form\MenuItemAddForm`
 - `wcf\acp\form\MenuItemEditForm`
-- `wcf\acp\form\LoginForm`
+- `wcf\acp\form\PackageUpdateServerAddForm`
+- `wcf\acp\form\PackageUpdateServerEditForm`
 - `wcf\acp\form\SitemapEditForm`
 - `wcf\acp\form\SuspensionAddForm`
 - `wcf\acp\form\SuspensionEditForm`
@@ -164,4 +166,3 @@ Plugins that have been hooked into these forms via event or template listeners m
 - `wcf\form\ConversationAddForm`
 - `wcf\form\ConversationDraftEditForm`
 - `wcf\form\LoginForm`
-
