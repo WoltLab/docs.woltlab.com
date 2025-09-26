@@ -996,6 +996,63 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#floatfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      FloatFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formoptionfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      FormOptionFilter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FormOptionFilter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i18ntextfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      I18nTextFilter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integerfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      IntegerFilter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IntegerFilter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipaddressfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      IpAddressFilter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#labelfilter" class="md-nav__link">
     <span class="md-ellipsis">
       LabelFilter
@@ -1005,11 +1062,26 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#numericfilter" class="md-nav__link">
+  <a href="#multipleselectfilter" class="md-nav__link">
     <span class="md-ellipsis">
-      NumericFilter
+      MultipleSelectFilter
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="MultipleSelectFilter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectidfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      ObjectIdFilter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -4997,6 +5069,63 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#floatfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      FloatFilter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formoptionfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      FormOptionFilter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FormOptionFilter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i18ntextfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      I18nTextFilter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integerfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      IntegerFilter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IntegerFilter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipaddressfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      IpAddressFilter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#labelfilter" class="md-nav__link">
     <span class="md-ellipsis">
       LabelFilter
@@ -5006,11 +5135,26 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#numericfilter" class="md-nav__link">
+  <a href="#multipleselectfilter" class="md-nav__link">
     <span class="md-ellipsis">
-      NumericFilter
+      MultipleSelectFilter
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="MultipleSelectFilter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectidfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      ObjectIdFilter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -5246,13 +5390,9 @@ A list view takes care of sorting, filtering and pagination, and ensure that a l
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">wcf\page</span><span class="p">;</span>
-
-<span class="k">use</span> <span class="nx">wcf\system\listView\user\ArticleListView</span><span class="p">;</span>
 
 <span class="sd">/**</span>
 <span class="sd"> * @extends AbstractListViewPage&lt;ExampleListView&gt;</span>
@@ -5376,6 +5516,16 @@ Optionally, you can specify the name of an alternative database column to be use
 </code></pre></div></td></tr></table></div>
 <h3 id="datefilter">DateFilter<a class="headerlink" href="#datefilter" title="Permanent link">#</a></h3>
 <p><code>DateFilter</code> is a filter for columns that contain unix timestamps.</p>
+<h3 id="floatfilter">FloatFilter<a class="headerlink" href="#floatfilter" title="Permanent link">#</a></h3>
+<p><code>FloatFilter</code> is a filter for columns that contain float values.</p>
+<h3 id="formoptionfilter">FormOptionFilter<a class="headerlink" href="#formoptionfilter" title="Permanent link">#</a></h3>
+<p><code>FormOptionFilter</code> is a filter for columns that are based on <code>IFormOption</code>.</p>
+<h4 id="i18ntextfilter">I18nTextFilter<a class="headerlink" href="#i18ntextfilter" title="Permanent link">#</a></h4>
+<p><code>I18nTextFilter</code> is a filter for text columns that are using i18n phrases.</p>
+<h3 id="integerfilter">IntegerFilter<a class="headerlink" href="#integerfilter" title="Permanent link">#</a></h3>
+<p><code>IntegerFilter</code> is a filter for columns that contain integer values.</p>
+<h4 id="ipaddressfilter">IpAddressFilter<a class="headerlink" href="#ipaddressfilter" title="Permanent link">#</a></h4>
+<p><code>IpAddressFilter</code> is a filter for columns that contain IPv6 addresses, allowing the user to enter addresses in the IPv4 format too.</p>
 <h3 id="labelfilter">LabelFilter<a class="headerlink" href="#labelfilter" title="Permanent link">#</a></h3>
 <p><code>LabelFilter</code> allows to filter a list view by labels.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -5418,8 +5568,34 @@ Optionally, you can specify the name of an alternative database column to be use
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="numericfilter">NumericFilter<a class="headerlink" href="#numericfilter" title="Permanent link">#</a></h3>
-<p><code>NumericFilter</code> is a filter for columns that contain numeric values.</p>
+<h3 id="multipleselectfilter">MultipleSelectFilter<a class="headerlink" href="#multipleselectfilter" title="Permanent link">#</a></h3>
+<p><code>MultipleSelectFilter</code> allows a column to be filtered on the basis of a multi-select.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">ExampleListView</span> <span class="k">extends</span> <span class="nx">AbstractListView</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">addAvailableFilters</span><span class="p">([</span>
+            <span class="k">new</span> <span class="nx">MultipleSelectFilter</span><span class="p">([</span>
+                <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s1">&#39;value 1&#39;</span><span class="p">,</span>
+                <span class="mi">0</span> <span class="o">=&gt;</span> <span class="s1">&#39;value 0&#39;</span><span class="p">,</span>
+            <span class="p">],</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;language.item&#39;</span><span class="p">),</span>
+        <span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="objectidfilter">ObjectIdFilter<a class="headerlink" href="#objectidfilter" title="Permanent link">#</a></h4>
+<p><code>ObjectIdFilter</code> is a filter for columns that contain object ids.</p>
 <h3 id="selectfilter">SelectFilter<a class="headerlink" href="#selectfilter" title="Permanent link">#</a></h3>
 <p><code>SelectFilter</code> allows a column to be filtered on the basis of a select dropdown.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -5716,7 +5892,7 @@ The <code>setMarkAsReadEndpoints(string $endpoint): void</code> method allows yo
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2025-09-20
+    2025-09-26
   </span>
 
     
