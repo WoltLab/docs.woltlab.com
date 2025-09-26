@@ -281,69 +281,32 @@ final class FooGridView extends AbstractGridView
 ### Filtering
 
 Filters can be defined for columns so that the user has the option to filter by the content of a column.
+The method accepts a class string of a filter or an instantiated filter.
 
 ```php
-GridViewColumn::for('foo')
-    ->filter(new FooFilter())
+GridViewColumn::for('id')
+    ->filter(TextFilter::class);
+
+GridViewColumn::for('id')
+    ->filter(new TextFilter('id', 'label'));
 ```
 
-#### BooleanFilter
-
-`BooleanFilter` is a filter for columns that contain boolean values (`1` or `0`).
-
-#### CategoryFilter
-
-`CategoryFilter` is a filter for columns that contain category ids.
+In addition, filters can be assigned directly to the grid view if, for example, filtering should be possible for data that is not displayed as a separate column.
 
 ```php
-GridViewColumn::for('categoryID')
-    ->filter(new CategoryFilter((new CategoryNodeTree('identifier'))->getIterator()))
+class ExampleGridView extends AbstractGridView
+{
+    public function __construct()
+    {
+        $this->addAvailableFilters([
+            new TextFilter('title', 'wcf.global.title'),
+        ]);
+    }
+}
 ```
 
-#### DateFilter
-
-`DateFilter` is a filter for columns that contain unix timestamps.
-
-#### I18nTextFilter
-
-`I18nTextFilter` is a filter for text columns that are using i18n phrases.
-
-#### IpAddressFilter
-
-`IpAddressFilter` is a filter for columns that contain IPv6 addresses, allowing the user to enter addresses in the IPv4 format too.
-
-#### NumericFilter
-
-`NumericFilter` is a filter for columns that contain numeric values.
-
-#### ObjectIdFilter
-
-`ObjectIdFilter` is a filter for columns that contain object ids.
-
-#### SelectFilter
-
-`SelectFilter` allows a column to be filtered on the basis of a select dropdown.
-
-```php
-GridViewColumn::for('foo')
-    ->filter(new SelectFilter([
-        1 => 'value 1',
-        0 => 'value 0',
-    ]));
-```
-
-#### TextFilter
-
-`TextFilter` is a filter for text columns.
-
-#### TimeFilter
-
-`TimeFilter` is a filter for columns that contain unix timestamps.
-In contrast to `DateFilter`, this filter also allows filtering by a specific time.
-
-#### UserFilter
-
-`UserFilter` is a filter for columns that contain user ids.
+Grid Views and List Views share the same filters.
+A complete list of available filters can be found in the [List View documentation](list_views.md#filtering).
 
 ## Events
 
