@@ -73,8 +73,6 @@ Example:
 
 namespace wcf\page;
 
-use wcf\system\listView\user\ArticleListView;
-
 /**
  * @extends AbstractListViewPage<ExampleListView>
  */
