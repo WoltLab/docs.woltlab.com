@@ -27,3 +27,10 @@ If the button is part of a form, the name is used to transmit the value when the
 The value that should be transmitted when the form is sent if the button is active.
 
 Defaults to `1`.
+
+## Events
+
+### `change`
+
+The custom event `change` is fired on the toggle button whenever the `checked` property of the button changes.
+The event detail contains `{ checked: boolean }`, alternatively the property `checked` can be queried to fetch the current state.
