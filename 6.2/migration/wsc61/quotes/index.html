@@ -4818,7 +4818,7 @@
 Quotes are now stored client-side in the browser's local storage, allowing synchronization across browser tabs.</p>
 <h2 id="using-the-new-quote-system">Using the New Quote System<a class="headerlink" href="#using-the-new-quote-system" title="Permanent link">#</a></h2>
 <p>The interface <code>wcf\system\message\quote\IMessageQuoteHandler</code> has been modified to now only require the implementation of <code>getMessage()</code>.
-This new method is responsible to fetch the message, perform any validation and load embedded objects whenver applicable.</p>
+This new method is responsible for providing the quoted after performing any validation necessary and load embedded objects in advanced if applicable.</p>
 <p>All other methods previously implemented in quote handlers can be removed alongside with the methods required by the now deprecated interface <code>wcf\data\IMessageQuoteAction</code>.</p>
 <p><code>WoltLabSuite/Core/Ui/Message/Quote</code> is now deprecated and may only be used with legacy implementations relying on <code>wcf\data\IMessageQuoteAction</code>.
 Updated implementations must use <code>WoltLabSuite/Core/Component/Quote/Message::registerContainer()</code> which requires only the container selectors and the name of the object type.</p>
@@ -4936,7 +4936,7 @@ The functions <code>MessageQuoteManager::readFormParameters()</code> and <code>M
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2025-08-04
+    2025-10-08
   </span>
 
     
