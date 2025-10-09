@@ -38,6 +38,32 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\data\conversation\message\SimplifiedViewableConversationMessageList` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
 - `wcf\data\conversation\message\ViewableConversationMessage` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
 - `wcf\data\conversation\message\ViewableConversationMessageList` ([WoltLab/com.woltlab.wcf.conversation#219](https://github.com/WoltLab/com.woltlab.wcf.conversation/pull/219))
+- `wcf\system\acp\dashboard\command\ConfigureBoxes`
+- `wcf\system\box\command\CreateBoxCondition`
+- `wcf\system\box\command\CreateBoxToPageAssignments`
+- `wcf\system\cache\command\ClearCache`
+- `wcf\system\comment\command\CreateComment`
+- `wcf\system\comment\command\PublishComment`
+- `wcf\system\comment\command\DeleteComments`
+- `wcf\system\comment\command\UpdateComment`
+- `wcf\system\comment\response\command\CreateResponse`
+- `wcf\system\comment\response\command\DeleteResponses`
+- `wcf\system\comment\response\command\PublishResponse`
+- `wcf\system\comment\response\command\UpdateResponse`
+- `wcf\system\file\command\ReplaceFileSource`
+- `wcf\system\language\preload\command\CachePreloadPhrases`
+- `wcf\system\language\preload\command\ResetPreloadCache`
+- `wcf\system\package\command\RebuildBootstrapper`
+- `wcf\system\style\command\AddDarkMode`
+- `wcf\system\style\command\CreateManifest`
+- `wcf\system\user\command\CreateRegistrationNotification`
+- `wcf\system\user\command\Follow`
+- `wcf\system\user\command\SetColorScheme`
+- `wcf\system\user\command\Unfollow`
+- `wbb\system\board\command\CollapseBoard`
+- `wbb\system\board\command\ExpandBoard`
+- `wbb\system\board\command\UpdateLastPosts`
+- `wbb\system\search\command\ThreadRebuildSearchIndex`
 
 #### Methods
 
