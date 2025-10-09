@@ -6,7 +6,7 @@ Quotes are now stored client-side in the browser's local storage, allowing synch
 ## Using the New Quote System
 
 The interface `wcf\system\message\quote\IMessageQuoteHandler` has been modified to now only require the implementation of `getMessage()`.
-This new method is responsible to fetch the message, perform any validation and load embedded objects whenver applicable.
+This new method is responsible for providing the quoted after performing any validation necessary and load embedded objects in advanced if applicable.
 
 All other methods previously implemented in quote handlers can be removed alongside with the methods required by the now deprecated interface `wcf\data\IMessageQuoteAction`.
 
