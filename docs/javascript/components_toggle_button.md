@@ -34,3 +34,13 @@ Defaults to `1`.
 
 The custom event `change` is fired on the toggle button whenever the `checked` property of the button changes.
 The event detail contains `{ checked: boolean }`, alternatively the property `checked` can be queried to fetch the current state.
+
+Example:
+
+```ts
+document.getElementId("toggle-button-id").addEventListener("change", (event: CustomEvent) => {
+  if (event.detail.checked) {
+    // button is checked
+  }
+});
+```
