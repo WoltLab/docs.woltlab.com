@@ -3214,6 +3214,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#deleted-content-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deleted Content Provider
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taggable-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taggable Content
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#grid-views" class="md-nav__link">
     <span class="md-ellipsis">
       Grid Views
@@ -4786,6 +4804,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#deleted-content-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deleted Content Provider
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taggable-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taggable Content
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#grid-views" class="md-nav__link">
     <span class="md-ellipsis">
       Grid Views
@@ -4862,6 +4898,46 @@ that returns a suitable <code>ImageData</code> object.</p>
 <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setLink</span><span class="p">(</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">());</span>
 <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setImage</span><span class="p">(</span><span class="k">new</span> <span class="nx">ImageData</span><span class="p">(</span><span class="s1">&#39;image_src&#39;</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">));</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="deleted-content-provider">Deleted Content Provider<a class="headerlink" href="#deleted-content-provider" title="Permanent link">#</a></h2>
+<p>A new interface <a href="https://github.com/WoltLab/WCF/blob/6.2/wcfsetup/install/files/lib/system/moderation/IDeletedContentListViewProvider.class.php"><code>IDeletedContentListViewProvider</code></a> for displaying deleted content in the moderator panel based on a <a href="../../../php/api/list_views/">list view</a> has been added.</p>
+<p>An abstract implementation of the interface is also available: <a href="https://github.com/WoltLab/WCF/blob/6.2/wcfsetup/install/files/lib/system/moderation/AbstractDeletedContentListViewProvider.class.php"><code>AbstractDeletedContentListViewProvider</code></a></p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DeletedExampleProvider</span> <span class="k">extends</span> <span class="nx">AbstractDeletedContentListViewProvider</span>
+<span class="p">{</span>
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getListView</span><span class="p">()</span><span class="o">:</span> <span class="nx">AbstractListView</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">DeletedExampleListView</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="taggable-content">Taggable Content<a class="headerlink" href="#taggable-content" title="Permanent link">#</a></h2>
+<p>A new interface <a href="https://github.com/WoltLab/WCF/blob/6.2/wcfsetup/install/files/lib/system/tagging/ITaggedListViewProvider.class.php"><code>ITaggedListViewProvider</code></a> for displaying tagged content based on a <a href="../../../php/api/list_views/">list view</a> has been added.</p>
+<p>An abstract implementation of the interface is also available: <a href="https://github.com/WoltLab/WCF/blob/6.2/wcfsetup/install/files/lib/system/tagging/AbstractTaggedListViewProvider.class.php"><code>AbstractTaggedListViewProvider</code></a></p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">TaggableExample</span> <span class="k">extends</span> <span class="nx">AbstractTaggedListViewProvider</span>
+<span class="p">{</span>
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getListView</span><span class="p">(</span><span class="k">array</span> <span class="nv">$tagIDs</span><span class="p">)</span><span class="o">:</span> <span class="nx">AbstractListView</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">TaggedExampleListView</span><span class="p">(</span><span class="nv">$tagIDs</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="grid-views">Grid Views<a class="headerlink" href="#grid-views" title="Permanent link">#</a></h2>
 <p>The following pages have been migrated to grid views.
 Plugins that have been hooked into these pages via event or template listeners must be adapted accordingly.</p>
@@ -4931,6 +5007,7 @@ Plugins that have been hooked into these pages via event or template listeners m
 <li><code>wcf\page\ArticleListPage</code></li>
 <li><code>wcf\page\CategoryArticleListPage</code></li>
 <li><code>wcf\page\ConversationListPage</code></li>
+<li><code>wcf\page\MembersListPage</code></li>
 <li><code>wcf\page\UnreadArticleListPage</code></li>
 <li><code>wcf\page\WatchedArticleListPage</code></li>
 </ul>
@@ -5021,7 +5098,7 @@ Plugins that have been hooked into these forms via event or template listeners m
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2025-09-26
+    2025-10-10
   </span>
 
     
