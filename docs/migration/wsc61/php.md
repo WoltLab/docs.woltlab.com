@@ -96,6 +96,7 @@ Plugins that have been hooked into these pages via event or template listeners m
 - `wcf\page\ArticleListPage`
 - `wcf\page\CategoryArticleListPage`
 - `wcf\page\ConversationListPage`
+- `wcf\page\MembersListPage`
 - `wcf\page\UnreadArticleListPage`
 - `wcf\page\WatchedArticleListPage`
 
