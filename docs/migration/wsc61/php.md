@@ -25,6 +25,44 @@ $event->setLink($object->getLink());
 $event->setImage(new ImageData('image_src', 800, 600));
 ```
 
+## Deleted Content Provider
+
+A new interface [`IDeletedContentListViewProvider`](https://github.com/WoltLab/WCF/blob/6.2/wcfsetup/install/files/lib/system/moderation/IDeletedContentListViewProvider.class.php) for displaying deleted content in the moderator panel based on a [list view](../../php/api/list_views.md) has been added.
+
+An abstract implementation of the interface is also available: [`AbstractDeletedContentListViewProvider`](https://github.com/WoltLab/WCF/blob/6.2/wcfsetup/install/files/lib/system/moderation/AbstractDeletedContentListViewProvider.class.php)
+
+Example:
+
+```php
+class DeletedExampleProvider extends AbstractDeletedContentListViewProvider
+{
+    #[\Override]
+    public function getListView(): AbstractListView
+    {
+        return new DeletedExampleListView();
+    }
+}
+```
+
+## Taggable Content
+
+A new interface [`ITaggedListViewProvider`](https://github.com/WoltLab/WCF/blob/6.2/wcfsetup/install/files/lib/system/tagging/ITaggedListViewProvider.class.php) for displaying tagged content based on a [list view](../../php/api/list_views.md) has been added.
+
+An abstract implementation of the interface is also available: [`AbstractTaggedListViewProvider`](https://github.com/WoltLab/WCF/blob/6.2/wcfsetup/install/files/lib/system/tagging/AbstractTaggedListViewProvider.class.php)
+
+Example:
+
+```php
+class TaggableExample extends AbstractTaggedListViewProvider
+{
+    #[\Override]
+    public function getListView(array $tagIDs): AbstractListView
+    {
+        return new TaggedExampleListView($tagIDs);
+    }
+}
+```
+
 ## Grid Views
 
 The following pages have been migrated to grid views.
