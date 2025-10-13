@@ -64,6 +64,12 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\system\user\command\Follow`
 - `wcf\system\user\command\SetColorScheme`
 - `wcf\system\user\command\Unfollow`
+- `wcf\data\custom\option\CustomOption` ([WoltLab/WCF#6277](https://github.com/WoltLab/WCF/pull/6277))
+- `wcf\data\custom\option\CustomOptionAction` ([WoltLab/WCF#6277](https://github.com/WoltLab/WCF/pull/6277))
+- `wcf\data\custom\option\CustomOptionEditor` ([WoltLab/WCF#6277](https://github.com/WoltLab/WCF/pull/6277))
+- `wcf\data\custom\option\CustomOptionList` ([WoltLab/WCF#6277](https://github.com/WoltLab/WCF/pull/6277))
+- `wcf\acp\form\AbstractCustomOptionForm` ([WoltLab/WCF#6277](https://github.com/WoltLab/WCF/pull/6277))
+- `wcf\system\option\CustomOptionHandler` ([WoltLab/WCF#6277](https://github.com/WoltLab/WCF/pull/6277))
 
 #### Methods
 
