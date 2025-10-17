@@ -13,6 +13,8 @@ The module should roughly map to the route parameters for simplicity, for exampl
 The `Result` module provides a consistent interface to interact with the API.
 A comprehensive implementation can be found in `WoltLabSuite/Core/Api/Comments/RenderComment.ts`:
 
+!!! info "WoltLab Suite 6.2 added a helper method for infallible requests that greatly reduces the boiler-plate code required for RPC endpoints that do not return errors in general. It is strongly recommended to use this new function instead unless you explicitly need to handle errors yourself. See the section on infallible requests to learn more."
+
 ```ts
 import { prepareRequest } from "WoltLabSuite/Core/Ajax/Backend";
 import { ApiResult, apiResultFromError, apiResultFromValue } from "WoltLabSuite/Core/Api/Result";
@@ -68,3 +70,24 @@ Any network errors or other kind of client errors will fail hard.
 
 The returned value from the server will be attempted to be parsed into an `WoltLabSuite/Core/Api/Error` that represents the well-defined error response from the PHP RPC API.
 Validation errors can easily be detected through the `.getValidationError()` method of `ApiError` which returns `undefined` for all other error classes.
+
+## Infallible RPC Requests
+
+An RPC request is considered infallible if there is no reasonable situation where the request should ever fail.
+This is true for most RPC endpoints that do not explicitly return errors and instead should only fail if something unexpected goes wrong.
+
+Using `ApiResult` requires the developer to explicitly handle unexpected errors either explicitly or implicitly through `.unwrap()` on the result.
+There have been cases where developers only checked for `if (result.ok) { /* … */ }` but completely neglected the error that was returned by the server.
+
+It is strongly recommended to use this simplified call instead whenever you are not expecting any errors to be returned from the API call.
+
+```ts
+import { prepareRequest } from "WoltLabSuite/Core/Ajax/Backend";
+import { fromInfallibleApiRequest } from "../Result";
+
+export async function deleteSession(sessionId: string): Promise<[]> {
+  return fromInfallibleApiRequest(() => {
+    return prepareRequest(`${window.WSC_RPC_API_URL}core/sessions/${sessionId}`).delete().fetchAsJson();
+  });
+}
+```
