@@ -4758,6 +4758,9 @@
 <h2 id="using-woltlabsuitecoreapiresult">Using <code>WoltLabSuite/Core/Api/Result</code><a class="headerlink" href="#using-woltlabsuitecoreapiresult" title="Permanent link">#</a></h2>
 <p>The <code>Result</code> module provides a consistent interface to interact with the API.
 A comprehensive implementation can be found in <code>WoltLabSuite/Core/Api/Comments/RenderComment.ts</code>:</p>
+<div class="admonition info">
+<p class="admonition-title">WoltLab Suite 6.2 added a helper method for infallible requests that greatly reduces the boiler-plate code required for RPC endpoints that do not return errors in general. It is strongly recommended to use this new function instead unless you explicitly need to handle errors yourself. See the section on infallible requests to learn more.</p>
+</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -4838,6 +4841,28 @@ It will return the result value or fail hard when there is an actual error.</p>
 Any network errors or other kind of client errors will fail hard.</p>
 <p>The returned value from the server will be attempted to be parsed into an <code>WoltLabSuite/Core/Api/Error</code> that represents the well-defined error response from the PHP RPC API.
 Validation errors can easily be detected through the <code>.getValidationError()</code> method of <code>ApiError</code> which returns <code>undefined</code> for all other error classes.</p>
+<h2 id="infallible-rpc-requests">Infallible RPC Requests<a class="headerlink" href="#infallible-rpc-requests" title="Permanent link">#</a></h2>
+<p>An RPC request is considered infallible if there is no reasonable situation where the request should ever fail.
+This is true for most RPC endpoints that do not explicitly return errors and instead should only fail if something unexpected goes wrong.</p>
+<p>Using <code>ApiResult</code> requires the developer to explicitly handle unexpected errors either explicitly or implicitly through <code>.unwrap()</code> on the result.
+There have been cases where developers only checked for <code>if (result.ok) { /* … */ }</code> but completely neglected the error that was returned by the server.</p>
+<p>It is strongly recommended to use this simplified call instead whenever you are not expecting any errors to be returned from the API call.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">prepareRequest</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Ajax/Backend&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">fromInfallibleApiRequest</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../Result&quot;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">deleteSession</span><span class="p">(</span><span class="nx">sessionId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">fromInfallibleApiRequest</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">prepareRequest</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nb">window</span><span class="p">.</span><span class="nx">WSC_RPC_API_URL</span><span class="si">}</span><span class="sb">core/sessions/</span><span class="si">${</span><span class="nx">sessionId</span><span class="si">}</span><span class="sb">`</span><span class="p">).</span><span class="ow">delete</span><span class="p">().</span><span class="nx">fetchAsJson</span><span class="p">();</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 
 
 
@@ -4858,7 +4883,7 @@ Validation errors can easily be detected through the <code>.getValidationError()
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2024-09-06
+    2025-10-17
   </span>
 
     
