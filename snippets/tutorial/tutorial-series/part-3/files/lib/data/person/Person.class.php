@@ -13,7 +13,6 @@ use wcf\system\request\LinkHandler;
  * @author  Matthias Schmidt
  * @copyright   2001-2021 WoltLab GmbH
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
- * @package WoltLabSuite\Core\Data\Person
  *
  * @property-read   int     $personID   unique id of the person
  * @property-read   string  $firstName  first name of the person

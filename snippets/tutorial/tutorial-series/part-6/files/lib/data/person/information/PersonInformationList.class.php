@@ -12,7 +12,6 @@ use wcf\system\cache\runtime\UserProfileRuntimeCache;
  * @author  Matthias Schmidt
  * @copyright   2001-2021 WoltLab GmbH
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
- * @package WoltLabSuite\Core\Data\PersonInformation
  *
  * @method      PersonInformation       current()
  * @method      PersonInformation[]     getObjects()

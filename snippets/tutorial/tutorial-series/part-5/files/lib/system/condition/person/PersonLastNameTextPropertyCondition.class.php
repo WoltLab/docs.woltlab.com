@@ -11,7 +11,6 @@ use wcf\system\condition\AbstractObjectTextPropertyCondition;
  * @author  Matthias Schmidt
  * @copyright   2001-2022 WoltLab GmbH
  * @license WoltLab License <http://www.woltlab.com/license-agreement.html>
- * @package WoltLabSuite\Core\System\Condition
  */
 final class PersonLastNameTextPropertyCondition extends AbstractObjectTextPropertyCondition
 {

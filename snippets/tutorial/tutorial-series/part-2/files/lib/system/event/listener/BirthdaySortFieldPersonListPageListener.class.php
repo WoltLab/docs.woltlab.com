@@ -10,7 +10,6 @@ use wcf\page\SortablePage;
  * @author  Matthias Schmidt
  * @copyright   2001-2022 WoltLab GmbH
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
- * @package WoltLabSuite\Core\System\Event\Listener
  */
 final class BirthdaySortFieldPersonListPageListener extends AbstractEventListener
 {

@@ -10,13 +10,10 @@ use wcf\data\DatabaseObjectList;
  * @author  Matthias Schmidt
  * @copyright   2001-2021 WoltLab GmbH
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
- * @package WoltLabSuite\Core\Data\Person
  *
  * @method  Person      current()
  * @method  Person[]    getObjects()
  * @method  Person|null search($objectID)
  * @property    Person[]    $objects
  */
-class PersonList extends DatabaseObjectList
-{
-}
+class PersonList extends DatabaseObjectList {}

@@ -12,7 +12,6 @@ use wcf\data\person\information\PersonInformationList;
  * @author  Matthias Schmidt
  * @copyright   2001-2021 WoltLab GmbH
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
- * @package WoltLabSuite\Core\Data\Person
  *
  * @method  Person      create()
  * @method  PersonEditor[]  getObjects()
