@@ -24,50 +24,66 @@ In addition to the components used in [part 1](part_1.md), we will use the [obje
 The complete package will have the following file structure (including the files from [part 1](part_1.md)):
 
 ```
-├── acpMenu.xml
 ├── acptemplates
-│   ├── personAdd.tpl
-│   └── personList.tpl
+│   ├── personAdd.tpl
+│   └── personList.tpl
 ├── files
-│   ├── acp
-│   │   └── database
-│   │       └── install_com.woltlab.wcf.people.php
-│   └── lib
-│       ├── acp
-│       │   ├── form
-│       │   │   ├── PersonAddForm.class.php
-│       │   │   └── PersonEditForm.class.php
-│       │   └── page
-│       │       └── PersonListPage.class.php
-│       ├── data
-│       │   └── person
-│       │       ├── Person.class.php
-│       │       ├── PersonAction.class.php
-│       │       ├── PersonEditor.class.php
-│       │       └── PersonList.class.php
-│       ├── page
-│       │   ├── PersonListPage.class.php
-│       │   └── PersonPage.class.php
-│       └── system
-│           ├── cache
-│           │   └── runtime
-│           │       └── PersonRuntimeCache.class.php
-│           ├── comment
-│           │   └── manager
-│           │       └── PersonCommentManager.class.php
-│           └── page
-│               └── handler
-│                   └── PersonPageHandler.class.php
+│   ├── acp
+│   │   └── database
+│   │       └── install_com.woltlab.wcf.people.php
+│   └── lib
+│       ├── acp
+│       │   ├── form
+│       │   │   ├── PersonAddForm.class.php
+│       │   │   └── PersonEditForm.class.php
+│       │   └── page
+│       │       └── PersonListPage.class.php
+│       ├── bootstrap
+│       │   └── com.woltlab.wcf.people.php
+│       ├── data
+│       │   └── person
+│       │       ├── Person.class.php
+│       │       ├── PersonAction.class.php
+│       │       ├── PersonEditor.class.php
+│       │       └── PersonList.class.php
+│       ├── event
+│       │   └── gridView
+│       │       └── admin
+│       │           └── PersonGridViewInitialized.class.php
+│       ├── page
+│       │   ├── PersonListPage.class.php
+│       │   └── PersonPage.class.php
+│       └── system
+│           ├── cache
+│           │   └── runtime
+│           │       └── PersonRuntimeCache.class.php
+│           ├── comment
+│           │   └── manager
+│           │       └── PersonCommentManager.class.php
+│           ├── endpoint
+│           │   └── controller
+│           │       └── core
+│           │           └── persons
+│           │               └── DeletePerson.class.php
+│           ├── gridView
+│           │   └── admin
+│           │       └── PersonGridView.class.php
+│           ├── interaction
+│           │   └── admin
+│           │       └── PersonInteractions.class.php
+│           └── page
+│               └── handler
+│                   └── PersonPageHandler.class.php
 ├── language
-│   ├── de.xml
-│   └── en.xml
+│   ├── de.xml
+│   └── en.xml
 ├── menuItem.xml
 ├── objectType.xml
 ├── package.xml
 ├── page.xml
 ├── templates
-│   ├── person.tpl
-│   └── personList.tpl
+│   ├── person.tpl
+│   └── personList.tpl
 └── userGroupOption.xml
 ```
 
@@ -132,8 +148,8 @@ With this option, comments on individual people can be disabled.
 
 The `PersonPage` class is similar to the `PersonEditForm` in the ACP in that it reads the id of the requested person from the request data and validates the id in `readParameters()`.
 The rest of the code only handles fetching the list of comments on the requested person.
-In `readData()`, this list is fetched using `CommentHandler::getCommentList()` if comments are enabled for the person.
-The `assignVariables()` method assigns some additional template variables like `$commentCanAdd`, which is `1` if the active person can add comments and is `0` otherwise, `$lastCommentTime`, which contains the UNIX timestamp of the last comment, and `$likeData`, which contains data related to the likes for the disabled comments.
+In `readData()`, this list is fetched using a `CommentsView` if comments are enabled for the person.
+The `assignVariables()` method assigns this view as a template variables.
 
 ### `person.tpl`
 
@@ -144,10 +160,7 @@ The `assignVariables()` method assigns some additional template variables like `
 ) }}
 
 For now, the `person` template is still very empty and only shows the comments in the content area.
-The template code shown for comments is very generic and used in this form in many locations as it only sets the header of the comment list and the container `ul#personCommentList` element for the comments shown by `commentList` template.
-The `ul#personCommentList` elements has five additional `data-` attributes required by the JavaScript API for comments for loading more comments or creating new ones.
-The `commentListAddComment` template adds the WYSIWYG support.
-The attribute `wysiwygSelector` should be the id of the comment list `personCommentList` with an additional `AddComment` suffix.
+For the main part of the page we only need to call the `render()` method of the `CommentsView`.
 
 ### `page.xml`
 
