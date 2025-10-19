@@ -41,53 +41,53 @@ The package will have the following file structure:
 
 ```
 ├── acptemplates
-│   ├── personAdd.tpl
-│   └── personList.tpl
+│   ├── personAdd.tpl
+│   └── personList.tpl
 ├── files
-│   ├── acp
-│   │   └── database
-│   │       └── install_com.woltlab.wcf.people.php
-│   └── lib
-│       ├── acp
-│       │   ├── form
-│       │   │   ├── PersonAddForm.class.php
-│       │   │   └── PersonEditForm.class.php
-│       │   └── page
-│       │       └── PersonListPage.class.php
-|       ├── bootstrap
-│       │   └── com.woltlab.wcf.people.php
-│       ├── data
-│       │   └── person
-│       │       ├── Person.class.php
-│       │       ├── PersonAction.class.php
-│       │       ├── PersonEditor.class.php
-│       │       └── PersonList.class.php
-│       ├── event
-│       │   └── gridView
-│       │       └── admin
-│       │           └── PersonGridViewInitialized.class.php
-│       │── page
-│       │   └── PersonListPage.class.php
-│       └── system
-│           ├── endpoint
-│           │   └── controller
-│           │       └── core
-│           │           └── persons
-│           │               └── DeletePerson.class.php
-│           ├── gridView
-│           │   └── admin
-│           │       └── PersonGridView.class.php
-│           └── interaction
-│               └── admin
-│                   └── PersonInteractions.class.php
+│   ├── acp
+│   │   └── database
+│   │       └── install_com.woltlab.wcf.people.php
+│   └── lib
+│       ├── acp
+│       │   ├── form
+│       │   │   ├── PersonAddForm.class.php
+│       │   │   └── PersonEditForm.class.php
+│       │   └── page
+│       │       └── PersonListPage.class.php
+│       ├── bootstrap
+│       │   └── com.woltlab.wcf.people.php
+│       ├── data
+│       │   └── person
+│       │       ├── Person.class.php
+│       │       ├── PersonAction.class.php
+│       │       ├── PersonEditor.class.php
+│       │       └── PersonList.class.php
+│       ├── event
+│       │   └── gridView
+│       │       └── admin
+│       │           └── PersonGridViewInitialized.class.php
+│       ├── page
+│       │   └── PersonListPage.class.php
+│       └── system
+│           ├── endpoint
+│           │   └── controller
+│           │       └── core
+│           │           └── persons
+│           │               └── DeletePerson.class.php
+│           ├── gridView
+│           │   └── admin
+│           │       └── PersonGridView.class.php
+│           └── interaction
+│               └── admin
+│                   └── PersonInteractions.class.php
 ├── language
-│   ├── de.xml
-│   └── en.xml
+│   ├── de.xml
+│   └── en.xml
 ├── menuItem.xml
 ├── package.xml
 ├── page.xml
 ├── templates
-│   └── personList.tpl
+│   └── personList.tpl
 └── userGroupOption.xml
 ```
 

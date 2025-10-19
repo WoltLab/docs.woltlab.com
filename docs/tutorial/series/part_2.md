@@ -40,24 +40,24 @@ The package will have the following file structure:
 ```
 ├── eventListener.xml
 ├── files
-│   ├── acp
-│   │   └── database
-│   │       └── install_com.woltlab.wcf.people.birthday.php
-│   └── lib
-│       ├── bootstrap
-│       │   └── com.woltlab.wcf.people.birthday.php
-│       └── system
-│           └── event
-│               └── listener
-│                   └── BirthdayPersonAddFormListener.class.php
+│   ├── acp
+│   │   └── database
+│   │       └── install_com.woltlab.wcf.people.birthday.php
+│   └── lib
+│       ├── bootstrap
+│       │   └── com.woltlab.wcf.people.birthday.php
+│       └── system
+│           └── event
+│               └── listener
+│                   └── BirthdayPersonAddFormListener.class.php
 ├── language
-│   ├── de.xml
-│   └── en.xml
+│   ├── de.xml
+│   └── en.xml
 ├── package.xml
 ├── templateListener.xml
-└── templates
-    ├── __personListBirthday.tpl
-    └── __personListBirthdaySortField.tpl
+├── templates
+│   ├── __personListBirthday.tpl
+│   └── __personListBirthdaySortField.tpl
 ```
 
 
