@@ -4,6 +4,7 @@ namespace wcf\system\gridView\admin;
 
 use wcf\acp\form\PersonEditForm;
 use wcf\data\person\PersonList;
+use wcf\event\gridView\admin\PersonGridViewInitialized;
 use wcf\system\gridView\AbstractGridView;
 use wcf\system\gridView\GridViewColumn;
 use wcf\system\gridView\GridViewRowLink;
@@ -61,5 +62,11 @@ final class PersonGridView extends AbstractGridView
     protected function createObjectList(): PersonList
     {
         return new PersonList();
+    }
+
+    #[\Override]
+    protected function getInitializedEvent(): PersonGridViewInitialized
+    {
+        return new PersonGridViewInitialized($this);
     }
 }

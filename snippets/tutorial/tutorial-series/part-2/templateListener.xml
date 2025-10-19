@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/tornado/5.4/templateListener.xsd">
 	<import>
-		<!-- admin -->
-		<templatelistener name="personListBirthdayColumnHead">
-			<eventname>columnHeads</eventname>
-			<environment>admin</environment>
-			<templatecode><![CDATA[<th class="columnDate columnBirthday{if $sortField == 'birthday'} active {$sortOrder}{/if}"><a href="{link controller='PersonList'}pageNo={$pageNo}&sortField=birthday&sortOrder={if $sortField == 'birthday' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.person.birthday{/lang}</a></th>]]></templatecode>
-			<templatename>personList</templatename>
-		</templatelistener>
-		<templatelistener name="personListBirthdayColumn">
-			<eventname>columns</eventname>
-			<environment>admin</environment>
-			<templatecode><![CDATA[<td class="columnDate columnBirthday">{if $person->birthday}{$person->birthday}{/if}</td>]]></templatecode>
-			<templatename>personList</templatename>
-		</templatelistener>
-		<!-- /admin -->
-		
 		<!-- user -->
 		<templatelistener name="personListBirthday">
 			<eventname>personStatistics</eventname>

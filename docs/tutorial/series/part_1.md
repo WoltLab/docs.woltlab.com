@@ -62,6 +62,10 @@ The package will have the following file structure:
 │       │       ├── PersonAction.class.php
 │       │       ├── PersonEditor.class.php
 │       │       └── PersonList.class.php
+│       ├── event
+│       │   └── gridView
+│       │       └── admin
+│       │           └── PersonGridViewInitialized.class.php
 │       │── page
 │       │   └── PersonListPage.class.php
 │       └── system
