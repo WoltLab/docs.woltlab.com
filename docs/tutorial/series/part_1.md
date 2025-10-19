@@ -55,15 +55,27 @@ The package will have the following file structure:
 │       │   └── page
 │       │       └── PersonListPage.class.php
 |       ├── bootstrap
-│           └── com.woltlab.wcf.people.php
+│       │   └── com.woltlab.wcf.people.php
 │       ├── data
 │       │   └── person
 │       │       ├── Person.class.php
 │       │       ├── PersonAction.class.php
 │       │       ├── PersonEditor.class.php
 │       │       └── PersonList.class.php
-│       └── page
-│           └── PersonListPage.class.php
+│       │── page
+│       │   └── PersonListPage.class.php
+│       └── system
+│           ├── endpoint
+│           │   └── controller
+│           │       └── core
+│           │           └── persons
+│           │               └── DeletePerson.class.php
+│           ├── gridView
+│           │   └── admin
+│           │       └── PersonGridView.class.php
+│           └── interaction
+│               └── admin
+│                   └── PersonInteractions.class.php
 ├── language
 │   ├── de.xml
 │   └── en.xml
