@@ -18,7 +18,6 @@ The package should provide the following possibilities/functions:
 We will use the following package installation plugins:
 
 - [acpTemplate package installation plugin](../../package/pip/acp-template.md),
-- [acpMenu package installation plugin](../../package/pip/acp-menu.md),
 - [database package installation plugin](../../package/pip/database.md),
 - [file package installation plugin](../../package/pip/file.md),
 - [language package installation plugin](../../package/pip/language.md),
@@ -27,7 +26,13 @@ We will use the following package installation plugins:
 - [template package installation plugin](../../package/pip/template.md),
 - [userGroupOption package installation plugin](../../package/pip/user-group-option.md),
 
-use [database objects](../../php/database-objects.md), create [pages](../../php/pages.md) and use [templates](../../view/templates.md).
+In addition, we use the following features:
+
+- [ACP menu items](../../package/acp-menu-items.md)
+- [bootstrap scripts](../../package/bootstrap-scripts.md)
+- [database objects](../../php/database-objects.md)
+- [pages](../../php/pages.md)
+- [templates](../../view/templates.md)
 
 
 ## Package Structure
@@ -35,7 +40,6 @@ use [database objects](../../php/database-objects.md), create [pages](../../php/
 The package will have the following file structure:
 
 ```
-├── acpMenu.xml
 ├── acptemplates
 │   ├── personAdd.tpl
 │   └── personList.tpl
@@ -50,6 +54,8 @@ The package will have the following file structure:
 │       │   │   └── PersonEditForm.class.php
 │       │   └── page
 │       │       └── PersonListPage.class.php
+|       ├── bootstrap
+│           └── com.woltlab.wcf.people.php
 │       ├── data
 │       │   └── person
 │       │       ├── Person.class.php
@@ -163,10 +169,12 @@ We need to create three menu items:
 1. a third level menu item for the people list page, and
 1. a fourth level menu item for the form to add new people.
 
+We create the [menu entries](../../package/acp-menu-items.md) using a [bootstrap script](../../package/bootstrap-scripts.md):
+
 {jinja{ codebox(
-  title="acpMenu.xml",
-  language="xml",
-  filepath="tutorial/tutorial-series/part-1/acpMenu.xml"
+  title="files/lib/bootstrap/com.woltlab.wcf.people.php",
+  language="php",
+  filepath="tutorial/tutorial-series/part-1/files/lib/bootstrap/com.woltlab.wcf.people.php"
 ) }}
 
 We choose `wcf.acp.menu.link.content` as the parent menu item for the first menu item `wcf.acp.menu.link.person` because the people we are managing is just one form of content.
