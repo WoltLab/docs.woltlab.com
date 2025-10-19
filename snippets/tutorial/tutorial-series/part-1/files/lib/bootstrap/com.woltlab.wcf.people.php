@@ -3,6 +3,7 @@
 use wcf\acp\form\PersonAddForm;
 use wcf\acp\page\PersonListPage;
 use wcf\event\acp\menu\item\ItemCollecting;
+use wcf\event\endpoint\ControllerCollecting;
 use wcf\system\event\EventHandler;
 use wcf\system\menu\acp\AcpMenuItem;
 use wcf\system\request\LinkHandler;
@@ -32,6 +33,13 @@ return static function (): void {
                 link: LinkHandler::getInstance()->getControllerLink(PersonAddForm::class),
                 icon: FontAwesomeIcon::fromValues('plus')
             ));
+        }
+    );
+
+    EventHandler::getInstance()->register(
+        ControllerCollecting::class,
+        static function (ControllerCollecting $event) {
+            $event->register(new \wcf\system\endpoint\controller\core\persons\DeletePerson());
         }
     );
 };

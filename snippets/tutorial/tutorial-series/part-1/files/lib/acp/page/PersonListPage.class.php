@@ -2,18 +2,19 @@
 
 namespace wcf\acp\page;
 
-use wcf\data\person\PersonList;
-use wcf\page\SortablePage;
+use wcf\page\AbstractGridViewPage;
+use wcf\system\gridView\admin\PersonGridView;
 
 /**
  * Shows the list of people.
  *
- * @author  Matthias Schmidt
- * @copyright   2001-2021 WoltLab GmbH
- * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
- * @package WoltLabSuite\Core\Acp\Page
+ * @author      Matthias Schmidt
+ * @copyright   2001-2025 WoltLab GmbH
+ * @license     GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
+ *
+ * @extends AbstractGridViewPage<PersonGridView>
  */
-class PersonListPage extends SortablePage
+class PersonListPage extends AbstractGridViewPage
 {
     /**
      * @inheritDoc
@@ -25,13 +26,9 @@ class PersonListPage extends SortablePage
      */
     public $neededPermissions = ['admin.content.canManagePeople'];
 
-    /**
-     * @inheritDoc
-     */
-    public $objectListClassName = PersonList::class;
-
-    /**
-     * @inheritDoc
-     */
-    public $validSortFields = ['personID', 'firstName', 'lastName'];
+    #[\Override]
+    protected function createGridView(): PersonGridView
+    {
+        return new PersonGridView();
+    }
 }
