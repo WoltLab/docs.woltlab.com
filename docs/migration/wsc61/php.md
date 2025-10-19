@@ -67,6 +67,7 @@ class TaggableExample extends AbstractTaggedListViewProvider
 
 The following pages have been migrated to grid views.
 Plugins that have been hooked into these pages via event or template listeners must be adapted accordingly.
+An example how to add additional columns to an existing grid view can be found in the [grid view documentation](../../php/api/grid_views.md#events).
 
 - `calendar\acp\page\EventImportListPage`
 - `filebase\acp\page\LicenseListPage`
@@ -121,6 +122,7 @@ Plugins that have been hooked into these pages via event or template listeners m
 
 The following pages have been migrated to list views.
 Plugins that have been hooked into these pages via event or template listeners must be adapted accordingly.
+An example how to add additional sort fields can be found in the [list view documentation](../../php/api/list_views.md#events).
 
 - `blog\page\BlogEntryListPage`
 - `blog\page\BlogListPage`
