@@ -149,7 +149,7 @@ With this option, comments on individual people can be disabled.
 The `PersonPage` class is similar to the `PersonEditForm` in the ACP in that it reads the id of the requested person from the request data and validates the id in `readParameters()`.
 The rest of the code only handles fetching the list of comments on the requested person.
 In `readData()`, this list is fetched using a `CommentsView` if comments are enabled for the person.
-The `assignVariables()` method assigns this view as a template variables.
+The `assignVariables()` method assigns this view as a template variable.
 
 ### `person.tpl`
 

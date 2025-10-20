@@ -198,7 +198,7 @@ The fourth level menu item `wcf.acp.menu.link.person.add` will only be shown as 
 
 ### People List
 
-To list the people in the ACP, we need the classes `PersonListPage` and `PersonGridView` and a `personList` template.
+To list the people in the ACP, we need the classes `PersonListPage`, `PersonGridView`, and a `personList` template.
 
 #### `PersonListPage`
 
@@ -226,7 +226,7 @@ To list the people in the ACP, we need the classes `PersonListPage` and `PersonG
 The following features are defined in the grid view:
 
 1. The columns to be displayed and their order.
-1. Which columns can be sorted and what the default sorting is.
+1. Which columns can be sorted and what their default sorting is.
 1. What interaction options the user has with the displayed items.
 
 #### `personList.tpl`

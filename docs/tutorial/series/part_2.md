@@ -119,7 +119,7 @@ The language item `wcf.person.birthday` used in the label is the only new one fo
 
 ## Adding Birthday Table Column in ACP
 
-To add a birthday column to the person list page in the ACP, we need to listener to the `PersonGridViewInitialized` event and add the additional column:
+To add a birthday column to the person list page in the ACP, we need to listen to the `PersonGridViewInitialized` event and add the additional column:
 
 {jinja{ codebox(
   title="files/lib/bootstrap/com.woltlab.wcf.people.birthday.php",
