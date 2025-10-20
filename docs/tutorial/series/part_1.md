@@ -18,7 +18,6 @@ The package should provide the following possibilities/functions:
 We will use the following package installation plugins:
 
 - [acpTemplate package installation plugin](../../package/pip/acp-template.md),
-- [acpMenu package installation plugin](../../package/pip/acp-menu.md),
 - [database package installation plugin](../../package/pip/database.md),
 - [file package installation plugin](../../package/pip/file.md),
 - [language package installation plugin](../../package/pip/language.md),
@@ -27,7 +26,13 @@ We will use the following package installation plugins:
 - [template package installation plugin](../../package/pip/template.md),
 - [userGroupOption package installation plugin](../../package/pip/user-group-option.md),
 
-use [database objects](../../php/database-objects.md), create [pages](../../php/pages.md) and use [templates](../../view/templates.md).
+In addition, we use the following features:
+
+- [ACP menu items](../../package/acp-menu-items.md)
+- [bootstrap scripts](../../package/bootstrap-scripts.md)
+- [database objects](../../php/database-objects.md)
+- [pages](../../php/pages.md)
+- [templates](../../view/templates.md)
 
 
 ## Package Structure
@@ -35,37 +40,54 @@ use [database objects](../../php/database-objects.md), create [pages](../../php/
 The package will have the following file structure:
 
 ```
-├── acpMenu.xml
 ├── acptemplates
-│   ├── personAdd.tpl
-│   └── personList.tpl
+│   ├── personAdd.tpl
+│   └── personList.tpl
 ├── files
-│   ├── acp
-│   │   └── database
-│   │       └── install_com.woltlab.wcf.people.php
-│   └── lib
-│       ├── acp
-│       │   ├── form
-│       │   │   ├── PersonAddForm.class.php
-│       │   │   └── PersonEditForm.class.php
-│       │   └── page
-│       │       └── PersonListPage.class.php
-│       ├── data
-│       │   └── person
-│       │       ├── Person.class.php
-│       │       ├── PersonAction.class.php
-│       │       ├── PersonEditor.class.php
-│       │       └── PersonList.class.php
-│       └── page
-│           └── PersonListPage.class.php
+│   ├── acp
+│   │   └── database
+│   │       └── install_com.woltlab.wcf.people.php
+│   └── lib
+│       ├── acp
+│       │   ├── form
+│       │   │   ├── PersonAddForm.class.php
+│       │   │   └── PersonEditForm.class.php
+│       │   └── page
+│       │       └── PersonListPage.class.php
+│       ├── bootstrap
+│       │   └── com.woltlab.wcf.people.php
+│       ├── data
+│       │   └── person
+│       │       ├── Person.class.php
+│       │       ├── PersonAction.class.php
+│       │       ├── PersonEditor.class.php
+│       │       └── PersonList.class.php
+│       ├── event
+│       │   └── gridView
+│       │       └── admin
+│       │           └── PersonGridViewInitialized.class.php
+│       ├── page
+│       │   └── PersonListPage.class.php
+│       └── system
+│           ├── endpoint
+│           │   └── controller
+│           │       └── core
+│           │           └── persons
+│           │               └── DeletePerson.class.php
+│           ├── gridView
+│           │   └── admin
+│           │       └── PersonGridView.class.php
+│           └── interaction
+│               └── admin
+│                   └── PersonInteractions.class.php
 ├── language
-│   ├── de.xml
-│   └── en.xml
+│   ├── de.xml
+│   └── en.xml
 ├── menuItem.xml
 ├── package.xml
 ├── page.xml
 ├── templates
-│   └── personList.tpl
+│   └── personList.tpl
 └── userGroupOption.xml
 ```
 
@@ -163,10 +185,12 @@ We need to create three menu items:
 1. a third level menu item for the people list page, and
 1. a fourth level menu item for the form to add new people.
 
+We create the [menu entries](../../package/acp-menu-items.md) using a [bootstrap script](../../package/bootstrap-scripts.md):
+
 {jinja{ codebox(
-  title="acpMenu.xml",
-  language="xml",
-  filepath="tutorial/tutorial-series/part-1/acpMenu.xml"
+  title="files/lib/bootstrap/com.woltlab.wcf.people.php",
+  language="php",
+  filepath="tutorial/tutorial-series/part-1/files/lib/bootstrap/com.woltlab.wcf.people.php"
 ) }}
 
 We choose `wcf.acp.menu.link.content` as the parent menu item for the first menu item `wcf.acp.menu.link.person` because the people we are managing is just one form of content.
@@ -174,7 +198,7 @@ The fourth level menu item `wcf.acp.menu.link.person.add` will only be shown as 
 
 ### People List
 
-To list the people in the ACP, we need a `PersonListPage` class and a `personList` template.
+To list the people in the ACP, we need the classes `PersonListPage`, `PersonGridView`, and a `personList` template.
 
 #### `PersonListPage`
 
@@ -184,13 +208,26 @@ To list the people in the ACP, we need a `PersonListPage` class and a `personLis
   filepath="tutorial/tutorial-series/part-1/files/lib/acp/page/PersonListPage.class.php"
 ) }}
 
-As WoltLab Suite Core already provides a powerful default implementation of a sortable page, our work here is minimal:
+`PersonListPage` uses a [grid view](../../php/api/grid_views.md) to display the list of people, our work here is minimal:
 
 1. We need to set the active ACP menu item via the `$activeMenuItem`.
 1. `$neededPermissions` contains a list of permissions of which the user needs to have at least one in order to see the person list.
    We use the same permission for both the menu item and the page.
-1. The database object list class whose name is provided via `$objectListClassName` and that handles fetching the people from database is the `PersonList` class, which we have already created.
-1. To validate the sort field passed with the request, we set `$validSortFields` to the available database table columns.
+1. Implement the method `createGridView()` and return the grid view that should be used to render the list of people.
+
+#### `PersonGridView`
+
+{jinja{ codebox(
+  title="files/lib/system/gridView/admin/PersonGridView.class.php",
+  language="php",
+  filepath="tutorial/tutorial-series/part-1/files/lib/system/gridView/admin/PersonGridView.class.php"
+) }}
+
+The following features are defined in the grid view:
+
+1. The columns to be displayed and their order.
+1. Which columns can be sorted and what their default sorting is.
+1. What interaction options the user has with the displayed items.
 
 #### `personList.tpl`
 
@@ -207,17 +244,7 @@ We will go piece by piece through the template code:
 1. We set the content header and additional provide a button to create a new person in the content header navigation.
 1. As not all people are listed on the same page if many people have been created, we need a pagination for which we use the `pages` template plugin.
    The `{hascontent}{content}{/content}{/hascontent}` construct ensures the `.paginationTop` element is only shown if the `pages` template plugin has a return value, thus if a pagination is necessary.
-1. Now comes the main part of the page, the list of the people, which will only be displayed if any people exist.
-   Otherwise, an info box is displayed using the generic `wcf.global.noItems` language item.
-   The `$objects` template variable is automatically assigned by `wcf\page\MultipleLinkPage` and contains the `PersonList` object used to read the people from database.
-   The table itself consists of a `thead` and a `tbody` element and is extendable with more columns using the template events `columnHeads` and `columns`.
-   In general, every table should provide these events.
-   The default structure of a table is used here so that the first column of the content rows contains icons to edit and to delete the row (and provides another standard event `rowButtons`) and that the second column contains the ID of the person.
-   The table can be sorted by clicking on the head of each column.
-   The used variables `$sortField` and `$sortOrder` are automatically assigned to the template by `SortablePage`.
-1. The `.contentFooter` element is only shown if people exist as it basically repeats the `.contentHeaderNavigation` and `.paginationTop` element.
-1. The delete button for each person shown in the `.columnIcon` element relies on the global [`WoltLabSuite/Core/Ui/Object/Action`](../../migration/wsc53/javascript.md#wcfactiondelete-and-wcfactiontoggle) module which only requires the `jsObjectActionContainer` CSS class in combination with the `data-object-action-class-name` attribute for the `table` element, the `jsObjectActionObject` CSS class for each person's `tr` element in combination with the `data-object-id` attribute, and lastly the delete button itself, which is created with the [`objectAction` template plugin](../../view/template-plugins.md#view/template-plugins/#54-objectaction).
-1. The [`.jsReloadPageWhenEmpty` CSS class](../../migration/wsc53/javascript.md#wcftableemptytablehandler) on the `tbody` element ensures that once all persons on the page have been deleted, the page is reloaded.
+1. For the main part of the page we only need to call the `render()` method of the grid view.
 1. Lastly, the `footer` template is included that terminates the page.
    You also have to include this template for every page!
 

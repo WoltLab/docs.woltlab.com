@@ -40,23 +40,24 @@ The package will have the following file structure:
 ```
 ├── eventListener.xml
 ├── files
-│   ├── acp
-│   │   └── database
-│   │       └── install_com.woltlab.wcf.people.birthday.php
-│   └── lib
-│       └── system
-│           └── event
-│               └── listener
-│                   ├── BirthdayPersonAddFormListener.class.php
-│                   └── BirthdaySortFieldPersonListPageListener.class.php
+│   ├── acp
+│   │   └── database
+│   │       └── install_com.woltlab.wcf.people.birthday.php
+│   └── lib
+│       ├── bootstrap
+│       │   └── com.woltlab.wcf.people.birthday.php
+│       └── system
+│           └── event
+│               └── listener
+│                   └── BirthdayPersonAddFormListener.class.php
 ├── language
-│   ├── de.xml
-│   └── en.xml
+│   ├── de.xml
+│   └── en.xml
 ├── package.xml
 ├── templateListener.xml
-└── templates
-    ├── __personListBirthday.tpl
-    └── __personListBirthdaySortField.tpl
+├── templates
+│   ├── __personListBirthday.tpl
+│   └── __personListBirthdaySortField.tpl
 ```
 
 
@@ -118,34 +119,13 @@ The language item `wcf.person.birthday` used in the label is the only new one fo
 
 ## Adding Birthday Table Column in ACP
 
-To add a birthday column to the person list page in the ACP, we need three parts:
-
-1. an event listener that makes the `birthday` database table column a valid sort field,
-1. a template listener that adds the birthday column to the table’s head, and
-1. a template listener that adds the birthday column to the table’s rows.
-
-The first part is a very simple class:
+To add a birthday column to the person list page in the ACP, we need to listen to the `PersonGridViewInitialized` event and add the additional column:
 
 {jinja{ codebox(
-  title="files/lib/system/event/listener/BirthdaySortFieldPersonListPageListener.class.php",
+  title="files/lib/bootstrap/com.woltlab.wcf.people.birthday.php",
   language="php",
-  filepath="tutorial/tutorial-series/part-2/files/lib/system/event/listener/BirthdaySortFieldPersonListPageListener.class.php"
+  filepath="tutorial/tutorial-series/part-2/files/lib/bootstrap/com.woltlab.wcf.people.birthday.php"
 ) }}
-
-!!! info "We use `SortablePage` as a type hint instead of `wcf\acp\page\PersonListPage` because we will be using the same event listener class in the front end to also allow sorting that list by birthday."
-
-As the relevant template codes are only one line each, we will simply put them directly in the `templateListener.xml` file that will be shown [later on](#templatelistenerxml).
-The code for the table head is similar to the other `th` elements:
-
-```smarty
-<th class="columnDate columnBirthday{if $sortField == 'birthday'} active {$sortOrder}{/if}"><a href="{link controller='PersonList'}pageNo={$pageNo}&sortField=birthday&sortOrder={if $sortField == 'birthday' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.person.birthday{/lang}</a></th>
-```
-
-For the table body’s column, we need to make sure that the birthday is only show if it is actually set:
-
-```smarty
-<td class="columnDate columnBirthday">{if $person->birthday}{$person->birthday}{/if}</td>
-```
 
 
 ## Adding Birthday in Front End

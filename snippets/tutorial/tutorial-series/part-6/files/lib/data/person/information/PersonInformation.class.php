@@ -17,7 +17,6 @@ use wcf\util\StringUtil;
  * @author  Matthias Schmidt
  * @copyright   2001-2021 WoltLab GmbH
  * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
- * @package WoltLabSuite\Core\Data\Person\Information
  *
  * @property-read   int         $informationID  unique id of the information
  * @property-read   int         $personID       id of the person the information belongs to
