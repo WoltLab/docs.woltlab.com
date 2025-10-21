@@ -273,6 +273,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 
 ### JavaScript
 
+- `Calendar.Event.LabelChooser`
 - `WCF.ACP.Category.Collapsible` ([WoltLab/WCF#6298](https://github.com/WoltLab/WCF/pull/6298))
 - `WCF.ACP.Cronjob.LogList` ([WoltLab/WCF#6077](https://github.com/WoltLab/WCF/pull/6077))
 - `WCF.ACP.Language.ItemList` ([WoltLab/WCF#6129](https://github.com/WoltLab/WCF/pull/6129))
