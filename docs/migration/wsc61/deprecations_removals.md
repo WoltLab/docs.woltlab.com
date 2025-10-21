@@ -150,6 +150,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `WCF.Message.I18nPreview` ([WoltLab/WCF#6114](https://github.com/WoltLab/WCF/pull/6114))
 - `WCF.Message.Multilingualism`
 - `WCF.Message.Preview` ([WoltLab/WCF#6114](https://github.com/WoltLab/WCF/pull/6114))
+- `WCF.Message.Quote.Handler` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `WCF.Message.Quote.Manager` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `WCF.Message.SmileyCategories` ([WoltLab/WCF#6115](https://github.com/WoltLab/WCF/pull/6115/))
 - `WCF.Message.Submit`
