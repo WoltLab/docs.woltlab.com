@@ -3275,6 +3275,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#user-profile-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Profile Header
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Profile Header">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-content-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Content Links
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#deleted-content-provider" class="md-nav__link">
     <span class="md-ellipsis">
       Deleted Content Provider
@@ -4796,6 +4838,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#user-profile-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Profile Header
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Profile Header">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-content-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Content Links
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#deleted-content-provider" class="md-nav__link">
     <span class="md-ellipsis">
       Deleted Content Provider
@@ -4890,6 +4974,99 @@ that returns a suitable <code>ImageData</code> object.</p>
 <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setLink</span><span class="p">(</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">());</span>
 <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setImage</span><span class="p">(</span><span class="k">new</span> <span class="nx">ImageData</span><span class="p">(</span><span class="s1">&#39;image_src&#39;</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">));</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="user-profile-header">User Profile Header<a class="headerlink" href="#user-profile-header" title="Permanent link">#</a></h2>
+<p>The header in the user profile has been completely overhauled.
+Main goal of this change is the overhaul of the visuals of the user profile header.
+At the same time, the use of a view removes a lot of business logic from the templates and simplifies extensibility through a clear API.</p>
+<h3 id="stats">Stats<a class="headerlink" href="#stats" title="Permanent link">#</a></h3>
+<p>You can add your own counters to the user profile header via a dedicated event. The use of template listeners is no longer necessary.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span>
+    <span class="nx">\wcf\event\user\profile\UserProfileStatItemCollecting</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">\wcf\event\user\profile\UserProfileStatItemCollecting</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">user</span><span class="o">-&gt;</span><span class="na">exampleCounter</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">\wcf\system\view\user\profile\UserProfileStatItem</span><span class="o">::</span><span class="na">forLink</span><span class="p">(</span>
+                <span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;phrase.exampleCounter&#39;</span><span class="p">),</span>
+                <span class="nx">StringUtil</span><span class="o">::</span><span class="na">formatNumeric</span><span class="p">(</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">user</span><span class="o">-&gt;</span><span class="na">exampleCounter</span><span class="p">),</span>
+                <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getControllerLink</span><span class="p">(</span>
+                    <span class="nx">\example\page\ExampleListPage</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+                    <span class="p">[</span><span class="s1">&#39;object&#39;</span> <span class="o">=&gt;</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">user</span><span class="p">]</span>
+                <span class="p">)</span>
+            <span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="search-content-links">Search Content Links<a class="headerlink" href="#search-content-links" title="Permanent link">#</a></h3>
+<p>Additional links for searching for content can also be added via a dedicated event. </p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span>
+    <span class="nx">\wcf\event\user\profile\UserProfileHeaderSearchContentLinkCollecting</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">\wcf\event\user\profile\UserProfileHeaderSearchContentLinkCollecting</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">user</span><span class="o">-&gt;</span><span class="na">exampleCounter</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="k">new</span> <span class="nx">\wcf\system\view\user\profile\UserProfileHeaderViewSearchContentLink</span><span class="p">(</span>
+                <span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;phrase.exampleCounter&#39;</span><span class="p">),</span>
+                <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getControllerLink</span><span class="p">(</span>
+                    <span class="nx">\example\page\ExampleListPage</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+                    <span class="p">[</span><span class="s1">&#39;object&#39;</span> <span class="o">=&gt;</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">user</span><span class="p">]</span>
+                <span class="p">)</span>
+            <span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="interactions">Interactions<a class="headerlink" href="#interactions" title="Permanent link">#</a></h3>
+<p>Two different interaction menus are available in the user profile header.
+Corresponding events are available for both menus to add custom menu items.
+An example of this can be found in the <a href="../../../php/api/interactions/#events">interaction documentation</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Class Name</th>
+<th>Event Class Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>General interactions.</td>
+<td><code>UserProfileInteractions</code></td>
+<td><code>UserProfileInteractionCollecting</code></td>
+</tr>
+<tr>
+<td>Administrative interactions</td>
+<td><code>UserManagementInteractions</code></td>
+<td><code>UserManagementInteractionCollecting</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="deleted-content-provider">Deleted Content Provider<a class="headerlink" href="#deleted-content-provider" title="Permanent link">#</a></h2>
 <p>A new interface <a href="https://github.com/WoltLab/WCF/blob/6.2/wcfsetup/install/files/lib/system/moderation/IDeletedContentListViewProvider.class.php"><code>IDeletedContentListViewProvider</code></a> for displaying deleted content in the moderator panel based on a <a href="../../../php/api/list_views/">list view</a> has been added.</p>
 <p>An abstract implementation of the interface is also available: <a href="https://github.com/WoltLab/WCF/blob/6.2/wcfsetup/install/files/lib/system/moderation/AbstractDeletedContentListViewProvider.class.php"><code>AbstractDeletedContentListViewProvider</code></a></p>
@@ -5092,7 +5269,7 @@ Plugins that have been hooked into these forms via event or template listeners m
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2025-10-19
+    2025-10-24
   </span>
 
     
