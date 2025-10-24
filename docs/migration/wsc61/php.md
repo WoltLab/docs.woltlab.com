@@ -25,6 +25,71 @@ $event->setLink($object->getLink());
 $event->setImage(new ImageData('image_src', 800, 600));
 ```
 
+## User Profile Header
+
+The header in the user profile has been completely overhauled.
+Main goal of this change is the overhaul of the visuals of the user profile header.
+At the same time, the use of a view removes a lot of business logic from the templates and simplifies extensibility through a clear API.
+
+### Stats
+
+You can add your own counters to the user profile header via a dedicated event. The use of template listeners is no longer necessary.
+
+Example:
+
+```php
+EventHandler::getInstance()->register(
+    \wcf\event\user\profile\UserProfileStatItemCollecting::class,
+    static function (\wcf\event\user\profile\UserProfileStatItemCollecting $event) {
+        if ($event->user->exampleCounter) {
+            $event->register(\wcf\system\view\user\profile\UserProfileStatItem::forLink(
+                WCF::getLanguage()->get('phrase.exampleCounter'),
+                StringUtil::formatNumeric($event->user->exampleCounter),
+                LinkHandler::getInstance()->getControllerLink(
+                    \example\page\ExampleListPage::class,
+                    ['object' => $event->user]
+                )
+            ));
+        }
+    }
+);
+```
+
+### Search Content Links
+
+Additional links for searching for content can also be added via a dedicated event. 
+
+Example:
+
+```php
+EventHandler::getInstance()->register(
+    \wcf\event\user\profile\UserProfileHeaderSearchContentLinkCollecting::class,
+    static function (\wcf\event\user\profile\UserProfileHeaderSearchContentLinkCollecting $event) {
+        if ($event->user->exampleCounter) {
+            $event->register(new \wcf\system\view\user\profile\UserProfileHeaderViewSearchContentLink(
+                WCF::getLanguage()->get('phrase.exampleCounter'),
+                LinkHandler::getInstance()->getControllerLink(
+                    \example\page\ExampleListPage::class,
+                    ['object' => $event->user]
+                )
+            ));
+        }
+    }
+);
+```
+
+### Interactions
+
+Two different interaction menus are available in the user profile header.
+Corresponding events are available for both menus to add custom menu items.
+An example of this can be found in the [interaction documentation](../../php/api/interactions.md#events).
+
+| Type                        | Class Name                   | Event Class Name                      |
+|-----------------------------|------------------------------|---------------------------------------|
+| General interactions.       | `UserProfileInteractions`    | `UserProfileInteractionCollecting`    |
+| Administrative interactions | `UserManagementInteractions` | `UserManagementInteractionCollecting` |
+
+
 ## Deleted Content Provider
 
 A new interface [`IDeletedContentListViewProvider`](https://github.com/WoltLab/WCF/blob/6.2/wcfsetup/install/files/lib/system/moderation/IDeletedContentListViewProvider.class.php) for displaying deleted content in the moderator panel based on a [list view](../../php/api/list_views.md) has been added.
