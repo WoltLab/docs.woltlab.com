@@ -308,6 +308,83 @@ class ExampleGridView extends AbstractGridView
 Grid Views and List Views share the same filters.
 A complete list of available filters can be found in the [List View documentation](list_views.md#filtering).
 
+## Customization
+
+### Number of Items
+
+By default, grid views use a pagination that shows 20 rows per page. You can set a custom number of rows per page:
+
+```php
+class ExampleGridView extends AbstractGridView
+{
+    public function __construct()
+    {
+        $this->setRowsPerPage(50);
+    }
+}
+```
+
+
+### Additional Parameters
+
+A grid view can be provided with additional parameters, e.g. to filter them by a specific category:
+
+```php
+class ExampleGridView extends AbstractGridView
+{
+    public function __construct(public readonly int $categoryID)
+    {
+        parent::__construct();
+    }
+
+    #[\Override]
+    protected function createObjectList(): DatabaseObjectList
+    {
+        $list = new ExampleList();
+        $list->getConditionBuilder()->add('categoryID = ?', [$this->categoryID]);
+
+        return $list;
+    }
+
+    #[\Override]
+    public function getParameters(): array
+    {
+        return ['categoryID' => $this->categoryID];
+    }
+}
+```
+
+```php
+class ExampleListPage extends AbstractGridViewPage
+{
+    public int $categoryID = 0;
+
+    #[\Override]
+    public function readParameters()
+    {
+        parent::readParameters();
+        
+        if (isset($_REQUEST['categoryID'])) {
+            $this->categoryID = \intval($_REQUEST['categoryID']);
+        }
+    }
+
+    #[\Override]
+    protected function createGridView(): AbstractGridView
+    {
+        return new ExampleGridView($this->categoryID);
+    }
+
+    #[\Override]
+    protected function getBaseUrlParameters(): array
+    {
+        return [
+            'categoryID' => $this->categoryID,
+        ];
+    }
+}
+```
+
 ## Events
 
 Existing grid views can be modified using events.

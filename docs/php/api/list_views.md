@@ -359,11 +359,11 @@ class ExampleListPage extends AbstractListViewPage
     #[\Override]
     public function readParameters()
     {
+        parent::readParameters();
+        
         if (isset($_REQUEST['categoryID'])) {
             $this->categoryID = \intval($_REQUEST['categoryID']);
         }
-
-        parent::readParameters();
     }
 
     #[\Override]
