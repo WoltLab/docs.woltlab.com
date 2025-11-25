@@ -121,6 +121,25 @@ Every endpoint needs to implement `wcf\system\endpoint\IController` which define
 Any endpoint can only ever serve a single verb, registered through the use of the `wcf\system\endpoint\GetRequest`, `wcf\system\endpoint\PostRequest` or `wcf\system\endpoint\DeleteRequest` class attribute.
 The attribute expects a single parameter to define the endpoint’s route.
 
+## Registering of an Endpoint
+
+Custom endpoints can be registered via the `ControllerCollecting` event in the [bootstrap script](../../package/bootstrap-scripts.md) of a package.
+
+Example:
+
+```php title="files/lib/bootstrap/com.example.bar.php"
+<?php
+return static function (): void {
+    \wcf\system\event\EventHandler::getInstance()->register(
+        \wcf\event\endpoint\ControllerCollecting::class,
+        static function (\wcf\event\endpoint\ControllerCollecting $event) {
+            $event->register(new \wcf\system\endpoint\controller\foo\bar\DeleteFooBar());
+        }
+    );
+};
+```
+
+
 ### Placeholders
 
 The route implementation uses [FastRoute](https://github.com/nikic/FastRoute) which supports named placeholders through the `{name}` syntax. Optionally, a validation pattern can be specified to further narrow down the valid value of the placeholder: `{id:\d+}`
