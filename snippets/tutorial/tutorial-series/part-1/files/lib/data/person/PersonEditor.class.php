@@ -7,13 +7,12 @@ use wcf\data\DatabaseObjectEditor;
 /**
  * Provides functions to edit people.
  *
- * @author  Matthias Schmidt
+ * @author      Matthias Schmidt
  * @copyright   2001-2021 WoltLab GmbH
- * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
+ * @license     GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  *
- * @method static   Person  create(array $parameters = [])
- * @method      Person  getDecoratedObject()
- * @mixin       Person
+ * @mixin   Person
+ * @extends DatabaseObjectEditor<Person>
  */
 class PersonEditor extends DatabaseObjectEditor
 {

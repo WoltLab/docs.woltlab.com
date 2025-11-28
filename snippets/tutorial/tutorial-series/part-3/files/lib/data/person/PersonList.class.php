@@ -7,13 +7,10 @@ use wcf\data\DatabaseObjectList;
 /**
  * Represents a list of people.
  *
- * @author  Matthias Schmidt
+ * @author      Matthias Schmidt
  * @copyright   2001-2021 WoltLab GmbH
- * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
+ * @license     GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  *
- * @method  Person      current()
- * @method  Person[]    getObjects()
- * @method  Person|null search($objectID)
- * @property    Person[]    $objects
+ * @extends DatabaseObjectList<Person>
  */
 class PersonList extends DatabaseObjectList {}

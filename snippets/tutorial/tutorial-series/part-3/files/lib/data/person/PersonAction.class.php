@@ -7,23 +7,10 @@ use wcf\data\AbstractDatabaseObjectAction;
 /**
  * Executes person-related actions.
  *
- * @author  Matthias Schmidt
+ * @author      Matthias Schmidt
  * @copyright   2001-2021 WoltLab GmbH
- * @license GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
+ * @license     GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  *
- * @method  Person      create()
- * @method  PersonEditor[]  getObjects()
- * @method  PersonEditor    getSingleObject()
+ * @extends AbstractDatabaseObjectAction<Person, PersonEditor>
  */
-class PersonAction extends AbstractDatabaseObjectAction
-{
-    /**
-     * @inheritDoc
-     */
-    protected $permissionsDelete = ['admin.content.canManagePeople'];
-
-    /**
-     * @inheritDoc
-     */
-    protected $requireACP = ['delete'];
-}
+class PersonAction extends AbstractDatabaseObjectAction {}
