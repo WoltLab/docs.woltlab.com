@@ -5568,9 +5568,9 @@ Thus, the database table we will store the people in only contains three columns
 <span class="sd">/**</span>
 <span class="sd"> * Represents a person.</span>
 <span class="sd"> *</span>
-<span class="sd"> * @author  Matthias Schmidt</span>
+<span class="sd"> * @author      Matthias Schmidt</span>
 <span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
-<span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
+<span class="sd"> * @license     GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> *</span>
 <span class="sd"> * @property-read   int     $personID   unique id of the person</span>
 <span class="sd"> * @property-read   string  $firstName  first name of the person</span>
@@ -5617,20 +5617,7 @@ an action class, an editor class and a list class.</p>
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">wcf\data\person</span><span class="p">;</span>
 
@@ -5639,26 +5626,13 @@ an action class, an editor class and a list class.</p>
 <span class="sd">/**</span>
 <span class="sd"> * Executes person-related actions.</span>
 <span class="sd"> *</span>
-<span class="sd"> * @author  Matthias Schmidt</span>
+<span class="sd"> * @author      Matthias Schmidt</span>
 <span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
-<span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
+<span class="sd"> * @license     GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> *</span>
-<span class="sd"> * @method  Person      create()</span>
-<span class="sd"> * @method  PersonEditor[]  getObjects()</span>
-<span class="sd"> * @method  PersonEditor    getSingleObject()</span>
+<span class="sd"> * @extends AbstractDatabaseObjectAction&lt;Person, PersonEditor&gt;</span>
 <span class="sd"> */</span>
-<span class="k">class</span> <span class="nc">PersonAction</span> <span class="k">extends</span> <span class="nx">AbstractDatabaseObjectAction</span>
-<span class="p">{</span>
-    <span class="sd">/**</span>
-<span class="sd">     * @inheritDoc</span>
-<span class="sd">     */</span>
-    <span class="k">protected</span> <span class="nv">$permissionsDelete</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;admin.content.canManagePeople&#39;</span><span class="p">];</span>
-
-    <span class="sd">/**</span>
-<span class="sd">     * @inheritDoc</span>
-<span class="sd">     */</span>
-    <span class="k">protected</span> <span class="nv">$requireACP</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;delete&#39;</span><span class="p">];</span>
-<span class="p">}</span>
+<span class="k">class</span> <span class="nc">PersonAction</span> <span class="k">extends</span> <span class="nx">AbstractDatabaseObjectAction</span> <span class="p">{}</span>
 </code></pre></div></td></tr></table></div>
 <p>This implementation of <code>AbstractDatabaseObjectAction</code> is very basic and only sets the <code>$permissionsDelete</code> and <code>$requireACP</code> properties.
 This is done so that later on, when implementing the people list for the ACP, we can delete people simply via AJAX.
@@ -5688,8 +5662,7 @@ We will later use the <a href="../../../package/pip/user-group-option/">userGrou
 <span class="normal">20</span>
 <span class="normal">21</span>
 <span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">wcf\data\person</span><span class="p">;</span>
 
@@ -5698,13 +5671,12 @@ We will later use the <a href="../../../package/pip/user-group-option/">userGrou
 <span class="sd">/**</span>
 <span class="sd"> * Provides functions to edit people.</span>
 <span class="sd"> *</span>
-<span class="sd"> * @author  Matthias Schmidt</span>
+<span class="sd"> * @author      Matthias Schmidt</span>
 <span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
-<span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
+<span class="sd"> * @license     GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> *</span>
-<span class="sd"> * @method static   Person  create(array $parameters = [])</span>
-<span class="sd"> * @method      Person  getDecoratedObject()</span>
-<span class="sd"> * @mixin       Person</span>
+<span class="sd"> * @mixin   Person</span>
+<span class="sd"> * @extends DatabaseObjectEditor&lt;Person&gt;</span>
 <span class="sd"> */</span>
 <span class="k">class</span> <span class="nc">PersonEditor</span> <span class="k">extends</span> <span class="nx">DatabaseObjectEditor</span>
 <span class="p">{</span>
@@ -5732,10 +5704,7 @@ setting the static <code>$baseClass</code> property to the database object class
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">wcf\data\person</span><span class="p">;</span>
 
@@ -5744,14 +5713,11 @@ setting the static <code>$baseClass</code> property to the database object class
 <span class="sd">/**</span>
 <span class="sd"> * Represents a list of people.</span>
 <span class="sd"> *</span>
-<span class="sd"> * @author  Matthias Schmidt</span>
+<span class="sd"> * @author      Matthias Schmidt</span>
 <span class="sd"> * @copyright   2001-2021 WoltLab GmbH</span>
-<span class="sd"> * @license GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
+<span class="sd"> * @license     GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
 <span class="sd"> *</span>
-<span class="sd"> * @method  Person      current()</span>
-<span class="sd"> * @method  Person[]    getObjects()</span>
-<span class="sd"> * @method  Person|null search($objectID)</span>
-<span class="sd"> * @property    Person[]    $objects</span>
+<span class="sd"> * @extends DatabaseObjectList&lt;Person&gt;</span>
 <span class="sd"> */</span>
 <span class="k">class</span> <span class="nc">PersonList</span> <span class="k">extends</span> <span class="nx">DatabaseObjectList</span> <span class="p">{}</span>
 </code></pre></div></td></tr></table></div>
