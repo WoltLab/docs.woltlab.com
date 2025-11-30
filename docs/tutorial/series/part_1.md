@@ -138,11 +138,7 @@ an action class, an editor class and a list class.
   filepath="tutorial/tutorial-series/part-1/files/lib/data/person/PersonAction.class.php"
 ) }}
 
-This implementation of `AbstractDatabaseObjectAction` is very basic and only sets the `$permissionsDelete` and `$requireACP` properties.
-This is done so that later on, when implementing the people list for the ACP, we can delete people simply via AJAX.
-`$permissionsDelete` has to be set to the permission needed in order to delete a person.
-We will later use the [userGroupOption package installation plugin](../../package/pip/user-group-option.md) to create the `admin.content.canManagePeople` permission.
-`$requireACP` restricts deletion of people to the ACP.
+This implementation of `AbstractDatabaseObjectAction` fulfills the minimum requirement for a database object action.
 
 #### `PersonEditor`
 
@@ -242,11 +238,35 @@ We will go piece by piece through the template code:
 1. We include the `header` template and set the page title `wcf.acp.person.list`.
    You have to include this template for every page!
 1. We set the content header and additional provide a button to create a new person in the content header navigation.
-1. As not all people are listed on the same page if many people have been created, we need a pagination for which we use the `pages` template plugin.
-   The `{hascontent}{content}{/content}{/hascontent}` construct ensures the `.paginationTop` element is only shown if the `pages` template plugin has a return value, thus if a pagination is necessary.
 1. For the main part of the page we only need to call the `render()` method of the grid view.
 1. Lastly, the `footer` template is included that terminates the page.
    You also have to include this template for every page!
+
+#### `PersonInteractions`
+
+{jinja{ codebox(
+  title="files/lib/system/interaction/admin/PersonInteractions.class.php",
+  language="php",
+  filepath="tutorial/tutorial-series/part-1/files/lib/system/interaction/admin/PersonInteractions.class.php"
+) }}
+
+`PersonGridView` uses `PersonInteractions` to configure the available interaction options.
+In this case, we only define one option for deletion.
+`DeleteInteraction` expects the path of the RPC endpoint to be used for deleting the objects as its first parameter.
+
+#### `DeletePerson`
+
+{jinja{ codebox(
+  title="files/lib/system/endpoint/controller/core/persons/DeletePerson.class.php",
+  language="php",
+  filepath="tutorial/tutorial-series/part-1/files/lib/system/endpoint/controller/core/persons/DeletePerson.class.php"
+) }}
+
+`DeletePerson` is an [RPC endpoint](../../php/api/rpc_api.md).
+The path of the endpoint is defined by the `RequestType` attribute.
+The task of the endpoint is to first validate whether the call is valid and whether the necessary permissions are available.
+The action is then executed, in this case by calling PersonAction.
+
 
 Now, we have finished the page to manage the people so that we can move on to the forms with which we actually create and edit the people.
 
