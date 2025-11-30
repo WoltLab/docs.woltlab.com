@@ -4764,6 +4764,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#personinteractions" class="md-nav__link">
+    <span class="md-ellipsis">
+      PersonInteractions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleteperson" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeletePerson
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5164,6 +5182,24 @@
   <a href="#personlisttpl" class="md-nav__link">
     <span class="md-ellipsis">
       personList.tpl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personinteractions" class="md-nav__link">
+    <span class="md-ellipsis">
+      PersonInteractions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleteperson" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeletePerson
     </span>
   </a>
   
@@ -5634,11 +5670,7 @@ an action class, an editor class and a list class.</p>
 <span class="sd"> */</span>
 <span class="k">class</span> <span class="nc">PersonAction</span> <span class="k">extends</span> <span class="nx">AbstractDatabaseObjectAction</span> <span class="p">{}</span>
 </code></pre></div></td></tr></table></div>
-<p>This implementation of <code>AbstractDatabaseObjectAction</code> is very basic and only sets the <code>$permissionsDelete</code> and <code>$requireACP</code> properties.
-This is done so that later on, when implementing the people list for the ACP, we can delete people simply via AJAX.
-<code>$permissionsDelete</code> has to be set to the permission needed in order to delete a person.
-We will later use the <a href="../../../package/pip/user-group-option/">userGroupOption package installation plugin</a> to create the <code>admin.content.canManagePeople</code> permission.
-<code>$requireACP</code> restricts deletion of people to the ACP.</p>
+<p>This implementation of <code>AbstractDatabaseObjectAction</code> fulfills the minimum requirement for a database object action.</p>
 <h4 id="personeditor"><code>PersonEditor</code><a class="headerlink" href="#personeditor" title="Permanent link">#</a></h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/data/person/PersonEditor.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/tutorial/tutorial-series/part-1/files/lib/data/person/PersonEditor.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -6108,12 +6140,157 @@ The fourth level menu item <code>wcf.acp.menu.link.person.add</code> will only b
 <li>We include the <code>header</code> template and set the page title <code>wcf.acp.person.list</code>.
    You have to include this template for every page!</li>
 <li>We set the content header and additional provide a button to create a new person in the content header navigation.</li>
-<li>As not all people are listed on the same page if many people have been created, we need a pagination for which we use the <code>pages</code> template plugin.
-   The <code>{hascontent}{content}{/content}{/hascontent}</code> construct ensures the <code>.paginationTop</code> element is only shown if the <code>pages</code> template plugin has a return value, thus if a pagination is necessary.</li>
 <li>For the main part of the page we only need to call the <code>render()</code> method of the grid view.</li>
 <li>Lastly, the <code>footer</code> template is included that terminates the page.
    You also have to include this template for every page!</li>
 </ol>
+<h4 id="personinteractions"><code>PersonInteractions</code><a class="headerlink" href="#personinteractions" title="Permanent link">#</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/interaction/admin/PersonInteractions.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/tutorial/tutorial-series/part-1/files/lib/system/interaction/admin/PersonInteractions.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">wcf\system\interaction\admin</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">wcf\data\person\Person</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\interaction\AbstractInteractionProvider</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\interaction\DeleteInteraction</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Interaction provider for persons.</span>
+<span class="sd"> *</span>
+<span class="sd"> * @author      Marcel Werk</span>
+<span class="sd"> * @copyright   2001-2025 WoltLab GmbH</span>
+<span class="sd"> * @license     GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
+<span class="sd"> */</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">PersonInteractions</span> <span class="k">extends</span> <span class="nx">AbstractInteractionProvider</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">addInteractions</span><span class="p">([</span>
+            <span class="k">new</span> <span class="nx">DeleteInteraction</span><span class="p">(</span><span class="s1">&#39;core/persons/%s&#39;</span><span class="p">),</span>
+        <span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getObjectClassName</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">Person</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><code>PersonGridView</code> uses <code>PersonInteractions</code> to configure the available interaction options.
+In this case, we only define one option for deletion.
+<code>DeleteInteraction</code> expects the path of the RPC endpoint to be used for deleting the objects as its first parameter.</p>
+<h4 id="deleteperson"><code>DeletePerson</code><a class="headerlink" href="#deleteperson" title="Permanent link">#</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/endpoint/controller/core/persons/DeletePerson.class.php <a class="codeBoxTitleGitHubLink" href="https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/tutorial/tutorial-series/part-1/files/lib/system/endpoint/controller/core/persons/DeletePerson.class.php" title="View on GitHub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg></span></a></span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">wcf\system\endpoint\controller\core\persons</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Laminas\Diactoros\Response\JsonResponse</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Psr\Http\Message\ResponseInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Psr\Http\Message\ServerRequestInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\data\person\Person</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\data\person\PersonAction</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\http\Helper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\endpoint\DeleteRequest</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\endpoint\IController</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\exception\PermissionDeniedException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\WCF</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Deletes the person with the given ID.</span>
+<span class="sd"> *</span>
+<span class="sd"> * @author      Marcel Werk</span>
+<span class="sd"> * @copyright   2001-2025 WoltLab GmbH</span>
+<span class="sd"> * @license     GNU Lesser General Public License &lt;http://opensource.org/licenses/lgpl-license.php&gt;</span>
+<span class="sd"> */</span>
+<span class="p">#[</span><span class="nd">DeleteRequest</span><span class="p">(</span><span class="s1">&#39;/core/persons/{id:\d+}&#39;</span><span class="p">)]</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">DeletePerson</span> <span class="k">implements</span> <span class="nx">IController</span>
+<span class="p">{</span>
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__invoke</span><span class="p">(</span><span class="nx">ServerRequestInterface</span> <span class="nv">$request</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$variables</span><span class="p">)</span><span class="o">:</span> <span class="nx">ResponseInterface</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">&#39;admin.content.canManagePeople&#39;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">PermissionDeniedException</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="nv">$person</span> <span class="o">=</span> <span class="nx">Helper</span><span class="o">::</span><span class="na">fetchObjectFromRequestParameter</span><span class="p">(</span><span class="nv">$variables</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="nx">Person</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+        <span class="nv">$action</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PersonAction</span><span class="p">([</span><span class="nv">$person</span><span class="p">],</span> <span class="s1">&#39;delete&#39;</span><span class="p">);</span>
+        <span class="nv">$action</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">();</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">JsonResponse</span><span class="p">([]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><code>DeletePerson</code> is an <a href="../../../php/api/rpc_api/">RPC endpoint</a>.
+The path of the endpoint is defined by the <code>RequestType</code> attribute.
+The task of the endpoint is to first validate whether the call is valid and whether the necessary permissions are available.
+The action is then executed, in this case by calling PersonAction.</p>
 <p>Now, we have finished the page to manage the people so that we can move on to the forms with which we actually create and edit the people.</p>
 <h3 id="person-add-form">Person Add Form<a class="headerlink" href="#person-add-form" title="Permanent link">#</a></h3>
 <p>Like the person list, the form to add new people requires a controller class and a template.</p>
@@ -6904,7 +7081,7 @@ As the menu item package installation plugin validates the given page and throws
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2025-10-20
+    2025-11-28
   </span>
 
     
