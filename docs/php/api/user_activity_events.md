@@ -1,20 +1,16 @@
 # User Activity Events
 
-User activity events provide content from different sources for the list of recent activities. Entries in the last
-activities consist of a title, optionally a description, the author and the date.
+User activity events provide content from different sources for the list of recent activities. Entries in the last activities consist of a title, optionally a description, the author and the date.
 
 ## Registration of User Activity Events
 
-To integrate user activity events into your package, you have to register object types for the defintion
-`com.woltlab.wcf.user.recentActivityEvent` and specify a class that implements the
-`wcf\system\user\activity\event\IUserActivityEvent` interface:
+To integrate user activity events into your package, you have to register object types for the defintion `com.woltlab.wcf.user.recentActivityEvent` and specify a class that implements the `wcf\system\user\activity\event\IUserActivityEvent` interface:
 
 ```xml
-
 <type>
-    <name>foo.bar.recentActivityEvent</name>
-    <definitionname>com.woltlab.wcf.user.recentActivityEvent</definitionname>
-    <classname>wcf\system\user\activity\event\FooUserActivityEvent</classname>
+	<name>foo.bar.recentActivityEvent</name>
+	<definitionname>com.woltlab.wcf.user.recentActivityEvent</definitionname>
+	<classname>wcf\system\user\activity\event\FooUserActivityEvent</classname>
 </type>
 ```
 
@@ -67,8 +63,7 @@ final class FooUserActivityEvent extends SingletonFactory implements IUserActivi
 
 ## Creating User Activity Events
 
-If a relevant object is created, you have to use `UserActivityEventHandler::fireEvent()` which expects the name of the
-object type, the id of the object and optionally the language id, user id and the date.
+If a relevant object is created, you have to use `UserActivityEventHandler::fireEvent()` which expects the name of the object type, the id of the object and optionally the language id, user id and the date.
 
 ```php
 UserActivityEventHandler::getInstance()->fireEvent(
@@ -82,8 +77,7 @@ UserActivityEventHandler::getInstance()->fireEvent(
 
 ## Removing User Activity Events
 
-To remove user activity events once objects are deleted, you have to use `UserActivityEventHandler::removeEvents()`
-which also expects the name of the object type and additionally an array with object ids:
+To remove user activity events once objects are deleted, you have to use `UserActivityEventHandler::removeEvents()` which also expects the name of the object type and additionally an array with object ids:
 
 ```php
 UserActivityEventHandler::getInstance()->removeEvents(
