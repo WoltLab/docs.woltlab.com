@@ -14,7 +14,7 @@ To integrate user activity events into your package, you have to register object
 </type>
 ```
 
-Specify multiple object types if you want to provide multiple types of user activity events. 
+Specify multiple object types if you want to provide multiple types of user activity events.
 
 Example of the implementation of the `wcf\system\user\activity\event\IUserActivityEvent` interface:
 
@@ -29,7 +29,7 @@ use wcf\system\WCF;
 use wcf\util\StringUtil;
 use wcf\system\file\processor\ImageData;
 
-final class FooUserActivityEvent implements IUserActivityEvent
+final class FooUserActivityEvent extends SingletonFactory implements IUserActivityEvent
 {
     public function prepare(array $events)
     {
