@@ -107,6 +107,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer::quoteData()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\form\builder\field\wysiwyg\WysiwygFormField::getQuoteData()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\form\builder\field\wysiwyg\WysiwygFormField::quoteData()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
+- `wcf\system\html\node\AbstractHtmlNodeProcessor::getWcfNodeIdentifer()` ([WoltLab/WCF#6548](https://github.com/WoltLab/WCF/pull/6548/))
 - `wcf\system\message\quote\MessageQuoteManager::addQuote()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\message\quote\MessageQuoteManager::assignVariables()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\message\quote\MessageQuoteManager::countQuotes()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
