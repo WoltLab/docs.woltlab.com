@@ -137,6 +137,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\attachment\AttachmentAction::copy()`
 - `wcf\data\application\ApplicationAction::rebuild()`
 - `wcf\data\application\ApplicationAction::markAsTainted()`
+- `wbb\data\thread\Thread::getSimilarThreads()`
 
 #### Variables
 
@@ -201,6 +202,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `blog\data\blog\BlogAction::delete()`
 - `blog\data\entry\EntryAction::delete()`
 - `gallery\data\image\Image::getMasonryImageTag()`
+- `wbb\data\thread\ThreadAction::validateGetSimilarThreads()`
+- `wbb\data\thread\ThreadAction::getSimilarThreads()`
+- `wbb\data\thread\ThreadAction::updateSimilarThreads()`
 
 #### Properties
 
