@@ -1232,6 +1232,24 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#single-file-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single File Upload
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-file-uploads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple File Uploads
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#additional-buttons" class="md-nav__link">
     <span class="md-ellipsis">
       Additional Buttons
@@ -5840,6 +5858,24 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#single-file-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single File Upload
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-file-uploads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple File Uploads
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#additional-buttons" class="md-nav__link">
     <span class="md-ellipsis">
       Additional Buttons
@@ -6609,8 +6645,6 @@ The class implements <code>IImmutableFormField</code>.</p>
 </code></pre></div></td></tr></table></div>
 <h3 id="fileprocessorformfield">FileProcessorFormField<a class="headerlink" href="#fileprocessorformfield" title="Permanent link">#</a></h3>
 <p>The <code>FileProcessorFormField</code> is used to upload files to the server via the file processor.</p>
-<p>By default, <code>FileProcessorFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the appropriate array of fileIDs to the <code>$parameters</code> array directly, using the object property as the array key.
-If <code>isSingleFileUpload()</code> is enabled, the value will be added to the data sub-array of the parameters array and the value can be null.</p>
 <p>The checks for the correct file size or extension don't take place in the FormField, this must be defined in the <code>IFileProcessor</code>.</p>
 <p><strong>The field supports other settings:</strong></p>
 <ul>
@@ -6618,7 +6652,9 @@ If <code>isSingleFileUpload()</code> is enabled, the value will be added to the 
 <li><code>context(array $context)</code> and <code>getContext()</code> can be used to set and get the context of the file processor.</li>
 <li><code>singleFileUpload($singleFileUpload = true)</code> and <code>isSingleFileUpload()</code> can be used to set and check if only one file can be uploaded.</li>
 </ul>
-<p>Example:</p>
+<h4 id="single-file-upload">Single File Upload<a class="headerlink" href="#single-file-upload" title="Permanent link">#</a></h4>
+<p>When <code>singleFileUpload()</code> is enabled, the field value is a single integer (the file ID) or <code>null</code>.
+The value is added to the <code>data</code> sub-array of the parameters array, making it suitable for direct database column mapping.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -6629,10 +6665,87 @@ If <code>isSingleFileUpload()</code> is enabled, the value will be added to the 
   <span class="o">-&gt;</span><span class="na">singleFileUpload</span><span class="p">()</span>
   <span class="o">-&gt;</span><span class="na">bigPreview</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
+<h4 id="multiple-file-uploads">Multiple File Uploads<a class="headerlink" href="#multiple-file-uploads" title="Permanent link">#</a></h4>
+<p>When <code>singleFileUpload()</code> is not called, the field defaults to accepting multiple files.
+The field value is an array of file IDs.
+Since arrays cannot be stored in a single database column, the field automatically registers a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> that places the array of file IDs into the <code>$parameters</code> array directly, using the object property as the array key.</p>
+<p>This means the file IDs will <strong>not</strong> be part of <code>$parameters['data']</code> and must be handled explicitly in your code.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">FileProcessorFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;attachments&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">objectType</span><span class="p">(</span><span class="s1">&#39;foo.bar.example&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;foo.bar.example.attachments&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>The file IDs are available in the form data under the object property key:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$formData</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">form</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
+
+<span class="c1">// File IDs are in the top-level parameters array, not in &#39;data&#39;.</span>
+<span class="nv">$fileIDs</span> <span class="o">=</span> <span class="nv">$formData</span><span class="p">[</span><span class="s1">&#39;attachments&#39;</span><span class="p">];</span> <span class="c1">// int[]</span>
+</code></pre></div></td></tr></table></div>
+<p>If the default data processor does not match your data structure, you can add your own <code>CustomFormDataProcessor</code> after building the form.
+The following example converts the array of file IDs to a comma-separated string for storage in a single database column:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">form</span><span class="o">-&gt;</span><span class="na">getDataHandler</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">addProcessor</span><span class="p">(</span>
+    <span class="k">new</span> <span class="nx">CustomFormDataProcessor</span><span class="p">(</span>
+        <span class="s1">&#39;attachments&#39;</span><span class="p">,</span>
+        <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">IFormDocument</span> <span class="nv">$document</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$parameters</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$field</span> <span class="o">=</span> <span class="nv">$document</span><span class="o">-&gt;</span><span class="na">getNodeById</span><span class="p">(</span><span class="s1">&#39;attachments&#39;</span><span class="p">);</span>
+            <span class="nx">\assert</span><span class="p">(</span><span class="nv">$field</span> <span class="nx">instanceof</span> <span class="nx">FileProcessorFormField</span><span class="p">);</span>
+
+            <span class="nv">$value</span> <span class="o">=</span> <span class="nv">$field</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$value</span> <span class="o">===</span> <span class="k">null</span> <span class="o">||</span> <span class="nv">$value</span> <span class="o">===</span> <span class="p">[])</span> <span class="p">{</span>
+                <span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;attachments&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;attachments&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">\implode</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="nv">$parameters</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">IFormDocument</span> <span class="nv">$document</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$data</span><span class="p">,</span> <span class="nx">IStorableObject</span> <span class="nv">$object</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$value</span> <span class="o">=</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;attachments&#39;</span><span class="p">]</span> <span class="o">??</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$value</span> <span class="o">!==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;attachments&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">\array_map</span><span class="p">(</span><span class="nx">\intval</span><span class="p">(</span><span class="o">...</span><span class="p">),</span> <span class="nx">\explode</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="nv">$value</span><span class="p">));</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;attachments&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[];</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></table></div>
 <h4 id="additional-buttons">Additional Buttons<a class="headerlink" href="#additional-buttons" title="Permanent link">#</a></h4>
 <p>Additional buttons can be added with <code>addActionButton(string $actionName, string $title, string $template, string $application = 'wcf', ?IFontAwesomeIcon $icon = null)</code>.
 When this button is pressed, the <code>fileProcessorCustomAction</code> event is fired, which can be used via JavaScript to perform additional actions.</p>
-<p>Example:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -6913,7 +7026,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2025-08-21
+    2026-02-25
   </span>
 
     
