@@ -10,6 +10,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 
 - `gallery\util\ImageUtil`
 - `gallery\data\image\TaggedImageList`
+- `filebase\data\file\TaggedFileList`
+- `filebase\data\file\DeletedFileList`
 
 #### Methods
 
@@ -138,9 +140,21 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\application\ApplicationAction::rebuild()`
 - `wcf\data\application\ApplicationAction::markAsTainted()`
 - `wbb\data\thread\Thread::getSimilarThreads()`
+- `wcf\data\user\activity\event\UserActivityEventAction::validateLoad()`
+- `wcf\data\user\activity\event\UserActivityEventAction::load()`
+- `wcf\data\reaction\ReactionAction::validateLoad()`
+- `wcf\data\reaction\ReactionAction::load()`
+- `wcf\data\like\ViewableLike::setObjectTypeDescription()`
+- `wcf\data\like\ViewableLike::getObjectTypeDescription()`
+- `filebase\data\file\FileAction::validateMarkAsRead()`
+- `filebase\data\file\FileAction::markAsRead()`
+- `filebase\data\file\FileAction::validateAssignLabel()`
+- `filebase\data\file\FileAction::assignLabel()`
+- `filebase\data\file\FileAction::triggerPublication()`
 
-#### Variables
+#### Properties
 
+- `wcf\data\like\ViewableLike::$objectTypeDescription`
 
 ### JavaScript
 
@@ -174,6 +188,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\system\page\handler\UserVideoListPageHandler`
 - `gallery\system\clipboard\action\ImageClipboardAction`
 - `blog\data\category\BlogCategoryAction`
+- `filebase\page\AbstractFilePage`
+- `filebase\data\category\FilebaseCategoryAction`
+- `wcf\data\TLegacyUserPropertyAccess`
 
 #### Methods
 
@@ -205,9 +222,12 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\ThreadAction::validateGetSimilarThreads()`
 - `wbb\data\thread\ThreadAction::getSimilarThreads()`
 - `wbb\data\thread\ThreadAction::updateSimilarThreads()`
+- `wcf\data\like\ViewableLike::setUserProfile()`
+- `wcf\data\like\ViewableLike::getObjectTypeName()`
 
 #### Properties
 
+- `wcf\data\like\ViewableLike::$userProfile`
 
 ### JavaScript
 
@@ -235,3 +255,5 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Blog/Ui/Category/MarkAllAsRead`
 - `WoltLabSuite/Blog/Ui/Archive`
 - `WoltLabSuite/Core/Ui/Article/MarkAllAsRead`
+- `WoltLabSuite/Core/Ui/Reaction/Profile/Loader`
+- `WoltLabSuite/Filebase/Ui/Category/MarkAllAsRead`
