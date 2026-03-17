@@ -4,6 +4,34 @@
 
 The default implementation for pages to present any sort of content, but are designed to handle `GET` requests only. They usually follow a fixed method chain that will be invoked one after another, adding logical sections to the request flow.
 
+### Lifecycle
+
+The following diagram shows the exact order in which methods are called and events are fired when a page is requested.
+
+```
+__run()
+ │
+ ├─ readParameters()
+ │   └─ Event: readParameters
+ │
+ └─ show()
+     ├─ checkModules()
+     │   └─ Event: checkModules
+     │
+     ├─ checkPermissions()
+     │   └─ Event: checkPermissions
+     │
+     ├─ readData()
+     │   └─ Event: readData
+     │
+     ├─ assignVariables()
+     │   └─ Event: assignVariables
+     │
+     ├─ Event: show
+     │
+     └─ [Template rendering]
+```
+
 ### Method Chain
 
 #### \__run()
@@ -70,6 +98,84 @@ public function assignVariables() {
 
 Extends the AbstractPage implementation with additional methods designed to handle form submissions properly.
 
+### Lifecycle
+
+`AbstractForm` overrides `readData()` to inject the form submission handling. The submission methods (`submit()` through `save()`) are only called when `$_POST` or `$_FILES` are not empty, i.e. the form was actually submitted.
+
+#### Initial Page Load (GET)
+
+When the form is loaded for the first time (no submission), the lifecycle is identical to `AbstractPage`:
+
+```
+__run()
+ │
+ ├─ readParameters()
+ │   └─ Event: readParameters
+ │
+ └─ show()
+     ├─ checkModules()
+     │   └─ Event: checkModules
+     │
+     ├─ checkPermissions()
+     │   └─ Event: checkPermissions
+     │
+     ├─ readData()
+     │   │  (no POST/FILES data, submission is skipped)
+     │   └─ Event: readData
+     │
+     ├─ assignVariables()
+     │   └─ Event: assignVariables
+     │
+     ├─ Event: show
+     │
+     └─ [Template rendering]
+```
+
+#### Form Submission (POST)
+
+When the form is submitted, the submission methods are called within `readData()` before the inherited `readData()` logic:
+
+```
+__run()
+ │
+ ├─ readParameters()
+ │   └─ Event: readParameters
+ │
+ └─ show()
+     ├─ checkModules()
+     │   └─ Event: checkModules
+     │
+     ├─ checkPermissions()
+     │   └─ Event: checkPermissions
+     │
+     ├─ readData()
+     │   ├─ submit()                          ← only if $_POST or $_FILES are not empty
+     │   │   ├─ Event: submit
+     │   │   │
+     │   │   ├─ readFormParameters()
+     │   │   │   └─ Event: readFormParameters
+     │   │   │
+     │   │   ├─ validate()
+     │   │   │   ├─ Event: validate
+     │   │   │   └─ validateSecurityToken()
+     │   │   │
+     │   │   └─ save()                        ← only if validate() did not throw
+     │   │       ├─ Event: save
+     │   │       └─ saved()                   ← must be called manually
+     │   │           └─ Event: saved
+     │   │
+     │   └─ Event: readData
+     │
+     ├─ assignVariables()
+     │   └─ Event: assignVariables
+     │
+     ├─ Event: show
+     │
+     └─ [Template rendering]
+```
+
+!!! info "If `validate()` throws a `UserInputException`, `save()` is skipped and the form is re-displayed with error messages. The exception is caught internally by `submit()`."
+
 ### Method Chain
 
 #### \__run()
@@ -125,3 +231,117 @@ The only purpose of this method is to fire the event `saved` that signals that t
 #### assignVariables()
 
 *Inherited from AbstractPage.*
+
+## AbstractFormBuilderForm
+
+Extends `AbstractForm` with the [Form Builder](api/form_builder/overview.md) API, which automates form creation, validation, and data handling. The key difference from `AbstractForm` is that `buildForm()` is called during `checkPermissions()`, and form field processing is handled automatically by the form document.
+
+### Lifecycle
+
+#### Initial Page Load (GET)
+
+```
+__run()
+ │
+ ├─ readParameters()
+ │   └─ Event: readParameters
+ │
+ └─ show()
+     ├─ checkModules()
+     │   └─ Event: checkModules
+     │
+     ├─ checkPermissions()
+     │   ├─ Event: checkPermissions
+     │   │
+     │   └─ buildForm()
+     │       ├─ createForm()
+     │       ├─ Event: createForm
+     │       ├─ form->build()
+     │       ├─ finalizeForm()
+     │       └─ Event: buildForm
+     │
+     ├─ readData()
+     │   ├─ setFormObjectData()               ← only if $formObject is set (edit mode)
+     │   │   └─ form->updatedObject()
+     │   │  (no POST/FILES data, submission is skipped)
+     │   ├─ Event: readData
+     │   └─ setFormAction()
+     │
+     ├─ assignVariables()
+     │   └─ Event: assignVariables
+     │
+     ├─ Event: show
+     │
+     └─ [Template rendering]
+```
+
+#### Form Submission (POST)
+
+```
+__run()
+ │
+ ├─ readParameters()
+ │   └─ Event: readParameters
+ │
+ └─ show()
+     ├─ checkModules()
+     │   └─ Event: checkModules
+     │
+     ├─ checkPermissions()
+     │   ├─ Event: checkPermissions
+     │   │
+     │   └─ buildForm()
+     │       ├─ createForm()
+     │       ├─ Event: createForm
+     │       ├─ form->build()
+     │       ├─ finalizeForm()
+     │       └─ Event: buildForm
+     │
+     ├─ readData()
+     │   ├─ setFormObjectData()               ← only if $formObject is set (edit mode)
+     │   │   └─ form->updatedObject()
+     │   │
+     │   ├─ submit()                          ← only if $_POST or $_FILES are not empty
+     │   │   ├─ Event: submit
+     │   │   │
+     │   │   ├─ readFormParameters()
+     │   │   │   ├─ Event: readFormParameters
+     │   │   │   └─ form->readValues()
+     │   │   │
+     │   │   ├─ validate()
+     │   │   │   ├─ Event: validate
+     │   │   │   └─ form->validate()
+     │   │   │
+     │   │   └─ save()                        ← only if validate() did not throw
+     │   │       ├─ Event: save
+     │   │       ├─ [objectAction: create/update]
+     │   │       └─ saved()                   ← called automatically
+     │   │           ├─ Event: saved
+     │   │           ├─ form->cleanup()       ← only for create action
+     │   │           ├─ buildForm()           ← only for create action (rebuilds the form)
+     │   │           └─ form->showSuccessMessage()
+     │   │
+     │   ├─ Event: readData
+     │   └─ setFormAction()
+     │
+     ├─ assignVariables()
+     │   └─ Event: assignVariables
+     │
+     ├─ Event: show
+     │
+     └─ [Template rendering]
+```
+
+### Key Differences from AbstractForm
+
+| Aspect | `AbstractForm` | `AbstractFormBuilderForm` |
+|--------|---------------|--------------------------|
+| Form structure | Manual HTML templates | Defined in `createForm()` using PHP |
+| Form building | N/A | `buildForm()` called during `checkPermissions()` |
+| Reading POST data | Manual in `readFormParameters()` | Automatic via `form->readValues()` |
+| Validation | Manual in `validate()` | Automatic via `form->validate()` |
+| Saving | Manual in `save()` | Automatic via `$objectActionClass` |
+| `saved()` | Must be called manually | Called automatically |
+| Security token | `validateSecurityToken()` | Handled by the form document |
+
+For more details on form builder components, see the [Form Builder documentation](api/form_builder/overview.md).
