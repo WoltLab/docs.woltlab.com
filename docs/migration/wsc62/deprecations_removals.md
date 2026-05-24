@@ -21,6 +21,15 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `filebase\data\modification\log\FileVersionModificationLogList`
 - `filebase\data\modification\log\ViewableFileListFileModificationLog`
 - `wcf\system\feed\enclosure\FeedEnclosure`
+- `wcf\data\article\content\ViewableArticleContent`
+- `wcf\data\article\content\ViewableArticleContentList`
+- `wcf\system\cache\runtime\ViewableArticleContentRuntimeCache`
+- `wcf\data\article\ViewableArticle`
+- `wcf\data\article\ViewableArticleList`
+- `wcf\system\cache\runtime\ViewableArticleRuntimeCache`
+- `wcf\data\user\UserBirthdayAction`
+- `blog\data\blog\user\SubscriberAction`
+- `wcf\acp\page\AbstractCategoryNodeTreeViewPage`
 
 #### Methods
 
@@ -225,6 +234,23 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `filebase\data\file\version\review\FileVersionReview::getAuthorByIpAddress()`
 - `wcf\system\user\notification\event\AbstractUserNotificationEvent::getComments()`
 - `wcf\system\user\notification\event\AbstractUserNotificationEvent::getCategories()`
+- `wcf\page\TWsdbPage::canViewRecords()`
+- `wcf\system\wsdb\view\RecordView::getAttachments()`
+- `wcf\system\wsdb\view\RecordView::getReactionDataAttributes()`
+- `wcf\system\wsdb\view\RecordView::getReactionTypeID()`
+- `wcf\system\wsdb\view\RecordView::getReactionData()`
+- `wcf\system\wsdb\listView\user\ReviewListView::getReviewAttachments()`
+- `wcf\system\wsdb\listView\user\ReviewListView::getResponseAttachments()`
+- `wcf\data\article\Article::hasLabels()`
+- `wcf\data\article\Article::getLanguageLinks()`
+- `wcf\data\user\follow\UserFollowAction::validateGetGroupedUserList()`
+- `wcf\data\user\follow\UserFollowAction::getGroupedUserList()`
+- `wcf\data\user\follow\UserFollowingAction::validateGetGroupedUserList()`
+- `wcf\data\user\follow\UserFollowingAction::getGroupedUserList()`
+- `wcf\data\user\profile\visitor\UserProfileVisitorAction::validateGetGroupedUserList()`
+- `wcf\data\user\profile\visitor\UserProfileVisitorAction::getGroupedUserList()`
+- `wbb\data\board\BoardAction::updatePosition()`
+- `wbb\data\board\BoardAction::validateUpdatePosition()`
 
 #### Properties
 
@@ -232,7 +258,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 
 ### JavaScript
 
-
+- `WoltLabSuite/Core/Component/User/List`
+- `WoltLabSuite/Core/Ui/Sortable/List`
 
 ## Removals
 
@@ -291,6 +318,14 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\page\ArticleFeedPage`
 - `wcf\page\NotificationFeedPage`
 - `wbb\page\BoardFeedPage`
+- `calendar\page\EventAmpPage`
+- `calendar\page\AbstractEventPage`
+- `wcf\page\ArticleAmpPage`
+- `wcf\page\AbstractArticlePage`
+- `wcf\system\cache\source\ICacheSource`
+- `wcf\system\cache\source\RedisCacheSource`
+- `wcf\system\database\Redis`
+- `calendar\data\user\FollowingBirthdayAction`
 
 #### Methods
 
@@ -357,6 +392,10 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `filebase\data\file\version\content\FileVersionContentAction::delete()`
 - `filebase\data\file\version\review\FileVersionReviewAction::markNotificationsAsConfirmed()`
 - `filebase\data\file\version\review\response\FileVersionReviewResponseAction::markNotificationsAsConfirmed()`
+- `wcf\data\menu\item\MenuItemAction::validateUpdatePosition()`
+- `wcf\data\menu\item\MenuItemAction::updatePosition()`
+- `wbb\data\board\BoardAction::toggleContainer()`
+- `wbb\data\board\BoardAction::validateToggleContainer()`
 
 #### Properties
 
