@@ -262,6 +262,14 @@ GridViewColumn::for('foo')
     ->sortable(sortByDatabaseColumn: "table_alias.columnName")
 ```
 
+Each column can declare its own default sort order via the `defaultSortOrder` argument (`ASC` or `DESC`).
+When the user switches sorting to a different column, the column's default sort order is applied instead of always defaulting to `ASC`:
+
+```php
+GridViewColumn::for('time')
+    ->sortable(defaultSortOrder: 'DESC')
+```
+
 The default sorting can be defined after the column configuration has been defined:
 
 ```php
