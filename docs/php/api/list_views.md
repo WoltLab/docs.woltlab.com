@@ -120,6 +120,13 @@ Optionally, you can specify the name of an alternative database column to be use
 new ListViewSortField('title', 'wcf.global.title', 'table_alias.columnName'),
 ```
 
+Each sort field can declare its own default sort order via the `defaultSortOrder` argument (`ASC` or `DESC`).
+When the user switches to a different sort field via the sorting dropdown, the field's default sort order is applied instead of always defaulting to `ASC`:
+
+```php
+new ListViewSortField('time', 'wcf.global.date', defaultSortOrder: 'DESC'),
+```
+
 The default sorting can be defined after the configuration of the sort fields has been defined:
 
 ```php
