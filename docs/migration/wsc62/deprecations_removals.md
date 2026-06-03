@@ -396,6 +396,11 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\menu\item\MenuItemAction::updatePosition()`
 - `wbb\data\board\BoardAction::toggleContainer()`
 - `wbb\data\board\BoardAction::validateToggleContainer()`
+- `wbb\data\thread\ThreadEditor::updateAnnouncementBoards()`
+- `wbb\data\thread\Thread::getAnnouncementBoardIDs()`
+- `wbb\data\thread\BoardThreadList::countAnnouncements()`
+- `wbb\system\log\modification\ThreadModificationLogHandler::setAsAnnouncement()`
+- `wbb\system\log\modification\ThreadModificationLogHandler::unsetAsAnnouncement()`
 
 #### Properties
 
