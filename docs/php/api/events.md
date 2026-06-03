@@ -264,6 +264,7 @@ final class ValueDumpListener
 | `wcf\event\acp\dashboard\box\PHPExtensionCollecting` | Requests the collection of PHP extensions for the system info ACP dashboard box. |
 | `wcf\event\acp\dashboard\box\StatusMessageCollecting` | Requests the collection of status messages for the status message dashboard box. |
 | `wcf\event\acp\menu\item\ItemCollecting` | Requests the collection of acp menu items. |
+| `wcf\event\acp\search\provider\ProviderCollecting` | Requests the collection of acp search providers. |
 | `wcf\event\cache\CacheCleared` | Indicates that a full cache clear was performed. |
 | `wcf\event\comment\CommentCreated` | Indicates that a new comment has been created. |
 | `wcf\event\comment\CommentPublished` | Indicates that a new comment has been published. This can happen directly when a comment is created or be delayed if a comment has first been checked and approved by a moderator. |

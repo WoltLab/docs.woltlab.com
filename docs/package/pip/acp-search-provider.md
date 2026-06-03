@@ -1,5 +1,9 @@
 # ACP Search Provider Package Installation Plugin
 
+!!! warning "Deprecated in WoltLab Suite 6.3"
+    Use the [ACP search providers](../acp-search-providers.md) API based on the PSR-14 event `wcf\event\acp\search\provider\ProviderCollecting` to register ACP search providers.
+    See the [migration guide](../../migration/wsc62/php.md#acp-search-providers) for details.
+
 Registers data provider for the admin panel search.
 
 ## Components

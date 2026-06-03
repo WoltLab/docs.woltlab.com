@@ -30,6 +30,12 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\user\UserBirthdayAction`
 - `blog\data\blog\user\SubscriberAction`
 - `wcf\acp\page\AbstractCategoryNodeTreeViewPage`
+- `wcf\data\acp\search\provider\ACPSearchProvider` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
+- `wcf\data\acp\search\provider\ACPSearchProviderAction` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
+- `wcf\data\acp\search\provider\ACPSearchProviderEditor` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
+- `wcf\data\acp\search\provider\ACPSearchProviderList` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
+- `wcf\system\cache\builder\ACPSearchProviderCacheBuilder` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
+- `wcf\system\package\plugin\ACPSearchProviderPackageInstallationPlugin` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
 
 #### Methods
 
@@ -357,6 +363,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\ThreadAction::validateGetSimilarThreads()`
 - `wbb\data\thread\ThreadAction::getSimilarThreads()`
 - `wbb\data\thread\ThreadAction::updateSimilarThreads()`
+- `wcf\data\acp\search\provider\ACPSearchProviderAction::getSearchResultList()` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
+- `wcf\data\acp\search\provider\ACPSearchProviderAction::validateGetSearchResultList()` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
 - `wcf\data\like\ViewableLike::setUserProfile()`
 - `wcf\data\like\ViewableLike::getObjectTypeName()`
 - `filebase\data\file\File::setFileContent()`
@@ -456,3 +464,4 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Filebase/Ui/Review/SortHandler`
 - `WoltLabSuite/Filebase/Ui/Review/VersionFilter`
 - `WoltLabSuite/Core/Ui/Like/Handler`
+- `WCF.ACP.Search` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))

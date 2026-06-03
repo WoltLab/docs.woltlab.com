@@ -57,3 +57,61 @@ class ArticleCategoryType extends AbstractCategoryType
 This is used by the “Add Child Category” interaction in the node tree view to allow users to directly create a child category for a given node.
 
 Custom subclasses of `CategoryAddFormBuilderForm` do not require any changes for this to work.
+
+## ACP Search Providers
+
+The registration of ACP search providers has been overhauled ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681)).
+
+### Registering Providers Through an Event
+
+Providers are now registered through the PSR-14 event `wcf\event\acp\search\provider\ProviderCollecting`.
+See the [ACP search providers](../../package/acp-search-providers.md) page for the full API reference.
+The `acpSearchProvider` package installation plugin and the underlying database object remain available but are deprecated and should no longer be used for new providers.
+
+A bootstrap script registers an event listener that adds the provider instances:
+
+```php
+EventHandler::getInstance()->register(
+    \wcf\event\acp\search\provider\ProviderCollecting::class,
+    static function (\wcf\event\acp\search\provider\ProviderCollecting $event) {
+        $event->register(
+            'com.example.myProvider',
+            new \example\system\search\acp\MyAcpSearchResultProvider()
+        );
+    }
+);
+```
+
+The provider class must still implement `wcf\system\search\acp\IACPSearchResultProvider`.
+The first argument of `register()` is the textual identifier that is also used as the language item key for the result group title (`wcf.acp.search.provider.{providerName}`).
+
+Providers are sorted by their translated label; the explicit `showOrder` from the deprecated PIP is no longer evaluated for event-registered providers.
+
+Providers that are still registered through the deprecated `acpSearchProvider` PIP continue to work and are merged with the event-registered providers, but they are shadowed by event-registered providers using the same `providerName`.
+
+### Searching Through the RPC API
+
+The legacy AJAX action `wcf\data\acp\search\provider\ACPSearchProviderAction::getSearchResultList()` has been replaced by the RPC endpoint `GET /core/acp/search`.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `query` | `non-empty-string` | The search query. |
+| `provider` | `string` (optional) | Restrict the search to a single provider identified by its `providerName`. |
+
+The response payload has the following shape:
+
+```json
+{
+    "results": [
+        {
+            "title": "Translated provider title",
+            "items": [
+                { "title": "…", "link": "…", "subtitle": "…" }
+            ]
+        }
+    ]
+}
+```
+
+The endpoint requires the `admin.general.canUseAcp` permission.
+Each registered provider remains responsible for enforcing its own admin permissions inside `IACPSearchResultProvider::search()`.
