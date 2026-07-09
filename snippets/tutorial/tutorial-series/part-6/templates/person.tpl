@@ -124,13 +124,11 @@
 </footer>
 
 <script data-relocate="true">
-	require(['Language', 'WoltLabSuite/Core/Controller/Person'], (Language, ControllerPerson) => {
-		Language.addObject({
-			'wcf.person.information.add': '{jslang}wcf.person.information.add{/jslang}',
-			'wcf.person.information.add.success': '{jslang}wcf.person.information.add.success{/jslang}',
-			'wcf.person.information.edit': '{jslang}wcf.person.information.edit{/jslang}',
-			'wcf.person.information.edit.success': '{jslang}wcf.person.information.edit.success{/jslang}',
-		});
+	require(['WoltLabSuite/Core/Controller/Person'], (ControllerPerson) => {
+		{jsphrase name='wcf.person.information.add'}
+		{jsphrase name='wcf.person.information.add.success'}
+		{jsphrase name='wcf.person.information.edit'}
+		{jsphrase name='wcf.person.information.edit.success'}
 		
 		ControllerPerson.init({$person->personID}, {
 			canAddInformation: {if $__wcf->session->getPermission('user.person.canAddInformation')}true{else}false{/if},

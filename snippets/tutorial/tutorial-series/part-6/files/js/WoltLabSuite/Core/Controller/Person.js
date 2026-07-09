@@ -6,12 +6,11 @@
  * @license  GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @module  WoltLabSuite/Core/Controller/Person
  */
-define(["require", "exports", "tslib", "WoltLabSuite/Core/Form/Builder/Dialog", "WoltLabSuite/Core/Language", "WoltLabSuite/Core/Ui/Notification"], function (require, exports, tslib_1, Dialog_1, Language, UiNotification) {
+define(["require", "exports", "tslib", "WoltLabSuite/Core/Form/Builder/Dialog", "WoltLabSuite/Core/Language", "WoltLabSuite/Core/Ui/Notification"], function (require, exports, tslib_1, Dialog_1, Language_1, UiNotification) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.init = void 0;
     Dialog_1 = tslib_1.__importDefault(Dialog_1);
-    Language = tslib_1.__importStar(Language);
     UiNotification = tslib_1.__importStar(UiNotification);
     let addDialog;
     const editDialogs = new Map();
@@ -29,13 +28,13 @@ define(["require", "exports", "tslib", "WoltLabSuite/Core/Form/Builder/Dialog", 
                     informationID: informationId,
                 },
                 dialog: {
-                    title: Language.get("wcf.person.information.edit"),
+                    title: (0, Language_1.getPhrase)("wcf.person.information.edit"),
                 },
                 submitActionName: "submitEditDialog",
                 successCallback(returnValues) {
                     document.getElementById(`personInformation${returnValues.informationID}`).innerHTML =
                         returnValues.formattedInformation;
-                    UiNotification.show(Language.get("wcf.person.information.edit.success"));
+                    UiNotification.show((0, Language_1.getPhrase)("wcf.person.information.edit.success"));
                 },
             }));
         }
@@ -52,11 +51,11 @@ define(["require", "exports", "tslib", "WoltLabSuite/Core/Form/Builder/Dialog", 
                     personID: personId,
                 },
                 dialog: {
-                    title: Language.get("wcf.person.information.add"),
+                    title: (0, Language_1.getPhrase)("wcf.person.information.add"),
                 },
                 submitActionName: "submitAddDialog",
                 successCallback() {
-                    UiNotification.show(Language.get("wcf.person.information.add.success"), () => window.location.reload());
+                    UiNotification.show((0, Language_1.getPhrase)("wcf.person.information.add.success"), () => window.location.reload());
                 },
             });
             document.getElementById("personInformationAddButton").addEventListener("click", (event) => {

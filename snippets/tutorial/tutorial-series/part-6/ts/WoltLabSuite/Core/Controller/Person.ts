@@ -8,7 +8,7 @@
  */
 
 import FormBuilderDialog from "WoltLabSuite/Core/Form/Builder/Dialog";
-import * as Language from "WoltLabSuite/Core/Language";
+import { getPhrase } from "WoltLabSuite/Core/Language";
 import * as UiNotification from "WoltLabSuite/Core/Ui/Notification";
 
 let addDialog: FormBuilderDialog;
@@ -45,14 +45,14 @@ function editInformation(event: Event): void {
             informationID: informationId,
           },
           dialog: {
-            title: Language.get("wcf.person.information.edit"),
+            title: getPhrase("wcf.person.information.edit"),
           },
           submitActionName: "submitEditDialog",
           successCallback(returnValues: EditReturnValues) {
             document.getElementById(`personInformation${returnValues.informationID}`)!.innerHTML =
               returnValues.formattedInformation;
 
-            UiNotification.show(Language.get("wcf.person.information.edit.success"));
+            UiNotification.show(getPhrase("wcf.person.information.edit.success"));
           },
         },
       ),
@@ -77,11 +77,11 @@ export function init(personId: number, options: Options): void {
           personID: personId,
         },
         dialog: {
-          title: Language.get("wcf.person.information.add"),
+          title: getPhrase("wcf.person.information.add"),
         },
         submitActionName: "submitAddDialog",
         successCallback() {
-          UiNotification.show(Language.get("wcf.person.information.add.success"), () => window.location.reload());
+          UiNotification.show(getPhrase("wcf.person.information.add.success"), () => window.location.reload());
         },
       },
     );
