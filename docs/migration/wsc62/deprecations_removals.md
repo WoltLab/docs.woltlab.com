@@ -36,6 +36,34 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\acp\search\provider\ACPSearchProviderList` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
 - `wcf\system\cache\builder\ACPSearchProviderCacheBuilder` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
 - `wcf\system\package\plugin\ACPSearchProviderPackageInstallationPlugin` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
+- `wcf\command\wsdb\record\SetRecordContent`
+- `wcf\command\wsdb\record\SetRecordLabels`
+- `wcf\data\wsdb\record\content\RecordContentAction`
+- `wcf\data\wsdb\record\content\RecordContentAction`
+- `wcf\data\wsdb\review\ReviewAction`
+- `wcf\data\wsdb\review\ReviewEditor`
+- `wcf\data\wsdb\review\response\ReviewResponseAction`
+- `wcf\data\wsdb\review\response\ReviewResponseEditor`
+- `filebase\data\file\FileAction`
+- `filebase\data\file\FileEditor`
+- `filebase\data\file\content\FileContentAction`
+- `filebase\data\file\content\FileContentEditor`
+- `filebase\data\file\version\FileVersionAction`
+- `filebase\data\file\version\FileVersionEditor`
+- `filebase\data\file\version\content\FileVersionContentAction`
+- `filebase\data\file\version\content\FileVersionContentEditor`
+- `filebase\data\file\version\review\FileVersionReviewAction`
+- `filebase\data\file\version\review\FileVersionReviewEditor`
+- `filebase\data\file\version\review\response\FileVersionReviewResponseAction`
+- `filebase\data\file\version\review\response\FileVersionReviewResponseBuilder`
+- `blog\data\blog\BlogAction`
+- `blog\data\blog\BlogEditor`
+- `blog\data\entry\EntryAction`
+- `blog\data\entry\EntryEditor`
+- `wcf\data\article\ArticleAction`
+- `wcf\data\article\ArticleEditor`
+- `wcf\data\article\content\ArticleContentAction`
+- `wcf\data\article\content\ArticleContentEditor`
 
 #### Methods
 
@@ -257,6 +285,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\user\profile\visitor\UserProfileVisitorAction::getGroupedUserList()`
 - `wbb\data\board\BoardAction::updatePosition()`
 - `wbb\data\board\BoardAction::validateUpdatePosition()`
+- `wcf\system\search\acp\ACPSearchHandler::getAbbreviations()`
+- `wcf\data\wsdb\record\RecordAction::create()`
+- `wcf\data\wsdb\record\RecordAction::update()`
 
 #### Properties
 
