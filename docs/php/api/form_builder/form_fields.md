@@ -585,9 +585,6 @@ ContentLanguageFormField::create()
 
 The `FileProcessorFormField` is used to upload files to the server via the file processor.
 
-By default, `FileProcessorFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the appropriate array of fileIDs to the `$parameters` array directly, using the object property as the array key.
-If `isSingleFileUpload()` is enabled, the value will be added to the data sub-array of the parameters array and the value can be null.
-
 The checks for the correct file size or extension don't take place in the FormField, this must be defined in the `IFileProcessor`.
 
 __The field supports other settings:__
@@ -596,7 +593,10 @@ __The field supports other settings:__
 - `context(array $context)` and `getContext()` can be used to set and get the context of the file processor.
 - `singleFileUpload($singleFileUpload = true)` and `isSingleFileUpload()` can be used to set and check if only one file can be uploaded.
 
-Example:
+#### Single File Upload
+
+When `singleFileUpload()` is enabled, the field value is a single integer (the file ID) or `null`.
+The value is added to the `data` sub-array of the parameters array, making it suitable for direct database column mapping.
 
 ```php
 FileProcessorFormField::create('exampleFileID')
@@ -606,12 +606,67 @@ FileProcessorFormField::create('exampleFileID')
   ->bigPreview()
 ```
 
+#### Multiple File Uploads
+
+When `singleFileUpload()` is not called, the field defaults to accepting multiple files.
+The field value is an array of file IDs.
+Since arrays cannot be stored in a single database column, the field automatically registers a [custom form field data processor](validation_data.md#customformfielddataprocessor) that places the array of file IDs into the `$parameters` array directly, using the object property as the array key.
+
+This means the file IDs will **not** be part of `$parameters['data']` and must be handled explicitly in your code.
+
+```php
+FileProcessorFormField::create('attachments')
+  ->objectType('foo.bar.example')
+  ->label('foo.bar.example.attachments')
+```
+
+The file IDs are available in the form data under the object property key:
+
+```php
+$formData = $this->form->getData();
+
+// File IDs are in the top-level parameters array, not in 'data'.
+$fileIDs = $formData['attachments']; // int[]
+```
+
+If the default data processor does not match your data structure, you can add your own `CustomFormDataProcessor` after building the form.
+The following example converts the array of file IDs to a comma-separated string for storage in a single database column:
+
+```php
+$this->form->getDataHandler()->addProcessor(
+    new CustomFormDataProcessor(
+        'attachments',
+        static function (IFormDocument $document, array $parameters) {
+            $field = $document->getNodeById('attachments');
+            \assert($field instanceof FileProcessorFormField);
+
+            $value = $field->getValue();
+            if ($value === null || $value === []) {
+                $parameters['data']['attachments'] = '';
+            } else {
+                $parameters['data']['attachments'] = \implode(',', $value);
+            }
+
+            return $parameters;
+        },
+        static function (IFormDocument $document, array $data, IStorableObject $object) {
+            $value = $data['attachments'] ?? '';
+            if ($value !== '') {
+                $data['attachments'] = \array_map(\intval(...), \explode(',', $value));
+            } else {
+                $data['attachments'] = [];
+            }
+
+            return $data;
+        }
+    )
+);
+```
+
 #### Additional Buttons
 
 Additional buttons can be added with `addActionButton(string $actionName, string $title, string $template, string $application = 'wcf', ?IFontAwesomeIcon $icon = null)`.
 When this button is pressed, the `fileProcessorCustomAction` event is fired, which can be used via JavaScript to perform additional actions.
-
-Example:
 
 ```ts
 document.getElementById('exampleFileIDContainer').addEventListener('fileProcessorCustomAction', (event: CustomEvent<string>) => {
