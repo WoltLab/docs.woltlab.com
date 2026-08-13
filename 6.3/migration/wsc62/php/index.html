@@ -4179,6 +4179,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#access-checks-for-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Checks for Views
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6187,6 +6198,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#access-checks-for-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Checks for Views
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6539,6 +6561,33 @@ Use the <code>hasPsr7Response()</code> method to guard the remaining logic:</p>
 </code></pre></div></td></tr></table></div>
 <p>As a consequence of the early return, the <code>readData</code> event is no longer fired if a response was set during the submission of the form.
 Event listeners that relied on being called in this situation must be moved to the <code>saved</code> event.</p>
+<h2 id="access-checks-for-views">Access Checks for Views<a class="headerlink" href="#access-checks-for-views" title="Permanent link">#</a></h2>
+<p><a href="../../../php/api/grid_views/">Grid views</a> and <a href="../../../php/api/list_views/">list views</a> are exposed through RPC endpoints that instantiate the view by its class name.
+The only protection against unauthorized access is <code>isAccessible()</code>, whose default implementation grants access to everybody.
+Views that did not override this method were therefore accessible to any user, regardless of the permissions of the page they were embedded in.</p>
+<p><code>isAccessible()</code> must now be implemented by every view:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">final</span> <span class="k">class</span> <span class="nc">ExampleGridView</span> <span class="k">extends</span> <span class="nx">AbstractGridView</span>
+<span class="p">{</span>
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">isAccessible</span><span class="p">()</span><span class="o">:</span> <span class="nx">bool</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">hasPermission</span><span class="p">(</span><span class="s1">&#39;admin.example.canManageExample&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The returned value should match the requirements of the page that renders the view, including the checks for the required modules.</p>
+<p><code>AbstractGridView::isAccessible()</code> and <code>AbstractListView::isAccessible()</code> are deprecated and will become abstract with WoltLab Suite 6.4.
+Until then they keep returning <code>true</code>, but throw a <code>BadMethodCallException</code> if both the debug mode and the developer tools are enabled, in order to surface views that have not been updated yet.</p>
+<div class="admonition warning">
+<p class="admonition-title">Do not call <code>parent::isAccessible()</code> when the parent class does not implement it itself, the deprecated default implementation throws in debug mode. Views that extend another concrete view, for example <code>ArticleListView</code>, may continue to delegate to their parent.</p>
+</div>
 
 
 
