@@ -64,6 +64,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\article\ArticleEditor`
 - `wcf\data\article\content\ArticleContentAction`
 - `wcf\data\article\content\ArticleContentEditor`
+- `wcf\data\wsdb\record\RecordAction`
+- `wcf\system\form\builder\field\AbstractFormFieldDecorator`
 
 #### Methods
 
@@ -286,8 +288,6 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\board\BoardAction::updatePosition()`
 - `wbb\data\board\BoardAction::validateUpdatePosition()`
 - `wcf\system\search\acp\ACPSearchHandler::getAbbreviations()`
-- `wcf\data\wsdb\record\RecordAction::create()`
-- `wcf\data\wsdb\record\RecordAction::update()`
 
 #### Properties
 
@@ -297,6 +297,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 
 - `WoltLabSuite/Core/Component/User/List`
 - `WoltLabSuite/Core/Ui/Sortable/List`
+- `WoltLabSuite/Core/Component/GoogleMaps/MarkerLoader::setup()`
 
 ## Removals
 
@@ -440,6 +441,12 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\BoardThreadList::countAnnouncements()`
 - `wbb\system\log\modification\ThreadModificationLogHandler::setAsAnnouncement()`
 - `wbb\system\log\modification\ThreadModificationLogHandler::unsetAsAnnouncement()`
+- `calendar\data\event\EventAction::validateGetMapMarkers()`
+- `calendar\data\event\EventAction::getMapMarkers()`
+- `wcf\data\wsdb\record\RecordAction::validateGetMapMarkers()`
+- `wcf\data\wsdb\record\RecordAction::getMapMarkers()`
+- `gallery\data\image\ImageAction::validateGetMapMarkers()`
+- `gallery\data\image\ImageAction::getMapMarkers()`
 
 #### Properties
 
