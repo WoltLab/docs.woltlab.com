@@ -288,6 +288,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\board\BoardAction::updatePosition()`
 - `wbb\data\board\BoardAction::validateUpdatePosition()`
 - `wcf\system\search\acp\ACPSearchHandler::getAbbreviations()`
+- `wcf\system\gridView\AbstractGridView::isAccessible()`
+- `wcf\system\listView\AbstractListView::isAccessible()`
+
 
 #### Properties
 

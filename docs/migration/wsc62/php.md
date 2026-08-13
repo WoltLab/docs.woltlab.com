@@ -259,3 +259,29 @@ public function readData()
 
 As a consequence of the early return, the `readData` event is no longer fired if a response was set during the submission of the form.
 Event listeners that relied on being called in this situation must be moved to the `saved` event.
+
+## Access Checks for Views
+
+[Grid views](../../php/api/grid_views.md) and [list views](../../php/api/list_views.md) are exposed through RPC endpoints that instantiate the view by its class name.
+The only protection against unauthorized access is `isAccessible()`, whose default implementation grants access to everybody.
+Views that did not override this method were therefore accessible to any user, regardless of the permissions of the page they were embedded in.
+
+`isAccessible()` must now be implemented by every view:
+
+```php
+final class ExampleGridView extends AbstractGridView
+{
+    #[\Override]
+    public function isAccessible(): bool
+    {
+        return WCF::getSession()->hasPermission('admin.example.canManageExample');
+    }
+}
+```
+
+The returned value should match the requirements of the page that renders the view, including the checks for the required modules.
+
+`AbstractGridView::isAccessible()` and `AbstractListView::isAccessible()` are deprecated and will become abstract with WoltLab Suite 6.4.
+Until then they keep returning `true`, but throw a `BadMethodCallException` if both the debug mode and the developer tools are enabled, in order to surface views that have not been updated yet.
+
+!!! warning "Do not call `parent::isAccessible()` when the parent class does not implement it itself, the deprecated default implementation throws in debug mode. Views that extend another concrete view, for example `ArticleListView`, may continue to delegate to their parent."
