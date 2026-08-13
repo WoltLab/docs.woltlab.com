@@ -115,3 +115,147 @@ The response payload has the following shape:
 
 The endpoint requires the `admin.general.canUseAcp` permission.
 Each registered provider remains responsible for enforcing its own admin permissions inside `IACPSearchResultProvider::search()`.
+
+## PSR-7 Responses in Pages and Forms
+
+Since WoltLab Suite 5.5 a page or form could abort request processing in two different ways: by returning a PSR-7 `ResponseInterface` from one of its lifecycle methods, or by emitting the response manually using `HeaderUtil::redirect()` followed by `exit`.
+Both approaches are problematic.
+Returning a response forces every intermediate override to forward the return value of its parent call, and a manually emitted redirect bypasses the PSR-15 middleware pipeline entirely, causing it to miss the cache-control headers that are applied to every regular response.
+
+WoltLab Suite 6.3 therefore standardizes on `setPsr7Response()`, which exists since WoltLab Suite 5.5, as the only supported way to define the response of a page or a form.
+
+### Changed Return Types
+
+The following methods are now declared as `@return void` and no longer accept a `ResponseInterface` as their return value:
+
+| Interface | Methods |
+|-----------|---------|
+| `wcf\page\IPage` | `readParameters()`, `readData()`, `show()` |
+| `wcf\form\IForm` | `readFormParameters()`, `validate()`, `save()` |
+
+`IPage::__run()` is not affected and continues to be declared as `@return void|ResponseInterface`.
+
+Returning a response from one of the methods listed above keeps working at runtime, because `AbstractPage::__run()` and `AbstractForm::submit()` still pass the return value through `maybeSetPsr7Response()`.
+The behavior is retained for backwards compatibility only and should not be relied upon for new code; static analysis will report the return value as unused.
+
+### Migrating a Returned Response
+
+Previously:
+
+```php
+#[\Override]
+public function readParameters()
+{
+    parent::readParameters();
+
+    if ($this->shouldRedirect()) {
+        return new RedirectResponse(
+            LinkHandler::getInstance()->getControllerLink(ExampleListPage::class)
+        );
+    }
+
+    // …
+}
+```
+
+Now:
+
+```php
+#[\Override]
+public function readParameters()
+{
+    parent::readParameters();
+
+    if ($this->shouldRedirect()) {
+        $this->setPsr7Response(new RedirectResponse(
+            LinkHandler::getInstance()->getControllerLink(ExampleListPage::class),
+            303
+        ));
+
+        return;
+    }
+
+    // …
+}
+```
+
+`setPsr7Response()` only stores the response, it does not abort the current method.
+The explicit `return` is required whenever the call is not the last statement of the method.
+
+Redirects that follow a successful form submission should use the status code 303 (See Other) instead of relying on the default of 302, so that the browser performs the follow-up request using `GET`.
+
+### Migrating `HeaderUtil::redirect()`
+
+Redirects that were emitted manually are migrated the same way:
+
+```php
+// previously
+HeaderUtil::redirect(LinkHandler::getInstance()->getControllerLink(ExampleListPage::class));
+
+exit;
+
+// now
+$this->setPsr7Response(new RedirectResponse(
+    LinkHandler::getInstance()->getControllerLink(ExampleListPage::class),
+    303
+));
+
+return;
+```
+
+Take care when replacing an `exit`: it terminated the whole request, whereas the `return` only leaves the current method.
+Every caller up the chain must be able to cope with the aborted method and must not continue as if the method had completed successfully.
+Use the `hasPsr7Response()` method to guard the remaining logic:
+
+```php
+#[\Override]
+public function readParameters()
+{
+    parent::readParameters();
+
+    $this->readObjectType();
+    if ($this->hasPsr7Response()) {
+        return;
+    }
+
+    $this->readObjectList();
+}
+```
+
+### `AbstractForm::readData()`
+
+`AbstractForm::readData()` now aborts after `submit()` if a response was set, meaning that `AbstractPage::readData()` is no longer called in that case:
+
+```php
+#[\Override]
+public function readData()
+{
+    if ($_POST !== [] || $_FILES !== []) {
+        $this->submit();
+        if ($this->hasPsr7Response()) {
+            return;
+        }
+    }
+
+    parent::readData();
+}
+```
+
+Forms that set a response inside `save()` and override `readData()` must add the same guard, because the code following the `parent::readData()` call was previously unreachable due to the `exit` in `save()`:
+
+```php
+#[\Override]
+public function readData()
+{
+    parent::readData();
+
+    if ($this->hasPsr7Response()) {
+        return;
+    }
+
+    $this->readOptionTree();
+}
+```
+
+As a consequence of the early return, the `readData` event is no longer fired if a response was set during the submission of the form.
+Event listeners that relied on being called in this situation must be moved to the `saved` event.
