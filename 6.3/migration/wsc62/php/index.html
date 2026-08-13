@@ -4118,6 +4118,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#psr-7-responses-in-pages-and-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PSR-7 Responses in Pages and Forms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PSR-7 Responses in Pages and Forms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed-return-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed Return Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrating-a-returned-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrating a Returned Response
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrating-headerutilredirect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrating HeaderUtil::redirect()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstractformreaddata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AbstractForm::readData()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6065,6 +6126,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#psr-7-responses-in-pages-and-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PSR-7 Responses in Pages and Forms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PSR-7 Responses in Pages and Forms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed-return-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed Return Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrating-a-returned-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrating a Returned Response
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrating-headerutilredirect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrating HeaderUtil::redirect()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstractformreaddata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AbstractForm::readData()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6221,6 +6343,202 @@ The first argument of <code>register()</code> is the textual identifier that is 
 </code></pre></div></td></tr></table></div>
 <p>The endpoint requires the <code>admin.general.canUseAcp</code> permission.
 Each registered provider remains responsible for enforcing its own admin permissions inside <code>IACPSearchResultProvider::search()</code>.</p>
+<h2 id="psr-7-responses-in-pages-and-forms">PSR-7 Responses in Pages and Forms<a class="headerlink" href="#psr-7-responses-in-pages-and-forms" title="Permanent link">#</a></h2>
+<p>Since WoltLab Suite 5.5 a page or form could abort request processing in two different ways: by returning a PSR-7 <code>ResponseInterface</code> from one of its lifecycle methods, or by emitting the response manually using <code>HeaderUtil::redirect()</code> followed by <code>exit</code>.
+Both approaches are problematic.
+Returning a response forces every intermediate override to forward the return value of its parent call, and a manually emitted redirect bypasses the PSR-15 middleware pipeline entirely, causing it to miss the cache-control headers that are applied to every regular response.</p>
+<p>WoltLab Suite 6.3 therefore standardizes on <code>setPsr7Response()</code>, which exists since WoltLab Suite 5.5, as the only supported way to define the response of a page or a form.</p>
+<h3 id="changed-return-types">Changed Return Types<a class="headerlink" href="#changed-return-types" title="Permanent link">#</a></h3>
+<p>The following methods are now declared as <code>@return void</code> and no longer accept a <code>ResponseInterface</code> as their return value:</p>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wcf\page\IPage</code></td>
+<td><code>readParameters()</code>, <code>readData()</code>, <code>show()</code></td>
+</tr>
+<tr>
+<td><code>wcf\form\IForm</code></td>
+<td><code>readFormParameters()</code>, <code>validate()</code>, <code>save()</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>IPage::__run()</code> is not affected and continues to be declared as <code>@return void|ResponseInterface</code>.</p>
+<p>Returning a response from one of the methods listed above keeps working at runtime, because <code>AbstractPage::__run()</code> and <code>AbstractForm::submit()</code> still pass the return value through <code>maybeSetPsr7Response()</code>.
+The behavior is retained for backwards compatibility only and should not be relied upon for new code; static analysis will report the return value as unused.</p>
+<h3 id="migrating-a-returned-response">Migrating a Returned Response<a class="headerlink" href="#migrating-a-returned-response" title="Permanent link">#</a></h3>
+<p>Previously:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">readParameters</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">parent</span><span class="o">::</span><span class="na">readParameters</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">shouldRedirect</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">RedirectResponse</span><span class="p">(</span>
+            <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getControllerLink</span><span class="p">(</span><span class="nx">ExampleListPage</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// …</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Now:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">readParameters</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">parent</span><span class="o">::</span><span class="na">readParameters</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">shouldRedirect</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setPsr7Response</span><span class="p">(</span><span class="k">new</span> <span class="nx">RedirectResponse</span><span class="p">(</span>
+            <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getControllerLink</span><span class="p">(</span><span class="nx">ExampleListPage</span><span class="o">::</span><span class="na">class</span><span class="p">),</span>
+            <span class="mi">303</span>
+        <span class="p">));</span>
+
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// …</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><code>setPsr7Response()</code> only stores the response, it does not abort the current method.
+The explicit <code>return</code> is required whenever the call is not the last statement of the method.</p>
+<p>Redirects that follow a successful form submission should use the status code 303 (See Other) instead of relying on the default of 302, so that the browser performs the follow-up request using <code>GET</code>.</p>
+<h3 id="migrating-headerutilredirect">Migrating <code>HeaderUtil::redirect()</code><a class="headerlink" href="#migrating-headerutilredirect" title="Permanent link">#</a></h3>
+<p>Redirects that were emitted manually are migrated the same way:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// previously</span>
+<span class="nx">HeaderUtil</span><span class="o">::</span><span class="na">redirect</span><span class="p">(</span><span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getControllerLink</span><span class="p">(</span><span class="nx">ExampleListPage</span><span class="o">::</span><span class="na">class</span><span class="p">));</span>
+
+<span class="k">exit</span><span class="p">;</span>
+
+<span class="c1">// now</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setPsr7Response</span><span class="p">(</span><span class="k">new</span> <span class="nx">RedirectResponse</span><span class="p">(</span>
+    <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getControllerLink</span><span class="p">(</span><span class="nx">ExampleListPage</span><span class="o">::</span><span class="na">class</span><span class="p">),</span>
+    <span class="mi">303</span>
+<span class="p">));</span>
+
+<span class="k">return</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>Take care when replacing an <code>exit</code>: it terminated the whole request, whereas the <code>return</code> only leaves the current method.
+Every caller up the chain must be able to cope with the aborted method and must not continue as if the method had completed successfully.
+Use the <code>hasPsr7Response()</code> method to guard the remaining logic:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">readParameters</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">parent</span><span class="o">::</span><span class="na">readParameters</span><span class="p">();</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">readObjectType</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hasPsr7Response</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">readObjectList</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="abstractformreaddata"><code>AbstractForm::readData()</code><a class="headerlink" href="#abstractformreaddata" title="Permanent link">#</a></h3>
+<p><code>AbstractForm::readData()</code> now aborts after <code>submit()</code> if a response was set, meaning that <code>AbstractPage::readData()</code> is no longer called in that case:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">readData</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$_POST</span> <span class="o">!==</span> <span class="p">[]</span> <span class="o">||</span> <span class="nv">$_FILES</span> <span class="o">!==</span> <span class="p">[])</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hasPsr7Response</span><span class="p">())</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">parent</span><span class="o">::</span><span class="na">readData</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Forms that set a response inside <code>save()</code> and override <code>readData()</code> must add the same guard, because the code following the <code>parent::readData()</code> call was previously unreachable due to the <code>exit</code> in <code>save()</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">readData</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">parent</span><span class="o">::</span><span class="na">readData</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hasPsr7Response</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">readOptionTree</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>As a consequence of the early return, the <code>readData</code> event is no longer fired if a response was set during the submission of the form.
+Event listeners that relied on being called in this situation must be moved to the <code>saved</code> event.</p>
 
 
 
@@ -6241,7 +6559,7 @@ Each registered provider remains responsible for enforcing its own admin permiss
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-06-03
+    2026-08-13
   </span>
 
     
