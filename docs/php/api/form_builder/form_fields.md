@@ -204,7 +204,7 @@ If the field is nullable and the current form field value is considered `empty` 
 
 ### `SortOrderFormField`
 
-`SingleSelectionFormField` is a [single selection form field](#singleselectionformfield) with default id `sortOrder`, default label `wcf.global.showOrder` and default options `ASC: wcf.global.sortOrder.ascending` and `DESC: wcf.global.sortOrder.descending`.
+`SortOrderFormField` is a [single selection form field](#singleselectionformfield) with default id `sortOrder`, default label `wcf.global.showOrder` and default options `ASC: wcf.global.sortOrder.ascending` and `DESC: wcf.global.sortOrder.descending`.
 
 
 ### `TextFormField`
