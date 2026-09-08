@@ -6433,11 +6433,11 @@ More information about installing templates can be found on those pages. </p>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;header&#39;</span><span class="cp">}</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'header'</span><span class="cp">}</span>
 
 <span class="cp">{</span><span class="c">* content *</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;footer&#39;</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'footer'</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="backend">Backend<a class="headerlink" href="#backend" title="Permanent link">#</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -6458,25 +6458,25 @@ More information about installing templates can be found on those pages. </p>
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;header&#39;</span> <span class="na">pageTitle</span><span class="o">=</span><span class="s1">&#39;foo.bar.baz&#39;</span><span class="cp">}</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'header'</span> <span class="na">pageTitle</span><span class="o">=</span><span class="s1">'foo.bar.baz'</span><span class="cp">}</span>
 
-<span class="x">&lt;header class=&quot;contentHeader&quot;&gt;</span>
-<span class="x">    &lt;div class=&quot;contentHeaderTitle&quot;&gt;</span>
-<span class="x">        &lt;h1 class=&quot;contentTitle&quot;&gt;Title&lt;/h1&gt;</span>
+<span class="x">&lt;header class="contentHeader"&gt;</span>
+<span class="x">    &lt;div class="contentHeaderTitle"&gt;</span>
+<span class="x">        &lt;h1 class="contentTitle"&gt;Title&lt;/h1&gt;</span>
 <span class="x">    &lt;/div&gt;</span>
 
-<span class="x">    &lt;nav class=&quot;contentHeaderNavigation&quot;&gt;</span>
+<span class="x">    &lt;nav class="contentHeaderNavigation"&gt;</span>
 <span class="x">        &lt;ul&gt;</span>
 <span class="x">            </span><span class="cp">{</span><span class="c">* your default content header navigation buttons *</span><span class="cp">}</span>
 
-<span class="x">            </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;contentHeaderNavigation&#39;</span><span class="cp">}</span>
+<span class="x">            </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'contentHeaderNavigation'</span><span class="cp">}</span>
 <span class="x">        &lt;/ul&gt;</span>
 <span class="x">    &lt;/nav&gt;</span>
 <span class="x">&lt;/header&gt;</span>
 
 <span class="cp">{</span><span class="c">* content *</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;footer&#39;</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'footer'</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <p><code>foo.bar.baz</code> is the language item that contains the title of the page.</p>
 <h2 id="common-template-components">Common Template Components<a class="headerlink" href="#common-template-components" title="Permanent link">#</a></h2>
@@ -6525,15 +6525,15 @@ More information about installing templates can be found on those pages. </p>
 <span class="normal">39</span>
 <span class="normal">40</span>
 <span class="normal">41</span>
-<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;form method=&quot;post&quot; action=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;FooBar&#39;</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot;&gt;</span>
-<span class="x">    &lt;div class=&quot;section&quot;&gt;</span>
-<span class="x">        &lt;dl</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">&#39;baz&#39;</span><span class="cp">}</span><span class="x"> class=&quot;formError&quot;</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&gt;</span>
-<span class="x">            &lt;dt&gt;&lt;label for=&quot;baz&quot;&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.baz</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/label&gt;&lt;/dt&gt;</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;form method="post" action="</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'FooBar'</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">"&gt;</span>
+<span class="x">    &lt;div class="section"&gt;</span>
+<span class="x">        &lt;dl</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">'baz'</span><span class="cp">}</span><span class="x"> class="formError"</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">&gt;</span>
+<span class="x">            &lt;dt&gt;&lt;label for="baz"&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.baz</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/label&gt;&lt;/dt&gt;</span>
 <span class="x">            &lt;dd&gt;</span>
-<span class="x">                &lt;input type=&quot;text&quot; id=&quot;baz&quot; name=&quot;baz&quot; value=&quot;</span><span class="cp">{</span><span class="nv">$baz</span><span class="cp">}</span><span class="x">&quot; class=&quot;long&quot; required autofocus&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">&#39;baz&#39;</span><span class="cp">}</span>
-<span class="x">                    &lt;small class=&quot;innerError&quot;&gt;</span>
-<span class="x">                        </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorType</span> <span class="o">==</span> <span class="s1">&#39;empty&#39;</span><span class="cp">}</span>
+<span class="x">                &lt;input type="text" id="baz" name="baz" value="</span><span class="cp">{</span><span class="nv">$baz</span><span class="cp">}</span><span class="x">" class="long" required autofocus&gt;</span>
+<span class="x">                </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">'baz'</span><span class="cp">}</span>
+<span class="x">                    &lt;small class="innerError"&gt;</span>
+<span class="x">                        </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorType</span> <span class="o">==</span> <span class="s1">'empty'</span><span class="cp">}</span>
 <span class="x">                            </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.form.error.empty</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span>
 <span class="x">                        </span><span class="cp">{</span><span class="nf">else</span><span class="cp">}</span>
 <span class="x">                            </span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.baz.error.</span><span class="cp">{</span><span class="nv">$errorType</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span>
@@ -6544,26 +6544,26 @@ More information about installing templates can be found on those pages. </p>
 <span class="x">        &lt;/dl&gt;</span>
 
 <span class="x">        &lt;dl&gt;</span>
-<span class="x">            &lt;dt&gt;&lt;label for=&quot;bar&quot;&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.bar</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/label&gt;&lt;/dt&gt;</span>
+<span class="x">            &lt;dt&gt;&lt;label for="bar"&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.bar</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/label&gt;&lt;/dt&gt;</span>
 <span class="x">            &lt;dd&gt;</span>
-<span class="x">                &lt;textarea name=&quot;bar&quot; id=&quot;bar&quot; cols=&quot;40&quot; rows=&quot;10&quot;&gt;</span><span class="cp">{</span><span class="nv">$bar</span><span class="cp">}</span><span class="x">&lt;/textarea&gt;</span>
-<span class="x">                </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">&#39;bar&#39;</span><span class="cp">}</span>
-<span class="x">                    &lt;small class=&quot;innerError&quot;&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.bar.error.</span><span class="cp">{</span><span class="nv">$errorType</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/small&gt;</span>
+<span class="x">                &lt;textarea name="bar" id="bar" cols="40" rows="10"&gt;</span><span class="cp">{</span><span class="nv">$bar</span><span class="cp">}</span><span class="x">&lt;/textarea&gt;</span>
+<span class="x">                </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$errorField</span> <span class="o">==</span> <span class="s1">'bar'</span><span class="cp">}</span>
+<span class="x">                    &lt;small class="innerError"&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.bar.error.</span><span class="cp">{</span><span class="nv">$errorType</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/small&gt;</span>
 <span class="x">                </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 <span class="x">            &lt;/dd&gt;</span>
 <span class="x">        &lt;/dl&gt;</span>
 
 <span class="x">        </span><span class="cp">{</span><span class="c">* other fields *</span><span class="cp">}</span>
 
-<span class="x">        </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;dataFields&#39;</span><span class="cp">}</span>
+<span class="x">        </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'dataFields'</span><span class="cp">}</span>
 <span class="x">    &lt;/div&gt;</span>
 
 <span class="x">    </span><span class="cp">{</span><span class="c">* other sections *</span><span class="cp">}</span>
 
-<span class="x">    </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;sections&#39;</span><span class="cp">}</span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'sections'</span><span class="cp">}</span>
 
-<span class="x">    &lt;div class=&quot;formSubmit&quot;&gt;</span>
-<span class="x">        &lt;input type=&quot;submit&quot; value=&quot;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.button.submit</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&quot; accesskey=&quot;s&quot;&gt;</span>
+<span class="x">    &lt;div class="formSubmit"&gt;</span>
+<span class="x">        &lt;input type="submit" value="</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.button.submit</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">" accesskey="s"&gt;</span>
 <span class="x">        </span><span class="cp">{</span><span class="nf">csrfToken</span><span class="cp">}</span>
 <span class="x">    &lt;/div&gt;</span>
 <span class="x">&lt;/form&gt;</span>
@@ -6611,48 +6611,48 @@ More information about installing templates can be found on those pages. </p>
 <span class="normal">40</span>
 <span class="normal">41</span>
 <span class="normal">42</span>
-<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;div class=&quot;section tabMenuContainer&quot;&gt;</span>
-<span class="x">    &lt;nav class=&quot;tabMenu&quot;&gt;</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;div class="section tabMenuContainer"&gt;</span>
+<span class="x">    &lt;nav class="tabMenu"&gt;</span>
 <span class="x">        &lt;ul&gt;</span>
-<span class="x">            &lt;li&gt;&lt;a href=&quot;#tab1&quot;&gt;Tab 1&lt;/a&gt;&lt;/li&gt;</span>
-<span class="x">            &lt;li&gt;&lt;a href=&quot;#tab2&quot;&gt;Tab 2&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">            &lt;li&gt;&lt;a href="#tab1"&gt;Tab 1&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">            &lt;li&gt;&lt;a href="#tab2"&gt;Tab 2&lt;/a&gt;&lt;/li&gt;</span>
 
-<span class="x">            </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;tabMenuTabs&#39;</span><span class="cp">}</span>
+<span class="x">            </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'tabMenuTabs'</span><span class="cp">}</span>
 <span class="x">        &lt;/ul&gt;</span>
 <span class="x">    &lt;/nav&gt;</span>
 
-<span class="x">    &lt;div id=&quot;tab1&quot; class=&quot;tabMenuContent&quot;&gt;</span>
-<span class="x">        &lt;div class=&quot;section&quot;&gt;</span>
+<span class="x">    &lt;div id="tab1" class="tabMenuContent"&gt;</span>
+<span class="x">        &lt;div class="section"&gt;</span>
 <span class="x">            </span><span class="cp">{</span><span class="c">* contents of first tab *</span><span class="cp">}</span>
 <span class="x">        &lt;/div&gt;</span>
 <span class="x">    &lt;/div&gt;</span>
 
-<span class="x">    &lt;div id=&quot;tab2&quot; class=&quot;tabMenuContainer tabMenuContent&quot;&gt;</span>
-<span class="x">        &lt;nav class=&quot;menu&quot;&gt;</span>
+<span class="x">    &lt;div id="tab2" class="tabMenuContainer tabMenuContent"&gt;</span>
+<span class="x">        &lt;nav class="menu"&gt;</span>
 <span class="x">            &lt;ul&gt;</span>
-<span class="x">                &lt;li&gt;&lt;a href=&quot;#tab2A&quot;&gt;Tab 2A&lt;/a&gt;&lt;/li&gt;</span>
-<span class="x">                &lt;li&gt;&lt;a href=&quot;#tab2B&quot;&gt;Tab 2B&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">                &lt;li&gt;&lt;a href="#tab2A"&gt;Tab 2A&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">                &lt;li&gt;&lt;a href="#tab2B"&gt;Tab 2B&lt;/a&gt;&lt;/li&gt;</span>
 
-<span class="x">                </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;tabMenuTab2Subtabs&#39;</span><span class="cp">}</span>
+<span class="x">                </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'tabMenuTab2Subtabs'</span><span class="cp">}</span>
 <span class="x">            &lt;/ul&gt;</span>
 <span class="x">        &lt;/nav&gt;</span>
 
-<span class="x">        &lt;div id=&quot;tab2A&quot; class=&quot;tabMenuContent&quot;&gt;</span>
-<span class="x">            &lt;div class=&quot;section&quot;&gt;</span>
+<span class="x">        &lt;div id="tab2A" class="tabMenuContent"&gt;</span>
+<span class="x">            &lt;div class="section"&gt;</span>
 <span class="x">                </span><span class="cp">{</span><span class="c">* contents of first subtab for second tab *</span><span class="cp">}</span>
 <span class="x">            &lt;/div&gt;</span>
 <span class="x">        &lt;/div&gt;</span>
 
-<span class="x">        &lt;div id=&quot;tab2B&quot; class=&quot;tabMenuContent&quot;&gt;</span>
-<span class="x">            &lt;div class=&quot;section&quot;&gt;</span>
+<span class="x">        &lt;div id="tab2B" class="tabMenuContent"&gt;</span>
+<span class="x">            &lt;div class="section"&gt;</span>
 <span class="x">                </span><span class="cp">{</span><span class="c">* contents of second subtab for second tab *</span><span class="cp">}</span>
 <span class="x">            &lt;/div&gt;</span>
 <span class="x">        &lt;/div&gt;</span>
 
-<span class="x">        </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;tabMenuTab2Contents&#39;</span><span class="cp">}</span>
+<span class="x">        </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'tabMenuTab2Contents'</span><span class="cp">}</span>
 <span class="x">    &lt;/div&gt;</span>
 
-<span class="x">    </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;tabMenuContents&#39;</span><span class="cp">}</span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">event</span> <span class="na">name</span><span class="o">=</span><span class="s1">'tabMenuContents'</span><span class="cp">}</span>
 <span class="x">&lt;/div&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="template-scripting">Template Scripting<a class="headerlink" href="#template-scripting" title="Permanent link">#</a></h2>
@@ -6671,8 +6671,8 @@ More information about installing templates can be found on those pages. </p>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
-    <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;baz&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span> 
+    <span class="s1">'foo'</span> <span class="o">=&gt;</span> <span class="s1">'bar'</span><span class="p">,</span>
+    <span class="s1">'baz'</span> <span class="o">=&gt;</span> <span class="k">false</span> 
 <span class="p">]);</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="modifiers">Modifiers<a class="headerlink" href="#modifiers" title="Permanent link">#</a></h4>
@@ -6683,7 +6683,7 @@ The general syntax for applying a variable modifier is <code>{$variable|modifier
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$variable</span><span class="o">|</span><span class="na">modifier1</span><span class="o">|</span><span class="na">modifier2</span><span class="o">|</span><span class="na">modifier3</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div></p>
 <p>A modifier may accept additional parameters that affect its behavior. These parameters follow the modifier name and are separated by a <code>:</code>. For example:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$variable</span><span class="o">|</span><span class="na">modifier</span><span class="o">:</span><span class="s1">&#39;param1&#39;</span><span class="o">:</span><span class="s1">&#39;param2&#39;</span><span class="cp">}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$variable</span><span class="o">|</span><span class="na">modifier</span><span class="o">:</span><span class="s1">'param1'</span><span class="o">:</span><span class="s1">'param2'</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div></p>
 <p>An <a href="../template-modifiers/">overview of all available modifiers</a> is available on a <a href="../template-modifiers/">dedicated page</a>.</p>
 <h4 id="system-template-variable">System Template Variable<a class="headerlink" href="#system-template-variable" title="Permanent link">#</a></h4>
@@ -6707,9 +6707,9 @@ The general syntax for applying a variable modifier is <code>{$variable|modifier
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">if</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">&#39;bar&#39;</span><span class="cp">}</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">if</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">'bar'</span><span class="cp">}</span>
 <span class="x">    foo is bar</span>
-<span class="cp">{</span><span class="nf">elseif</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">&#39;baz&#39;</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">elseif</span> <span class="nv">$foo</span> <span class="o">===</span> <span class="s1">'baz'</span><span class="cp">}</span>
 <span class="x">    foo is baz</span>
 <span class="cp">{</span><span class="nf">else</span><span class="cp">}</span>
 <span class="x">    foo is neither bar nor baz</span>
@@ -6848,13 +6848,13 @@ If the foreach loop has a name assigned to it via the <code>name</code> attribut
 </code></pre></div></td></tr></table></div>
 <h3 id="including-other-templates">Including Other Templates<a class="headerlink" href="#including-other-templates" title="Permanent link">#</a></h3>
 <p>To include template named <code>foo</code> from the same domain (frontend/backend), you can use</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="cp">}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'foo'</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <p>If the template belongs to an application, you have to specify that application using the <code>application</code> attribute:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span> <span class="na">application</span><span class="o">=</span><span class="s1">&#39;app&#39;</span><span class="cp">}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'foo'</span> <span class="na">application</span><span class="o">=</span><span class="s1">'app'</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Additional template variables can be passed to the included template as additional attributes:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span> <span class="na">application</span><span class="o">=</span><span class="s1">&#39;app&#39;</span> <span class="na">var1</span><span class="o">=</span><span class="s1">&#39;foo1&#39;</span> <span class="na">var2</span><span class="o">=</span><span class="s1">&#39;foo2&#39;</span><span class="cp">}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'foo'</span> <span class="na">application</span><span class="o">=</span><span class="s1">'app'</span> <span class="na">var1</span><span class="o">=</span><span class="s1">'foo1'</span> <span class="na">var2</span><span class="o">=</span><span class="s1">'foo2'</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="template-plugins">Template Plugins<a class="headerlink" href="#template-plugins" title="Permanent link">#</a></h3>
 <p>An overview of all available template plugins can be found <a href="../template-plugins/">here</a>.</p>

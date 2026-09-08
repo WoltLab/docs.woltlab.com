@@ -6797,8 +6797,8 @@ Instead the endpoint must be generated using <code>LinkHandler</code> and explic
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;button</span>
-<span class="x">    class=&quot;button fancyButton&quot;</span>
-<span class="x">    data-endpoint=&quot;</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">&#39;MyFancy&#39;</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">    class="button fancyButton"</span>
+<span class="x">    data-endpoint="</span><span class="cp">{</span><span class="nf">link</span> <span class="na">controller</span><span class="o">=</span><span class="s1">'MyFancy'</span><span class="cp">}{</span><span class="nf">/link</span><span class="cp">}</span><span class="x">"</span>
 <span class="x">&gt;Click me!&lt;/button&gt;</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -6807,8 +6807,8 @@ Instead the endpoint must be generated using <code>LinkHandler</code> and explic
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.fancyButton&#39;</span><span class="p">);</span>
-<span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.fancyButton'</span><span class="p">);</span>
+<span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">prepareRequest</span><span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">endpoint</span><span class="p">)</span>
 <span class="w">        </span><span class="p">.</span><span class="nx">get</span><span class="p">();</span><span class="w"> </span><span class="c1">// or: .post(…)</span>
 
@@ -6853,9 +6853,9 @@ If validation succeeded, the controller must perform the resulting action and re
 <span class="normal">20</span>
 <span class="normal">21</span>
 <span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s1">'GET'</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nv">$dialogForm</span><span class="o">-&gt;</span><span class="na">toResponse</span><span class="p">();</span>
-<span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s1">'POST'</span><span class="p">)</span> <span class="p">{</span>
     <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$dialogForm</span><span class="o">-&gt;</span><span class="na">validateRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="nv">$response</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
@@ -6866,15 +6866,15 @@ If validation succeeded, the controller must perform the resulting action and re
     <span class="c1">// Use $data.</span>
 
     <span class="k">return</span> <span class="k">new</span> <span class="nx">JsonResponse</span><span class="p">([</span>
-        <span class="s1">&#39;result&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-            <span class="s1">&#39;some&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+        <span class="s1">'result'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">'some'</span> <span class="o">=&gt;</span> <span class="s1">'value'</span><span class="p">,</span>
         <span class="p">],</span>
     <span class="p">]);</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
     <span class="c1">// The used method is validated by a middleware. Methods that are not</span>
-    <span class="c1">// GET or POST need to be explicitly allowed using the &#39;AllowHttpMethod&#39;</span>
+    <span class="c1">// GET or POST need to be explicitly allowed using the 'AllowHttpMethod'</span>
     <span class="c1">// attribute.</span>
-    <span class="k">throw</span> <span class="k">new</span> <span class="nx">\LogicException</span><span class="p">(</span><span class="s1">&#39;Unreachable&#39;</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nx">\LogicException</span><span class="p">(</span><span class="s1">'Unreachable'</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
@@ -6938,14 +6938,14 @@ As such it is aware of the rules of all relevant languages and regions of the wo
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>php &gt; var_dump((new NumberFormatter(&#39;en_US&#39;, \NumberFormatter::DEFAULT_STYLE))-&gt;format(123_456_789));
-string(11) &quot;123,456,789&quot;
-php &gt; var_dump((new NumberFormatter(&#39;en_IN&#39;, \NumberFormatter::DEFAULT_STYLE))-&gt;format(123_456_789));
-string(12) &quot;12,34,56,789&quot;
-php &gt; var_dump((new NumberFormatter(&#39;de_DE&#39;, \NumberFormatter::DEFAULT_STYLE))-&gt;format(123_456_789));
-string(11) &quot;123.456.789&quot;
-php &gt; var_dump((new NumberFormatter(&#39;de_CH&#39;, \NumberFormatter::DEFAULT_STYLE))-&gt;format(123_456_789));
-string(15) &quot;123’456’789&quot;
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>php &gt; var_dump((new NumberFormatter('en_US', \NumberFormatter::DEFAULT_STYLE))-&gt;format(123_456_789));
+string(11) "123,456,789"
+php &gt; var_dump((new NumberFormatter('en_IN', \NumberFormatter::DEFAULT_STYLE))-&gt;format(123_456_789));
+string(12) "12,34,56,789"
+php &gt; var_dump((new NumberFormatter('de_DE', \NumberFormatter::DEFAULT_STYLE))-&gt;format(123_456_789));
+string(11) "123.456.789"
+php &gt; var_dump((new NumberFormatter('de_CH', \NumberFormatter::DEFAULT_STYLE))-&gt;format(123_456_789));
+string(15) "123’456’789"
 </code></pre></div></td></tr></table></div>
 <p>WoltLab Suite’s <code>StringUtil::formatNumeric()</code> method is updated to leverage the <code>NumberFormatter</code> internally.
 However your package might have special requirements regarding formatting, for example when formatting currencies where the position of the currency symbol differs across languages.
@@ -6962,15 +6962,15 @@ The correct locale can be queried by the new <code>Language::getLocale()</code> 
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>php &gt; var_dump(\wcf\system\WCF::getLanguage()-&gt;getLocale());
-string(5) &quot;en_US&quot;
-php &gt; var_dump(locale_get_display_region(&#39;_DE&#39;, \wcf\system\WCF::getLanguage()-&gt;getLocale()));
-string(7) &quot;Germany&quot;
-php &gt; var_dump(locale_get_display_region(&#39;_US&#39;, \wcf\system\WCF::getLanguage()-&gt;getLocale()));
-string(13) &quot;United States&quot;
-php &gt; var_dump(locale_get_display_region(&#39;_IN&#39;, \wcf\system\WCF::getLanguage()-&gt;getLocale()));
-string(5) &quot;India&quot;
-php &gt; var_dump(locale_get_display_region(&#39;_BR&#39;, \wcf\system\WCF::getLanguage()-&gt;getLocale()));
-string(6) &quot;Brazil&quot;
+string(5) "en_US"
+php &gt; var_dump(locale_get_display_region('_DE', \wcf\system\WCF::getLanguage()-&gt;getLocale()));
+string(7) "Germany"
+php &gt; var_dump(locale_get_display_region('_US', \wcf\system\WCF::getLanguage()-&gt;getLocale()));
+string(13) "United States"
+php &gt; var_dump(locale_get_display_region('_IN', \wcf\system\WCF::getLanguage()-&gt;getLocale()));
+string(5) "India"
+php &gt; var_dump(locale_get_display_region('_BR', \wcf\system\WCF::getLanguage()-&gt;getLocale()));
+string(6) "Brazil"
 </code></pre></div></td></tr></table></div>
 <p>See <a href="https://github.com/WoltLab/WCF/pull/5048">WoltLab/WCF#5048</a> for details.</p>
 <h2 id="indicating-parameters-that-hold-sensitive-information">Indicating parameters that hold sensitive information<a class="headerlink" href="#indicating-parameters-that-hold-sensitive-information" title="Permanent link">#</a></h2>

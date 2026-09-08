@@ -6220,13 +6220,13 @@ Such additional validations can be added to (and removed from) the form field vi
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$container</span><span class="o">-&gt;</span><span class="na">appendChildren</span><span class="p">([</span>
-    <span class="nx">FooField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
-        <span class="o">-&gt;</span><span class="na">addValidator</span><span class="p">(</span><span class="k">new</span> <span class="nx">FormFieldValidator</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">FooField</span> <span class="nv">$formField</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nv">$formField</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">FooField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">addValidator</span><span class="p">(</span><span class="k">new</span> <span class="nx">FormFieldValidator</span><span class="p">(</span><span class="s1">'b'</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">FooField</span> <span class="nv">$formField</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$formField</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">'value'</span><span class="p">)</span> <span class="p">{</span>
                 <span class="nv">$formField</span><span class="o">-&gt;</span><span class="na">addValidationError</span><span class="p">(</span>
                     <span class="k">new</span> <span class="nx">FormFieldValidationError</span><span class="p">(</span>
-                        <span class="s1">&#39;type&#39;</span><span class="p">,</span>
-                        <span class="s1">&#39;phrase&#39;</span>
+                        <span class="s1">'type'</span><span class="p">,</span>
+                        <span class="s1">'phrase'</span>
                     <span class="p">)</span>
                 <span class="p">);</span>
             <span class="p">}</span>
@@ -6301,23 +6301,23 @@ Only one of the callables has to be given, the other one then defaults to simply
 <span class="normal">24</span>
 <span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getDataHandler</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">addProcessor</span><span class="p">(</span>
     <span class="k">new</span> <span class="nx">CustomFormDataProcessor</span><span class="p">(</span>
-        <span class="s1">&#39;additionalItems&#39;</span><span class="p">,</span>
+        <span class="s1">'additionalItems'</span><span class="p">,</span>
         <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">IFormDocument</span> <span class="nv">$document</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$parameters</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$additionalItems</span> <span class="o">=</span> <span class="nv">$document</span><span class="o">-&gt;</span><span class="na">getNodeById</span><span class="p">(</span><span class="s1">&#39;additionalItems&#39;</span><span class="p">);</span>
+            <span class="nv">$additionalItems</span> <span class="o">=</span> <span class="nv">$document</span><span class="o">-&gt;</span><span class="na">getNodeById</span><span class="p">(</span><span class="s1">'additionalItems'</span><span class="p">);</span>
             <span class="nx">\assert</span><span class="p">(</span><span class="nv">$additionalItems</span> <span class="nx">instanceof</span> <span class="nx">MultilineItemListFormField</span><span class="p">);</span>
 
             <span class="nv">$value</span> <span class="o">=</span> <span class="nv">$additionalItems</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">();</span>
             <span class="k">if</span> <span class="p">(</span><span class="nv">$value</span> <span class="o">===</span> <span class="k">null</span> <span class="o">||</span> <span class="nv">$value</span> <span class="o">===</span> <span class="p">[])</span> <span class="p">{</span>
-                <span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;additionalItems&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+                <span class="nv">$parameters</span><span class="p">[</span><span class="s1">'data'</span><span class="p">][</span><span class="s1">'additionalItems'</span><span class="p">]</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                <span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;additionalItems&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">\implode</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
+                <span class="nv">$parameters</span><span class="p">[</span><span class="s1">'data'</span><span class="p">][</span><span class="s1">'additionalItems'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">\implode</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
             <span class="p">}</span>
 
             <span class="k">return</span> <span class="nv">$parameters</span><span class="p">;</span>
         <span class="p">},</span>
         <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">IFormDocument</span> <span class="nv">$document</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$data</span><span class="p">,</span> <span class="nx">IStorableObject</span> <span class="nv">$object</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">if</span> <span class="p">(</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">additionalItems</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;additionalItems&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">\explode</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;additionalItems&#39;</span><span class="p">]);</span>
+                <span class="nv">$data</span><span class="p">[</span><span class="s1">'additionalItems'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">\explode</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">'additionalItems'</span><span class="p">]);</span>
             <span class="p">}</span>
 
             <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>

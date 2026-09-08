@@ -6243,9 +6243,9 @@ The new implementation renders the categories using <code>CategoryNodeTreeView</
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">ArticleCategoryListPage</span> <span class="k">extends</span> <span class="nx">AbstractCategoryNodeTreeViewPage</span>
 <span class="p">{</span>
-    <span class="k">public</span> <span class="nv">$activeMenuItem</span> <span class="o">=</span> <span class="s1">&#39;wcf.acp.menu.link.article.category.list&#39;</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$activeMenuItem</span> <span class="o">=</span> <span class="s1">'wcf.acp.menu.link.article.category.list'</span><span class="p">;</span>
 
-    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$objectTypeName</span> <span class="o">=</span> <span class="s1">&#39;com.woltlab.wcf.article.category&#39;</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$objectTypeName</span> <span class="o">=</span> <span class="s1">'com.woltlab.wcf.article.category'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>The previously used template, action handlers and read methods are no longer required and can be removed.
@@ -6309,7 +6309,7 @@ The <code>acpSearchProvider</code> package installation plugin and the underlyin
     <span class="nx">\wcf\event\acp\search\provider\ProviderCollecting</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
     <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">\wcf\event\acp\search\provider\ProviderCollecting</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
         <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span>
-            <span class="s1">&#39;com.example.myProvider&#39;</span><span class="p">,</span>
+            <span class="s1">'com.example.myProvider'</span><span class="p">,</span>
             <span class="k">new</span> <span class="nx">\example\system\search\acp\MyAcpSearchResultProvider</span><span class="p">()</span>
         <span class="p">);</span>
     <span class="p">}</span>
@@ -6353,11 +6353,11 @@ The first argument of <code>register()</code> is the textual identifier that is 
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nt">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Translated provider title&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;…&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;link&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;…&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;subtitle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;…&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Translated provider title"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"…"</span><span class="p">,</span><span class="w"> </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"…"</span><span class="p">,</span><span class="w"> </span><span class="nt">"subtitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"…"</span><span class="w"> </span><span class="p">}</span>
 <span class="w">            </span><span class="p">]</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">]</span>
@@ -6578,7 +6578,7 @@ Views that did not override this method were therefore accessible to any user, r
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">isAccessible</span><span class="p">()</span><span class="o">:</span> <span class="nx">bool</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">hasPermission</span><span class="p">(</span><span class="s1">&#39;admin.example.canManageExample&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">hasPermission</span><span class="p">(</span><span class="s1">'admin.example.canManageExample'</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>

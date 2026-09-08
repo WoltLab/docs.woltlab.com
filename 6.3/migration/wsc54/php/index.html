@@ -6571,10 +6571,10 @@ It is recommended to wait for a future version before migrating these types of c
     <span class="p">{</span>
         <span class="k">parent</span><span class="o">::</span><span class="na">execute</span><span class="p">();</span>
 
-        <span class="nx">\header</span><span class="p">(</span><span class="s1">&#39;Content-type: application/json; charset=UTF-8&#39;</span><span class="p">);</span>
+        <span class="nx">\header</span><span class="p">(</span><span class="s1">'Content-type: application/json; charset=UTF-8'</span><span class="p">);</span>
 
         <span class="k">echo</span> <span class="nx">JSON</span><span class="o">::</span><span class="na">encode</span><span class="p">([</span>
-            <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+            <span class="s1">'foo'</span> <span class="o">=&gt;</span> <span class="s1">'bar'</span><span class="p">,</span>
         <span class="p">]);</span>
 
         <span class="k">exit</span><span class="p">;</span>
@@ -6611,7 +6611,7 @@ It is recommended to wait for a future version before migrating these types of c
         <span class="k">parent</span><span class="o">::</span><span class="na">execute</span><span class="p">();</span>
 
         <span class="k">return</span> <span class="k">new</span> <span class="nx">JsonResponse</span><span class="p">([</span>
-            <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+            <span class="s1">'foo'</span> <span class="o">=&gt;</span> <span class="s1">'bar'</span><span class="p">,</span>
         <span class="p">]);</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -6638,10 +6638,10 @@ No interface has to be implemented in this case.</p>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="nx">\random_int</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1024</span><span class="p">),</span>
+    <span class="s1">'value'</span> <span class="o">=&gt;</span> <span class="nx">\random_int</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1024</span><span class="p">),</span>
 <span class="p">];</span>
 
-<span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;valueAvailable&#39;</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
+<span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">'valueAvailable'</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">lib/system/event/listener/ValueDumpListener.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -6673,7 +6673,7 @@ No interface has to be implemented in this case.</p>
 <span class="sd">     */</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]);</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$parameters</span><span class="p">[</span><span class="s1">'value'</span><span class="p">]);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -6828,10 +6828,10 @@ Likewise you should explicitly check for the interface before attempting to acce
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;language</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span><span class="w"> </span><span class="na">languagecode=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.foo&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.foo.bar&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;language</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd"</span><span class="w"> </span><span class="na">languagecode=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">name=</span><span class="s">"wcf.foo"</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">"wcf.foo.bar"</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/category&gt;</span>
 <span class="nt">&lt;/language&gt;</span>
 </code></pre></div></td></tr></table></div>
@@ -6843,11 +6843,11 @@ Likewise you should explicitly check for the interface before attempting to acce
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;language</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span><span class="w"> </span><span class="na">languagecode=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;language</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd"</span><span class="w"> </span><span class="na">languagecode=</span><span class="s">"en"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;import&gt;</span>
-<span class="w">        </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.foo&quot;</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.foo.bar&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
+<span class="w">        </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">name=</span><span class="s">"wcf.foo"</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">"wcf.foo.bar"</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/category&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/import&gt;</span>
 <span class="nt">&lt;/language&gt;</span>
@@ -6863,15 +6863,15 @@ Likewise you should explicitly check for the interface before attempting to acce
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;language</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd&quot;</span><span class="w"> </span><span class="na">languagecode=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;language</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd"</span><span class="w"> </span><span class="na">languagecode=</span><span class="s">"en"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;import&gt;</span>
-<span class="w">        </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.foo&quot;</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.foo.bar&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
+<span class="w">        </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">name=</span><span class="s">"wcf.foo"</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">"wcf.foo.bar"</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[Bar]]&gt;</span><span class="nt">&lt;/item&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/category&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/import&gt;</span>
 <span class="w">    </span><span class="nt">&lt;delete&gt;</span>
-<span class="w">        </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.foo.barrr&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">"wcf.foo.barrr"</span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/delete&gt;</span>
 <span class="nt">&lt;/language&gt;</span>
 </code></pre></div></td></tr></table></div>

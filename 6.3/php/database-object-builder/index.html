@@ -6395,7 +6395,7 @@ once <code>create()</code> or <code>update()</code> has been called, the instanc
 <span class="k">use</span> <span class="nx">wcf\data\tag\TagBuilder</span><span class="p">;</span>
 
 <span class="nv">$tag</span> <span class="o">=</span> <span class="nx">TagBuilder</span><span class="o">::</span><span class="na">forCreate</span><span class="p">()</span>
-    <span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;Example&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">'Example'</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">setLanguageID</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
@@ -6415,7 +6415,7 @@ It returns <code>null</code> when the insert would have violated a unique constr
 <span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$tag</span> <span class="o">=</span> <span class="nx">TagBuilder</span><span class="o">::</span><span class="na">forCreate</span><span class="p">()</span>
-    <span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;Example&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">'Example'</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">setLanguageID</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">createOrIgnore</span><span class="p">();</span>
 
@@ -6435,7 +6435,7 @@ It returns <code>null</code> when the insert would have violated a unique constr
 <span class="k">use</span> <span class="nx">wcf\data\tag\TagBuilder</span><span class="p">;</span>
 
 <span class="nv">$tag</span> <span class="o">=</span> <span class="nx">TagBuilder</span><span class="o">::</span><span class="na">forUpdate</span><span class="p">(</span><span class="nv">$tag</span><span class="p">)</span>
-    <span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;New name&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">'New name'</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">update</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
 <p><code>update()</code> writes only the properties that were actually set and returns the reloaded object.
@@ -6520,14 +6520,14 @@ Required columns are declared via <code>getRequiredProperties()</code>.</p>
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">setLanguageID</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$languageID</span><span class="p">)</span><span class="o">:</span> <span class="k">static</span>
     <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">properties</span><span class="p">[</span><span class="s1">&#39;languageID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$languageID</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">properties</span><span class="p">[</span><span class="s1">'languageID'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$languageID</span><span class="p">;</span>
 
         <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">setName</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$name</span><span class="p">)</span><span class="o">:</span> <span class="k">static</span>
     <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">properties</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">properties</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
 
         <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
     <span class="p">}</span>
@@ -6535,7 +6535,7 @@ Required columns are declared via <code>getRequiredProperties()</code>.</p>
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">protected</span> <span class="k">function</span> <span class="nf">getRequiredProperties</span><span class="p">()</span><span class="o">:</span> <span class="k">array</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s1">'name'</span><span class="p">];</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -6567,16 +6567,16 @@ Do not expose two independent setters that must be kept consistent by the caller
 
 <span class="k">public</span> <span class="k">function</span> <span class="nf">setUser</span><span class="p">(</span><span class="nx">User</span> <span class="nv">$user</span><span class="p">)</span><span class="o">:</span> <span class="k">static</span>
 <span class="p">{</span>
-    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">properties</span><span class="p">[</span><span class="s1">&#39;userID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">userID</span><span class="p">;</span>
-    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">properties</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">properties</span><span class="p">[</span><span class="s1">'userID'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">userID</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">properties</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">;</span>
 
     <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="k">public</span> <span class="k">function</span> <span class="nf">setGuest</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$username</span><span class="p">)</span><span class="o">:</span> <span class="k">static</span>
 <span class="p">{</span>
-    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">properties</span><span class="p">[</span><span class="s1">&#39;userID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
-    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">properties</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$username</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">properties</span><span class="p">[</span><span class="s1">'userID'</span><span class="p">]</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">properties</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$username</span><span class="p">;</span>
 
     <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
 <span class="p">}</span>
@@ -6596,7 +6596,7 @@ Accept the object a value belongs to and read the scalar off it inside the sette
 
 <span class="k">public</span> <span class="k">function</span> <span class="nf">setLanguage</span><span class="p">(</span><span class="o">?</span><span class="nx">Language</span> <span class="nv">$language</span><span class="p">)</span><span class="o">:</span> <span class="k">static</span>
 <span class="p">{</span>
-    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">properties</span><span class="p">[</span><span class="s1">&#39;languageID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$language</span><span class="o">?-&gt;</span><span class="na">languageID</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">properties</span><span class="p">[</span><span class="s1">'languageID'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$language</span><span class="o">?-&gt;</span><span class="na">languageID</span><span class="p">;</span>
 
     <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
 <span class="p">}</span>
@@ -6629,7 +6629,7 @@ Checks for the extra state described above belong into <code>afterValidateCreate
 <span class="k">protected</span> <span class="k">function</span> <span class="nf">afterValidateCreate</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
 <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">foo</span><span class="p">))</span> <span class="p">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="nx">\BadMethodCallException</span><span class="p">(</span><span class="s2">&quot;Missing value for &#39;foo&#39;.&quot;</span><span class="p">);</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nx">\BadMethodCallException</span><span class="p">(</span><span class="s2">"Missing value for 'foo'."</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -6754,7 +6754,7 @@ It receives a configured builder, calls <code>create()</code>/<code>update()</co
 
 <span class="nv">$tag</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">CreateTag</span><span class="p">(</span>
     <span class="nx">TagBuilder</span><span class="o">::</span><span class="na">forCreate</span><span class="p">()</span>
-        <span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;Example&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">'Example'</span><span class="p">)</span>
         <span class="o">-&gt;</span><span class="na">setLanguageID</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="p">))();</span>
 </code></pre></div></td></tr></table></div>
@@ -6881,10 +6881,10 @@ Any <code>additionalFields</code> collected by the form are written through <cod
     <span class="k">protected</span> <span class="k">function</span> <span class="nf">createForm</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
     <span class="p">{</span>
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">form</span><span class="o">-&gt;</span><span class="na">appendChildren</span><span class="p">([</span>
-            <span class="nx">FormContainer</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;general&#39;</span><span class="p">)</span>
+            <span class="nx">FormContainer</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'general'</span><span class="p">)</span>
                 <span class="o">-&gt;</span><span class="na">appendChildren</span><span class="p">([</span>
-                    <span class="nx">TextFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
-                        <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">&#39;wcf.global.name&#39;</span><span class="p">)</span>
+                    <span class="nx">TextFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
+                        <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">'wcf.global.name'</span><span class="p">)</span>
                         <span class="o">-&gt;</span><span class="na">required</span><span class="p">()</span>
                         <span class="o">-&gt;</span><span class="na">maximumLength</span><span class="p">(</span><span class="nx">\TAGGING_MAX_TAG_LENGTH</span><span class="p">)</span>
                         <span class="o">-&gt;</span><span class="na">saveValueCallback</span><span class="p">(</span><span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">TagBuilder</span> <span class="nv">$builder</span><span class="p">,</span> <span class="nx">IFormField</span> <span class="nv">$field</span><span class="p">)</span> <span class="p">{</span>

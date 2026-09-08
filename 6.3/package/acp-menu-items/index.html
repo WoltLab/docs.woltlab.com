@@ -5938,18 +5938,18 @@
 <span class="k">return</span> <span class="k">static</span> <span class="k">function</span> <span class="p">()</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
     <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">ItemCollecting</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">ItemCollecting</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
         <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="k">new</span> <span class="nx">AcpMenuItem</span><span class="p">(</span>
-            <span class="s2">&quot;com.woltlab.foor.bar&quot;</span><span class="p">,</span>
-            <span class="s1">&#39;Example Title&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;wcf.acp.menu.link.application&#39;</span>
+            <span class="s2">"com.woltlab.foor.bar"</span><span class="p">,</span>
+            <span class="s1">'Example Title'</span><span class="p">,</span>
+            <span class="s1">'wcf.acp.menu.link.application'</span>
         <span class="p">));</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="nv">$currentUserHasSomeSpecificPermission</span><span class="p">)</span> <span class="p">{</span>
             <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="k">new</span> <span class="nx">AcpMenuItem</span><span class="p">(</span>
-                <span class="s2">&quot;com.woltlab.foor.bar.add&quot;</span><span class="p">,</span>
-                <span class="s1">&#39;Example Add Title&#39;</span><span class="p">,</span>
-                <span class="s2">&quot;com.woltlab.foor.bar&quot;</span><span class="p">,</span>
+                <span class="s2">"com.woltlab.foor.bar.add"</span><span class="p">,</span>
+                <span class="s1">'Example Add Title'</span><span class="p">,</span>
+                <span class="s2">"com.woltlab.foor.bar"</span><span class="p">,</span>
                 <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getControllerLink</span><span class="p">(</span><span class="nx">FooAddForm</span><span class="o">::</span><span class="na">class</span><span class="p">),</span>
-                <span class="nx">FontAwesomeIcon</span><span class="o">::</span><span class="na">fromString</span><span class="p">(</span><span class="s1">&#39;plus;false&#39;</span><span class="p">)</span>
+                <span class="nx">FontAwesomeIcon</span><span class="o">::</span><span class="na">fromString</span><span class="p">(</span><span class="s1">'plus;false'</span><span class="p">)</span>
             <span class="p">));</span>
         <span class="p">}</span>
     <span class="p">});</span>

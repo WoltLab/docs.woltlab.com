@@ -6163,10 +6163,10 @@ A confirmation dialog should always ask a concise question that includes a refer
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Component/Confirmation&quot;</span><span class="p">;</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"WoltLabSuite/Core/Component/Confirmation"</span><span class="p">;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">()</span>
-<span class="w">  </span><span class="p">.</span><span class="nx">custom</span><span class="p">(</span><span class="s2">&quot;Do you want a cookie?&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">custom</span><span class="p">(</span><span class="s2">"Do you want a cookie?"</span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">withoutMessage</span><span class="p">();</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// User has confirmed the dialog.</span>
@@ -6214,7 +6214,7 @@ It is strongly recommended to provide the title if it exists, otherwise it can b
 <span class="p">);</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
-<span class="w">    </span><span class="s2">&quot;The user has requested a soft delete, the following reason was provided:&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"The user has requested a soft delete, the following reason was provided:"</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">reason</span>
 <span class="w">  </span><span class="p">);</span>
 <span class="p">}</span>
@@ -6234,7 +6234,7 @@ You can simply omit the value if you do not use the reason.</p>
 <span class="w">  </span><span class="nx">askForReason</span>
 <span class="p">);</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The user has requested a soft delete.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"The user has requested a soft delete."</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="restore">Restore<a class="headerlink" href="#restore" title="Permanent link">#</a></h3>
@@ -6244,7 +6244,7 @@ You can simply omit the value if you do not use the reason.</p>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">().</span><span class="nx">restore</span><span class="p">(</span><span class="nx">theObjectName</span><span class="p">);</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The user has requested to restore the object.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"The user has requested to restore the object."</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="delete">Delete<a class="headerlink" href="#delete" title="Permanent link">#</a></h3>
@@ -6254,7 +6254,7 @@ You can simply omit the value if you do not use the reason.</p>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">().</span><span class="ow">delete</span><span class="p">(</span><span class="nx">theObjectName</span><span class="p">);</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The user has requested to delete the object.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"The user has requested to delete the object."</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="disable">Disable<a class="headerlink" href="#disable" title="Permanent link">#</a></h3>
@@ -6264,7 +6264,7 @@ You can simply omit the value if you do not use the reason.</p>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">().</span><span class="nx">disable</span><span class="p">(</span><span class="nx">theObjectName</span><span class="p">);</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The user has requested to disable the object.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"The user has requested to disable the object."</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="custom-confirmation-prompts">Custom Confirmation Prompts<a class="headerlink" href="#custom-confirmation-prompts" title="Permanent link">#</a></h2>
@@ -6278,7 +6278,7 @@ You can simply omit the value if you do not use the reason.</p>
 <span class="w">  </span><span class="p">.</span><span class="nx">custom</span><span class="p">(</span><span class="nx">theQuestionToAsk</span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">message</span><span class="p">(</span><span class="nx">someLengthyExplanation</span><span class="p">);</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The user has confirmed the dialog.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"The user has confirmed the dialog."</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="use-custom-html-in-the-dialog-body">Use Custom HTML in the Dialog Body<a class="headerlink" href="#use-custom-html-in-the-dialog-body" title="Permanent link">#</a></h3>
@@ -6299,14 +6299,14 @@ You can simply omit the value if you do not use the reason.</p>
 <span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">dialog</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">confirmationFactory</span><span class="p">()</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">custom</span><span class="p">(</span><span class="nx">theQuestionToAsk</span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">withFormElements</span><span class="p">((</span><span class="nx">dialog</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="nx">p</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"p"</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">p</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello World"</span><span class="p">;</span>
 <span class="w">    </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
 <span class="w">  </span><span class="p">});</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The user has confirmed the dialog.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"The user has confirmed the dialog."</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
-<span class="w">    </span><span class="s2">&quot;The DOM of the dialog can be accessed through `dialog.content`&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"The DOM of the dialog can be accessed through `dialog.content`"</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">dialog</span><span class="p">.</span><span class="nx">content</span>
 <span class="w">  </span><span class="p">);</span>
 <span class="p">}</span>

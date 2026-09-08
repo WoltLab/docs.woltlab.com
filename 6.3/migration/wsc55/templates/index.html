@@ -6031,7 +6031,7 @@ To improve security and to reduce the number of differences between enterprise m
 <h2 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">#</a></h2>
 <p>In WoltLab Suite 6.0 the comment system has been overhauled.
 In the process, the integration of comments via templates has been significantly simplified:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;comments&#39;</span> <span class="na">commentContainerID</span><span class="o">=</span><span class="s1">&#39;someElementId&#39;</span> <span class="na">commentObjectID</span><span class="o">=</span><span class="nv">$someObjectID</span><span class="cp">}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'comments'</span> <span class="na">commentContainerID</span><span class="o">=</span><span class="s1">'someElementId'</span> <span class="na">commentObjectID</span><span class="o">=</span><span class="nv">$someObjectID</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <p>An example for the migration of existing template integrations can be found <a href="https://github.com/WoltLab/WCF/commit/b1d5f7cc6b81ae7fd938603bb20a3a454a531a96#diff-3419ed2f17fa84a70caf0d99511d5ac2a7704c62f24cc7042984d7a9932525ce">here</a>.</p>
 <p>See <a href="https://github.com/WoltLab/WCF/pull/5210">WoltLab/WCF#5210</a> for more details.</p>
@@ -6048,13 +6048,13 @@ Buttons will implicitly submit a form, therefore you should set the <code>type</
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">"post"</span><span class="p">&gt;</span>
     <span class="cm">&lt;!-- These two buttons will submit the form. --&gt;</span>
     <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>Button 1<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Button 2<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span><span class="p">&gt;</span>Button 2<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 
     <span class="cm">&lt;!-- Clicking this button does nothing on its own. --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span><span class="p">&gt;</span>Button 3<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"button"</span><span class="p">&gt;</span>Button 3<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>See <a href="https://github.com/WoltLab/WCF/issues/4834">WoltLab/WCF#4834</a> for more details.</p>

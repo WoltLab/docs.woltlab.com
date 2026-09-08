@@ -6081,7 +6081,7 @@
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM wcf1_example&quot;</span><span class="p">);</span>
+<span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"SELECT * FROM wcf1_example"</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
 <span class="k">while</span> <span class="p">(</span><span class="nv">$row</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchArray</span><span class="p">())</span> <span class="p">{</span>
     <span class="c1">// handle result</span>
@@ -6102,10 +6102,10 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  *</span>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT  *</span>
 <span class="s2">        FROM    wcf1_example</span>
 <span class="s2">        WHERE   exampleID = ?</span>
-<span class="s2">                OR bar IN (?, ?, ?, ?, ?)&quot;</span><span class="p">;</span>
+<span class="s2">                OR bar IN (?, ?, ?, ?, ?)"</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span>
     <span class="nv">$exampleID</span><span class="p">,</span>
@@ -6127,9 +6127,9 @@
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  *</span>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT  *</span>
 <span class="s2">        FROM    wcf1_example</span>
-<span class="s2">        WHERE   exampleID = ?&quot;</span><span class="p">;</span>
+<span class="s2">        WHERE   exampleID = ?"</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span><span class="nv">$exampleID</span><span class="p">]);</span>
 <span class="nv">$row</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchSingleRow</span><span class="p">();</span>
@@ -6153,8 +6153,8 @@
 <span class="normal">7</span>
 <span class="normal">8</span>
 <span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  bar</span>
-<span class="s2">        FROM    wcf1_example&quot;</span><span class="p">;</span>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT  bar</span>
+<span class="s2">        FROM    wcf1_example"</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
 <span class="k">while</span> <span class="p">(</span><span class="nv">$bar</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchColumn</span><span class="p">())</span> <span class="p">{</span>
@@ -6170,9 +6170,9 @@
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  bar</span>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT  bar</span>
 <span class="s2">        FROM    wcf1_example</span>
-<span class="s2">        WHERE   exampleID = ?&quot;</span><span class="p">;</span>
+<span class="s2">        WHERE   exampleID = ?"</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span><span class="nv">$exampleID</span><span class="p">]);</span>
 <span class="nv">$bar</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchSingleColumn</span><span class="p">();</span>
@@ -6186,8 +6186,8 @@
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  *</span>
-<span class="s2">        FROM    wcf1_example&quot;</span><span class="p">;</span>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT  *</span>
+<span class="s2">        FROM    wcf1_example"</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
 <span class="nv">$rows</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">(</span><span class="nx">\PDO</span><span class="o">::</span><span class="na">FETCH_ASSOC</span><span class="p">);</span>
@@ -6200,8 +6200,8 @@
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  exampleID</span>
-<span class="s2">        FROM    wcf1_example&quot;</span><span class="p">;</span>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT  exampleID</span>
+<span class="s2">        FROM    wcf1_example"</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
 <span class="nv">$exampleIDs</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">(</span><span class="nx">\PDO</span><span class="o">::</span><span class="na">FETCH_COLUMN</span><span class="p">);</span>
@@ -6216,11 +6216,11 @@ This case is covered by <code>PreparedStatement::fetchMap()</code>:</p>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  exampleID, userID</span>
-<span class="s2">        FROM    wcf1_example_mapping&quot;</span><span class="p">;</span>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT  exampleID, userID</span>
+<span class="s2">        FROM    wcf1_example_mapping"</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
-<span class="nv">$map</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchMap</span><span class="p">(</span><span class="s1">&#39;exampleID&#39;</span><span class="p">,</span> <span class="s1">&#39;userID&#39;</span><span class="p">);</span>
+<span class="nv">$map</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchMap</span><span class="p">(</span><span class="s1">'exampleID'</span><span class="p">,</span> <span class="s1">'userID'</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p><code>$map</code> is a one-dimensional array where each <code>exampleID</code> value maps to the corresponding <code>userID</code> value.</p>
 <div class="admonition warning">
@@ -6233,11 +6233,11 @@ This case is covered by <code>PreparedStatement::fetchMap()</code>:</p>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  exampleID, userID</span>
-<span class="s2">        FROM    wcf1_example_mapping&quot;</span><span class="p">;</span>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT  exampleID, userID</span>
+<span class="s2">        FROM    wcf1_example_mapping"</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
-<span class="nv">$map</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchMap</span><span class="p">(</span><span class="s1">&#39;exampleID&#39;</span><span class="p">,</span> <span class="s1">&#39;userID&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+<span class="nv">$map</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetchMap</span><span class="p">(</span><span class="s1">'exampleID'</span><span class="p">,</span> <span class="s1">'userID'</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p>Now, as a result, you get a two-dimensional array with the array keys being the <code>exampleID</code> values and the array values being arrays with all <code>userID</code> values from rows with the respective <code>exampleID</code> value.</p>
 <h2 id="building-complex-conditions">Building Complex Conditions<a class="headerlink" href="#building-complex-conditions" title="Permanent link">#</a></h2>
@@ -6249,9 +6249,9 @@ This case is covered by <code>PreparedStatement::fetchMap()</code>:</p>
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$conditions</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\system\database\util\PreparedStatementConditionBuilder</span><span class="p">();</span>
-<span class="nv">$conditions</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s2">&quot;exampleID = ?&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$exampleID</span><span class="p">]);</span>
+<span class="nv">$conditions</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s2">"exampleID = ?"</span><span class="p">,</span> <span class="p">[</span><span class="nv">$exampleID</span><span class="p">]);</span>
 <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$valuesForBar</span><span class="p">))</span> <span class="p">{</span>
-    <span class="nv">$conditions</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s2">&quot;(bar IN (?) OR baz = ?)&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$valuesForBar</span><span class="p">,</span> <span class="nv">$baz</span><span class="p">]);</span>
+    <span class="nv">$conditions</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s2">"(bar IN (?) OR baz = ?)"</span><span class="p">,</span> <span class="p">[</span><span class="nv">$valuesForBar</span><span class="p">,</span> <span class="nv">$baz</span><span class="p">]);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>The <code>IN (?)</code> in the example above is automatically expanded to match the number of items contained in <code>$valuesForBar</code>. Be aware that the method will generate an invalid query if <code>$valuesForBar</code> is empty!</p>
@@ -6270,11 +6270,11 @@ This case is covered by <code>PreparedStatement::fetchMap()</code>:</p>
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;ghi&#39;</span><span class="p">];</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'abc'</span><span class="p">,</span> <span class="s1">'def'</span><span class="p">,</span> <span class="s1">'ghi'</span><span class="p">];</span>
 
-<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO  wcf1_example</span>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"INSERT INTO  wcf1_example</span>
 <span class="s2">                     (bar)</span>
-<span class="s2">        VALUES       (?)&quot;</span><span class="p">;</span>
+<span class="s2">        VALUES       (?)"</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 
 <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">beginTransaction</span><span class="p">();</span>
@@ -6305,14 +6305,14 @@ This case is covered by <code>PreparedStatement::fetchMap()</code>:</p>
 <span class="normal">19</span>
 <span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span>
-    <span class="mi">3</span> <span class="o">=&gt;</span> <span class="s1">&#39;def&#39;</span><span class="p">,</span>
-    <span class="mi">4</span> <span class="o">=&gt;</span> <span class="s1">&#39;ghi&#39;</span>
+    <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s1">'abc'</span><span class="p">,</span>
+    <span class="mi">3</span> <span class="o">=&gt;</span> <span class="s1">'def'</span><span class="p">,</span>
+    <span class="mi">4</span> <span class="o">=&gt;</span> <span class="s1">'ghi'</span>
 <span class="p">];</span>
 
-<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE  wcf1_example</span>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"UPDATE  wcf1_example</span>
 <span class="s2">        SET     bar = ?</span>
-<span class="s2">        WHERE   exampleID = ?&quot;</span><span class="p">;</span>
+<span class="s2">        WHERE   exampleID = ?"</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 
 <span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">beginTransaction</span><span class="p">();</span>

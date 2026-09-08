@@ -6392,15 +6392,15 @@ the <code>assignVariables</code> method.</p>
 
 <span class="k">class</span> <span class="nc">MyForm</span> <span class="k">extends</span> <span class="nx">AbstractForm</span> <span class="p">{</span>
 
-    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$messageObjectType</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span> <span class="c1">// object type of `com.woltlab.wcf.message`</span>
-    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$messageObjectType</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span> <span class="c1">// object type of `com.woltlab.wcf.message`</span>
+    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$text</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">assignVariables</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">parent</span><span class="o">::</span><span class="na">assignVariables</span><span class="p">();</span>
 
         <span class="nv">$upcastProcessor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HtmlUpcastProcessor</span><span class="p">();</span>
-        <span class="nv">$upcastProcessor</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">text</span> <span class="o">??</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">messageObjectType</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-        <span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="nv">$upcastProcessor</span><span class="o">-&gt;</span><span class="na">getHtml</span><span class="p">());</span>
+        <span class="nv">$upcastProcessor</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">text</span> <span class="o">??</span> <span class="s1">''</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">messageObjectType</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">(</span><span class="s1">'text'</span><span class="p">,</span> <span class="nv">$upcastProcessor</span><span class="o">-&gt;</span><span class="na">getHtml</span><span class="p">());</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -6431,7 +6431,7 @@ the <code>assignVariables</code> method.</p>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$object</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FooBarObject</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">&#39;com.foo.bar&#39;</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">'com.foo.bar'</span><span class="p">,</span> <span class="p">[</span>
     <span class="c1">// variables</span>
 <span class="p">]));</span>
 <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setDescription</span><span class="p">(</span>
@@ -6457,15 +6457,15 @@ the <code>assignVariables</code> method.</p>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">(</span><span class="k">new</span> <span class="nx">\wcf\system\box\command\CreateBoxCondition</span><span class="p">(</span>
-    <span class="s1">&#39;boxIdentifier&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;conditionDefinition&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;conditionObjectType&#39;</span><span class="p">,</span>
-    <span class="p">[</span><span class="s1">&#39;parameter&#39;</span> <span class="o">=&gt;</span> <span class="mi">12345</span><span class="p">]</span>
+    <span class="s1">'boxIdentifier'</span><span class="p">,</span>
+    <span class="s1">'conditionDefinition'</span><span class="p">,</span>
+    <span class="s1">'conditionObjectType'</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">'parameter'</span> <span class="o">=&gt;</span> <span class="mi">12345</span><span class="p">]</span>
 <span class="p">))();</span>
 
 <span class="p">(</span><span class="k">new</span> <span class="nx">\wcf\system\box\command\CreateBoxToPageAssignments</span><span class="p">(</span>
-    <span class="s1">&#39;boxIdentifier&#39;</span><span class="p">,</span>
-    <span class="p">[</span><span class="s1">&#39;pageIdentifier&#39;</span><span class="p">]</span>
+    <span class="s1">'boxIdentifier'</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">'pageIdentifier'</span><span class="p">]</span>
 <span class="p">))();</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="psr-14-events">PSR-14 Events<a class="headerlink" href="#psr-14-events" title="Permanent link">#</a></h2>
@@ -6490,13 +6490,13 @@ You should not use this method in BBCodes at all and instead pass the variables 
 <span class="normal"> 9</span>
 <span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Before</span>
 <span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
-    <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+    <span class="s1">'foo'</span> <span class="o">=&gt;</span> <span class="s1">'bar'</span><span class="p">,</span>
 <span class="p">]);</span>
-<span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">(</span><span class="s1">&#39;templateName&#39;</span><span class="p">,</span> <span class="s1">&#39;application&#39;</span><span class="p">);</span>
+<span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">(</span><span class="s1">'templateName'</span><span class="p">,</span> <span class="s1">'application'</span><span class="p">);</span>
 
 <span class="c1">// After</span>
-<span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">(</span><span class="s1">&#39;templateName&#39;</span><span class="p">,</span> <span class="s1">&#39;application&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+<span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">(</span><span class="s1">'templateName'</span><span class="p">,</span> <span class="s1">'application'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'foo'</span> <span class="o">=&gt;</span> <span class="s1">'bar'</span><span class="p">,</span>
 <span class="p">],</span> <span class="k">true</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p>See <a href="https://github.com/WoltLab/WCF/issues/5910">WoltLab/WCF#5910</a> for more details.</p>
@@ -6507,14 +6507,14 @@ The old implementation (<code>AbstractCategoryAddForm</code>) remains for backwa
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">FooBarCategoryAddForm</span> <span class="k">extends</span> <span class="nx">CategoryAddFormBuilderForm</span> <span class="p">{</span>
-    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$objectTypeName</span> <span class="o">=</span> <span class="s1">&#39;foo.bar.category&#39;</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$objectTypeName</span> <span class="o">=</span> <span class="s1">'foo.bar.category'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Usage (form for editing categories):</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">FooBarCategoryEditForm</span> <span class="k">extends</span> <span class="nx">FooBarCategoryAddForm</span> <span class="p">{</span>
-    <span class="k">public</span> <span class="nv">$formAction</span> <span class="o">=</span> <span class="s1">&#39;edit&#39;</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$formAction</span> <span class="o">=</span> <span class="s1">'edit'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>See <a href="https://github.com/WoltLab/WCF/pull/5657">WoltLab/WCF#5657</a> for more details. </p>
@@ -6570,11 +6570,11 @@ This is to ensure that the embedded objects are displayed correctly in the quote
     <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">hasEmbeddedObjects</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">ObjectTypeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span>
-                <span class="o">-&gt;</span><span class="na">getObjectTypeByName</span><span class="p">(</span><span class="s1">&#39;com.woltlab.wcf.attachment.objectType&#39;</span><span class="p">,</span> <span class="s1">&#39;foo.bar.attachment&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">getObjectTypeByName</span><span class="p">(</span><span class="s1">'com.woltlab.wcf.attachment.objectType'</span><span class="p">,</span> <span class="s1">'foo.bar.attachment'</span><span class="p">)</span>
                 <span class="o">-&gt;</span><span class="na">getProcessor</span><span class="p">()</span>
                 <span class="o">-&gt;</span><span class="na">cacheObjects</span><span class="p">([</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">objectID</span><span class="p">]);</span>
             <span class="nx">MessageEmbeddedObjectManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">loadObjects</span><span class="p">(</span>
-                <span class="s1">&#39;foo.bar.message&#39;</span><span class="p">,</span>
+                <span class="s1">'foo.bar.message'</span><span class="p">,</span>
                 <span class="p">[</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">objectID</span><span class="p">]</span>
             <span class="p">);</span>
         <span class="p">}</span>
@@ -6585,7 +6585,7 @@ This is to ensure that the embedded objects are displayed correctly in the quote
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">loadEmbeddedObjects</span><span class="p">();</span>
 
         <span class="nv">$quoteID</span> <span class="o">=</span> <span class="nx">MessageQuoteManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">addQuote</span><span class="p">(</span>
-            <span class="s1">&#39;foo.bar.message&#39;</span><span class="p">,</span>
+            <span class="s1">'foo.bar.message'</span><span class="p">,</span>
             <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">parentObjectID</span><span class="p">,</span>
             <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">objectID</span><span class="p">,</span>
             <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">getExcerpt</span><span class="p">(),</span>
@@ -6599,10 +6599,10 @@ This is to ensure that the embedded objects are displayed correctly in the quote
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">loadEmbeddedObjects</span><span class="p">();</span>
 
         <span class="nv">$quoteID</span> <span class="o">=</span> <span class="nx">MessageQuoteManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">addQuote</span><span class="p">(</span>
-            <span class="s1">&#39;foo.bar.message&#39;</span><span class="p">,</span>
+            <span class="s1">'foo.bar.message'</span><span class="p">,</span>
             <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">parentObjectID</span><span class="p">,</span>
             <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">objectID</span><span class="p">,</span>
-            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parameters</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">],</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parameters</span><span class="p">[</span><span class="s1">'message'</span><span class="p">],</span>
             <span class="k">false</span>
         <span class="p">);</span>
         <span class="nx">…</span>
@@ -6644,12 +6644,12 @@ These should reference <code>wcf1_file.fileID</code> through a foreign key.</p>
         <span class="k">parent</span><span class="o">::</span><span class="na">createForm</span><span class="p">();</span>
 
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">form</span><span class="o">-&gt;</span><span class="na">appendChildren</span><span class="p">([</span>
-            <span class="nx">FormContainer</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;imageContainer&#39;</span><span class="p">)</span>
+            <span class="nx">FormContainer</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'imageContainer'</span><span class="p">)</span>
                 <span class="o">-&gt;</span><span class="na">appendChildren</span><span class="p">([</span>
-                    <span class="nx">FileProcessorFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;imageID&#39;</span><span class="p">)</span>
+                    <span class="nx">FileProcessorFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'imageID'</span><span class="p">)</span>
                         <span class="o">-&gt;</span><span class="na">singleFileUpload</span><span class="p">()</span>
                         <span class="o">-&gt;</span><span class="na">required</span><span class="p">()</span>
-                        <span class="o">-&gt;</span><span class="na">objectType</span><span class="p">(</span><span class="s1">&#39;foo.bar.image&#39;</span><span class="p">)</span>
+                        <span class="o">-&gt;</span><span class="na">objectType</span><span class="p">(</span><span class="s1">'foo.bar.image'</span><span class="p">)</span>
                 <span class="p">]),</span>
         <span class="p">]);</span>
     <span class="p">}</span>
@@ -6799,7 +6799,7 @@ For example, if your field allows arbitrary files to be uploaded, you can skip t
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">acceptUpload</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$filename</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$fileSize</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$context</span><span class="p">)</span><span class="o">:</span> <span class="nx">FileProcessorPreflightResult</span>
     <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$context</span><span class="p">[</span><span class="s1">&#39;objectID&#39;</span><span class="p">]))</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$context</span><span class="p">[</span><span class="s1">'objectID'</span><span class="p">]))</span> <span class="p">{</span>
             <span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getFoo</span><span class="p">(</span><span class="nv">$context</span><span class="p">);</span>
             <span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
                 <span class="k">return</span> <span class="nx">FileProcessorPreflightResult</span><span class="o">::</span><span class="na">InvalidContext</span><span class="p">;</span>
@@ -6808,7 +6808,7 @@ For example, if your field allows arbitrary files to be uploaded, you can skip t
             <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">canEdit</span><span class="p">())</span> <span class="p">{</span>
                 <span class="k">return</span> <span class="nx">FileProcessorPreflightResult</span><span class="o">::</span><span class="na">InsufficientPermissions</span><span class="p">;</span>
             <span class="p">}</span>
-        <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="o">!</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">&#39;foo.bar.canAdd&#39;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="o">!</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">'foo.bar.canAdd'</span><span class="p">))</span> <span class="p">{</span>
             <span class="k">return</span> <span class="nx">FileProcessorPreflightResult</span><span class="o">::</span><span class="na">InsufficientPermissions</span><span class="p">;</span>
         <span class="p">}</span>
 
@@ -6826,13 +6826,13 @@ For example, if your field allows arbitrary files to be uploaded, you can skip t
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getMaximumSize</span><span class="p">(</span><span class="k">array</span> <span class="nv">$context</span><span class="p">)</span><span class="o">:</span> <span class="o">?</span><span class="nx">int</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">&#39;foo.bar.image.maxSize&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">'foo.bar.image.maxSize'</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getAllowedFileExtensions</span><span class="p">(</span><span class="k">array</span> <span class="nv">$context</span><span class="p">)</span><span class="o">:</span> <span class="k">array</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">\explode</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">&#39;foo.bar.image.allowedFileExtensions&#39;</span><span class="p">));</span>
+        <span class="k">return</span> <span class="nx">\explode</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">'foo.bar.image.allowedFileExtensions'</span><span class="p">));</span>
     <span class="p">}</span>
 
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
@@ -6861,7 +6861,7 @@ For example, if your field allows arbitrary files to be uploaded, you can skip t
         <span class="p">}</span>
 
         <span class="p">(</span><span class="k">new</span> <span class="nx">FooEditor</span><span class="p">(</span><span class="nv">$foo</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span>
-            <span class="s1">&#39;imageID&#39;</span> <span class="o">=&gt;</span> <span class="nv">$file</span><span class="o">-&gt;</span><span class="na">fileID</span><span class="p">,</span>
+            <span class="s1">'imageID'</span> <span class="o">=&gt;</span> <span class="nv">$file</span><span class="o">-&gt;</span><span class="na">fileID</span><span class="p">,</span>
         <span class="p">]);</span>
     <span class="p">}</span>
 
@@ -6870,7 +6870,7 @@ For example, if your field allows arbitrary files to be uploaded, you can skip t
     <span class="p">{</span>
         <span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getFooByFile</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">&#39;foo.bar.canAdd&#39;</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">'foo.bar.canAdd'</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
@@ -6881,7 +6881,7 @@ For example, if your field allows arbitrary files to be uploaded, you can skip t
     <span class="p">{</span>
         <span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getFooByFile</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">&#39;foo.bar.canAdd&#39;</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">'foo.bar.canAdd'</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="k">return</span> <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">canRead</span><span class="p">();</span>
@@ -6891,20 +6891,20 @@ For example, if your field allows arbitrary files to be uploaded, you can skip t
     <span class="k">public</span> <span class="k">function</span> <span class="nf">delete</span><span class="p">(</span><span class="k">array</span> <span class="nv">$fileIDs</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$thumbnailIDs</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
     <span class="p">{</span>
         <span class="nv">$fooList</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FooList</span><span class="p">();</span>
-        <span class="nv">$fooList</span><span class="o">-&gt;</span><span class="na">getConditionBuilder</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;imageID IN (?)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$fileIDs</span><span class="p">]);</span>
+        <span class="nv">$fooList</span><span class="o">-&gt;</span><span class="na">getConditionBuilder</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'imageID IN (?)'</span><span class="p">,</span> <span class="p">[</span><span class="nv">$fileIDs</span><span class="p">]);</span>
         <span class="nv">$fooList</span><span class="o">-&gt;</span><span class="na">readObjects</span><span class="p">();</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="nv">$fooList</span><span class="o">-&gt;</span><span class="na">count</span><span class="p">()</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span><span class="p">;</span>
         <span class="p">}</span>
 
-        <span class="p">(</span><span class="k">new</span> <span class="nx">FooAction</span><span class="p">(</span><span class="nv">$fooList</span><span class="o">-&gt;</span><span class="na">getObjects</span><span class="p">(),</span> <span class="s1">&#39;delete&#39;</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">();</span>
+        <span class="p">(</span><span class="k">new</span> <span class="nx">FooAction</span><span class="p">(</span><span class="nv">$fooList</span><span class="o">-&gt;</span><span class="na">getObjects</span><span class="p">(),</span> <span class="s1">'delete'</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">();</span>
     <span class="p">}</span>
 
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getObjectTypeName</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="s1">&#39;foo.bar.image&#39;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="s1">'foo.bar.image'</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
@@ -7010,7 +7010,7 @@ For example, if your field allows arbitrary files to be uploaded, you can skip t
             <span class="nv">$file</span> <span class="o">=</span> <span class="nx">FileEditor</span><span class="o">::</span><span class="na">createFromExistingFile</span><span class="p">(</span>
                 <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getLocation</span><span class="p">(),</span>
                 <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getFilename</span><span class="p">(),</span>
-                <span class="s1">&#39;foo.bar.image&#39;</span>
+                <span class="s1">'foo.bar.image'</span>
             <span class="p">);</span>
 
             <span class="k">if</span> <span class="p">(</span><span class="nv">$file</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>

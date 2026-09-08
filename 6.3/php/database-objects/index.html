@@ -6412,7 +6412,7 @@
     <span class="k">protected</span> <span class="k">static</span> <span class="nv">$baseClass</span> <span class="o">=</span> <span class="nx">Example</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getOutput</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nv">$output</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+        <span class="nv">$output</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
 
         <span class="c1">// [determine output]</span>
 
@@ -6453,7 +6453,7 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$example</span> <span class="o">=</span> <span class="nx">\wcf\data\example\ExampleEditor</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-    <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hello World!&#39;</span>
+    <span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'Hello World!'</span>
 <span class="p">]);</span>
 
 <span class="c1">// output: Hello World!</span>
@@ -6481,7 +6481,7 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <span class="nv">$example</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\Example</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
 <span class="nv">$exampleEditor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\ExampleEditor</span><span class="p">(</span><span class="nv">$example</span><span class="p">);</span>
 <span class="nv">$exampleEditor</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span>
-    <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;baz&#39;</span>
+    <span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'baz'</span>
 <span class="p">]);</span>
 
 <span class="c1">// output: Hello World!</span>
@@ -6539,7 +6539,7 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$exampleList</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\ExampleList</span><span class="p">();</span>
 <span class="c1">// add constraints using the condition builder</span>
-<span class="nv">$exampleList</span><span class="o">-&gt;</span><span class="na">getConditionBuilder</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;bar IN (?)&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">]]);</span>
+<span class="nv">$exampleList</span><span class="o">-&gt;</span><span class="na">getConditionBuilder</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'bar IN (?)'</span><span class="p">,</span> <span class="p">[[</span><span class="s1">'Hello World!'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'baz'</span><span class="p">]]);</span>
 <span class="c1">// actually read the rows</span>
 <span class="nv">$exampleList</span><span class="o">-&gt;</span><span class="na">readObjects</span><span class="p">();</span>
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$exampleList</span> <span class="k">as</span> <span class="nv">$example</span><span class="p">)</span> <span class="p">{</span>
@@ -6760,19 +6760,19 @@ However, by overwriting the <code>getCollectionClassName()</code> method, you ca
 <span class="k">use</span> <span class="nx">wcf\data\example\ExampleAction</span><span class="p">;</span>
 
 <span class="c1">// create a row</span>
-<span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([],</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="s1">&#39;data&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">]</span>
+<span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([],</span> <span class="s1">'create'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'Hello World'</span><span class="p">]</span>
 <span class="p">]);</span>
-<span class="nv">$example</span> <span class="o">=</span> <span class="nv">$exampleAction</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">()[</span><span class="s1">&#39;returnValues&#39;</span><span class="p">];</span>
+<span class="nv">$example</span> <span class="o">=</span> <span class="nv">$exampleAction</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">()[</span><span class="s1">'returnValues'</span><span class="p">];</span>
 
 <span class="c1">// update a row using the id</span>
-<span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;update&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="s1">&#39;data&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;baz&#39;</span><span class="p">]</span>
+<span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'update'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'baz'</span><span class="p">]</span>
 <span class="p">]);</span>
 <span class="nv">$exampleAction</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">();</span>
 
 <span class="c1">// delete a row using a model</span>
-<span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([</span><span class="nv">$example</span><span class="p">],</span> <span class="s1">&#39;delete&#39;</span><span class="p">);</span>
+<span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([</span><span class="nv">$example</span><span class="p">],</span> <span class="s1">'delete'</span><span class="p">);</span>
 <span class="nv">$exampleAction</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
 <p>You can access the return values both by storing the return value of <code>executeAction()</code> or by retrieving it via <code>getReturnValues()</code>.</p>
@@ -6808,7 +6808,7 @@ However, by overwriting the <code>getCollectionClassName()</code> method, you ca
 
 <span class="k">class</span> <span class="nc">ExampleAction</span> <span class="k">extends</span> <span class="nx">AbstractDatabaseObjectAction</span> <span class="p">{</span>
     <span class="c1">// `create()` can now be called via AJAX if the requesting user posses the listed permissions</span>
-    <span class="k">protected</span> <span class="nv">$permissionsCreate</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;admin.example.canManageExample&#39;</span><span class="p">];</span>
+    <span class="k">protected</span> <span class="nv">$permissionsCreate</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'admin.example.canManageExample'</span><span class="p">];</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">validateUpdate</span><span class="p">()</span> <span class="p">{</span>
         <span class="c1">// your very own validation logic that does not make use of the</span>

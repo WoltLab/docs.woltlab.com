@@ -5966,16 +5966,16 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">prepareRequest</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Ajax/Backend&quot;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">User</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/User&quot;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getGuestToken</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Component/GuestTokenDialog&quot;</span><span class="p">;</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">prepareRequest</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"WoltLabSuite/Core/Ajax/Backend"</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">User</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"WoltLabSuite/Core/User"</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getGuestToken</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"WoltLabSuite/Core/Component/GuestTokenDialog"</span><span class="p">;</span>
 
-<span class="kd">let</span><span class="w"> </span><span class="nx">token</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">token</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span><span class="p">;</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">User</span><span class="p">.</span><span class="nx">userId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">getGuestToken</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="k">await</span><span class="w"> </span><span class="nx">prepareRequest</span><span class="p">(</span><span class="s2">&quot;your_backend_url&quot;</span><span class="p">).</span><span class="nx">post</span><span class="p">({</span>
+<span class="k">await</span><span class="w"> </span><span class="nx">prepareRequest</span><span class="p">(</span><span class="s2">"your_backend_url"</span><span class="p">).</span><span class="nx">post</span><span class="p">({</span>
 <span class="w">  </span><span class="nx">token</span><span class="p">,</span>
 <span class="p">}).</span><span class="nx">fetchAsJson</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
@@ -6024,18 +6024,18 @@
 <span class="k">use</span> <span class="nx">wcf\system\WCF</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\util\UserUtil</span><span class="p">;</span>
 
-<span class="p">#[</span><span class="nd">PostRequest</span><span class="p">(</span><span class="s1">&#39;/core/foo&#39;</span><span class="p">)]</span>
+<span class="p">#[</span><span class="nd">PostRequest</span><span class="p">(</span><span class="s1">'/core/foo'</span><span class="p">)]</span>
 <span class="k">final</span> <span class="k">class</span> <span class="nc">CreateFoo</span> <span class="k">implements</span> <span class="nx">IController</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="fm">__invoke</span><span class="p">(</span><span class="nx">ServerRequestInterface</span> <span class="nv">$request</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$variables</span><span class="p">)</span><span class="o">:</span> <span class="nx">ResponseInterface</span>
     <span class="p">{</span>
         <span class="nv">$parameters</span> <span class="o">=</span> <span class="nx">Helper</span><span class="o">::</span><span class="na">mapApiParameters</span><span class="p">(</span><span class="nv">$request</span><span class="p">,</span> <span class="nx">CreateFooParameters</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
 
-        <span class="nv">$username</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+        <span class="nv">$username</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
         <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getUser</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">userID</span><span class="p">)</span> <span class="p">{</span>
             <span class="nv">$username</span> <span class="o">=</span> <span class="nx">UserUtil</span><span class="o">::</span><span class="na">verifyGuestToken</span><span class="p">(</span><span class="nv">$parameters</span><span class="o">-&gt;</span><span class="na">guestToken</span><span class="p">);</span>
             <span class="k">if</span> <span class="p">(</span><span class="nv">$username</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">throw</span> <span class="k">new</span> <span class="nx">UserInputException</span><span class="p">(</span><span class="s1">&#39;guestToken&#39;</span><span class="p">);</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="nx">UserInputException</span><span class="p">(</span><span class="s1">'guestToken'</span><span class="p">);</span>
             <span class="p">}</span>
         <span class="p">}</span>
 

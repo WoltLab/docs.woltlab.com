@@ -6201,11 +6201,11 @@ The following example illustrates the different cases that can occur when workin
 <span class="nv">$oneElement</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">];</span>
 <span class="nv">$multipleElements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
 
-<span class="nv">$oneElementWithKey</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;firstElement&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">];</span>
+<span class="nv">$oneElementWithKey</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'firstElement'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">];</span>
 <span class="nv">$multipleElementsWithKey</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;firstElement&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">&#39;secondElement&#39;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s1">&#39;thirdElement&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span>
+    <span class="s1">'firstElement'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">'secondElement'</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s1">'thirdElement'</span> <span class="o">=&gt;</span> <span class="mi">3</span>
 <span class="p">];</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="ternary-operator">Ternary Operator<a class="headerlink" href="#ternary-operator" title="Permanent link">#</a></h3>
@@ -6214,7 +6214,7 @@ The following example illustrates the different cases that can occur when workin
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
-<span class="nv">$name</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="s1">&#39;default&#39;</span><span class="p">;</span>
+<span class="nv">$name</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">'name'</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">:</span> <span class="s1">'default'</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>The condition and the values should be short so that the code does not result in a very long line which thus decreases the readability compared to an <code>if-else</code> statement.</p>
 <p>Parentheses may only be used around the condition and not around the whole statement:</p>
@@ -6224,7 +6224,7 @@ The following example illustrates the different cases that can occur when workin
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// do not do it like this</span>
-<span class="nv">$name</span> <span class="o">=</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="s1">&#39;default&#39;</span><span class="p">);</span>
+<span class="nv">$name</span> <span class="o">=</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">'name'</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">:</span> <span class="s1">'default'</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p>Parentheses around the conditions may not be used to wrap simple function calls:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -6233,7 +6233,7 @@ The following example illustrates the different cases that can occur when workin
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// do not do it like this</span>
-<span class="nv">$name</span> <span class="o">=</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]))</span> <span class="o">?</span> <span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="s1">&#39;default&#39;</span><span class="p">;</span>
+<span class="nv">$name</span> <span class="o">=</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]))</span> <span class="o">?</span> <span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">:</span> <span class="s1">'default'</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>but have to be used for comparisons or other binary operators:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -6253,9 +6253,9 @@ The following example illustrates the different cases that can occur when workin
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$values</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;first&#39;</span> <span class="o">=&gt;</span> <span class="nv">$firstValue</span><span class="p">,</span>
-    <span class="s1">&#39;second&#39;</span> <span class="o">=&gt;</span> <span class="nv">$secondToggle</span> <span class="o">?</span> <span class="nv">$secondValueA</span> <span class="o">:</span> <span class="nv">$secondValueB</span><span class="p">,</span>
-    <span class="s1">&#39;third&#39;</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nv">$thirdToogle</span> <span class="o">&gt;</span> <span class="mi">13</span><span class="p">)</span> <span class="o">?</span> <span class="nv">$thirdToogleA</span> <span class="o">:</span> <span class="nv">$thirdToogleB</span>
+    <span class="s1">'first'</span> <span class="o">=&gt;</span> <span class="nv">$firstValue</span><span class="p">,</span>
+    <span class="s1">'second'</span> <span class="o">=&gt;</span> <span class="nv">$secondToggle</span> <span class="o">?</span> <span class="nv">$secondValueA</span> <span class="o">:</span> <span class="nv">$secondValueB</span><span class="p">,</span>
+    <span class="s1">'third'</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nv">$thirdToogle</span> <span class="o">&gt;</span> <span class="mi">13</span><span class="p">)</span> <span class="o">?</span> <span class="nv">$thirdToogleA</span> <span class="o">:</span> <span class="nv">$thirdToogleB</span>
 <span class="p">];</span>
 </code></pre></div></td></tr></table></div>
 <p>or return values:</p>
@@ -6263,7 +6263,7 @@ The following example illustrates the different cases that can occur when workin
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
-<span class="k">return</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="s1">&#39;default&#39;</span><span class="p">;</span>
+<span class="k">return</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">'name'</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$tagArgs</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">:</span> <span class="s1">'default'</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="whitespaces">Whitespaces<a class="headerlink" href="#whitespaces" title="Permanent link">#</a></h3>
 <p>You have to put a whitespace <em>in front</em> of the following things:</p>
@@ -6292,7 +6292,7 @@ The following example illustrates the different cases that can occur when workin
 <span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="c1">// not like this</span>
-<span class="nv">$className</span> <span class="o">=</span> <span class="s1">&#39;wcf\data\example\Example&#39;</span><span class="p">;</span>
+<span class="nv">$className</span> <span class="o">=</span> <span class="s1">'wcf\data\example\Example'</span><span class="p">;</span>
 
 <span class="c1">// like this</span>
 <span class="k">use</span> <span class="nx">wcf\data\example\Example</span><span class="p">;</span>
@@ -6334,9 +6334,9 @@ The following example illustrates the different cases that can occur when workin
 <span class="sd">     * @return  Box|null</span>
 <span class="sd">     */</span>
     <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getBoxByIdentifier</span><span class="p">(</span><span class="nv">$identifier</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  *</span>
+        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT  *</span>
 <span class="s2">                FROM    wcf1_box</span>
-<span class="s2">                WHERE   identifier = ?&quot;</span><span class="p">;</span>
+<span class="s2">                WHERE   identifier = ?"</span><span class="p">;</span>
         <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
         <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span><span class="nv">$identifier</span><span class="p">]);</span>
 
@@ -6353,7 +6353,7 @@ The following example illustrates the different cases that can occur when workin
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
-<span class="nx">\wcf\system\search\SearchIndexManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;com.woltlab.wcf.article&#39;</span><span class="p">,</span> <span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">articleContentID</span><span class="p">,</span> <span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">content</span><span class="p">,</span> <span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">,</span> <span class="nv">$articles</span><span class="p">[</span><span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">articleID</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">time</span><span class="p">,</span> <span class="nv">$articles</span><span class="p">[</span><span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">articleID</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">userID</span><span class="p">,</span> <span class="nv">$articles</span><span class="p">[</span><span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">articleID</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">,</span> <span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">languageID</span><span class="p">,</span> <span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">teaser</span><span class="p">);</span>
+<span class="nx">\wcf\system\search\SearchIndexManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">'com.woltlab.wcf.article'</span><span class="p">,</span> <span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">articleContentID</span><span class="p">,</span> <span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">content</span><span class="p">,</span> <span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">,</span> <span class="nv">$articles</span><span class="p">[</span><span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">articleID</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">time</span><span class="p">,</span> <span class="nv">$articles</span><span class="p">[</span><span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">articleID</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">userID</span><span class="p">,</span> <span class="nv">$articles</span><span class="p">[</span><span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">articleID</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">,</span> <span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">languageID</span><span class="p">,</span> <span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">teaser</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p>which is hardly readable.
 Therefore, the line must be split into multiple lines with each argument in a separate line:</p>
@@ -6372,7 +6372,7 @@ Therefore, the line must be split into multiple lines with each argument in a se
 <span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nx">\wcf\system\search\SearchIndexManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span>
-    <span class="s1">&#39;com.woltlab.wcf.article&#39;</span><span class="p">,</span>
+    <span class="s1">'com.woltlab.wcf.article'</span><span class="p">,</span>
     <span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">articleContentID</span><span class="p">,</span>
     <span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">content</span><span class="p">,</span>
     <span class="nv">$articleContent</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">,</span>

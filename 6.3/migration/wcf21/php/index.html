@@ -6304,7 +6304,7 @@
 <span class="k">if</span> <span class="p">(</span><span class="nx">\wcf\system\message\embedded\object\MessageEmbeddedObjectManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">registerObjects</span><span class="p">(</span><span class="nv">$processor</span><span class="p">))</span> <span class="p">{</span>
     <span class="c1">// there is at least one embedded object, this is also the point at which you</span>
     <span class="c1">// would set `hasEmbeddedObjects` to true (if implemented by your type)</span>
-    <span class="p">(</span><span class="k">new</span> <span class="nx">\wcf\data\example\ExampleEditor</span><span class="p">(</span><span class="nv">$example</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span><span class="s1">&#39;hasEmbeddedObjects&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">]);</span>
+    <span class="p">(</span><span class="k">new</span> <span class="nx">\wcf\data\example\ExampleEditor</span><span class="p">(</span><span class="nv">$example</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span><span class="s1">'hasEmbeddedObjects'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">]);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="rendering-the-message">Rendering the Message<a class="headerlink" href="#rendering-the-message" title="Permanent link">#</a></h3>
@@ -6324,7 +6324,7 @@
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$processor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\system\html\output\HtmlOutputProcessor</span><span class="p">();</span>
-<span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">setOutputType</span><span class="p">(</span><span class="s1">&#39;text/simplified-html&#39;</span><span class="p">);</span>
+<span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">setOutputType</span><span class="p">(</span><span class="s1">'text/simplified-html'</span><span class="p">);</span>
 <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">(</span><span class="nx">…</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="plaintext-output">Plaintext Output<a class="headerlink" href="#plaintext-output" title="Permanent link">#</a></h4>
@@ -6334,7 +6334,7 @@
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$processor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\system\html\output\HtmlOutputProcessor</span><span class="p">();</span>
-<span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">setOutputType</span><span class="p">(</span><span class="s1">&#39;text/plain&#39;</span><span class="p">);</span>
+<span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">setOutputType</span><span class="p">(</span><span class="s1">'text/plain'</span><span class="p">);</span>
 <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">(</span><span class="nx">…</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="rebuilding-data">Rebuilding Data<a class="headerlink" href="#rebuilding-data" title="Permanent link">#</a></h3>
@@ -6375,7 +6375,7 @@
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="c1">// before</span>
-<span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getBreadcrumbs</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">\wcf\system\breadcrumb\Breadcrumb</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">));</span>
+<span class="nx">\wcf\system\WCF</span><span class="o">::</span><span class="na">getBreadcrumbs</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">\wcf\system\breadcrumb\Breadcrumb</span><span class="p">(</span><span class="s1">'title'</span><span class="p">,</span> <span class="s1">'link'</span><span class="p">));</span>
 
 <span class="c1">// after</span>
 <span class="nx">\wcf\system\page\PageLocationManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">addParentLocation</span><span class="p">(</span><span class="nv">$pageIdentifier</span><span class="p">,</span> <span class="nv">$pageObjectID</span><span class="p">,</span> <span class="nv">$object</span><span class="p">);</span>

@@ -6674,7 +6674,7 @@
 <span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span> <span class="k">function</span> <span class="nf">readParameters</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">parent</span><span class="o">::</span><span class="na">readParameters</span><span class="p">();</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]))</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">boardID</span> <span class="o">=</span> <span class="nb">intval</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]))</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">boardID</span> <span class="o">=</span> <span class="nb">intval</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]);</span>
     <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">board</span> <span class="o">=</span> <span class="nx">BoardCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getBoard</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">boardID</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">board</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">throw</span> <span class="k">new</span> <span class="nx">IllegalLinkException</span><span class="p">();</span>
@@ -6707,8 +6707,8 @@
     <span class="k">parent</span><span class="o">::</span><span class="na">assignVariables</span><span class="p">();</span>
 
     <span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
-        <span class="s1">&#39;board&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">board</span><span class="p">,</span>
-        <span class="s1">&#39;boardID&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">boardID</span>
+        <span class="s1">'board'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">board</span><span class="p">,</span>
+        <span class="s1">'boardID'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">boardID</span>
     <span class="p">]);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>

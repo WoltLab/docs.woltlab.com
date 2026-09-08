@@ -6458,8 +6458,8 @@ If you perform authentication yourself and do not trust the authentication sourc
 <span class="k">if</span> <span class="p">(</span><span class="nv">$isPending</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Redirect to the authentication form. The user will not be logged in.</span>
     <span class="c1">// Note: Do not use `getControllerLink` to support both the frontend as well as the ACP.</span>
-    <span class="nx">HeaderUtil</span><span class="o">::</span><span class="na">redirect</span><span class="p">(</span><span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">(</span><span class="s1">&#39;MultifactorAuthentication&#39;</span><span class="p">,</span> <span class="p">[</span>
-        <span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span> <span class="cm">/* Return To */</span><span class="p">,</span>
+    <span class="nx">HeaderUtil</span><span class="o">::</span><span class="na">redirect</span><span class="p">(</span><span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">(</span><span class="s1">'MultifactorAuthentication'</span><span class="p">,</span> <span class="p">[</span>
+        <span class="s1">'url'</span> <span class="o">=&gt;</span> <span class="cm">/* Return To */</span><span class="p">,</span>
     <span class="p">]));</span>
     <span class="k">exit</span><span class="p">;</span>
 <span class="p">}</span>

@@ -6088,14 +6088,14 @@ To support this edit link two small changes are required within your <code>*AddF
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;formError&#39;</span><span class="cp">}</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'formError'</span><span class="cp">}</span>
 
 <span class="cp">{</span><span class="nf">if</span> <span class="nv">$success</span><span class="o">|</span><span class="na">isset</span><span class="cp">}</span>
-<span class="x">    &lt;p class=&quot;success&quot;&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.success.</span><span class="cp">{</span><span class="nv">$action</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/p&gt;</span>
+<span class="x">    &lt;p class="success"&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.success.</span><span class="cp">{</span><span class="nv">$action</span><span class="cp">}{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/p&gt;</span>
 <span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div></p>
 <p>With:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;formNotice&#39;</span><span class="cp">}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'formNotice'</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div></p>
 </li>
 <li>
@@ -6105,8 +6105,8 @@ To support this edit link two small changes are required within your <code>*AddF
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
-    <span class="s1">&#39;success&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
-    <span class="s1">&#39;objectEditLink&#39;</span> <span class="o">=&gt;</span> <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getControllerLink</span><span class="p">(</span><span class="nx">ObjectEditForm</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$object</span><span class="o">-&gt;</span><span class="na">objectID</span><span class="p">]),</span>
+    <span class="s1">'success'</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="s1">'objectEditLink'</span> <span class="o">=&gt;</span> <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getControllerLink</span><span class="p">(</span><span class="nx">ObjectEditForm</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="p">[</span><span class="s1">'id'</span> <span class="o">=&gt;</span> <span class="nv">$object</span><span class="o">-&gt;</span><span class="na">objectID</span><span class="p">]),</span>
 <span class="p">]);</span>
 </code></pre></div></td></tr></table></div></p>
 </li>

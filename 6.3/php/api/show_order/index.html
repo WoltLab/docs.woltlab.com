@@ -6003,15 +6003,15 @@
 <span class="k">use</span> <span class="nx">wcf\system\showOrder\ShowOrderItem</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\system\WCF</span><span class="p">;</span>
 
-<span class="p">#[</span><span class="nd">GetRequest</span><span class="p">(</span><span class="s1">&#39;/your-endpoint/show-order&#39;</span><span class="p">)]</span>
+<span class="p">#[</span><span class="nd">GetRequest</span><span class="p">(</span><span class="s1">'/your-endpoint/show-order'</span><span class="p">)]</span>
 <span class="k">final</span> <span class="k">class</span> <span class="nc">GetShowOrder</span> <span class="k">implements</span> <span class="nx">IController</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="fm">__invoke</span><span class="p">(</span><span class="nx">ServerRequestInterface</span> <span class="nv">$request</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$variables</span><span class="p">)</span><span class="o">:</span> <span class="nx">ResponseInterface</span>
     <span class="p">{</span>
-        <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">checkPermissions</span><span class="p">([</span><span class="s2">&quot;admin.foo.canManageFoo&quot;</span><span class="p">]);</span>
+        <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">checkPermissions</span><span class="p">([</span><span class="s2">"admin.foo.canManageFoo"</span><span class="p">]);</span>
 
         <span class="nv">$list</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FooList</span><span class="p">();</span>
-        <span class="nv">$list</span><span class="o">-&gt;</span><span class="na">sqlOrderBy</span> <span class="o">=</span> <span class="s1">&#39;showOrder ASC&#39;</span><span class="p">;</span>
+        <span class="nv">$list</span><span class="o">-&gt;</span><span class="na">sqlOrderBy</span> <span class="o">=</span> <span class="s1">'showOrder ASC'</span><span class="p">;</span>
         <span class="nv">$list</span><span class="o">-&gt;</span><span class="na">readObjects</span><span class="p">();</span>
 
         <span class="nv">$items</span> <span class="o">=</span> <span class="nx">\array_map</span><span class="p">(</span>
@@ -6098,15 +6098,15 @@
 <span class="k">use</span> <span class="nx">wcf\system\showOrder\ShowOrderItem</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">wcf\system\WCF</span><span class="p">;</span>
 
-<span class="p">#[</span><span class="nd">PostRequest</span><span class="p">(</span><span class="s1">&#39;/your-endpoint/show-order&#39;</span><span class="p">)]</span>
+<span class="p">#[</span><span class="nd">PostRequest</span><span class="p">(</span><span class="s1">'/your-endpoint/show-order'</span><span class="p">)]</span>
 <span class="k">final</span> <span class="k">class</span> <span class="nc">ChangeShowOrder</span> <span class="k">implements</span> <span class="nx">IController</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="fm">__invoke</span><span class="p">(</span><span class="nx">ServerRequestInterface</span> <span class="nv">$request</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$variables</span><span class="p">)</span><span class="o">:</span> <span class="nx">ResponseInterface</span>
     <span class="p">{</span>
-        <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">checkPermissions</span><span class="p">([</span><span class="s2">&quot;admin.foo.canManageFoo&quot;</span><span class="p">]);</span>
+        <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">checkPermissions</span><span class="p">([</span><span class="s2">"admin.foo.canManageFoo"</span><span class="p">]);</span>
 
         <span class="nv">$list</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FooList</span><span class="p">();</span>
-        <span class="nv">$list</span><span class="o">-&gt;</span><span class="na">sqlOrderBy</span> <span class="o">=</span> <span class="s1">&#39;showOrder ASC&#39;</span><span class="p">;</span>
+        <span class="nv">$list</span><span class="o">-&gt;</span><span class="na">sqlOrderBy</span> <span class="o">=</span> <span class="s1">'showOrder ASC'</span><span class="p">;</span>
         <span class="nv">$list</span><span class="o">-&gt;</span><span class="na">readObjects</span><span class="p">();</span>
 
         <span class="nv">$items</span> <span class="o">=</span> <span class="nx">\array_map</span><span class="p">(</span>
@@ -6129,9 +6129,9 @@
     <span class="k">private</span> <span class="k">function</span> <span class="nf">saveShowOrder</span><span class="p">(</span><span class="k">array</span> <span class="nv">$items</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
     <span class="p">{</span>
         <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">beginTransaction</span><span class="p">();</span>
-        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE  wcf1_foo</span>
+        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"UPDATE  wcf1_foo</span>
 <span class="s2">                SET     showOrder = ?</span>
-<span class="s2">                WHERE   id = ?&quot;</span><span class="p">;</span>
+<span class="s2">                WHERE   id = ?"</span><span class="p">;</span>
         <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
         <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">$length</span> <span class="o">=</span> <span class="nx">\count</span><span class="p">(</span><span class="nv">$items</span><span class="p">);</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$length</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
             <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span>
@@ -6155,15 +6155,15 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;button type=&quot;button&quot; class=&quot;button jsChangeShowOrder&quot;&gt;</span><span class="cp">{</span><span class="nf">icon</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;up-down&#39;</span><span class="cp">}</span><span class="x"> &lt;span&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.changeShowOrder</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/span&gt;&lt;/button&gt;</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;button type="button" class="button jsChangeShowOrder"&gt;</span><span class="cp">{</span><span class="nf">icon</span> <span class="na">name</span><span class="o">=</span><span class="s1">'up-down'</span><span class="cp">}</span><span class="x"> &lt;span&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.global.changeShowOrder</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/span&gt;&lt;/button&gt;</span>
 
-<span class="x">&lt;script data-relocate=&quot;true&quot;&gt;</span>
-<span class="x">    require([&quot;WoltLabSuite/Core/Component/ChangeShowOrder&quot;], (</span><span class="cp">{</span> <span class="na">setup</span> <span class="cp">}</span><span class="x">) =&gt; </span><span class="cp">{</span>
-        <span class="cp">{</span><span class="na">jsphrase</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;wcf.global.changeShowOrder&#39;</span><span class="cp">}</span>
+<span class="x">&lt;script data-relocate="true"&gt;</span>
+<span class="x">    require(["WoltLabSuite/Core/Component/ChangeShowOrder"], (</span><span class="cp">{</span> <span class="na">setup</span> <span class="cp">}</span><span class="x">) =&gt; </span><span class="cp">{</span>
+        <span class="cp">{</span><span class="na">jsphrase</span> <span class="na">name</span><span class="o">=</span><span class="s1">'wcf.global.changeShowOrder'</span><span class="cp">}</span>
 
         <span class="na">setup</span><span class="o">(</span>
-            <span class="na">document</span><span class="o">.</span><span class="na">querySelector</span><span class="o">(</span><span class="s1">&#39;.jsChangeShowOrder&#39;</span><span class="o">),</span>
-            <span class="s1">&#39;your-endpoint/show-order&#39;</span><span class="o">,</span>
+            <span class="na">document</span><span class="o">.</span><span class="na">querySelector</span><span class="o">(</span><span class="s1">'.jsChangeShowOrder'</span><span class="o">),</span>
+            <span class="s1">'your-endpoint/show-order'</span><span class="o">,</span>
         <span class="o">);</span>
     <span class="cp">}</span><span class="x">);</span>
 <span class="x">&lt;/script&gt;</span>

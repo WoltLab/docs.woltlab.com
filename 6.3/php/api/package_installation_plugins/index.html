@@ -6390,9 +6390,9 @@ It will be passed to either <code>DatabaseObjectEditor::create()</code> or <code
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">return</span> <span class="p">[</span>
-    <span class="s1">&#39;environment&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;environment&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;eventName&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;eventname&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+    <span class="s1">'environment'</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">'elements'</span><span class="p">][</span><span class="s1">'environment'</span><span class="p">],</span>
+    <span class="s1">'eventName'</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">'elements'</span><span class="p">][</span><span class="s1">'eventname'</span><span class="p">],</span>
+    <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">'attributes'</span><span class="p">][</span><span class="s1">'name'</span><span class="p">]</span>
 <span class="p">];</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="validateimportarray-data"><code>validateImport(array $data)</code><a class="headerlink" href="#validateimportarray-data" title="Permanent link">#</a></h4>
@@ -6426,24 +6426,24 @@ This method is expected to return an array with two keys:</p>
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT  *</span>
-<span class="s2">    FROM    wcf&quot;</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tableName</span><span class="o">.</span><span class="s2">&quot;</span>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT  *</span>
+<span class="s2">    FROM    wcf"</span><span class="o">.</span><span class="nx">WCF_N</span><span class="o">.</span><span class="s2">"_"</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tableName</span><span class="o">.</span><span class="s2">"</span>
 <span class="s2">    WHERE   packageID = ?</span>
 <span class="s2">        AND name = ?</span>
 <span class="s2">        AND templateName = ?</span>
 <span class="s2">        AND eventName = ?</span>
-<span class="s2">        AND environment = ?&quot;</span><span class="p">;</span>
+<span class="s2">        AND environment = ?"</span><span class="p">;</span>
 <span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span>
     <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">installation</span><span class="o">-&gt;</span><span class="na">getPackageID</span><span class="p">(),</span>
-    <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
-    <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;templateName&#39;</span><span class="p">],</span>
-    <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;eventName&#39;</span><span class="p">],</span>
-    <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;environment&#39;</span><span class="p">]</span>
+    <span class="nv">$data</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span>
+    <span class="nv">$data</span><span class="p">[</span><span class="s1">'templateName'</span><span class="p">],</span>
+    <span class="nv">$data</span><span class="p">[</span><span class="s1">'eventName'</span><span class="p">],</span>
+    <span class="nv">$data</span><span class="p">[</span><span class="s1">'environment'</span><span class="p">]</span>
 <span class="p">];</span>
 
 <span class="k">return</span> <span class="p">[</span>
-    <span class="s1">&#39;sql&#39;</span> <span class="o">=&gt;</span> <span class="nv">$sql</span><span class="p">,</span>
-    <span class="s1">&#39;parameters&#39;</span> <span class="o">=&gt;</span> <span class="nv">$parameters</span>
+    <span class="s1">'sql'</span> <span class="o">=&gt;</span> <span class="nv">$sql</span><span class="p">,</span>
+    <span class="s1">'parameters'</span> <span class="o">=&gt;</span> <span class="nv">$parameters</span>
 <span class="p">];</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="handledeletearray-items"><code>handleDelete(array $items)</code><a class="headerlink" href="#handledeletearray-items" title="Permanent link">#</a></h4>
@@ -6467,20 +6467,20 @@ You should make use of this data to remove the matching element from database.</
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM wcf1_</span><span class="si">{</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tableName</span><span class="si">}</span>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"DELETE FROM wcf1_</span><span class="si">{</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tableName</span><span class="si">}</span>
 <span class="s2">    WHERE       packageID = ?</span>
 <span class="s2">            AND environment = ?</span>
 <span class="s2">            AND eventName = ?</span>
 <span class="s2">            AND name = ?</span>
-<span class="s2">            AND templateName = ?&quot;</span><span class="p">;</span>
+<span class="s2">            AND templateName = ?"</span><span class="p">;</span>
 <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$items</span> <span class="k">as</span> <span class="nv">$item</span><span class="p">)</span> <span class="p">{</span>
     <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span>
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">installation</span><span class="o">-&gt;</span><span class="na">getPackageID</span><span class="p">(),</span>
-        <span class="nv">$item</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;environment&#39;</span><span class="p">],</span>
-        <span class="nv">$item</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;eventname&#39;</span><span class="p">],</span>
-        <span class="nv">$item</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
-        <span class="nv">$item</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">][</span><span class="s1">&#39;templatename&#39;</span><span class="p">]</span>
+        <span class="nv">$item</span><span class="p">[</span><span class="s1">'elements'</span><span class="p">][</span><span class="s1">'environment'</span><span class="p">],</span>
+        <span class="nv">$item</span><span class="p">[</span><span class="s1">'elements'</span><span class="p">][</span><span class="s1">'eventname'</span><span class="p">],</span>
+        <span class="nv">$item</span><span class="p">[</span><span class="s1">'attributes'</span><span class="p">][</span><span class="s1">'name'</span><span class="p">],</span>
+        <span class="nv">$item</span><span class="p">[</span><span class="s1">'elements'</span><span class="p">][</span><span class="s1">'templatename'</span><span class="p">]</span>
     <span class="p">]);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div></p>

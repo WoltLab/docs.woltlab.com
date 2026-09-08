@@ -6113,7 +6113,7 @@ Consider this pre-existing class:</p>
     <span class="k">public</span> <span class="nv">$var</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getVar</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;getVar&#39;</span><span class="p">);</span>
+        <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">'getVar'</span><span class="p">);</span>
 
         <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">;</span>
     <span class="p">}</span>
@@ -6138,13 +6138,13 @@ Consider this pre-existing class:</p>
 
 <span class="nv">$example</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">wcf\system\example\ExampleComponent</span><span class="p">();</span>
 <span class="k">if</span> <span class="p">(</span><span class="nv">$example</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">echo</span> <span class="s2">&quot;var is 1!&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">"var is 1!"</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$example</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">echo</span> <span class="s2">&quot;var is 2!&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">"var is 2!"</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="k">else</span> <span class="p">{</span>
-    <span class="k">echo</span> <span class="s2">&quot;No, var is neither 1 nor 2.&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">"No, var is neither 1 nor 2."</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// output: var is 1!</span>
@@ -6212,10 +6212,10 @@ The only thing to do is to call the <code>wcf\system\event\EventHandler::fireAct
     <span class="k">public</span> <span class="k">function</span> <span class="nf">parse</span><span class="p">(</span><span class="nv">$text</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// [some parsing done by default]</span>
 
-        <span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;text&#39;</span> <span class="o">=&gt;</span> <span class="nv">$text</span><span class="p">];</span>
-        <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;parse&#39;</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
+        <span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'text'</span> <span class="o">=&gt;</span> <span class="nv">$text</span><span class="p">];</span>
+        <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">'parse'</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
 
-        <span class="k">return</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">];</span>
+        <span class="k">return</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">'text'</span><span class="p">];</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -6237,11 +6237,11 @@ Then, a plugin can deliver the following event listener</p>
 
 <span class="k">class</span> <span class="nc">ExampleParserEventListener</span> <span class="k">implements</span> <span class="nx">IParameterizedEventListener</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nv">$text</span> <span class="o">=</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">];</span>
+        <span class="nv">$text</span> <span class="o">=</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">'text'</span><span class="p">];</span>
 
         <span class="c1">// [some additional parsing which changes $text]</span>
 
-        <span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$text</span><span class="p">;</span>
+        <span class="nv">$parameters</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$text</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -6271,16 +6271,16 @@ Let's assume that the author wants to enable plugins to change the text before a
 
 <span class="k">class</span> <span class="nc">ExampleParser</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">parse</span><span class="p">(</span><span class="nv">$text</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;text&#39;</span> <span class="o">=&gt;</span> <span class="nv">$text</span><span class="p">];</span>
-        <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;beforeParsing&#39;</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
-        <span class="nv">$text</span> <span class="o">=</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">];</span>
+        <span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'text'</span> <span class="o">=&gt;</span> <span class="nv">$text</span><span class="p">];</span>
+        <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">'beforeParsing'</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
+        <span class="nv">$text</span> <span class="o">=</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">'text'</span><span class="p">];</span>
 
         <span class="c1">// [some parsing done by default]</span>
 
-        <span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;text&#39;</span> <span class="o">=&gt;</span> <span class="nv">$text</span><span class="p">];</span>
-        <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;afterParsing&#39;</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
+        <span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'text'</span> <span class="o">=&gt;</span> <span class="nv">$text</span><span class="p">];</span>
+        <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">'afterParsing'</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
 
-        <span class="k">return</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">];</span>
+        <span class="k">return</span> <span class="nv">$parameters</span><span class="p">[</span><span class="s1">'text'</span><span class="p">];</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -6368,7 +6368,7 @@ The points in the program flow of <a href="../../pages/#abstractform">AbstractFo
     <span class="p">}</span>
 
     <span class="k">protected</span> <span class="k">function</span> <span class="nf">assignVariables</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">(</span><span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">);</span>
+        <span class="nx">WCF</span><span class="o">::</span><span class="na">getTPL</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">(</span><span class="s1">'var'</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="k">protected</span> <span class="k">function</span> <span class="nf">readData</span><span class="p">(</span><span class="nx">ExampleEditForm</span> <span class="nv">$eventObj</span><span class="p">)</span> <span class="p">{</span>
@@ -6378,11 +6378,11 @@ The points in the program flow of <a href="../../pages/#abstractform">AbstractFo
     <span class="p">}</span>
 
     <span class="k">protected</span> <span class="k">function</span> <span class="nf">readFormParameters</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">]))</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span> <span class="o">=</span> <span class="nb">intval</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">]);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'var'</span><span class="p">]))</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span> <span class="o">=</span> <span class="nb">intval</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'var'</span><span class="p">]);</span>
     <span class="p">}</span>
 
     <span class="k">protected</span> <span class="k">function</span> <span class="nf">save</span><span class="p">(</span><span class="nx">ExampleAddForm</span> <span class="nv">$eventObj</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">additionalFields</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">(</span><span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">additionalFields</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;var&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">]);</span>
+        <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">additionalFields</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">(</span><span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">additionalFields</span><span class="p">,</span> <span class="p">[</span><span class="s1">'var'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">]);</span>
     <span class="p">}</span>
 
     <span class="k">protected</span> <span class="k">function</span> <span class="nf">saved</span><span class="p">()</span> <span class="p">{</span>
@@ -6391,7 +6391,7 @@ The points in the program flow of <a href="../../pages/#abstractform">AbstractFo
 
     <span class="k">protected</span> <span class="k">function</span> <span class="nf">validate</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">var</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="nx">UserInputException</span><span class="p">(</span><span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="s1">&#39;isNegative&#39;</span><span class="p">);</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">UserInputException</span><span class="p">(</span><span class="s1">'var'</span><span class="p">,</span> <span class="s1">'isNegative'</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -6431,23 +6431,23 @@ Furthermore, the type-hinting of the parameter illustrates in which contexts the
 <span class="normal">20</span>
 <span class="normal">21</span>
 <span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;data</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/2019/eventListener.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;data</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/2019/eventListener.xsd"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;import&gt;</span>
-<span class="w">        </span><span class="nt">&lt;eventlistener</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;exampleAddInherited&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;eventlistener</span><span class="w"> </span><span class="na">name=</span><span class="s">"exampleAddInherited"</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="nt">&lt;eventclassname&gt;</span>wcf\form\ExampleAddForm<span class="nt">&lt;/eventclassname&gt;</span>
 <span class="w">            </span><span class="nt">&lt;eventname&gt;</span>assignVariables,readFormParameters,save,validate<span class="nt">&lt;/eventname&gt;</span>
 <span class="w">            </span><span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\ExampleAddFormListener<span class="nt">&lt;/listenerclassname&gt;</span>
 <span class="w">            </span><span class="nt">&lt;inherit&gt;</span>1<span class="nt">&lt;/inherit&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/eventlistener&gt;</span>
 
-<span class="w">        </span><span class="nt">&lt;eventlistener</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;exampleAdd&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;eventlistener</span><span class="w"> </span><span class="na">name=</span><span class="s">"exampleAdd"</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="nt">&lt;eventclassname&gt;</span>wcf\form\ExampleAddForm<span class="nt">&lt;/eventclassname&gt;</span>
 <span class="w">            </span><span class="nt">&lt;eventname&gt;</span>saved<span class="nt">&lt;/eventname&gt;</span>
 <span class="w">            </span><span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\ExampleAddFormListener<span class="nt">&lt;/listenerclassname&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/eventlistener&gt;</span>
 
-<span class="w">        </span><span class="nt">&lt;eventlistener</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;exampleEdit&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;eventlistener</span><span class="w"> </span><span class="na">name=</span><span class="s">"exampleEdit"</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="nt">&lt;eventclassname&gt;</span>wcf\form\ExampleEditForm<span class="nt">&lt;/eventclassname&gt;</span>
 <span class="w">            </span><span class="nt">&lt;eventname&gt;</span>readData<span class="nt">&lt;/eventname&gt;</span>
 <span class="w">            </span><span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\ExampleAddFormListener<span class="nt">&lt;/listenerclassname&gt;</span>
@@ -6474,10 +6474,10 @@ No interface has to be implemented in this case.</p>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="nx">\random_int</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1024</span><span class="p">),</span>
+    <span class="s1">'value'</span> <span class="o">=&gt;</span> <span class="nx">\random_int</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1024</span><span class="p">),</span>
 <span class="p">];</span>
 
-<span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;valueAvailable&#39;</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
+<span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireAction</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">'valueAvailable'</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">lib/system/event/listener/ValueDumpListener.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -6509,7 +6509,7 @@ No interface has to be implemented in this case.</p>
 <span class="sd">     */</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]);</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$parameters</span><span class="p">[</span><span class="s1">'value'</span><span class="p">]);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>

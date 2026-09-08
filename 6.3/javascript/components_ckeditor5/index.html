@@ -6084,9 +6084,9 @@ This is implicitly takes place for buttons that are registered through the BBCod
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">listenToCkeditor</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">setupConfiguration</span><span class="p">(({</span><span class="w"> </span><span class="nx">configuration</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">configuration</span><span class="p">.</span><span class="nx">woltlabBbcode</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
-<span class="w">    </span><span class="nx">icon</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;fire;false&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Button label for foo&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">icon</span><span class="o">:</span><span class="w"> </span><span class="s2">"fire;false"</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s2">"Button label for foo"</span><span class="p">,</span>
 <span class="w">  </span><span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div></td></tr></table></div>
@@ -6106,7 +6106,7 @@ Every event listener registered to this event MUST return a boolean to indicate 
 <span class="normal">10</span>
 <span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">listenToCkeditor</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">ready</span><span class="p">(({</span><span class="w"> </span><span class="nx">ckeditor</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">listenToCkeditor</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">bbcode</span><span class="p">(({</span><span class="w"> </span><span class="nx">bbcode</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">bbcode</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">bbcode</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -6152,7 +6152,7 @@ Any extra plugin that should be added to the editor must be built using the modu
 <span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">listenToCkeditor</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">setupConfiguration</span><span class="p">(({</span><span class="w"> </span><span class="nx">configuration</span><span class="p">,</span><span class="w"> </span><span class="nx">CKEditor5</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">class</span><span class="w"> </span><span class="nx">FooPlugin</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">CKEditor5</span><span class="p">.</span><span class="nx">Core</span><span class="p">.</span><span class="nx">Plugin</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">pluginName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;FooPlugin&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">"FooPlugin"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="nx">init</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>

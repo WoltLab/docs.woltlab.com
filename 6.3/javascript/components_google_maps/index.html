@@ -6450,13 +6450,13 @@
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">woltlab-core-google-maps</span>
-    <span class="na">id</span><span class="o">=</span><span class="s">&quot;id&quot;</span>
-    <span class="na">class</span><span class="o">=</span><span class="s">&quot;googleMap&quot;</span>
-    <span class="na">api-key</span><span class="o">=</span><span class="s">&quot;your_api_key&quot;</span>
+    <span class="na">id</span><span class="o">=</span><span class="s">"id"</span>
+    <span class="na">class</span><span class="o">=</span><span class="s">"googleMap"</span>
+    <span class="na">api-key</span><span class="o">=</span><span class="s">"your_api_key"</span>
 <span class="p">&gt;&lt;/</span><span class="nt">woltlab-core-google-maps</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>Alternatively, the component can be included via a template that uses the API key from the configuration and also handles the user content:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;googleMapsElement&#39;</span> <span class="na">googleMapsElementID</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="cp">}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'googleMapsElement'</span> <span class="na">googleMapsElementID</span><span class="o">=</span><span class="s2">"id"</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
 <h3 id="id"><code>id</code><a class="headerlink" href="#id" title="Permanent link">#</a></h3>
@@ -6482,9 +6482,9 @@
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
-<span class="w">    </span><span class="nx">require</span><span class="p">([</span><span class="s1">&#39;WoltLabSuite/Core/Component/GoogleMaps/Marker&#39;</span><span class="p">],</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">addMarker</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="ow">void</span><span class="w"> </span><span class="nx">addMarker</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;map_id&#39;</span><span class="p">),</span><span class="w"> </span><span class="mf">52.4505</span><span class="p">,</span><span class="w"> </span><span class="mf">13.7546</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Title&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">"true"</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="nx">require</span><span class="p">([</span><span class="s1">'WoltLabSuite/Core/Component/GoogleMaps/Marker'</span><span class="p">],</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">addMarker</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="ow">void</span><span class="w"> </span><span class="nx">addMarker</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'map_id'</span><span class="p">),</span><span class="w"> </span><span class="mf">52.4505</span><span class="p">,</span><span class="w"> </span><span class="mf">13.7546</span><span class="p">,</span><span class="w"> </span><span class="s1">'Title'</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
@@ -6507,9 +6507,9 @@
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
-<span class="w">    </span><span class="nx">require</span><span class="p">([</span><span class="s1">&#39;WoltLabSuite/Core/Component/GoogleMaps/Marker&#39;</span><span class="p">],</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">addDraggableMarker</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="ow">void</span><span class="w"> </span><span class="nx">addDraggableMarker</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;map_id&#39;</span><span class="p">),</span><span class="w"> </span><span class="mf">52.4505</span><span class="p">,</span><span class="w"> </span><span class="mf">13.7546</span><span class="p">);</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">"true"</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="nx">require</span><span class="p">([</span><span class="s1">'WoltLabSuite/Core/Component/GoogleMaps/Marker'</span><span class="p">],</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">addDraggableMarker</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="ow">void</span><span class="w"> </span><span class="nx">addDraggableMarker</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'map_id'</span><span class="p">),</span><span class="w"> </span><span class="mf">52.4505</span><span class="p">,</span><span class="w"> </span><span class="mf">13.7546</span><span class="p">);</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
@@ -6529,10 +6529,10 @@
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span>
-    <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
-    <span class="na">data-google-maps-geocoding</span><span class="o">=</span><span class="s">&quot;map_id&quot;</span>
+    <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+    <span class="na">data-google-maps-geocoding</span><span class="o">=</span><span class="s">"map_id"</span>
     <span class="na">data-google-maps-marker</span>
-    <span class="na">data-google-maps-geocoding-store</span><span class="o">=</span><span class="s">&quot;prefix&quot;</span>
+    <span class="na">data-google-maps-geocoding-store</span><span class="o">=</span><span class="s">"prefix"</span>
 <span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">#</a></h4>
@@ -6549,9 +6549,9 @@
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
-<span class="w">    </span><span class="nx">require</span><span class="p">([</span><span class="s1">&#39;WoltLabSuite/Core/Component/GoogleMaps/MarkerLoader&#39;</span><span class="p">],</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">setup</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">setup</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;map_id&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;action_classname&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{});</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-relocate</span><span class="o">=</span><span class="s">"true"</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="nx">require</span><span class="p">([</span><span class="s1">'WoltLabSuite/Core/Component/GoogleMaps/MarkerLoader'</span><span class="p">],</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">setup</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">setup</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'map_id'</span><span class="p">),</span><span class="w"> </span><span class="s1">'action_classname'</span><span class="p">,</span><span class="w"> </span><span class="p">{});</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>

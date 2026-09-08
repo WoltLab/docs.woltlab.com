@@ -6192,7 +6192,7 @@ that returns a suitable <code>ImageData</code> object.</p>
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$object</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FooBarObject</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">&#39;com.foo.bar&#39;</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">'com.foo.bar'</span><span class="p">,</span> <span class="p">[</span>
     <span class="c1">// variables</span>
 <span class="p">]));</span>
 <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setDescription</span><span class="p">(</span>
@@ -6202,7 +6202,7 @@ that returns a suitable <code>ImageData</code> object.</p>
     <span class="k">true</span>
 <span class="p">);</span>
 <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setLink</span><span class="p">(</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">());</span>
-<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setImage</span><span class="p">(</span><span class="k">new</span> <span class="nx">ImageData</span><span class="p">(</span><span class="s1">&#39;image_src&#39;</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">));</span>
+<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setImage</span><span class="p">(</span><span class="k">new</span> <span class="nx">ImageData</span><span class="p">(</span><span class="s1">'image_src'</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">));</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="user-profile-header">User Profile Header<a class="headerlink" href="#user-profile-header" title="Permanent link">#</a></h2>
 <p>The header in the user profile has been completely overhauled.
@@ -6230,11 +6230,11 @@ At the same time, the use of a view removes a lot of business logic from the tem
     <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">\wcf\event\user\profile\UserProfileStatItemCollecting</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">user</span><span class="o">-&gt;</span><span class="na">exampleCounter</span><span class="p">)</span> <span class="p">{</span>
             <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">\wcf\system\view\user\profile\UserProfileStatItem</span><span class="o">::</span><span class="na">forLink</span><span class="p">(</span>
-                <span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;phrase.exampleCounter&#39;</span><span class="p">),</span>
+                <span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'phrase.exampleCounter'</span><span class="p">),</span>
                 <span class="nx">StringUtil</span><span class="o">::</span><span class="na">formatNumeric</span><span class="p">(</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">user</span><span class="o">-&gt;</span><span class="na">exampleCounter</span><span class="p">),</span>
                 <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getControllerLink</span><span class="p">(</span>
                     <span class="nx">\example\page\ExampleListPage</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
-                    <span class="p">[</span><span class="s1">&#39;object&#39;</span> <span class="o">=&gt;</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">user</span><span class="p">]</span>
+                    <span class="p">[</span><span class="s1">'object'</span> <span class="o">=&gt;</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">user</span><span class="p">]</span>
                 <span class="p">)</span>
             <span class="p">));</span>
         <span class="p">}</span>
@@ -6262,10 +6262,10 @@ At the same time, the use of a view removes a lot of business logic from the tem
     <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">\wcf\event\user\profile\UserProfileHeaderSearchContentLinkCollecting</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">user</span><span class="o">-&gt;</span><span class="na">exampleCounter</span><span class="p">)</span> <span class="p">{</span>
             <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="k">new</span> <span class="nx">\wcf\system\view\user\profile\UserProfileHeaderViewSearchContentLink</span><span class="p">(</span>
-                <span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;phrase.exampleCounter&#39;</span><span class="p">),</span>
+                <span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'phrase.exampleCounter'</span><span class="p">),</span>
                 <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getControllerLink</span><span class="p">(</span>
                     <span class="nx">\example\page\ExampleListPage</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
-                    <span class="p">[</span><span class="s1">&#39;object&#39;</span> <span class="o">=&gt;</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">user</span><span class="p">]</span>
+                    <span class="p">[</span><span class="s1">'object'</span> <span class="o">=&gt;</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">user</span><span class="p">]</span>
                 <span class="p">)</span>
             <span class="p">));</span>
         <span class="p">}</span>

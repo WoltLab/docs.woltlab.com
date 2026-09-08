@@ -6343,7 +6343,7 @@ The general syntax for applying a variable modifier is <code>{$variable|modifier
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$variable</span><span class="o">|</span><span class="na">modifier1</span><span class="o">|</span><span class="na">modifier2</span><span class="o">|</span><span class="na">modifier3</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div></p>
 <p>A modifier may accept additional parameters that affect its behavior. These parameters follow the modifier name and are separated by a <code>:</code>. For example:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$variable</span><span class="o">|</span><span class="na">modifier</span><span class="o">:</span><span class="s1">&#39;param1&#39;</span><span class="o">:</span><span class="s1">&#39;param2&#39;</span><span class="cp">}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$variable</span><span class="o">|</span><span class="na">modifier</span><span class="o">:</span><span class="s1">'param1'</span><span class="o">:</span><span class="s1">'param2'</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div></p>
 <h2 id="build-in-modifiers">Build-in Modifiers<a class="headerlink" href="#build-in-modifiers" title="Permanent link">#</a></h2>
 <h3 id="concat"><code>|concat</code><a class="headerlink" href="#concat" title="Permanent link">#</a></h3>
@@ -6352,11 +6352,11 @@ The general syntax for applying a variable modifier is <code>{$variable|modifier
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">foo</span> <span class="na">value</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="cp">}</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">foo</span> <span class="na">value</span><span class="o">=</span><span class="s1">'foo'</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="o">|</span><span class="na">concat</span><span class="o">:</span><span class="nv">$foo</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">templateVariable</span> <span class="na">value</span><span class="o">=</span><span class="s1">'bar'</span><span class="o">|</span><span class="na">concat</span><span class="o">:</span><span class="nv">$foo</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nv">$templateVariable</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;foobar *</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nv">$templateVariable</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints 'foobar *</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="currency"><code>|currency</code><a class="headerlink" href="#currency" title="Permanent link">#</a></h3>
 <p><code>currency</code> is a modifier used to format currency values with two decimals using language dependent thousands separators and decimal point:</p>
@@ -6364,7 +6364,7 @@ The general syntax for applying a variable modifier is <code>{$variable|modifier
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="na">currencyValue</span> <span class="na">value</span><span class="o">=</span><span class="m">12.345</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nv">$currencyValue</span><span class="o">|</span><span class="na">currency</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints &#39;12.34&#39; *</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nv">$currencyValue</span><span class="o">|</span><span class="na">currency</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints '12.34' *</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="date"><code>|date</code><a class="headerlink" href="#date" title="Permanent link">#</a></h3>
 <div class="admonition info">
@@ -6378,7 +6378,7 @@ The general syntax for applying a variable modifier is <code>{$variable|modifier
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;script&gt;</span>
-<span class="x">    var foo = &#39;</span><span class="cp">{</span><span class="nf">unsafe</span><span class="o">:</span><span class="nv">$foo</span><span class="o">|</span><span class="na">encodeJS</span><span class="cp">}</span><span class="x">&#39;;</span>
+<span class="x">    var foo = '</span><span class="cp">{</span><span class="nf">unsafe</span><span class="o">:</span><span class="nv">$foo</span><span class="o">|</span><span class="na">encodeJS</span><span class="cp">}</span><span class="x">';</span>
 <span class="x">&lt;/script&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="escapecdata"><code>|escapeCDATA</code><a class="headerlink" href="#escapecdata" title="Permanent link">#</a></h3>
@@ -6395,14 +6395,14 @@ The general syntax for applying a variable modifier is <code>{$variable|modifier
 </code></pre></div></td></tr></table></div>
 <h3 id="ipsearch"><code>|ipSearch</code><a class="headerlink" href="#ipsearch" title="Permanent link">#</a></h3>
 <p><code>ipSearch</code> generates a link to search for an IP address.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="o">|</span><span class="na">ipSearch</span><span class="cp">}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="s2">"127.0.0.1"</span><span class="o">|</span><span class="na">ipSearch</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="json"><code>|json</code><a class="headerlink" href="#json" title="Permanent link">#</a></h3>
 <p><code>json</code> JSON-encodes the given value.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;script&gt;</span>
-<span class="x">let data = </span><span class="cp">{</span> <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="cp">{</span><span class="na">unsafe</span><span class="o">:</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="o">()|</span><span class="na">json</span><span class="cp">}</span> <span class="cp">}</span><span class="x">;</span>
+<span class="x">let data = </span><span class="cp">{</span> <span class="s2">"title"</span><span class="o">:</span> <span class="cp">{</span><span class="na">unsafe</span><span class="o">:</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="o">()|</span><span class="na">json</span><span class="cp">}</span> <span class="cp">}</span><span class="x">;</span>
 <span class="x">&lt;/script&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="language"><code>|language</code><a class="headerlink" href="#language" title="Permanent link">#</a></h3>
@@ -6454,7 +6454,7 @@ The exact formatting depends on the current language (via the language items <co
 <p class="admonition-title">This template plugin has been deprecated in WoltLab Suite 6.0. Use <code>{time}</code> instead.</p>
 </div>
 <p><code>time</code> generates an HTML <code>time</code> elements based on a timestamp that shows a relative time or the absolute time if the timestamp more than six days ago.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$timestamp</span><span class="o">|</span><span class="na">time</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints a &#39;&lt;time&gt;&#39; element *</span><span class="cp">}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$timestamp</span><span class="o">|</span><span class="na">time</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="c">* prints a '&lt;time&gt;' element *</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="truncate"><code>|truncate</code><a class="headerlink" href="#truncate" title="Permanent link">#</a></h3>
 <p><code>truncate</code> truncates a long string into a shorter one:</p>
@@ -6462,7 +6462,7 @@ The exact formatting depends on the current language (via the language items <co
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">truncate</span><span class="o">:</span><span class="m">35</span><span class="cp">}</span>
 
-<span class="cp">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">truncate</span><span class="o">:</span><span class="m">35</span><span class="o">:</span><span class="s1">&#39;_&#39;</span><span class="o">:</span><span class="kc">true</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nv">$foo</span><span class="o">|</span><span class="na">truncate</span><span class="o">:</span><span class="m">35</span><span class="o">:</span><span class="s1">'_'</span><span class="o">:</span><span class="kc">true</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <table>
 <thead>

@@ -6614,31 +6614,31 @@ Create a class that extends <code>wcf\system\search\AbstractSearchProvider</code
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getTableName</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="s1">&#39;wcf1_foo&#39;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="s1">'wcf1_foo'</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getIDFieldName</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getTableName</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;.fooID&#39;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getTableName</span><span class="p">()</span> <span class="o">.</span> <span class="s1">'.fooID'</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getSubjectFieldName</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getTableName</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;.title&#39;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getTableName</span><span class="p">()</span> <span class="o">.</span> <span class="s1">'.title'</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getUsernameFieldName</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getTableName</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;.username&#39;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getTableName</span><span class="p">()</span> <span class="o">.</span> <span class="s1">'.username'</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getTimeFieldName</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getTableName</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;.time&#39;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getTableName</span><span class="p">()</span> <span class="o">.</span> <span class="s1">'.time'</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
@@ -6647,8 +6647,8 @@ Create a class that extends <code>wcf\system\search\AbstractSearchProvider</code
         <span class="nv">$conditionBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PreparedStatementConditionBuilder</span><span class="p">();</span>
 
         <span class="c1">// Only show foo objects that the current user can access.</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">&#39;mod.foo.canViewAll&#39;</span><span class="p">))</span> <span class="p">{</span>
-            <span class="nv">$conditionBuilder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;wcf1_foo.isPublished = ?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">'mod.foo.canViewAll'</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nv">$conditionBuilder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'wcf1_foo.isPublished = ?'</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
         <span class="p">}</span>
 
         <span class="k">return</span> <span class="nv">$conditionBuilder</span><span class="p">;</span>
@@ -6657,7 +6657,7 @@ Create a class that extends <code>wcf\system\search\AbstractSearchProvider</code
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">isAccessible</span><span class="p">()</span><span class="o">:</span> <span class="nx">bool</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">&#39;user.foo.canSearch&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getPermission</span><span class="p">(</span><span class="s1">'user.foo.canSearch'</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -6699,9 +6699,9 @@ This is useful when the searchable content and its metadata (such as the author 
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span> <span class="k">function</span> <span class="nf">getJoins</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
 <span class="p">{</span>
-    <span class="k">return</span> <span class="s1">&#39;</span>
+    <span class="k">return</span> <span class="s1">'</span>
 <span class="s1">        INNER JOIN  wcf1_article</span>
-<span class="s1">        ON          wcf1_article.articleID = &#39;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getTableName</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;.articleID&#39;</span><span class="p">;</span>
+<span class="s1">        ON          wcf1_article.articleID = '</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getTableName</span><span class="p">()</span> <span class="o">.</span> <span class="s1">'.articleID'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="isaccessible-bool"><code>isAccessible(): bool</code><a class="headerlink" href="#isaccessible-bool" title="Permanent link">#</a></h4>
@@ -6837,24 +6837,24 @@ Create a decorator class that extends <code>wcf\data\DatabaseObjectDecorator</co
     <span class="p">}</span>
 
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">getLink</span><span class="p">(</span><span class="nv">$query</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getLink</span><span class="p">(</span><span class="nv">$query</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
         <span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="s1">&#39;object&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDecoratedObject</span><span class="p">(),</span>
-            <span class="s1">&#39;forceFrontend&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+            <span class="s1">'object'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDecoratedObject</span><span class="p">(),</span>
+            <span class="s1">'forceFrontend'</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
         <span class="p">];</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="nv">$query</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$parameters</span><span class="p">[</span><span class="s1">&#39;highlight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">\urlencode</span><span class="p">(</span><span class="nv">$query</span><span class="p">);</span>
+            <span class="nv">$parameters</span><span class="p">[</span><span class="s1">'highlight'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">\urlencode</span><span class="p">(</span><span class="nv">$query</span><span class="p">);</span>
         <span class="p">}</span>
 
-        <span class="k">return</span> <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">(</span><span class="s1">&#39;Foo&#39;</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">(</span><span class="s1">'Foo'</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getObjectTypeName</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="s1">&#39;com.example.foo&#39;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="s1">'com.example.foo'</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
@@ -6868,13 +6868,13 @@ Create a decorator class that extends <code>wcf\data\DatabaseObjectDecorator</co
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getContainerTitle</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="s1">''</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getContainerLink</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="s1">''</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -6996,13 +6996,13 @@ The language item follows the pattern <code>wcf.search.type.{objectTypeName}</co
 <span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">use</span> <span class="nx">wcf\system\search\SearchIndexManager</span><span class="p">;</span>
 
 <span class="nx">SearchIndexManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span>
-    <span class="s1">&#39;com.example.foo&#39;</span><span class="p">,</span>    <span class="c1">// object type name</span>
+    <span class="s1">'com.example.foo'</span><span class="p">,</span>    <span class="c1">// object type name</span>
     <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">fooID</span><span class="p">,</span>          <span class="c1">// object ID</span>
     <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">message</span><span class="p">,</span>        <span class="c1">// message text (HTML)</span>
     <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">,</span>          <span class="c1">// subject</span>
     <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">time</span><span class="p">,</span>           <span class="c1">// timestamp</span>
-    <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">userID</span><span class="p">,</span>         <span class="c1">// author&#39;s user ID</span>
-    <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">,</span>       <span class="c1">// author&#39;s username</span>
+    <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">userID</span><span class="p">,</span>         <span class="c1">// author's user ID</span>
+    <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">,</span>       <span class="c1">// author's username</span>
     <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">languageID</span><span class="p">,</span>     <span class="c1">// language ID (or null)</span>
     <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">teaser</span>          <span class="c1">// optional: metadata (e.g. teaser text)</span>
 <span class="p">);</span>
@@ -7011,7 +7011,7 @@ The language item follows the pattern <code>wcf.search.type.{objectTypeName}</co
 The <code>SearchIndexManager</code> will automatically strip HTML tags before indexing.</p>
 <h3 id="deleting-entries">Deleting Entries<a class="headerlink" href="#deleting-entries" title="Permanent link">#</a></h3>
 <p>When objects are deleted, remove them from the search index:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">SearchIndexManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;com.example.foo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">fooID</span><span class="p">]);</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">SearchIndexManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">'com.example.foo'</span><span class="p">,</span> <span class="p">[</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">fooID</span><span class="p">]);</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="rebuilding-the-index">Rebuilding the Index<a class="headerlink" href="#rebuilding-the-index" title="Permanent link">#</a></h3>
 <p>If your content type has a rebuild data worker, reset and rebuild the search index in its <code>execute()</code> method:</p>
@@ -7038,13 +7038,13 @@ The <code>SearchIndexManager</code> will automatically strip HTML tags before in
 
 <span class="c1">// Reset the search index on the first iteration.</span>
 <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">loopCount</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">SearchIndexManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">reset</span><span class="p">(</span><span class="s1">&#39;com.example.foo&#39;</span><span class="p">);</span>
+    <span class="nx">SearchIndexManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">reset</span><span class="p">(</span><span class="s1">'com.example.foo'</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="c1">// Re-index each object.</span>
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">objectList</span> <span class="k">as</span> <span class="nv">$foo</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">SearchIndexManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span>
-        <span class="s1">&#39;com.example.foo&#39;</span><span class="p">,</span>
+        <span class="s1">'com.example.foo'</span><span class="p">,</span>
         <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">fooID</span><span class="p">,</span>
         <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">message</span><span class="p">,</span>
         <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">,</span>

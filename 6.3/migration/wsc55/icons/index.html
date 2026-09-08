@@ -6219,12 +6219,12 @@ We have instead made the decision to embed brand icons using inline SVGs which a
 <p>One pattern that could be found every here and then was the use of icons as buttons.
 Using icons in buttons is fine, as long as there is a readable title and that they are properly marked as buttons.</p>
 <p>A common misuse looks like this:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;span class=&quot;icon icon16 fa-times pointer jsMyDeleteButton&quot; data-some-object-id=&quot;123&quot;&gt;&lt;/span&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;span class="icon icon16 fa-times pointer jsMyDeleteButton" data-some-object-id="123"&gt;&lt;/span&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>This example has a few problems, for starters it is not marked as a button which would require both <code>role="button"</code> and <code>tabindex="0"</code> to be recognized as such.
 Additionally there is no title which leaves users clueless about what the option does, especially visually impaired users are possibly unable to identify the icon.</p>
 <p>WoltLab Suite 6.0 addresses this issue by removing all default styling from <code>&lt;button&gt;</code> elements, making them the ideal choice for button type elements.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;button class=&quot;jsMyDeleteButton&quot; data-some-object-id=&quot;123&quot; title=&quot;descriptive title here&quot;&gt;</span><span class="cp">{</span><span class="nf">icon</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;xmark&#39;</span><span class="cp">}</span><span class="x">&lt;/button&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;button class="jsMyDeleteButton" data-some-object-id="123" title="descriptive title here"&gt;</span><span class="cp">{</span><span class="nf">icon</span> <span class="na">name</span><span class="o">=</span><span class="s1">'xmark'</span><span class="cp">}</span><span class="x">&lt;/button&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>The icon will appear just as before, but the button is now properly accessible.</p>
 <h2 id="using-css-classes-with-icons">Using CSS Classes With Icons<a class="headerlink" href="#using-css-classes-with-icons" title="Permanent link">#</a></h2>
@@ -6234,18 +6234,18 @@ Icons inherit the text color from the surrounding context which removes the need
 <h2 id="using-icons-in-templates">Using Icons in Templates<a class="headerlink" href="#using-icons-in-templates" title="Permanent link">#</a></h2>
 <p>The new template function <code>{icon}</code> was added to take care of generating the HTML code for icons, including the embedded SVGs for brand icons.
 Icons in HTML should not be constructed using the actual HTML element, but instead always use <code>{icon}</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;button class=&quot;button&quot;&gt;</span><span class="cp">{</span><span class="nf">icon</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;bell&#39;</span><span class="cp">}</span><span class="x"> I’m a button with a bell icon&lt;/button&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;button class="button"&gt;</span><span class="cp">{</span><span class="nf">icon</span> <span class="na">name</span><span class="o">=</span><span class="s1">'bell'</span><span class="cp">}</span><span class="x"> I’m a button with a bell icon&lt;/button&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>Unless specified the icon will attempt to use a non-solid variant of the icon if it is available.
 You can explicitly request a solid version of the icon by specifying it with <code>type='solid'</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;button class=&quot;button&quot;&gt;</span><span class="cp">{</span><span class="nf">icon</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;bell&#39;</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="cp">}</span><span class="x"> I’m a button with a solid bell icon&lt;/button&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;button class="button"&gt;</span><span class="cp">{</span><span class="nf">icon</span> <span class="na">name</span><span class="o">=</span><span class="s1">'bell'</span> <span class="na">type</span><span class="o">=</span><span class="s1">'solid'</span><span class="cp">}</span><span class="x"> I’m a button with a solid bell icon&lt;/button&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>Icons will implicitly assume the size <code>16</code>, but you can explicitly request a different icon size using the <code>size</code> attribute:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">icon</span> <span class="na">size</span><span class="o">=</span><span class="m">24</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;bell&#39;</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="cp">}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">icon</span> <span class="na">size</span><span class="o">=</span><span class="m">24</span> <span class="na">name</span><span class="o">=</span><span class="s1">'bell'</span> <span class="na">type</span><span class="o">=</span><span class="s1">'solid'</span><span class="cp">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="brand-icons">Brand Icons<a class="headerlink" href="#brand-icons" title="Permanent link">#</a></h3>
 <p>The syntax for brand icons is very similar, but you are required to specifiy parameter <code>type='brand'</code> to access them.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;button class=&quot;button&quot;&gt;</span><span class="cp">{</span><span class="nf">icon</span> <span class="na">size</span><span class="o">=</span><span class="m">16</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;facebook&#39;</span> <span class="na">type</span><span class="o">=</span><span class="s1">&#39;brand&#39;</span><span class="cp">}</span><span class="x"> Share on Facebook&lt;/button&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;button class="button"&gt;</span><span class="cp">{</span><span class="nf">icon</span> <span class="na">size</span><span class="o">=</span><span class="m">16</span> <span class="na">name</span><span class="o">=</span><span class="s1">'facebook'</span> <span class="na">type</span><span class="o">=</span><span class="s1">'brand'</span><span class="cp">}</span><span class="x"> Share on Facebook&lt;/button&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="using-icons-in-typescriptjavascript">Using Icons in TypeScript/JavaScript<a class="headerlink" href="#using-icons-in-typescriptjavascript" title="Permanent link">#</a></h2>
 <p>Buttons can be dynamically created using the native <code>document.createElement()</code> using the new <code>fa-icon</code> element.</p>
@@ -6253,22 +6253,22 @@ You can explicitly request a solid version of the icon by specifying it with <co
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;fa-icon&quot;</span><span class="p">);</span>
-<span class="nx">icon</span><span class="p">.</span><span class="nx">setIcon</span><span class="p">(</span><span class="s2">&quot;bell&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"fa-icon"</span><span class="p">);</span>
+<span class="nx">icon</span><span class="p">.</span><span class="nx">setIcon</span><span class="p">(</span><span class="s2">"bell"</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
 
 <span class="c1">// This is the same as the following call in templates:</span>
-<span class="c1">// {icon name=&#39;bell&#39; type=&#39;solid&#39;}</span>
+<span class="c1">// {icon name='bell' type='solid'}</span>
 </code></pre></div></td></tr></table></div>
 <p>You can request a size other than the default value of <code>16</code> through the <code>size</code> property:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;fa-icon&quot;</span><span class="p">);</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"fa-icon"</span><span class="p">);</span>
 <span class="nx">icon</span><span class="p">.</span><span class="nx">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">24</span><span class="p">;</span>
-<span class="nx">icon</span><span class="p">.</span><span class="nx">setIcon</span><span class="p">(</span><span class="s2">&quot;bell&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="nx">icon</span><span class="p">.</span><span class="nx">setIcon</span><span class="p">(</span><span class="s2">"bell"</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="creating-icons-in-html-strings">Creating Icons in HTML Strings<a class="headerlink" href="#creating-icons-in-html-strings" title="Permanent link">#</a></h3>
 <p>You can embed icons in HTML strings by constructing the <code>fa-icon</code> element yourself.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">element</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;fa-icon name=&quot;bell&quot; solid&gt;&lt;/fa-icon&gt;&#39;</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">element</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'&lt;fa-icon name="bell" solid&gt;&lt;/fa-icon&gt;'</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="changing-an-icon-on-runtime">Changing an Icon on Runtime<a class="headerlink" href="#changing-an-icon-on-runtime" title="Permanent link">#</a></h3>
 <p>You can alter the size by changing the <code>size</code> property which accepts the numbers <code>16</code>, <code>24</code>, <code>32</code>, <code>48</code>, <code>64</code>, <code>96</code>, <code>128</code> and <code>144</code>.
@@ -6278,12 +6278,12 @@ The icon itself should be always set through the <code>setIcon(name: string, isS
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">div</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">);</span>
-<span class="nx">div</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;fa-icon name=&quot;user&quot;&gt;&lt;/fa-icon&gt;&#39;</span><span class="p">;</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">div</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"div"</span><span class="p">);</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'&lt;fa-icon name="user"&gt;&lt;/fa-icon&gt;'</span><span class="p">;</span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">div</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;fa-icon&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">div</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"fa-icon"</span><span class="p">);</span>
 <span class="nx">icon</span><span class="p">.</span><span class="nx">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">24</span><span class="p">;</span>
-<span class="nx">icon</span><span class="p">.</span><span class="nx">setIcon</span><span class="p">(</span><span class="s2">&quot;bell&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="nx">icon</span><span class="p">.</span><span class="nx">setIcon</span><span class="p">(</span><span class="s2">"bell"</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="migrating-icons">Migrating Icons<a class="headerlink" href="#migrating-icons" title="Permanent link">#</a></h2>
 <p>We provide a helper script that eases the transition by replacing icons in templates, JavaScript and TypeScript files.
@@ -6300,7 +6300,7 @@ It will not replace occurrences that are formatted differently and/or make use o
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;li&gt;</span>
-<span class="x">    &lt;span class=&quot;icon icon16 fa-times pointer jsButtonFoo jsTooltip&quot; title=&quot;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.baz</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&quot;&gt;</span>
+<span class="x">    &lt;span class="icon icon16 fa-times pointer jsButtonFoo jsTooltip" title="</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.baz</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">"&gt;</span>
 <span class="x">&lt;/li&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>This can be replaced using a proper button element which also provides proper accessibility for free.</p>
@@ -6309,8 +6309,8 @@ It will not replace occurrences that are formatted differently and/or make use o
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;li&gt;</span>
-<span class="x">    &lt;button class=&quot;jsButtonFoo jsTooltip&quot; title=&quot;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.baz</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&quot;&gt;</span>
-<span class="x">        </span><span class="cp">{</span><span class="nf">icon</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;xmark&#39;</span><span class="cp">}</span>
+<span class="x">    &lt;button class="jsButtonFoo jsTooltip" title="</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.bar.baz</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">"&gt;</span>
+<span class="x">        </span><span class="cp">{</span><span class="nf">icon</span> <span class="na">name</span><span class="o">=</span><span class="s1">'xmark'</span><span class="cp">}</span>
 <span class="x">    &lt;/button&gt;</span>
 <span class="x">&lt;/li&gt;</span>
 </code></pre></div></td></tr></table></div>

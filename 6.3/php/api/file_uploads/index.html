@@ -6120,13 +6120,13 @@ The number of thumbnail variants is not limited but each thumbnail must have an 
 <span class="p">{</span>
     <span class="k">return</span> <span class="p">[</span>
         <span class="k">new</span> <span class="nx">ThumbnailFormat</span><span class="p">(</span>
-            <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// An empty string is a valid identifier.</span>
+            <span class="s1">''</span><span class="p">,</span> <span class="c1">// An empty string is a valid identifier.</span>
             <span class="mi">800</span><span class="p">,</span>
             <span class="mi">600</span><span class="p">,</span>
             <span class="k">true</span><span class="p">,</span> <span class="c1">// Retaining the dimensions can cause _one_ of the sides to underflow the configured width or height.</span>
         <span class="p">),</span>
         <span class="k">new</span> <span class="nx">ThumbnailFormat</span><span class="p">(</span>
-            <span class="s1">&#39;square&#39;</span><span class="p">,</span>
+            <span class="s1">'square'</span><span class="p">,</span>
             <span class="mi">100</span><span class="p">,</span>
             <span class="mi">100</span><span class="p">,</span>
             <span class="k">false</span><span class="p">,</span> <span class="c1">// This will generate a 100x100 thumbnail where the longest size will be cropped from the center.</span>
@@ -6219,8 +6219,8 @@ You can provide anything you need in order to recognize what the file belongs to
         <span class="k">return</span> <span class="nx">FileProcessor</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getHtmlElement</span><span class="p">(</span>
             <span class="nv">$this</span><span class="p">,</span>
             <span class="p">[</span>
-                <span class="s1">&#39;identifier&#39;</span> <span class="o">=&gt;</span> <span class="nv">$someIdentifier</span><span class="p">,</span>
-                <span class="s1">&#39;objectID&#39;</span> <span class="o">=&gt;</span> <span class="nv">$someObjectID</span><span class="p">,</span>
+                <span class="s1">'identifier'</span> <span class="o">=&gt;</span> <span class="nv">$someIdentifier</span><span class="p">,</span>
+                <span class="s1">'objectID'</span> <span class="o">=&gt;</span> <span class="nv">$someObjectID</span><span class="p">,</span>
             <span class="p">],</span>
         <span class="p">);</span>
     <span class="p">}</span>

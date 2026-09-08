@@ -6018,7 +6018,7 @@ If the tables does not already exist, a table represented by <code>PartialDataba
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">DatabaseTable</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;foo1_bar&#39;</span><span class="p">)</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">DatabaseTable</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'foo1_bar'</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">columns</span><span class="p">([</span>
         <span class="c1">// columns</span>
     <span class="p">])</span>
@@ -6032,7 +6032,7 @@ If the tables does not already exist, a table represented by <code>PartialDataba
 <p>To update a table, the same code as above can be used, except for <code>PartialDatabaseTable</code> being used instead of <code>DatabaseTable</code>.</p>
 <p>To drop a table, only the <code>drop()</code> method has to be called:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">PartialDatabaseTable</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;foo1_bar&#39;</span><span class="p">)</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">PartialDatabaseTable</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'foo1_bar'</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">drop</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">#</a></h2>
@@ -6067,11 +6067,11 @@ Such instances are created similarly to database table objects using the <code>c
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">DefaultFalseBooleanDatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;isDisabled&#39;</span><span class="p">)</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">DefaultFalseBooleanDatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'isDisabled'</span><span class="p">)</span>
 
-<span class="nx">NotNullInt10DatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;fooTypeID&#39;</span><span class="p">)</span>
+<span class="nx">NotNullInt10DatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'fooTypeID'</span><span class="p">)</span>
 
-<span class="nx">SmallintDatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="nx">SmallintDatabaseTableColumn</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'bar'</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">length</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">notNull</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -6082,10 +6082,10 @@ Such instances are created similarly to database table objects using the <code>c
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">DatabaseTableForeignKey</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
-    <span class="o">-&gt;</span><span class="na">columns</span><span class="p">([</span><span class="s1">&#39;fooID&#39;</span><span class="p">])</span>
-    <span class="o">-&gt;</span><span class="na">referencedTable</span><span class="p">(</span><span class="s1">&#39;wcf1_foo&#39;</span><span class="p">)</span>
-    <span class="o">-&gt;</span><span class="na">referencedColumns</span><span class="p">([</span><span class="s1">&#39;fooID&#39;</span><span class="p">])</span>
-    <span class="o">-&gt;</span><span class="na">onDelete</span><span class="p">(</span><span class="s1">&#39;CASCADE&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">columns</span><span class="p">([</span><span class="s1">'fooID'</span><span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">referencedTable</span><span class="p">(</span><span class="s1">'wcf1_foo'</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">referencedColumns</span><span class="p">([</span><span class="s1">'fooID'</span><span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">onDelete</span><span class="p">(</span><span class="s1">'CASCADE'</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>The supported actions for <code>onDelete()</code> and <code>onUpdate()</code> are <code>CASCADE</code>, <code>NO ACTION</code>, and <code>SET NULL</code>.
 To drop a foreign key, all of the relevant data to create the foreign key has to be present and the <code>drop()</code> method has to be called.</p>
@@ -6095,9 +6095,9 @@ If it is not present, <code>DatabaseTable::foreignKeys()</code> will automatical
 <p>Indices are represented by <code>DatabaseTableIndex</code> objects: </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">DatabaseTableIndex</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;fooID&#39;</span><span class="p">)</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">DatabaseTableIndex</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'fooID'</span><span class="p">)</span>
     <span class="o">-&gt;</span><span class="na">type</span><span class="p">(</span><span class="nx">DatabaseTableIndex</span><span class="o">::</span><span class="na">UNIQUE_TYPE</span><span class="p">)</span>
-    <span class="o">-&gt;</span><span class="na">columns</span><span class="p">([</span><span class="s1">&#39;fooID&#39;</span><span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">columns</span><span class="p">([</span><span class="s1">'fooID'</span><span class="p">])</span>
 </code></pre></div></td></tr></table></div>
 <p>There are four different types: <code>DatabaseTableIndex::DEFAULT_TYPE</code> (default), <code>DatabaseTableIndex::PRIMARY_TYPE</code>, <code>DatabaseTableIndex::UNIQUE_TYPE</code>, and <code>DatabaseTableIndex::FULLTEXT_TYPE</code>.
 For primary keys, there is also the <code>DatabaseTablePrimaryIndex</code> class which automatically sets the type to <code>DatabaseTableIndex::PRIMARY_TYPE</code>.

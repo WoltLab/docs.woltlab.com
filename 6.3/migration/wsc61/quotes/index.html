@@ -6033,20 +6033,20 @@ Updated implementations must use <code>WoltLabSuite/Core/Component/Quote/Message
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;!-- Previous --&gt;</span>
-<span class="x">&lt;script data-relocate=&quot;true&quot;&gt;</span>
+<span class="x">&lt;script data-relocate="true"&gt;</span>
 <span class="x">    $(function() </span><span class="cp">{</span>
-        <span class="na">require</span><span class="o">([</span><span class="s2">&quot;WoltLabSuite/Core/Ui/Message/Quote&quot;</span><span class="o">],</span> <span class="o">(</span><span class="cp">{</span> <span class="na">UiMessageQuote</span> <span class="cp">}</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="cp">{</span>
-            <span class="cp">{</span><span class="na">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;shared_messageQuoteManager&#39;</span> <span class="na">wysiwygSelector</span><span class="o">=</span><span class="s1">&#39;text&#39;</span> <span class="na">supportPaste</span><span class="o">=</span><span class="kc">true</span><span class="cp">}</span>
+        <span class="na">require</span><span class="o">([</span><span class="s2">"WoltLabSuite/Core/Ui/Message/Quote"</span><span class="o">],</span> <span class="o">(</span><span class="cp">{</span> <span class="na">UiMessageQuote</span> <span class="cp">}</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="cp">{</span>
+            <span class="cp">{</span><span class="na">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'shared_messageQuoteManager'</span> <span class="na">wysiwygSelector</span><span class="o">=</span><span class="s1">'text'</span> <span class="na">supportPaste</span><span class="o">=</span><span class="kc">true</span><span class="cp">}</span>
 
-            <span class="na">new</span> <span class="na">UiMessageQuote</span><span class="o">(</span><span class="nv">$quoteManager</span><span class="o">,</span> <span class="s2">&quot;wcf\\data\\foo\\FooAction&quot;</span><span class="o">,</span> <span class="s2">&quot;com.woltlab.foo&quot;</span><span class="o">,</span> <span class="s2">&quot;.message&quot;</span><span class="o">,</span> <span class="s2">&quot;.messageBody&quot;</span><span class="o">,</span> <span class="s2">&quot;.messageBody &gt; .messageText&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+            <span class="na">new</span> <span class="na">UiMessageQuote</span><span class="o">(</span><span class="nv">$quoteManager</span><span class="o">,</span> <span class="s2">"wcf\\data\\foo\\FooAction"</span><span class="o">,</span> <span class="s2">"com.woltlab.foo"</span><span class="o">,</span> <span class="s2">".message"</span><span class="o">,</span> <span class="s2">".messageBody"</span><span class="o">,</span> <span class="s2">".messageBody &gt; .messageText"</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
         <span class="cp">}</span><span class="o">);</span>
     <span class="cp">}</span><span class="x">);</span>
 <span class="x">&lt;/script&gt;</span>
 
 <span class="x">&lt;!-- Use instead --&gt;</span>
-<span class="x">&lt;script data-relocate=&quot;true&quot;&gt;</span>
-<span class="x">    require([&quot;WoltLabSuite/Core/Component/Quote/Message&quot;], (</span><span class="cp">{</span> <span class="na">registerContainer</span> <span class="cp">}</span><span class="x">) =&gt; </span><span class="cp">{</span>
-        <span class="na">registerContainer</span><span class="o">(</span><span class="s2">&quot;.message&quot;</span><span class="o">,</span> <span class="s2">&quot;.messageBody&quot;</span><span class="o">,</span> <span class="s2">&quot;com.woltlab.foo&quot;</span><span class="o">);</span>
+<span class="x">&lt;script data-relocate="true"&gt;</span>
+<span class="x">    require(["WoltLabSuite/Core/Component/Quote/Message"], (</span><span class="cp">{</span> <span class="na">registerContainer</span> <span class="cp">}</span><span class="x">) =&gt; </span><span class="cp">{</span>
+        <span class="na">registerContainer</span><span class="o">(</span><span class="s2">".message"</span><span class="o">,</span> <span class="s2">".messageBody"</span><span class="o">,</span> <span class="s2">"com.woltlab.foo"</span><span class="o">);</span>
     <span class="cp">}</span><span class="x">);</span>
 <span class="x">&lt;/script&gt;</span>
 </code></pre></div></td></tr></table></div>
@@ -6100,7 +6100,7 @@ These calls are required whenver a text input supports quotes, regardless of whe
 
         <span class="c1">// …</span>
 
-        <span class="c1">// Save the used quotes so that they&#39;re deleted on the client with the next request.</span>
+        <span class="c1">// Save the used quotes so that they're deleted on the client with the next request.</span>
         <span class="nx">MessageQuoteManager</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">saved</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>

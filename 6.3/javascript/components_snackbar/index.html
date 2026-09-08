@@ -6028,7 +6028,7 @@ The message disappears automatically after 3 seconds.</p>
 <p>Display the success snackbar with the standard message:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">showDefaultSuccessSnackbar</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Component/Snackbar&quot;</span><span class="p">;</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">showDefaultSuccessSnackbar</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"WoltLabSuite/Core/Component/Snackbar"</span><span class="p">;</span>
 
 <span class="nx">showDefaultSuccessSnackbar</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
@@ -6036,19 +6036,19 @@ The message disappears automatically after 3 seconds.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">showSuccessSnackbar</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Component/Snackbar&quot;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getPhrase</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Language&quot;</span><span class="p">;</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">showSuccessSnackbar</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"WoltLabSuite/Core/Component/Snackbar"</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getPhrase</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"WoltLabSuite/Core/Language"</span><span class="p">;</span>
 
-<span class="nx">showSuccessSnackbar</span><span class="p">(</span><span class="nx">getPhrase</span><span class="p">(</span><span class="s1">&#39;custom.success.message&#39;</span><span class="p">));</span>
+<span class="nx">showSuccessSnackbar</span><span class="p">(</span><span class="nx">getPhrase</span><span class="p">(</span><span class="s1">'custom.success.message'</span><span class="p">));</span>
 </code></pre></div></td></tr></table></div>
 <p>Use an event to perform an action after the snackbar has been closed:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">showDefaultSuccessSnackbar</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Component/Snackbar&quot;</span><span class="p">;</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">showDefaultSuccessSnackbar</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"WoltLabSuite/Core/Component/Snackbar"</span><span class="p">;</span>
 
-<span class="nx">showDefaultSuccessSnackbar</span><span class="p">().</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;snackbar:close&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="nx">showDefaultSuccessSnackbar</span><span class="p">().</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"snackbar:close"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// perform an action</span>
 <span class="p">});</span>
 </code></pre></div></td></tr></table></div>
@@ -6066,9 +6066,9 @@ Once the action has been completed, a progress snackbar automatically becomes a 
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">showProgressSnackbar</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;WoltLabSuite/Core/Component/Snackbar&quot;</span><span class="p">;</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">showProgressSnackbar</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"WoltLabSuite/Core/Component/Snackbar"</span><span class="p">;</span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">snackbar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">showProgressSnackbar</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">snackbar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">showProgressSnackbar</span><span class="p">(</span><span class="s1">'label'</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
 
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// perform one step of an action</span>

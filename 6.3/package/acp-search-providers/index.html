@@ -5933,7 +5933,7 @@
     <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">search</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$query</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">hasPermission</span><span class="p">(</span><span class="s1">&#39;admin.foo.canManageFoo&#39;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">hasPermission</span><span class="p">(</span><span class="s1">'admin.foo.canManageFoo'</span><span class="p">))</span> <span class="p">{</span>
             <span class="k">return</span> <span class="p">[];</span>
         <span class="p">}</span>
 
@@ -5948,7 +5948,7 @@
 <span class="k">return</span> <span class="k">static</span> <span class="k">function</span> <span class="p">()</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
     <span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">ProviderCollecting</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">ProviderCollecting</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
         <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span>
-            <span class="s1">&#39;com.woltlab.foo.bar&#39;</span><span class="p">,</span>
+            <span class="s1">'com.woltlab.foo.bar'</span><span class="p">,</span>
             <span class="k">new</span> <span class="nx">FooACPSearchResultProvider</span><span class="p">()</span>
         <span class="p">);</span>
     <span class="p">});</span>

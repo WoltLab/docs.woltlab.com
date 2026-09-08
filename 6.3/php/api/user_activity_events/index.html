@@ -6059,9 +6059,9 @@
         <span class="p">}</span>
 
         <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setIsAccessible</span><span class="p">();</span>
-        <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">&#39;foo.bar.recentActivity&#39;</span><span class="p">,</span> <span class="p">[</span>
-            <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="nv">$foo</span><span class="p">,</span>
-            <span class="s1">&#39;author&#39;</span> <span class="o">=&gt;</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getUserProfile</span><span class="p">(),</span>
+        <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">'foo.bar.recentActivity'</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">'foo'</span> <span class="o">=&gt;</span> <span class="nv">$foo</span><span class="p">,</span>
+            <span class="s1">'author'</span> <span class="o">=&gt;</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getUserProfile</span><span class="p">(),</span>
         <span class="p">]));</span>
         <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setDescription</span><span class="p">(</span>
             <span class="nx">StringUtil</span><span class="o">::</span><span class="na">encodeHTML</span><span class="p">(</span>
@@ -6071,7 +6071,7 @@
         <span class="p">);</span>
         <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setLink</span><span class="p">(</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">());</span>
         <span class="c1">// Optionally set an image.</span>
-        <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setImage</span><span class="p">(</span><span class="k">new</span> <span class="nx">ImageData</span><span class="p">(</span><span class="s1">&#39;image_src&#39;</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">));</span>
+        <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setImage</span><span class="p">(</span><span class="k">new</span> <span class="nx">ImageData</span><span class="p">(</span><span class="s1">'image_src'</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">));</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -6084,7 +6084,7 @@
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">UserActivityEventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireEvent</span><span class="p">(</span>
-    <span class="s1">&#39;foo.bar.recentActivityEvent&#39;</span><span class="p">,</span>
+    <span class="s1">'foo.bar.recentActivityEvent'</span><span class="p">,</span>
     <span class="mi">1</span><span class="p">,</span> <span class="c1">// object id</span>
     <span class="mi">2</span><span class="p">,</span> <span class="c1">// language id</span>
     <span class="mi">3</span><span class="p">,</span> <span class="c1">// user id</span>
@@ -6097,7 +6097,7 @@
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">UserActivityEventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">removeEvents</span><span class="p">(</span>
-    <span class="s1">&#39;foo.bar.recentActivityEvent&#39;</span><span class="p">,</span>
+    <span class="s1">'foo.bar.recentActivityEvent'</span><span class="p">,</span>
     <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="p">);</span>
 </code></pre></div></td></tr></table></div>
