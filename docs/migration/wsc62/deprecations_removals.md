@@ -66,6 +66,39 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\article\content\ArticleContentEditor`
 - `wcf\data\wsdb\record\RecordAction`
 - `wcf\system\form\builder\field\AbstractFormFieldDecorator`
+- `wcf\data\unfurl\url\UnfurlUrlEditor`
+- `wcf\data\unfurl\url\UnfurlUrlAction`
+- `wcf\data\user\profile\visitor\UserProfileVisitorAction`
+- `wcf\data\user\profile\visitor\UserProfileVisitorEditor`
+- `wcf\data\user\object\watch\UserObjectWatchEditor`
+- `wcf\data\user\object\watch\UserObjectWatchAction`
+- `wcf\data\attachment\AdministrativeAttachment`
+- `wcf\data\attachment\AttachmentAction`
+- `wcf\data\attachment\AttachmentEditor`
+- `wcf\data\blacklist\status\BlacklistStatusAction`
+- `wcf\data\blacklist\status\BlacklistStatusEditor`
+- `wcf\data\blacklist\entry\BlacklistEntryAction`
+- `wcf\data\blacklist\entry\BlacklistEntryEditor`
+- `wcf\data\acp\session\log\ACPSessionLogAction`
+- `wcf\data\acp\session\log\ACPSessionLogEditor`
+- `wcf\data\acp\session\access\log\ACPSessionAccessLogAction`
+- `wcf\data\acp\session\access\log\ACPSessionAccessLogEditor`
+- `wcf\data\application\ViewableApplication`
+- `wcf\data\application\ViewableApplicationList`
+- `wcf\data\application\ApplicationAction`
+- `wcf\data\application\ApplicationEditor`
+- `wcf\data\bbcode\attribute\BBCodeAttributeAction`
+- `wcf\data\bbcode\attribute\BBCodeAttributeEditor`
+- `wcf\data\comment\ViewableComment`
+- `wcf\data\comment\ViewableCommentList`
+- `wcf\system\cache\runtime\ViewableCommentRuntimeCache`
+- `wcf\data\comment\response\ViewableCommentResponse`
+- `wcf\data\comment\response\ViewableCommentResponseList`
+- `wcf\system\cache\runtime\ViewableCommentResponseRuntimeCache`
+- `wcf\data\comment\CommentAction`
+- `wcf\data\comment\CommentEditor`
+- `wcf\data\comment\response\CommentResponseAction`
+- `wcf\data\comment\response\CommentResponseEditor`
 
 #### Methods
 
@@ -290,7 +323,11 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\system\search\acp\ACPSearchHandler::getAbbreviations()`
 - `wcf\system\gridView\AbstractGridView::isAccessible()`
 - `wcf\system\listView\AbstractListView::isAccessible()`
-
+- `wcf\data\comment\StructuredCommentList::getLikeData()`
+- `wcf\data\comment\response\StructuredCommentResponseList::getLikeData()`
+- `wcf\data\comment\response\CommentResponse::setComment()`
+- `wcf\system\view\CommentsView::getLikeData()`
+- `wcf\system\box\AbstractCommentListBoxController::applyObjectTypeFilters()`
 
 #### Properties
 
@@ -301,6 +338,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Component/User/List`
 - `WoltLabSuite/Core/Ui/Sortable/List`
 - `WoltLabSuite/Core/Component/GoogleMaps/MarkerLoader::setup()`
+- `WoltLabSuite/Core/Ui/User/Sortable/ObjectWatch`
 
 ## Removals
 
@@ -366,6 +404,10 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\system\cache\source\ICacheSource`
 - `wcf\system\cache\source\RedisCacheSource`
 - `wcf\system\database\Redis`
+- `wcf\data\acp\session\ACPSession`
+- `wcf\data\acp\session\ACPSessionAction`
+- `wcf\data\acp\session\ACPSessionEditor`
+- `wcf\data\acp\session\ACPSessionList`
 - `calendar\data\user\FollowingBirthdayAction`
 
 #### Methods
@@ -450,6 +492,23 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\wsdb\record\RecordAction::getMapMarkers()`
 - `gallery\data\image\ImageAction::validateGetMapMarkers()`
 - `gallery\data\image\ImageAction::getMapMarkers()`
+- `wcf\data\session\Session::supportsPersistentLogins()`
+- `wcf\data\user\User::checkCookiePassword()`
+- `wcf\system\session\ACPSessionFactory::hasValidCookie()`
+- `wcf\system\session\Session::getDeviceIcon()`
+- `wcf\system\session\SessionHandler::keepAlive()`
+- `wcf\system\user\authentication\DefaultUserAuthentication::supportsPersistentLogins()`
+- `wcf\system\user\authentication\DefaultUserAuthentication::storeAccessData()`
+- `wcf\system\user\authentication\DefaultUserAuthentication::loginAutomatically()`
+- `wcf\system\user\authentication\DefaultUserAuthentication::getUserAutomatically()`
+- `wcf\system\user\authentication\DefaultUserAuthentication::checkCookiePassword()`
+- `wcf\data\acp\session\access\log\ACPSessionAccessLog::hasProtectedURI()`
+- `wcf\data\comment\StructuredComment::setUserProfile()`
+- `wcf\data\comment\StructuredComment::getUserProfile()`
+- `wcf\data\comment\ViewableComment::getUserProfile()`
+- `wcf\data\comment\response\StructuredCommentResponse::setUserProfile()`
+- `wcf\data\comment\response\StructuredCommentResponse::getUserProfile()`
+- `wcf\data\comment\response\ViewableCommentResponse::getUserProfile()`
 
 #### Properties
 
@@ -458,6 +517,14 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `filebase\data\file\File::$languageLinks`
 - `filebase\data\file\FileAction::$viewableFile`
 - `filebase\form\FileEditForm::$fileID`
+- `wcf\system\session\ACPSessionFactory::$cookieSuffix`
+- `wcf\system\session\ACPSessionFactory::$sessionEditor`
+- `wcf\system\session\SessionFactory::$cookieSuffix`
+- `wcf\system\session\SessionFactory::$sessionEditor`
+- `wcf\data\comment\StructuredComment::$userProfile`
+- `wcf\data\comment\ViewableComment::$userProfile`
+- `wcf\data\comment\response\StructuredCommentResponse::$userProfile`
+- `wcf\data\comment\response\ViewableCommentResponse::$userProfile`
 
 ### JavaScript
 
