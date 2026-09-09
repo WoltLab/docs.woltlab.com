@@ -52,7 +52,6 @@ return static function (): void {
             $event->register(new RegisteredSitemapObject(
                 'com.example.plugin.sitemap.object.user',
                 new \wcf\system\sitemap\object\UserSitemapObject(),
-                changeFreq: 'monthly',
                 rebuildTime: 259200,
             ));
         }
@@ -66,14 +65,11 @@ The constructor of `RegisteredSitemapObject` accepts the following parameters:
 |-----------|------|-------------|
 | `objectName` | `string` | Unique name of the sitemap object, it is also used as the file name of the generated sitemap and as the suffix of the language item. |
 | `processor` | `ISitemapObjectObjectType` | Instance of the class implemented in the previous step. |
-| `priority` | `float` | [Priority](https://www.sitemaps.org/protocol.html#prioritydef) of the pages, defaults to `0.5`. It should not be changed unless there is an important reason to do so. |
-| `changeFreq` | `string` | [Change frequency](https://www.sitemaps.org/protocol.html#changefreqdef) of the pages, defaults to `monthly`. |
+there is an important reason to do so. |
 | `rebuildTime` | `int` | Number of seconds after which the sitemap should be regenerated, defaults to `604800`. |
 | `packageID` | `?int` | Package that owns the generated sitemap files, defaults to the core. Apps and plugins that ship their own package should pass their own package id, so that the files are removed when the package is uninstalled. |
 | `isDisabled` | `bool` | Whether the sitemap object is disabled by default, defaults to `false`. |
 | `name` | `string` | Localized name of the sitemap object shown in the ACP. If it is empty, the phrase `wcf.acp.sitemap.objectType.{objectName}` is used instead. |
-
-`priority`, `changeFreq` and `rebuildTime` are the default values, `changeFreq` and `rebuildTime` can be changed by the administrator in the ACP.
 
 Finally, you have to create the language variable for the sitemap object.
 The language variable follows the pattern `wcf.acp.sitemap.objectType.{objectName}` and is in the category `wcf.acp.sitemap`.
@@ -89,8 +85,6 @@ Before version 6.3, sitemap objects were registered as an object type:
         <name>com.example.plugin.sitemap.object.user</name>
         <definitionname>com.woltlab.wcf.sitemap.object</definitionname>
         <classname>wcf\system\sitemap\object\UserSitemapObject</classname>
-        <priority>0.5</priority>
-        <changeFreq>monthly</changeFreq>
         <rebuildTime>259200</rebuildTime>
 </type>
 ```

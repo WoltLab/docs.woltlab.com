@@ -305,7 +305,6 @@ EventHandler::getInstance()->register(
         $event->register(new \wcf\system\sitemap\object\RegisteredSitemapObject(
             'com.example.plugin.sitemap.object.foo',
             new \example\system\sitemap\object\FooSitemapObject(),
-            changeFreq: 'weekly',
             rebuildTime: 259200,
             packageID: $packageID,
         ));
