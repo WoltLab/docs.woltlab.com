@@ -4190,6 +4190,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sitemaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sitemaps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sitemaps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registering-sitemap-objects-through-an-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registering Sitemap Objects Through an Event
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sitemap-list-in-the-acp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sitemap List in the ACP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6209,6 +6248,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sitemaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sitemaps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sitemaps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registering-sitemap-objects-through-an-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registering Sitemap Objects Through an Event
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sitemap-list-in-the-acp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sitemap List in the ACP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6588,6 +6666,44 @@ Until then they keep returning <code>true</code>, but throw a <code>BadMethodCal
 <div class="admonition warning">
 <p class="admonition-title">Do not call <code>parent::isAccessible()</code> when the parent class does not implement it itself, the deprecated default implementation throws in debug mode. Views that extend another concrete view, for example <code>ArticleListView</code>, may continue to delegate to their parent.</p>
 </div>
+<h2 id="sitemaps">Sitemaps<a class="headerlink" href="#sitemaps" title="Permanent link">#</a></h2>
+<p>The registration of sitemap objects has been overhauled.</p>
+<h3 id="registering-sitemap-objects-through-an-event">Registering Sitemap Objects Through an Event<a class="headerlink" href="#registering-sitemap-objects-through-an-event" title="Permanent link">#</a></h3>
+<p>Sitemap objects are now registered through the PSR-14 event <code>wcf\event\sitemap\SitemapObjectCollecting</code>.
+See the <a href="../../../php/api/sitemaps/">sitemaps</a> page for the full API reference.
+The object type definition <code>com.woltlab.wcf.sitemap.object</code> remains available but is deprecated and should no longer be used for new sitemap objects.</p>
+<p>A bootstrap script registers an event listener that adds the sitemap objects:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span>
+    <span class="nx">\wcf\event\sitemap\SitemapObjectCollecting</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">\wcf\event\sitemap\SitemapObjectCollecting</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="k">new</span> <span class="nx">\wcf\system\sitemap\object\RegisteredSitemapObject</span><span class="p">(</span>
+            <span class="s1">'com.example.plugin.sitemap.object.foo'</span><span class="p">,</span>
+            <span class="k">new</span> <span class="nx">\example\system\sitemap\object\FooSitemapObject</span><span class="p">(),</span>
+            <span class="nx">rebuildTime</span><span class="o">:</span> <span class="mi">259200</span><span class="p">,</span>
+            <span class="nx">packageID</span><span class="o">:</span> <span class="nv">$packageID</span><span class="p">,</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>The processor class must still implement <code>wcf\system\sitemap\object\ISitemapObjectObjectType</code>.
+The first argument of the <code>RegisteredSitemapObject</code> constructor is the name of the sitemap object that was previously the name of the object type.
+It is used as the file name of the generated sitemap, as the key of the settings made by the administrator and as the suffix of the language item <code>wcf.acp.sitemap.objectType.{objectName}</code>.
+Keeping the previous object type name therefore preserves the settings of existing installations.</p>
+<p>Sitemap objects that are still registered through the deprecated object type definition continue to work and are merged with the objects registered through the event, but they are shadowed by an object registered through the event using the same name.</p>
+<h3 id="sitemap-list-in-the-acp">Sitemap List in the ACP<a class="headerlink" href="#sitemap-list-in-the-acp" title="Permanent link">#</a></h3>
+<p><code>wcf\acp\page\SitemapListPage</code> has been converted into a grid view page and now renders <code>wcf\system\gridView\admin\SitemapGridView</code>.
+The template events <code>headColumns</code>, <code>columns</code> and <code>contentFooterNavigation</code> of the template <code>sitemapList</code> have been removed.
+Additional columns are added through the PSR-14 event <code>wcf\event\gridView\admin\SitemapGridViewInitialized</code> instead.</p>
 
 
 
@@ -6608,7 +6724,7 @@ Until then they keep returning <code>true</code>, but throw a <code>BadMethodCal
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-08-13
+    2026-09-09
   </span>
 
     
