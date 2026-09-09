@@ -136,6 +136,8 @@
 | DisableType | Post | /core/reactions/types/{id:\d+}/disable  | Disables the reaction type with the given ID. |
 | EnableType | Post | /core/reactions/types/{id:\d+}/enable  | Enables the reaction type with the given ID. |
 | DeleteSession | Delete | /core/sessions/{id}  | Deletes one of the current user’s sessions, causing a device with that session id to be logged out. |
+| DisableSitemapObject | Post | /core/sitemaps/{id}/disable  | Disables the sitemap object with the given name. |
+| EnableSitemapObject | Post | /core/sitemaps/{id}/enable  | Enables the sitemap object with the given name. |
 | GetSmileyShowOrder | Get | /core/smilies/categories/{id:\d+}/show-order  | Retrieves the show order of smilies in the category with the given ID. |
 | ChangeSmileyShowOrder | Post | /core/smilies/categories/{id:\d+}/show-order  | Saves the show order of smilies in the category with the given ID. |
 | GetShowOrder | Get | /core/smilies/show-order  | Retrieves the show order of smilies. |

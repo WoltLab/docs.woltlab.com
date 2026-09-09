@@ -99,6 +99,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\comment\CommentEditor`
 - `wcf\data\comment\response\CommentResponseAction`
 - `wcf\data\comment\response\CommentResponseEditor`
+- `wcf\data\object\type\SitemapObjectTypeAction`
 
 #### Methods
 
@@ -332,6 +333,14 @@ With version 6.3, we have deprecated certain components and removed several othe
 #### Properties
 
 - `wcf\data\like\ViewableLike::$objectTypeDescription`
+
+#### Constants
+
+- `wcf\system\worker\SitemapRebuildWorker::REGISTRY_PREFIX`, use `wcf\system\sitemap\SitemapHandler::REGISTRY_PREFIX` instead
+
+#### Object Type Definitions
+
+- `com.woltlab.wcf.sitemap.object`, use the event `wcf\event\sitemap\SitemapObjectCollecting` instead
 
 ### JavaScript
 

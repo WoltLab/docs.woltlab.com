@@ -285,3 +285,43 @@ The returned value should match the requirements of the page that renders the vi
 Until then they keep returning `true`, but throw a `BadMethodCallException` if both the debug mode and the developer tools are enabled, in order to surface views that have not been updated yet.
 
 !!! warning "Do not call `parent::isAccessible()` when the parent class does not implement it itself, the deprecated default implementation throws in debug mode. Views that extend another concrete view, for example `ArticleListView`, may continue to delegate to their parent."
+
+## Sitemaps
+
+The registration of sitemap objects has been overhauled.
+
+### Registering Sitemap Objects Through an Event
+
+Sitemap objects are now registered through the PSR-14 event `wcf\event\sitemap\SitemapObjectCollecting`.
+See the [sitemaps](../../php/api/sitemaps.md) page for the full API reference.
+The object type definition `com.woltlab.wcf.sitemap.object` remains available but is deprecated and should no longer be used for new sitemap objects.
+
+A bootstrap script registers an event listener that adds the sitemap objects:
+
+```php
+EventHandler::getInstance()->register(
+    \wcf\event\sitemap\SitemapObjectCollecting::class,
+    static function (\wcf\event\sitemap\SitemapObjectCollecting $event) {
+        $event->register(new \wcf\system\sitemap\object\RegisteredSitemapObject(
+            'com.example.plugin.sitemap.object.foo',
+            new \example\system\sitemap\object\FooSitemapObject(),
+            changeFreq: 'weekly',
+            rebuildTime: 259200,
+            packageID: $packageID,
+        ));
+    }
+);
+```
+
+The processor class must still implement `wcf\system\sitemap\object\ISitemapObjectObjectType`.
+The first argument of the `RegisteredSitemapObject` constructor is the name of the sitemap object that was previously the name of the object type.
+It is used as the file name of the generated sitemap, as the key of the settings made by the administrator and as the suffix of the language item `wcf.acp.sitemap.objectType.{objectName}`.
+Keeping the previous object type name therefore preserves the settings of existing installations.
+
+Sitemap objects that are still registered through the deprecated object type definition continue to work and are merged with the objects registered through the event, but they are shadowed by an object registered through the event using the same name.
+
+### Sitemap List in the ACP
+
+`wcf\acp\page\SitemapListPage` has been converted into a grid view page and now renders `wcf\system\gridView\admin\SitemapGridView`.
+The template events `headColumns`, `columns` and `contentFooterNavigation` of the template `sitemapList` have been removed.
+Additional columns are added through the PSR-14 event `wcf\event\gridView\admin\SitemapGridViewInitialized` instead.

@@ -287,6 +287,7 @@ final class ValueDumpListener
 | `wcf\event\page\ContactFormSpamChecking` | Indicates that a new contact form message is currently validated. If this event is interrupted, the message is considered to be spam. |
 | `wcf\event\request\ActivePageResolving` | Indicates that the `RequestHandler` could not determine the active page. |
 | `wcf\event\session\PreserveVariablesCollecting` | This event allows the configuration of session variables that are to be preserved when the user changes. |
+| `wcf\event\sitemap\SitemapObjectCollecting` | Requests the collection of objects that should be included in the sitemap. |
 | `wcf\event\spider\SpiderCollecting` | Requests the collection of spiders. |
 | `wcf\event\user\RegistrationSpamChecking` | Indicates that a registration by a new user is currently validated. If $matches is not empty, the registration is considered to be a spammer or an undesirable user. |
 | `wcf\event\user\UsernameValidating` | Indicates that a username is currently validated. If this event is interrupted, the username is considered to be invalid. This event will not be fired for usernames changed by an administrator. |
