@@ -65,7 +65,6 @@ The constructor of `RegisteredSitemapObject` accepts the following parameters:
 |-----------|------|-------------|
 | `objectName` | `string` | Unique name of the sitemap object, it is also used as the file name of the generated sitemap and as the suffix of the language item. |
 | `processor` | `ISitemapObjectObjectType` | Instance of the class implemented in the previous step. |
-there is an important reason to do so. |
 | `rebuildTime` | `int` | Number of seconds after which the sitemap should be regenerated, defaults to `604800`. |
 | `packageID` | `?int` | Package that owns the generated sitemap files, defaults to the core. Apps and plugins that ship their own package should pass their own package id, so that the files are removed when the package is uninstalled. |
 | `isDisabled` | `bool` | Whether the sitemap object is disabled by default, defaults to `false`. |
