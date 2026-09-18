@@ -100,6 +100,22 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\comment\response\CommentResponseAction`
 - `wcf\data\comment\response\CommentResponseEditor`
 - `wcf\data\object\type\SitemapObjectTypeAction`
+- `wcf\data\cronjob\log\CronjobLogEditor`
+- `wcf\data\cronjob\log\CronjobLogAction`
+- `wcf\data\edit\history\entry\EditHistoryEntryAction`
+- `wcf\data\edit\history\entry\EditHistoryEntryEditor`
+- `wcf\data\email\log\entry\EmailLogEntryAction`
+- `wcf\data\email\log\entry\EmailLogEntryEditor`
+- `wcf\data\file\FileEditor`
+- `wcf\data\file\FileAction`
+- `wcf\data\file\temporary\FileTemporaryEditor`
+- `wcf\data\file\temporary\FileTemporaryAction`
+- `wcf\data\file\thumbnail\FileThumbnailEditor`
+- `wcf\data\file\thumbnail\FileThumbnailAction`
+- `calendar\data\event\date\participation\EventDateParticipationAction`
+- `calendar\data\event\date\participation\EventDateParticipationEditor`
+- `calendar\data\event\import\EventImportEditor`
+- `calendar\data\event\import\EventImportAction`
 
 #### Methods
 
@@ -518,6 +534,13 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\comment\response\StructuredCommentResponse::setUserProfile()`
 - `wcf\data\comment\response\StructuredCommentResponse::getUserProfile()`
 - `wcf\data\comment\response\ViewableCommentResponse::getUserProfile()`
+- `calendar\data\event\date\EventDateAction::validateGetParticipationForm()`
+- `calendar\data\event\date\EventDateAction::getParticipationForm()`
+- `calendar\data\event\date\EventDateAction::validateSave()`
+- `calendar\data\event\date\EventDateAction::save()`
+- `calendar\data\event\date\participation\EventDateParticipationAction::validateRemoveParticipant()`
+- `calendar\data\event\date\participation\EventDateParticipationAction::removeParticipant()`
+- `calendar\data\event\date\participation\EventDateParticipationAction::invite()`
 
 #### Properties
 
@@ -582,3 +605,5 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Filebase/Ui/Review/VersionFilter`
 - `WoltLabSuite/Core/Ui/Like/Handler`
 - `WCF.ACP.Search` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
+- `Calendar.Event.Date.Participation.Manager`
+- `WoltLabSuite/Calendar/Ui/Object/Action/RemoveParticipant`
