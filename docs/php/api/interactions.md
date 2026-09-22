@@ -132,6 +132,51 @@ Example:
 new DeleteInteraction("endpoint/path/%s")
 ```
 
+#### Associated Objects
+
+Since version 6.3, the optional parameter `affectedObjects` can be used if the deletion of an object also
+deletes associated objects.
+It expects a list of names of the types of objects that are deleted along with the object itself.
+The names are expected to be already localized.
+
+Example:
+
+```php
+new DeleteInteraction(
+    'core/labels/groups/%s',
+    affectedObjects: [WCF::getLanguage()->get('wcf.label.labels')]
+)
+```
+
+The names are listed in the confirmation prompt:
+
+> Are you sure you want to delete “Topics”?
+>
+> The following associated content will also be deleted:
+>
+> * Labels
+>
+> This process cannot be undone.
+
+If the affected objects depend on the object the interaction is rendered for, a closure can be passed
+instead of an array.
+It receives the `DatabaseObject` and must return the list of names.
+
+```php
+new DeleteInteraction(
+    'core/categories/%s',
+    static fn(Category $category) => $category->getObjectType()->getProcessor()->canDeleteCategory(),
+    static function (Category $category): array {
+        $processor = $category->getObjectType()->getProcessor();
+        \assert($processor instanceof ICategoryType);
+
+        return $processor->getAffectedObjects();
+    }
+)
+```
+
+`BulkDeleteInteraction` supports the same parameter, but only accepts an array.
+
 ### `DisableInteraction`
 
 Uses an RPC endpoint to disable an object after a confirmation prompt.
@@ -234,6 +279,22 @@ new RpcInteraction(
     'label',
 )
 ```
+
+Since version 6.3, subclasses can add custom data attributes to the rendered button by overriding
+`getAdditionalDataAttributes()`.
+The returned names and values are HTML encoded automatically and are available in the JavaScript
+interaction handler as part of the event detail.
+
+```php
+#[\Override]
+protected function getAdditionalDataAttributes(DatabaseObject $object): array
+{
+    return ['data-example' => $object->exampleValue];
+}
+```
+
+`BulkRpcInteraction` provides the same method, its parameter is the list of objects the interaction
+is applied to.
 
 ### `SoftDeleteInteraction`
 

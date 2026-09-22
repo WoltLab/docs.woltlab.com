@@ -58,6 +58,29 @@ This is used by the “Add Child Category” interaction in the node tree view t
 
 Custom subclasses of `CategoryAddFormBuilderForm` do not require any changes for this to work.
 
+### Implement `getAffectedObjects()`
+
+Deleting a category can also delete the objects assigned to it.
+The new method `ICategoryType::getAffectedObjects(): array` returns the names of these objects, which are
+then listed in the [confirmation prompt](../../php/api/interactions.md#associated-objects) of the delete
+interaction.
+The names are expected to be already localized.
+
+```php
+class ArticleCategoryType extends AbstractCategoryType
+{
+    #[\Override]
+    public function getAffectedObjects(): array
+    {
+        return [WCF::getLanguage()->get('wcf.article.articles')];
+    }
+}
+```
+
+`AbstractCategoryType` provides a default implementation that returns an empty array, therefore existing
+third-party category types do not require any changes.
+Child categories should not be listed, because they are moved to the parent category instead of being deleted.
+
 ## ACP Search Providers
 
 The registration of ACP search providers has been overhauled ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681)).
