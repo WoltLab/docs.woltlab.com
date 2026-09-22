@@ -6051,6 +6051,53 @@ This function is responsible for:</p>
 <p>Example:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">new</span> <span class="nx">DeleteInteraction</span><span class="p">(</span><span class="s2">"endpoint/path/%s"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
+<h4 id="associated-objects">Associated Objects<a class="headerlink" href="#associated-objects" title="Permanent link">#</a></h4>
+<p>Since version 6.3, the optional parameter <code>affectedObjects</code> can be used if the deletion of an object also
+deletes associated objects.
+It expects a list of names of the types of objects that are deleted along with the object itself.
+The names are expected to be already localized.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">new</span> <span class="nx">DeleteInteraction</span><span class="p">(</span>
+    <span class="s1">'core/labels/groups/%s'</span><span class="p">,</span>
+    <span class="nx">affectedObjects</span><span class="o">:</span> <span class="p">[</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'wcf.label.labels'</span><span class="p">)]</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>The names are listed in the confirmation prompt:</p>
+<blockquote>
+<p>Are you sure you want to delete “Topics”?</p>
+<p>The following associated content will also be deleted:</p>
+<ul>
+<li>Labels</li>
+</ul>
+<p>This process cannot be undone.</p>
+</blockquote>
+<p>If the affected objects depend on the object the interaction is rendered for, a closure can be passed
+instead of an array.
+It receives the <code>DatabaseObject</code> and must return the list of names.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">new</span> <span class="nx">DeleteInteraction</span><span class="p">(</span>
+    <span class="s1">'core/categories/%s'</span><span class="p">,</span>
+    <span class="k">static</span> <span class="nx">fn</span><span class="p">(</span><span class="nx">Category</span> <span class="nv">$category</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nv">$category</span><span class="o">-&gt;</span><span class="na">getObjectType</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getProcessor</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">canDeleteCategory</span><span class="p">(),</span>
+    <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Category</span> <span class="nv">$category</span><span class="p">)</span><span class="o">:</span> <span class="k">array</span> <span class="p">{</span>
+        <span class="nv">$processor</span> <span class="o">=</span> <span class="nv">$category</span><span class="o">-&gt;</span><span class="na">getObjectType</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getProcessor</span><span class="p">();</span>
+        <span class="nx">\assert</span><span class="p">(</span><span class="nv">$processor</span> <span class="nx">instanceof</span> <span class="nx">ICategoryType</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">getAffectedObjects</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><code>BulkDeleteInteraction</code> supports the same parameter, but only accepts an array.</p>
 <h3 id="disableinteraction"><code>DisableInteraction</code><a class="headerlink" href="#disableinteraction" title="Permanent link">#</a></h3>
 <p>Uses an RPC endpoint to disable an object after a confirmation prompt.</p>
 <p>Example:</p>
@@ -6137,6 +6184,22 @@ This function is responsible for:</p>
     <span class="s1">'label'</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
+<p>Since version 6.3, subclasses can add custom data attributes to the rendered button by overriding
+<code>getAdditionalDataAttributes()</code>.
+The returned names and values are HTML encoded automatically and are available in the JavaScript
+interaction handler as part of the event detail.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+<span class="k">protected</span> <span class="k">function</span> <span class="nf">getAdditionalDataAttributes</span><span class="p">(</span><span class="nx">DatabaseObject</span> <span class="nv">$object</span><span class="p">)</span><span class="o">:</span> <span class="k">array</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="s1">'data-example'</span> <span class="o">=&gt;</span> <span class="nv">$object</span><span class="o">-&gt;</span><span class="na">exampleValue</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><code>BulkRpcInteraction</code> provides the same method, its parameter is the list of objects the interaction
+is applied to.</p>
 <h3 id="softdeleteinteraction"><code>SoftDeleteInteraction</code><a class="headerlink" href="#softdeleteinteraction" title="Permanent link">#</a></h3>
 <p>Uses an RPC endpoint to soft-delete an object after a confirmation prompt.</p>
 <p>Example:</p>
@@ -6334,7 +6397,7 @@ The component supports templates for rendering as a content interaction button a
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2025-08-04
+    2026-09-22
   </span>
 
     
