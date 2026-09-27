@@ -541,6 +541,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `calendar\data\event\date\participation\EventDateParticipationAction::validateRemoveParticipant()`
 - `calendar\data\event\date\participation\EventDateParticipationAction::removeParticipant()`
 - `calendar\data\event\date\participation\EventDateParticipationAction::invite()`
+- `wcf\data\package\update\PackageUpdateAction::validateSearchForUpdates()`
+- `wcf\data\package\update\PackageUpdateAction::searchForUpdates()`
 
 #### Properties
 
@@ -607,3 +609,4 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WCF.ACP.Search` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
 - `Calendar.Event.Date.Participation.Manager`
 - `WoltLabSuite/Calendar/Ui/Object/Action/RemoveParticipant`
+- `WCF.ACP.Package.Update.Search`
