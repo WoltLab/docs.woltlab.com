@@ -5954,7 +5954,7 @@
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">ExampleCommentManager</span> <span class="k">extends</span> <span class="nx">AbstractCommentManager</span> <span class="p">{</span>
-  <span class="k">protected</span> <span class="nv">$permissionAddWithoutModeration</span> <span class="o">=</span> <span class="s1">&#39;foo.bar.example.canAddCommentWithoutModeration&#39;</span><span class="p">;</span>
+  <span class="k">protected</span> <span class="nv">$permissionAddWithoutModeration</span> <span class="o">=</span> <span class="s1">'foo.bar.example.canAddCommentWithoutModeration'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="raw-html-in-user-activity-events">Raw HTML in User Activity Events<a class="headerlink" href="#raw-html-in-user-activity-events" title="Permanent link">#</a></h2>
@@ -6007,7 +6007,7 @@
 <h2 id="media-providers">Media Providers<a class="headerlink" href="#media-providers" title="Permanent link">#</a></h2>
 <p>Media providers were added through regular SQL queries in earlier versions, but this is neither convenient, nor did it offer a reliable method to update an existing provider. WoltLab Suite 3.1 adds a new <code>mediaProvider</code>-PIP that also offers a <code>className</code> parameter to off-load the result evaluation and HTML generation.</p>
 <h3 id="example-implementation">Example Implementation<a class="headerlink" href="#example-implementation" title="Permanent link">#</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">mediaProvider.xml &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/migration/wsc-30/mediaProvider.xml&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">mediaProvider.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -6016,10 +6016,10 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;data</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/tornado/mediaProvider.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;data</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/tornado/mediaProvider.xsd"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;import&gt;</span>
-<span class="w">        </span><span class="nt">&lt;provider</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;example&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;provider</span><span class="w"> </span><span class="na">name=</span><span class="s">"example"</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="nt">&lt;title&gt;</span>Example<span class="w"> </span>Provider<span class="nt">&lt;/title&gt;</span>
 <span class="w">            </span><span class="nt">&lt;regex&gt;</span>https?://example.com/watch?v=(?P<span class="nt">&lt;ID&gt;</span>[a-zA-Z0-9])<span class="nt">&lt;/regex&gt;</span>
 <span class="w">            </span><span class="nt">&lt;className&gt;</span>wcf\system\bbcode\media\provider\ExampleBBCodeMediaProvider<span class="nt">&lt;/className&gt;</span>
@@ -6037,7 +6037,7 @@
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">class</span> <span class="nc">ExampleBBCodeMediaProvider</span> <span class="k">implements</span> <span class="nx">IBBCodeMediaProvider</span> <span class="p">{</span>
   <span class="k">public</span> <span class="k">function</span> <span class="nf">parse</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$matches</span> <span class="o">=</span> <span class="p">[])</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="s2">&quot;final HTML output&quot;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="s2">"final HTML output"</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -6077,11 +6077,11 @@
  <span class="p">}</span>
  <span class="k">else</span> <span class="p">{</span>
    <span class="c1">// OLD:</span>
-   <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getHtmlInputProcessor</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">processEmbeddedContent</span><span class="p">(</span><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">message</span><span class="p">,</span> <span class="s1">&#39;com.example.foo.message&#39;</span><span class="p">,</span> <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">messageID</span><span class="p">);</span>
+   <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getHtmlInputProcessor</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">processEmbeddedContent</span><span class="p">(</span><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">message</span><span class="p">,</span> <span class="s1">'com.example.foo.message'</span><span class="p">,</span> <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">messageID</span><span class="p">);</span>
 
    <span class="c1">// REPLACE WITH:</span>
-   <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getHtmlInputProcessor</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">reprocess</span><span class="p">(</span><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">message</span><span class="p">,</span> <span class="s1">&#39;com.example.foo.message&#39;</span><span class="p">,</span> <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">messageID</span><span class="p">);</span>
-   <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getHtmlInputProcessor</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getHtml</span><span class="p">();</span>
+   <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getHtmlInputProcessor</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">reprocess</span><span class="p">(</span><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">message</span><span class="p">,</span> <span class="s1">'com.example.foo.message'</span><span class="p">,</span> <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">messageID</span><span class="p">);</span>
+   <span class="nv">$data</span><span class="p">[</span><span class="s1">'message'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getHtmlInputProcessor</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getHtml</span><span class="p">();</span>
  <span class="p">}</span>
  <span class="c1">// ...</span>
 <span class="p">}</span>
@@ -6136,7 +6136,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2020 WoltLab GmbH
+      Copyright © 2026 WoltLab GmbH
     </div>
   
   

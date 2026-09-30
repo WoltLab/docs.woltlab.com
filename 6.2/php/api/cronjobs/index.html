@@ -5763,7 +5763,7 @@
 </div>
 <p>This page focuses on the technical aspects of cronjobs, <a href="../../../package/pip/cronjob/">the cronjob package installation plugin page</a> covers how you can actually register a cronjob.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h2>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/cronjob/LastActivityCronjob.class.php &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/php/api/cronjobs/LastActivityCronjob.class.php&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/cronjob/LastActivityCronjob.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -5811,11 +5811,11 @@
     <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nx">Cronjob</span> <span class="nv">$cronjob</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">parent</span><span class="o">::</span><span class="na">execute</span><span class="p">(</span><span class="nv">$cronjob</span><span class="p">);</span>
 
-        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE  wcf1_user user_table,</span>
+        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"UPDATE  wcf1_user user_table,</span>
 <span class="s2">                        wcf1_session session</span>
 <span class="s2">                SET     user_table.lastActivityTime = session.lastActivityTime</span>
 <span class="s2">                WHERE   user_table.userID = session.userID</span>
-<span class="s2">                    AND session.userID &lt;&gt; 0&quot;</span><span class="p">;</span>
+<span class="s2">                    AND session.userID &lt;&gt; 0"</span><span class="p">;</span>
         <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
         <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
     <span class="p">}</span>
@@ -5875,7 +5875,7 @@ This method is called by <a href="https://github.com/WoltLab/WCF/blob/master/wcf
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2020 WoltLab GmbH
+      Copyright © 2026 WoltLab GmbH
     </div>
   
   

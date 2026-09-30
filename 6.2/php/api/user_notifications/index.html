@@ -5804,7 +5804,7 @@
 <p>WoltLab Suite includes a powerful user notification system that supports notifications directly shown on the website and emails sent immediately or on a daily basis.</p>
 <h2 id="objecttypexml"><code>objectType.xml</code><a class="headerlink" href="#objecttypexml" title="Permanent link">#</a></h2>
 <p>For any type of object related to events, you have to define an object type for the object type definition <code>com.woltlab.wcf.notification.objectType</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">objectType.xml &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/php/api/user_notifications/objectType.xml&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">objectType.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -5814,8 +5814,8 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;data</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/2019/objectType.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;data</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/2019/objectType.xsd"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;import&gt;</span>
 <span class="w">        </span><span class="nt">&lt;type&gt;</span>
 <span class="w">            </span><span class="nt">&lt;name&gt;</span>com.woltlab.example.foo<span class="nt">&lt;/name&gt;</span>
@@ -5827,7 +5827,7 @@
 <span class="nt">&lt;/data&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>The referenced class <code>FooUserNotificationObjectType</code> has to implement the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/type/IUserNotificationObjectType.class.php">IUserNotificationObjectType</a> interface, which should be done by extending <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/type/AbstractUserNotificationObjectType.class.php">AbstractUserNotificationObjectType</a>.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/user/notification/object/type/FooUserNotificationObjectType.class.php &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/php/api/user_notifications/FooUserNotificationObjectType.class.php&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/user/notification/object/type/FooUserNotificationObjectType.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -5891,7 +5891,7 @@
 </code></pre></div></td></tr></table></div>
 <p>You have to set the class names of the database object (<code>$objectClassName</code>) and the related list (<code>$objectListClassName</code>).
 Additionally, you have to create a class that implements the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/object/IUserNotificationObject.class.php">IUserNotificationObject</a> whose name you have to set as the value of the <code>$decoratorClassName</code> property.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/user/notification/object/FooUserNotificationObject.class.php &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/php/api/user_notifications/FooUserNotificationObject.class.php&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/user/notification/object/FooUserNotificationObject.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -6002,7 +6002,7 @@ Additionally, you have to create a class that implements the <a href="https://gi
 <h2 id="usernotificationeventxml"><code>userNotificationEvent.xml</code><a class="headerlink" href="#usernotificationeventxml" title="Permanent link">#</a></h2>
 <p>Each event that you fire in your package needs to be registered using the <a href="../../../package/pip/user-notification-event/">user notification event package installation plugin</a>.
 An example file might look like this:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">userNotificationEvent.xml &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/php/api/user_notifications/userNotificationEvent.xml&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">userNotificationEvent.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -6012,8 +6012,8 @@ An example file might look like this:</p>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;data</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/2019/userNotificationEvent.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;data</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/2019/userNotificationEvent.xsd"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;import&gt;</span>
 <span class="w">        </span><span class="nt">&lt;event&gt;</span>
 <span class="w">            </span><span class="nt">&lt;name&gt;</span>bar<span class="nt">&lt;/name&gt;</span>
@@ -6027,7 +6027,7 @@ An example file might look like this:</p>
 <p>Here, you reference the user notification object type created via <code>objectType.xml</code>.
 The referenced class in the <code>&lt;classname&gt;</code> element has to implement the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/event/IUserNotificationEvent.class.php">IUserNotificationEvent</a> interface by extending the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/event/AbstractUserNotificationEvent.class.php">AbstractUserNotificationEvent</a> class or the <a href="https://github.com/WoltLab/WCF/blob/master/wcfsetup/install/files/lib/system/user/notification/event/AbstractSharedUserNotificationEvent.class.php">AbstractSharedUserNotificationEvent</a> class if you want to pre-load additional data before processing notifications.
 In <code>AbstractSharedUserNotificationEvent::prepare()</code>, you can, for example, tell runtime caches to prepare to load certain objects which then are loaded all at once when the objects are needed.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/user/notification/event/FooUserNotificationEvent.class.php &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/php/api/user_notifications/FooUserNotificationEvent.class.php&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/user/notification/event/FooUserNotificationEvent.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>
@@ -6224,18 +6224,18 @@ In <code>AbstractSharedUserNotificationEvent::prepare()</code>, you can, for exa
     <span class="sd">/**</span>
 <span class="sd">     * @inheritDoc</span>
 <span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">getEmailMessage</span><span class="p">(</span><span class="nv">$notificationType</span> <span class="o">=</span> <span class="s1">&#39;instant&#39;</span><span class="p">)</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getEmailMessage</span><span class="p">(</span><span class="nv">$notificationType</span> <span class="o">=</span> <span class="s1">'instant'</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">setBaz</span><span class="p">(</span><span class="nx">BazRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">bazID</span><span class="p">));</span>
 
-        <span class="nv">$messageID</span> <span class="o">=</span> <span class="s1">&#39;&lt;com.woltlab.example.baz/&#39;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">bazID</span> <span class="o">.</span> <span class="s1">&#39;@&#39;</span> <span class="o">.</span> <span class="nx">Email</span><span class="o">::</span><span class="na">getHost</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">;</span>
+        <span class="nv">$messageID</span> <span class="o">=</span> <span class="s1">'&lt;com.woltlab.example.baz/'</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">bazID</span> <span class="o">.</span> <span class="s1">'@'</span> <span class="o">.</span> <span class="nx">Email</span><span class="o">::</span><span class="na">getHost</span><span class="p">()</span> <span class="o">.</span> <span class="s1">'&gt;'</span><span class="p">;</span>
 
         <span class="k">return</span> <span class="p">[</span>
-            <span class="s1">&#39;application&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;example&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;in-reply-to&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nv">$messageID</span><span class="p">],</span>
-            <span class="s1">&#39;message-id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;com.woltlab.example.foo/&#39;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fooID</span><span class="p">,</span>
-            <span class="s1">&#39;references&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nv">$messageID</span><span class="p">],</span>
-            <span class="s1">&#39;template&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;email_notification_foo&#39;</span>
+            <span class="s1">'application'</span> <span class="o">=&gt;</span> <span class="s1">'example'</span><span class="p">,</span>
+            <span class="s1">'in-reply-to'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nv">$messageID</span><span class="p">],</span>
+            <span class="s1">'message-id'</span> <span class="o">=&gt;</span> <span class="s1">'com.woltlab.example.foo/'</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fooID</span><span class="p">,</span>
+            <span class="s1">'references'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nv">$messageID</span><span class="p">],</span>
+            <span class="s1">'template'</span> <span class="o">=&gt;</span> <span class="s1">'email_notification_foo'</span>
         <span class="p">];</span>
     <span class="p">}</span>
 
@@ -6247,8 +6247,8 @@ In <code>AbstractSharedUserNotificationEvent::prepare()</code>, you can, for exa
     <span class="p">{</span>
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">setBaz</span><span class="p">(</span><span class="nx">BazRuntimeCache</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">bazID</span><span class="p">));</span>
 
-        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">&#39;example.foo.notification.mail.title&#39;</span><span class="p">,</span> <span class="p">[</span>
-            <span class="s1">&#39;userNotificationObject&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">'example.foo.notification.mail.title'</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">'userNotificationObject'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span>
         <span class="p">]);</span>
     <span class="p">}</span>
 
@@ -6258,7 +6258,7 @@ In <code>AbstractSharedUserNotificationEvent::prepare()</code>, you can, for exa
 <span class="sd">     */</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getEventHash</span><span class="p">()</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nb">sha1</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">eventID</span> <span class="o">.</span> <span class="s1">&#39;-&#39;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">bazID</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nb">sha1</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">eventID</span> <span class="o">.</span> <span class="s1">'-'</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">bazID</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="sd">/**</span>
@@ -6266,9 +6266,9 @@ In <code>AbstractSharedUserNotificationEvent::prepare()</code>, you can, for exa
 <span class="sd">     */</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getLink</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">(</span><span class="s1">&#39;Foo&#39;</span><span class="p">,</span> <span class="p">[</span>
-            <span class="s1">&#39;application&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;example&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;object&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDecoratedObject</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nx">LinkHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="p">(</span><span class="s1">'Foo'</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">'application'</span> <span class="o">=&gt;</span> <span class="s1">'example'</span><span class="p">,</span>
+            <span class="s1">'object'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDecoratedObject</span><span class="p">()</span>
         <span class="p">]);</span>
     <span class="p">}</span>
 
@@ -6286,19 +6286,19 @@ In <code>AbstractSharedUserNotificationEvent::prepare()</code>, you can, for exa
             <span class="p">}</span>
             <span class="nv">$count</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$authors</span><span class="p">);</span>
 
-            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">&#39;example.foo.notification.message.stacked&#39;</span><span class="p">,</span> <span class="p">[</span>
-                <span class="s1">&#39;author&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">author</span><span class="p">,</span>
-                <span class="s1">&#39;authors&#39;</span> <span class="o">=&gt;</span> <span class="nb">array_values</span><span class="p">(</span><span class="nv">$authors</span><span class="p">),</span>
-                <span class="s1">&#39;count&#39;</span> <span class="o">=&gt;</span> <span class="nv">$count</span><span class="p">,</span>
-                <span class="s1">&#39;guestTimesTriggered&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">notification</span><span class="o">-&gt;</span><span class="na">guestTimesTriggered</span><span class="p">,</span>
-                <span class="s1">&#39;message&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">(),</span>
-                <span class="s1">&#39;others&#39;</span> <span class="o">=&gt;</span> <span class="nv">$count</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">'example.foo.notification.message.stacked'</span><span class="p">,</span> <span class="p">[</span>
+                <span class="s1">'author'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">author</span><span class="p">,</span>
+                <span class="s1">'authors'</span> <span class="o">=&gt;</span> <span class="nb">array_values</span><span class="p">(</span><span class="nv">$authors</span><span class="p">),</span>
+                <span class="s1">'count'</span> <span class="o">=&gt;</span> <span class="nv">$count</span><span class="p">,</span>
+                <span class="s1">'guestTimesTriggered'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">notification</span><span class="o">-&gt;</span><span class="na">guestTimesTriggered</span><span class="p">,</span>
+                <span class="s1">'message'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">(),</span>
+                <span class="s1">'others'</span> <span class="o">=&gt;</span> <span class="nv">$count</span> <span class="o">-</span> <span class="mi">1</span>
             <span class="p">]);</span>
         <span class="p">}</span>
 
-        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">&#39;example.foo.notification.message&#39;</span><span class="p">,</span> <span class="p">[</span>
-            <span class="s1">&#39;author&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">author</span><span class="p">,</span>
-            <span class="s1">&#39;userNotificationObject&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">'example.foo.notification.message'</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">'author'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">author</span><span class="p">,</span>
+            <span class="s1">'userNotificationObject'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUserNotificationObject</span><span class="p">()</span>
         <span class="p">]);</span>
     <span class="p">}</span>
 
@@ -6309,13 +6309,13 @@ In <code>AbstractSharedUserNotificationEvent::prepare()</code>, you can, for exa
     <span class="p">{</span>
         <span class="nv">$count</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getAuthors</span><span class="p">());</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">&#39;example.foo.notification.title.stacked&#39;</span><span class="p">,</span> <span class="p">[</span>
-                <span class="s1">&#39;count&#39;</span> <span class="o">=&gt;</span> <span class="nv">$count</span><span class="p">,</span>
-                <span class="s1">&#39;timesTriggered&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">notification</span><span class="o">-&gt;</span><span class="na">timesTriggered</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span><span class="s1">'example.foo.notification.title.stacked'</span><span class="p">,</span> <span class="p">[</span>
+                <span class="s1">'count'</span> <span class="o">=&gt;</span> <span class="nv">$count</span><span class="p">,</span>
+                <span class="s1">'timesTriggered'</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">notification</span><span class="o">-&gt;</span><span class="na">timesTriggered</span>
             <span class="p">]);</span>
         <span class="p">}</span>
 
-        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;example.foo.notification.title&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'example.foo.notification.title'</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="sd">/**</span>
@@ -6371,8 +6371,8 @@ In <code>AbstractSharedUserNotificationEvent::prepare()</code>, you can, for exa
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$recipientIDs</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// fill with user ids of the recipients of the notification</span>
 <span class="nx">UserNotificationHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireEvent</span><span class="p">(</span>
-    <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="c1">// event name</span>
-    <span class="s1">&#39;com.woltlab.example.foo&#39;</span><span class="p">,</span> <span class="c1">// event object type name</span>
+    <span class="s1">'bar'</span><span class="p">,</span> <span class="c1">// event name</span>
+    <span class="s1">'com.woltlab.example.foo'</span><span class="p">,</span> <span class="c1">// event object type name</span>
     <span class="k">new</span> <span class="nx">FooUserNotificationObject</span><span class="p">(</span><span class="k">new</span> <span class="nx">Foo</span><span class="p">(</span><span class="nv">$fooID</span><span class="p">)),</span> <span class="c1">// object related to the event</span>
     <span class="nv">$recipientIDs</span>
 <span class="p">);</span>
@@ -6390,8 +6390,8 @@ In this case, you can use <code>UserNotificationHandler::markAsConfirmed()</code
 <span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$recipientIDs</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// fill with user ids of the recipients of the notification</span>
 <span class="nv">$fooIDs</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// fill with ids of related foo objects</span>
 <span class="nx">UserNotificationHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">markAsConfirmed</span><span class="p">(</span>
-    <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="c1">// event name</span>
-    <span class="s1">&#39;com.woltlab.example.foo&#39;</span><span class="p">,</span> <span class="c1">// event object type name</span>
+    <span class="s1">'bar'</span><span class="p">,</span> <span class="c1">// event name</span>
+    <span class="s1">'com.woltlab.example.foo'</span><span class="p">,</span> <span class="c1">// event object type name</span>
     <span class="nv">$recipientIDs</span><span class="p">,</span>
     <span class="nv">$fooIDs</span>
 <span class="p">);</span>
@@ -6446,7 +6446,7 @@ In this case, you can use <code>UserNotificationHandler::markAsConfirmed()</code
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2020 WoltLab GmbH
+      Copyright © 2026 WoltLab GmbH
     </div>
   
   

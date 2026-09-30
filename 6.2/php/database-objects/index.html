@@ -6181,7 +6181,7 @@
 <p>Developers are required to provide the proper DatabaseObject implementations themselves, they're not automatically generated, all though the actual code that needs to be written is rather small. The following examples assume the fictional database table <code>wcf1_example</code>, <code>exampleID</code> as the auto-incrementing primary key and the column <code>bar</code> to store some text.</p>
 <h2 id="databaseobject">DatabaseObject<a class="headerlink" href="#databaseobject" title="Permanent link">#</a></h2>
 <p>The basic model derives from <code>wcf\data\DatabaseObject</code> and provides a convenient constructor to fetch a single row or construct an instance using pre-loaded rows.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/data/example/Example.class.php &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/php/database-objects/Example.class.php&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/data/example/Example.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -6195,7 +6195,7 @@
 <p>You can prevent this automatic guessing by setting the class properties <code>$databaseTableName</code> and <code>$databaseTableIndexName</code> manually.</p>
 <h2 id="databaseobjectdecorator">DatabaseObjectDecorator<a class="headerlink" href="#databaseobjectdecorator" title="Permanent link">#</a></h2>
 <p>If you already have a <code>DatabaseObject</code> class and would like to extend it with additional data or methods, for example by providing a class <code>ViewableExample</code> which features view-related changes without polluting the original object, you can use <code>DatabaseObjectDecorator</code> which a default implementation of a decorator for database objects.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/data/example/ViewableExample.class.php &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/php/database-objects/ViewableExample.class.php&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/data/example/ViewableExample.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -6217,7 +6217,7 @@
     <span class="k">protected</span> <span class="k">static</span> <span class="nv">$baseClass</span> <span class="o">=</span> <span class="nx">Example</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">getOutput</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nv">$output</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+        <span class="nv">$output</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
 
         <span class="c1">// [determine output]</span>
 
@@ -6233,7 +6233,7 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <p class="admonition-title">This is the low-level interface to manipulate data rows, it is recommended to use <code>AbstractDatabaseObjectAction</code>.</p>
 </div>
 <p>Adding, editing and deleting models is done using the <code>DatabaseObjectEditor</code> class that decorates a <code>DatabaseObject</code> and uses its data to perform the actions.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/data/example/ExampleEditor.class.php &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/php/database-objects/ExampleEditor.class.php&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/data/example/ExampleEditor.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -6258,7 +6258,7 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$example</span> <span class="o">=</span> <span class="nx">\wcf\data\example\ExampleEditor</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-    <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hello World!&#39;</span>
+    <span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'Hello World!'</span>
 <span class="p">]);</span>
 
 <span class="c1">// output: Hello World!</span>
@@ -6286,7 +6286,7 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <span class="nv">$example</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\Example</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
 <span class="nv">$exampleEditor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\ExampleEditor</span><span class="p">(</span><span class="nv">$example</span><span class="p">);</span>
 <span class="nv">$exampleEditor</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span>
-    <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;baz&#39;</span>
+    <span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'baz'</span>
 <span class="p">]);</span>
 
 <span class="c1">// output: Hello World!</span>
@@ -6312,7 +6312,7 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 </code></pre></div></td></tr></table></div>
 <h2 id="databaseobjectlist">DatabaseObjectList<a class="headerlink" href="#databaseobjectlist" title="Permanent link">#</a></h2>
 <p>Every row is represented as a single instance of the model, but the instance creation deals with single rows only. Retrieving larger sets of rows would be quite inefficient due to the large amount of queries that will be dispatched. This is solved with the <code>DatabaseObjectList</code> object that exposes an interface to query the database table using arbitrary conditions for data selection. All rows will be fetched using a single query and the resulting rows are automatically loaded into separate models.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/data/example/ExampleList.class.php &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/php/database-objects/ExampleList.class.php&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/data/example/ExampleList.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -6344,7 +6344,7 @@ You can access the decorated objects directly via <code>DatabaseObjectDecorator:
 <span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$exampleList</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\wcf\data\example\ExampleList</span><span class="p">();</span>
 <span class="c1">// add constraints using the condition builder</span>
-<span class="nv">$exampleList</span><span class="o">-&gt;</span><span class="na">getConditionBuilder</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;bar IN (?)&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">]]);</span>
+<span class="nv">$exampleList</span><span class="o">-&gt;</span><span class="na">getConditionBuilder</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'bar IN (?)'</span><span class="p">,</span> <span class="p">[[</span><span class="s1">'Hello World!'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'baz'</span><span class="p">]]);</span>
 <span class="c1">// actually read the rows</span>
 <span class="nv">$exampleList</span><span class="o">-&gt;</span><span class="na">readObjects</span><span class="p">();</span>
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$exampleList</span> <span class="k">as</span> <span class="nv">$example</span><span class="p">)</span> <span class="p">{</span>
@@ -6387,7 +6387,7 @@ This can be achieved by setting the <code>$objectClassName</code> property to th
 <span class="nv">$exampleList</span><span class="o">-&gt;</span><span class="na">decoratorClassName</span> <span class="o">=</span> <span class="nx">\wcf\data\example\ViewableExample</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>Of course, you do not have to set the property after creating the list object, you can also set it by creating a dedicated class:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/data/example/ViewableExampleList.class.php &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/php/database-objects/ViewableExampleList.class.php&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/data/example/ViewableExampleList.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -6525,7 +6525,7 @@ However, by overwriting the <code>getCollectionClassName()</code> method, you ca
 <li>Data is passed to the database adapter without any further processing.</li>
 </ol>
 <p>The <code>AbstractDatabaseObjectAction</code> solves both problems by wrapping around the editor class and thus provide an additional layer between the action that should be taken and the actual process. The first problem is solved by a fixed set of events being fired, the second issue is addressed by having a single entry point for all data editing.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/data/example/ExampleAction.class.php &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/php/database-objects/ExampleAction.class.php&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/data/example/ExampleAction.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -6565,19 +6565,19 @@ However, by overwriting the <code>getCollectionClassName()</code> method, you ca
 <span class="k">use</span> <span class="nx">wcf\data\example\ExampleAction</span><span class="p">;</span>
 
 <span class="c1">// create a row</span>
-<span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([],</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="s1">&#39;data&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">]</span>
+<span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([],</span> <span class="s1">'create'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'Hello World'</span><span class="p">]</span>
 <span class="p">]);</span>
-<span class="nv">$example</span> <span class="o">=</span> <span class="nv">$exampleAction</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">()[</span><span class="s1">&#39;returnValues&#39;</span><span class="p">];</span>
+<span class="nv">$example</span> <span class="o">=</span> <span class="nv">$exampleAction</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">()[</span><span class="s1">'returnValues'</span><span class="p">];</span>
 
 <span class="c1">// update a row using the id</span>
-<span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;update&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="s1">&#39;data&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;baz&#39;</span><span class="p">]</span>
+<span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'update'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'baz'</span><span class="p">]</span>
 <span class="p">]);</span>
 <span class="nv">$exampleAction</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">();</span>
 
 <span class="c1">// delete a row using a model</span>
-<span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([</span><span class="nv">$example</span><span class="p">],</span> <span class="s1">&#39;delete&#39;</span><span class="p">);</span>
+<span class="nv">$exampleAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleAction</span><span class="p">([</span><span class="nv">$example</span><span class="p">],</span> <span class="s1">'delete'</span><span class="p">);</span>
 <span class="nv">$exampleAction</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
 <p>You can access the return values both by storing the return value of <code>executeAction()</code> or by retrieving it via <code>getReturnValues()</code>.</p>
@@ -6613,7 +6613,7 @@ However, by overwriting the <code>getCollectionClassName()</code> method, you ca
 
 <span class="k">class</span> <span class="nc">ExampleAction</span> <span class="k">extends</span> <span class="nx">AbstractDatabaseObjectAction</span> <span class="p">{</span>
     <span class="c1">// `create()` can now be called via AJAX if the requesting user posses the listed permissions</span>
-    <span class="k">protected</span> <span class="nv">$permissionsCreate</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;admin.example.canManageExample&#39;</span><span class="p">];</span>
+    <span class="k">protected</span> <span class="nv">$permissionsCreate</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'admin.example.canManageExample'</span><span class="p">];</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">validateUpdate</span><span class="p">()</span> <span class="p">{</span>
         <span class="c1">// your very own validation logic that does not make use of the</span>
@@ -6678,7 +6678,7 @@ However, by overwriting the <code>getCollectionClassName()</code> method, you ca
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2020 WoltLab GmbH
+      Copyright © 2026 WoltLab GmbH
     </div>
   
   

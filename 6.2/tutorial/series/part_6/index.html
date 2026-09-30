@@ -5766,7 +5766,7 @@
 │   └── en.xml
 └── objectType.xml
 </code></pre></div></td></tr></table></div>
-<p>For all changes, please refer to the <a href="https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/tutorial/tutorial-series/part-6">source code on GitHub</a>.</p>
+<p>For all changes, please refer to the <a href="https://github.com/WoltLab/docs.woltlab.com/tree/6.2/snippets/tutorial/tutorial-series/part-6">source code on GitHub</a>.</p>
 <h2 id="user-activity-points">User Activity Points<a class="headerlink" href="#user-activity-points" title="Permanent link">#</a></h2>
 <p>The first step to support activity points is to register an object type for the <code>com.woltlab.wcf.user.activityPointEvent</code> object type definition for created person information and specify the default number of points awarded per piece of information:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">objectType.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -5793,7 +5793,7 @@ First, we register a new rebuild data worker</p>
 <span class="w">    </span><span class="nt">&lt;classname&gt;</span>wcf\system\worker\PersonInformationRebuildDataWorker<span class="nt">&lt;/classname&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/worker/PersonInformationRebuildDataWorker.class.php &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/tutorial/tutorial-series/part-6/files/lib/system/worker/PersonInformationRebuildDataWorker.class.php&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/worker/PersonInformationRebuildDataWorker.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -5898,7 +5898,7 @@ First, we register a new rebuild data worker</p>
     <span class="p">{</span>
         <span class="k">parent</span><span class="o">::</span><span class="na">initObjectList</span><span class="p">();</span>
 
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">objectList</span><span class="o">-&gt;</span><span class="na">sqlOrderBy</span> <span class="o">=</span> <span class="s1">&#39;person_information.personID&#39;</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">objectList</span><span class="o">-&gt;</span><span class="na">sqlOrderBy</span> <span class="o">=</span> <span class="s1">'person_information.personID'</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="sd">/**</span>
@@ -5909,7 +5909,7 @@ First, we register a new rebuild data worker</p>
         <span class="k">parent</span><span class="o">::</span><span class="na">execute</span><span class="p">();</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">loopCount</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">UserActivityPointHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">reset</span><span class="p">(</span><span class="s1">&#39;com.woltlab.wcf.people.information&#39;</span><span class="p">);</span>
+            <span class="nx">UserActivityPointHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">reset</span><span class="p">(</span><span class="s1">'com.woltlab.wcf.people.information'</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">\count</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">objectList</span><span class="p">))</span> <span class="p">{</span>
@@ -5928,7 +5928,7 @@ First, we register a new rebuild data worker</p>
         <span class="p">}</span>
 
         <span class="nx">UserActivityPointHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireEvents</span><span class="p">(</span>
-            <span class="s1">&#39;com.woltlab.wcf.people.information&#39;</span><span class="p">,</span>
+            <span class="s1">'com.woltlab.wcf.people.information'</span><span class="p">,</span>
             <span class="nv">$itemsToUser</span><span class="p">,</span>
             <span class="k">false</span>
         <span class="p">);</span>
@@ -5943,14 +5943,14 @@ First, we register a new rebuild data worker</p>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;eventlistener</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;execute@wcf\system\worker\UserActivityPointItemsRebuildDataWorker&quot;</span><span class="nt">&gt;</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;eventlistener</span><span class="w"> </span><span class="na">name=</span><span class="s">"execute@wcf\system\worker\UserActivityPointItemsRebuildDataWorker"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;eventclassname&gt;</span>wcf\system\worker\UserActivityPointItemsRebuildDataWorker<span class="nt">&lt;/eventclassname&gt;</span>
 <span class="w">    </span><span class="nt">&lt;eventname&gt;</span>execute<span class="nt">&lt;/eventname&gt;</span>
 <span class="w">    </span><span class="nt">&lt;listenerclassname&gt;</span>wcf\system\event\listener\PersonUserActivityPointItemsRebuildDataWorkerListener<span class="nt">&lt;/listenerclassname&gt;</span>
 <span class="w">    </span><span class="nt">&lt;environment&gt;</span>admin<span class="nt">&lt;/environment&gt;</span>
 <span class="nt">&lt;/eventlistener&gt;</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/event/listener/PersonUserActivityPointItemsRebuildDataWorkerListener.class.php &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/tutorial/tutorial-series/part-6/files/lib/system/event/listener/PersonUserActivityPointItemsRebuildDataWorkerListener.class.php&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/event/listener/PersonUserActivityPointItemsRebuildDataWorkerListener.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -6012,20 +6012,20 @@ First, we register a new rebuild data worker</p>
     <span class="k">protected</span> <span class="k">function</span> <span class="nf">onExecute</span><span class="p">(</span><span class="nx">UserActivityPointItemsRebuildDataWorker</span> <span class="nv">$worker</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
     <span class="p">{</span>
         <span class="nv">$objectType</span> <span class="o">=</span> <span class="nx">UserActivityPointHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span>
-            <span class="o">-&gt;</span><span class="na">getObjectTypeByName</span><span class="p">(</span><span class="s1">&#39;com.woltlab.wcf.people.information&#39;</span><span class="p">);</span>
+            <span class="o">-&gt;</span><span class="na">getObjectTypeByName</span><span class="p">(</span><span class="s1">'com.woltlab.wcf.people.information'</span><span class="p">);</span>
 
         <span class="nv">$conditionBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PreparedStatementConditionBuilder</span><span class="p">();</span>
-        <span class="nv">$conditionBuilder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;user_activity_point.objectTypeID = ?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$objectType</span><span class="o">-&gt;</span><span class="na">objectTypeID</span><span class="p">]);</span>
-        <span class="nv">$conditionBuilder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;user_activity_point.userID IN (?)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$worker</span><span class="o">-&gt;</span><span class="na">getObjectList</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObjectIDs</span><span class="p">()]);</span>
+        <span class="nv">$conditionBuilder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'user_activity_point.objectTypeID = ?'</span><span class="p">,</span> <span class="p">[</span><span class="nv">$objectType</span><span class="o">-&gt;</span><span class="na">objectTypeID</span><span class="p">]);</span>
+        <span class="nv">$conditionBuilder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'user_activity_point.userID IN (?)'</span><span class="p">,</span> <span class="p">[</span><span class="nv">$worker</span><span class="o">-&gt;</span><span class="na">getObjectList</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getObjectIDs</span><span class="p">()]);</span>
 
-        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE  wcf1_user_activity_point user_activity_point</span>
+        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"UPDATE  wcf1_user_activity_point user_activity_point</span>
 <span class="s2">                SET     user_activity_point.items = (</span>
 <span class="s2">                            SELECT  COUNT(*)</span>
 <span class="s2">                            FROM    wcf1_person_information person_information</span>
 <span class="s2">                            WHERE   person_information.userID = user_activity_point.userID</span>
 <span class="s2">                        ),</span>
 <span class="s2">                        user_activity_point.activityPoints = user_activity_point.items * ?</span>
-<span class="s2">                </span><span class="si">{</span><span class="nv">$conditionBuilder</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="s2">                </span><span class="si">{</span><span class="nv">$conditionBuilder</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
         <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">WCF</span><span class="o">::</span><span class="na">getDB</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
         <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span>
             <span class="nv">$objectType</span><span class="o">-&gt;</span><span class="na">points</span><span class="p">,</span>
@@ -6046,7 +6046,7 @@ First, we register a new rebuild data worker</p>
 <span class="w">    </span><span class="nt">&lt;classname&gt;</span>wcf\system\user\activity\event\PersonInformationUserActivityEvent<span class="nt">&lt;/classname&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/user/activity/event/PersonInformationUserActivityEvent.class.php &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/tutorial/tutorial-series/part-6/files/lib/system/user/activity/event/PersonInformationUserActivityEvent.class.php&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/system/user/activity/event/PersonInformationUserActivityEvent.class.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -6115,7 +6115,7 @@ First, we register a new rebuild data worker</p>
 <span class="sd">     */</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">prepare</span><span class="p">(</span><span class="k">array</span> <span class="nv">$events</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="nv">$objectIDs</span> <span class="o">=</span> <span class="nx">\array_column</span><span class="p">(</span><span class="nv">$events</span><span class="p">,</span> <span class="s1">&#39;objectID&#39;</span><span class="p">);</span>
+        <span class="nv">$objectIDs</span> <span class="o">=</span> <span class="nx">\array_column</span><span class="p">(</span><span class="nv">$events</span><span class="p">,</span> <span class="s1">'objectID'</span><span class="p">);</span>
 
         <span class="nv">$informationList</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PersonInformationList</span><span class="p">();</span>
         <span class="nv">$informationList</span><span class="o">-&gt;</span><span class="na">setObjectIDs</span><span class="p">(</span><span class="nv">$objectIDs</span><span class="p">);</span>
@@ -6129,10 +6129,10 @@ First, we register a new rebuild data worker</p>
                 <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setIsAccessible</span><span class="p">();</span>
                 <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span>
                     <span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDynamicVariable</span><span class="p">(</span>
-                        <span class="s1">&#39;wcf.user.profile.recentActivity.personInformation&#39;</span><span class="p">,</span>
+                        <span class="s1">'wcf.user.profile.recentActivity.personInformation'</span><span class="p">,</span>
                         <span class="p">[</span>
-                            <span class="s1">&#39;person&#39;</span> <span class="o">=&gt;</span> <span class="nv">$personInformation</span><span class="o">-&gt;</span><span class="na">getPerson</span><span class="p">(),</span>
-                            <span class="s1">&#39;personInformation&#39;</span> <span class="o">=&gt;</span> <span class="nv">$personInformation</span><span class="p">,</span>
+                            <span class="s1">'person'</span> <span class="o">=&gt;</span> <span class="nv">$personInformation</span><span class="o">-&gt;</span><span class="na">getPerson</span><span class="p">(),</span>
+                            <span class="s1">'personInformation'</span> <span class="o">=&gt;</span> <span class="nv">$personInformation</span><span class="p">,</span>
                         <span class="p">]</span>
                     <span class="p">)</span>
                 <span class="p">);</span>
@@ -6194,7 +6194,7 @@ First, we register a new rebuild data worker</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2020 WoltLab GmbH
+      Copyright © 2026 WoltLab GmbH
     </div>
   
   

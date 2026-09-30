@@ -5846,7 +5846,7 @@
 <div class="admonition info">
 <p class="admonition-title">Prior to version 5.5, there was no support for deleting language items and the <code>category</code> elements had to be placed directly as children of the <code>language</code> element, see <a href="../../../migration/wsc54/php/#language-package-installation-plugin">the migration guide to version 5.5</a>.</p>
 </div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">language/en.xml &lt;a class=&quot;codeBoxTitleGitHubLink&quot; href=&quot;https://github.com/WoltLab/docs.woltlab.com/tree/6.1/snippets/package/pip/en.xml&quot; title=&quot;View on GitHub&quot;&gt;&lt;span class=&quot;twemoji&quot;&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">language/en.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -5856,15 +5856,15 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;language</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.woltlab.com&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.woltlab.com http://www.woltlab.com/XSD/2019/language.xsd&quot;</span><span class="w"> </span><span class="na">languagecode=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;language</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">"http://www.woltlab.com"</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">"http://www.woltlab.com http://www.woltlab.com/XSD/2019/language.xsd"</span><span class="w"> </span><span class="na">languagecode=</span><span class="s">"en"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;import&gt;</span>
-<span class="w">        </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.example&quot;</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.example.foo&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[&lt;strong&gt;Look!&lt;/strong&gt;]]&gt;</span><span class="nt">&lt;/item&gt;</span>
+<span class="w">        </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">name=</span><span class="s">"wcf.example"</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">"wcf.example.foo"</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[&lt;strong&gt;Look!&lt;/strong&gt;]]&gt;</span><span class="nt">&lt;/item&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/category&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/import&gt;</span>
 <span class="w">    </span><span class="nt">&lt;delete&gt;</span>
-<span class="w">        </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wcf.example.obsolete&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">"wcf.example.obsolete"</span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/delete&gt;</span>
 <span class="nt">&lt;/language&gt;</span>
 </code></pre></div></td></tr></table></div>
@@ -5918,7 +5918,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2020 WoltLab GmbH
+      Copyright © 2026 WoltLab GmbH
     </div>
   
   
