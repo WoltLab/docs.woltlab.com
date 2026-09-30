@@ -17,7 +17,7 @@ The component can be included directly as follows:
 Alternatively, the component can be included via a template that uses the API key from the configuration and also handles the user content:
 
 ```smarty
-{include file='googleMapsElement' googleMapsElementID="id"}
+{include file='shared_googleMapsElement' googleMapsElementID="id"}
 ```
 
 ## Parameters
