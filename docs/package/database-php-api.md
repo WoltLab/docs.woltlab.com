@@ -60,15 +60,16 @@ Depending on the specific column class implementing additional interfaces, the f
 - `IDecimalsDatabaseTableColumn::decimals($decimals)` sets the number of decimals the column supports.
 - `IEnumDatabaseTableColumn::enumValues(array $values)` sets the predetermined set of valid values of the column.
 - `ILengthDatabaseTableColumn::length($length)` sets the (maximum) length of the column.
+  Setting the length of integer columns (`tinyint`, `smallint`, `mediumint`, `int`, `bigint`) is deprecated since version 6.2: it only sets the display width and does not limit the range of values.
 
 Additionally, there are some additionally classes of commonly used columns with specific properties:
 
-- `DefaultFalseBooleanDatabaseTableColumn` (a `tinyint` column with length `1`, default value `0` and whose values cannot be `null`)
-- `DefaultTrueBooleanDatabaseTableColumn` (a `tinyint` column with length `1`, default value `1` and whose values cannot be `null`)
-- `NotNullInt10DatabaseTableColumn` (a `int` column with length `10` and whose values cannot be `null`)
+- `DefaultFalseBooleanDatabaseTableColumn` (a `tinyint` column with default value `0` and whose values cannot be `null`)
+- `DefaultTrueBooleanDatabaseTableColumn` (a `tinyint` column with default value `1` and whose values cannot be `null`)
+- `NotNullInt10DatabaseTableColumn` (a `int` column whose values cannot be `null`)
 - `NotNullVarchar191DatabaseTableColumn` (a `varchar` column with length `191` and whose values cannot be `null`)
 - `NotNullVarchar255DatabaseTableColumn` (a `varchar` column with length `255` and whose values cannot be `null`)
-- `ObjectIdDatabaseTableColumn` (a `int` column with length `10`, whose values cannot be `null`, and whose values are auto-incremented)
+- `ObjectIdDatabaseTableColumn` (a `int` column whose values cannot be `null` and are auto-incremented)
 
 Examples:
 
@@ -78,7 +79,6 @@ DefaultFalseBooleanDatabaseTableColumn::create('isDisabled')
 NotNullInt10DatabaseTableColumn::create('fooTypeID')
 
 SmallintDatabaseTableColumn::create('bar')
-	->length(5)
 	->notNull()
 ```
 
