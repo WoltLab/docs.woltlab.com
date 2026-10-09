@@ -116,6 +116,16 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `calendar\data\event\date\participation\EventDateParticipationEditor`
 - `calendar\data\event\import\EventImportEditor`
 - `calendar\data\event\import\EventImportAction`
+- `calendar\data\event\date\EventDateAction`
+- `calendar\data\event\date\EventDateEditor`
+- `calendar\data\event\EventAction`
+- `calendar\data\event\EventEditor`
+- `wcf\data\user\group\assignment\UserGroupAssignmentAction`
+- `wcf\data\user\group\assignment\UserGroupAssignmentEditor`
+- `wcf\data\notice\NoticeAction`
+- `wcf\data\notice\NoticeEditor`
+- `wcf\data\ad\AdAction`
+- `wcf\data\ad\AdEditor`
 
 #### Methods
 
@@ -345,6 +355,10 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\comment\response\CommentResponse::setComment()`
 - `wcf\system\view\CommentsView::getLikeData()`
 - `wcf\system\box\AbstractCommentListBoxController::applyObjectTypeFilters()`
+- `calendar\data\event\date\EventDateAction::getParticipantsForNotification()`
+- `calendar\data\event\date\EventDateEditor::rebuildParticipants()`
+- `wcf\data\notice\Notice::getConditions()`
+- `wcf\data\user\group\assignment\UserGroupAssignment::getConditions()`
 
 #### Properties
 
@@ -434,6 +448,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\acp\session\ACPSessionEditor`
 - `wcf\data\acp\session\ACPSessionList`
 - `calendar\data\user\FollowingBirthdayAction`
+- `calendar\data\category\CalendarCategoryAction`
 
 #### Methods
 
@@ -610,3 +625,5 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `Calendar.Event.Date.Participation.Manager`
 - `WoltLabSuite/Calendar/Ui/Object/Action/RemoveParticipant`
 - `WCF.ACP.Package.Update.Search`
+- `WoltLabSuite/Calendar/Ui/Category/MarkAllAsRead`
+- `WCF.ACP.Ad.LocationHandler`
