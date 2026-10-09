@@ -104,6 +104,7 @@ With version 6.2, we have deprecated certain components and removed several othe
 - `wcf\data\user\group\UserGroupAction::copy()`
 - `wcf\data\user\group\UserGroupAction::validateCopy()`
 - `wcf\data\user\group\assignment\UserGroupAssignmentAction::toggle()` ([WoltLab/WCF#6424](https://github.com/WoltLab/WCF/pull/6424/))
+- `wcf\system\database\table\column\AbstractIntDatabaseTableColumn::length()` ([WoltLab/WCF#6451](https://github.com/WoltLab/WCF/issues/6451))
 - `wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer::quoteData()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\form\builder\field\wysiwyg\WysiwygFormField::getQuoteData()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
 - `wcf\system\form\builder\field\wysiwyg\WysiwygFormField::quoteData()` ([WoltLab/WCF#6163](https://github.com/WoltLab/WCF/pull/6163/))
