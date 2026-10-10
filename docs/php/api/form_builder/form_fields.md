@@ -103,13 +103,17 @@ The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFor
 The following methods are specific to this form field class:
 
 - `earliestDate($earliestDate)` and `getEarliestDate()` can be used to get and set the earliest selectable/valid date and `latestDate($latestDate)` and `getLatestDate()` can be used to get and set the latest selectable/valid date.
-  The date passed to the setters must have the same format as set via `saveValueFormat()`.
-  If a custom format is used, that format has to be set via `saveValueFormat()` before calling any of the setters.
-- `saveValueFormat($saveValueFormat)` and `getSaveValueFormat()` can be used to specify the date format of the value returned by `getSaveValue()`.
+  Integers are always treated as unix timestamps (e.g. `TIME_NOW`), `DateTimeInterface` objects are used as-is, and strings must have the format set via `saveValueFormat()`.
+  When passing strings in a custom format, that format has to be set via `saveValueFormat()` before calling any of the setters.
+- `saveValueFormat($saveValueFormat)` and `getSaveValueFormat()` can be used to specify the date format of the value returned by `getSaveValue()` and expected by `value()`.
   By default, `U` is used as format.
+  The format should match the database column the value is stored in, e.g. `U` for an integer column, `Y-m-d` for a `DATE` column, or `Y-m-d H:i:s` for a `DATETIME` column.
+  Without time support, the save value represents the selected day at 00:00 UTC.
+  Timestamps of such values must be formatted in UTC to get the selected day, thus `Y-m-d` is preferable for pure dates.
   The [PHP manual](https://secure.php.net/manual/en/function.date.php) provides an overview of supported formats.
 - `supportTime($supportsTime = true)` and `supportsTime()` can be used to toggle whether, in addition to a date, a time can also be specified.
   By default, specifying a time is disabled.
+  With time support, the value is entered in the user's time zone (or in UTC if the `data-ignore-timezone` field attribute is set to `true`) and the save value represents that point in time.
 
 Example:
 
@@ -128,18 +132,16 @@ The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFor
 
 The following methods are specific to this form field class:
 
-- `saveValueFormat($saveValueFormat)` and `getSaveValueFormat()` can be used to specify the date format of the value returned by `getSaveValue()`.
-  By default, `U` is used as format.
-  The [PHP manual](https://secure.php.net/manual/en/function.date.php) provides an overview of supported formats.
 - `supportTime($supportsTime = true)` and `supportsTime()` can be used to toggle whether, in addition to a date, a time can also be specified.
   By default, specifying a time is disabled.
+
+Both dates use the format `Y-m-d` or, with time support, `Y-m-d\TH:i:sP`.
 
 Example:
 
 ```php
 DateRangeFormField::create('example')
   ->label('foo.bar.example')
-  ->saveValueFormat('Y-m-d')
   ->value(DateUtil::format(DateUtil::getDateTimeByTimestamp(TIME_NOW - 86_400), 'Y-m-d') . ';' . DateUtil::format(DateUtil::getDateTimeByTimestamp(TIME_NOW), 'Y-m-d'))
 ```
 
