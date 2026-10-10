@@ -4240,6 +4240,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#recent-activity-events-of-guests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recent Activity Events of Guests
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6309,6 +6320,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#recent-activity-events-of-guests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recent Activity Events of Guests
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6751,6 +6773,60 @@ Keeping the previous object type name therefore preserves the settings of existi
 <p><code>wcf\acp\page\SitemapListPage</code> has been converted into a grid view page and now renders <code>wcf\system\gridView\admin\SitemapGridView</code>.
 The template events <code>headColumns</code>, <code>columns</code> and <code>contentFooterNavigation</code> of the template <code>sitemapList</code> have been removed.
 Additional columns are added through the PSR-14 event <code>wcf\event\gridView\admin\SitemapGridViewInitialized</code> instead.</p>
+<h2 id="recent-activity-events-of-guests">Recent Activity Events of Guests<a class="headerlink" href="#recent-activity-events-of-guests" title="Permanent link">#</a></h2>
+<p>Recent activity events now support content created by guests.
+The <code>userID</code> column of <code>wcf1_user_activity_event</code> is nullable and the new <code>username</code> column stores the name of the guest.</p>
+<p>A user id of <code>null</code> passed to <code>UserActivityEventHandler::fireEvent()</code> now denotes a guest and requires the guest's name to be passed as <code>username</code>.
+Pass the guest's name instead of skipping guests:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Previously</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">userID</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">UserActivityEventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireEvent</span><span class="p">(</span>
+        <span class="s1">'foo.bar.recentActivityEvent'</span><span class="p">,</span>
+        <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">fooID</span><span class="p">,</span>
+        <span class="k">null</span><span class="p">,</span>
+        <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">userID</span><span class="p">,</span>
+        <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">time</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Since 6.3</span>
+<span class="nx">UserActivityEventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">fireEvent</span><span class="p">(</span>
+    <span class="s1">'foo.bar.recentActivityEvent'</span><span class="p">,</span>
+    <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">fooID</span><span class="p">,</span>
+    <span class="k">null</span><span class="p">,</span>
+    <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">userID</span><span class="p">,</span>
+    <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">time</span><span class="p">,</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">username</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p><code>UserActivityEventHandler::fireEvents()</code> accepts an optional <code>username</code> key for each event.</p>
+<p>There is no longer a fallback to the active user.
+Previously, omitting the user id or passing <code>null</code> attributed the event to the active user.
+<code>fireEvent()</code> and <code>fireEvents()</code> now throw a <code>\BadMethodCallException</code> if neither a user id nor a username is given, and <code>removeEvent()</code> no longer defaults to the active user.
+Always pass the user id explicitly, for example <code>WCF::getUser()-&gt;userID</code> if the event is triggered by the active user.</p>
+<p>Custom queries on <code>wcf1_user_activity_event</code> must take <code>NULL</code> values into account.
+A condition like <code>userID NOT IN (?)</code> excludes all events of guests and must be written as <code>(userID IS NULL OR userID NOT IN (?))</code>.</p>
+<p>Implementations of <code>IUserActivityEvent</code> that require a registered user, for example to look up the author of a comment, must handle guests.
+The <code>TCommentResponseUserActivityEvent</code> trait provides <code>getCommentAuthor()</code> that returns a guest profile for comments written by guests.</p>
 
 
 
@@ -6771,7 +6847,7 @@ Additional columns are added through the PSR-14 event <code>wcf\event\gridView\a
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-09-22
+    2026-10-10
   </span>
 
     
