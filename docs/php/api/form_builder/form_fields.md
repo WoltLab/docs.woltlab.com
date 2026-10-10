@@ -457,6 +457,29 @@ TextFormField::create('example')
 ```
 
 
+### `TimeFormField`
+
+`TimeFormField` is a form field to enter a time of day without a date.
+The value is a wall-clock time in the format `H:i` (e.g. `08:30`) that is not subject to any time zone conversion.
+Values including seconds (`H:i:s`) are accepted, but the seconds are discarded.
+If no time has been entered, `getSaveValue()` returns `null` for nullable fields and an empty string otherwise.
+The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFormField`, `IImmutableFormField`, and `INullableFormField`.
+The following methods are specific to this form field class:
+
+- `earliestTime($earliestTime)` and `getEarliestTime()` can be used to get and set the earliest selectable/valid time and `latestTime($latestTime)` and `getLatestTime()` can be used to get and set the latest selectable/valid time.
+  Both times must be given in the format `H:i`.
+
+Example:
+
+```php
+TimeFormField::create('example')
+  ->label('foo.bar.example')
+  ->earliestTime('08:00')
+  ->latestTime('18:00')
+  ->value('12:00')
+```
+
+
 ### `TitleFormField`
 
 `TitleFormField` is a [text form field](#textformfield) with `title` as the default id and `wcf.global.title` as the default label.
