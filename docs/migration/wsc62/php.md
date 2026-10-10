@@ -347,3 +347,47 @@ Sitemap objects that are still registered through the deprecated object type def
 `wcf\acp\page\SitemapListPage` has been converted into a grid view page and now renders `wcf\system\gridView\admin\SitemapGridView`.
 The template events `headColumns`, `columns` and `contentFooterNavigation` of the template `sitemapList` have been removed.
 Additional columns are added through the PSR-14 event `wcf\event\gridView\admin\SitemapGridViewInitialized` instead.
+
+## Recent Activity Events of Guests
+
+Recent activity events now support content created by guests.
+The `userID` column of `wcf1_user_activity_event` is nullable and the new `username` column stores the name of the guest.
+
+A user id of `null` passed to `UserActivityEventHandler::fireEvent()` now denotes a guest and requires the guest's name to be passed as `username`.
+Pass the guest's name instead of skipping guests:
+
+```php
+// Previously
+if ($foo->userID !== null) {
+    UserActivityEventHandler::getInstance()->fireEvent(
+        'foo.bar.recentActivityEvent',
+        $foo->fooID,
+        null,
+        $foo->userID,
+        $foo->time
+    );
+}
+
+// Since 6.3
+UserActivityEventHandler::getInstance()->fireEvent(
+    'foo.bar.recentActivityEvent',
+    $foo->fooID,
+    null,
+    $foo->userID,
+    $foo->time,
+    username: $foo->username
+);
+```
+
+`UserActivityEventHandler::fireEvents()` accepts an optional `username` key for each event.
+
+There is no longer a fallback to the active user.
+Previously, omitting the user id or passing `null` attributed the event to the active user.
+`fireEvent()` and `fireEvents()` now throw a `\BadMethodCallException` if neither a user id nor a username is given, and `removeEvent()` no longer defaults to the active user.
+Always pass the user id explicitly, for example `WCF::getUser()->userID` if the event is triggered by the active user.
+
+Custom queries on `wcf1_user_activity_event` must take `NULL` values into account.
+A condition like `userID NOT IN (?)` excludes all events of guests and must be written as `(userID IS NULL OR userID NOT IN (?))`.
+
+Implementations of `IUserActivityEvent` that require a registered user, for example to look up the author of a comment, must handle guests.
+The `TCommentResponseUserActivityEvent` trait provides `getCommentAuthor()` that returns a guest profile for comments written by guests.

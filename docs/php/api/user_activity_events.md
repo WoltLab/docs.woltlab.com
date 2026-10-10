@@ -66,7 +66,7 @@ final class FooUserActivityEvent extends SingletonFactory implements IUserActivi
 
 ## Creating User Activity Events
 
-If a relevant object is created, you have to use `UserActivityEventHandler::fireEvent()` which expects the name of the object type, the id of the object and optionally the language id, user id and the date.
+If a relevant object is created, you have to use `UserActivityEventHandler::fireEvent()` which expects the name of the object type, the id of the object, the language id, the id of the user who created the object and the date.
 
 ```php
 UserActivityEventHandler::getInstance()->fireEvent(
@@ -77,6 +77,25 @@ UserActivityEventHandler::getInstance()->fireEvent(
     \TIME_NOW // date
 );
 ```
+
+The user id must always be passed explicitly, there is no fallback to the active user.
+A user id of `null` denotes content created by a guest, which requires the guest's name to be passed as `username`:
+
+```php
+UserActivityEventHandler::getInstance()->fireEvent(
+    'foo.bar.recentActivityEvent',
+    $foo->fooID,
+    null,
+    $foo->userID, // `null` for guests
+    $foo->time,
+    username: $foo->username
+);
+```
+
+If both the user id and the username are `null`, a `\BadMethodCallException` is thrown.
+The same applies to `UserActivityEventHandler::fireEvents()`, which accepts an optional `username` key for each event.
+
+`ViewableUserActivityEvent::getUserProfile()` returns a guest profile for these events, so they are rendered without any changes to your implementation of `IUserActivityEvent`.
 
 ## Removing User Activity Events
 
