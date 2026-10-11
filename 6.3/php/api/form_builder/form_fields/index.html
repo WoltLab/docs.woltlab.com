@@ -1355,6 +1355,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#timerangeformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TimeRangeFormField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#titleformfield" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7151,6 +7162,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#timerangeformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TimeRangeFormField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#titleformfield" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -8049,6 +8071,23 @@ The following methods are specific to this form field class:</p>
   <span class="o">-&gt;</span><span class="na">latestTime</span><span class="p">(</span><span class="s1">'18:00'</span><span class="p">)</span>
   <span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="s1">'12:00'</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="timerangeformfield"><code>TimeRangeFormField</code><a class="headerlink" href="#timerangeformfield" title="Permanent link">#</a></h3>
+<p><code>TimeRangeFormField</code> is a form field to enter a range of times of day, consisting of a start and an end time.
+Both times use the format <code>H:i</code> and are not subject to any time zone conversion, either time may be left empty.
+The two values are separated by a semicolon in the value, e.g. <code>08:00;18:00</code> or <code>08:00;</code> without an end time.
+The start time may be later than the end time, which can be used to represent a range spanning midnight, e.g. <code>21:00;09:00</code>.
+The class implements <code>IAttributeFormField</code>, <code>IAutoFocusFormField</code>, <code>ICssClassFormField</code>, <code>IImmutableFormField</code>, and <code>INullableFormField</code>.</p>
+<p>The following methods are specific to this form field class:</p>
+<ul>
+<li><code>getFromValue()</code> and <code>getToValue()</code> return the start and end time, respectively, or an empty string if the time has not been set.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">TimeRangeFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'example'</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">'foo.bar.example'</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="s1">'21:00;09:00'</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="titleformfield"><code>TitleFormField</code><a class="headerlink" href="#titleformfield" title="Permanent link">#</a></h3>
 <p><code>TitleFormField</code> is a <a href="#textformfield">text form field</a> with <code>title</code> as the default id and <code>wcf.global.title</code> as the default label.</p>
 <p>Example:</p>
@@ -8529,7 +8568,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-10-10
+    2026-10-11
   </span>
 
     
