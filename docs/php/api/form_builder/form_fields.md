@@ -480,6 +480,27 @@ TimeFormField::create('example')
 ```
 
 
+### `TimeRangeFormField`
+
+`TimeRangeFormField` is a form field to enter a range of times of day, consisting of a start and an end time.
+Both times use the format `H:i` and are not subject to any time zone conversion, either time may be left empty.
+The two values are separated by a semicolon in the value, e.g. `08:00;18:00` or `08:00;` without an end time.
+The start time may be later than the end time, which can be used to represent a range spanning midnight, e.g. `21:00;09:00`.
+The class implements `IAttributeFormField`, `IAutoFocusFormField`, `ICssClassFormField`, `IImmutableFormField`, and `INullableFormField`.
+
+The following methods are specific to this form field class:
+
+- `getFromValue()` and `getToValue()` return the start and end time, respectively, or an empty string if the time has not been set.
+
+Example:
+
+```php
+TimeRangeFormField::create('example')
+  ->label('foo.bar.example')
+  ->value('21:00;09:00')
+```
+
+
 ### `TitleFormField`
 
 `TitleFormField` is a [text form field](#textformfield) with `title` as the default id and `wcf.global.title` as the default label.
