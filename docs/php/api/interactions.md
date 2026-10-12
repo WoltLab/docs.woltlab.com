@@ -256,6 +256,18 @@ new LinkInteraction(
 )
 ```
 
+`BulkLinkInteraction` links to the given controller and passes the ids of the selected objects in the `ids` parameter.
+Additional parameters of the link can be passed as the last parameter.
+
+```php
+new BulkLinkInteraction(
+    'id',
+    ExampleForm::class,
+    'label',
+    parameters: ['foo' => 'bar']
+)
+```
+
 ### `RestoreInteraction`
 
 Uses an RPC endpoint to restore an object after a confirmation prompt.

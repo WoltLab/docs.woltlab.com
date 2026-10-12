@@ -332,6 +332,38 @@ class ExampleGridView extends AbstractGridView
 }
 ```
 
+### Column Visibility
+
+Columns can be hidden by default using the `hidden` method.
+If the grid view is column configurable, the user can select the visible columns through a dialog in the filter bar, which also allows to show the columns that are hidden by default.
+
+```php
+class ExampleGridView extends AbstractGridView
+{
+    public function __construct()
+    {
+        $this->addColumns([
+            GridViewColumn::for('title')
+                ->label('wcf.global.title')
+                ->titleColumn(),
+            GridViewColumn::for('time')
+                ->label('wcf.global.date')
+                ->renderer(new TimeColumnRenderer()),
+            GridViewColumn::for('views')
+                ->label('wcf.example.views')
+                ->renderer(new NumberColumnRenderer())
+                ->hidden(),
+        ]);
+
+        $this->setColumnConfigurable();
+    }
+}
+```
+
+The title column (see `titleColumn()`) is always visible and cannot be hidden by the user.
+The selected columns are not persisted, but they are part of the URL of the page (`columns[]` parameter).
+In grid views that are not column configurable, hidden columns are never shown.
+
 
 ### Additional Parameters
 

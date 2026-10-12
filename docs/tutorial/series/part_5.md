@@ -33,6 +33,8 @@ The package will have the following file structure _excluding_ unchanged files f
 │   │           └── Controller
 │   │               └── Person.js
 │   └── lib
+│       ├── bootstrap
+│       │   └── com.woltlab.wcf.people.php
 │       ├── data
 │       │   └── person
 │       │       ├── Person.class.php
@@ -216,22 +218,16 @@ filepath="tutorial/tutorial-series/part-5/files/lib/system/worker/PersonRebuildD
 
 As we store the name of the user who create a new piece of information and store their IP address, we have to add event listeners to properly handle the following scenarios:
 
-1. If the user is renamed, the value of `username` stored with the person information has to be updated, which can be achieved by a simple event listener that only has to specify the name of relevant database table if `AbstractUserActionRenameListener` is extended:
-
-    {jinja{ codebox(
-        title="files/lib/system/event/listener/PersonUserActionRenameListener.class.php",
-        language="php",
-        filepath="tutorial/tutorial-series/part-5/files/lib/system/event/listener/PersonUserActionRenameListener.class.php"
-    ) }}
-2. If users are merged, all pieces of information need to be assigned to the target user of the merging.
-  Again, we only have to specify the name of relevant database table if `AbstractUserMergeListener` is extended:
+1. If the user is renamed, the value of `username` stored with the person information has to be updated.
+  If users are merged, all pieces of information need to be assigned to the target user of the merging.
+  Both are handled by event listeners for the `UserRenamed` and `UsersMerging` events in the bootstrap script that only have to specify the name of the relevant database table and the column containing the username:
 
    {jinja{ codebox(
-       title="files/lib/system/event/listener/PersonUserMergeListener.class.php",
+       title="files/lib/bootstrap/com.woltlab.wcf.people.php",
        language="php",
-       filepath="tutorial/tutorial-series/part-5/files/lib/system/event/listener/PersonUserMergeListener.class.php"
+       filepath="tutorial/tutorial-series/part-5/files/lib/bootstrap/com.woltlab.wcf.people.php"
    ) }}
-3. If the option to prune stored ip addresses after a certain period of time is enabled, we also have to prune them in the person information database table.
+2. If the option to prune stored ip addresses after a certain period of time is enabled, we also have to prune them in the person information database table.
   Here we also only have to specify the name of the relevant database table and provide the mapping from the `ipAddress` column to the `time` column:
 
    {jinja{ codebox(
@@ -239,7 +235,7 @@ As we store the name of the user who create a new piece of information and store
        language="php",
        filepath="tutorial/tutorial-series/part-5/files/lib/system/event/listener/PersonPruneIpAddressesCronjobListener.class.php"
    ) }}
-4. The ip addresses in the person information database table also have to be considered for the user data export which can also be done with minimal effort by providing the name of the relevant database table:
+3. The ip addresses in the person information database table also have to be considered for the user data export which can also be done with minimal effort by providing the name of the relevant database table:
 
    {jinja{ codebox(
        title="files/lib/system/event/listener/PersonUserExportGdprListener.class.php",
@@ -247,7 +243,7 @@ As we store the name of the user who create a new piece of information and store
        filepath="tutorial/tutorial-series/part-5/files/lib/system/event/listener/PersonUserExportGdprListener.class.php"
    ) }}
 
-Lastly, we present the updated `eventListener.xml` file with new entries for all of these event listeners:
+Lastly, we present the updated `eventListener.xml` file with new entries for the remaining event listeners:
 
 {jinja{ codebox(
   title="eventListener.xml",

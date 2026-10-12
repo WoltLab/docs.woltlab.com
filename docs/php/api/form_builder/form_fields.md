@@ -433,6 +433,26 @@ SingleSelectionFormField::create('example')
 ```
 
 
+### `SocialMediaFormField`
+
+`SocialMediaFormField` is a [text form field](#textformfield) to enter the name of a social media profile.
+If the link to the profile is entered instead, only the profile name is kept.
+The following methods are specific to this form field class:
+
+- `profileNamePattern($profileNamePattern)` and `getProfileNamePattern()` can be used to set and get a regular expression without delimiters that the profile name has to match.
+- `profileUrlPattern($profileUrlPattern)` and `getProfileUrlPattern()` can be used to set and get the URL of the profile, `%s` is replaced with the profile name.
+  The pattern is used to extract the profile name if a link to the profile is entered.
+
+Example:
+
+```php
+SocialMediaFormField::create('example')
+  ->label('foo.bar.example')
+  ->profileNamePattern('^[A-Za-z0-9_]+$')
+  ->profileUrlPattern('https://x.com/%s')
+```
+
+
 ### `SortOrderFormField`
 
 `SingleSelectionFormField` is a [single selection form field](#singleselectionformfield) with default id `sortOrder`, default label `wcf.global.showOrder` and default options `ASC: wcf.global.sortOrder.ascending` and `DESC: wcf.global.sortOrder.descending`.
@@ -514,7 +534,7 @@ TitleFormField::create()
 
 ### `UrlFormField`
 
-`UrlFormField` is a [text form field](#textformfield) whose values are checked via `Url::is()`.
+`UrlFormField` is a [text form field](#textformfield) whose values must be absolute URLs using the `http` or `https` scheme.
 
 Example:
 

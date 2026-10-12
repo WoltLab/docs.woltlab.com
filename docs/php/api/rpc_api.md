@@ -125,6 +125,20 @@ The attribute expects a single parameter to define the endpoint’s route.
 
 The route implementation uses [FastRoute](https://github.com/nikic/FastRoute) which supports named placeholders through the `{name}` syntax. Optionally, a validation pattern can be specified to further narrow down the valid value of the placeholder: `{id:\d+}`
 
+### Availability During “Force Login”
+
+If the “force login” option is enabled, guests and users awaiting activation are not permitted to access any endpoints and receive a `403 Permission Denied` response with the code `force_login`.
+Endpoints that are required before logging in, for example to support the registration process, can opt out of this restriction using the `wcf\system\endpoint\AvailableDuringForceLogin` class attribute.
+
+```php
+#[PostRequest('/core/users/validate-username')]
+#[AvailableDuringForceLogin]
+final class ValidateUsername implements IController
+{
+    // …
+}
+```
+
 ### Registering of an Endpoint
 
 Custom endpoints can be registered via the `ControllerCollecting` event in the [bootstrap script](../../package/bootstrap-scripts.md) of a package.

@@ -107,6 +107,8 @@ It cannot be used together with `forUpdate()`.
 `setCustomProperty(string $name, string|int|float|null $value)` writes an arbitrary column that has no dedicated setter.
 This is primarily used to let third-party packages persist columns they added to the table, for example the `additionalFields` collected by a form (see [Use case: Form Builder forms](#use-case-form-builder-forms)).
 
+`incrementCustomProperty(string $name, int|float $value)` is the equivalent for counter columns without a dedicated increment method, the value is added to the current value of the column (see [Incrementing counters](#incrementing-counters)).
+
 
 ## Implementing a Builder
 
