@@ -1322,6 +1322,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#socialmediaformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SocialMediaFormField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sortorderformfield" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7129,6 +7140,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#socialmediaformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SocialMediaFormField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sortorderformfield" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -8036,6 +8058,24 @@ If the field is nullable and the current form field value is considered <code>em
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">SingleSelectionFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'example'</span><span class="p">)</span>
   <span class="o">-&gt;</span><span class="na">options</span><span class="p">([</span><span class="s1">'option1'</span><span class="p">,</span> <span class="s1">'option2'</span><span class="p">,</span> <span class="s1">'option3'</span><span class="p">])</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="socialmediaformfield"><code>SocialMediaFormField</code><a class="headerlink" href="#socialmediaformfield" title="Permanent link">#</a></h3>
+<p><code>SocialMediaFormField</code> is a <a href="#textformfield">text form field</a> to enter the name of a social media profile.
+If the link to the profile is entered instead, only the profile name is kept.
+The following methods are specific to this form field class:</p>
+<ul>
+<li><code>profileNamePattern($profileNamePattern)</code> and <code>getProfileNamePattern()</code> can be used to set and get a regular expression without delimiters that the profile name has to match.</li>
+<li><code>profileUrlPattern($profileUrlPattern)</code> and <code>getProfileUrlPattern()</code> can be used to set and get the URL of the profile, <code>%s</code> is replaced with the profile name.
+  The pattern is used to extract the profile name if a link to the profile is entered.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">SocialMediaFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'example'</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">'foo.bar.example'</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">profileNamePattern</span><span class="p">(</span><span class="s1">'^[A-Za-z0-9_]+$'</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">profileUrlPattern</span><span class="p">(</span><span class="s1">'https://x.com/%s'</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="sortorderformfield"><code>SortOrderFormField</code><a class="headerlink" href="#sortorderformfield" title="Permanent link">#</a></h3>
 <p><code>SingleSelectionFormField</code> is a <a href="#singleselectionformfield">single selection form field</a> with default id <code>sortOrder</code>, default label <code>wcf.global.showOrder</code> and default options <code>ASC: wcf.global.sortOrder.ascending</code> and <code>DESC: wcf.global.sortOrder.descending</code>.</p>
 <p>Example:</p>
@@ -8094,7 +8134,7 @@ The class implements <code>IAttributeFormField</code>, <code>IAutoFocusFormField
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">TitleFormField</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="urlformfield"><code>UrlFormField</code><a class="headerlink" href="#urlformfield" title="Permanent link">#</a></h3>
-<p><code>UrlFormField</code> is a <a href="#textformfield">text form field</a> whose values are checked via <code>Url::is()</code>.</p>
+<p><code>UrlFormField</code> is a <a href="#textformfield">text form field</a> whose values must be absolute URLs using the <code>http</code> or <code>https</code> scheme.</p>
 <p>Example:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">UrlFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'example'</span><span class="p">)</span>
@@ -8568,7 +8608,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-10-11
+    2026-10-12
   </span>
 
     

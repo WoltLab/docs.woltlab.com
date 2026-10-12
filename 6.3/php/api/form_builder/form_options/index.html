@@ -1080,6 +1080,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#abstractformoptionbuilderform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AbstractFormOptionBuilderForm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#iformoption" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5934,6 +5945,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#abstractformoptionbuilderform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AbstractFormOptionBuilderForm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#iformoption" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5978,9 +6000,11 @@
 <h1 id="form-options">Form Options<a class="headerlink" href="#form-options" title="Permanent link">#</a></h1>
 <p>Form options are the successor to the custom options that were previously used by the contact form and some other implementations.
 They offer a foundation for use cases where administrators need to set up custon form fields for users to provide data to.
-Built on top of the form builder they can be combined with any existing implementation by changing the base implementation to <code>AbstractFormOptionAddForm</code>.</p>
+Built on top of the form builder they can be combined with any existing implementation by changing the base implementation to <code>AbstractFormOptionAddForm</code> or <code>AbstractFormOptionBuilderForm</code>.</p>
 <p>This features ship with a wide area of premade form fields that have been fully configured with configuration settings and formatting options.
-Additional form option types can be added through plugins utilizing the <code>wcf\event\form\option\SharedConfigurationFormFieldCollecting</code> event.</p>
+Additional form option types can be added through plugins utilizing the <code>wcf\event\form\option\FormOptionCollecting</code> event.
+Additional configuration form fields that are shared between form option types can be added through the <code>wcf\event\form\option\SharedConfigurationFormFieldCollecting</code> event.</p>
+<p>Since version 6.3, user options are also based on form options.</p>
 <h2 id="abstractformoptionaddform"><code>AbstractFormOptionAddForm</code><a class="headerlink" href="#abstractformoptionaddform" title="Permanent link">#</a></h2>
 <p>This is the primary building block for integrating form options with any form builder form.
 It offers a wide variety of customization options and does not force developers into a specific workflow but at the same time the process of storing the options and managing database columns is up to the implementers themselves.</p>
@@ -6014,9 +6038,36 @@ It offers a wide variety of customization options and does not force developers 
     <span class="p">]);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="abstractformoptionbuilderform"><code>AbstractFormOptionBuilderForm</code><a class="headerlink" href="#abstractformoptionbuilderform" title="Permanent link">#</a></h2>
+<p>Since version 6.3, <code>AbstractFormOptionBuilderForm</code> provides the same functionality for forms based on <code>AbstractDatabaseObjectBuilderForm</code> that persist the options through a <a href="../../../database-object-builder/">database object builder</a>.
+The shared logic of both forms is provided by the <code>wcf\acp\form\TFormOptionAddForm</code> trait.</p>
+<p>The option type form field and the configuration form fields have to be appended in <code>createForm()</code> in the same way as for <code>AbstractFormOptionAddForm</code>.
+The values of the configuration form fields that apply to the selected option type are collected automatically and passed to <code>applyOptionType()</code>, which needs to write them into the builder.
+When editing an option, the configuration form fields are populated from the JSON-encoded <code>configuration</code> property of the object.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+<span class="k">protected</span> <span class="k">function</span> <span class="nf">applyOptionType</span><span class="p">(</span><span class="nx">DatabaseObjectBuilder</span> <span class="nv">$builder</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$optionType</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$configuration</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
+<span class="p">{</span>
+    <span class="nx">\assert</span><span class="p">(</span><span class="nv">$builder</span> <span class="nx">instanceof</span> <span class="nx">FooOptionBuilder</span><span class="p">);</span>
+
+    <span class="nv">$builder</span>
+        <span class="o">-&gt;</span><span class="na">setOptionType</span><span class="p">(</span><span class="nv">$optionType</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">setConfiguration</span><span class="p">(</span><span class="nv">$configuration</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The option types offered by the type selection can be customized by overriding <code>getAvailableFormOptions()</code> (all supported types) and <code>getSelectableFormOptions()</code> (types that can be selected for new options).</p>
 <h2 id="iformoption"><code>IFormOption</code><a class="headerlink" href="#iformoption" title="Permanent link">#</a></h2>
 <p>Apart from the list of predefined form options that ship with the software, developers can add own implementations that will be available with every form that is build on top of <code>AbstractFormOptionAddForm</code>.
-It offers a seamless integration into list views and grid views through <code>getFilterFormField()</code>, <code>renderFilterValue()</code> and <code>applyFilter()</code>.</p>
+It offers a seamless integration into list views and grid views through <code>getFilterFormField()</code>, <code>renderFilterValue()</code> and <code>applyFilter()</code>.
+Since version 6.3, <code>matchesFilterValue()</code> is the equivalent of <code>applyFilter()</code> for a single value and is used by object filters, <code>AbstractFormOption</code> provides a default implementation that compares the values for equality.
+The column used to store the values is defined by <code>getDatabaseTableColumn()</code>, which is also used to create the columns of user options.</p>
 <p>For a full documentation of the required methods please see the <code>IFormOption</code> interface.</p>
 <h2 id="reference-implementation">Reference Implementation<a class="headerlink" href="#reference-implementation" title="Permanent link">#</a></h2>
 <p>The actual implementation in the frontend is a bit more difficult because the API only provides the fields and ways to interact with the field but does not predetermines how they are being used.</p>
@@ -6026,6 +6077,12 @@ It offers a seamless integration into list views and grid views through <code>ge
 <li><code>wcf\data\contact\option\ContactOption</code> implements <code>getFormOption()</code> and <code>getConfiguration()</code> to work with form options.</li>
 <li><code>wcf\form\ContactForm</code> creates the form fields from the options in <code>getOptionFormFields()</code>.</li>
 <li><code>wcf\command\contact\form\SubmitContactForm</code> converts the values from the user input to the formatted versions in <code>getFormattedOptionValues()</code> for use in HTML and plaintext emails.</li>
+</ul>
+<p>The user options are an example of an implementation based on <code>AbstractFormOptionBuilderForm</code>:</p>
+<ul>
+<li><code>wcf\acp\form\UserOptionAddForm</code> manages adding of user options.</li>
+<li><code>wcf\data\user\option\UserOption</code> implements <code>getFormOption()</code>, <code>getConfiguration()</code> and <code>getFormattedValue()</code>.</li>
+<li><code>wcf\system\form\option\user\TUserOptionFormFields</code> creates the form fields from the user options.</li>
 </ul>
 
 
@@ -6047,7 +6104,7 @@ It offers a seamless integration into list views and grid views through <code>ge
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2025-10-11
+    2026-10-12
   </span>
 
     

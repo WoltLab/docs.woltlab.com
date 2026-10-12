@@ -6356,6 +6356,12 @@
 <td>Executes the cronjob with the given ID.</td>
 </tr>
 <tr>
+<td>SetLanguage</td>
+<td>Post</td>
+<td>/core/devtools/set-language</td>
+<td>Sets the language of the active user in the developer tools.</td>
+</tr>
+<tr>
 <td>RenderException</td>
 <td>Get</td>
 <td>/core/exceptions/{id:[a-f0-9]{40}}/render</td>
@@ -6854,10 +6860,142 @@
 <td>Deletes the user rank with the given ID.</td>
 </tr>
 <tr>
+<td>RenderSignaturePreview</td>
+<td>Post</td>
+<td>/core/users/signature/preview</td>
+<td>Renders a preview of the signature of the active user.</td>
+</tr>
+<tr>
 <td>DeleteUserTrophy</td>
 <td>Delete</td>
 <td>/core/users/trophies/{id:\d+}</td>
 <td>Deletes the user trophy with the given ID.</td>
+</tr>
+<tr>
+<td>SaveUserConsent</td>
+<td>Post</td>
+<td>/core/users/user-consent</td>
+<td>Saves the consent of the active user to load external media.</td>
+</tr>
+<tr>
+<td>ValidateEmail</td>
+<td>Post</td>
+<td>/core/users/validate-email</td>
+<td>Validates an email address for the registration, also available while the “force login” option is enabled.</td>
+</tr>
+<tr>
+<td>ValidateUsername</td>
+<td>Post</td>
+<td>/core/users/validate-username</td>
+<td>Validates a username for the registration, also available while the “force login” option is enabled.</td>
+</tr>
+<tr>
+<td>DeleteUser</td>
+<td>Delete</td>
+<td>/core/users/{id:\d+}</td>
+<td>Deletes the user with the given ID.</td>
+</tr>
+<tr>
+<td>GetUserActivityPointList</td>
+<td>Get</td>
+<td>/core/users/{id:\d+}/activity-points</td>
+<td>Retrieves the HTML code of the detailed activity points of the user with the given ID.</td>
+</tr>
+<tr>
+<td>GetAdminUserProfileHeader</td>
+<td>Get</td>
+<td>/core/users/{id:\d+}/admin-profile-header</td>
+<td>Retrieves the HTML code of the profile header of the user with the given ID in the ACP.</td>
+</tr>
+<tr>
+<td>ConfirmUserEmail</td>
+<td>Post</td>
+<td>/core/users/{id:\d+}/confirm-email</td>
+<td>Confirms the email address of the user with the given ID.</td>
+</tr>
+<tr>
+<td>DisableUser</td>
+<td>Post</td>
+<td>/core/users/{id:\d+}/disable</td>
+<td>Disables the user with the given ID.</td>
+</tr>
+<tr>
+<td>DisableUserMultifactor</td>
+<td>Post</td>
+<td>/core/users/{id:\d+}/disable-multifactor</td>
+<td>Disables the multi-factor authentication of the user with the given ID.</td>
+</tr>
+<tr>
+<td>DisconnectThirdPartyLogin</td>
+<td>Post</td>
+<td>/core/users/{id:\d+}/disconnect-third-party-login</td>
+<td>Disconnects the third party login of the user with the given ID.</td>
+</tr>
+<tr>
+<td>EnableUser</td>
+<td>Post</td>
+<td>/core/users/{id:\d+}/enable</td>
+<td>Enables the user with the given ID.</td>
+</tr>
+<tr>
+<td>EnableUserAvatar</td>
+<td>Post</td>
+<td>/core/users/{id:\d+}/enable-avatar</td>
+<td>Enables the avatar of the user with the given ID.</td>
+</tr>
+<tr>
+<td>EnableUserCoverPhoto</td>
+<td>Post</td>
+<td>/core/users/{id:\d+}/enable-cover-photo</td>
+<td>Enables the cover photo of the user with the given ID.</td>
+</tr>
+<tr>
+<td>EnableUserSignature</td>
+<td>Post</td>
+<td>/core/users/{id:\d+}/enable-signature</td>
+<td>Enables the signature of the user with the given ID.</td>
+</tr>
+<tr>
+<td>GetUserPopover</td>
+<td>Get</td>
+<td>/core/users/{id:\d+}/popover</td>
+<td>Retrieves the HTML code for the popover of the user with the given ID.</td>
+</tr>
+<tr>
+<td>RenderUserProfileMenuContent</td>
+<td>Get</td>
+<td>/core/users/{id:\d+}/profile-menu-content</td>
+<td>Retrieves the HTML code of a user profile tab of the user with the given ID.</td>
+</tr>
+<tr>
+<td>RenderUserReactions</td>
+<td>Get</td>
+<td>/core/users/{id:\d+}/reactions/render</td>
+<td>Retrieves the HTML code for the rendering of the list of reactions for a user profile.</td>
+</tr>
+<tr>
+<td>ResendActivationMail</td>
+<td>Post</td>
+<td>/core/users/{id:\d+}/resend-activation-mail</td>
+<td>Resends the activation mail to the user with the given ID.</td>
+</tr>
+<tr>
+<td>SendNewPassword</td>
+<td>Post</td>
+<td>/core/users/{id:\d+}/send-new-password</td>
+<td>Sends a new password to the user with the given ID.</td>
+</tr>
+<tr>
+<td>UnbanUser</td>
+<td>Post</td>
+<td>/core/users/{id:\d+}/unban</td>
+<td>Unbans the user with the given ID.</td>
+</tr>
+<tr>
+<td>UnconfirmUserEmail</td>
+<td>Post</td>
+<td>/core/users/{id:\d+}/unconfirm-email</td>
+<td>Unconfirms the email address of the user with the given ID.</td>
 </tr>
 <tr>
 <td>RevertVersion</td>
@@ -6929,7 +7067,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-09-09
+    2026-10-12
   </span>
 
     

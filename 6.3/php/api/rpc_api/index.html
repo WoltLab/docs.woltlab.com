@@ -1515,6 +1515,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#availability-during-force-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Availability During “Force Login”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#registering-of-an-endpoint" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6346,6 +6357,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#availability-during-force-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Availability During “Force Login”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#registering-of-an-endpoint" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6607,6 +6629,21 @@ The file name should reflect the action itself, following the pattern <code>&lt;
 The attribute expects a single parameter to define the endpoint’s route.</p>
 <h4 id="placeholders">Placeholders<a class="headerlink" href="#placeholders" title="Permanent link">#</a></h4>
 <p>The route implementation uses <a href="https://github.com/nikic/FastRoute">FastRoute</a> which supports named placeholders through the <code>{name}</code> syntax. Optionally, a validation pattern can be specified to further narrow down the valid value of the placeholder: <code>{id:\d+}</code></p>
+<h3 id="availability-during-force-login">Availability During “Force Login”<a class="headerlink" href="#availability-during-force-login" title="Permanent link">#</a></h3>
+<p>If the “force login” option is enabled, guests and users awaiting activation are not permitted to access any endpoints and receive a <code>403 Permission Denied</code> response with the code <code>force_login</code>.
+Endpoints that are required before logging in, for example to support the registration process, can opt out of this restriction using the <code>wcf\system\endpoint\AvailableDuringForceLogin</code> class attribute.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">#[</span><span class="nd">PostRequest</span><span class="p">(</span><span class="s1">'/core/users/validate-username'</span><span class="p">)]</span>
+<span class="p">#[</span><span class="nd">AvailableDuringForceLogin</span><span class="p">]</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">ValidateUsername</span> <span class="k">implements</span> <span class="nx">IController</span>
+<span class="p">{</span>
+    <span class="c1">// …</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="registering-of-an-endpoint">Registering of an Endpoint<a class="headerlink" href="#registering-of-an-endpoint" title="Permanent link">#</a></h3>
 <p>Custom endpoints can be registered via the <code>ControllerCollecting</code> event in the <a href="../../../package/bootstrap-scripts/">bootstrap script</a> of a package.</p>
 <p>Example:</p>
@@ -6661,7 +6698,7 @@ Afterwards the object is tested to have a non-falsy object id, otherwise a <code
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2025-11-25
+    2026-10-12
   </span>
 
     

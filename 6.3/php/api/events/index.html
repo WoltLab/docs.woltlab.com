@@ -6718,8 +6718,40 @@ No interface has to be implemented in this case.</p>
 <td>Indicates that a registration by a new user is currently validated. If $matches is not empty, the registration is considered to be a spammer or an undesirable user.</td>
 </tr>
 <tr>
+<td><code>wcf\event\user\UserAvatarLoading</code></td>
+<td>Indicates that the avatar of a user without an uploaded avatar is being loaded. Allows to provide a custom avatar, the default avatar is used if no avatar is set.</td>
+</tr>
+<tr>
+<td><code>wcf\event\user\UserCreated</code></td>
+<td>Indicates that a user has been created.</td>
+</tr>
+<tr>
+<td><code>wcf\event\user\UserDeleted</code></td>
+<td>Indicates that a user has been deleted.</td>
+</tr>
+<tr>
+<td><code>wcf\event\user\UserEmailConfirmationChecking</code></td>
+<td>Indicates that it is being checked whether the active user can confirm or unconfirm the email address of a user.</td>
+</tr>
+<tr>
+<td><code>wcf\event\user\UserPrivacySettingChecking</code></td>
+<td>Indicates that a privacy setting of a user is being checked for another user, e.g. whether the online status is visible to the viewer.</td>
+</tr>
+<tr>
+<td><code>wcf\event\user\UserRenamed</code></td>
+<td>Indicates that a user has been renamed. Allows to register database columns containing the username that are updated automatically.</td>
+</tr>
+<tr>
+<td><code>wcf\event\user\UserUpdated</code></td>
+<td>Indicates that a user has been updated.</td>
+</tr>
+<tr>
 <td><code>wcf\event\user\UsernameValidating</code></td>
 <td>Indicates that a username is currently validated. If this event is interrupted, the username is considered to be invalid. This event will not be fired for usernames changed by an administrator.</td>
+</tr>
+<tr>
+<td><code>wcf\event\user\UsersMerging</code></td>
+<td>Indicates that users are being merged into another user. Allows to register database columns referencing users that are reassigned automatically.</td>
 </tr>
 <tr>
 <td><code>wcf\event\user\authentication\UserLoggedIn</code></td>
@@ -6732,6 +6764,14 @@ No interface has to be implemented in this case.</p>
 <tr>
 <td><code>wcf\event\user\menu\item\IconResolving</code></td>
 <td>Resolves the icon of a user menu item.</td>
+</tr>
+<tr>
+<td><code>wcf\event\user\option\category\UserOptionCategoryCreated</code></td>
+<td>Indicates that a user option category has been created.</td>
+</tr>
+<tr>
+<td><code>wcf\event\user\option\category\UserOptionCategoryUpdated</code></td>
+<td>Indicates that a user option category has been updated.</td>
 </tr>
 <tr>
 <td><code>wcf\event\worker\RebuildWorkerCollecting</code></td>
@@ -6759,7 +6799,7 @@ No interface has to be implemented in this case.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-09-09
+    2026-10-12
   </span>
 
     
