@@ -391,3 +391,81 @@ A condition like `userID NOT IN (?)` excludes all events of guests and must be w
 
 Implementations of `IUserActivityEvent` that require a registered user, for example to look up the author of a comment, must handle guests.
 The `TCommentResponseUserActivityEvent` trait provides `getCommentAuthor()` that returns a guest profile for comments written by guests.
+
+## User Merging
+
+The ACP form `wcf\acp\form\UserMergeForm` has been replaced by a dialog of the bulk interactions in the user list, the users are merged by the command `wcf\command\user\MergeUsers`.
+`UserMergeForm` and `wcf\system\event\listener\AbstractUserMergeListener` are deprecated.
+Event listeners for the `save` event of `UserMergeForm` are still executed, but should be migrated.
+
+The PSR-14 event `wcf\event\user\UsersMerging` is fired before the merged users are deleted.
+Instead of extending `AbstractUserMergeListener`, a bootstrap script registers the database columns that reference users through `UsersMerging::reassignUserColumn()`.
+Unlike `AbstractUserMergeListener`, the column containing the username is not updated unless it is explicitly passed as `usernameColumn`.
+
+```php
+// Previously
+class FooUserMergeListener extends AbstractUserMergeListener
+{
+    protected $databaseTables = [
+        'foo1_foo',
+        [
+            'name' => 'foo1_foo',
+            'userID' => 'editorID',
+            'username' => 'editor',
+        ],
+        [
+            'name' => 'foo1_bar',
+            'username' => null,
+            'ignore' => true,
+        ],
+    ];
+}
+
+// Since 6.3
+EventHandler::getInstance()->register(
+    \wcf\event\user\UsersMerging::class,
+    static function (\wcf\event\user\UsersMerging $event) {
+        $event->reassignUserColumn('foo1_foo', usernameColumn: 'username');
+        $event->reassignUserColumn('foo1_foo', 'editorID', 'editor');
+        $event->reassignUserColumn('foo1_bar', ignore: true);
+    }
+);
+```
+
+The registered columns are updated after all event listeners have been executed.
+Listeners that need to perform other changes can access the destination user and the merged users through the properties `destinationUser` and `mergedUsers` of the event.
+
+## User Renaming
+
+Users are renamed through the command `wcf\command\user\UpdateUser`, which fires the PSR-14 event `wcf\event\user\UserRenamed`.
+`wcf\system\event\listener\AbstractUserActionRenameListener` is deprecated.
+Event listeners for the `rename` event of `wcf\data\user\UserAction` are still executed, but should be migrated.
+
+Instead of extending `AbstractUserActionRenameListener`, a bootstrap script registers the database columns containing the username through `UserRenamed::updateUsernameColumn()`.
+
+```php
+// Previously
+class FooUserActionRenameListener extends AbstractUserActionRenameListener
+{
+    protected $databaseTables = [
+        'foo1_foo',
+        [
+            'name' => 'foo1_foo',
+            'userID' => 'editorID',
+            'username' => 'editor',
+        ],
+    ];
+}
+
+// Since 6.3
+EventHandler::getInstance()->register(
+    \wcf\event\user\UserRenamed::class,
+    static function (\wcf\event\user\UserRenamed $event) {
+        $event->updateUsernameColumn('foo1_foo');
+        $event->updateUsernameColumn('foo1_foo', 'editorID', 'editor');
+    }
+);
+```
+
+The registered columns are updated after all event listeners have been executed.
+Listeners that need to perform other changes can access the renamed user and the previous username through the properties `user` and `oldUsername` of the event.

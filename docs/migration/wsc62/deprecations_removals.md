@@ -126,6 +126,10 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\notice\NoticeEditor`
 - `wcf\data\ad\AdAction`
 - `wcf\data\ad\AdEditor`
+- `wcf\acp\form\UserMergeForm`
+- `wcf\system\event\listener\AbstractUserMergeListener`
+- `wcf\system\event\listener\AbstractUserActionRenameListener`
+- `wcf\data\user\UserEditor`
 
 #### Methods
 
