@@ -82,6 +82,7 @@
 | DisableCronjob | Post | /core/cronjobs/{id:\d+}/disable  | Disables the cronjob with the given ID. |
 | EnableCronjob | Post | /core/cronjobs/{id:\d+}/enable  | Enables the cronjob with the given ID. |
 | ExecuteCronjob | Post | /core/cronjobs/{id:\d+}/execute  | Executes the cronjob with the given ID. |
+| SetLanguage | Post | /core/devtools/set-language  | Sets the language of the active user in the developer tools. |
 | RenderException | Get | /core/exceptions/{id:[a-f0-9]{40}}/render  | Retrieves the HTML code for the rendering of the exception log entry with the given ID. |
 | PrepareUpload | Post | /core/files/upload  | Prepares the upload of a file. |
 | SaveChunk | Post | /core/files/upload/{identifier}/chunk/{sequenceNo:\d+}  | Reads a chunk of a file upload. |
@@ -165,7 +166,29 @@
 | DisableOption | Post | /core/users/options/{id:\d+}/disable  | Disables the user option with the given ID. |
 | EnableOption | Post | /core/users/options/{id:\d+}/enable  | Enables the user option with the given ID. |
 | DeleteUserRank | Delete | /core/users/ranks/{id:\d+}  | Deletes the user rank with the given ID. |
+| RenderSignaturePreview | Post | /core/users/signature/preview  | Renders a preview of the signature of the active user. |
 | DeleteUserTrophy | Delete | /core/users/trophies/{id:\d+}  | Deletes the user trophy with the given ID. |
+| SaveUserConsent | Post | /core/users/user-consent  | Saves the consent of the active user to load external media. |
+| ValidateEmail | Post | /core/users/validate-email  | Validates an email address for the registration, also available while the “force login” option is enabled. |
+| ValidateUsername | Post | /core/users/validate-username  | Validates a username for the registration, also available while the “force login” option is enabled. |
+| DeleteUser | Delete | /core/users/{id:\d+}  | Deletes the user with the given ID. |
+| GetUserActivityPointList | Get | /core/users/{id:\d+}/activity-points  | Retrieves the HTML code of the detailed activity points of the user with the given ID. |
+| GetAdminUserProfileHeader | Get | /core/users/{id:\d+}/admin-profile-header  | Retrieves the HTML code of the profile header of the user with the given ID in the ACP. |
+| ConfirmUserEmail | Post | /core/users/{id:\d+}/confirm-email  | Confirms the email address of the user with the given ID. |
+| DisableUser | Post | /core/users/{id:\d+}/disable  | Disables the user with the given ID. |
+| DisableUserMultifactor | Post | /core/users/{id:\d+}/disable-multifactor  | Disables the multi-factor authentication of the user with the given ID. |
+| DisconnectThirdPartyLogin | Post | /core/users/{id:\d+}/disconnect-third-party-login  | Disconnects the third party login of the user with the given ID. |
+| EnableUser | Post | /core/users/{id:\d+}/enable  | Enables the user with the given ID. |
+| EnableUserAvatar | Post | /core/users/{id:\d+}/enable-avatar  | Enables the avatar of the user with the given ID. |
+| EnableUserCoverPhoto | Post | /core/users/{id:\d+}/enable-cover-photo  | Enables the cover photo of the user with the given ID. |
+| EnableUserSignature | Post | /core/users/{id:\d+}/enable-signature  | Enables the signature of the user with the given ID. |
+| GetUserPopover | Get | /core/users/{id:\d+}/popover  | Retrieves the HTML code for the popover of the user with the given ID. |
+| RenderUserProfileMenuContent | Get | /core/users/{id:\d+}/profile-menu-content  | Retrieves the HTML code of a user profile tab of the user with the given ID. |
+| RenderUserReactions | Get | /core/users/{id:\d+}/reactions/render  | Retrieves the HTML code for the rendering of the list of reactions for a user profile. |
+| ResendActivationMail | Post | /core/users/{id:\d+}/resend-activation-mail  | Resends the activation mail to the user with the given ID. |
+| SendNewPassword | Post | /core/users/{id:\d+}/send-new-password  | Sends a new password to the user with the given ID. |
+| UnbanUser | Post | /core/users/{id:\d+}/unban  | Unbans the user with the given ID. |
+| UnconfirmUserEmail | Post | /core/users/{id:\d+}/unconfirm-email  | Unconfirms the email address of the user with the given ID. |
 | RevertVersion | Post | /core/version-trackers/revert  | Reverts a version tracker object to a previous version. |
 | GetFilePopover | Get | /filebase/files/{id:\d+}/popover  | Retrieves the HTML code for the popover of the filebase file with the given ID. |
 | DeleteLicense | Delete | /filebase/licenses/{id:\d+}  | Deletes the filebase license with the given ID. |

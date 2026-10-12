@@ -2,10 +2,13 @@
 
 Form options are the successor to the custom options that were previously used by the contact form and some other implementations.
 They offer a foundation for use cases where administrators need to set up custon form fields for users to provide data to.
-Built on top of the form builder they can be combined with any existing implementation by changing the base implementation to `AbstractFormOptionAddForm`.
+Built on top of the form builder they can be combined with any existing implementation by changing the base implementation to `AbstractFormOptionAddForm` or `AbstractFormOptionBuilderForm`.
 
 This features ship with a wide area of premade form fields that have been fully configured with configuration settings and formatting options.
-Additional form option types can be added through plugins utilizing the `wcf\event\form\option\SharedConfigurationFormFieldCollecting` event.
+Additional form option types can be added through plugins utilizing the `wcf\event\form\option\FormOptionCollecting` event.
+Additional configuration form fields that are shared between form option types can be added through the `wcf\event\form\option\SharedConfigurationFormFieldCollecting` event.
+
+Since version 6.3, user options are also based on form options.
 
 ## `AbstractFormOptionAddForm`
 
@@ -34,10 +37,35 @@ protected function createForm()
 }
 ```
 
+## `AbstractFormOptionBuilderForm`
+
+Since version 6.3, `AbstractFormOptionBuilderForm` provides the same functionality for forms based on `AbstractDatabaseObjectBuilderForm` that persist the options through a [database object builder](../../database-object-builder.md).
+The shared logic of both forms is provided by the `wcf\acp\form\TFormOptionAddForm` trait.
+
+The option type form field and the configuration form fields have to be appended in `createForm()` in the same way as for `AbstractFormOptionAddForm`.
+The values of the configuration form fields that apply to the selected option type are collected automatically and passed to `applyOptionType()`, which needs to write them into the builder.
+When editing an option, the configuration form fields are populated from the JSON-encoded `configuration` property of the object.
+
+```php
+#[\Override]
+protected function applyOptionType(DatabaseObjectBuilder $builder, string $optionType, array $configuration): void
+{
+    \assert($builder instanceof FooOptionBuilder);
+
+    $builder
+        ->setOptionType($optionType)
+        ->setConfiguration($configuration);
+}
+```
+
+The option types offered by the type selection can be customized by overriding `getAvailableFormOptions()` (all supported types) and `getSelectableFormOptions()` (types that can be selected for new options).
+
 ## `IFormOption`
 
 Apart from the list of predefined form options that ship with the software, developers can add own implementations that will be available with every form that is build on top of `AbstractFormOptionAddForm`.
 It offers a seamless integration into list views and grid views through `getFilterFormField()`, `renderFilterValue()` and `applyFilter()`.
+Since version 6.3, `matchesFilterValue()` is the equivalent of `applyFilter()` for a single value and is used by object filters, `AbstractFormOption` provides a default implementation that compares the values for equality.
+The column used to store the values is defined by `getDatabaseTableColumn()`, which is also used to create the columns of user options.
 
 For a full documentation of the required methods please see the `IFormOption` interface.
 
@@ -51,3 +79,9 @@ We highly suggest that you take a look at the implementation of the contact form
 - `wcf\data\contact\option\ContactOption` implements `getFormOption()` and `getConfiguration()` to work with form options.
 - `wcf\form\ContactForm` creates the form fields from the options in `getOptionFormFields()`.
 - `wcf\command\contact\form\SubmitContactForm` converts the values from the user input to the formatted versions in `getFormattedOptionValues()` for use in HTML and plaintext emails.
+
+The user options are an example of an implementation based on `AbstractFormOptionBuilderForm`:
+
+- `wcf\acp\form\UserOptionAddForm` manages adding of user options.
+- `wcf\data\user\option\UserOption` implements `getFormOption()`, `getConfiguration()` and `getFormattedValue()`.
+- `wcf\system\form\option\user\TUserOptionFormFields` creates the form fields from the user options.

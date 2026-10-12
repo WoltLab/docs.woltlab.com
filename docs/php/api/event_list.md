@@ -8,7 +8,6 @@ Events whose name is marked with an asterisk are called from a static method and
 |-------|------------|
 | `wcf\acp\action\UserExportGdprAction` | `export` |
 | `wcf\acp\form\StyleAddForm` | `setVariables` |
-| `wcf\acp\form\UserSearchForm` | `search` |
 | `wcf\action\AbstractAction` | `checkModules` |
 | `wcf\action\AbstractAction` | `checkPermissions` |
 | `wcf\action\AbstractAction` | `execute` |
@@ -24,8 +23,6 @@ Events whose name is marked with an asterisk are called from a static method and
 | `wcf\data\user\trophy\UserTrophy` | `getReplacements` |
 | `wcf\data\user\UserAction` | `beforeFindUsers` |
 | `wcf\data\user\UserAction` | `rename` |
-| `wcf\data\user\UserProfile` | `getAvatar` |
-| `wcf\data\user\UserProfile` | `isAccessible` |
 | `wcf\data\AbstractDatabaseObjectAction` | `finalizeAction` |
 | `wcf\data\AbstractDatabaseObjectAction` | `initializeAction` |
 | `wcf\data\AbstractDatabaseObjectAction` | `validateAction` |

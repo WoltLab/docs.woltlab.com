@@ -290,8 +290,18 @@ final class ValueDumpListener
 | `wcf\event\sitemap\SitemapObjectCollecting` | Requests the collection of objects that should be included in the sitemap. |
 | `wcf\event\spider\SpiderCollecting` | Requests the collection of spiders. |
 | `wcf\event\user\RegistrationSpamChecking` | Indicates that a registration by a new user is currently validated. If $matches is not empty, the registration is considered to be a spammer or an undesirable user. |
+| `wcf\event\user\UserAvatarLoading` | Indicates that the avatar of a user without an uploaded avatar is being loaded. Allows to provide a custom avatar, the default avatar is used if no avatar is set. |
+| `wcf\event\user\UserCreated` | Indicates that a user has been created. |
+| `wcf\event\user\UserDeleted` | Indicates that a user has been deleted. |
+| `wcf\event\user\UserEmailConfirmationChecking` | Indicates that it is being checked whether the active user can confirm or unconfirm the email address of a user. |
+| `wcf\event\user\UserPrivacySettingChecking` | Indicates that a privacy setting of a user is being checked for another user, e.g. whether the online status is visible to the viewer. |
+| `wcf\event\user\UserRenamed` | Indicates that a user has been renamed. Allows to register database columns containing the username that are updated automatically. |
+| `wcf\event\user\UserUpdated` | Indicates that a user has been updated. |
 | `wcf\event\user\UsernameValidating` | Indicates that a username is currently validated. If this event is interrupted, the username is considered to be invalid. This event will not be fired for usernames changed by an administrator. |
+| `wcf\event\user\UsersMerging` | Indicates that users are being merged into another user. Allows to register database columns referencing users that are reassigned automatically. |
 | `wcf\event\user\authentication\UserLoggedIn` | Indicates that the user actively logged in, i.e. that a user change happened in response to a user's request based off proper authentication. This event specifically must not be used if the active user is changed for technical reasons, e.g. when switching back to the real user after executing some logic with guest permissions. |
 | `wcf\event\user\authentication\configuration\ConfigurationLoading` | Indicates the loading of the user auth configuration. |
 | `wcf\event\user\menu\item\IconResolving` | Resolves the icon of a user menu item. |
+| `wcf\event\user\option\category\UserOptionCategoryCreated` | Indicates that a user option category has been created. |
+| `wcf\event\user\option\category\UserOptionCategoryUpdated` | Indicates that a user option category has been updated. |
 | `wcf\event\worker\RebuildWorkerCollecting` | Requests the collection of workers that should be included in the list of rebuild workers. |

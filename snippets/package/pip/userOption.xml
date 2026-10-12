@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/6.0/userOption.xsd">
+	<import>
+		<categories>
+			<category name="profile.example">
+				<parent>profile</parent>
+				<showorder>5</showorder>
+			</category>
+		</categories>
+		<options>
+			<option name="exampleFavoriteColor">
+				<categoryname>profile.example</categoryname>
+				<optiontype>select</optiontype>
+				<defaultvalue>red</defaultvalue>
+				<selectoptions>red:wcf.user.option.exampleFavoriteColor.red
+green:wcf.user.option.exampleFavoriteColor.green
+blue:wcf.user.option.exampleFavoriteColor.blue</selectoptions>
+				<searchable>1</searchable>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="exampleMastodon">
+				<categoryname>profile.example</categoryname>
+				<optiontype>socialMedia</optiontype>
+				<profilenamepattern>^[A-Za-z0-9_]+$</profilenamepattern>
+				<profileurlpattern>https://mastodon.social/@%s</profileurlpattern>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+		</options>
+	</import>
+	<delete>
+		<option name="exampleObsoleteOption"/>
+	</delete>
+</data>

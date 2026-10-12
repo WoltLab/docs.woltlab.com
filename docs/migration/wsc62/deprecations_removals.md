@@ -130,6 +130,19 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\system\event\listener\AbstractUserMergeListener`
 - `wcf\system\event\listener\AbstractUserActionRenameListener`
 - `wcf\data\user\UserEditor`
+- `wcf\data\user\UserAction`
+- `wcf\data\user\UserProfileAction`
+- `wcf\data\user\option\UserOptionAction`
+- `wcf\data\user\option\UserOptionEditor`
+- `wcf\data\user\option\ViewableUserOption`
+- `wcf\data\user\option\category\UserOptionCategoryAction`
+- `wcf\data\user\option\category\UserOptionCategoryEditor`
+- `wcf\system\condition\UserMultifactorCondition`
+- `wcf\system\condition\UserUserIDCondition`
+- `wcf\system\option\ISearchableConditionUserOption`
+- `wcf\system\option\ISearchableUserOption`
+- `wcf\system\option\user\IUserOptionOutput`
+- `wcf\system\worker\SendNewPasswordWorker`
 
 #### Methods
 
@@ -363,6 +376,11 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `calendar\data\event\date\EventDateEditor::rebuildParticipants()`
 - `wcf\data\notice\Notice::getConditions()`
 - `wcf\data\user\group\assignment\UserGroupAssignment::getConditions()`
+- `wcf\data\user\profile\menu\item\UserProfileMenuItemAction::validateGetContent()`
+- `wcf\data\user\profile\menu\item\UserProfileMenuItemAction::getContent()`
+- `wcf\data\user\UserProfile::setFileAvatar()`
+- `wcf\system\view\user\profile\UserProfileHeaderView::isInAccessibleGroup()`
+- `wcf\util\UserRegistrationUtil::getRandomFieldName()`
 
 #### Properties
 
@@ -375,6 +393,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 #### Object Type Definitions
 
 - `com.woltlab.wcf.sitemap.object`, use the event `wcf\event\sitemap\SitemapObjectCollecting` instead
+- `com.woltlab.wcf.condition.userSearch`, use the event `wcf\event\gridView\admin\UserGridViewInitialized` to add filters to the user list instead
 
 ### JavaScript
 
@@ -382,6 +401,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Ui/Sortable/List`
 - `WoltLabSuite/Core/Component/GoogleMaps/MarkerLoader::setup()`
 - `WoltLabSuite/Core/Ui/User/Sortable/ObjectWatch`
+- `WoltLabSuite/Core/Acp/Ui/User/Action/Handler/SendNewPassword`
 
 ## Removals
 
@@ -453,6 +473,33 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\acp\session\ACPSessionList`
 - `calendar\data\user\FollowingBirthdayAction`
 - `calendar\data\category\CalendarCategoryAction`
+- `wcf\acp\action\UserQuickSearchAction`
+- `wcf\acp\form\UserAssignToGroupForm`
+- `wcf\acp\form\UserContentRevertChangesForm`
+- `wcf\acp\form\UserEmailAddressExportForm`
+- `wcf\acp\form\UserOptionListForm`
+- `wcf\acp\form\UserSearchForm`
+- `wcf\action\EmailValidationAction`
+- `wcf\action\UsernameValidationAction`
+- `wcf\data\user\UserContentAction`
+- `wcf\data\user\UserRegistrationAction`
+- `wcf\form\UserSearchForm`
+- `wcf\system\clipboard\action\UserClipboardAction`
+- `wcf\system\clipboard\action\UserContentClipboardAction`
+- `wcf\system\condition\UserOptionsCondition`
+- `wcf\system\listView\user\UserSearchResultsListView`
+- `wcf\system\option\user\BirthdayUserOptionOutput`
+- `wcf\system\option\user\DateUserOptionOutput`
+- `wcf\system\option\user\FacebookUserOptionOutput`
+- `wcf\system\option\user\FloatUserOptionOutput`
+- `wcf\system\option\user\ImageUserOptionOutput`
+- `wcf\system\option\user\LabeledUrlUserOptionOutput`
+- `wcf\system\option\user\MessageUserOptionOutput`
+- `wcf\system\option\user\NewlineToBreakUserOptionOutput`
+- `wcf\system\option\user\SelectOptionsUserOptionOutput`
+- `wcf\system\option\user\TwitterUserOptionOutput`
+- `wcf\system\option\user\URLUserOptionOutput`
+- `wcf\system\option\user\UserOptionHandler`
 
 #### Methods
 
@@ -562,6 +609,18 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `calendar\data\event\date\participation\EventDateParticipationAction::invite()`
 - `wcf\data\package\update\PackageUpdateAction::validateSearchForUpdates()`
 - `wcf\data\package\update\PackageUpdateAction::searchForUpdates()`
+- `wcf\data\user\UserAction::validatePrepareRemoveContent()`
+- `wcf\data\user\UserAction::prepareRemoveContent()`
+- `wcf\data\user\UserProfileAction::validateBeginEdit()`
+- `wcf\data\user\UserProfileAction::beginEdit()`
+- `wcf\data\user\UserProfileAction::validateSave()`
+- `wcf\data\user\UserProfileAction::save()`
+- `wcf\data\user\UserProfileAction::getOptionHandler()`
+- `wcf\data\user\option\UserOption::setUser()`
+- `wcf\data\user\option\UserOption::modifyEditableOption()`
+- `wcf\data\user\option\UserOption::modifyVisibleOption()`
+- `wcf\data\user\option\UserOption::setRequired()`
+- `wcf\data\user\option\ViewableUserOption::getOutputObject()`
 
 #### Properties
 
@@ -578,6 +637,10 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\comment\ViewableComment::$userProfile`
 - `wcf\data\comment\response\StructuredCommentResponse::$userProfile`
 - `wcf\data\comment\response\ViewableCommentResponse::$userProfile`
+- `wcf\data\user\option\UserOption::$optionValue`
+- `wcf\data\user\option\UserOption::$user`
+- `wcf\data\user\option\ViewableUserOption::$outputObjects`
+- `wcf\page\MembersListPage::$searchID`
 
 ### JavaScript
 
@@ -631,3 +694,23 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WCF.ACP.Package.Update.Search`
 - `WoltLabSuite/Calendar/Ui/Category/MarkAllAsRead`
 - `WCF.ACP.Ad.LocationHandler`
+- `WoltLabSuite/Core/Acp/Component/Tag/SynonymsHandler`
+- `WoltLabSuite/Core/Acp/Controller/User/List`
+- `WoltLabSuite/Core/Acp/Ui/User/Action/Abstract`
+- `WoltLabSuite/Core/Acp/Ui/User/Action/BanAction`
+- `WoltLabSuite/Core/Acp/Ui/User/Action/DeleteAction`
+- `WoltLabSuite/Core/Acp/Ui/User/Action/DisableAction`
+- `WoltLabSuite/Core/Acp/Ui/User/Action/Handler/Ban`
+- `WoltLabSuite/Core/Acp/Ui/User/Action/Handler/Ban/Dialog`
+- `WoltLabSuite/Core/Acp/Ui/User/Action/Handler/Delete`
+- `WoltLabSuite/Core/Acp/Ui/User/Action/SendNewPasswordAction`
+- `WoltLabSuite/Core/Acp/Ui/User/Action/ToggleConfirmEmailAction`
+- `WoltLabSuite/Core/Acp/Ui/User/Content/Remove/Clipboard`
+- `WoltLabSuite/Core/Acp/Ui/User/Content/Remove/Handler`
+- `WoltLabSuite/Core/Acp/Ui/User/Editor`
+- `WoltLabSuite/Core/Ui/User/Editor`
+- `WCF.User.Profile.Editor`
+- `WCF.User.Registration`
+- `WCF.User.Registration.Validation`
+- `WCF.User.Registration.Validation.EmailAddress`
+- `WCF.User.Registration.Validation.Username`
