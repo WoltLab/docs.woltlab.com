@@ -875,7 +875,7 @@ User options of the `profile` category tree are automatically available as filte
 
 - the filters of the user list in the ACP, which also provides a hidden column for each option,
 - the filters of the members list for options that are `searchable` and visible to other users than the owner,
-- the object filters of ads, notices and automatic user group assignments (`wcf\system\object\filter\user\UserOptionObjectFilter`).
+- the object filters of ads, notices, automatic user group assignments and trophies (`wcf\system\object\filter\user\UserOptionObjectFilter`).
 
 No additional code is required, the filter is provided by the form option of the user option.
 
@@ -883,3 +883,80 @@ No additional code is required, the filter is provided by the form option of the
 
 Grid views can allow users to select the visible columns, see [Column Visibility](../../php/api/grid_views.md#column-visibility).
 `AbstractGridViewPage` reads the selected columns from the `columns` parameter into the new property `$columns`, which may conflict with an existing property of the same name in a subclass.
+
+## Trophies
+
+### Builders and Commands
+
+`wcf\data\trophy\TrophyEditor` and the `create`, `update` and `delete` actions of `wcf\data\trophy\TrophyAction` are deprecated, trophies are created and modified through the [database object builder](../../php/database-object-builder.md) `wcf\data\trophy\TrophyBuilder` and the commands `CreateTrophy`, `UpdateTrophy` and `DeleteTrophy` in the `wcf\command\trophy` namespace.
+The commands fire the PSR-14 events `TrophyCreated`, `TrophyUpdated` and `TrophyDeleted` in the `wcf\event\trophy` namespace.
+`UpdateTrophy` updates the trophy points and the special trophies of the users if the disabled state of the trophy changes, `DeleteTrophy` also deletes the awarded trophies and the image of the trophy.
+
+```php
+// Previously
+$action = new TrophyAction([], 'create', [
+    'data' => [
+        'title' => 'Foo',
+        'categoryID' => $categoryID,
+        'type' => Trophy::TYPE_BADGE,
+        'iconName' => 'trophy;false',
+        'iconColor' => 'rgba(255, 255, 255, 1)',
+        'badgeColor' => 'rgba(50, 92, 132, 1)',
+    ],
+]);
+$trophy = $action->executeAction()['returnValues'];
+
+// Since 6.3
+$trophy = (new CreateTrophy(
+    TrophyBuilder::forCreate()
+        ->setTitle([L10nStorage::MONOLINGUAL => 'Foo'])
+        ->setCategoryID($categoryID)
+        ->setType(Trophy::TYPE_BADGE)
+        ->setBadge('trophy;false', 'rgba(255, 255, 255, 1)', 'rgba(50, 92, 132, 1)')
+))();
+```
+
+### Title and Description
+
+The title and the description of trophies are stored in the localized storage (`wcf1_trophy_l10n`) instead of language items.
+The columns `title` and `description` of `wcf1_trophy` and the language items `wcf.user.trophy.title{trophyID}` and `wcf.user.trophy.description{trophyID}` have been removed.
+Use `Trophy::getTitle()` and `Trophy::getDescription()` to output the values and `Trophy::getL10nValues()` to read the values of all languages.
+`wcf\data\trophy\I18nTrophyList` has been replaced by `wcf\data\trophy\L10nTrophyList`, which provides the localized title and description as the columns `title` and `description` for sorting.
+
+### Images
+
+The images of image trophies are stored through the file upload system using the object type `com.woltlab.wcf.trophy.image`.
+The column `iconFile` of `wcf1_trophy` has been replaced by `iconFileID`, use `Trophy::getIconPath()` to output the image or `Trophy::getIconFile()` to access the file.
+The images are no longer stored in `images/trophy/` and the image upload of `TrophyAction` (`IUploadAction`) has been removed.
+
+### Conditions
+
+The conditions of trophies that are awarded automatically have been migrated to object filters, the same system that is used for the conditions of ads, notices and automatic user group assignments.
+The configured filters are stored as JSON in the `conditions` column of `wcf1_trophy` and are provided by `wcf\system\object\filter\builder\TrophyObjectFilterBuilder`.
+The object type definition `com.woltlab.wcf.condition.trophy` is deprecated, object types of this definition are no longer evaluated.
+
+Additional filters are registered through the PSR-14 event `wcf\event\trophy\TrophyObjectFilterCollecting`.
+The trophies are awarded and revoked by applying the filters to a `UserList`, therefore only filters implementing `wcf\system\object\filter\IObjectListFilter` are supported.
+
+```php
+EventHandler::getInstance()->register(
+    \wcf\event\trophy\TrophyObjectFilterCollecting::class,
+    static function (\wcf\event\trophy\TrophyObjectFilterCollecting $event) {
+        $event->register(new \wcf\system\object\filter\user\UserIntegerPropertyObjectFilter('fooPoints', 'wcf.user.condition.fooPoints'));
+    }
+);
+```
+
+Packages that provided trophy conditions must migrate the existing conditions during the update using `wcf\system\object\filter\migration\LegacyConditionMigration`.
+The update of WoltLab Suite Core disables all trophies with conditions that it cannot convert, the trophies are enabled again once the remaining conditions have been converted by the updates of the other packages.
+The migration must run before the `objectType` package installation plugin removes the legacy object types, because deleting the object types also deletes their conditions.
+
+```php
+(new LegacyConditionMigration('com.woltlab.wcf.condition.trophy', 'wcf1_trophy', 'trophyID'))->migrate([
+    UserIntegerPropertyCondition::class => LegacyConditionMigration::getUserIntegerPropertyConverter([
+        'fooPoints',
+    ]),
+]);
+```
+
+`ObjectListFilterHandler::applyFilters()` now returns whether any of the stored filters has been applied.

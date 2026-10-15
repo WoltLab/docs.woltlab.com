@@ -3,7 +3,7 @@
 Registers new user options (profile fields / user settings).
 
 The input field and the output of a user option are provided by [form options](../../php/api/form_builder/form_options.md), the same infrastructure that is used for contact form options and other custom fields.
-User options of the `profile` category tree are also automatically available as filters in the user list of the ACP, in the members list (if they are `searchable`) and in object filters, e.g. for ads, notices and automatic user group assignments.
+User options of the `profile` category tree are also automatically available as filters in the user list of the ACP, in the members list (if they are `searchable`) and in object filters, e.g. for ads, notices, automatic user group assignments and trophies.
 
 ## Category Components
 

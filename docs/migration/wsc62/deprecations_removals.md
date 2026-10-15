@@ -126,6 +126,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\notice\NoticeEditor`
 - `wcf\data\ad\AdAction`
 - `wcf\data\ad\AdEditor`
+- `wcf\data\trophy\TrophyEditor`
 - `wcf\acp\form\UserMergeForm`
 - `wcf\system\event\listener\AbstractUserMergeListener`
 - `wcf\system\event\listener\AbstractUserActionRenameListener`
@@ -239,6 +240,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\style\StyleAction::validateToggle()`
 - `wcf\data\trophy\TrophyAction::toggle()`
 - `wcf\data\trophy\TrophyAction::validateToggle()`
+- `wcf\data\trophy\TrophyAction::create()`
+- `wcf\data\trophy\TrophyAction::update()`
+- `wcf\data\trophy\TrophyAction::delete()`
 - `wcf\data\user\group\assignment\UserGroupAssignmentAction::toggle()`
 - `wcf\data\user\group\assignment\UserGroupAssignmentAction::validateToggle()`
 - `wcf\data\moderation\queue\ModerationQueueAction::validateGetModerationQueueData()`
@@ -376,6 +380,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `calendar\data\event\date\EventDateEditor::rebuildParticipants()`
 - `wcf\data\notice\Notice::getConditions()`
 - `wcf\data\user\group\assignment\UserGroupAssignment::getConditions()`
+- `wcf\data\trophy\Trophy::getConditions()`
+- `wcf\system\trophy\condition\TrophyConditionHandler::getGroupedObjectTypes()`
 - `wcf\data\user\profile\menu\item\UserProfileMenuItemAction::validateGetContent()`
 - `wcf\data\user\profile\menu\item\UserProfileMenuItemAction::getContent()`
 - `wcf\data\user\UserProfile::setFileAvatar()`
@@ -385,15 +391,18 @@ With version 6.3, we have deprecated certain components and removed several othe
 #### Properties
 
 - `wcf\data\like\ViewableLike::$objectTypeDescription`
+- `wcf\system\trophy\condition\TrophyConditionHandler::$groupedObjectTypes`
 
 #### Constants
 
 - `wcf\system\worker\SitemapRebuildWorker::REGISTRY_PREFIX`, use `wcf\system\sitemap\SitemapHandler::REGISTRY_PREFIX` instead
+- `wcf\system\trophy\condition\TrophyConditionHandler::CONDITION_DEFINITION_NAME`
 
 #### Object Type Definitions
 
 - `com.woltlab.wcf.sitemap.object`, use the event `wcf\event\sitemap\SitemapObjectCollecting` instead
 - `com.woltlab.wcf.condition.userSearch`, use the event `wcf\event\gridView\admin\UserGridViewInitialized` to add filters to the user list instead
+- `com.woltlab.wcf.condition.trophy`, use the event `wcf\event\trophy\TrophyObjectFilterCollecting` to add filters to the conditions of trophies instead
 
 ### JavaScript
 
@@ -487,6 +496,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\system\clipboard\action\UserClipboardAction`
 - `wcf\system\clipboard\action\UserContentClipboardAction`
 - `wcf\system\condition\UserOptionsCondition`
+- `wcf\data\trophy\I18nTrophyList`, use `wcf\data\trophy\L10nTrophyList` instead
+- `wcf\system\upload\TrophyImageUploadFileValidationStrategy`
 - `wcf\system\listView\user\UserSearchResultsListView`
 - `wcf\system\option\user\BirthdayUserOptionOutput`
 - `wcf\system\option\user\DateUserOptionOutput`
@@ -621,6 +632,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\user\option\UserOption::modifyVisibleOption()`
 - `wcf\data\user\option\UserOption::setRequired()`
 - `wcf\data\user\option\ViewableUserOption::getOutputObject()`
+- `wcf\data\trophy\TrophyAction::validateUpload()`
+- `wcf\data\trophy\TrophyAction::upload()`
+- `wcf\data\trophy\TrophyAction::updateTrophyImage()`
 
 #### Properties
 
@@ -714,3 +728,6 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WCF.User.Registration.Validation`
 - `WCF.User.Registration.Validation.EmailAddress`
 - `WCF.User.Registration.Validation.Username`
+- `WoltLabSuite/Core/Acp/Ui/Trophy/Badge`
+- `WoltLabSuite/Core/Acp/Ui/Trophy/Editor`
+- `WoltLabSuite/Core/Acp/Ui/Trophy/Upload`
