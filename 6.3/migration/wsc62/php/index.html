@@ -4461,6 +4461,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#trophies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trophies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trophies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#builders-and-commands_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Builders and Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#title-and-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Title and Description
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6751,6 +6812,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#trophies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trophies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trophies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#builders-and-commands_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Builders and Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#title-and-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Title and Description
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -7982,12 +8104,100 @@ The descriptions of user option categories are no longer displayed.</p>
 <ul>
 <li>the filters of the user list in the ACP, which also provides a hidden column for each option,</li>
 <li>the filters of the members list for options that are <code>searchable</code> and visible to other users than the owner,</li>
-<li>the object filters of ads, notices and automatic user group assignments (<code>wcf\system\object\filter\user\UserOptionObjectFilter</code>).</li>
+<li>the object filters of ads, notices, automatic user group assignments and trophies (<code>wcf\system\object\filter\user\UserOptionObjectFilter</code>).</li>
 </ul>
 <p>No additional code is required, the filter is provided by the form option of the user option.</p>
 <h2 id="grid-view-column-visibility">Grid View Column Visibility<a class="headerlink" href="#grid-view-column-visibility" title="Permanent link">#</a></h2>
 <p>Grid views can allow users to select the visible columns, see <a href="../../../php/api/grid_views/#column-visibility">Column Visibility</a>.
 <code>AbstractGridViewPage</code> reads the selected columns from the <code>columns</code> parameter into the new property <code>$columns</code>, which may conflict with an existing property of the same name in a subclass.</p>
+<h2 id="trophies">Trophies<a class="headerlink" href="#trophies" title="Permanent link">#</a></h2>
+<h3 id="builders-and-commands_1">Builders and Commands<a class="headerlink" href="#builders-and-commands_1" title="Permanent link">#</a></h3>
+<p><code>wcf\data\trophy\TrophyEditor</code> and the <code>create</code>, <code>update</code> and <code>delete</code> actions of <code>wcf\data\trophy\TrophyAction</code> are deprecated, trophies are created and modified through the <a href="../../../php/database-object-builder/">database object builder</a> <code>wcf\data\trophy\TrophyBuilder</code> and the commands <code>CreateTrophy</code>, <code>UpdateTrophy</code> and <code>DeleteTrophy</code> in the <code>wcf\command\trophy</code> namespace.
+The commands fire the PSR-14 events <code>TrophyCreated</code>, <code>TrophyUpdated</code> and <code>TrophyDeleted</code> in the <code>wcf\event\trophy</code> namespace.
+<code>UpdateTrophy</code> updates the trophy points and the special trophies of the users if the disabled state of the trophy changes, <code>DeleteTrophy</code> also deletes the awarded trophies and the image of the trophy.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Previously</span>
+<span class="nv">$action</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TrophyAction</span><span class="p">([],</span> <span class="s1">'create'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="s1">'Foo'</span><span class="p">,</span>
+        <span class="s1">'categoryID'</span> <span class="o">=&gt;</span> <span class="nv">$categoryID</span><span class="p">,</span>
+        <span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="nx">Trophy</span><span class="o">::</span><span class="na">TYPE_BADGE</span><span class="p">,</span>
+        <span class="s1">'iconName'</span> <span class="o">=&gt;</span> <span class="s1">'trophy;false'</span><span class="p">,</span>
+        <span class="s1">'iconColor'</span> <span class="o">=&gt;</span> <span class="s1">'rgba(255, 255, 255, 1)'</span><span class="p">,</span>
+        <span class="s1">'badgeColor'</span> <span class="o">=&gt;</span> <span class="s1">'rgba(50, 92, 132, 1)'</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">]);</span>
+<span class="nv">$trophy</span> <span class="o">=</span> <span class="nv">$action</span><span class="o">-&gt;</span><span class="na">executeAction</span><span class="p">()[</span><span class="s1">'returnValues'</span><span class="p">];</span>
+
+<span class="c1">// Since 6.3</span>
+<span class="nv">$trophy</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">CreateTrophy</span><span class="p">(</span>
+    <span class="nx">TrophyBuilder</span><span class="o">::</span><span class="na">forCreate</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">([</span><span class="nx">L10nStorage</span><span class="o">::</span><span class="na">MONOLINGUAL</span> <span class="o">=&gt;</span> <span class="s1">'Foo'</span><span class="p">])</span>
+        <span class="o">-&gt;</span><span class="na">setCategoryID</span><span class="p">(</span><span class="nv">$categoryID</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">setType</span><span class="p">(</span><span class="nx">Trophy</span><span class="o">::</span><span class="na">TYPE_BADGE</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">setBadge</span><span class="p">(</span><span class="s1">'trophy;false'</span><span class="p">,</span> <span class="s1">'rgba(255, 255, 255, 1)'</span><span class="p">,</span> <span class="s1">'rgba(50, 92, 132, 1)'</span><span class="p">)</span>
+<span class="p">))();</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="title-and-description">Title and Description<a class="headerlink" href="#title-and-description" title="Permanent link">#</a></h3>
+<p>The title and the description of trophies are stored in the localized storage (<code>wcf1_trophy_l10n</code>) instead of language items.
+The columns <code>title</code> and <code>description</code> of <code>wcf1_trophy</code> and the language items <code>wcf.user.trophy.title{trophyID}</code> and <code>wcf.user.trophy.description{trophyID}</code> have been removed.
+Use <code>Trophy::getTitle()</code> and <code>Trophy::getDescription()</code> to output the values and <code>Trophy::getL10nValues()</code> to read the values of all languages.
+<code>wcf\data\trophy\I18nTrophyList</code> has been replaced by <code>wcf\data\trophy\L10nTrophyList</code>, which provides the localized title and description as the columns <code>title</code> and <code>description</code> for sorting.</p>
+<h3 id="images">Images<a class="headerlink" href="#images" title="Permanent link">#</a></h3>
+<p>The images of image trophies are stored through the file upload system using the object type <code>com.woltlab.wcf.trophy.image</code>.
+The column <code>iconFile</code> of <code>wcf1_trophy</code> has been replaced by <code>iconFileID</code>, use <code>Trophy::getIconPath()</code> to output the image or <code>Trophy::getIconFile()</code> to access the file.
+The images are no longer stored in <code>images/trophy/</code> and the image upload of <code>TrophyAction</code> (<code>IUploadAction</code>) has been removed.</p>
+<h3 id="conditions">Conditions<a class="headerlink" href="#conditions" title="Permanent link">#</a></h3>
+<p>The conditions of trophies that are awarded automatically have been migrated to object filters, the same system that is used for the conditions of ads, notices and automatic user group assignments.
+The configured filters are stored as JSON in the <code>conditions</code> column of <code>wcf1_trophy</code> and are provided by <code>wcf\system\object\filter\builder\TrophyObjectFilterBuilder</code>.
+The object type definition <code>com.woltlab.wcf.condition.trophy</code> is deprecated, object types of this definition are no longer evaluated.</p>
+<p>Additional filters are registered through the PSR-14 event <code>wcf\event\trophy\TrophyObjectFilterCollecting</code>.
+The trophies are awarded and revoked by applying the filters to a <code>UserList</code>, therefore only filters implementing <code>wcf\system\object\filter\IObjectListFilter</code> are supported.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span>
+    <span class="nx">\wcf\event\trophy\TrophyObjectFilterCollecting</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">\wcf\event\trophy\TrophyObjectFilterCollecting</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="k">new</span> <span class="nx">\wcf\system\object\filter\user\UserIntegerPropertyObjectFilter</span><span class="p">(</span><span class="s1">'fooPoints'</span><span class="p">,</span> <span class="s1">'wcf.user.condition.fooPoints'</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Packages that provided trophy conditions must migrate the existing conditions during the update using <code>wcf\system\object\filter\migration\LegacyConditionMigration</code>.
+The update of WoltLab Suite Core disables all trophies with conditions that it cannot convert, the trophies are enabled again once the remaining conditions have been converted by the updates of the other packages.
+The migration must run before the <code>objectType</code> package installation plugin removes the legacy object types, because deleting the object types also deletes their conditions.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">(</span><span class="k">new</span> <span class="nx">LegacyConditionMigration</span><span class="p">(</span><span class="s1">'com.woltlab.wcf.condition.trophy'</span><span class="p">,</span> <span class="s1">'wcf1_trophy'</span><span class="p">,</span> <span class="s1">'trophyID'</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">migrate</span><span class="p">([</span>
+    <span class="nx">UserIntegerPropertyCondition</span><span class="o">::</span><span class="na">class</span> <span class="o">=&gt;</span> <span class="nx">LegacyConditionMigration</span><span class="o">::</span><span class="na">getUserIntegerPropertyConverter</span><span class="p">([</span>
+        <span class="s1">'fooPoints'</span><span class="p">,</span>
+    <span class="p">]),</span>
+<span class="p">]);</span>
+</code></pre></div></td></tr></table></div>
+<p><code>ObjectListFilterHandler::applyFilters()</code> now returns whether any of the stored filters has been applied.</p>
 
 
 
@@ -8008,7 +8218,7 @@ The descriptions of user option categories are no longer displayed.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-10-12
+    2026-10-15
   </span>
 
     

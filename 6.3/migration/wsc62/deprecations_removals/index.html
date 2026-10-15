@@ -6387,6 +6387,7 @@
 <li><code>wcf\data\notice\NoticeEditor</code></li>
 <li><code>wcf\data\ad\AdAction</code></li>
 <li><code>wcf\data\ad\AdEditor</code></li>
+<li><code>wcf\data\trophy\TrophyEditor</code></li>
 <li><code>wcf\acp\form\UserMergeForm</code></li>
 <li><code>wcf\system\event\listener\AbstractUserMergeListener</code></li>
 <li><code>wcf\system\event\listener\AbstractUserActionRenameListener</code></li>
@@ -6500,6 +6501,9 @@
 <li><code>wcf\data\style\StyleAction::validateToggle()</code></li>
 <li><code>wcf\data\trophy\TrophyAction::toggle()</code></li>
 <li><code>wcf\data\trophy\TrophyAction::validateToggle()</code></li>
+<li><code>wcf\data\trophy\TrophyAction::create()</code></li>
+<li><code>wcf\data\trophy\TrophyAction::update()</code></li>
+<li><code>wcf\data\trophy\TrophyAction::delete()</code></li>
 <li><code>wcf\data\user\group\assignment\UserGroupAssignmentAction::toggle()</code></li>
 <li><code>wcf\data\user\group\assignment\UserGroupAssignmentAction::validateToggle()</code></li>
 <li><code>wcf\data\moderation\queue\ModerationQueueAction::validateGetModerationQueueData()</code></li>
@@ -6637,6 +6641,8 @@
 <li><code>calendar\data\event\date\EventDateEditor::rebuildParticipants()</code></li>
 <li><code>wcf\data\notice\Notice::getConditions()</code></li>
 <li><code>wcf\data\user\group\assignment\UserGroupAssignment::getConditions()</code></li>
+<li><code>wcf\data\trophy\Trophy::getConditions()</code></li>
+<li><code>wcf\system\trophy\condition\TrophyConditionHandler::getGroupedObjectTypes()</code></li>
 <li><code>wcf\data\user\profile\menu\item\UserProfileMenuItemAction::validateGetContent()</code></li>
 <li><code>wcf\data\user\profile\menu\item\UserProfileMenuItemAction::getContent()</code></li>
 <li><code>wcf\data\user\UserProfile::setFileAvatar()</code></li>
@@ -6646,15 +6652,18 @@
 <h4 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h4>
 <ul>
 <li><code>wcf\data\like\ViewableLike::$objectTypeDescription</code></li>
+<li><code>wcf\system\trophy\condition\TrophyConditionHandler::$groupedObjectTypes</code></li>
 </ul>
 <h4 id="constants">Constants<a class="headerlink" href="#constants" title="Permanent link">#</a></h4>
 <ul>
 <li><code>wcf\system\worker\SitemapRebuildWorker::REGISTRY_PREFIX</code>, use <code>wcf\system\sitemap\SitemapHandler::REGISTRY_PREFIX</code> instead</li>
+<li><code>wcf\system\trophy\condition\TrophyConditionHandler::CONDITION_DEFINITION_NAME</code></li>
 </ul>
 <h4 id="object-type-definitions">Object Type Definitions<a class="headerlink" href="#object-type-definitions" title="Permanent link">#</a></h4>
 <ul>
 <li><code>com.woltlab.wcf.sitemap.object</code>, use the event <code>wcf\event\sitemap\SitemapObjectCollecting</code> instead</li>
 <li><code>com.woltlab.wcf.condition.userSearch</code>, use the event <code>wcf\event\gridView\admin\UserGridViewInitialized</code> to add filters to the user list instead</li>
+<li><code>com.woltlab.wcf.condition.trophy</code>, use the event <code>wcf\event\trophy\TrophyObjectFilterCollecting</code> to add filters to the conditions of trophies instead</li>
 </ul>
 <h3 id="javascript">JavaScript<a class="headerlink" href="#javascript" title="Permanent link">#</a></h3>
 <ul>
@@ -6746,6 +6755,8 @@
 <li><code>wcf\system\clipboard\action\UserClipboardAction</code></li>
 <li><code>wcf\system\clipboard\action\UserContentClipboardAction</code></li>
 <li><code>wcf\system\condition\UserOptionsCondition</code></li>
+<li><code>wcf\data\trophy\I18nTrophyList</code>, use <code>wcf\data\trophy\L10nTrophyList</code> instead</li>
+<li><code>wcf\system\upload\TrophyImageUploadFileValidationStrategy</code></li>
 <li><code>wcf\system\listView\user\UserSearchResultsListView</code></li>
 <li><code>wcf\system\option\user\BirthdayUserOptionOutput</code></li>
 <li><code>wcf\system\option\user\DateUserOptionOutput</code></li>
@@ -6880,6 +6891,9 @@
 <li><code>wcf\data\user\option\UserOption::modifyVisibleOption()</code></li>
 <li><code>wcf\data\user\option\UserOption::setRequired()</code></li>
 <li><code>wcf\data\user\option\ViewableUserOption::getOutputObject()</code></li>
+<li><code>wcf\data\trophy\TrophyAction::validateUpload()</code></li>
+<li><code>wcf\data\trophy\TrophyAction::upload()</code></li>
+<li><code>wcf\data\trophy\TrophyAction::updateTrophyImage()</code></li>
 </ul>
 <h4 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h4>
 <ul>
@@ -6973,6 +6987,9 @@
 <li><code>WCF.User.Registration.Validation</code></li>
 <li><code>WCF.User.Registration.Validation.EmailAddress</code></li>
 <li><code>WCF.User.Registration.Validation.Username</code></li>
+<li><code>WoltLabSuite/Core/Acp/Ui/Trophy/Badge</code></li>
+<li><code>WoltLabSuite/Core/Acp/Ui/Trophy/Editor</code></li>
+<li><code>WoltLabSuite/Core/Acp/Ui/Trophy/Upload</code></li>
 </ul>
 
 
@@ -6994,7 +7011,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-10-12
+    2026-10-15
   </span>
 
     
