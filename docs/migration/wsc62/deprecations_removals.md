@@ -160,6 +160,14 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\conversation\ConversationEditor`
 - `wcf\data\user\trophy\UserTrophyAction`
 - `wcf\data\user\trophy\UserTrophyEditor`
+- `wcf\acp\page\MediaPage`, only kept to resolve existing links, use `wcf\data\media\Media::getLink()` or `wcf\data\media\Media::getThumbnailLink()` instead
+- `wcf\page\MediaPage`, only kept to resolve existing links, use `wcf\data\media\Media::getLink()` or `wcf\data\media\Media::getThumbnailLink()` instead
+- `wcf\data\media\MediaAction`, use `wcf\data\media\MediaBuilder` and commands instead
+- `wcf\data\media\MediaEditor`, use `wcf\data\media\MediaBuilder` instead
+- `wcf\data\media\ViewableMedia`, use `wcf\data\media\Media` instead
+- `wcf\data\media\ViewableMediaList`, use `wcf\data\media\MediaList` instead
+- `wcf\system\cache\runtime\ViewableMediaRuntimeCache`, use `wcf\system\cache\runtime\MediaRuntimeCache` instead
+- `wcf\system\upload\DefaultUploadFileSaveStrategy`, use the file processors of the new upload API instead
 
 #### Methods
 
@@ -403,6 +411,10 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\user\UserProfile::setFileAvatar()`
 - `wcf\system\view\user\profile\UserProfileHeaderView::isInAccessibleGroup()`
 - `wcf\util\UserRegistrationUtil::getRandomFieldName()`
+- `wcf\data\media\Media::getI18nData()`, use `wcf\data\media\Media::getL10nValues()` instead
+- `wcf\data\media\Media::getLocation()`, only required for media files that have not been migrated to the new upload API yet
+- `wcf\data\media\Media::getThumbnailLocation()`, only required for media files that have not been migrated to the new upload API yet
+- `wcf\data\media\Media::getStorage()`, only required for media files that have not been migrated to the new upload API yet
 
 #### Properties
 
@@ -427,6 +439,14 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Component/GoogleMaps/MarkerLoader::setup()`
 - `WoltLabSuite/Core/Ui/User/Sortable/ObjectWatch`
 - `WoltLabSuite/Core/Acp/Ui/User/Action/Handler/SendNewPassword`
+- `WoltLabSuite/Core/Media/Data`, use `WoltLabSuite/Core/Api/Media/GetMedia` instead
+- `WoltLabSuite/Core/Media/Manager/Editor`, use `WoltLabSuite/Core/Component/Media/Manager` instead
+- `WoltLabSuite/Core/Media/Manager/Select`, use `WoltLabSuite/Core/Component/Media/Select` instead
+- The `promise` property of the payload of `uploadMedia` in `WoltLabSuite/Core/Component/Ckeditor/Media` is no longer set, media files are inserted by the media manager
+
+### Templates
+
+- `mediaJavaScript`, use `shared_mediaJavaScript` instead
 
 ## Removals
 
@@ -542,6 +562,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\wsdb\database\language\DatabaseLanguageAction`, use `wcf\data\wsdb\database\DatabaseBuilder::setPhrase()` instead
 - `wcf\data\wsdb\database\language\DatabaseLanguageEditor`, use `wcf\data\wsdb\database\DatabaseBuilder::setPhrase()` instead
 - `wcf\data\wsdb\database\language\DatabaseLanguageList`, use `wcf\data\wsdb\database\Database::getPhrase()` or `wcf\data\wsdb\database\Database::getL10nValues()` instead
+- `wcf\system\clipboard\action\MediaClipboardAction`
+- `wcf\system\upload\MediaUploadFileValidationStrategy`
+- `wcf\system\upload\MediaReplaceUploadFileValidationStrategy`
 
 #### Methods
 
@@ -669,6 +692,21 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\user\trophy\UserTrophyAction::getGroupedUserTrophyList()`
 - `wcf\data\user\trophy\UserTrophyAction::validateGetGroupedUserTrophyList()`
 - `wcf\data\wsdb\database\Database::getLanguages()`, use `wcf\data\wsdb\database\Database::getPhrase()` or `wcf\data\wsdb\database\Database::getL10nValues()` instead
+- `wcf\data\media\MediaAction::validateUpload()`
+- `wcf\data\media\MediaAction::upload()`
+- `wcf\data\media\MediaAction::generateThumbnails()`
+- `wcf\data\media\MediaAction::validateGetManagementDialog()`
+- `wcf\data\media\MediaAction::getManagementDialog()`
+- `wcf\data\media\MediaAction::validateGetEditorDialog()`
+- `wcf\data\media\MediaAction::getEditorDialog()`
+- `wcf\data\media\MediaAction::validateGetSearchResultList()`
+- `wcf\data\media\MediaAction::getSearchResultList()`
+- `wcf\data\media\MediaAction::validateGetSetCategoryDialog()`
+- `wcf\data\media\MediaAction::getSetCategoryDialog()`
+- `wcf\data\media\MediaAction::validateSetCategory()`
+- `wcf\data\media\MediaAction::setCategory()`
+- `wcf\data\media\MediaAction::validateReplaceFile()`
+- `wcf\data\media\MediaAction::replaceFile()`
 
 #### Properties
 
@@ -766,3 +804,11 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Acp/Ui/Trophy/Editor`
 - `WoltLabSuite/Core/Acp/Ui/Trophy/Upload`
 - `WoltLabSuite/Core/Ui/User/Trophy/List`
+- `WoltLabSuite/Core/Controller/Media/List`
+- `WoltLabSuite/Core/Media/Clipboard`
+- `WoltLabSuite/Core/Media/Editor`
+- `WoltLabSuite/Core/Media/List/Upload`
+- `WoltLabSuite/Core/Media/Manager/Base`
+- `WoltLabSuite/Core/Media/Manager/Search`
+- `WoltLabSuite/Core/Media/Replace`
+- `WoltLabSuite/Core/Media/Upload`
