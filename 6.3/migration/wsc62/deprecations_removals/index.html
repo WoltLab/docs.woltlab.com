@@ -6305,6 +6305,10 @@
 <li><code>wcf\data\wsdb\review\ReviewEditor</code></li>
 <li><code>wcf\data\wsdb\review\response\ReviewResponseAction</code></li>
 <li><code>wcf\data\wsdb\review\response\ReviewResponseEditor</code></li>
+<li><code>wcf\data\wsdb\database\DatabaseAction</code>, use <code>wcf\data\wsdb\database\DatabaseBuilder</code> and commands instead</li>
+<li><code>wcf\data\wsdb\database\DatabaseEditor</code>, use <code>wcf\data\wsdb\database\DatabaseBuilder</code> instead</li>
+<li><code>wcf\data\wsdb\option\OptionAction</code>, use <code>wcf\data\wsdb\option\OptionBuilder</code> and commands instead</li>
+<li><code>wcf\data\wsdb\option\OptionEditor</code>, use <code>wcf\data\wsdb\option\OptionBuilder</code> instead</li>
 <li><code>filebase\data\file\FileAction</code></li>
 <li><code>filebase\data\file\FileEditor</code></li>
 <li><code>filebase\data\file\content\FileContentAction</code></li>
@@ -6405,6 +6409,18 @@
 <li><code>wcf\system\option\ISearchableUserOption</code></li>
 <li><code>wcf\system\option\user\IUserOptionOutput</code></li>
 <li><code>wcf\system\worker\SendNewPasswordWorker</code></li>
+<li><code>wcf\data\user\rank\UserRankAction</code></li>
+<li><code>wcf\data\user\rank\UserRankEditor</code></li>
+<li><code>wcf\data\user\notification\event\UserNotificationEventAction</code></li>
+<li><code>wcf\data\user\notification\event\UserNotificationEventEditor</code></li>
+<li><code>wcf\data\conversation\participant\ConversationParticipantAction</code></li>
+<li><code>wcf\data\conversation\participant\ConversationParticipantEditor</code></li>
+<li><code>wcf\data\conversation\label\ConversationLabelAction</code></li>
+<li><code>wcf\data\conversation\label\ConversationLabelEditor</code></li>
+<li><code>wcf\data\conversation\ConversationAction</code></li>
+<li><code>wcf\data\conversation\ConversationEditor</code></li>
+<li><code>wcf\data\user\trophy\UserTrophyAction</code></li>
+<li><code>wcf\data\user\trophy\UserTrophyEditor</code></li>
 </ul>
 <h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">#</a></h4>
 <ul>
@@ -6770,6 +6786,21 @@
 <li><code>wcf\system\option\user\TwitterUserOptionOutput</code></li>
 <li><code>wcf\system\option\user\URLUserOptionOutput</code></li>
 <li><code>wcf\system\option\user\UserOptionHandler</code></li>
+<li><code>wcf\command\wsdb\option\LegacyCreateOption</code>, use <code>wcf\command\wsdb\option\CreateOption</code> instead</li>
+<li><code>wcf\command\wsdb\option\LegacyUpdateOption</code>, use <code>wcf\command\wsdb\option\UpdateOption</code> instead</li>
+<li><code>wcf\command\wsdb\option\SaveOptionI18nValues</code>, use <code>wcf\data\wsdb\option\OptionBuilder::setName()</code> and <code>wcf\data\wsdb\option\OptionBuilder::setDescription()</code> instead</li>
+<li><code>wcf\command\wsdb\option\SetOptionRecordCategories</code>, use <code>wcf\data\wsdb\option\OptionBuilder::setRecordCategoryIDs()</code> instead</li>
+<li><code>wcf\command\wsdb\option\SetOptionShowOrder</code>, use <code>wcf\data\wsdb\option\OptionBuilder::setShowOrder()</code> instead</li>
+<li><code>wcf\data\wsdb\option\I18nOptionList</code>, use <code>wcf\data\wsdb\option\L10nOptionList</code> instead</li>
+<li><code>wcf\command\wsdb\database\LegacyCreateDatabase</code>, use <code>wcf\command\wsdb\database\CreateDatabase</code> instead</li>
+<li><code>wcf\command\wsdb\database\LegacyUpdateDatabase</code>, use <code>wcf\command\wsdb\database\UpdateDatabase</code> instead</li>
+<li><code>wcf\command\wsdb\database\SaveDatabaseI18nValues</code>, use <code>wcf\data\wsdb\database\DatabaseBuilder::setName()</code> instead</li>
+<li><code>wcf\command\wsdb\database\SetDatabaseLanguage</code>, use <code>wcf\data\wsdb\database\DatabaseBuilder::setPhrase()</code> instead</li>
+<li><code>wcf\data\wsdb\database\I18nDatabaseList</code>, use <code>wcf\data\wsdb\database\L10nDatabaseList</code> instead</li>
+<li><code>wcf\data\wsdb\database\language\DatabaseLanguage</code>, use <code>wcf\data\wsdb\database\Database::getPhrase()</code> or <code>wcf\data\wsdb\database\Database::getL10nValues()</code> instead</li>
+<li><code>wcf\data\wsdb\database\language\DatabaseLanguageAction</code>, use <code>wcf\data\wsdb\database\DatabaseBuilder::setPhrase()</code> instead</li>
+<li><code>wcf\data\wsdb\database\language\DatabaseLanguageEditor</code>, use <code>wcf\data\wsdb\database\DatabaseBuilder::setPhrase()</code> instead</li>
+<li><code>wcf\data\wsdb\database\language\DatabaseLanguageList</code>, use <code>wcf\data\wsdb\database\Database::getPhrase()</code> or <code>wcf\data\wsdb\database\Database::getL10nValues()</code> instead</li>
 </ul>
 <h4 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">#</a></h4>
 <ul>
@@ -6894,6 +6925,9 @@
 <li><code>wcf\data\trophy\TrophyAction::validateUpload()</code></li>
 <li><code>wcf\data\trophy\TrophyAction::upload()</code></li>
 <li><code>wcf\data\trophy\TrophyAction::updateTrophyImage()</code></li>
+<li><code>wcf\data\user\trophy\UserTrophyAction::getGroupedUserTrophyList()</code></li>
+<li><code>wcf\data\user\trophy\UserTrophyAction::validateGetGroupedUserTrophyList()</code></li>
+<li><code>wcf\data\wsdb\database\Database::getLanguages()</code>, use <code>wcf\data\wsdb\database\Database::getPhrase()</code> or <code>wcf\data\wsdb\database\Database::getL10nValues()</code> instead</li>
 </ul>
 <h4 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h4>
 <ul>
@@ -6990,6 +7024,7 @@
 <li><code>WoltLabSuite/Core/Acp/Ui/Trophy/Badge</code></li>
 <li><code>WoltLabSuite/Core/Acp/Ui/Trophy/Editor</code></li>
 <li><code>WoltLabSuite/Core/Acp/Ui/Trophy/Upload</code></li>
+<li><code>WoltLabSuite/Core/Ui/User/Trophy/List</code></li>
 </ul>
 
 
@@ -7011,7 +7046,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-10-15
+    2026-10-19
   </span>
 
     
