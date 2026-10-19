@@ -4096,6 +4096,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Templates
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6160,6 +6171,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Templates
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6421,6 +6443,14 @@
 <li><code>wcf\data\conversation\ConversationEditor</code></li>
 <li><code>wcf\data\user\trophy\UserTrophyAction</code></li>
 <li><code>wcf\data\user\trophy\UserTrophyEditor</code></li>
+<li><code>wcf\acp\page\MediaPage</code>, only kept to resolve existing links, use <code>wcf\data\media\Media::getLink()</code> or <code>wcf\data\media\Media::getThumbnailLink()</code> instead</li>
+<li><code>wcf\page\MediaPage</code>, only kept to resolve existing links, use <code>wcf\data\media\Media::getLink()</code> or <code>wcf\data\media\Media::getThumbnailLink()</code> instead</li>
+<li><code>wcf\data\media\MediaAction</code>, use <code>wcf\data\media\MediaBuilder</code> and commands instead</li>
+<li><code>wcf\data\media\MediaEditor</code>, use <code>wcf\data\media\MediaBuilder</code> instead</li>
+<li><code>wcf\data\media\ViewableMedia</code>, use <code>wcf\data\media\Media</code> instead</li>
+<li><code>wcf\data\media\ViewableMediaList</code>, use <code>wcf\data\media\MediaList</code> instead</li>
+<li><code>wcf\system\cache\runtime\ViewableMediaRuntimeCache</code>, use <code>wcf\system\cache\runtime\MediaRuntimeCache</code> instead</li>
+<li><code>wcf\system\upload\DefaultUploadFileSaveStrategy</code>, use the file processors of the new upload API instead</li>
 </ul>
 <h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">#</a></h4>
 <ul>
@@ -6664,6 +6694,10 @@
 <li><code>wcf\data\user\UserProfile::setFileAvatar()</code></li>
 <li><code>wcf\system\view\user\profile\UserProfileHeaderView::isInAccessibleGroup()</code></li>
 <li><code>wcf\util\UserRegistrationUtil::getRandomFieldName()</code></li>
+<li><code>wcf\data\media\Media::getI18nData()</code>, use <code>wcf\data\media\Media::getL10nValues()</code> instead</li>
+<li><code>wcf\data\media\Media::getLocation()</code>, only required for media files that have not been migrated to the new upload API yet</li>
+<li><code>wcf\data\media\Media::getThumbnailLocation()</code>, only required for media files that have not been migrated to the new upload API yet</li>
+<li><code>wcf\data\media\Media::getStorage()</code>, only required for media files that have not been migrated to the new upload API yet</li>
 </ul>
 <h4 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h4>
 <ul>
@@ -6688,6 +6722,14 @@
 <li><code>WoltLabSuite/Core/Component/GoogleMaps/MarkerLoader::setup()</code></li>
 <li><code>WoltLabSuite/Core/Ui/User/Sortable/ObjectWatch</code></li>
 <li><code>WoltLabSuite/Core/Acp/Ui/User/Action/Handler/SendNewPassword</code></li>
+<li><code>WoltLabSuite/Core/Media/Data</code>, use <code>WoltLabSuite/Core/Api/Media/GetMedia</code> instead</li>
+<li><code>WoltLabSuite/Core/Media/Manager/Editor</code>, use <code>WoltLabSuite/Core/Component/Media/Manager</code> instead</li>
+<li><code>WoltLabSuite/Core/Media/Manager/Select</code>, use <code>WoltLabSuite/Core/Component/Media/Select</code> instead</li>
+<li>The <code>promise</code> property of the payload of <code>uploadMedia</code> in <code>WoltLabSuite/Core/Component/Ckeditor/Media</code> is no longer set, media files are inserted by the media manager</li>
+</ul>
+<h3 id="templates">Templates<a class="headerlink" href="#templates" title="Permanent link">#</a></h3>
+<ul>
+<li><code>mediaJavaScript</code>, use <code>shared_mediaJavaScript</code> instead</li>
 </ul>
 <h2 id="removals">Removals<a class="headerlink" href="#removals" title="Permanent link">#</a></h2>
 <h3 id="php_1">PHP<a class="headerlink" href="#php_1" title="Permanent link">#</a></h3>
@@ -6801,6 +6843,9 @@
 <li><code>wcf\data\wsdb\database\language\DatabaseLanguageAction</code>, use <code>wcf\data\wsdb\database\DatabaseBuilder::setPhrase()</code> instead</li>
 <li><code>wcf\data\wsdb\database\language\DatabaseLanguageEditor</code>, use <code>wcf\data\wsdb\database\DatabaseBuilder::setPhrase()</code> instead</li>
 <li><code>wcf\data\wsdb\database\language\DatabaseLanguageList</code>, use <code>wcf\data\wsdb\database\Database::getPhrase()</code> or <code>wcf\data\wsdb\database\Database::getL10nValues()</code> instead</li>
+<li><code>wcf\system\clipboard\action\MediaClipboardAction</code></li>
+<li><code>wcf\system\upload\MediaUploadFileValidationStrategy</code></li>
+<li><code>wcf\system\upload\MediaReplaceUploadFileValidationStrategy</code></li>
 </ul>
 <h4 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">#</a></h4>
 <ul>
@@ -6928,6 +6973,21 @@
 <li><code>wcf\data\user\trophy\UserTrophyAction::getGroupedUserTrophyList()</code></li>
 <li><code>wcf\data\user\trophy\UserTrophyAction::validateGetGroupedUserTrophyList()</code></li>
 <li><code>wcf\data\wsdb\database\Database::getLanguages()</code>, use <code>wcf\data\wsdb\database\Database::getPhrase()</code> or <code>wcf\data\wsdb\database\Database::getL10nValues()</code> instead</li>
+<li><code>wcf\data\media\MediaAction::validateUpload()</code></li>
+<li><code>wcf\data\media\MediaAction::upload()</code></li>
+<li><code>wcf\data\media\MediaAction::generateThumbnails()</code></li>
+<li><code>wcf\data\media\MediaAction::validateGetManagementDialog()</code></li>
+<li><code>wcf\data\media\MediaAction::getManagementDialog()</code></li>
+<li><code>wcf\data\media\MediaAction::validateGetEditorDialog()</code></li>
+<li><code>wcf\data\media\MediaAction::getEditorDialog()</code></li>
+<li><code>wcf\data\media\MediaAction::validateGetSearchResultList()</code></li>
+<li><code>wcf\data\media\MediaAction::getSearchResultList()</code></li>
+<li><code>wcf\data\media\MediaAction::validateGetSetCategoryDialog()</code></li>
+<li><code>wcf\data\media\MediaAction::getSetCategoryDialog()</code></li>
+<li><code>wcf\data\media\MediaAction::validateSetCategory()</code></li>
+<li><code>wcf\data\media\MediaAction::setCategory()</code></li>
+<li><code>wcf\data\media\MediaAction::validateReplaceFile()</code></li>
+<li><code>wcf\data\media\MediaAction::replaceFile()</code></li>
 </ul>
 <h4 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h4>
 <ul>
@@ -7025,6 +7085,14 @@
 <li><code>WoltLabSuite/Core/Acp/Ui/Trophy/Editor</code></li>
 <li><code>WoltLabSuite/Core/Acp/Ui/Trophy/Upload</code></li>
 <li><code>WoltLabSuite/Core/Ui/User/Trophy/List</code></li>
+<li><code>WoltLabSuite/Core/Controller/Media/List</code></li>
+<li><code>WoltLabSuite/Core/Media/Clipboard</code></li>
+<li><code>WoltLabSuite/Core/Media/Editor</code></li>
+<li><code>WoltLabSuite/Core/Media/List/Upload</code></li>
+<li><code>WoltLabSuite/Core/Media/Manager/Base</code></li>
+<li><code>WoltLabSuite/Core/Media/Manager/Search</code></li>
+<li><code>WoltLabSuite/Core/Media/Replace</code></li>
+<li><code>WoltLabSuite/Core/Media/Upload</code></li>
 </ul>
 
 
