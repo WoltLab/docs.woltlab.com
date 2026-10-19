@@ -1,5 +1,8 @@
 # ACP Menu Package Installation Plugin
 
+!!! warning "Deprecated in WoltLab Suite 6.3"
+    Use the [ACP menu items](../acp-menu-items.md) API based on the PSR-14 event `wcf\event\acp\menu\item\ItemCollecting` to register ACP menu items.
+
 Registers new ACP menu items.
 
 ## Components

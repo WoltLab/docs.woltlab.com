@@ -36,6 +36,12 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\acp\search\provider\ACPSearchProviderList` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
 - `wcf\system\cache\builder\ACPSearchProviderCacheBuilder` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
 - `wcf\system\package\plugin\ACPSearchProviderPackageInstallationPlugin` ([WoltLab/WCF#6681](https://github.com/WoltLab/WCF/issues/6681))
+- `wcf\data\acp\menu\item\ACPMenuItem`
+- `wcf\data\acp\menu\item\ACPMenuItemAction`
+- `wcf\data\acp\menu\item\ACPMenuItemEditor`
+- `wcf\data\acp\menu\item\ACPMenuItemList`
+- `wcf\system\cache\builder\ACPMenuCacheBuilder`
+- `wcf\system\package\plugin\ACPMenuPackageInstallationPlugin`
 - `wcf\command\wsdb\record\SetRecordContent`
 - `wcf\command\wsdb\record\SetRecordLabels`
 - `wcf\data\wsdb\record\content\RecordContentAction`
