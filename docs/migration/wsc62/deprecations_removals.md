@@ -44,6 +44,10 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\wsdb\review\ReviewEditor`
 - `wcf\data\wsdb\review\response\ReviewResponseAction`
 - `wcf\data\wsdb\review\response\ReviewResponseEditor`
+- `wcf\data\wsdb\database\DatabaseAction`, use `wcf\data\wsdb\database\DatabaseBuilder` and commands instead
+- `wcf\data\wsdb\database\DatabaseEditor`, use `wcf\data\wsdb\database\DatabaseBuilder` instead
+- `wcf\data\wsdb\option\OptionAction`, use `wcf\data\wsdb\option\OptionBuilder` and commands instead
+- `wcf\data\wsdb\option\OptionEditor`, use `wcf\data\wsdb\option\OptionBuilder` instead
 - `filebase\data\file\FileAction`
 - `filebase\data\file\FileEditor`
 - `filebase\data\file\content\FileContentAction`
@@ -144,6 +148,18 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\system\option\ISearchableUserOption`
 - `wcf\system\option\user\IUserOptionOutput`
 - `wcf\system\worker\SendNewPasswordWorker`
+- `wcf\data\user\rank\UserRankAction`
+- `wcf\data\user\rank\UserRankEditor`
+- `wcf\data\user\notification\event\UserNotificationEventAction`
+- `wcf\data\user\notification\event\UserNotificationEventEditor`
+- `wcf\data\conversation\participant\ConversationParticipantAction`
+- `wcf\data\conversation\participant\ConversationParticipantEditor`
+- `wcf\data\conversation\label\ConversationLabelAction`
+- `wcf\data\conversation\label\ConversationLabelEditor`
+- `wcf\data\conversation\ConversationAction`
+- `wcf\data\conversation\ConversationEditor`
+- `wcf\data\user\trophy\UserTrophyAction`
+- `wcf\data\user\trophy\UserTrophyEditor`
 
 #### Methods
 
@@ -511,6 +527,21 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\system\option\user\TwitterUserOptionOutput`
 - `wcf\system\option\user\URLUserOptionOutput`
 - `wcf\system\option\user\UserOptionHandler`
+- `wcf\command\wsdb\option\LegacyCreateOption`, use `wcf\command\wsdb\option\CreateOption` instead
+- `wcf\command\wsdb\option\LegacyUpdateOption`, use `wcf\command\wsdb\option\UpdateOption` instead
+- `wcf\command\wsdb\option\SaveOptionI18nValues`, use `wcf\data\wsdb\option\OptionBuilder::setName()` and `wcf\data\wsdb\option\OptionBuilder::setDescription()` instead
+- `wcf\command\wsdb\option\SetOptionRecordCategories`, use `wcf\data\wsdb\option\OptionBuilder::setRecordCategoryIDs()` instead
+- `wcf\command\wsdb\option\SetOptionShowOrder`, use `wcf\data\wsdb\option\OptionBuilder::setShowOrder()` instead
+- `wcf\data\wsdb\option\I18nOptionList`, use `wcf\data\wsdb\option\L10nOptionList` instead
+- `wcf\command\wsdb\database\LegacyCreateDatabase`, use `wcf\command\wsdb\database\CreateDatabase` instead
+- `wcf\command\wsdb\database\LegacyUpdateDatabase`, use `wcf\command\wsdb\database\UpdateDatabase` instead
+- `wcf\command\wsdb\database\SaveDatabaseI18nValues`, use `wcf\data\wsdb\database\DatabaseBuilder::setName()` instead
+- `wcf\command\wsdb\database\SetDatabaseLanguage`, use `wcf\data\wsdb\database\DatabaseBuilder::setPhrase()` instead
+- `wcf\data\wsdb\database\I18nDatabaseList`, use `wcf\data\wsdb\database\L10nDatabaseList` instead
+- `wcf\data\wsdb\database\language\DatabaseLanguage`, use `wcf\data\wsdb\database\Database::getPhrase()` or `wcf\data\wsdb\database\Database::getL10nValues()` instead
+- `wcf\data\wsdb\database\language\DatabaseLanguageAction`, use `wcf\data\wsdb\database\DatabaseBuilder::setPhrase()` instead
+- `wcf\data\wsdb\database\language\DatabaseLanguageEditor`, use `wcf\data\wsdb\database\DatabaseBuilder::setPhrase()` instead
+- `wcf\data\wsdb\database\language\DatabaseLanguageList`, use `wcf\data\wsdb\database\Database::getPhrase()` or `wcf\data\wsdb\database\Database::getL10nValues()` instead
 
 #### Methods
 
@@ -635,6 +666,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\trophy\TrophyAction::validateUpload()`
 - `wcf\data\trophy\TrophyAction::upload()`
 - `wcf\data\trophy\TrophyAction::updateTrophyImage()`
+- `wcf\data\user\trophy\UserTrophyAction::getGroupedUserTrophyList()`
+- `wcf\data\user\trophy\UserTrophyAction::validateGetGroupedUserTrophyList()`
+- `wcf\data\wsdb\database\Database::getLanguages()`, use `wcf\data\wsdb\database\Database::getPhrase()` or `wcf\data\wsdb\database\Database::getL10nValues()` instead
 
 #### Properties
 
@@ -731,3 +765,4 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Acp/Ui/Trophy/Badge`
 - `WoltLabSuite/Core/Acp/Ui/Trophy/Editor`
 - `WoltLabSuite/Core/Acp/Ui/Trophy/Upload`
+- `WoltLabSuite/Core/Ui/User/Trophy/List`
