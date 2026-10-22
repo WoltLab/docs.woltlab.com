@@ -106,6 +106,7 @@ Interaction effects determine what should happen with the UI after an interactio
 | `InteractionEffect::ReloadList` | Reloads all items/rows.     | Same as `ReloadItem` |
 | `InteractionEffect::ReloadPage` | Same as `ReloadItem`.       | Reloads the page. |
 | `InteractionEffect::RemoveItem` | Removes the item/row        | Redirects to a given list page. |
+| `InteractionEffect::Redirect`   | Navigates to the URL provided by the response. | Same as list & grid views. |
 
 Example:
 
@@ -119,6 +120,36 @@ new RpcInteraction(
 ```
 
 The default interaction effect for `RpcInteraction` is `InteractionEffect::ReloadItem`.
+
+### Redirect
+
+Since version 6.3, `InteractionEffect::Redirect` can be used with `RpcInteraction` and `FormBuilderDialogInteraction` to navigate to a different page after the interaction has been executed, for example to the edit form of a newly created object.
+The target URL is read from the `redirectUrl` property of the response.
+If the response does not provide a `redirectUrl`, the page is reloaded instead.
+
+For `RpcInteraction`, the endpoint returns the URL directly:
+
+```php
+return new JsonResponse([
+    'redirectUrl' => LinkHandler::getInstance()->getControllerLink(
+        ExampleEditForm::class,
+        ['id' => $object->getObjectID()]
+    ),
+]);
+```
+
+For `FormBuilderDialogInteraction`, the URL is part of the `result` of the dialog form response:
+
+```php
+return new JsonResponse([
+    'result' => [
+        'redirectUrl' => LinkHandler::getInstance()->getControllerLink(
+            ExampleEditForm::class,
+            ['id' => $object->getObjectID()]
+        ),
+    ],
+]);
+```
 
 ## Available Interactions
 
