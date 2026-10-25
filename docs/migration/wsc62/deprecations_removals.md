@@ -885,3 +885,4 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WCF.ACP.Package.Server.Installation`
 - `WCF.ACP.Stat.Chart` ([WoltLab/WCF#6753](https://github.com/WoltLab/WCF/pull/6753))
 - jQuery Flot in `js/3rdParty/flot/`, use Chart.js through the module `chart.js` instead; charts with a time scale must call `setup()` from `WoltLabSuite/Core/Component/Chart/DateAdapter` before they are created, and can set `adapters.date.utc` on the scale to treat timestamps as calendar dates in UTC ([WoltLab/WCF#6753](https://github.com/WoltLab/WCF/pull/6753))
+- `WCF.ColorPicker`, use `WoltLabSuite/Core/Ui/Color/Picker` instead
