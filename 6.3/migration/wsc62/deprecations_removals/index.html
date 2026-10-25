@@ -6745,6 +6745,7 @@
 <li><code>wcf\data\poll\PollBuilder::setObjectID()</code>, standalone polls are not bound to a content object</li>
 <li><code>wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer::getPollContainer()</code>, use standalone polls that are embedded through the <code>[poll]</code> BBCode instead</li>
 <li><code>wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer::pollObjectType()</code>, use standalone polls that are embedded through the <code>[poll]</code> BBCode instead</li>
+<li><code>wcf\data\stat\daily\StatDailyAction::getData()</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\core\stats\GetStats</code> instead (<a href="https://github.com/WoltLab/WCF/pull/6753">WoltLab/WCF#6753</a>)</li>
 </ul>
 <h4 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h4>
 <ul>
@@ -7185,6 +7186,8 @@
 <li><code>WCF.ACP.Package.Installation.Cancel</code> (<a href="https://github.com/WoltLab/WCF/issues/6097">WoltLab/WCF#6097</a>)</li>
 <li><code>WCF.ACP.Package.Uninstallation</code></li>
 <li><code>WCF.ACP.Package.Server.Installation</code></li>
+<li><code>WCF.ACP.Stat.Chart</code> (<a href="https://github.com/WoltLab/WCF/pull/6753">WoltLab/WCF#6753</a>)</li>
+<li>jQuery Flot in <code>js/3rdParty/flot/</code>, use Chart.js through the module <code>chart.js</code> instead; charts with a time scale must call <code>setup()</code> from <code>WoltLabSuite/Core/Component/Chart/DateAdapter</code> before they are created, and can set <code>adapters.date.utc</code> on the scale to treat timestamps as calendar dates in UTC (<a href="https://github.com/WoltLab/WCF/pull/6753">WoltLab/WCF#6753</a>)</li>
 </ul>
 
 
