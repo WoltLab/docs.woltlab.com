@@ -440,6 +440,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\poll\PollBuilder::setObjectID()`, standalone polls are not bound to a content object
 - `wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer::getPollContainer()`, use standalone polls that are embedded through the `[poll]` BBCode instead
 - `wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer::pollObjectType()`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `wcf\data\stat\daily\StatDailyAction::getData()`, use the RPC endpoint `wcf\system\endpoint\controller\core\stats\GetStats` instead ([WoltLab/WCF#6753](https://github.com/WoltLab/WCF/pull/6753))
 
 #### Properties
 
@@ -882,3 +883,5 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WCF.ACP.Package.Installation.Cancel` ([WoltLab/WCF#6097](https://github.com/WoltLab/WCF/issues/6097))
 - `WCF.ACP.Package.Uninstallation`
 - `WCF.ACP.Package.Server.Installation`
+- `WCF.ACP.Stat.Chart` ([WoltLab/WCF#6753](https://github.com/WoltLab/WCF/pull/6753))
+- jQuery Flot in `js/3rdParty/flot/`, use Chart.js through the module `chart.js` instead; charts with a time scale must call `setup()` from `WoltLabSuite/Core/Component/Chart/DateAdapter` before they are created, and can set `adapters.date.utc` on the scale to treat timestamps as calendar dates in UTC ([WoltLab/WCF#6753](https://github.com/WoltLab/WCF/pull/6753))
