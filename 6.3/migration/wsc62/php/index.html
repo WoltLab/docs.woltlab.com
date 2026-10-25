@@ -4522,6 +4522,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#polls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Polls
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Polls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migrating-legacy-polls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrating Legacy Polls
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6873,6 +6901,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#polls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Polls
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Polls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migrating-legacy-polls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrating Legacy Polls
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6952,7 +7008,7 @@ The new implementation renders the categories using <code>CategoryNodeTreeView</
 <p><code>AbstractCategoryType</code> provides empty default implementations to avoid breaking existing third-party category types. Categories of types that do not provide these methods will not be editable through the node tree view.</p>
 <h3 id="pre-selecting-the-parent-category-in-the-add-form">Pre-Selecting the Parent Category in the Add Form<a class="headerlink" href="#pre-selecting-the-parent-category-in-the-add-form" title="Permanent link">#</a></h3>
 <p><code>CategoryAddFormBuilderForm</code> now reads the optional <code>parentCategoryID</code> GET parameter and pre-selects the corresponding parent category in the add form.
-This is used by the “Add Child Category” interaction in the node tree view to allow users to directly create a child category for a given node.</p>
+This is used by the "Add Child Category" interaction in the node tree view to allow users to directly create a child category for a given node.</p>
 <p>Custom subclasses of <code>CategoryAddFormBuilderForm</code> do not require any changes for this to work.</p>
 <h3 id="implement-getaffectedobjects">Implement <code>getAffectedObjects()</code><a class="headerlink" href="#implement-getaffectedobjects" title="Permanent link">#</a></h3>
 <p>Deleting a category can also delete the objects assigned to it.
@@ -7692,7 +7748,7 @@ The object returned by <code>UserBuilder::create()</code> and <code>UserBuilder:
 </table>
 <p>All commands that modify a user, such as <code>BanUser</code> or <code>AddUserToGroups</code>, use <code>UpdateUser</code> internally and therefore fire <code>UserUpdated</code>.
 The builder exposes the changes, <code>getUserOptions()</code>, <code>getGroupIDs()</code> and <code>getLanguageIDs()</code> return <code>null</code> if the respective data has not been changed.
-The user prior to the update is available through <code>$event-&gt;builder-&gt;getObject()</code>.</p>
+The user prior to the update is available through <code>$event-&gt;builder-&gt;getExistingObject()</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -8198,6 +8254,80 @@ The migration must run before the <code>objectType</code> package installation p
 <span class="p">]);</span>
 </code></pre></div></td></tr></table></div>
 <p><code>ObjectListFilterHandler::applyFilters()</code> now returns whether any of the stored filters has been applied.</p>
+<h2 id="polls">Polls<a class="headerlink" href="#polls" title="Permanent link">#</a></h2>
+<p>Polls are no longer bound to a content object, they are standalone objects that are embedded into messages through the <code>[poll=ID][/poll]</code> BBCode.
+A standalone poll has no object type (<code>objectTypeID</code> is <code>NULL</code>) and is owned by the user who created it (<code>userID</code> and <code>username</code>).
+The editor offers a button to create a poll or to select a previously created one if the <code>poll</code> BBCode is available and the user has the permission <code>user.poll.canCreatePoll</code>, no changes are required for messages that use <code>WysiwygFormContainer</code> or <code>shared_wysiwyg</code>.</p>
+<p>The polls that are bound to a content object (<code>IPollContainer</code>, <code>IPollObject</code>, <code>PollManager</code>, <code>IPollHandler</code>, <code>WysiwygPollFormContainer</code>) are deprecated but remain functional, see <a href="#migrating-legacy-polls">Migrating Legacy Polls</a>.</p>
+<h3 id="migrating-legacy-polls">Migrating Legacy Polls<a class="headerlink" href="#migrating-legacy-polls" title="Permanent link">#</a></h3>
+<p>Packages that provide polls bound to their content should convert the existing polls into standalone polls that are embedded at the beginning of the message.
+<code>wcf\system\poll\LegacyPollConverter</code> converts a poll and is intended to be called from the rebuild data worker of the content:</p>
+<ul>
+<li><code>LegacyPollConverter::convert()</code> turns the poll into a standalone poll owned by the given user and stores the given ACL values.</li>
+<li><code>LegacyPollConverter::createSnapshot()</code> evaluates the access to the content for each user group and returns the ACL values as a <code>PollAclSnapshot</code>.</li>
+<li><code>LegacyPollConverter::prependEmbed()</code> prepends the <code>[poll]</code> BBCode to the message, for messages in HTML and in BBCode.</li>
+</ul>
+<p>The two callbacks of <code>createSnapshot()</code> receive the group IDs that represent the members of a user group and whether these are the guests.
+Guests are represented by the groups "Everyone" and "Guests", registered users by "Everyone" and "Users" and the members of any other group by "Everyone", "Users" and the group itself.
+The "Everyone" group is always denied and guests can never vote.
+User-specific permissions and temporary states of the content, such as being disabled, are not reflected, the author keeps access to the poll through <code>Poll::canManage()</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span> <span class="k">function</span> <span class="nf">convertLegacyPoll</span><span class="p">(</span><span class="nx">Example</span> <span class="nv">$example</span><span class="p">,</span> <span class="nx">ExampleBuilder</span> <span class="nv">$builder</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$example</span><span class="o">-&gt;</span><span class="na">pollID</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$example</span><span class="o">-&gt;</span><span class="na">message</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">setPollID</span><span class="p">(</span><span class="k">null</span><span class="p">);</span>
+
+    <span class="nv">$poll</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Poll</span><span class="p">(</span><span class="nv">$example</span><span class="o">-&gt;</span><span class="na">pollID</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$poll</span><span class="o">-&gt;</span><span class="na">isNil</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$example</span><span class="o">-&gt;</span><span class="na">message</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// The poll is already standalone if a previous run failed after its conversion.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$poll</span><span class="o">-&gt;</span><span class="na">isStandalone</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nx">LegacyPollConverter</span><span class="o">::</span><span class="na">convert</span><span class="p">(</span>
+            <span class="nv">$poll</span><span class="p">,</span>
+            <span class="nv">$example</span><span class="o">-&gt;</span><span class="na">userID</span><span class="p">,</span>
+            <span class="nv">$example</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">,</span>
+            <span class="nx">LegacyPollConverter</span><span class="o">::</span><span class="na">createSnapshot</span><span class="p">(</span>
+                <span class="k">static</span> <span class="nx">fn</span><span class="p">(</span><span class="k">array</span> <span class="nv">$groupIDs</span><span class="p">,</span> <span class="nx">bool</span> <span class="nv">$isGuest</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="cm">/* Can the groups read the content? */</span><span class="p">,</span>
+                <span class="k">static</span> <span class="nx">fn</span><span class="p">(</span><span class="k">array</span> <span class="nv">$groupIDs</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">bool</span><span class="p">)(</span><span class="nx">UserGroupPermissionCacheBuilder</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">(</span><span class="nv">$groupIDs</span><span class="p">)[</span><span class="s1">'user.foo.canVotePoll'</span><span class="p">]</span> <span class="o">??</span> <span class="k">false</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">LegacyPollConverter</span><span class="o">::</span><span class="na">prependEmbed</span><span class="p">(</span><span class="nv">$example</span><span class="o">-&gt;</span><span class="na">message</span><span class="p">,</span> <span class="nv">$poll</span><span class="o">-&gt;</span><span class="na">pollID</span><span class="p">,</span> <span class="nv">$example</span><span class="o">-&gt;</span><span class="na">enableHtml</span> <span class="o">===</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The returned message must be processed by <code>HtmlInputProcessor</code> afterwards to update the embedded objects of the message.</p>
 
 
 
@@ -8218,7 +8348,7 @@ The migration must run before the <code>objectType</code> package installation p
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-10-15
+    2026-10-25
   </span>
 
     

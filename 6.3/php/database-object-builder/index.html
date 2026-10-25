@@ -6381,7 +6381,13 @@ Those belong into a <a href="#use-case-commands">command</a> that wraps the buil
 </ul>
 <h2 id="using-a-builder">Using a Builder<a class="headerlink" href="#using-a-builder" title="Permanent link">#</a></h2>
 <p>A builder instance is always obtained through one of the two static factory methods and is single-use:
-once <code>create()</code> or <code>update()</code> has been called, the instance is consumed and may not be reused.</p>
+once <code>create()</code> or <code>update()</code> has been called, the instance is consumed and may not be reused.
+<code>isConsumed()</code> returns whether <code>create()</code>, <code>createOrIgnore()</code> or <code>update()</code> has already been called, even if the call failed.</p>
+<p>A builder provides access to the objects it operates on:</p>
+<ul>
+<li><code>getExistingObject()</code> returns the object passed to <code>forUpdate()</code>, that is the state prior to the update. It throws a <code>\BadMethodCallException</code> for builders created through <code>forCreate()</code>.</li>
+<li><code>getObject()</code> returns the object that has been created or updated, once <code>create()</code> or <code>update()</code> has been called. It throws a <code>\BadMethodCallException</code> before that.</li>
+</ul>
 <h3 id="creating-an-object">Creating an object<a class="headerlink" href="#creating-an-object" title="Permanent link">#</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -6642,10 +6648,11 @@ Checks for the extra state described above belong into <code>afterValidateCreate
 The base class provides protected hook methods for this that are invoked around the actual query:</p>
 <ul>
 <li><code>afterValidateCreate()</code> is called after the properties have been validated but before the insert. It must not modify any properties.</li>
-<li><code>afterCreate(DatabaseObject $object)</code> is called after a new row was inserted.</li>
-<li><code>afterUpdate(DatabaseObject $object)</code> is called after an existing row was updated.</li>
-<li><code>beforeDeleteAll(array $objectIDs)</code> is called before rows are deleted.</li>
+<li><code>afterCreate()</code> is called after a new row was inserted.</li>
+<li><code>afterUpdate()</code> is called after an existing row was updated.</li>
 </ul>
+<p>The created or updated object is available through <code>getObject()</code> in both hooks.
+- <code>beforeDeleteAll(array $objectIDs)</code> is called before rows are deleted.</p>
 <p><code>TagBuilder</code> uses these hooks to keep a tag's synonyms in sync:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -6670,21 +6677,21 @@ The base class provides protected hook methods for this that are invoked around 
 <span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
-<span class="k">protected</span> <span class="k">function</span> <span class="nf">afterCreate</span><span class="p">(</span><span class="nx">DatabaseObject</span> <span class="nv">$object</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
+<span class="k">protected</span> <span class="k">function</span> <span class="nf">afterCreate</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
 <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">synonyms</span> <span class="o">!==</span> <span class="k">null</span> <span class="o">&amp;&amp;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">synonyms</span> <span class="o">!==</span> <span class="p">[])</span> <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">saveSynonyms</span><span class="p">(</span><span class="nv">$object</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">synonyms</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">saveSynonyms</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(),</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">synonyms</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
-<span class="k">protected</span> <span class="k">function</span> <span class="nf">afterUpdate</span><span class="p">(</span><span class="nx">DatabaseObject</span> <span class="nv">$object</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
+<span class="k">protected</span> <span class="k">function</span> <span class="nf">afterUpdate</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
 <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">synonyms</span> <span class="o">!==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">removeSynonyms</span><span class="p">(</span><span class="nv">$object</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">removeSynonyms</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">());</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">synonyms</span> <span class="o">!==</span> <span class="p">[])</span> <span class="p">{</span>
-            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">saveSynonyms</span><span class="p">(</span><span class="nv">$object</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">synonyms</span><span class="p">);</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">saveSynonyms</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getObject</span><span class="p">(),</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">synonyms</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -6924,7 +6931,7 @@ Any <code>additionalFields</code> collected by the form are written through <cod
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-10-12
+    2026-10-25
   </span>
 
     

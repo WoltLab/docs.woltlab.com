@@ -1560,6 +1560,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#polloptionlistformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PollOptionListFormField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#simpleaclformfield" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1704,10 +1715,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#wysiwygpollformcontainer" class="md-nav__link">
+  <a href="#wysiwygpollformcontainer-deprecated" class="md-nav__link">
     <span class="md-ellipsis">
       
-        WysiwygPollFormContainer
+        WysiwygPollFormContainer (deprecated)
       
     </span>
   </a>
@@ -7378,6 +7389,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#polloptionlistformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PollOptionListFormField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#simpleaclformfield" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7522,10 +7544,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#wysiwygpollformcontainer" class="md-nav__link">
+  <a href="#wysiwygpollformcontainer-deprecated" class="md-nav__link">
     <span class="md-ellipsis">
       
-        WysiwygPollFormContainer
+        WysiwygPollFormContainer (deprecated)
       
     </span>
   </a>
@@ -8150,6 +8172,8 @@ A category name of <code>null</code> signals that no category filter is used.</p
 <div class="admonition info">
 <p class="admonition-title">Since version 5.5, the category name also supports filtering using a wildcard like <code>user.*</code>, see <a href="https://github.com/WoltLab/WCF/pull/4355">WoltLab/WCF#4355</a>.</p>
 </div>
+<p>If no values have been submitted, the stored values of the edited object are preloaded.
+This allows the field to be used outside of the ACP, for example in form builder dialogs.</p>
 <p><code>AclFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the relevant ACL object type id into the <code>$parameters</code> array directly using <code>{$objectProperty}_aclObjectTypeID</code> as the array key.
 The relevant database object action method is expected, based on the given ACL object type id, to save the ACL option values appropriately.</p>
 <h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
@@ -8360,6 +8384,22 @@ The default label of instances of this class is <code>wcf.form.field.option</cod
   <span class="o">-&gt;</span><span class="na">description</span><span class="p">(</span><span class="s1">'foo.bar.example'</span><span class="p">)</span>
   <span class="o">-&gt;</span><span class="na">packageIDs</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="polloptionlistformfield"><code>PollOptionListFormField</code><a class="headerlink" href="#polloptionlistformfield" title="Permanent link">#</a></h3>
+<p><code>PollOptionListFormField</code> is used to enter the options of a poll, each option can have values for each content language.
+The value of the field is a list of options in the format <code>array{optionID: int, optionValue: array&lt;int, string&gt;}</code>, where <code>optionID</code> is <code>0</code> for new options and <code>optionValue</code> maps the language ID to the value, using <code>L10nStorage::MONOLINGUAL</code> for monolingual values.
+The value can directly be passed to <code>PollBuilder::setOptions()</code>, <code>value()</code> also accepts a list of <code>PollOption</code> objects.
+Empty options are ignored and the number of options is limited to the value of the option <code>POLL_MAX_OPTIONS</code>.</p>
+<p>The following methods are specific to this form field class:</p>
+<ul>
+<li><code>hasL10nValues()</code> returns <code>true</code> if any option has values for multiple languages.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">PollOptionListFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'options'</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">required</span><span class="p">()</span>
+  <span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="nv">$poll</span><span class="o">-&gt;</span><span class="na">getOptions</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="simpleaclformfield"><code>SimpleAclFormField</code><a class="headerlink" href="#simpleaclformfield" title="Permanent link">#</a></h3>
 <p><code>SimpleAclFormField</code> is used for setting up simple acl values (one <code>yes</code>/<code>no</code> option per user and user group) for specific objects.</p>
 <p><code>SimpleAclFormField</code> objects register a <a href="../validation_data/#customformfielddataprocessor">custom form field data processor</a> to add the relevant simple ACL data array into the <code>$parameters</code> array directly using the object property as the array key.</p>
@@ -8484,7 +8524,8 @@ This container takes care of creating all necessary form nodes listed below for 
   By default, the preselect is <code>'true'</code> which is used to pre-select the first tab.</li>
 <li><code>messageObjectType($messageObjectType)</code> can be used to set the message object type.</li>
 <li><code>pollObjectType($pollObjectType)</code> can be used to set the poll object type.
-  By default, no poll object type is set, thus the poll form field container is not available.</li>
+  By default, no poll object type is set, thus the poll form field container is not available.
+  This method is deprecated since version 6.3, standalone polls are embedded through the <code>[poll]</code> BBCode instead.</li>
 <li><code>supportMentions($supportMentions)</code> can be used to set if mentions are supported.
   By default, mentions are not supported.
   This method is only relevant before the form is built.
@@ -8498,7 +8539,10 @@ This container takes care of creating all necessary form nodes listed below for 
 <p><code>WysiwygAttachmentFormField</code> provides attachment support for a wysiwyg editor via a tab in the menu below the editor.
 This class should not be used directly but only via <code>WysiwygFormContainer</code>.
 The methods <code>attachmentHandler(AttachmentHandler $attachmentHandler)</code> and <code>getAttachmentHandler()</code> can be used to set and get the <code>AttachmentHandler</code> object that is used for uploaded attachments.</p>
-<h3 id="wysiwygpollformcontainer"><code>WysiwygPollFormContainer</code><a class="headerlink" href="#wysiwygpollformcontainer" title="Permanent link">#</a></h3>
+<h3 id="wysiwygpollformcontainer-deprecated"><code>WysiwygPollFormContainer</code> (deprecated)<a class="headerlink" href="#wysiwygpollformcontainer-deprecated" title="Permanent link">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title"><code>WysiwygPollFormContainer</code> is deprecated since version 6.3, standalone polls are embedded through the <code>[poll]</code> BBCode instead, see <a href="../../../../migration/wsc62/php/#polls">Polls</a>.</p>
+</div>
 <p><code>WysiwygPollFormContainer</code> provides poll support for a wysiwyg editor via a tab in the menu below the editor.
 This class should not be used directly but only via <code>WysiwygFormContainer</code>.
 <code>WysiwygPollFormContainer</code> contains all form fields that are required to create polls and requires edited objects to implement <code>IPollContainer</code>.</p>
@@ -8608,7 +8652,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-10-12
+    2026-10-25
   </span>
 
     
