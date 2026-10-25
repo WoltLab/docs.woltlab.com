@@ -753,6 +753,14 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\media\MediaAction::setCategory()`
 - `wcf\data\media\MediaAction::validateReplaceFile()`
 - `wcf\data\media\MediaAction::replaceFile()`
+- `wcf\acp\action\DevtoolsInstallPackageAction::readParameters()`
+- `wcf\acp\action\InstallPackageAction::readParameters()`
+- `wcf\acp\action\InstallPackageAction::execute()`
+- `wcf\acp\action\UninstallPackageAction::readParameters()`
+- `wcf\acp\action\UninstallPackageAction::execute()`
+- `wcf\acp\action\UninstallPackageAction::stepUninstall()`
+- `wcf\data\package\installation\queue\PackageInstallationQueueAction::validateCancelInstallation()`
+- `wcf\data\package\installation\queue\PackageInstallationQueueAction::cancelInstallation()`
 
 #### Properties
 
@@ -773,6 +781,17 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\user\option\UserOption::$user`
 - `wcf\data\user\option\ViewableUserOption::$outputObjects`
 - `wcf\page\MembersListPage::$searchID`
+- `wcf\acp\action\DevtoolsInstallPackageAction::$project`
+- `wcf\acp\action\InstallPackageAction::$step`
+- `wcf\acp\action\InstallPackageAction::$node`
+- `wcf\acp\action\InstallPackageAction::$installation`
+- `wcf\acp\action\InstallPackageAction::$queue`
+- `wcf\acp\action\UninstallPackageAction::$step`
+- `wcf\acp\action\UninstallPackageAction::$node`
+- `wcf\acp\action\UninstallPackageAction::$installation`
+- `wcf\acp\action\UninstallPackageAction::$queue`
+- `wcf\data\package\installation\queue\PackageInstallationQueueAction::$queue`
+- `wcf\data\package\installation\queue\PackageInstallationQueueAction::$package`
 
 ### JavaScript
 
@@ -859,3 +878,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Media/Replace`
 - `WoltLabSuite/Core/Media/Upload`
 - `WBB.ACP.RSSFeed.LabelList`
+- `WCF.ACP.Package.Installation` ([WoltLab/WCF#6096](https://github.com/WoltLab/WCF/issues/6096))
+- `WCF.ACP.Package.Installation.Cancel` ([WoltLab/WCF#6097](https://github.com/WoltLab/WCF/issues/6097))
+- `WCF.ACP.Package.Uninstallation`
+- `WCF.ACP.Package.Server.Installation`
