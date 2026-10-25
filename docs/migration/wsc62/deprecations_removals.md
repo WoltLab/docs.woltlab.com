@@ -449,6 +449,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Media/Manager/Editor`, use `WoltLabSuite/Core/Component/Media/Manager` instead
 - `WoltLabSuite/Core/Media/Manager/Select`, use `WoltLabSuite/Core/Component/Media/Select` instead
 - The `promise` property of the payload of `uploadMedia` in `WoltLabSuite/Core/Component/Ckeditor/Media` is no longer set, media files are inserted by the media manager
+- `WCF.Label.Chooser`
+- `WoltLabSuite/Core/Form/Builder/Field/Controller/Label`
 
 ### Templates
 
@@ -818,3 +820,4 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Media/Manager/Search`
 - `WoltLabSuite/Core/Media/Replace`
 - `WoltLabSuite/Core/Media/Upload`
+- `WBB.ACP.RSSFeed.LabelList`
