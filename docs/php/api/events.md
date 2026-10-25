@@ -285,6 +285,10 @@ final class ValueDumpListener
 | `wcf\event\package\PackageListChanged` | Indicates that the there have been changes to the package list. These changes include the installation, removal or update of existing packages. The event is fired at the end of the overall process and not for each package that has been modified. |
 | `wcf\event\package\PackageUpdateListChanged` | Indicates that the there have been changes to the package update list. |
 | `wcf\event\page\ContactFormSpamChecking` | Indicates that a new contact form message is currently validated. If this event is interrupted, the message is considered to be spam. |
+| `wcf\event\poll\PollCreated` | Indicates that a poll has been created. |
+| `wcf\event\poll\PollUpdated` | Indicates that a poll has been updated. |
+| `wcf\event\poll\PollVoted` | Indicates that a user has voted in a poll. |
+| `wcf\event\poll\PollsDeleted` | Indicates that multiple polls have been deleted. |
 | `wcf\event\request\ActivePageResolving` | Indicates that the `RequestHandler` could not determine the active page. |
 | `wcf\event\session\PreserveVariablesCollecting` | This event allows the configuration of session variables that are to be preserved when the user changes. |
 | `wcf\event\sitemap\SitemapObjectCollecting` | Requests the collection of objects that should be included in the sitemap. |

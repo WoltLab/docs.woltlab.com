@@ -174,6 +174,19 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\media\ViewableMediaList`, use `wcf\data\media\MediaList` instead
 - `wcf\system\cache\runtime\ViewableMediaRuntimeCache`, use `wcf\system\cache\runtime\MediaRuntimeCache` instead
 - `wcf\system\upload\DefaultUploadFileSaveStrategy`, use the file processors of the new upload API instead
+- `wcf\data\IPollContainer`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `wcf\data\IPollObject`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `wcf\system\poll\PollManager`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `wcf\system\poll\IPollHandler`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `wcf\system\poll\AbstractPollHandler`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `wcf\system\form\builder\container\wysiwyg\WysiwygPollFormContainer`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `wcf\system\form\builder\field\poll\PollOptionsFormField`, use `wcf\system\form\builder\field\poll\PollOptionListFormField` instead
+- `wcf\data\poll\PollAction`, use `wcf\data\poll\PollBuilder`, the commands and the RPC endpoints instead
+- `wcf\data\poll\PollEditor`, use `wcf\data\poll\PollBuilder` instead
+- `wcf\data\poll\option\PollOptionAction`, use `wcf\data\poll\PollBuilder` instead
+- `wcf\data\poll\option\PollOptionEditor`, use `wcf\data\poll\PollBuilder` instead
+- `wcf\system\importer\AbstractPollImporter`, only supports legacy polls that are bound to a content object
+- `wcf\system\importer\AbstractPollOptionImporter`, only supports legacy polls that are bound to a content object
 
 #### Methods
 
@@ -421,11 +434,18 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\media\Media::getLocation()`, only required for media files that have not been migrated to the new upload API yet
 - `wcf\data\media\Media::getThumbnailLocation()`, only required for media files that have not been migrated to the new upload API yet
 - `wcf\data\media\Media::getStorage()`, only required for media files that have not been migrated to the new upload API yet
+- `wcf\data\poll\Poll::getRelatedObject()`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `wcf\data\poll\Poll::setRelatedObject()`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `wcf\data\poll\PollBuilder::setContainer()`, standalone polls are not bound to a content object
+- `wcf\data\poll\PollBuilder::setObjectID()`, standalone polls are not bound to a content object
+- `wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer::getPollContainer()`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer::pollObjectType()`, use standalone polls that are embedded through the `[poll]` BBCode instead
 
 #### Properties
 
 - `wcf\data\like\ViewableLike::$objectTypeDescription`
 - `wcf\system\trophy\condition\TrophyConditionHandler::$groupedObjectTypes`
+- `wcf\data\poll\Poll::$relatedObject`, use standalone polls that are embedded through the `[poll]` BBCode instead
 
 #### Constants
 
@@ -437,6 +457,11 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `com.woltlab.wcf.sitemap.object`, use the event `wcf\event\sitemap\SitemapObjectCollecting` instead
 - `com.woltlab.wcf.condition.userSearch`, use the event `wcf\event\gridView\admin\UserGridViewInitialized` to add filters to the user list instead
 - `com.woltlab.wcf.condition.trophy`, use the event `wcf\event\trophy\TrophyObjectFilterCollecting` to add filters to the conditions of trophies instead
+- `com.woltlab.wcf.poll`, use standalone polls that are embedded through the `[poll]` BBCode instead
+
+#### Options
+
+- `poll_full_width`, only affects legacy polls, the widget of standalone polls always uses the full width
 
 ### JavaScript
 
@@ -451,10 +476,23 @@ With version 6.3, we have deprecated certain components and removed several othe
 - The `promise` property of the payload of `uploadMedia` in `WoltLabSuite/Core/Component/Ckeditor/Media` is no longer set, media files are inserted by the media manager
 - `WCF.Label.Chooser`
 - `WoltLabSuite/Core/Form/Builder/Field/Controller/Label`
+- `WoltLabSuite/Core/Ui/Poll/Editor`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `WoltLabSuite/Core/Ui/Poll/Poll`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `WoltLabSuite/Core/Ui/Poll/Vote`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `WoltLabSuite/Core/Ui/Poll/View/Participants`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `WoltLabSuite/Core/Ui/Poll/View/Results`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `WoltLabSuite/Core/Ui/Poll/View/Vote`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `WoltLabSuite/Core/Form/Builder/Field/Wysiwyg/Poll`, use `WoltLabSuite/Core/Form/Builder/Field/PollOptionList` instead
 
 ### Templates
 
 - `mediaJavaScript`, use `shared_mediaJavaScript` instead
+- `__messageFormPoll`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `__messageFormPollInline`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `poll`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `pollResult`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `pollVote`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `shared_pollOptionsFormField`, use `shared_pollOptionListFormField` instead
 
 ## Removals
 

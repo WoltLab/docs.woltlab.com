@@ -27,6 +27,12 @@ Compared to `AbstractDatabaseObjectAction`, a builder offers:
 
 A builder instance is always obtained through one of the two static factory methods and is single-use:
 once `create()` or `update()` has been called, the instance is consumed and may not be reused.
+`isConsumed()` returns whether `create()`, `createOrIgnore()` or `update()` has already been called, even if the call failed.
+
+A builder provides access to the objects it operates on:
+
+- `getExistingObject()` returns the object passed to `forUpdate()`, that is the state prior to the update. It throws a `\BadMethodCallException` for builders created through `forCreate()`.
+- `getObject()` returns the object that has been created or updated, once `create()` or `update()` has been called. It throws a `\BadMethodCallException` before that.
 
 ### Creating an object
 
@@ -249,8 +255,10 @@ Persisting an object often involves more than a single row, for example tightly 
 The base class provides protected hook methods for this that are invoked around the actual query:
 
 - `afterValidateCreate()` is called after the properties have been validated but before the insert. It must not modify any properties.
-- `afterCreate(DatabaseObject $object)` is called after a new row was inserted.
-- `afterUpdate(DatabaseObject $object)` is called after an existing row was updated.
+- `afterCreate()` is called after a new row was inserted.
+- `afterUpdate()` is called after an existing row was updated.
+
+The created or updated object is available through `getObject()` in both hooks.
 - `beforeDeleteAll(array $objectIDs)` is called before rows are deleted.
 
 `TagBuilder` uses these hooks to keep a tag's synonyms in sync:
@@ -259,21 +267,21 @@ The base class provides protected hook methods for this that are invoked around 
 <?php
 
 #[\Override]
-protected function afterCreate(DatabaseObject $object): void
+protected function afterCreate(): void
 {
     if ($this->synonyms !== null && $this->synonyms !== []) {
-        $this->saveSynonyms($object, $this->synonyms);
+        $this->saveSynonyms($this->getObject(), $this->synonyms);
     }
 }
 
 #[\Override]
-protected function afterUpdate(DatabaseObject $object): void
+protected function afterUpdate(): void
 {
     if ($this->synonyms !== null) {
-        $this->removeSynonyms($object);
+        $this->removeSynonyms($this->getObject());
 
         if ($this->synonyms !== []) {
-            $this->saveSynonyms($object, $this->synonyms);
+            $this->saveSynonyms($this->getObject(), $this->synonyms);
         }
     }
 }

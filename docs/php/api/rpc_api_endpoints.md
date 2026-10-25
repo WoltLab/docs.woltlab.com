@@ -131,6 +131,10 @@
 | DeleteSubscription | Delete | /core/paid/subscriptions/{id:\d+}  | Deletes the paid subscription with the given ID. |
 | DisableSubscription | Post | /core/paid/subscriptions/{id:\d+}/disable  | Disables the paid subscription with the given ID. |
 | EnableSubscription | Post | /core/paid/subscriptions/{id:\d+}/enable  | Enables the paid subscription with the given ID. |
+| DeletePoll | Delete | /core/polls/{id:\d+}  | Deletes the standalone poll with the given ID. |
+| GetPoll | Get | /core/polls/{id:\d+}  | Retrieves the question and the state of the standalone poll with the given ID. |
+| Vote | Post | /core/polls/{id:\d+}/vote  | Votes for the given options of the standalone poll with the given ID and returns the updated poll widget. |
+| GetWidget | Get | /core/polls/{id:\d+}/widget  | Retrieves the HTML code of the widget of the standalone poll with the given ID. |
 | GetShowOrder | Get | /core/reactions/types/show-order  | Retrieves the show order of reaction types. |
 | ChangeShowOrder | Post | /core/reactions/types/show-order  | Saves the show order of reaction types. |
 | DeleteType | Delete | /core/reactions/types/{id:\d+}  | Deletes the reaction type with the given ID. |

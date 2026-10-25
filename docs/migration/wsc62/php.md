@@ -54,7 +54,7 @@ class ArticleCategoryType extends AbstractCategoryType
 ### Pre-Selecting the Parent Category in the Add Form
 
 `CategoryAddFormBuilderForm` now reads the optional `parentCategoryID` GET parameter and pre-selects the corresponding parent category in the add form.
-This is used by the “Add Child Category” interaction in the node tree view to allow users to directly create a child category for a given node.
+This is used by the "Add Child Category" interaction in the node tree view to allow users to directly create a child category for a given node.
 
 Custom subclasses of `CategoryAddFormBuilderForm` do not require any changes for this to work.
 
@@ -568,7 +568,7 @@ The commands fire the following PSR-14 events:
 
 All commands that modify a user, such as `BanUser` or `AddUserToGroups`, use `UpdateUser` internally and therefore fire `UserUpdated`.
 The builder exposes the changes, `getUserOptions()`, `getGroupIDs()` and `getLanguageIDs()` return `null` if the respective data has not been changed.
-The user prior to the update is available through `$event->builder->getObject()`.
+The user prior to the update is available through `$event->builder->getExistingObject()`.
 
 ```php
 EventHandler::getInstance()->register(
@@ -960,3 +960,58 @@ The migration must run before the `objectType` package installation plugin remov
 ```
 
 `ObjectListFilterHandler::applyFilters()` now returns whether any of the stored filters has been applied.
+
+## Polls
+
+Polls are no longer bound to a content object, they are standalone objects that are embedded into messages through the `[poll=ID][/poll]` BBCode.
+A standalone poll has no object type (`objectTypeID` is `NULL`) and is owned by the user who created it (`userID` and `username`).
+The editor offers a button to create a poll or to select a previously created one if the `poll` BBCode is available and the user has the permission `user.poll.canCreatePoll`, no changes are required for messages that use `WysiwygFormContainer` or `shared_wysiwyg`.
+
+The polls that are bound to a content object (`IPollContainer`, `IPollObject`, `PollManager`, `IPollHandler`, `WysiwygPollFormContainer`) are deprecated but remain functional, see [Migrating Legacy Polls](#migrating-legacy-polls).
+
+### Migrating Legacy Polls
+
+Packages that provide polls bound to their content should convert the existing polls into standalone polls that are embedded at the beginning of the message.
+`wcf\system\poll\LegacyPollConverter` converts a poll and is intended to be called from the rebuild data worker of the content:
+
+- `LegacyPollConverter::convert()` turns the poll into a standalone poll owned by the given user and stores the given ACL values.
+- `LegacyPollConverter::createSnapshot()` evaluates the access to the content for each user group and returns the ACL values as a `PollAclSnapshot`.
+- `LegacyPollConverter::prependEmbed()` prepends the `[poll]` BBCode to the message, for messages in HTML and in BBCode.
+
+The two callbacks of `createSnapshot()` receive the group IDs that represent the members of a user group and whether these are the guests.
+Guests are represented by the groups "Everyone" and "Guests", registered users by "Everyone" and "Users" and the members of any other group by "Everyone", "Users" and the group itself.
+The "Everyone" group is always denied and guests can never vote.
+User-specific permissions and temporary states of the content, such as being disabled, are not reflected, the author keeps access to the poll through `Poll::canManage()`.
+
+```php
+private function convertLegacyPoll(Example $example, ExampleBuilder $builder): string
+{
+    if ($example->pollID === null) {
+        return $example->message;
+    }
+
+    $builder->setPollID(null);
+
+    $poll = new Poll($example->pollID);
+    if ($poll->isNil()) {
+        return $example->message;
+    }
+
+    // The poll is already standalone if a previous run failed after its conversion.
+    if (!$poll->isStandalone()) {
+        LegacyPollConverter::convert(
+            $poll,
+            $example->userID,
+            $example->username,
+            LegacyPollConverter::createSnapshot(
+                static fn(array $groupIDs, bool $isGuest) => /* Can the groups read the content? */,
+                static fn(array $groupIDs) => (bool)(UserGroupPermissionCacheBuilder::getInstance()->getData($groupIDs)['user.foo.canVotePoll'] ?? false),
+            )
+        );
+    }
+
+    return LegacyPollConverter::prependEmbed($example->message, $poll->pollID, $example->enableHtml === 1);
+}
+```
+
+The returned message must be processed by `HtmlInputProcessor` afterwards to update the embedded objects of the message.

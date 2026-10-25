@@ -558,6 +558,9 @@ A category name of `null` signals that no category filter is used.
 
 !!! info "Since version 5.5, the category name also supports filtering using a wildcard like `user.*`, see [WoltLab/WCF#4355](https://github.com/WoltLab/WCF/pull/4355)."
 
+If no values have been submitted, the stored values of the edited object are preloaded.
+This allows the field to be used outside of the ACP, for example in form builder dialogs.
+
 `AclFormField` objects register a [custom form field data processor](validation_data.md#customformfielddataprocessor) to add the relevant ACL object type id into the `$parameters` array directly using `{$objectProperty}_aclObjectTypeID` as the array key.
 The relevant database object action method is expected, based on the given ACL object type id, to save the ACL option values appropriately.
 
@@ -774,6 +777,25 @@ OptionFormField::create()
 ```
 
 
+### `PollOptionListFormField`
+
+`PollOptionListFormField` is used to enter the options of a poll, each option can have values for each content language.
+The value of the field is a list of options in the format `array{optionID: int, optionValue: array<int, string>}`, where `optionID` is `0` for new options and `optionValue` maps the language ID to the value, using `L10nStorage::MONOLINGUAL` for monolingual values.
+The value can directly be passed to `PollBuilder::setOptions()`, `value()` also accepts a list of `PollOption` objects.
+Empty options are ignored and the number of options is limited to the value of the option `POLL_MAX_OPTIONS`.
+
+The following methods are specific to this form field class:
+
+- `hasL10nValues()` returns `true` if any option has values for multiple languages.
+
+Example:
+
+```php
+PollOptionListFormField::create('options')
+  ->required()
+  ->value($poll->getOptions())
+```
+
 ### `SimpleAclFormField`
 
 `SimpleAclFormField` is used for setting up simple acl values (one `yes`/`no` option per user and user group) for specific objects.
@@ -941,6 +963,7 @@ The following methods are specific to this form container class:
 - `messageObjectType($messageObjectType)` can be used to set the message object type.
 - `pollObjectType($pollObjectType)` can be used to set the poll object type.
   By default, no poll object type is set, thus the poll form field container is not available.
+  This method is deprecated since version 6.3, standalone polls are embedded through the `[poll]` BBCode instead.
 - `supportMentions($supportMentions)` can be used to set if mentions are supported.
   By default, mentions are not supported.
   This method is only relevant before the form is built.
@@ -956,7 +979,9 @@ The following methods are specific to this form container class:
 This class should not be used directly but only via `WysiwygFormContainer`.
 The methods `attachmentHandler(AttachmentHandler $attachmentHandler)` and `getAttachmentHandler()` can be used to set and get the `AttachmentHandler` object that is used for uploaded attachments.
 
-### `WysiwygPollFormContainer`
+### `WysiwygPollFormContainer` (deprecated)
+
+!!! warning "`WysiwygPollFormContainer` is deprecated since version 6.3, standalone polls are embedded through the `[poll]` BBCode instead, see [Polls](../../../migration/wsc62/php.md#polls)."
 
 `WysiwygPollFormContainer` provides poll support for a wysiwyg editor via a tab in the menu below the editor.
 This class should not be used directly but only via `WysiwygFormContainer`.
