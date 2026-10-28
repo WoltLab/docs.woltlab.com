@@ -187,6 +187,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\poll\option\PollOptionEditor`, use `wcf\data\poll\PollBuilder` instead
 - `wcf\system\importer\AbstractPollImporter`, only supports legacy polls that are bound to a content object
 - `wcf\system\importer\AbstractPollOptionImporter`, only supports legacy polls that are bound to a content object
+- `wcf\system\cache\builder\ObjectTypeCacheBuilder`, use `wcf\data\object\type\ObjectTypeCache` instead
 
 #### Methods
 
