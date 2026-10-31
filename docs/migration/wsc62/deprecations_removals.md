@@ -224,6 +224,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\form\option\ThreadFormOptionEditor`
 - `wbb\data\thread\SearchResultThread`
 - `wbb\data\thread\SearchResultThreadList`
+- `wcf\system\cache\builder\ObjectTypeCacheBuilder`, use `wcf\data\object\type\ObjectTypeCache` instead
+- `wcf\system\cache\builder\StyleCacheBuilder`, use `wcf\system\style\StyleHandler` instead
 
 #### Methods
 
@@ -447,6 +449,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer::pollObjectType()`, use standalone polls that are embedded through the `[poll]` BBCode instead
 - `wcf\data\search\SearchAction::validateGetSearchResults()`, the search results are paginated by `wcf\system\listView\user\SearchResultListView`
 - `wcf\data\search\SearchAction::getSearchResults()`, the search results are paginated by `wcf\system\listView\user\SearchResultListView`
+- `wcf\data\stat\daily\StatDailyAction::getData()`, use the RPC endpoint `wcf\system\endpoint\controller\core\stats\GetStats` instead ([WoltLab/WCF#6753](https://github.com/WoltLab/WCF/pull/6753))
 
 #### Properties
 
@@ -762,6 +765,14 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\media\MediaAction::setCategory()`
 - `wcf\data\media\MediaAction::validateReplaceFile()`
 - `wcf\data\media\MediaAction::replaceFile()`
+- `wcf\acp\action\DevtoolsInstallPackageAction::readParameters()`
+- `wcf\acp\action\InstallPackageAction::readParameters()`
+- `wcf\acp\action\InstallPackageAction::execute()`
+- `wcf\acp\action\UninstallPackageAction::readParameters()`
+- `wcf\acp\action\UninstallPackageAction::execute()`
+- `wcf\acp\action\UninstallPackageAction::stepUninstall()`
+- `wcf\data\package\installation\queue\PackageInstallationQueueAction::validateCancelInstallation()`
+- `wcf\data\package\installation\queue\PackageInstallationQueueAction::cancelInstallation()`
 
 #### Properties
 
@@ -782,6 +793,17 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\user\option\UserOption::$user`
 - `wcf\data\user\option\ViewableUserOption::$outputObjects`
 - `wcf\page\MembersListPage::$searchID`
+- `wcf\acp\action\DevtoolsInstallPackageAction::$project`
+- `wcf\acp\action\InstallPackageAction::$step`
+- `wcf\acp\action\InstallPackageAction::$node`
+- `wcf\acp\action\InstallPackageAction::$installation`
+- `wcf\acp\action\InstallPackageAction::$queue`
+- `wcf\acp\action\UninstallPackageAction::$step`
+- `wcf\acp\action\UninstallPackageAction::$node`
+- `wcf\acp\action\UninstallPackageAction::$installation`
+- `wcf\acp\action\UninstallPackageAction::$queue`
+- `wcf\data\package\installation\queue\PackageInstallationQueueAction::$queue`
+- `wcf\data\package\installation\queue\PackageInstallationQueueAction::$package`
 
 ### JavaScript
 
@@ -873,3 +895,12 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Forum/Acp/Ui/Board/Thread/Form/Option/Edit`
 - `WoltLabSuite/Forum/Acp/Ui/Board/Thread/Form/Option/Sortable`
 - `WBB.Thread.TypeChooser`
+- `WCF.ACP.Package.Installation` ([WoltLab/WCF#6096](https://github.com/WoltLab/WCF/issues/6096))
+- `WCF.ACP.Package.Installation.Cancel` ([WoltLab/WCF#6097](https://github.com/WoltLab/WCF/issues/6097))
+- `WCF.ACP.Package.Uninstallation`
+- `WCF.ACP.Package.Server.Installation`
+- `WCF.ACP.Stat.Chart` ([WoltLab/WCF#6753](https://github.com/WoltLab/WCF/pull/6753))
+- jQuery Flot in `js/3rdParty/flot/`, use Chart.js through the module `chart.js` instead; charts with a time scale must call `setup()` from `WoltLabSuite/Core/Component/Chart/DateAdapter` before they are created, and can set `adapters.date.utc` on the scale to treat timestamps as calendar dates in UTC ([WoltLab/WCF#6753](https://github.com/WoltLab/WCF/pull/6753))
+- `WCF.ColorPicker`, use `WoltLabSuite/Core/Ui/Color/Picker` instead
+- `WCF.Action.NestedDelete`, use `WoltLabSuite/Core/Ui/Object/Action/Delete` instead
+- `WCF.Message.InlineEditor`, use `WoltLabSuite/Core/Ui/Message/InlineEditor` instead
