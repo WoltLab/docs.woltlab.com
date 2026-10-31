@@ -1688,6 +1688,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#getresultlisttemplatename-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getResultListTemplateName(): string
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresultlistviewsearch-search-abstractlistview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getResultListView(Search $search): ?AbstractListView
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1706,6 +1728,45 @@
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-result-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search Result List
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Search Result List">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Template
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-list-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom List View
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -6370,6 +6431,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#getresultlisttemplatename-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getResultListTemplateName(): string
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresultlistviewsearch-search-abstractlistview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getResultListView(Search $search): ?AbstractListView
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6388,6 +6471,45 @@
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-result-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search Result List
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Search Result List">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Template
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-list-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom List View
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -6717,6 +6839,14 @@ Return an empty string (the default) if no additional form fields are needed.</p
 <h4 id="getcustomiconname-string"><code>getCustomIconName(): ?string</code><a class="headerlink" href="#getcustomiconname-string" title="Permanent link">#</a></h4>
 <p>Returns a custom icon name to display in the search results list.
 Return <code>null</code> (the default) to use the default icon.</p>
+<h4 id="getresultlisttemplatename-string"><code>getResultListTemplateName(): string</code><a class="headerlink" href="#getresultlisttemplatename-string" title="Permanent link">#</a></h4>
+<p>Returns the name of a template that renders the search results, if this provider is the only provider that is searched.
+Return an empty string (the default) to use the default template <code>searchResultList</code>.
+See <a href="#search-result-list">Search Result List</a> for details.</p>
+<h4 id="getresultlistviewsearch-search-abstractlistview"><code>getResultListView(Search $search): ?AbstractListView</code><a class="headerlink" href="#getresultlistviewsearch-search-abstractlistview" title="Permanent link">#</a></h4>
+<p>Returns a list view that renders the results of the given search, if this provider is the only provider that is searched.
+Return <code>null</code> (the default) to use the default list view <code>wcf\system\listView\user\SearchResultListView</code>.
+See <a href="#search-result-list">Search Result List</a> for details.</p>
 <h2 id="search-result-object">Search Result Object<a class="headerlink" href="#search-result-object" title="Permanent link">#</a></h2>
 <p>The search result object wraps your data model and provides the data needed to render a search result entry.
 Create a decorator class that extends <code>wcf\data\DatabaseObjectDecorator</code> and implements <code>wcf\data\search\ISearchResultObject</code>:</p>
@@ -6957,6 +7087,101 @@ Create a decorator class that extends <code>wcf\data\DatabaseObjectDecorator</co
     <span class="k">public</span> <span class="nv">$decoratorClassName</span> <span class="o">=</span> <span class="nx">SearchResultFoo</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="search-result-list">Search Result List<a class="headerlink" href="#search-result-list" title="Permanent link">#</a></h2>
+<p>The search results are rendered through the <a href="../list_views/">list view</a> <code>wcf\system\listView\user\SearchResultListView</code>.
+The list view takes care of the pagination and shows <code>SEARCH_RESULTS_PER_PAGE</code> results per page.
+Sorting and filtering are disabled, because both are applied when the search is executed.
+The list view can be extended through the event <code>wcf\event\listView\user\SearchResultListViewInitialized</code>.</p>
+<h3 id="custom-template">Custom Template<a class="headerlink" href="#custom-template" title="Permanent link">#</a></h3>
+<p>If your provider is the only provider that is searched, <code>getResultListTemplateName()</code> can return a custom template that renders the search results:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">getResultListTemplateName</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="s1">'searchResultFooList'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The template is loaded from the application returned by <code>getApplication()</code> and receives the following variables:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$objects</code></td>
+<td>The search result objects of the current page.</td>
+</tr>
+<tr>
+<td><code>$query</code></td>
+<td>The search query.</td>
+</tr>
+<tr>
+<td><code>$customIcons</code></td>
+<td>The custom icon names of all search providers, indexed by the object type name.</td>
+</tr>
+<tr>
+<td><code>$view</code></td>
+<td>The list view instance.</td>
+</tr>
+</tbody>
+</table>
+<p>The template only renders the result items.
+The surrounding <code>&lt;div class="section"&gt;</code> is provided by the search page, do not add one to the template.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;ul class="fooSearchResultList"&gt;</span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$objects</span> <span class="na">item</span><span class="o">=</span><span class="s1">'foo'</span><span class="cp">}</span>
+<span class="x">        &lt;li&gt;</span>
+<span class="x">            &lt;a href="</span><span class="cp">{</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getLink</span><span class="o">(</span><span class="nv">$query</span><span class="o">)</span><span class="cp">}</span><span class="x">"&gt;</span><span class="cp">{</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">getSubject</span><span class="o">()</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
+<span class="x">        &lt;/li&gt;</span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span>
+<span class="x">&lt;/ul&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="custom-list-view">Custom List View<a class="headerlink" href="#custom-list-view" title="Permanent link">#</a></h3>
+<p>If your provider is the only provider that is searched, <code>getResultListView()</code> can return the list view that renders the results of the search.
+This allows you, for example, to set a CSS class on the surrounding container of the results:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">use</span> <span class="nx">wcf\data\search\Search</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\listView\AbstractListView</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\listView\user\SearchResultListView</span><span class="p">;</span>
+
+<span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">getResultListView</span><span class="p">(</span><span class="nx">Search</span> <span class="nv">$search</span><span class="p">)</span><span class="o">:</span> <span class="o">?</span><span class="nx">AbstractListView</span>
+<span class="p">{</span>
+    <span class="nv">$listView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchResultListView</span><span class="p">(</span><span class="nv">$search</span><span class="o">-&gt;</span><span class="na">searchID</span><span class="p">);</span>
+    <span class="nv">$listView</span><span class="o">-&gt;</span><span class="na">setContainerCssClassName</span><span class="p">(</span><span class="s1">'fooSearchResultList__container'</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nv">$listView</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The value of <code>setContainerCssClassName()</code> is added to the surrounding <code>&lt;div class="section"&gt;</code> on the search page.</p>
+<p>You can also return a list view of your own.
+The list view is reconstructed from its <a href="../list_views/#additional-parameters">parameters</a> when the user switches between the pages, therefore it has to provide the id of the search through <code>getParameters()</code>.
+The ordered list of results is available through <code>Search::getSearchData()['results']</code>.
+<code>SearchResultListView</code> serves as the reference implementation.</p>
+<div class="admonition warning">
+<p class="admonition-title">Your list view must check the access to the search in <code>isAccessible()</code> by calling <code>Search::canAccess()</code>. Otherwise, any user can read the search results of other users by guessing the id of a search.</p>
+</div>
 <h2 id="object-type-registration">Object Type Registration<a class="headerlink" href="#object-type-registration" title="Permanent link">#</a></h2>
 <p>Register your search provider as an object type with the definition <code>com.woltlab.wcf.searchableObjectType</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -7075,7 +7300,7 @@ The <code>SearchIndexManager</code> will automatically strip HTML tags before in
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-03-21
+    2026-10-31
   </span>
 
     
