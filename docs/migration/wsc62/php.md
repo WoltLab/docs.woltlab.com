@@ -139,6 +139,46 @@ The response payload has the following shape:
 The endpoint requires the `admin.general.canUseAcp` permission.
 Each registered provider remains responsible for enforcing its own admin permissions inside `IACPSearchResultProvider::search()`.
 
+## Search Results
+
+The results of the full-text search are now rendered through the list view `wcf\system\listView\user\SearchResultListView`, which also takes care of the pagination.
+
+### Custom Result Templates
+
+Templates returned by `ISearchProvider::getResultListTemplateName()` are now rendered inside the list view.
+The surrounding `<div class="section">` is provided by the search page and must be removed from the template.
+
+Previously:
+
+```smarty
+<div class="section fooSearchResultList__container">
+	<ul class="fooSearchResultList">
+		{foreach from=$objects item='foo'}
+			…
+		{/foreach}
+	</ul>
+</div>
+```
+
+Now:
+
+```smarty
+<ul class="fooSearchResultList">
+	{foreach from=$objects item='foo'}
+		…
+	{/foreach}
+</ul>
+```
+
+Additional CSS classes for the surrounding container can be set by returning a list view from `ISearchProvider::getResultListView()` and calling `setContainerCssClassName()` on it.
+See the [search](../../php/api/search.md#custom-list-view) page for details.
+
+### New Method `ISearchProvider::getResultListView()`
+
+The method `getResultListView(Search $search): ?AbstractListView` has been added to `wcf\system\search\ISearchProvider`.
+Search providers extending `wcf\system\search\AbstractSearchProvider` inherit a default implementation that returns `null`.
+Search providers that implement the interface directly must add this method.
+
 ## PSR-7 Responses in Pages and Forms
 
 Since WoltLab Suite 5.5 a page or form could abort request processing in two different ways: by returning a PSR-7 `ResponseInterface` from one of its lifecycle methods, or by emitting the response manually using `HeaderUtil::redirect()` followed by `exit`.

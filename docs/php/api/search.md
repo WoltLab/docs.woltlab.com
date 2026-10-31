@@ -100,6 +100,18 @@ Returns additional data that should be stored with the search result and passed 
 Returns a custom icon name to display in the search results list.
 Return `null` (the default) to use the default icon.
 
+#### `getResultListTemplateName(): string`
+
+Returns the name of a template that renders the search results, if this provider is the only provider that is searched.
+Return an empty string (the default) to use the default template `searchResultList`.
+See [Search Result List](#search-result-list) for details.
+
+#### `getResultListView(Search $search): ?AbstractListView`
+
+Returns a list view that renders the results of the given search, if this provider is the only provider that is searched.
+Return `null` (the default) to use the default list view `wcf\system\listView\user\SearchResultListView`.
+See [Search Result List](#search-result-list) for details.
+
 ## Search Result Object
 
 The search result object wraps your data model and provides the data needed to render a search result entry.
@@ -131,6 +143,76 @@ You also need a corresponding list class that sets `SearchResultFoo` as the deco
   language="php",
   filepath="php/api/search/SearchResultFooList.class.php"
 ) }}
+
+## Search Result List
+
+The search results are rendered through the [list view](list_views.md) `wcf\system\listView\user\SearchResultListView`.
+The list view takes care of the pagination and shows `SEARCH_RESULTS_PER_PAGE` results per page.
+Sorting and filtering are disabled, because both are applied when the search is executed.
+The list view can be extended through the event `wcf\event\listView\user\SearchResultListViewInitialized`.
+
+### Custom Template
+
+If your provider is the only provider that is searched, `getResultListTemplateName()` can return a custom template that renders the search results:
+
+```php
+#[\Override]
+public function getResultListTemplateName(): string
+{
+    return 'searchResultFooList';
+}
+```
+
+The template is loaded from the application returned by `getApplication()` and receives the following variables:
+
+| Variable | Description |
+| -------- | ----------- |
+| `$objects` | The search result objects of the current page. |
+| `$query` | The search query. |
+| `$customIcons` | The custom icon names of all search providers, indexed by the object type name. |
+| `$view` | The list view instance. |
+
+The template only renders the result items.
+The surrounding `<div class="section">` is provided by the search page, do not add one to the template.
+
+```smarty
+<ul class="fooSearchResultList">
+	{foreach from=$objects item='foo'}
+		<li>
+			<a href="{$foo->getLink($query)}">{$foo->getSubject()}</a>
+		</li>
+	{/foreach}
+</ul>
+```
+
+### Custom List View
+
+If your provider is the only provider that is searched, `getResultListView()` can return the list view that renders the results of the search.
+This allows you, for example, to set a CSS class on the surrounding container of the results:
+
+```php
+use wcf\data\search\Search;
+use wcf\system\listView\AbstractListView;
+use wcf\system\listView\user\SearchResultListView;
+
+#[\Override]
+public function getResultListView(Search $search): ?AbstractListView
+{
+    $listView = new SearchResultListView($search->searchID);
+    $listView->setContainerCssClassName('fooSearchResultList__container');
+
+    return $listView;
+}
+```
+
+The value of `setContainerCssClassName()` is added to the surrounding `<div class="section">` on the search page.
+
+You can also return a list view of your own.
+The list view is reconstructed from its [parameters](list_views.md#additional-parameters) when the user switches between the pages, therefore it has to provide the id of the search through `getParameters()`.
+The ordered list of results is available through `Search::getSearchData()['results']`.
+`SearchResultListView` serves as the reference implementation.
+
+!!! warning "Your list view must check the access to the search in `isAccessible()` by calling `Search::canAccess()`. Otherwise, any user can read the search results of other users by guessing the id of a search."
 
 ## Object Type Registration
 
