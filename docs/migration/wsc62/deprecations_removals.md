@@ -187,6 +187,43 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\poll\option\PollOptionEditor`, use `wcf\data\poll\PollBuilder` instead
 - `wcf\system\importer\AbstractPollImporter`, only supports legacy polls that are bound to a content object
 - `wcf\system\importer\AbstractPollOptionImporter`, only supports legacy polls that are bound to a content object
+- `blog\system\poll\EntryPollHandler`
+- `wcf\data\paid\subscription\PaidSubscriptionEditor`
+- `wcf\data\paid\subscription\PaidSubscriptionAction`
+- `wcf\data\paid\subscription\transaction\log\PaidSubscriptionTransactionLogEditor`
+- `wcf\data\paid\subscription\transaction\log\PaidSubscriptionTransactionLogAction`
+- `wcf\data\paid\subscription\user\PaidSubscriptionUserAction`
+- `wcf\data\paid\subscription\user\PaidSubscriptionUserEditor`
+- `wcf\data\trophy\TrophyAction`
+- `wcf\data\trophy\TrophyEditor`
+- `wcf\data\contact\recipient\ContactRecipientAction`
+- `wcf\data\contact\recipient\ContactRecipientEditor`
+- `wcf\data\cronjob\CronjobEditor`
+- `wcf\data\cronjob\CronjobAction`
+- `wcf\data\label\group\LabelGroupAction`
+- `wcf\data\label\group\LabelGroupEditor`
+- `wcf\data\reaction\type\ReactionTypeAction`
+- `wcf\data\like\object\LikeObjectAction`
+- `wcf\data\like\object\LikeObjectEditor`
+- `wcf\data\reaction\ReactionAction`
+- `wcf\data\reaction\LikeEditor`
+- `wcf\data\user\ignore\UserIgnoreAction`
+- `wcf\data\user\ignore\UserIgnoreEditor`
+- `wcf\action\UserFollowAction`
+- `wcf\data\user\ignore\ViewableUserIgnoreList`
+- `wcf\data\user\follow\UserFollowAction`
+- `wcf\data\user\follow\UserFollowEditor`
+- `wcf\data\user\follow\UserFollowingAction`
+- `wcf\data\user\authentication\failure\UserAuthenticationFailureEditor`
+- `wcf\data\user\authentication\failure\UserAuthenticationFailureAction`
+- `wcf\data\user\activity\event\UserActivityEventAction`
+- `wcf\data\user\activity\event\UserActivityEventEditor`
+- `wbb\data\thread\form\ThreadFormAction`
+- `wbb\data\thread\form\ThreadFormEditor`
+- `wbb\data\thread\form\option\ThreadFormOptionAction`
+- `wbb\data\thread\form\option\ThreadFormOptionEditor`
+- `wbb\data\thread\SearchResultThread`
+- `wbb\data\thread\SearchResultThreadList`
 
 #### Methods
 
@@ -218,23 +255,12 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `blog\data\entry\EntryAction::validateLoadEntriesByMonth()`
 - `blog\data\entry\EntryAction::loadEntriesByMonth()`
 - `wcf\data\user\profile\UserProfileVisitorAction::registerVisitor()`
-- `wcf\data\paid\subscription\user\PaidSubscriptionUserAction::extend()`
-- `wcf\data\paid\subscription\user\PaidSubscriptionUserAction::revoke()`
-- `wcf\data\paid\subscription\user\PaidSubscriptionUserAction::validateRevoke()`
-- `wcf\data\paid\subscription\user\PaidSubscriptionUserAction::restore()`
-- `wcf\data\paid\subscription\user\PaidSubscriptionUserAction::validateRestore()`
-- `wcf\data\paid\subscription\user\PaidSubscriptionUserAction::addGroupMemberships()`
-- `wcf\data\paid\subscription\user\PaidSubscriptionUserAction::removeGroupMemberships()`
 - `wcf\data\style\Style\StyleAction::validateChangeStyle()`
 - `wcf\data\style\Style\StyleAction::changeStyle()`
 - `wcf\data\style\Style\StyleAction::validateGetStyleChooser()`
 - `wcf\data\style\Style\StyleAction::getStyleChooser()`
 - `wcf\data\style\Style\StyleAction::validateToggle()`
 - `wcf\data\style\Style\StyleAction::toggle()`
-- `wcf\data\user\ignore\UserIgnoreAction::validateIgnore()`
-- `wcf\data\user\ignore\UserIgnoreAction::ignore()`
-- `wcf\data\user\ignore\UserIgnoreAction::validateUnignore()`
-- `wcf\data\user\ignore\UserIgnoreAction::unignore()`
 - `wcf\data\article\ArticleAction::validateTrash()`
 - `wcf\data\article\ArticleAction::trash()`
 - `wcf\data\article\ArticleAction::validateRestore()`
@@ -263,10 +289,6 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\captcha\question\CaptchaQuestionAction::validateToggle()`
 - `wcf\data\contact\option\ContactOptionAction::toggle()`
 - `wcf\data\contact\option\ContactOptionAction::validateToggle()`
-- `wcf\data\contact\recipient\ContactRecipientAction::toggle()`
-- `wcf\data\contact\recipient\ContactRecipientAction::validateToggle()`
-- `wcf\data\cronjob\CronjobAction::toggle()`
-- `wcf\data\cronjob\CronjobAction::validateToggle()`
 - `wcf\data\language\LanguageAction::toggle()`
 - `wcf\data\language\LanguageAction::validateToggle()`
 - `wcf\data\notice\NoticeAction::toggle()`
@@ -275,17 +297,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\package\update\server\PackageUpdateServerAction::validateToggle()`
 - `wcf\data\page\PageAction::toggle()`
 - `wcf\data\page\PageAction::validateToggle()`
-- `wcf\data\paid\subscription\PaidSubscriptionAction::toggle()`
-- `wcf\data\paid\subscription\PaidSubscriptionAction::validateToggle()`
-- `wcf\data\reaction\type\ReactionTypeAction::toggle()`
-- `wcf\data\reaction\type\ReactionTypeAction::validateToggle()`
 - `wcf\data\style\StyleAction::toggle()`
 - `wcf\data\style\StyleAction::validateToggle()`
-- `wcf\data\trophy\TrophyAction::toggle()`
-- `wcf\data\trophy\TrophyAction::validateToggle()`
-- `wcf\data\trophy\TrophyAction::create()`
-- `wcf\data\trophy\TrophyAction::update()`
-- `wcf\data\trophy\TrophyAction::delete()`
 - `wcf\data\user\group\assignment\UserGroupAssignmentAction::toggle()`
 - `wcf\data\user\group\assignment\UserGroupAssignmentAction::validateToggle()`
 - `wcf\data\moderation\queue\ModerationQueueAction::validateGetModerationQueueData()`
@@ -318,10 +331,6 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\application\ApplicationAction::rebuild()`
 - `wcf\data\application\ApplicationAction::markAsTainted()`
 - `wbb\data\thread\Thread::getSimilarThreads()`
-- `wcf\data\user\activity\event\UserActivityEventAction::validateLoad()`
-- `wcf\data\user\activity\event\UserActivityEventAction::load()`
-- `wcf\data\reaction\ReactionAction::validateLoad()`
-- `wcf\data\reaction\ReactionAction::load()`
 - `wcf\data\like\ViewableLike::setObjectTypeDescription()`
 - `wcf\data\like\ViewableLike::getObjectTypeDescription()`
 - `filebase\data\file\FileAction::validateMarkAsRead()`
@@ -403,10 +412,6 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\system\wsdb\listView\user\ReviewListView::getResponseAttachments()`
 - `wcf\data\article\Article::hasLabels()`
 - `wcf\data\article\Article::getLanguageLinks()`
-- `wcf\data\user\follow\UserFollowAction::validateGetGroupedUserList()`
-- `wcf\data\user\follow\UserFollowAction::getGroupedUserList()`
-- `wcf\data\user\follow\UserFollowingAction::validateGetGroupedUserList()`
-- `wcf\data\user\follow\UserFollowingAction::getGroupedUserList()`
 - `wcf\data\user\profile\visitor\UserProfileVisitorAction::validateGetGroupedUserList()`
 - `wcf\data\user\profile\visitor\UserProfileVisitorAction::getGroupedUserList()`
 - `wbb\data\board\BoardAction::updatePosition()`
@@ -440,6 +445,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\poll\PollBuilder::setObjectID()`, standalone polls are not bound to a content object
 - `wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer::getPollContainer()`, use standalone polls that are embedded through the `[poll]` BBCode instead
 - `wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer::pollObjectType()`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `wcf\data\search\SearchAction::validateGetSearchResults()`, the search results are paginated by `wcf\system\listView\user\SearchResultListView`
+- `wcf\data\search\SearchAction::getSearchResults()`, the search results are paginated by `wcf\system\listView\user\SearchResultListView`
 
 #### Properties
 
@@ -483,6 +490,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Ui/Poll/View/Results`, use standalone polls that are embedded through the `[poll]` BBCode instead
 - `WoltLabSuite/Core/Ui/Poll/View/Vote`, use standalone polls that are embedded through the `[poll]` BBCode instead
 - `WoltLabSuite/Core/Form/Builder/Field/Wysiwyg/Poll`, use `WoltLabSuite/Core/Form/Builder/Field/PollOptionList` instead
+- `WoltLabSuite/Core/Component/User/Ignore`
+- `WoltLabSuite/Core/Ui/User/Ignore/List`
 
 ### Templates
 
@@ -859,3 +868,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Media/Replace`
 - `WoltLabSuite/Core/Media/Upload`
 - `WBB.ACP.RSSFeed.LabelList`
+- `WoltLabSuite/Forum/Acp/Ui/Board/Thread/Form/Option/Add`
+- `WoltLabSuite/Forum/Acp/Ui/Board/Thread/Form/Option/DialogHandler`
+- `WoltLabSuite/Forum/Acp/Ui/Board/Thread/Form/Option/Edit`
+- `WoltLabSuite/Forum/Acp/Ui/Board/Thread/Form/Option/Sortable`
+- `WBB.Thread.TypeChooser`
