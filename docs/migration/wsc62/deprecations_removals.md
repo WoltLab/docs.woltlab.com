@@ -227,6 +227,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\system\cache\builder\ObjectTypeCacheBuilder`, use `wcf\data\object\type\ObjectTypeCache` instead
 - `wcf\system\cache\builder\StyleCacheBuilder`, use `wcf\system\style\StyleHandler` instead
 - `wcf\system\cache\builder\PageCacheBuilder`, use `wcf\data\page\PageCache` instead
+- `wcf\system\cache\builder\EventListenerCacheBuilder`, use `wcf\system\cache\eager\EventListenerCache` instead
 
 #### Methods
 
@@ -624,6 +625,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\system\clipboard\action\MediaClipboardAction`
 - `wcf\system\upload\MediaUploadFileValidationStrategy`
 - `wcf\system\upload\MediaReplaceUploadFileValidationStrategy`
+- `wcf\system\cache\eager\data\LanguageCacheData`
 
 #### Methods
 

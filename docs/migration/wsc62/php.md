@@ -1055,3 +1055,8 @@ private function convertLegacyPoll(Example $example, ExampleBuilder $builder): s
 ```
 
 The returned message must be processed by `HtmlInputProcessor` afterwards to update the embedded objects of the message.
+
+## Language Cache
+
+`wcf\system\cache\eager\LanguageCache::getCache()` returns plain arrays instead of a `LanguageCacheData` object, which allows the OPcache to keep the cache in shared memory.
+The `Language` and `LanguageCategory` objects are created on demand by `wcf\system\language\LanguageFactory`, which remains the API to access languages and language categories.
