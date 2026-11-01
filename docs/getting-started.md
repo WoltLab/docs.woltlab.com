@@ -211,7 +211,41 @@ There is a special button on the project list that allows for a mass-import of p
 
 The install instructions in the `package.xml` are ignored when offering the PIP imports, the detection works entirely based on the default filename for each PIP. On top of that, only PIPs that implement the interface `wcf\system\devtools\pip\IIdempotentPackageInstallationPlugin` are valid for import, as it indicates that importing the PIP multiple times will have no side-effects and that the result is deterministic regardless of the number of times it has been imported.
 
-Some built-in PIPs, such as `sql` or `script`, do not qualify for this step and remain unavailable at all times. However, you can still craft and perform an actual package update to have these PIPs executed.
+Some built-in PIPs, such as `sql`, do not qualify for this step and remain unavailable at all times. However, you can still craft and perform an actual package update to have these PIPs executed.
+
+Since WoltLab Suite 6.3, the `script` PIP is offered as an unsafe PIP behind the "Show unsafe PIPs" option. Every install and update script in `files/acp/` (and `files_<abbreviation>/acp/` for apps) is a separate target, for WoltLab Suite Core only the update scripts. The script is included from the installation, so sync the `file` PIP first. Running a script is not idempotent, therefore unsafe PIPs are never part of "Sync All" and must be synced individually.
+
+### Command Line
+
+!!! info "The command line interface of the developer tools is available since WoltLab Suite 6.3."
+
+The script `devtools.php` in the directory of WoltLab Suite Core offers the synchronization without the ACP. It is non-interactive and does not require a login, which makes it suitable for scripts and other tools. The developer tools must be enabled, and the script refuses to run as `root`.
+
+```shell
+# List the registered projects as their ID, name and path.
+php devtools.php projects
+
+# List the targets of all PIPs, or of a single PIP.
+php devtools.php targets --project=com.example.foo
+php devtools.php targets --project=com.example.foo --pip=database
+
+# Sync all PIPs in the same order as "Sync All", followed by the package version.
+php devtools.php sync --project=com.example.foo --all
+
+# Sync all targets or a single target of a PIP.
+php devtools.php sync --project=com.example.foo --pip=file
+php devtools.php sync --project=com.example.foo --pip=database --target=update_com.example.foo_1.1_step1.php
+php devtools.php sync --project=com.example.foo --pip=script --target=files/acp/update_com.example.foo_1.1.php --allow-unsafe
+```
+
+The project can be given by its ID, its name, the identifier of its package or its path. A path must contain a `/` or be `.`, so that a directory in the working directory never shadows a package identifier. Running `php /path/to/wsc/devtools.php sync --project=. --pip=file` from inside the repository of a project syncs the files of that project. The installed version of the package must match the version in the `package.xml` in its major and minor version, the same as in the ACP.
+
+Each sync step runs in a separate PHP process, matching the one request per step in the ACP. A PIP that splits its work, such as `database`, is invoked again until it has completed. The script prints one line per step with the PIP, the target and the time it took, and writes errors to the standard error output. It exits with `0` on success, `1` if a step has failed and `2` on invalid arguments. A failed step stops the sync.
+
+The files and caches are written by the PHP process of the command line, not by the PHP process of the web server. Keep this in mind for your setup:
+
+- Files are created with the user running the script. Run it as the same user as the PHP process of the web server, otherwise the web server may no longer be able to update or delete those files.
+- OPcache keeps a separate cache for each PHP process, the command line cannot invalidate the cache of the web server. Updated PHP files are only picked up if `opcache.validate_timestamps` is enabled, which is the default. Depending on `opcache.revalidate_freq`, it can take a few seconds until changes become visible.
 
 ## Appendix
 
