@@ -4600,6 +4600,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#right-to-left-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Right-to-Left Languages
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -7029,6 +7040,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#right-to-left-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Right-to-Left Languages
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -8468,6 +8490,14 @@ User-specific permissions and temporary states of the content, such as being dis
 <h2 id="language-cache">Language Cache<a class="headerlink" href="#language-cache" title="Permanent link">#</a></h2>
 <p><code>wcf\system\cache\eager\LanguageCache::getCache()</code> returns plain arrays instead of a <code>LanguageCacheData</code> object, which allows the OPcache to keep the cache in shared memory.
 The <code>Language</code> and <code>LanguageCategory</code> objects are created on demand by <code>wcf\system\language\LanguageFactory</code>, which remains the API to access languages and language categories.</p>
+<h2 id="right-to-left-languages">Right-to-Left Languages<a class="headerlink" href="#right-to-left-languages" title="Permanent link">#</a></h2>
+<p>Right-to-left languages are no longer supported, the page direction is always <code>ltr</code>.</p>
+<p>The phrase <code>wcf.global.pageDirection</code> is no longer shipped and language packages no longer need to provide it.
+It continues to resolve to <code>ltr</code> for every language, even when a language package still ships <code>rtl</code>.
+Code reading the phrase or <code>wcf\data\language\Language::getPageDirection()</code> keeps working, but should stop relying on it.</p>
+<p><code>wcf\system\form\builder\field\RatingFormField::getRatings()</code> always returns the ratings in ascending order.</p>
+<p>Styles are no longer compiled into a right-to-left variant, <code>style/style-&lt;styleID&gt;-rtl.css</code> and <code>acp/style/style-rtl.css</code> are no longer generated.
+Rules in styles and packages that target <code>html[dir="rtl"]</code> no longer match and can be removed.</p>
 
 
 
