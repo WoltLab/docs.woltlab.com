@@ -226,6 +226,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\SearchResultThreadList`
 - `wcf\system\cache\builder\ObjectTypeCacheBuilder`, use `wcf\data\object\type\ObjectTypeCache` instead
 - `wcf\system\cache\builder\StyleCacheBuilder`, use `wcf\system\style\StyleHandler` instead
+- `wcf\system\cache\builder\PageCacheBuilder`, use `wcf\data\page\PageCache` instead
 
 #### Methods
 
