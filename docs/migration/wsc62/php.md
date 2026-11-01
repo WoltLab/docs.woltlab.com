@@ -1060,3 +1060,16 @@ The returned message must be processed by `HtmlInputProcessor` afterwards to upd
 
 `wcf\system\cache\eager\LanguageCache::getCache()` returns plain arrays instead of a `LanguageCacheData` object, which allows the OPcache to keep the cache in shared memory.
 The `Language` and `LanguageCategory` objects are created on demand by `wcf\system\language\LanguageFactory`, which remains the API to access languages and language categories.
+
+## Right-to-Left Languages
+
+Right-to-left languages are no longer supported, the page direction is always `ltr`.
+
+The phrase `wcf.global.pageDirection` is no longer shipped and language packages no longer need to provide it.
+It continues to resolve to `ltr` for every language, even when a language package still ships `rtl`.
+Code reading the phrase or `wcf\data\language\Language::getPageDirection()` keeps working, but should stop relying on it.
+
+`wcf\system\form\builder\field\RatingFormField::getRatings()` always returns the ratings in ascending order.
+
+Styles are no longer compiled into a right-to-left variant, `style/style-<styleID>-rtl.css` and `acp/style/style-rtl.css` are no longer generated.
+Rules in styles and packages that target `html[dir="rtl"]` no longer match and can be removed.

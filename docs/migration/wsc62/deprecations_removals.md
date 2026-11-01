@@ -452,6 +452,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\search\SearchAction::validateGetSearchResults()`, the search results are paginated by `wcf\system\listView\user\SearchResultListView`
 - `wcf\data\search\SearchAction::getSearchResults()`, the search results are paginated by `wcf\system\listView\user\SearchResultListView`
 - `wcf\data\stat\daily\StatDailyAction::getData()`, use the RPC endpoint `wcf\system\endpoint\controller\core\stats\GetStats` instead ([WoltLab/WCF#6753](https://github.com/WoltLab/WCF/pull/6753))
+- `wcf\data\language\Language::getPageDirection()`, right-to-left languages are no longer supported and the page direction is always `ltr`
 
 #### Properties
 
@@ -776,6 +777,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\acp\action\UninstallPackageAction::stepUninstall()`
 - `wcf\data\package\installation\queue\PackageInstallationQueueAction::validateCancelInstallation()`
 - `wcf\data\package\installation\queue\PackageInstallationQueueAction::cancelInstallation()`
+- `wcf\util\StyleUtil::convertCSSToRTL()`
 
 #### Properties
 

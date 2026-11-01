@@ -54,8 +54,6 @@ in a wrapper element with alternating dimensions.
 
 #### `horizontal: string`
 
-!!! info "This value is automatically flipped for RTL (right-to-left) languages, `left` is changed into `right` and vice versa."
-
 _Defaults to `"left"`._
 
 Sets the prefered alignment, accepts either `left` or `right`. The value `left`
@@ -78,8 +76,6 @@ is not enough space in the desired direction. If the element exceeds the boundar
 in both directions, the value of `vertical` is used.
 
 #### `allowFlip: string`
-
-!!! info "The value for `horizontal` is automatically flipped for RTL (right-to-left) languages, `left` is changed into `right` and vice versa. This setting only controls the behavior when violating space constraints, therefore the aforementioned transformation is always applied."
 
 _Defaults to `"both"`._
 

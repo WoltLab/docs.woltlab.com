@@ -1,8 +1,7 @@
 # Languages
 
 WoltLab Suite offers full i18n support with its integrated language system,
-including but not limited to dynamic phrases using template scripting and the
-built-in support for right-to-left languages.
+including dynamic phrases using template scripting.
 
 Phrases are deployed using the [language](../package/pip/language.md) package
 installation plugin, please also read the [naming conventions for language items](languages-naming-conventions.md).
@@ -34,12 +33,3 @@ _Defaults to `0`._
 Sets the first day of the week:
 * `0` - Sunday
 * `1` - Monday
-
-### `wcf.global.pageDirection` - RTL support
-
-_Defaults to `ltr`._
-
-Changing this value to `rtl` will reverse the page direction and enable the
-right-to-left support for phrases. Additionally, a special version of the
-stylesheet is loaded that contains all necessary adjustments for the reverse
-direction.
