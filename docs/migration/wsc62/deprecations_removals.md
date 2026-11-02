@@ -228,6 +228,20 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\system\cache\builder\StyleCacheBuilder`, use `wcf\system\style\StyleHandler` instead
 - `wcf\system\cache\builder\PageCacheBuilder`, use `wcf\data\page\PageCache` instead
 - `wcf\system\cache\builder\EventListenerCacheBuilder`, use `wcf\system\cache\eager\EventListenerCache` instead
+- `wbb\data\thread\ThreadAction`, use `wbb\data\thread\ThreadBuilder`, the commands and the RPC endpoints instead
+- `wbb\data\thread\ThreadEditor`, use `wbb\data\thread\ThreadBuilder` instead
+- `wbb\data\thread\ViewableThread`, use `wbb\data\thread\Thread` instead
+- `wbb\data\thread\ViewableThreadList`, use `wbb\data\thread\ThreadList` instead
+- `wbb\data\thread\UnreadThreadList`, use the `unread` filter of `wbb\system\listView\user\ThreadListView` or `wbb\data\thread\ThreadList::excludeReadThreads()` instead
+- `wbb\data\thread\UnresolvedThreadList`, use the `undone` filter of `wbb\system\listView\user\ThreadListView` instead
+- `wbb\system\thread\ThreadHandler`, the thread editor dialog is no longer used
+- `wbb\system\thread\editor\IThreadEditor`, the thread editor dialog is no longer used
+- `wbb\system\thread\editor\AbstractThreadEditor`, the thread editor dialog is no longer used
+- `wbb\system\thread\editor\DefaultThreadEditor`, the thread editor dialog is no longer used
+- `wbb\system\thread\editor\LabelThreadEditor`, the thread editor dialog is no longer used
+- `wbb\system\thread\editor\TagThreadEditor`, the thread editor dialog is no longer used
+- `wbb\data\rss\feed\RssFeedAction`, use `wbb\data\rss\feed\RssFeedBuilder` and commands instead
+- `wbb\data\rss\feed\RssFeedEditor`, use `wbb\data\rss\feed\RssFeedBuilder` instead
 
 #### Methods
 
@@ -453,12 +467,19 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\search\SearchAction::getSearchResults()`, the search results are paginated by `wcf\system\listView\user\SearchResultListView`
 - `wcf\data\stat\daily\StatDailyAction::getData()`, use the RPC endpoint `wcf\system\endpoint\controller\core\stats\GetStats` instead ([WoltLab/WCF#6753](https://github.com/WoltLab/WCF/pull/6753))
 - `wcf\data\language\Language::getPageDirection()`, right-to-left languages are no longer supported and the page direction is always `ltr`
+- `wbb\data\thread\Thread::setBoard()`, the board is loaded on demand by `wbb\data\thread\Thread::getBoard()`
+- `wbb\data\thread\Thread::setFirstPost()`, the first post is loaded on demand by `wbb\data\thread\Thread::getFirstPost()`
+- `wbb\data\thread\Thread::setBestAnswerPost()`, the best answer is loaded on demand by `wbb\data\thread\Thread::getBestAnswerPost()`
+- `wbb\data\thread\BoardThreadList::getLogList()`, use `wbb\data\thread\Thread::getLogEntry()` instead
 
 #### Properties
 
 - `wcf\data\like\ViewableLike::$objectTypeDescription`
 - `wcf\system\trophy\condition\TrophyConditionHandler::$groupedObjectTypes`
 - `wcf\data\poll\Poll::$relatedObject`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `wbb\data\thread\BoardThreadList::$daysPrune`
+- `wbb\data\thread\BoardThreadList::$logList`, use `wbb\data\thread\Thread::getLogEntry()` instead
+- `wbb\data\thread\BoardThreadList::$loadDeleteNote`, the deletion data is loaded on demand by `wbb\data\thread\Thread::getLogEntry()`
 
 #### Constants
 
@@ -498,6 +519,21 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Form/Builder/Field/Wysiwyg/Poll`, use `WoltLabSuite/Core/Form/Builder/Field/PollOptionList` instead
 - `WoltLabSuite/Core/Component/User/Ignore`
 - `WoltLabSuite/Core/Ui/User/Ignore/List`
+- `WBB.Thread.Editor`, the thread editor dialog is no longer used
+- `WBB.Thread.Editor.Default`, the thread editor dialog is no longer used
+- `WBB.Thread.Editor.LabelChooser`, the thread editor dialog is no longer used
+- `WBB.Thread.Editor.Language`, the thread editor dialog is no longer used
+- `WBB.Thread.Editor.TagList`, the thread editor dialog is no longer used
+- `WBB.Thread.InlineEditor`, use the interactions of `wbb\system\listView\user\ThreadListView` instead
+- `WBB.Thread.Clipboard`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
+- `WBB.Thread.MergeHandler`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
+- `WBB.Thread.AssignLabelHandler`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
+- `WBB.Thread.CopyHandler`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
+- `WBB.Thread.MoveHandler`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
+- `WoltLabSuite/Forum/Ui/Board/MarkAllAsRead`, use `WoltLabSuite/Forum/Component/Board/MarkAllBoardsAsRead` instead
+- `WoltLabSuite/Forum/Ui/Board/MarkAllThreadsAsRead`, use `WoltLabSuite/Forum/Component/Board/MarkAllThreadsAsRead` instead
+- `WoltLabSuite/Forum/Ui/Thread/Enable`
+- `WoltLabSuite/Forum/Ui/Thread/MarkAsRead`, use the RPC endpoint `wcf\system\endpoint\controller\forum\threads\MarkThreadAsRead` instead
 
 ### Templates
 
@@ -508,6 +544,10 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `pollResult`, use standalone polls that are embedded through the `[poll]` BBCode instead
 - `pollVote`, use standalone polls that are embedded through the `[poll]` BBCode instead
 - `shared_pollOptionsFormField`, use `shared_pollOptionListFormField` instead
+- `threadEditorDefault`, the thread editor dialog is no longer used
+- `threadEditorLabel`, the thread editor dialog is no longer used
+- `threadEditorTag`, the thread editor dialog is no longer used
+- `threadList`, use `wbb\system\listView\user\ThreadListView` instead
 
 ## Removals
 
@@ -627,6 +667,11 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\system\upload\MediaUploadFileValidationStrategy`
 - `wcf\system\upload\MediaReplaceUploadFileValidationStrategy`
 - `wcf\system\cache\eager\data\LanguageCacheData`
+- `wbb\page\AbstractThreadPage`, merged into `wbb\page\ThreadPage`
+- `wbb\page\ThreadAmpPage`
+- `wbb\data\thread\TaggedThreadList`, use `wbb\system\listView\user\TaggedThreadListView` instead
+- `wbb\data\thread\ThreadStatusAction`, use the RPC endpoint `wcf\system\endpoint\controller\forum\threads\SetThreadSubscriptionStatus` instead
+- `wbb\system\clipboard\action\ThreadClipboardAction`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
 
 #### Methods
 
@@ -778,6 +823,19 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\package\installation\queue\PackageInstallationQueueAction::validateCancelInstallation()`
 - `wcf\data\package\installation\queue\PackageInstallationQueueAction::cancelInstallation()`
 - `wcf\util\StyleUtil::convertCSSToRTL()`
+- `wbb\data\thread\ThreadAction::validateUnmarkAll()`
+- `wbb\data\thread\ThreadAction::unmarkAll()`
+- `wbb\data\thread\ThreadAction::unmarkItems()`
+- `wbb\data\thread\form\option\ThreadFormOptionAction::validateGetDialogAddForm()`
+- `wbb\data\thread\form\option\ThreadFormOptionAction::getDialogAddForm()`
+- `wbb\data\thread\form\option\ThreadFormOptionAction::validatePrepareEdit()`
+- `wbb\data\thread\form\option\ThreadFormOptionAction::prepareEdit()`
+- `wbb\data\thread\form\option\ThreadFormOptionAction::validateSaveEdit()`
+- `wbb\data\thread\form\option\ThreadFormOptionAction::saveEdit()`
+- `wbb\data\thread\form\option\ThreadFormOptionAction::validateUpdatePosition()`
+- `wbb\data\thread\form\option\ThreadFormOptionAction::updatePosition()`
+- `wbb\data\thread\form\option\ThreadFormOptionEditor::setShowOrder()`
+- `wbb\data\thread\DeletedThreadList::getMarkedItems()`
 
 #### Properties
 
@@ -809,6 +867,21 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\acp\action\UninstallPackageAction::$queue`
 - `wcf\data\package\installation\queue\PackageInstallationQueueAction::$queue`
 - `wcf\data\package\installation\queue\PackageInstallationQueueAction::$package`
+- `wbb\data\thread\Thread::$board`, use `wbb\data\thread\Thread::getBoard()` instead
+- `wbb\data\thread\Thread::$firstPost`, use `wbb\data\thread\Thread::getFirstPost()` instead
+- `wbb\data\thread\Thread::$bestAnswerPost`, use `wbb\data\thread\Thread::getBestAnswerPost()` instead
+- `wbb\data\thread\Thread::$movedThread`, use `wbb\data\thread\Thread::getMovedThread()` instead
+- `wbb\acp\form\BoardAddForm::$daysPrune`
+- `wbb\acp\form\BoardAddForm::$availableDaysPrune`
+- `wbb\page\ThreadPage::$optionHandler`
+
+#### Options
+
+- `wbb_board_default_days_prune`
+
+#### Object Types
+
+- `com.woltlab.wbb.thread` (`com.woltlab.wcf.clipboardItem`), use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
 
 ### JavaScript
 
@@ -909,3 +982,18 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WCF.ColorPicker`, use `WoltLabSuite/Core/Ui/Color/Picker` instead
 - `WCF.Action.NestedDelete`, use `WoltLabSuite/Core/Ui/Object/Action/Delete` instead
 - `WCF.Message.InlineEditor`, use `WoltLabSuite/Core/Ui/Message/InlineEditor` instead
+- `WBB.Thread.MarkAsDone`, use the interactions of `wbb\system\listView\user\ThreadListView` instead
+- `WoltLabSuite/Forum/Controller/Thread/SubscriptionStatusHandler`, use `WoltLabSuite/Forum/Component/Thread/SubscriptionStatus` instead
+- `WoltLabSuite/Forum/Controller/Thread/WatchedList`, use the interactions of `wbb\system\listView\user\WatchedThreadListView` instead
+- `WoltLabSuite/Forum/Ui/Mobile`
+
+### Templates
+
+- `boardThreadList`, use `wbb\system\listView\user\BoardThreadListView` instead
+- `boardThreadListFilter`, use the filters of `wbb\system\listView\user\BoardThreadListView` instead
+- `boxThreadListTable`, use `wbb\system\listView\user\BoxThreadListView` instead
+- `deletedThreadList`, use `wbb\system\listView\user\DeletedThreadListView` instead
+- `searchResultThreadList`, use `wbb\system\listView\user\SearchResultThreadListView` instead
+- `threadTypeSelection`
+- `unreadThreadList`, use the `unread` filter of `wbb\system\listView\user\ThreadListView` instead
+- `unresolvedThreadList`, use the `undone` filter of `wbb\system\listView\user\ThreadListView` instead
