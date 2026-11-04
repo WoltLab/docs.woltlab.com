@@ -986,6 +986,11 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Forum/Controller/Thread/SubscriptionStatusHandler`, use `WoltLabSuite/Forum/Component/Thread/SubscriptionStatus` instead
 - `WoltLabSuite/Forum/Controller/Thread/WatchedList`, use the interactions of `wbb\system\listView\user\WatchedThreadListView` instead
 - `WoltLabSuite/Forum/Ui/Mobile`
+- `WoltLabSuite/Core/Ui/FlexibleMenu`
+- `WoltLabSuite/Core/Ui/Reaction/CountButtons`, use `<woltlab-core-reaction-summary>` instead
+- `WoltLabSuite/Core/Controller/Map/Route/Planner`
+- `WoltLabSuite/Core/Ui/User/List`, use `WoltLabSuite/Core/Component/User/List` instead
+- `WoltLabSuite/Core/NumberUtil`, use `Number.toLocaleString()` or `Number.toFixed()` instead
 
 ### Templates
 
