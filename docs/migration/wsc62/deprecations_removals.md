@@ -991,6 +991,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Controller/Map/Route/Planner`
 - `WoltLabSuite/Core/Ui/User/List`, use `WoltLabSuite/Core/Component/User/List` instead
 - `WoltLabSuite/Core/NumberUtil`, use `Number.toLocaleString()` or `Number.toFixed()` instead
+- `WoltLabSuite/Core/Helper/Dom/Element` and `WoltLabSuite/Core/Helper/Dom/View`, an experiment with decorators that bind DOM elements to class properties that never saw any use
+- `reflect-metadata` in `js/3rdParty/reflect-metadata.js`, which was only used by the removed decorators in `WoltLabSuite/Core/Helper/Dom/Element`
 
 ### Templates
 
