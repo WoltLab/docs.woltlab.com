@@ -210,13 +210,14 @@ Every form container has to implement the `IFormContainer` interface which requi
 
 There are multiple default container implementations:
 
-1. `FormContainer` is the default implementation of `IFormContainer`.
+1. `FormContainer` is the default implementation of `IFormContainer` and has the CSS class `formSection` by default.
 1. `TabMenuFormContainer` represents the container of tab menu, while
 1. `TabFormContainer` represents a tab of a tab menu and
 1. `TabTabMenuFormContainer` represents a tab of a tab menu that itself contains a tab menu.
 1. The children of `RowFormContainer` are shown in a row and should use `col-*` classes.
-1. The children of `RowFormFieldContainer` are also shown in a row but does not show the labels and descriptions of the individual form fields.
-   Instead of the individual labels and descriptions, the container's label and description is shown and both span all of fields.
+1. The children of `RowFormFieldContainer` are also shown in a row but does not visibly show the labels of the individual form fields.
+   Instead of the individual labels, the container's label and description is shown and both span all of fields.
+   The labels of the individual form fields are only available to assistive technologies.
 1. `SuffixFormFieldContainer` can be used for one form field with a second selection form field used as a suffix.
 
 The methods of the interfaces that `FormContainer` is implementing are well documented, but here is a short overview of the most important methods when setting up a form or extending a form with an event listener:
@@ -243,7 +244,7 @@ Every form field has to implement the `IFormField` interface which extends `IFor
 
 - `addValidationError(IFormFieldValidationError $error)` and `getValidationErrors()` can be used to get and set validation errors of the form field (see [form validation](validation_data.md#form-validation)).
 - `addValidator(IFormFieldValidator $validator)`, `getValidators()`, `removeValidator($validatorId)`, and `hasValidator($validatorId)` can be used to get, set, remove, and check for validators for the form field (see [form validation](validation_data.md#form-validation)).
-- `getFieldHtml()` returns the field's HTML output without the surrounding `dl` structure.
+- `getFieldHtml()` returns the field's HTML output without the surrounding `div.formField` structure that contains the label, errors, and description.
 - `objectProperty($objectProperty)` and `getObjectProperty()` can be used to get and set the object property that the field represents.
   When setting the object property is set to an empty string, the previously set object property is unset.
   If no object property has been set, the field’s (non-prefixed) id is returned.
@@ -259,6 +260,17 @@ Every form field has to implement the `IFormField` interface which extends `IFor
   `loadValue(array $data, IStorableObject $object)` extracts the form field value from the given data array (and additional, non-editable data from the object if the field needs them).
 
 `AbstractFormField` provides default implementations of many of the listed methods above and should be extended instead of implementing `IFormField` directly.
+
+`AbstractFormField` additionally provides the following methods that are used to link the label, errors, and description of a form field to its HTML elements:
+
+- `getLabelTarget()` returns the id of the element that the label of the form field refers to, which is the prefixed id of the form field by default.
+  Form fields that consist of multiple elements, like radio buttons or a range with two inputs, return `null`.
+  Such form fields are rendered with `role="group"` and are labelled by the label of the form field.
+  Form fields whose labelled element is not the element with the prefixed id of the form field, like a button that opens a picker, return the id of that element.
+- `isGroup()` returns `true` if `getLabelTarget()` returns `null`.
+- `getAriaAttributes()` returns the ARIA attributes (`aria-required`, `aria-invalid`, `aria-errormessage`, and `aria-describedby`) that link the labelled element (or the group in case of a group) to the errors and the description of the form field.
+  For form fields implementing `IAttributeFormField`, `getFieldAttributes()` already includes these attributes if the field element itself is the label target.
+  Custom form field templates have to output these attributes on the labelled element in all other cases.
 
 An overview of the form fields provided by default can be found [here](form_fields.md).
 

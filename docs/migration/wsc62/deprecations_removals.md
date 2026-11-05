@@ -996,6 +996,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Image/ImageUtil`
 - `WoltLabSuite/Core/Ui/Dropdown/Builder`
 - `WoltLabSuite/Core/Ui/Toggle/Input`
+- `WoltLabSuite/Core/Form/Builder/Field/Controller/Rating`, `RatingFormField` is rendered as native radio buttons that do not require a controller
 
 ### Templates
 

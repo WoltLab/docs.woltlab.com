@@ -20,9 +20,21 @@ Such additional validations can be added to (and removed from) the form field vi
 - `getMessage()` returns the error message based on the language item and information array given in the constructor.
 - `getInformation()` and `getType()` are getters for the first and third parameter of the constructor.
 
-`FormFieldValidationError` is a default implementation of the interface that shows the error in an `small.innerError` HTML element below the form field.
+`FormFieldValidationError` is a default implementation of the interface that shows the error in a `p.formField__error` HTML element.
+All errors of a form field are wrapped in a `div.formField__errors` element with the id `{prefixedId}Error` below the form field, which is referenced by the `aria-errormessage` or `aria-describedby` attribute of the field.
 
 Form field validation errors are added to form fields via the `IFormField::addValidationError(IFormFieldValidationError $error)` method.
+
+To display or remove errors of a form field on the client side, use `setFieldError(fieldId, message, isHtml = false)` of the module `WoltLabSuite/Core/Form/Builder/Field/Error` instead of `DomUtil.innerError()`, where `fieldId` is the prefixed id of the form field.
+It replaces any existing errors of the field, toggles the `formError` class of the field container, and keeps the ARIA attributes of the field in sync.
+Passing `null` or an empty string removes all errors of the field.
+
+```ts
+import { setFieldError } from "WoltLabSuite/Core/Form/Builder/Field/Error";
+
+setFieldError("example", "The value is invalid.");
+setFieldError("example", null);
+```
 
 
 ### `IFormFieldValidator` / `FormFieldValidator`

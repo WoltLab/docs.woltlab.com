@@ -291,7 +291,7 @@ LanguageItemFormNode::create('name')
 
 `MultilineTextFormField` is a [text form field](#textformfield) that supports multiple rows of text.
 The methods `rows($rows)` and `getRows()` can be used to set and get the number of rows of the `textarea` elements.
-The default number of rows is `10`.
+The default number of rows is `5`.
 These methods do **not**, however, restrict the number of text rows that can be entered.
 
 Example:
@@ -300,7 +300,7 @@ Example:
 MultilineTextFormField::create('example')
   ->label('foo.bar.example')
   ->maximumLength(5000)
-  ->rows(5)
+  ->rows(10)
 ```
 
 
@@ -358,6 +358,7 @@ NumericRangeFormField::create('example')
 
 `RadioButtonFormField` is a form fields that allows the selection of a single option out of a predefined list of available options using radiobuttons.
 The class implements `IAttributeFormField`, `ICssClassFormField`, `IImmutableFormField`, and `ISelectionFormField`.
+By default, the radio buttons are shown next to each other via the CSS class `floated`, which can be removed via `removeClass('floated')` to show each radio button on its own line.
 
 Example:
 
@@ -376,9 +377,8 @@ RadioButtonFormField::create('example')
 The class implements `IImmutableFormField`, `IMaximumFormField`, `IMinimumFormField`, and `INullableFormField`.
 Form fields of this class have `rating` as their default id, `wcf.form.field.rating` as their default label, `1` as their default minimum, and `5` as their default maximum.
 For this field, the minimum and maximum refer to the minimum and maximum rating an object can get.
-When the field is shown, there will be `maximum() - minimum() + 1` icons be shown with additional CSS classes that can be set and gotten via `defaultCssClasses(array $cssClasses)` and `getDefaultCssClasses()`.
-If a rating values is set, the first `getValue()` icons will instead use the classes that can be set and gotten via `activeCssClasses(array $cssClasses)` and `getActiveCssClasses()`.
-By default, the only default class is `star-o` and the active classes are `star` and `orange`. 
+When the field is shown, there will be `maximum() - minimum() + 1` stars shown, each backed by a native radio button so that the rating can also be selected with the keyboard.
+If the field is nullable, an additional option to remove the rating is shown.
 
 Example:
 
