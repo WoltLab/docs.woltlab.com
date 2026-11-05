@@ -4964,6 +4964,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc62/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -7964,7 +7992,7 @@ The following save value types are supported:</p>
 <h3 id="multilinetextformfield"><code>MultilineTextFormField</code><a class="headerlink" href="#multilinetextformfield" title="Permanent link">#</a></h3>
 <p><code>MultilineTextFormField</code> is a <a href="#textformfield">text form field</a> that supports multiple rows of text.
 The methods <code>rows($rows)</code> and <code>getRows()</code> can be used to set and get the number of rows of the <code>textarea</code> elements.
-The default number of rows is <code>10</code>.
+The default number of rows is <code>5</code>.
 These methods do <strong>not</strong>, however, restrict the number of text rows that can be entered.</p>
 <p>Example:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -7973,7 +8001,7 @@ These methods do <strong>not</strong>, however, restrict the number of text rows
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">MultilineTextFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'example'</span><span class="p">)</span>
   <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">'foo.bar.example'</span><span class="p">)</span>
   <span class="o">-&gt;</span><span class="na">maximumLength</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
-  <span class="o">-&gt;</span><span class="na">rows</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">rows</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="multipleselectionformfield"><code>MultipleSelectionFormField</code><a class="headerlink" href="#multipleselectionformfield" title="Permanent link">#</a></h3>
 <p><code>MultipleSelectionFormField</code> is a form fields that allows the selection of multiple options out of a predefined list of available options.
@@ -8019,7 +8047,8 @@ The class implements <code>IAttributeFormField</code>, <code>IAutoFocusFormField
 </code></pre></div></td></tr></table></div>
 <h3 id="radiobuttonformfield"><code>RadioButtonFormField</code><a class="headerlink" href="#radiobuttonformfield" title="Permanent link">#</a></h3>
 <p><code>RadioButtonFormField</code> is a form fields that allows the selection of a single option out of a predefined list of available options using radiobuttons.
-The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField</code>, <code>IImmutableFormField</code>, and <code>ISelectionFormField</code>.</p>
+The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField</code>, <code>IImmutableFormField</code>, and <code>ISelectionFormField</code>.
+By default, the radio buttons are shown next to each other via the CSS class <code>floated</code>, which can be removed via <code>removeClass('floated')</code> to show each radio button on its own line.</p>
 <p>Example:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -8038,9 +8067,8 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
 The class implements <code>IImmutableFormField</code>, <code>IMaximumFormField</code>, <code>IMinimumFormField</code>, and <code>INullableFormField</code>.
 Form fields of this class have <code>rating</code> as their default id, <code>wcf.form.field.rating</code> as their default label, <code>1</code> as their default minimum, and <code>5</code> as their default maximum.
 For this field, the minimum and maximum refer to the minimum and maximum rating an object can get.
-When the field is shown, there will be <code>maximum() - minimum() + 1</code> icons be shown with additional CSS classes that can be set and gotten via <code>defaultCssClasses(array $cssClasses)</code> and <code>getDefaultCssClasses()</code>.
-If a rating values is set, the first <code>getValue()</code> icons will instead use the classes that can be set and gotten via <code>activeCssClasses(array $cssClasses)</code> and <code>getActiveCssClasses()</code>.
-By default, the only default class is <code>star-o</code> and the active classes are <code>star</code> and <code>orange</code>. </p>
+When the field is shown, there will be <code>maximum() - minimum() + 1</code> stars shown, each backed by a native radio button so that the rating can also be selected with the keyboard.
+If the field is nullable, an additional option to remove the rating is shown.</p>
 <p>Example:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -8652,7 +8680,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-10-25
+    2026-11-05
   </span>
 
     

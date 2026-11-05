@@ -14,7 +14,7 @@
         <link rel="prev" href="../deprecations_removals/">
       
       
-        <link rel="next" href="../../wsc61/deprecations_removals/">
+        <link rel="next" href="../templates/">
       
       
         
@@ -4590,6 +4590,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#form-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Form Builder
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Form Builder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#label-target-and-aria-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Label Target and ARIA Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed-defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed Defaults
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#language-cache" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4615,6 +4654,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -7030,6 +7097,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#form-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Form Builder
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Form Builder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#label-target-and-aria-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Label Target and ARIA Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed-defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed Defaults
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#language-cache" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -8487,6 +8593,40 @@ User-specific permissions and temporary states of the content, such as being dis
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>The returned message must be processed by <code>HtmlInputProcessor</code> afterwards to update the embedded objects of the message.</p>
+<h2 id="form-builder">Form Builder<a class="headerlink" href="#form-builder" title="Permanent link">#</a></h2>
+<p>The markup of form builder forms has been changed to improve their accessibility, see <a href="../templates/#form-builder-markup">the template migration</a> for details.</p>
+<h3 id="label-target-and-aria-attributes">Label Target and ARIA Attributes<a class="headerlink" href="#label-target-and-aria-attributes" title="Permanent link">#</a></h3>
+<p><code>AbstractFormField</code> and <code>AbstractFormFieldDecorator</code> provide the new methods <code>getLabelTarget()</code>, <code>isGroup()</code>, and <code>getAriaAttributes()</code>.</p>
+<p><code>getLabelTarget()</code> returns the id of the element that the label of the field refers to, which is the prefixed id of the field by default.
+Fields that consist of multiple elements have to override it and return <code>null</code>, which renders the field as a group that is labelled by the label of the field.
+Fields whose labelled element has a different id have to return the id of that element:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">final</span> <span class="k">class</span> <span class="nc">FooFormField</span> <span class="k">extends</span> <span class="nx">AbstractFormField</span>
+<span class="p">{</span>
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getLabelTarget</span><span class="p">()</span><span class="o">:</span> <span class="o">?</span><span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getPrefixedId</span><span class="p">()</span> <span class="o">.</span> <span class="s1">'_button'</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><code>getAriaAttributes()</code> returns the attributes <code>aria-required</code>, <code>aria-invalid</code>, <code>aria-errormessage</code>, and <code>aria-describedby</code> that link the labelled element to the errors and the description of the field.
+For groups, only <code>aria-describedby</code> is returned, because the other attributes are not supported by <code>role="group"</code>, and the attributes are output on the field container.
+<code>TAttributeFormField::getFieldAttributes()</code> includes these attributes if the field element is the label target.</p>
+<h3 id="changed-defaults">Changed Defaults<a class="headerlink" href="#changed-defaults" title="Permanent link">#</a></h3>
+<ul>
+<li><code>RadioButtonFormField</code> has the CSS class <code>floated</code> by default, which shows the options next to each other.
+  Call <code>removeClass('floated')</code> to show each option on its own line.</li>
+<li>The default number of rows of <code>MultilineTextFormField</code> has been reduced from <code>10</code> to <code>5</code>.</li>
+<li><code>FormContainer</code> uses the CSS class <code>formSection</code> instead of <code>section</code>.</li>
+<li><code>RatingFormField</code> is rendered as native radio buttons and uses the data handler module <code>WoltLabSuite/Core/Form/Builder/Field/RadioButton</code>.</li>
+</ul>
 <h2 id="language-cache">Language Cache<a class="headerlink" href="#language-cache" title="Permanent link">#</a></h2>
 <p><code>wcf\system\cache\eager\LanguageCache::getCache()</code> returns plain arrays instead of a <code>LanguageCacheData</code> object, which allows the OPcache to keep the cache in shared memory.
 The <code>Language</code> and <code>LanguageCategory</code> objects are created on demand by <code>wcf\system\language\LanguageFactory</code>, which remains the API to access languages and language categories.</p>
@@ -8518,7 +8658,7 @@ Rules in styles and packages that target <code>html[dir="rtl"]</code> no longer 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-01
+    2026-11-05
   </span>
 
     

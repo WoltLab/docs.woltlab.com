@@ -4174,6 +4174,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc62/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -6193,8 +6221,20 @@ Such additional validations can be added to (and removed from) the form field vi
 <li><code>getMessage()</code> returns the error message based on the language item and information array given in the constructor.</li>
 <li><code>getInformation()</code> and <code>getType()</code> are getters for the first and third parameter of the constructor.</li>
 </ul>
-<p><code>FormFieldValidationError</code> is a default implementation of the interface that shows the error in an <code>small.innerError</code> HTML element below the form field.</p>
+<p><code>FormFieldValidationError</code> is a default implementation of the interface that shows the error in a <code>p.formField__error</code> HTML element.
+All errors of a form field are wrapped in a <code>div.formField__errors</code> element with the id <code>{prefixedId}Error</code> below the form field, which is referenced by the <code>aria-errormessage</code> or <code>aria-describedby</code> attribute of the field.</p>
 <p>Form field validation errors are added to form fields via the <code>IFormField::addValidationError(IFormFieldValidationError $error)</code> method.</p>
+<p>To display or remove errors of a form field on the client side, use <code>setFieldError(fieldId, message, isHtml = false)</code> of the module <code>WoltLabSuite/Core/Form/Builder/Field/Error</code> instead of <code>DomUtil.innerError()</code>, where <code>fieldId</code> is the prefixed id of the form field.
+It replaces any existing errors of the field, toggles the <code>formError</code> class of the field container, and keeps the ARIA attributes of the field in sync.
+Passing <code>null</code> or an empty string removes all errors of the field.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setFieldError</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"WoltLabSuite/Core/Form/Builder/Field/Error"</span><span class="p">;</span>
+
+<span class="nx">setFieldError</span><span class="p">(</span><span class="s2">"example"</span><span class="p">,</span><span class="w"> </span><span class="s2">"The value is invalid."</span><span class="p">);</span>
+<span class="nx">setFieldError</span><span class="p">(</span><span class="s2">"example"</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="iformfieldvalidator-formfieldvalidator"><code>IFormFieldValidator</code> / <code>FormFieldValidator</code><a class="headerlink" href="#iformfieldvalidator-formfieldvalidator" title="Permanent link">#</a></h3>
 <p><code>IFormFieldValidator</code> requires the following methods:</p>
 <ul>
@@ -6349,7 +6389,7 @@ When the data processor is invoked, it checks whether the relevant entry in the 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2024-07-30
+    2026-11-05
   </span>
 
     

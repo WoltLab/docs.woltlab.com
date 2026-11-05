@@ -4454,6 +4454,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../migration/wsc62/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -6920,13 +6948,14 @@ Every form container has to implement the <code>IFormContainer</code> interface 
 </ul>
 <p>There are multiple default container implementations:</p>
 <ol>
-<li><code>FormContainer</code> is the default implementation of <code>IFormContainer</code>.</li>
+<li><code>FormContainer</code> is the default implementation of <code>IFormContainer</code> and has the CSS class <code>formSection</code> by default.</li>
 <li><code>TabMenuFormContainer</code> represents the container of tab menu, while</li>
 <li><code>TabFormContainer</code> represents a tab of a tab menu and</li>
 <li><code>TabTabMenuFormContainer</code> represents a tab of a tab menu that itself contains a tab menu.</li>
 <li>The children of <code>RowFormContainer</code> are shown in a row and should use <code>col-*</code> classes.</li>
-<li>The children of <code>RowFormFieldContainer</code> are also shown in a row but does not show the labels and descriptions of the individual form fields.
-   Instead of the individual labels and descriptions, the container's label and description is shown and both span all of fields.</li>
+<li>The children of <code>RowFormFieldContainer</code> are also shown in a row but does not visibly show the labels of the individual form fields.
+   Instead of the individual labels, the container's label and description is shown and both span all of fields.
+   The labels of the individual form fields are only available to assistive technologies.</li>
 <li><code>SuffixFormFieldContainer</code> can be used for one form field with a second selection form field used as a suffix.</li>
 </ol>
 <p>The methods of the interfaces that <code>FormContainer</code> is implementing are well documented, but here is a short overview of the most important methods when setting up a form or extending a form with an event listener:</p>
@@ -6950,7 +6979,7 @@ Every form field has to implement the <code>IFormField</code> interface which ex
 <ul>
 <li><code>addValidationError(IFormFieldValidationError $error)</code> and <code>getValidationErrors()</code> can be used to get and set validation errors of the form field (see <a href="../validation_data/#form-validation">form validation</a>).</li>
 <li><code>addValidator(IFormFieldValidator $validator)</code>, <code>getValidators()</code>, <code>removeValidator($validatorId)</code>, and <code>hasValidator($validatorId)</code> can be used to get, set, remove, and check for validators for the form field (see <a href="../validation_data/#form-validation">form validation</a>).</li>
-<li><code>getFieldHtml()</code> returns the field's HTML output without the surrounding <code>dl</code> structure.</li>
+<li><code>getFieldHtml()</code> returns the field's HTML output without the surrounding <code>div.formField</code> structure that contains the label, errors, and description.</li>
 <li><code>objectProperty($objectProperty)</code> and <code>getObjectProperty()</code> can be used to get and set the object property that the field represents.
   When setting the object property is set to an empty string, the previously set object property is unset.
   If no object property has been set, the field’s (non-prefixed) id is returned.</li>
@@ -6965,6 +6994,17 @@ Every form field has to implement the <code>IFormField</code> interface which ex
   In general, the internal representation is only relevant when validating the value in additional validators.
   <code>loadValue(array $data, IStorableObject $object)</code> extracts the form field value from the given data array (and additional, non-editable data from the object if the field needs them).</p>
 <p><code>AbstractFormField</code> provides default implementations of many of the listed methods above and should be extended instead of implementing <code>IFormField</code> directly.</p>
+<p><code>AbstractFormField</code> additionally provides the following methods that are used to link the label, errors, and description of a form field to its HTML elements:</p>
+<ul>
+<li><code>getLabelTarget()</code> returns the id of the element that the label of the form field refers to, which is the prefixed id of the form field by default.
+  Form fields that consist of multiple elements, like radio buttons or a range with two inputs, return <code>null</code>.
+  Such form fields are rendered with <code>role="group"</code> and are labelled by the label of the form field.
+  Form fields whose labelled element is not the element with the prefixed id of the form field, like a button that opens a picker, return the id of that element.</li>
+<li><code>isGroup()</code> returns <code>true</code> if <code>getLabelTarget()</code> returns <code>null</code>.</li>
+<li><code>getAriaAttributes()</code> returns the ARIA attributes (<code>aria-required</code>, <code>aria-invalid</code>, <code>aria-errormessage</code>, and <code>aria-describedby</code>) that link the labelled element (or the group in case of a group) to the errors and the description of the form field.
+  For form fields implementing <code>IAttributeFormField</code>, <code>getFieldAttributes()</code> already includes these attributes if the field element itself is the label target.
+  Custom form field templates have to output these attributes on the labelled element in all other cases.</li>
+</ul>
 <p>An overview of the form fields provided by default can be found <a href="../form_fields/">here</a>.</p>
 <h3 id="form-field-interfaces-and-traits">Form Field Interfaces and Traits<a class="headerlink" href="#form-field-interfaces-and-traits" title="Permanent link">#</a></h3>
 <p>WoltLab Suite Core provides a variety of interfaces and matching traits with default implementations for several common features of form fields:</p>
@@ -7127,7 +7167,7 @@ The implementing class has to implement the methods <code>suffix($languageItem =
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2025-08-21
+    2026-11-05
   </span>
 
     
