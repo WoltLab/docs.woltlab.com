@@ -242,6 +242,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\system\thread\editor\TagThreadEditor`, the thread editor dialog is no longer used
 - `wbb\data\rss\feed\RssFeedAction`, use `wbb\data\rss\feed\RssFeedBuilder` and commands instead
 - `wbb\data\rss\feed\RssFeedEditor`, use `wbb\data\rss\feed\RssFeedBuilder` instead
+- `wbb\data\board\BoardAction`, use `wbb\data\board\BoardBuilder`, the commands and the RPC endpoints instead
+- `wbb\data\board\BoardEditor`, use `wbb\data\board\BoardBuilder` instead
 
 #### Methods
 
@@ -534,6 +536,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Forum/Ui/Board/MarkAllThreadsAsRead`, use `WoltLabSuite/Forum/Component/Board/MarkAllThreadsAsRead` instead
 - `WoltLabSuite/Forum/Ui/Thread/Enable`
 - `WoltLabSuite/Forum/Ui/Thread/MarkAsRead`, use the RPC endpoint `wcf\system\endpoint\controller\forum\threads\MarkThreadAsRead` instead
+- `WoltLabSuite/Forum/Ui/Board/MarkAsRead`, use `WoltLabSuite/Forum/Component/Board/MarkAsRead` instead
 
 ### Templates
 
@@ -672,6 +675,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\TaggedThreadList`, use `wbb\system\listView\user\TaggedThreadListView` instead
 - `wbb\data\thread\ThreadStatusAction`, use the RPC endpoint `wcf\system\endpoint\controller\forum\threads\SetThreadSubscriptionStatus` instead
 - `wbb\system\clipboard\action\ThreadClipboardAction`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
+- `wbb\data\board\BoardStatusAction`, use the RPC endpoint `wcf\system\endpoint\controller\forum\boards\SetBoardSubscriptionStatus` instead
 
 #### Methods
 
@@ -836,6 +840,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\form\option\ThreadFormOptionAction::updatePosition()`
 - `wbb\data\thread\form\option\ThreadFormOptionEditor::setShowOrder()`
 - `wbb\data\thread\DeletedThreadList::getMarkedItems()`
+- `wbb\data\board\BoardAction::cloneBoard()`, use the `wbb\command\board\CopyBoard` command instead
 
 #### Properties
 
@@ -874,6 +879,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\acp\form\BoardAddForm::$daysPrune`
 - `wbb\acp\form\BoardAddForm::$availableDaysPrune`
 - `wbb\page\ThreadPage::$optionHandler`
+- `wbb\data\board\Board::$title`, use `wbb\data\board\Board::getTitle()` or `wbb\data\board\Board::getL10nValues()` instead
+- `wbb\data\board\Board::$description`, use `wbb\data\board\Board::getDescription()` or `wbb\data\board\Board::getL10nValues()` instead
+- `wbb\data\board\Board::$metaDescription`, use `wbb\data\board\Board::getMetaDescription()` or `wbb\data\board\Board::getL10nValues()` instead
 
 #### Options
 
@@ -986,6 +994,11 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Forum/Controller/Thread/SubscriptionStatusHandler`, use `WoltLabSuite/Forum/Component/Thread/SubscriptionStatus` instead
 - `WoltLabSuite/Forum/Controller/Thread/WatchedList`, use the interactions of `wbb\system\listView\user\WatchedThreadListView` instead
 - `WoltLabSuite/Forum/Ui/Mobile`
+- `WoltLabSuite/Forum/Acp/Ui/Board/Copy`, use the copy interaction of the ACP board list instead
+- `WoltLabSuite/Forum/Acp/Ui/Board/Editor`
+- `WoltLabSuite/Forum/Controller/Board/SubscriptionStatusHandler`, use `WoltLabSuite/Forum/Component/Board/SubscriptionStatus` instead
+- `WoltLabSuite/Forum/Ui/Board/GlobalCreateThreadButton`, use `WoltLabSuite/Forum/Component/Board/GlobalCreateThreadButton` instead
+- `WoltLabSuite/Forum/Ui/Board/Ignore`, use `WoltLabSuite/Forum/Component/Board/IgnoreBoards` instead
 - `WoltLabSuite/Core/Ui/FlexibleMenu`
 - `WoltLabSuite/Core/Ui/Reaction/CountButtons`, use `<woltlab-core-reaction-summary>` instead
 - `WoltLabSuite/Core/Controller/Map/Route/Planner`
