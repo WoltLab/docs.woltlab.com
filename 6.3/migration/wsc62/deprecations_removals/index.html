@@ -6641,6 +6641,8 @@
 <li><code>wbb\system\thread\editor\TagThreadEditor</code>, the thread editor dialog is no longer used</li>
 <li><code>wbb\data\rss\feed\RssFeedAction</code>, use <code>wbb\data\rss\feed\RssFeedBuilder</code> and commands instead</li>
 <li><code>wbb\data\rss\feed\RssFeedEditor</code>, use <code>wbb\data\rss\feed\RssFeedBuilder</code> instead</li>
+<li><code>wbb\data\board\BoardAction</code>, use <code>wbb\data\board\BoardBuilder</code>, the commands and the RPC endpoints instead</li>
+<li><code>wbb\data\board\BoardEditor</code>, use <code>wbb\data\board\BoardBuilder</code> instead</li>
 </ul>
 <h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">#</a></h4>
 <ul>
@@ -6933,6 +6935,7 @@
 <li><code>WoltLabSuite/Forum/Ui/Board/MarkAllThreadsAsRead</code>, use <code>WoltLabSuite/Forum/Component/Board/MarkAllThreadsAsRead</code> instead</li>
 <li><code>WoltLabSuite/Forum/Ui/Thread/Enable</code></li>
 <li><code>WoltLabSuite/Forum/Ui/Thread/MarkAsRead</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\forum\threads\MarkThreadAsRead</code> instead</li>
+<li><code>WoltLabSuite/Forum/Ui/Board/MarkAsRead</code>, use <code>WoltLabSuite/Forum/Component/Board/MarkAsRead</code> instead</li>
 </ul>
 <h3 id="templates">Templates<a class="headerlink" href="#templates" title="Permanent link">#</a></h3>
 <ul>
@@ -7069,6 +7072,7 @@
 <li><code>wbb\data\thread\TaggedThreadList</code>, use <code>wbb\system\listView\user\TaggedThreadListView</code> instead</li>
 <li><code>wbb\data\thread\ThreadStatusAction</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\forum\threads\SetThreadSubscriptionStatus</code> instead</li>
 <li><code>wbb\system\clipboard\action\ThreadClipboardAction</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
+<li><code>wbb\data\board\BoardStatusAction</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\forum\boards\SetBoardSubscriptionStatus</code> instead</li>
 </ul>
 <h4 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">#</a></h4>
 <ul>
@@ -7233,6 +7237,7 @@
 <li><code>wbb\data\thread\form\option\ThreadFormOptionAction::updatePosition()</code></li>
 <li><code>wbb\data\thread\form\option\ThreadFormOptionEditor::setShowOrder()</code></li>
 <li><code>wbb\data\thread\DeletedThreadList::getMarkedItems()</code></li>
+<li><code>wbb\data\board\BoardAction::cloneBoard()</code>, use the <code>wbb\command\board\CopyBoard</code> command instead</li>
 </ul>
 <h4 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h4>
 <ul>
@@ -7271,6 +7276,9 @@
 <li><code>wbb\acp\form\BoardAddForm::$daysPrune</code></li>
 <li><code>wbb\acp\form\BoardAddForm::$availableDaysPrune</code></li>
 <li><code>wbb\page\ThreadPage::$optionHandler</code></li>
+<li><code>wbb\data\board\Board::$title</code>, use <code>wbb\data\board\Board::getTitle()</code> or <code>wbb\data\board\Board::getL10nValues()</code> instead</li>
+<li><code>wbb\data\board\Board::$description</code>, use <code>wbb\data\board\Board::getDescription()</code> or <code>wbb\data\board\Board::getL10nValues()</code> instead</li>
+<li><code>wbb\data\board\Board::$metaDescription</code>, use <code>wbb\data\board\Board::getMetaDescription()</code> or <code>wbb\data\board\Board::getL10nValues()</code> instead</li>
 </ul>
 <h4 id="options_1">Options<a class="headerlink" href="#options_1" title="Permanent link">#</a></h4>
 <ul>
@@ -7383,6 +7391,11 @@
 <li><code>WoltLabSuite/Forum/Controller/Thread/SubscriptionStatusHandler</code>, use <code>WoltLabSuite/Forum/Component/Thread/SubscriptionStatus</code> instead</li>
 <li><code>WoltLabSuite/Forum/Controller/Thread/WatchedList</code>, use the interactions of <code>wbb\system\listView\user\WatchedThreadListView</code> instead</li>
 <li><code>WoltLabSuite/Forum/Ui/Mobile</code></li>
+<li><code>WoltLabSuite/Forum/Acp/Ui/Board/Copy</code>, use the copy interaction of the ACP board list instead</li>
+<li><code>WoltLabSuite/Forum/Acp/Ui/Board/Editor</code></li>
+<li><code>WoltLabSuite/Forum/Controller/Board/SubscriptionStatusHandler</code>, use <code>WoltLabSuite/Forum/Component/Board/SubscriptionStatus</code> instead</li>
+<li><code>WoltLabSuite/Forum/Ui/Board/GlobalCreateThreadButton</code>, use <code>WoltLabSuite/Forum/Component/Board/GlobalCreateThreadButton</code> instead</li>
+<li><code>WoltLabSuite/Forum/Ui/Board/Ignore</code>, use <code>WoltLabSuite/Forum/Component/Board/IgnoreBoards</code> instead</li>
 <li><code>WoltLabSuite/Core/Ui/FlexibleMenu</code></li>
 <li><code>WoltLabSuite/Core/Ui/Reaction/CountButtons</code>, use <code>&lt;woltlab-core-reaction-summary&gt;</code> instead</li>
 <li><code>WoltLabSuite/Core/Controller/Map/Route/Planner</code></li>
