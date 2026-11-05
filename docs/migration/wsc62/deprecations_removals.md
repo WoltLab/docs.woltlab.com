@@ -1010,6 +1010,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Ui/Dropdown/Builder`
 - `WoltLabSuite/Core/Ui/Toggle/Input`
 - `WoltLabSuite/Core/Form/Builder/Field/Controller/Rating`, `RatingFormField` is rendered as native radio buttons that do not require a controller
+- `codemirror`, including `codemirror/addon/*`, `codemirror/mode/*` and the copies of `codemirror.js` and `codemirror.css` in `js/3rdParty/codemirror/`, use `@woltlab/codemirror` and `WoltLabSuite/Core/Component/CodeMirror` instead ([WoltLab/WCF#6686](https://github.com/WoltLab/WCF/issues/6686))
 
 ### Templates
 
@@ -1021,3 +1022,4 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `threadTypeSelection`
 - `unreadThreadList`, use the `unread` filter of `wbb\system\listView\user\ThreadListView` instead
 - `unresolvedThreadList`, use the `undone` filter of `wbb\system\listView\user\ThreadListView` instead
+- The template events `javascriptIncludes` and `javascriptInit` of `shared_codemirror`, see [Third Party Libraries](libraries.md#template-events)
