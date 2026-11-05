@@ -1056,6 +1056,41 @@ private function convertLegacyPoll(Example $example, ExampleBuilder $builder): s
 
 The returned message must be processed by `HtmlInputProcessor` afterwards to update the embedded objects of the message.
 
+## Form Builder
+
+The markup of form builder forms has been changed to improve their accessibility, see [the template migration](templates.md#form-builder-markup) for details.
+
+### Label Target and ARIA Attributes
+
+`AbstractFormField` and `AbstractFormFieldDecorator` provide the new methods `getLabelTarget()`, `isGroup()`, and `getAriaAttributes()`.
+
+`getLabelTarget()` returns the id of the element that the label of the field refers to, which is the prefixed id of the field by default.
+Fields that consist of multiple elements have to override it and return `null`, which renders the field as a group that is labelled by the label of the field.
+Fields whose labelled element has a different id have to return the id of that element:
+
+```php
+final class FooFormField extends AbstractFormField
+{
+    #[\Override]
+    public function getLabelTarget(): ?string
+    {
+        return $this->getPrefixedId() . '_button';
+    }
+}
+```
+
+`getAriaAttributes()` returns the attributes `aria-required`, `aria-invalid`, `aria-errormessage`, and `aria-describedby` that link the labelled element to the errors and the description of the field.
+For groups, only `aria-describedby` is returned, because the other attributes are not supported by `role="group"`, and the attributes are output on the field container.
+`TAttributeFormField::getFieldAttributes()` includes these attributes if the field element is the label target.
+
+### Changed Defaults
+
+- `RadioButtonFormField` has the CSS class `floated` by default, which shows the options next to each other.
+  Call `removeClass('floated')` to show each option on its own line.
+- The default number of rows of `MultilineTextFormField` has been reduced from `10` to `5`.
+- `FormContainer` uses the CSS class `formSection` instead of `section`.
+- `RatingFormField` is rendered as native radio buttons and uses the data handler module `WoltLabSuite/Core/Form/Builder/Field/RadioButton`.
+
 ## Language Cache
 
 `wcf\system\cache\eager\LanguageCache::getCache()` returns plain arrays instead of a `LanguageCacheData` object, which allows the OPcache to keep the cache in shared memory.
