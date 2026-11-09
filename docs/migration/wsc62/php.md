@@ -1091,6 +1091,57 @@ For groups, only `aria-describedby` is returned, because the other attributes ar
 - `FormContainer` uses the CSS class `formSection` instead of `section`.
 - `RatingFormField` is rendered as native radio buttons and uses the data handler module `WoltLabSuite/Core/Form/Builder/Field/RadioButton`.
 
+## Multiple Labels per Label Group
+
+Label groups have a new setting `maxSelection` that limits the number of labels of the group that can be assigned to a single object.
+The default value `1` keeps the previous behavior.
+
+Content types have to opt in to support more than one label per label group, because the label ids are no longer guaranteed to be a single value per group.
+To opt in, the label object handler implements the marker interface `wcf\system\label\object\IMultipleLabelsObjectHandler`.
+For all other content types, `maxSelection` is ignored and only a single label can be selected per group.
+
+```php
+final class FooLabelObjectHandler extends AbstractLabelObjectHandler implements IMultipleLabelsObjectHandler
+{
+    protected $objectType = 'com.example.foo';
+}
+```
+
+`AbstractLabelObjectHandler::getMaxSelection(ViewableLabelGroup $labelGroup)` and `LabelHandler::getMaxSelection(ViewableLabelGroup $labelGroup, string $objectType)` return the number of labels of a group that can be selected for the content type.
+
+The label ids of opted-in content types are passed as `groupID => labelID` or `groupID => list<labelID>`:
+
+- `ILabelObjectHandler::validateLabelIDs()` accepts a list of label ids per group and reports the new error `tooMany` if more labels than allowed are selected.
+- `LabelHandler::setLabels()` and `LabelHandler::replaceLabels()` accept lists of label ids per group in addition to flat lists of label ids.
+- `LabelHandler::flattenLabelIDs()` converts the label ids grouped by label group into a flat list of label ids.
+- `LabelFormField::createFields()` sets the maximum number of labels automatically.
+  Label form fields that are created individually have to call `maxSelection()`, e.g. `->maxSelection(FooLabelObjectHandler::getInstance()->getMaxSelection($labelGroup))`.
+  If more than one label can be selected, the value of the field is a list of label ids, use `LabelFormField::getSelectedLabelIDs()` to read the selected labels in both cases.
+
+```php
+LabelFormField::create('labelIDs' . $labelGroup->groupID)
+    ->objectProperty('labelIDs')
+    ->objectType('com.example.foo')
+    ->labelGroup($labelGroup)
+    ->maxSelection(FooLabelObjectHandler::getInstance()->getMaxSelection($labelGroup))
+    ->saveValueCallback(static function (FooBuilder $builder, LabelFormField $field) {
+        foreach ($field->getSelectedLabelIDs() as $labelID) {
+            $builder->setLabelID($labelID);
+        }
+    });
+```
+
+Code that relies on a single label per group has to be updated before opting in, in particular:
+
+- casting the value of a label form field to an integer, e.g. `(int)$field->getSaveValue()`,
+- maps of the assigned labels indexed by the label group id, e.g. `$labels[$label->groupID] = $label`,
+- modification log entries that pair the old and the new label of a group; log added and removed labels individually instead.
+
+Label filters, including `wcf\system\view\filter\LabelFilter`, remain limited to a single label per group.
+Objects with several labels of a group are found through each of their labels.
+
+`LabelFormField` now respects a `loadValueCallback()`, if set, instead of always loading the assigned labels itself.
+
 ## Language Cache
 
 `wcf\system\cache\eager\LanguageCache::getCache()` returns plain arrays instead of a `LanguageCacheData` object, which allows the OPcache to keep the cache in shared memory.

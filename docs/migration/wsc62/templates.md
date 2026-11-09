@@ -112,6 +112,26 @@ Fields implementing `IAttributeFormField` that output `getFieldAttributes()` on 
 
 Client-side errors of form builder fields have to be shown with `setFieldError()` instead of `DomUtil.innerError()`, see [form validation](../../php/api/form_builder/validation_data.md#iformfieldvalidationerror-formfieldvalidationerror).
 
+## Label Picker
+
+Labels are selected through the form-associated element `<woltlab-core-label-picker>`, which replaces `WCF.Label.Chooser` and `WoltLabSuite/Core/Form/Builder/Field/Controller/Label`.
+`ViewableLabelGroup::renderPicker()` renders the element for a label group:
+
+```smarty
+{assign var='labelPickerName' value='labelIDs['|concat:$labelGroup->groupID:']'}
+{if $labelIDs[$labelGroup->groupID]|isset}
+	{unsafe:$labelGroup->renderPicker($labelPickerName, $labelIDs[$labelGroup->groupID])}
+{else}
+	{unsafe:$labelGroup->renderPicker($labelPickerName)}
+{/if}
+```
+
+The parameters of `renderPicker()` are the name of the field, the selected value, whether a label is required, whether the value `-1` for objects without any label of the group can be selected, the id of the element, and the maximum number of labels that can be selected.
+
+The element submits the id of the selected label, `0` for no selection or `-1` for objects without any label of the group.
+If the attribute `max` is greater than `1`, each selected label is submitted as `name[]` instead.
+The properties `value` and `values` of the element return the selected label, or the selected labels as a list, and the element dispatches `input` and `change` events when the selection changes.
+
 ## Form Styles
 
 The styling of inputs, labels, and required marks has changed for all forms, including forms not created with the form builder:

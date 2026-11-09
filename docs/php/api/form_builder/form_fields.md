@@ -746,12 +746,20 @@ document.getElementById('exampleFileIDContainer').addEventListener('fileProcesso
 
 ### `LabelFormField`
 
-`LabelFormField` is used to select a label from a specific label group.
+`LabelFormField` is used to select a label, or several labels, from a specific label group.
 The class implements `IObjectTypeFormNode`.
 
 The `labelGroup(ViewableLabelGroup $labelGroup)` and `getLabelGroup()` methods are specific to this form field class and can be used to set and get the label group whose labels can be selected.
 Additionally, there is the static method `createFields($objectType, array $labelGroups, $objectProperty = 'labelIDs)` that can be used to create all relevant label form fields for a given list of label groups.
 In most cases, `LabelFormField::createFields()` should be used.
+
+`maxSelection(int $maxSelection)` and `getMaxSelection()` set and get the maximum number of labels that can be selected, which is `1` by default.
+If more than one label can be selected, the value of the field is a list of label ids.
+`createFields()` sets the maximum number of labels supported by the label group and the object type, see [Multiple Labels per Label Group](../../../migration/wsc62/php.md#multiple-labels-per-label-group).
+`getSelectedLabelIDs()` returns the ids of the selected labels as a list in both cases.
+
+`invertible(bool $invertible = true)` allows the selection of the special value `-1` for objects without any label of the label group, which is used by filters.
+A field cannot be invertible if more than one label can be selected.
 
 Example:
 
