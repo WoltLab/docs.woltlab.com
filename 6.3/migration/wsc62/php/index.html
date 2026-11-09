@@ -4629,6 +4629,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#multiple-labels-per-label-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Labels per Label Group
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#language-cache" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7164,6 +7175,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#multiple-labels-per-label-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Labels per Label Group
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#language-cache" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -8655,6 +8677,59 @@ For groups, only <code>aria-describedby</code> is returned, because the other at
 <li><code>FormContainer</code> uses the CSS class <code>formSection</code> instead of <code>section</code>.</li>
 <li><code>RatingFormField</code> is rendered as native radio buttons and uses the data handler module <code>WoltLabSuite/Core/Form/Builder/Field/RadioButton</code>.</li>
 </ul>
+<h2 id="multiple-labels-per-label-group">Multiple Labels per Label Group<a class="headerlink" href="#multiple-labels-per-label-group" title="Permanent link">#</a></h2>
+<p>Label groups have a new setting <code>maxSelection</code> that limits the number of labels of the group that can be assigned to a single object.
+The default value <code>1</code> keeps the previous behavior.</p>
+<p>Content types have to opt in to support more than one label per label group, because the label ids are no longer guaranteed to be a single value per group.
+To opt in, the label object handler implements the marker interface <code>wcf\system\label\object\IMultipleLabelsObjectHandler</code>.
+For all other content types, <code>maxSelection</code> is ignored and only a single label can be selected per group.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">final</span> <span class="k">class</span> <span class="nc">FooLabelObjectHandler</span> <span class="k">extends</span> <span class="nx">AbstractLabelObjectHandler</span> <span class="k">implements</span> <span class="nx">IMultipleLabelsObjectHandler</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$objectType</span> <span class="o">=</span> <span class="s1">'com.example.foo'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><code>AbstractLabelObjectHandler::getMaxSelection(ViewableLabelGroup $labelGroup)</code> and <code>LabelHandler::getMaxSelection(ViewableLabelGroup $labelGroup, string $objectType)</code> return the number of labels of a group that can be selected for the content type.</p>
+<p>The label ids of opted-in content types are passed as <code>groupID =&gt; labelID</code> or <code>groupID =&gt; list&lt;labelID&gt;</code>:</p>
+<ul>
+<li><code>ILabelObjectHandler::validateLabelIDs()</code> accepts a list of label ids per group and reports the new error <code>tooMany</code> if more labels than allowed are selected.</li>
+<li><code>LabelHandler::setLabels()</code> and <code>LabelHandler::replaceLabels()</code> accept lists of label ids per group in addition to flat lists of label ids.</li>
+<li><code>LabelHandler::flattenLabelIDs()</code> converts the label ids grouped by label group into a flat list of label ids.</li>
+<li><code>LabelFormField::createFields()</code> sets the maximum number of labels automatically.
+  Label form fields that are created individually have to call <code>maxSelection()</code>, e.g. <code>-&gt;maxSelection(FooLabelObjectHandler::getInstance()-&gt;getMaxSelection($labelGroup))</code>.
+  If more than one label can be selected, the value of the field is a list of label ids, use <code>LabelFormField::getSelectedLabelIDs()</code> to read the selected labels in both cases.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">LabelFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'labelIDs'</span> <span class="o">.</span> <span class="nv">$labelGroup</span><span class="o">-&gt;</span><span class="na">groupID</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">objectProperty</span><span class="p">(</span><span class="s1">'labelIDs'</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">objectType</span><span class="p">(</span><span class="s1">'com.example.foo'</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">labelGroup</span><span class="p">(</span><span class="nv">$labelGroup</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">maxSelection</span><span class="p">(</span><span class="nx">FooLabelObjectHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getMaxSelection</span><span class="p">(</span><span class="nv">$labelGroup</span><span class="p">))</span>
+    <span class="o">-&gt;</span><span class="na">saveValueCallback</span><span class="p">(</span><span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">FooBuilder</span> <span class="nv">$builder</span><span class="p">,</span> <span class="nx">LabelFormField</span> <span class="nv">$field</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$field</span><span class="o">-&gt;</span><span class="na">getSelectedLabelIDs</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$labelID</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">setLabelID</span><span class="p">(</span><span class="nv">$labelID</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>Code that relies on a single label per group has to be updated before opting in, in particular:</p>
+<ul>
+<li>casting the value of a label form field to an integer, e.g. <code>(int)$field-&gt;getSaveValue()</code>,</li>
+<li>maps of the assigned labels indexed by the label group id, e.g. <code>$labels[$label-&gt;groupID] = $label</code>,</li>
+<li>modification log entries that pair the old and the new label of a group; log added and removed labels individually instead.</li>
+</ul>
+<p>Label filters, including <code>wcf\system\view\filter\LabelFilter</code>, remain limited to a single label per group.
+Objects with several labels of a group are found through each of their labels.</p>
+<p><code>LabelFormField</code> now respects a <code>loadValueCallback()</code>, if set, instead of always loading the assigned labels itself.</p>
 <h2 id="language-cache">Language Cache<a class="headerlink" href="#language-cache" title="Permanent link">#</a></h2>
 <p><code>wcf\system\cache\eager\LanguageCache::getCache()</code> returns plain arrays instead of a <code>LanguageCacheData</code> object, which allows the OPcache to keep the cache in shared memory.
 The <code>Language</code> and <code>LanguageCategory</code> objects are created on demand by <code>wcf\system\language\LanguageFactory</code>, which remains the API to access languages and language categories.</p>
@@ -8686,7 +8761,7 @@ Rules in styles and packages that target <code>html[dir="rtl"]</code> no longer 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-05
+    2026-11-09
   </span>
 
     

@@ -8417,11 +8417,17 @@ When this button is pressed, the <code>fileProcessorCustomAction</code> event is
 <span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="labelformfield"><code>LabelFormField</code><a class="headerlink" href="#labelformfield" title="Permanent link">#</a></h3>
-<p><code>LabelFormField</code> is used to select a label from a specific label group.
+<p><code>LabelFormField</code> is used to select a label, or several labels, from a specific label group.
 The class implements <code>IObjectTypeFormNode</code>.</p>
 <p>The <code>labelGroup(ViewableLabelGroup $labelGroup)</code> and <code>getLabelGroup()</code> methods are specific to this form field class and can be used to set and get the label group whose labels can be selected.
 Additionally, there is the static method <code>createFields($objectType, array $labelGroups, $objectProperty = 'labelIDs)</code> that can be used to create all relevant label form fields for a given list of label groups.
 In most cases, <code>LabelFormField::createFields()</code> should be used.</p>
+<p><code>maxSelection(int $maxSelection)</code> and <code>getMaxSelection()</code> set and get the maximum number of labels that can be selected, which is <code>1</code> by default.
+If more than one label can be selected, the value of the field is a list of label ids.
+<code>createFields()</code> sets the maximum number of labels supported by the label group and the object type, see <a href="../../../../migration/wsc62/php/#multiple-labels-per-label-group">Multiple Labels per Label Group</a>.
+<code>getSelectedLabelIDs()</code> returns the ids of the selected labels as a list in both cases.</p>
+<p><code>invertible(bool $invertible = true)</code> allows the selection of the special value <code>-1</code> for objects without any label of the label group, which is used by filters.
+A field cannot be invertible if more than one label can be selected.</p>
 <p>Example:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -8708,7 +8714,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-05
+    2026-11-09
   </span>
 
     

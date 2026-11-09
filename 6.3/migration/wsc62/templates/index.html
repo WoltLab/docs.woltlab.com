@@ -4152,6 +4152,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#label-picker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Label Picker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#form-styles" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6143,6 +6154,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#label-picker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Label Picker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#form-styles" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6291,6 +6313,25 @@ Fields implementing <code>IAttributeFormField</code> that output <code>getFieldA
 <span class="x">&lt;/select&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>Client-side errors of form builder fields have to be shown with <code>setFieldError()</code> instead of <code>DomUtil.innerError()</code>, see <a href="../../../php/api/form_builder/validation_data/#iformfieldvalidationerror-formfieldvalidationerror">form validation</a>.</p>
+<h2 id="label-picker">Label Picker<a class="headerlink" href="#label-picker" title="Permanent link">#</a></h2>
+<p>Labels are selected through the form-associated element <code>&lt;woltlab-core-label-picker&gt;</code>, which replaces <code>WCF.Label.Chooser</code> and <code>WoltLabSuite/Core/Form/Builder/Field/Controller/Label</code>.
+<code>ViewableLabelGroup::renderPicker()</code> renders the element for a label group:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">assign</span> <span class="na">var</span><span class="o">=</span><span class="s1">'labelPickerName'</span> <span class="na">value</span><span class="o">=</span><span class="s1">'labelIDs['</span><span class="o">|</span><span class="na">concat</span><span class="o">:</span><span class="nv">$labelGroup</span><span class="o">-&gt;</span><span class="na">groupID</span><span class="o">:</span><span class="s1">']'</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">if</span> <span class="nv">$labelIDs</span><span class="o">[</span><span class="nv">$labelGroup</span><span class="o">-&gt;</span><span class="na">groupID</span><span class="o">]|</span><span class="na">isset</span><span class="cp">}</span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">unsafe</span><span class="o">:</span><span class="nv">$labelGroup</span><span class="o">-&gt;</span><span class="na">renderPicker</span><span class="o">(</span><span class="nv">$labelPickerName</span><span class="o">,</span> <span class="nv">$labelIDs</span><span class="o">[</span><span class="nv">$labelGroup</span><span class="o">-&gt;</span><span class="na">groupID</span><span class="o">])</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">else</span><span class="cp">}</span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">unsafe</span><span class="o">:</span><span class="nv">$labelGroup</span><span class="o">-&gt;</span><span class="na">renderPicker</span><span class="o">(</span><span class="nv">$labelPickerName</span><span class="o">)</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The parameters of <code>renderPicker()</code> are the name of the field, the selected value, whether a label is required, whether the value <code>-1</code> for objects without any label of the group can be selected, the id of the element, and the maximum number of labels that can be selected.</p>
+<p>The element submits the id of the selected label, <code>0</code> for no selection or <code>-1</code> for objects without any label of the group.
+If the attribute <code>max</code> is greater than <code>1</code>, each selected label is submitted as <code>name[]</code> instead.
+The properties <code>value</code> and <code>values</code> of the element return the selected label, or the selected labels as a list, and the element dispatches <code>input</code> and <code>change</code> events when the selection changes.</p>
 <h2 id="form-styles">Form Styles<a class="headerlink" href="#form-styles" title="Permanent link">#</a></h2>
 <p>The styling of inputs, labels, and required marks has changed for all forms, including forms not created with the form builder:</p>
 <ul>
@@ -6320,7 +6361,7 @@ Fields implementing <code>IAttributeFormField</code> that output <code>getFieldA
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-05
+    2026-11-09
   </span>
 
     
