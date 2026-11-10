@@ -4163,6 +4163,62 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Labels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Labels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#label-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Label Lists
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Label Lists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#previous-code-example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Previous Code Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-code-example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Code Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#form-styles" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6165,6 +6221,62 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Labels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Labels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#label-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Label Lists
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Label Lists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#previous-code-example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Previous Code Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-code-example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Code Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#form-styles" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6332,6 +6444,51 @@ Fields implementing <code>IAttributeFormField</code> that output <code>getFieldA
 <p>The element submits the id of the selected label, <code>0</code> for no selection or <code>-1</code> for objects without any label of the group.
 If the attribute <code>max</code> is greater than <code>1</code>, each selected label is submitted as <code>name[]</code> instead.
 The properties <code>value</code> and <code>values</code> of the element return the selected label, or the selected labels as a list, and the element dispatches <code>input</code> and <code>change</code> events when the selection changes.</p>
+<h2 id="labels">Labels<a class="headerlink" href="#labels" title="Permanent link">#</a></h2>
+<p>Labels are rendered with the CSS class <code>labelBadge</code> instead of <code>badge label</code>, so that they are styled independently of status badges.
+<code>Label::render()</code> already outputs the new markup, templates that render labels themselves have to be adjusted:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;span class="labelBadge</span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$label</span><span class="o">-&gt;</span><span class="na">getClassNames</span><span class="o">()</span><span class="cp">}</span><span class="x"> </span><span class="cp">{</span><span class="nv">$label</span><span class="o">-&gt;</span><span class="na">getClassNames</span><span class="o">()</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">"&gt;</span><span class="cp">{</span><span class="nv">$label</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="o">()</span><span class="cp">}</span><span class="x">&lt;/span&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>The colors of a label are defined by the CSS custom properties <code>--label-background</code> and <code>--label-color</code>.
+Custom CSS classes of labels should set these properties instead of <code>background-color</code> and <code>color</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nc">.labelBadge.myCustomLabel</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">--label-background</span><span class="nd">:</span><span class="w"> </span><span class="nn">#ffe0b2</span><span class="o">;</span>
+<span class="w">    </span><span class="nt">--label-color</span><span class="nd">:</span><span class="w"> </span><span class="nn">#6d3200</span><span class="o">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>In addition to the existing colors, labels can use the colors <code>teal</code>, <code>lime</code>, <code>navy</code>, and <code>maroon</code>.
+These colors are not available for badges such as user ranks.</p>
+<h3 id="label-lists">Label Lists<a class="headerlink" href="#label-lists" title="Permanent link">#</a></h3>
+<p>Lists of labels are rendered in a <code>div</code> element with the CSS class <code>labelBadgeList</code> or <code>labelBadgeInlineList</code> instead of a <code>ul.labelList</code> element.
+The labels are direct children of the container and are no longer wrapped in <code>li</code> elements.
+<code>labelBadgeList</code> places the labels on a separate line, <code>labelBadgeInlineList</code> places them inline with the surrounding content, for example next to the tag icon in the content header.</p>
+<p>The CSS class <code>labelList</code> is deprecated.</p>
+<h4 id="previous-code-example_1">Previous Code Example<a class="headerlink" href="#previous-code-example_1" title="Permanent link">#</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;ul class="labelList"&gt;</span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getLabels</span><span class="o">()</span> <span class="na">item</span><span class="o">=</span><span class="na">label</span><span class="cp">}</span>
+<span class="x">        &lt;li&gt;</span><span class="cp">{</span><span class="nf">unsafe</span><span class="o">:</span><span class="nv">$label</span><span class="o">-&gt;</span><span class="na">render</span><span class="o">()</span><span class="cp">}</span><span class="x">&lt;/li&gt;</span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span>
+<span class="x">&lt;/ul&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="new-code-example_1">New Code Example<a class="headerlink" href="#new-code-example_1" title="Permanent link">#</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">&lt;div class="labelBadgeList"&gt;</span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">foreach</span> <span class="na">from</span><span class="o">=</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getLabels</span><span class="o">()</span> <span class="na">item</span><span class="o">=</span><span class="na">label</span><span class="cp">}</span>
+<span class="x">        </span><span class="cp">{</span><span class="nf">unsafe</span><span class="o">:</span><span class="nv">$label</span><span class="o">-&gt;</span><span class="na">render</span><span class="o">()</span><span class="cp">}</span>
+<span class="x">    </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span>
+<span class="x">&lt;/div&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Template listeners for the template events <code>beforeLabels</code> and <code>afterLabels</code> of the templates <code>threadList</code> and <code>threadContentHeaderTitle</code> have to output the labels without a surrounding <code>li</code> element.</p>
 <h2 id="form-styles">Form Styles<a class="headerlink" href="#form-styles" title="Permanent link">#</a></h2>
 <p>The styling of inputs, labels, and required marks has changed for all forms, including forms not created with the form builder:</p>
 <ul>
@@ -6361,7 +6518,7 @@ The properties <code>value</code> and <code>values</code> of the element return 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-09
+    2026-11-10
   </span>
 
     
