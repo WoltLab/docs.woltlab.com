@@ -132,6 +132,58 @@ The element submits the id of the selected label, `0` for no selection or `-1` f
 If the attribute `max` is greater than `1`, each selected label is submitted as `name[]` instead.
 The properties `value` and `values` of the element return the selected label, or the selected labels as a list, and the element dispatches `input` and `change` events when the selection changes.
 
+## Labels
+
+Labels are rendered with the CSS class `labelBadge` instead of `badge label`, so that they are styled independently of status badges.
+`Label::render()` already outputs the new markup, templates that render labels themselves have to be adjusted:
+
+```smarty
+<span class="labelBadge{if $label->getClassNames()} {$label->getClassNames()}{/if}">{$label->getTitle()}</span>
+```
+
+The colors of a label are defined by the CSS custom properties `--label-background` and `--label-color`.
+Custom CSS classes of labels should set these properties instead of `background-color` and `color`:
+
+```scss
+.labelBadge.myCustomLabel {
+	--label-background: #ffe0b2;
+	--label-color: #6d3200;
+}
+```
+
+In addition to the existing colors, labels can use the colors `teal`, `lime`, `navy`, and `maroon`.
+These colors are not available for badges such as user ranks.
+
+### Label Lists
+
+Lists of labels are rendered in a `div` element with the CSS class `labelBadgeList` or `labelBadgeInlineList` instead of a `ul.labelList` element.
+The labels are direct children of the container and are no longer wrapped in `li` elements.
+`labelBadgeList` places the labels on a separate line, `labelBadgeInlineList` places them inline with the surrounding content, for example next to the tag icon in the content header.
+
+The CSS class `labelList` is deprecated.
+
+#### Previous Code Example
+
+```smarty
+<ul class="labelList">
+	{foreach from=$object->getLabels() item=label}
+		<li>{unsafe:$label->render()}</li>
+	{/foreach}
+</ul>
+```
+
+#### New Code Example
+
+```smarty
+<div class="labelBadgeList">
+	{foreach from=$object->getLabels() item=label}
+		{unsafe:$label->render()}
+	{/foreach}
+</div>
+```
+
+Template listeners for the template events `beforeLabels` and `afterLabels` of the templates `threadList` and `threadContentHeaderTitle` have to output the labels without a surrounding `li` element.
+
 ## Form Styles
 
 The styling of inputs, labels, and required marks has changed for all forms, including forms not created with the form builder:
