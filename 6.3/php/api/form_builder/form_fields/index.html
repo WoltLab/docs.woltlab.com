@@ -1019,6 +1019,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#abstractsingleselectformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AbstractSingleSelectFormField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#abstractformfielddecorator" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1128,6 +1139,17 @@
     <span class="md-ellipsis">
       
         EmailFormField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filterableselectformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FilterableSelectFormField
       
     </span>
   </a>
@@ -6904,6 +6926,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#abstractsingleselectformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AbstractSingleSelectFormField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#abstractformfielddecorator" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7013,6 +7046,17 @@
     <span class="md-ellipsis">
       
         EmailFormField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filterableselectformfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FilterableSelectFormField
       
     </span>
   </a>
@@ -7825,6 +7869,16 @@ If the property <code>$integerValues</code> is <code>true</code>, the form field
 The methods <code>step($step = null)</code> and <code>getStep()</code> can be used to set and get the step attribute of the <code>input</code> element.
 The default step for form fields with integer values is <code>1</code>.
 Otherwise, the default step is <code>any</code>.</p>
+<h3 id="abstractsingleselectformfield"><code>AbstractSingleSelectFormField</code><a class="headerlink" href="#abstractsingleselectformfield" title="Permanent link">#</a></h3>
+<p><code>AbstractSingleSelectFormField</code> is the abstract default implementation of a form field for selecting a single value out of a predefined list of available options.
+The class implements <code>ICssClassFormField</code>, <code>IImmutableFormField</code>, and <code>ISelectionFormField</code>.
+An empty selection is represented by <code>null</code>, which fails the validation of required fields.
+The following methods are specific to this form field class:</p>
+<ul>
+<li><code>defaultValue($defaultValue)</code> and <code>hasDefaultValue()</code> can be used to set an initial default value which also removes the “No Selection” option.
+  The default value has to be one of the options, thus <code>defaultValue()</code> has to be called after <code>options()</code>.</li>
+<li><code>ignoreInvalidValues($ignoreInvalidValues = true)</code> ignores values that are not among the options instead of throwing an exception when setting the value.</li>
+</ul>
 <h3 id="abstractformfielddecorator"><code>AbstractFormFieldDecorator</code><a class="headerlink" href="#abstractformfielddecorator" title="Permanent link">#</a></h3>
 <p><code>AbstractFormFieldDecorator</code> is a default implementation of a decorator for form fields that forwards calls to all methods defined in <code>IFormField</code> to the respective method of the decorated object.
 The class implements <code>IFormfield</code>.
@@ -7937,6 +7991,17 @@ The class implements <code>IAttributeFormField</code>, <code>IAutoCompleteFormFi
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">EmailFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'example'</span><span class="p">)</span>
   <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">'foo.bar.example'</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="filterableselectformfield"><code>FilterableSelectFormField</code><a class="headerlink" href="#filterableselectformfield" title="Permanent link">#</a></h3>
+<p><code>FilterableSelectFormField</code> is a <a href="#abstractsingleselectformfield">single select form field</a> that renders the options as a list of radio buttons which can be filtered by the user.
+It is intended for larger lists of options and supports nested options.
+Unless the field is required or has a default value, an additional “No Selection” option is shown.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">FilterableSelectFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'example'</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">'foo.bar.example'</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">options</span><span class="p">(</span><span class="nv">$categories</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="floatformfield"><code>FloatFormField</code><a class="headerlink" href="#floatformfield" title="Permanent link">#</a></h3>
 <p><code>FloatFormField</code> is an implementation of <a href="#abstractnumericformfield">AbstractNumericFormField</a> for floating point numbers.</p>
@@ -8107,15 +8172,15 @@ If the field is nullable, an additional option to remove the rating is shown.</p
   <span class="o">-&gt;</span><span class="na">maximum</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="selectformfield"><code>SelectFormField</code><a class="headerlink" href="#selectformfield" title="Permanent link">#</a></h3>
-<p><code>SelectFormField</code> is a form fields that allows the selection of a single option out of a predefined list of available options.
-The class implements <code>ICssClassFormField</code> and <code>IImmutableFormField</code>.</p>
+<p><code>SelectFormField</code> is a <a href="#abstractsingleselectformfield">single select form field</a> that renders the options as a <code>select</code> element.
+Unless the field has a default value, an additional “No Selection” option is shown.</p>
 <p>Example:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">SelectFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'select'</span><span class="p">)</span>
   <span class="o">-&gt;</span><span class="na">options</span><span class="p">([</span><span class="s1">'option1'</span><span class="p">,</span> <span class="s1">'option2'</span><span class="p">,</span> <span class="s1">'option3'</span><span class="p">]);</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="showorderformfield"><code>ShowOrderFormField</code><a class="headerlink" href="#showorderformfield" title="Permanent link">#</a></h3>
-<p><code>ShowOrderFormField</code> is a <a href="#singleselectionformfield">single selection form field</a> for which the selected value determines the position at which an object is shown.
+<p><code>ShowOrderFormField</code> is a <a href="#abstractsingleselectformfield">single select form field</a> for which the selected value determines the position at which an object is shown.
 The show order field provides a list of all siblings and the object will be positioned <strong>after</strong> the selected sibling.
 To insert objects at the very beginning, the <code>options()</code> automatically method prepends an additional option for that case so that only the existing siblings need to be passed.
 The default id of instances of this class is <code>showOrder</code> and their default label is <code>wcf.form.field.showOrder</code>.</p>
@@ -8128,6 +8193,9 @@ The default id of instances of this class is <code>showOrder</code> and their de
   <span class="o">-&gt;</span><span class="na">options</span><span class="p">(</span><span class="k">new</span> <span class="nx">FooList</span><span class="p">())</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="singleselectionformfield"><code>SingleSelectionFormField</code><a class="headerlink" href="#singleselectionformfield" title="Permanent link">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title"><code>SingleSelectionFormField</code> is deprecated since version 6.3, use <a href="#selectformfield"><code>SelectFormField</code></a> or <a href="#filterableselectformfield"><code>FilterableSelectFormField</code></a> instead.</p>
+</div>
 <p><code>SingleSelectionFormField</code> is a form fields that allows the selection of a single option out of a predefined list of available options.
 The class implements <code>ICssClassFormField</code>, <code>IFilterableSelectionFormField</code>, <code>IImmutableFormField</code>, and <code>INullableFormField</code>.
 If the field is nullable and the current form field value is considered <code>empty</code> by PHP, <code>null</code> is returned as the save value.</p>
@@ -8155,9 +8223,9 @@ The following methods are specific to this form field class:</p>
   <span class="o">-&gt;</span><span class="na">profileUrlPattern</span><span class="p">(</span><span class="s1">'https://x.com/%s'</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="sortorderformfield"><code>SortOrderFormField</code><a class="headerlink" href="#sortorderformfield" title="Permanent link">#</a></h3>
-<p><code>SingleSelectionFormField</code> is a <a href="#singleselectionformfield">single selection form field</a> with default id <code>sortOrder</code>, default label <code>wcf.global.showOrder</code> and default options <code>ASC: wcf.global.sortOrder.ascending</code> and <code>DESC: wcf.global.sortOrder.descending</code>.</p>
+<p><code>SortOrderFormField</code> is a <a href="#abstractsingleselectformfield">single select form field</a> with default id <code>sortOrder</code>, default label <code>wcf.global.showOrder</code>, default options <code>ASC: wcf.global.sortOrder.ascending</code> and <code>DESC: wcf.global.sortOrder.descending</code>, and the default value <code>ASC</code>.</p>
 <p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">SingleSelectionFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'example'</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">SortOrderFormField</span><span class="o">::</span><span class="na">create</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="textformfield"><code>TextFormField</code><a class="headerlink" href="#textformfield" title="Permanent link">#</a></h3>
 <p><code>TextFormField</code> is a form field that allows entering a single line of text.
@@ -8714,7 +8782,7 @@ The class implements <code>IAttributeFormField</code>, <code>ICssClassFormField<
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-09
+    2026-11-12
   </span>
 
     
