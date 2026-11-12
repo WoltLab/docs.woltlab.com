@@ -677,6 +677,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\ThreadStatusAction`, use the RPC endpoint `wcf\system\endpoint\controller\forum\threads\SetThreadSubscriptionStatus` instead
 - `wbb\system\clipboard\action\ThreadClipboardAction`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
 - `wbb\data\board\BoardStatusAction`, use the RPC endpoint `wcf\system\endpoint\controller\forum\boards\SetBoardSubscriptionStatus` instead
+- `gallery\page\ImageEditPage`, use `gallery\form\ImageEditForm` or `gallery\page\ImageBulkEditPage` instead
 
 #### Methods
 
@@ -842,6 +843,12 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\form\option\ThreadFormOptionEditor::setShowOrder()`
 - `wbb\data\thread\DeletedThreadList::getMarkedItems()`
 - `wbb\data\board\BoardAction::cloneBoard()`, use the `wbb\command\board\CopyBoard` command instead
+- `gallery\data\image\ImageAction::loadPendingImages()`
+- `gallery\data\image\ImageAction::prepareEditLink()`
+- `gallery\data\image\ImageAction::saveImageData()`, use `gallery\command\image\CompleteImageUpload` or `gallery\command\image\UpdateImage` instead
+- `gallery\page\ImageAddPage::readAlbums()`
+- `gallery\page\ImageAddPage::readPendingImages()`
+- `gallery\page\ImageAddPage::setLocation()`
 
 #### Properties
 
@@ -883,6 +890,17 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\board\Board::$title`, use `wbb\data\board\Board::getTitle()` or `wbb\data\board\Board::getL10nValues()` instead
 - `wbb\data\board\Board::$description`, use `wbb\data\board\Board::getDescription()` or `wbb\data\board\Board::getL10nValues()` instead
 - `wbb\data\board\Board::$metaDescription`, use `wbb\data\board\Board::getMetaDescription()` or `wbb\data\board\Board::getL10nValues()` instead
+- `gallery\data\image\ImageAction::$disallowedBBCodesPermission`
+- `gallery\data\image\ImageAction::$imageErrors`
+- `gallery\data\image\ImageAction::$imageParameters`
+- `gallery\page\ImageAddPage::$albumList`
+- `gallery\page\ImageAddPage::$albumSelectable`
+- `gallery\page\ImageAddPage::$canLinkVideo`
+- `gallery\page\ImageAddPage::$categoryList`
+- `gallery\page\ImageAddPage::$defaultSmilies`
+- `gallery\page\ImageAddPage::$disallowedBBCodesPermission`
+- `gallery\page\ImageAddPage::$maxInputVars`
+- `gallery\page\ImageAddPage::$smileyCategories`
 
 #### Options
 
@@ -1012,6 +1030,24 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Ui/Toggle/Input`
 - `WoltLabSuite/Core/Form/Builder/Field/Controller/Rating`, `RatingFormField` is rendered as native radio buttons that do not require a controller
 - `codemirror`, including `codemirror/addon/*`, `codemirror/mode/*` and the copies of `codemirror.js` and `codemirror.css` in `js/3rdParty/codemirror/`, use `@woltlab/codemirror` and `WoltLabSuite/Core/Component/CodeMirror` instead ([WoltLab/WCF#6686](https://github.com/WoltLab/WCF/issues/6686))
+- `Gallery.Image.DataHandler.Album`
+- `Gallery.Image.DataHandler.Base`
+- `Gallery.Image.DataHandler.Default`
+- `Gallery.Image.DataHandler.EnableComments`
+- `Gallery.Image.DataHandler.Location`
+- `Gallery.Image.DataHandler.Tagging`
+- `Gallery.Image.DataHandler.VideoThumbnail`
+- `Gallery.Image.Handler`
+- `Gallery.Image.Handler.Image`
+- `Gallery.Image.Marker.Editor`
+- `Gallery.Image.PendingImageHandler`
+- `Gallery.Image.Processor`
+- `Gallery.Image.ThumbnailAreaSelector`
+- `Gallery.Image.ThumbnailGenerator`
+- `Gallery.Image.Upload`
+- `WoltLabSuite/Gallery/LegacyTypes`
+- `WoltLabSuite/Gallery/Ui/Video/Link/Handler`
+- `WoltLabSuite/Gallery/Ui/Video/Thumbnail/Upload`
 
 ### Templates
 
@@ -1024,3 +1060,4 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `unreadThreadList`, use the `unread` filter of `wbb\system\listView\user\ThreadListView` instead
 - `unresolvedThreadList`, use the `undone` filter of `wbb\system\listView\user\ThreadListView` instead
 - The template events `javascriptIncludes` and `javascriptInit` of `shared_codemirror`, see [Third Party Libraries](libraries.md#template-events)
+- The template events `categoryFields`, `contentNavigationButtonsCurrentImage`, `contentNavigationButtonsCurrentVideo`, `contentNavigationButtonsPendingImages`, `coordinateFields`, `informationFields`, `javascriptInit`, `messageFields`, `sections` and `videoThumbnailFields` of `imageAdd`, use the `populate` event of `gallery\system\form\builder\container\ImageFormContainer` instead, see [Gallery](gallery.md#adding-fields-to-the-image-form)
