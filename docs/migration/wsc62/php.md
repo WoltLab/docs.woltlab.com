@@ -1091,6 +1091,31 @@ For groups, only `aria-describedby` is returned, because the other attributes ar
 - `FormContainer` uses the CSS class `formSection` instead of `section`.
 - `RatingFormField` is rendered as native radio buttons and uses the data handler module `WoltLabSuite/Core/Form/Builder/Field/RadioButton`.
 
+### Single Selection Fields
+
+`SingleSelectionFormField` has been deprecated in favor of two dedicated fields that share the new base class `AbstractSingleSelectFormField`:
+
+- `SelectFormField` renders a `<select>` element.
+- `FilterableSelectFormField` renders a list of radio buttons that can be filtered by the user and replaces `SingleSelectionFormField::filterable()`.
+
+Both fields represent an empty selection as `null` and offer a “No Selection” option unless a default value is set through `defaultValue()`.
+`FilterableSelectFormField` also omits this option for required fields.
+Artificial options with the key `''` that represent no selection and calls to `nullable()` are no longer necessary.
+
+```php
+// Previously
+SingleSelectionFormField::create('categoryID')
+    ->options($categories)
+    ->filterable()
+    ->nullable();
+
+// Now
+FilterableSelectFormField::create('categoryID')
+    ->options($categories);
+```
+
+`SortOrderFormField` and `ShowOrderFormField` extend `AbstractSingleSelectFormField` instead of `SingleSelectionFormField`.
+
 ## Multiple Labels per Label Group
 
 Label groups have a new setting `maxSelection` that limits the number of labels of the group that can be assigned to a single object.

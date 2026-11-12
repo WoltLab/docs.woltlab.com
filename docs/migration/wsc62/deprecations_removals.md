@@ -244,6 +244,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\rss\feed\RssFeedEditor`, use `wbb\data\rss\feed\RssFeedBuilder` instead
 - `wbb\data\board\BoardAction`, use `wbb\data\board\BoardBuilder`, the commands and the RPC endpoints instead
 - `wbb\data\board\BoardEditor`, use `wbb\data\board\BoardBuilder` instead
+- `wcf\system\form\builder\field\SingleSelectionFormField`, use `wcf\system\form\builder\field\SelectFormField` or `wcf\system\form\builder\field\FilterableSelectFormField` instead, see [Single Selection Fields](php.md#single-selection-fields)
 
 #### Methods
 

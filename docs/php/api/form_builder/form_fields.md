@@ -19,6 +19,17 @@ The methods `step($step = null)` and `getStep()` can be used to set and get the 
 The default step for form fields with integer values is `1`.
 Otherwise, the default step is `any`.
 
+### `AbstractSingleSelectFormField`
+
+`AbstractSingleSelectFormField` is the abstract default implementation of a form field for selecting a single value out of a predefined list of available options.
+The class implements `ICssClassFormField`, `IImmutableFormField`, and `ISelectionFormField`.
+An empty selection is represented by `null`, which fails the validation of required fields.
+The following methods are specific to this form field class:
+
+- `defaultValue($defaultValue)` and `hasDefaultValue()` can be used to set an initial default value which also removes the “No Selection” option.
+  The default value has to be one of the options, thus `defaultValue()` has to be called after `options()`.
+- `ignoreInvalidValues($ignoreInvalidValues = true)` ignores values that are not among the options instead of throwing an exception when setting the value.
+
 ### `AbstractFormFieldDecorator`
 
 `AbstractFormFieldDecorator` is a default implementation of a decorator for form fields that forwards calls to all methods defined in `IFormField` to the respective method of the decorated object.
@@ -166,6 +177,21 @@ Example:
 ```php
 EmailFormField::create('example')
   ->label('foo.bar.example')
+```
+
+
+### `FilterableSelectFormField`
+
+`FilterableSelectFormField` is a [single select form field](#abstractsingleselectformfield) that renders the options as a list of radio buttons which can be filtered by the user.
+It is intended for larger lists of options and supports nested options.
+Unless the field is required or has a default value, an additional “No Selection” option is shown.
+
+Example:
+
+```php
+FilterableSelectFormField::create('example')
+  ->label('foo.bar.example')
+  ->options($categories, true)
 ```
 
 
@@ -392,8 +418,8 @@ RatingFormField::create('example')
 
 ### `SelectFormField`
 
-`SelectFormField` is a form fields that allows the selection of a single option out of a predefined list of available options.
-The class implements `ICssClassFormField` and `IImmutableFormField`.
+`SelectFormField` is a [single select form field](#abstractsingleselectformfield) that renders the options as a `select` element.
+Unless the field has a default value, an additional “No Selection” option is shown.
 
 Example:
 
@@ -404,7 +430,7 @@ SelectFormField::create('select')
 
 ### `ShowOrderFormField`
 
-`ShowOrderFormField` is a [single selection form field](#singleselectionformfield) for which the selected value determines the position at which an object is shown.
+`ShowOrderFormField` is a [single select form field](#abstractsingleselectformfield) for which the selected value determines the position at which an object is shown.
 The show order field provides a list of all siblings and the object will be positioned **after** the selected sibling.
 To insert objects at the very beginning, the `options()` automatically method prepends an additional option for that case so that only the existing siblings need to be passed.
 The default id of instances of this class is `showOrder` and their default label is `wcf.form.field.showOrder`.
@@ -420,6 +446,8 @@ ShowOrderFormField::create('example')
 
 
 ### `SingleSelectionFormField`
+
+!!! warning "`SingleSelectionFormField` is deprecated since version 6.3, use [`SelectFormField`](#selectformfield) or [`FilterableSelectFormField`](#filterableselectformfield) instead."
 
 `SingleSelectionFormField` is a form fields that allows the selection of a single option out of a predefined list of available options.
 The class implements `ICssClassFormField`, `IFilterableSelectionFormField`, `IImmutableFormField`, and `INullableFormField`.
@@ -455,12 +483,12 @@ SocialMediaFormField::create('example')
 
 ### `SortOrderFormField`
 
-`SingleSelectionFormField` is a [single selection form field](#singleselectionformfield) with default id `sortOrder`, default label `wcf.global.showOrder` and default options `ASC: wcf.global.sortOrder.ascending` and `DESC: wcf.global.sortOrder.descending`.
+`SortOrderFormField` is a [single select form field](#abstractsingleselectformfield) with default id `sortOrder`, default label `wcf.global.showOrder`, default options `ASC: wcf.global.sortOrder.ascending` and `DESC: wcf.global.sortOrder.descending`, and the default value `ASC`.
 
 Example:
 
 ```php
-SingleSelectionFormField::create('example')
+SortOrderFormField::create()
 ```
 
 
