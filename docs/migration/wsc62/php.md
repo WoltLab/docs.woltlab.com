@@ -1184,3 +1184,12 @@ Code reading the phrase or `wcf\data\language\Language::getPageDirection()` keep
 
 Styles are no longer compiled into a right-to-left variant, `style/style-<styleID>-rtl.css` and `acp/style/style-rtl.css` are no longer generated.
 Rules in styles and packages that target `html[dir="rtl"]` no longer match and can be removed.
+
+## Replacing the Source of a File
+
+`wcf\command\file\ReplaceFileSource` deletes the WebP variant and all thumbnails of the file when the new source has a different file hash, because they no longer match its content.
+With `$regenerateThumbnails = true`, the default, the deleted files are generated again immediately.
+With `false`, the file is left without them until the caller generates them, e.g. with the same steps as the `GenerateThumbnails` endpoint, or the file rebuild worker runs.
+References to the deleted thumbnails must tolerate this, e.g. through a foreign key with `ON DELETE SET NULL` like `wcf1_attachment.thumbnailID`; `adoptThumbnail()` is called for the new thumbnails as usual.
+
+Callers that only strip metadata or convert the format pass the new parameter `visuallyIdentical: true` to keep the derived files, as `FileProcessor::stripExif()` and `ReplaceWithWebpVariant` do.
