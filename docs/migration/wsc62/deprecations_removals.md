@@ -245,6 +245,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\board\BoardAction`, use `wbb\data\board\BoardBuilder`, the commands and the RPC endpoints instead
 - `wbb\data\board\BoardEditor`, use `wbb\data\board\BoardBuilder` instead
 - `wcf\system\form\builder\field\SingleSelectionFormField`, use `wcf\system\form\builder\field\SelectFormField` or `wcf\system\form\builder\field\FilterableSelectFormField` instead, see [Single Selection Fields](php.md#single-selection-fields)
+- `gallery\page\RawImagePage`, which only serves images in the legacy storage of the Gallery and redirects links of migrated images, use the url of `gallery\data\image\Image::getURL()` instead
 
 #### Methods
 
@@ -252,17 +253,12 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\data\image\ImageList::enableAlbumLoading()`
 - `gallery\data\image\ImageList::enableMarkerLoading()`
 - `gallery\data\image\ImageAction::trash()`
-- `gallery\data\image\ImageAction::validateTrash()`
 - `gallery\data\image\ImageAction::restore()`
-- `gallery\data\image\ImageAction::validateRestore()`
 - `gallery\data\image\ImageAction::markAsRead()`
-- `gallery\data\image\AlbumAction::updateImages()`
+- `gallery\data\album\AlbumAction::updateImages()`
 - `gallery\data\image\ImageAction::enable()`
-- `gallery\data\image\ImageAction::validateEnable()`
 - `gallery\data\image\ImageAction::disable()`
-- `gallery\data\image\ImageAction::validateDisable()`
 - `gallery\data\image\ImageAction::triggerPublication()`
-- `gallery\data\image\ImageAction::validateFavorite()`
 - `gallery\data\image\ImageAction::favorite()`
 - `blog\data\entry\EntryAction::triggerPublication()`
 - `blog\data\entry\EntryAction::markAsRead()`
@@ -474,6 +470,15 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\Thread::setFirstPost()`, the first post is loaded on demand by `wbb\data\thread\Thread::getFirstPost()`
 - `wbb\data\thread\Thread::setBestAnswerPost()`, the best answer is loaded on demand by `wbb\data\thread\Thread::getBestAnswerPost()`
 - `wbb\data\thread\BoardThreadList::getLogList()`, use `wbb\data\thread\Thread::getLogEntry()` instead
+- `gallery\data\image\Image::getLocation()`, use `gallery\data\image\Image::getFile()` or `gallery\data\image\Image::getSource()` instead
+- `gallery\data\image\Image::getVideoLocation()`, use `gallery\data\image\Image::getVideoFile()` instead
+- `gallery\data\image\Image::getFilename()`, use `gallery\data\image\Image::getFile()` or `gallery\data\image\Image::getDisplayFilename()` instead
+- `gallery\data\image\Image::getVideoFilename()`, use `gallery\data\image\Image::getVideoFile()` or `gallery\data\image\Image::getVideoDisplayFilename()` instead
+- `gallery\data\image\Image::hasLegacyFile()`, the rebuild of the data migrates the legacy storage of the Gallery, see [Gallery](gallery.md#upgrading-an-installation)
+- `gallery\data\image\Image::hasLegacyVideoFile()`, the rebuild of the data migrates the legacy storage of the Gallery, see [Gallery](gallery.md#upgrading-an-installation)
+- `gallery\data\image\Image::usesLegacyStorage()`, the rebuild of the data migrates the legacy storage of the Gallery, see [Gallery](gallery.md#upgrading-an-installation)
+- `gallery\data\image\ImageEditor::deleteFiles()`, use `gallery\command\image\DeleteImage` instead
+- `gallery\data\image\ImageEditor::deleteImageFiles()`, use `gallery\command\image\DeleteImage` or `gallery\command\image\SetVideoThumbnail` instead
 
 #### Properties
 
@@ -483,11 +488,25 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\BoardThreadList::$daysPrune`
 - `wbb\data\thread\BoardThreadList::$logList`, use `wbb\data\thread\Thread::getLogEntry()` instead
 - `wbb\data\thread\BoardThreadList::$loadDeleteNote`, the deletion data is loaded on demand by `wbb\data\thread\Thread::getLogEntry()`
+- `gallery\data\image\Image::$filename`, use `gallery\data\image\Image::getDisplayFilename()` instead
+- `gallery\data\image\Image::$fileExtension`, use `gallery\data\image\Image::getFile()` instead
+- `gallery\data\image\Image::$fileHash`, use `gallery\data\image\Image::getFile()` instead
+- `gallery\data\image\Image::$tinyThumbnailSize`, use `gallery\data\image\Image::getSource()` instead
+- `gallery\data\image\Image::$smallThumbnailSize`, use `gallery\data\image\Image::getSource()` instead
+- `gallery\data\image\Image::$mediumThumbnailSize`, use `gallery\data\image\Image::getSource()` instead
+- `gallery\data\image\Image::$largeThumbnailSize`, use `gallery\data\image\Image::getSource()` instead
+- `gallery\data\image\Image::$videoFilename`, use `gallery\data\image\Image::getVideoDisplayFilename()` instead
+- `gallery\data\image\Image::$videoFileExtension`, use `gallery\data\image\Image::getVideoFile()` instead
+- `gallery\data\image\Image::$videoFileHash`, use `gallery\data\image\Image::getVideoFile()` instead
 
 #### Constants
 
 - `wcf\system\worker\SitemapRebuildWorker::REGISTRY_PREFIX`, use `wcf\system\sitemap\SitemapHandler::REGISTRY_PREFIX` instead
 - `wcf\system\trophy\condition\TrophyConditionHandler::CONDITION_DEFINITION_NAME`
+- `gallery\data\image\Image::VALID_SIZES`, use `gallery\data\image\Image::THUMBNAIL_FORMATS` instead
+- `gallery\data\image\Image::UNRESTRICTED_ACCESS_SIZES`, files and their thumbnails are always served statically
+- `gallery\data\image\Image::LARGECROPPED_THUMBNAIL_HEIGHT`, files have no `largeCropped` thumbnail
+- `gallery\data\image\Image::LARGECROPPED_THUMBNAIL_WIDTH`, files have no `largeCropped` thumbnail
 
 #### Object Type Definitions
 
@@ -678,30 +697,26 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\system\clipboard\action\ThreadClipboardAction`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
 - `wbb\data\board\BoardStatusAction`, use the RPC endpoint `wcf\system\endpoint\controller\forum\boards\SetBoardSubscriptionStatus` instead
 - `gallery\page\ImageEditPage`, use `gallery\form\ImageEditForm` or `gallery\page\ImageBulkEditPage` instead
+- `gallery\system\upload\ImageUploadFileValidationStrategy`, use `gallery\system\file\processor\ImageFileProcessor` instead
+- `gallery\system\upload\VideoUploadFileValidationStrategy`, use `gallery\system\file\processor\VideoFileProcessor` instead
+- `gallery\system\upload\VideoThumbnailUploadFileValidationStrategy`, use `gallery\system\file\processor\VideoThumbnailFileProcessor` instead
+- `gallery\system\upload\WatermarkUploadFileValidationStrategy`
 
 #### Methods
 
 - `gallery\data\album\Album::setCoverImage()`
 - `gallery\data\album\Album::setCoverImages()`
 - `gallery\data\album\Album::setUserProfile()`
-- `gallery\data\album\AlbumAction::delete()`
 - `gallery\data\album\AlbumAction::loadSortableImages()`
 - `gallery\data\album\AlbumAction::rebuildCoverImages()`
 - `gallery\data\album\AlbumAction::sortImages()`
-- `gallery\data\album\AlbumAction::validateDelete()`
-- `gallery\data\album\AlbumAction::validateLoadSortableImages()`
-- `gallery\data\album\AlbumAction::validateSortImages()`
 - `gallery\data\image\ImageAction::updatePosition()`
-- `gallery\data\image\ImageAction::validateUpdatePosition()`
 - `gallery\data\image\marker\ImageMarkerList::enableUserProfileLoading()`
 - `gallery\data\image\Image::setAlbum()`
 - `gallery\data\image\Image::setMarkers()`
-- `gallery\data\image\ImageAction::validateDelete()`
 - `gallery\data\image\ImageEditor::updateVideoCounter()`
 - `gallery\data\image\Image::canMoveToAlbum()`
-- `gallery\data\image\ImageAction::validatePrepareMoveToAlbum()`
 - `gallery\data\image\ImageAction::prepareMoveToAlbum()`
-- `gallery\data\image\ImageAction::validateMoveToAlbum()`
 - `gallery\data\image\ImageAction::moveToAlbum()`
 - `blog\data\blog\BlogAction::delete()`
 - `blog\data\entry\EntryAction::delete()`
@@ -759,7 +774,6 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `calendar\data\event\EventAction::getMapMarkers()`
 - `wcf\data\wsdb\record\RecordAction::validateGetMapMarkers()`
 - `wcf\data\wsdb\record\RecordAction::getMapMarkers()`
-- `gallery\data\image\ImageAction::validateGetMapMarkers()`
 - `gallery\data\image\ImageAction::getMapMarkers()`
 - `wcf\data\session\Session::supportsPersistentLogins()`
 - `wcf\data\user\User::checkCookiePassword()`
@@ -849,6 +863,19 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\page\ImageAddPage::readAlbums()`
 - `gallery\page\ImageAddPage::readPendingImages()`
 - `gallery\page\ImageAddPage::setLocation()`
+- `gallery\data\image\ImageAction::uploadImages()`
+- `gallery\data\image\ImageAction::upload()`, use Core's file upload with the object type `com.woltlab.gallery.image` for images or `com.woltlab.gallery.video` for videos instead
+- `gallery\data\image\ImageAction::uploadVideo()`
+- `gallery\data\image\ImageAction::uploadVideoThumbnail()`, use Core's file upload with the object type `com.woltlab.gallery.video.thumbnail` instead
+- `gallery\data\image\ImageAction::deleteVideoThumbnail()`, use Core's file deletion (`DELETE /core/files/{id}`) instead
+- `gallery\data\image\ImageAction::createVideoLink()`, use the RPC endpoint `wcf\system\endpoint\controller\gallery\images\CreateVideoLink` instead
+- `gallery\data\image\ImageAction::fetchVideoData()`, use `gallery\command\image\FetchVideoLinkData` instead
+- `gallery\data\image\ImageAction::processImages()`
+- `gallery\data\image\ImageAction::rotateImageByOrientation()`
+- `gallery\data\image\ImageAction::generateThumbnails()`, use `gallery\command\image\RegenerateImageThumbnails` instead
+- `gallery\data\image\ImageAction::generateThumbnail()`
+- `gallery\data\image\ImageAction::rotateImage()`, use `gallery\command\image\RotateImage` or the RPC endpoint `wcf\system\endpoint\controller\gallery\images\RotateImage` instead
+- `gallery\data\image\ImageAction::addWatermark()`, use `gallery\command\image\ApplyImageWatermark` instead
 
 #### Properties
 
@@ -901,6 +928,15 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\page\ImageAddPage::$disallowedBBCodesPermission`
 - `gallery\page\ImageAddPage::$maxInputVars`
 - `gallery\page\ImageAddPage::$smileyCategories`
+- `gallery\data\image\ImageAction::$uploadValidator`
+- `gallery\data\image\ImageAction::$image`
+- `gallery\data\image\ImageAction::$uploadFile`
+- `gallery\data\image\ImageAction::$videoProvider`
+- `gallery\data\image\ImageAction::$htmlInputProcessor`
+- `gallery\data\image\ImageAction::$userID`
+- `gallery\data\image\ImageAction::$user`
+- `gallery\data\image\ImageAction::$viewableImage`
+- `gallery\data\image\ImageAction::$album`
 
 #### Options
 
@@ -1048,6 +1084,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Gallery/LegacyTypes`
 - `WoltLabSuite/Gallery/Ui/Video/Link/Handler`
 - `WoltLabSuite/Gallery/Ui/Video/Thumbnail/Upload`
+- `WoltLabSuite/Gallery/Component/Image/Browser`
+- `WoltLabSuite/Gallery/Component/Image/Viewer`, use `showFancybox()` of `WoltLabSuite/Core/Component/Image/Viewer` instead
+- `WoltLabSuite/Gallery/Ui/Category/MarkAllAsRead`, use `WoltLabSuite/Gallery/Component/Image/MarkAllImagesAsRead` instead
 
 ### Templates
 
@@ -1061,3 +1100,17 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `unresolvedThreadList`, use the `undone` filter of `wbb\system\listView\user\ThreadListView` instead
 - The template events `javascriptIncludes` and `javascriptInit` of `shared_codemirror`, see [Third Party Libraries](libraries.md#template-events)
 - The template events `categoryFields`, `contentNavigationButtonsCurrentImage`, `contentNavigationButtonsCurrentVideo`, `contentNavigationButtonsPendingImages`, `coordinateFields`, `informationFields`, `javascriptInit`, `messageFields`, `sections` and `videoThumbnailFields` of `imageAdd`, use the `populate` event of `gallery\system\form\builder\container\ImageFormContainer` instead, see [Gallery](gallery.md#adding-fields-to-the-image-form)
+- `__imageViewer`, which was no longer included
+- `boxImageGrid`
+- `boxImageList`
+- `boxImagesInMotion`
+- `deletedImageList`, use `gallery\system\listView\user\DeletedImageListView` instead
+- `imageBrowser`, also in the ACP
+- `imageBrowserAlbumList`, also in the ACP
+- `imageBrowserImageList`, also in the ACP
+- `imageDeleteReason`
+- `moveImagesToAlbum`
+- `shared_wysiwygCkeditor5` of the Gallery
+- `sortableImageListItems`
+- `taggedImageList`, use `gallery\system\listView\user\TaggedImageListView` instead
+- `watchedImageList`
