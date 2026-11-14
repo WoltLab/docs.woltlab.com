@@ -1,0 +1,7043 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.woltlab.com/6.3/migration/wsc62/gallery/">
+      
+      
+        <link rel="prev" href="../templates/">
+      
+      
+        <link rel="next" href="../libraries/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/default.favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Gallery - WoltLab Suite Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#migrating-from-woltlab-suite-62-gallery" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+    <a href="https://www.woltlab.com">Back to <strong>woltlab.com</strong></a>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="WoltLab Suite Documentation" class="md-header__button md-logo" aria-label="WoltLab Suite Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WoltLab Suite Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Gallery
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/WoltLab/docs.woltlab.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="WoltLab Suite Documentation" class="md-nav__button md-logo" aria-label="WoltLab Suite Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    WoltLab Suite Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/WoltLab/docs.woltlab.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PHP API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/pages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/database-objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/database-object-builder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Object Builder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/database-access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exceptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/acp_dashboard_boxes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACP Dashboard Boxes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_2" id="__nav_2_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Caches
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Caches
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/caches/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/caches_persistent-caches/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Persistent Caches
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/caches_runtime-caches/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runtime Caches
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/comments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/cronjobs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cronjobs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/file_uploads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Uploads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_7" id="__nav_2_6_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Form Builder
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Form Builder
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/form_fields/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/validation_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation and Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/dependencies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/form_builder/form_options/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Form Options
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/grid_views/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grid Views
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/interactions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interactions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/list_views/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    List Views
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/node_tree_views/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Node Tree Views
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/package_installation_plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Package Installation Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/show_order/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Show Order
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_14" id="__nav_2_6_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPC API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RPC API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/rpc_api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/rpc_api_endpoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Endpoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/user_activity_events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Activity Events
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/user_activity_points/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Activity Points
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/user_notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/rss_feeds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RSS Feeds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/api/sitemaps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sitemaps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/code-style/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Style
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../php/gdpr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GDPR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Languages, Templates & CSS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Languages, Templates & CSS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../view/languages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Languages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../view/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../view/template-modifiers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Template Modifiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../view/template-plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Template Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../view/css/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeScript and JavaScript API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TypeScript and JavaScript API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/general-usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/typescript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Components
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_ckeditor5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CKEditor 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_confirmation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Confirmation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_dialog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dialog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_google_maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_guest_token/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guest Token
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_image_viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image Viewer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_notice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_pagination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pagination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_rpc_api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPC API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_snackbar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Snackbar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/components_toggle_button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toggle Button
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    New API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    New API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_writing-a-module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing a module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_dom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Event Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_ajax/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ajax
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_dialogs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dialogs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_browser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser and Screen Sizes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/new-api_ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/legacy-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/code-snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Package Components
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Package Components
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/package-xml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    package.xml
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/bootstrap-scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bootstrap Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PIPs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PIPs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/acl-option/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    aclOption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/acp-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    acpMenu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/acp-search-provider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    acpSearchProvider
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/acp-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    acpTemplate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/acp-template-delete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    acpTemplateDelete
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/bbcode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    bbcode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/box/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    box
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/clipboard-action/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    clipboardAction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/core-object/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    coreObject
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/cronjob/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cronjob
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/event-listener/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    eventListener
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    file
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/file-delete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fileDelete
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    language
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/media-provider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mediaProvider
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    menu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/menu-item/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    menuItem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/object-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objectType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/object-type-definition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objectTypeDefinition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/option/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    option
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/page/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    page
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/pip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    script
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/smiley/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    smiley
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sql
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/style/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    style
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/template-delete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    templateDelete
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/template-listener/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    templateListener
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/user-group-option/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    userGroupOption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/user-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    userMenu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/user-notification-event/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    userNotificationEvent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/user-option/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    userOption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/pip/user-profile-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    userProfileMenu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/acp-menu-items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACP Menu Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/acp-search-providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACP Search Providers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/database-php-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database PHP API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Migration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From WoltLab Suite 6.2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    From WoltLab Suite 6.2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deprecations_removals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deprecations and Removals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gallery
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gallery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#upload-and-edit-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upload and Edit Pages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload and Edit Pages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#saving-no-longer-runs-imageaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saving No Longer Runs ImageAction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files-of-images-and-videos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files of Images and Videos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Files of Images and Videos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reading-files-and-thumbnails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading Files and Thumbnails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delivering-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delivering Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploading-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uploading Images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploading-videos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uploading Videos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Uploading Videos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#posters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Posters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#video-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Video Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thumbnails-rotation-and-watermark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thumbnails, Rotation and Watermark
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deleting Images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-albums" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deleting Albums
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replaced-methods-of-imageaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replaced Methods of ImageAction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading-an-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrading an Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upgrading an Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#items-in-the-legacy-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Items in the Legacy Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deprecated-legacy-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deprecated Legacy Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importing-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Importing Images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-fields-to-the-image-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Fields to the Image Form
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding Fields to the Image Form">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editing-a-row-for-several-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing a Row for Several Items
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Removals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#php" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PHP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JavaScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From WoltLab Suite 6.1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    From WoltLab Suite 6.1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc61/deprecations_removals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deprecations and Removals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc61/php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc61/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc61/quotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quotes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc61/caching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Caching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc61/libraries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From WoltLab Suite 6.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    From WoltLab Suite 6.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc60/php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc60/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc60/deprecations_removals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deprecations and Removals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From WoltLab Suite 5.5
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    From WoltLab Suite 5.5
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc55/php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc55/javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeScript and JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc55/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc55/icons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Icons
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc55/dialogs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dialogs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc55/libraries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc55/deprecations_removals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deprecations and Removals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From WoltLab Suite 5.4
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    From WoltLab Suite 5.4
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc54/php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc54/javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeScript and JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc54/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc54/libraries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc54/deprecations_removals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deprecations and Removals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From WoltLab Suite 5.3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    From WoltLab Suite 5.3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc53/php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc53/session/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session Handling and Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc53/javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeScript and JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc53/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc53/libraries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From WoltLab Suite 5.2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    From WoltLab Suite 5.2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc52/php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc52/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates and Languages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc52/libraries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From WoltLab Suite 3.1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    From WoltLab Suite 3.1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc31/php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_9" id="__nav_6_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From WoltLab Suite 3.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    From WoltLab Suite 3.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc30/php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc30/javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc30/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc30/css/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wsc30/package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Package Components
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_10" id="__nav_6_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From WCF 2.1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    From WCF 2.1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wcf21/php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wcf21/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wcf21/css/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wcf21/package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Package Components
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial Series
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorial Series
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/part_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/part_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/series/part_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#upload-and-edit-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upload and Edit Pages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload and Edit Pages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#saving-no-longer-runs-imageaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saving No Longer Runs ImageAction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files-of-images-and-videos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files of Images and Videos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Files of Images and Videos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reading-files-and-thumbnails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading Files and Thumbnails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delivering-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delivering Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploading-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uploading Images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploading-videos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uploading Videos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Uploading Videos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#posters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Posters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#video-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Video Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thumbnails-rotation-and-watermark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thumbnails, Rotation and Watermark
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deleting Images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-albums" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deleting Albums
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replaced-methods-of-imageaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replaced Methods of ImageAction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading-an-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrading an Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upgrading an Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#items-in-the-legacy-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Items in the Legacy Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deprecated-legacy-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deprecated Legacy Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importing-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Importing Images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-fields-to-the-image-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Fields to the Image Form
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding Fields to the Image Form">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editing-a-row-for-several-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing a Row for Several Items
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Removals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#php" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PHP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JavaScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="migrating-from-woltlab-suite-62-gallery">Migrating from WoltLab Suite 6.2 - Gallery<a class="headerlink" href="#migrating-from-woltlab-suite-62-gallery" title="Permanent link">#</a></h1>
+<p>WoltLab Suite Gallery 6.3 rebuilds the pages that upload and edit images, videos and video links, and it stores every file of an item as a file of Core.</p>
+<p>The fields of an item are <a href="../../../php/api/form_builder/overview/">form builder</a> fields now, which are saved through <code>gallery\data\image\ImageBuilder</code> and its commands, see <a href="../../../php/database-object-builder/">Database Object Builder</a>.
+<code>gallery\page\ImageEditPage</code> has been removed and <code>gallery\page\ImageAddPage</code> has been rewritten, together with their templates and JavaScript.</p>
+<p>Files are uploaded through Core's <a href="../../../php/api/file_uploads/">file uploads</a> instead of the Gallery's own upload, and the Gallery no longer stores them in <code>userImages/</code> and <code>userVideos/</code>.
+The files of existing items are moved by the rebuild of the data after the update, see <a href="#upgrading-an-installation">Upgrading an Installation</a>.</p>
+<h2 id="upload-and-edit-pages">Upload and Edit Pages<a class="headerlink" href="#upload-and-edit-pages" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>Controller</th>
+<th>Request</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Uploading images, videos and video links</td>
+<td><code>gallery\page\ImageAddPage</code></td>
+<td><code>image-add/</code>, optionally with <code>categoryIDs[]</code> and <code>albumID</code></td>
+</tr>
+<tr>
+<td>Editing a single item</td>
+<td><code>gallery\form\ImageEditForm</code></td>
+<td><code>image-edit/{id}/</code></td>
+</tr>
+<tr>
+<td>Editing several items</td>
+<td><code>gallery\page\ImageBulkEditPage</code></td>
+<td><code>image-bulk-edit/?imageIDs[]=…</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>gallery\form\ImageEditForm</code> replaces <code>gallery\page\ImageEditPage</code>, which extended <code>ImageAddPage</code> and edited one or several items with the template of the upload page.
+Editing several items moved to the new <code>gallery\page\ImageBulkEditPage</code>.</p>
+<p>The upload page and the bulk edit page show a list of the items and the form of the open item beside it.
+Each item has a form of its own, which <code>gallery\action\ImageItemFormAction</code> provides and saves.
+Saving an uploaded item completes the upload through <code>gallery\command\image\CompleteImageUpload</code>, saving an existing item runs <code>gallery\command\image\UpdateImage</code>.</p>
+<h3 id="saving-no-longer-runs-imageaction">Saving No Longer Runs <code>ImageAction</code><a class="headerlink" href="#saving-no-longer-runs-imageaction" title="Permanent link">#</a></h3>
+<p><code>gallery\data\image\ImageAction::saveImageData()</code> has been removed, and these pages no longer save through <code>ImageAction::update()</code>.
+Event listeners on these actions are therefore not called when items are uploaded or edited on these pages.
+Listen to the following events instead, which both provide the image and the <code>ImageBuilder</code> that saved it:</p>
+<ul>
+<li><code>gallery\event\image\ImageUploadCompleted</code> is fired when an upload has been saved, before the image is published or waits for the approval of a moderator.</li>
+<li><code>gallery\event\image\ImageUpdated</code> is fired when an existing image has been saved.</li>
+</ul>
+<p>The upload page no longer uploads or processes files through <code>ImageAction</code> either, see <a href="#replaced-methods-of-imageaction">Replaced Methods of <code>ImageAction</code></a>.</p>
+<h2 id="files-of-images-and-videos">Files of Images and Videos<a class="headerlink" href="#files-of-images-and-videos" title="Permanent link">#</a></h2>
+<p>Each file of an item is a file of Core (<code>wcf1_file</code>) with one of three object types of the definition <code>com.woltlab.wcf.file</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Object type</th>
+<th>File processor</th>
+<th>Files</th>
+<th>Referenced by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>com.woltlab.gallery.image</code></td>
+<td><code>gallery\system\file\processor\ImageFileProcessor</code></td>
+<td>images</td>
+<td><code>gallery1_image.fileID</code></td>
+</tr>
+<tr>
+<td><code>com.woltlab.gallery.video</code></td>
+<td><code>gallery\system\file\processor\VideoFileProcessor</code></td>
+<td>uploaded videos</td>
+<td><code>gallery1_image.videoFileID</code></td>
+</tr>
+<tr>
+<td><code>com.woltlab.gallery.video.thumbnail</code></td>
+<td><code>gallery\system\file\processor\VideoThumbnailFileProcessor</code></td>
+<td>posters of videos and previews of video links</td>
+<td><code>gallery1_image.fileID</code></td>
+</tr>
+</tbody>
+</table>
+<p>Both columns are nullable foreign keys to <code>wcf1_file</code> with <code>ON DELETE SET NULL</code>: a published item whose file Core deletes, for example because the rebuild of the files found it damaged, keeps its row without the file, whereas a pending upload is deleted together with the file of its image or video.</p>
+<p><code>filesize</code>, <code>width</code> and <code>height</code> describe the file that <code>fileID</code> references, <code>videoFilesize</code> the video, because the quota and the statistics of the Gallery are computed from these columns.
+<code>ImageBuilder::setFile()</code> and <code>ImageBuilder::setVideoFile()</code> write them together with the reference, and the file processors update them whenever Core replaces the content of a file.
+The columns of the legacy storage (<code>filename</code>, <code>fileExtension</code>, <code>fileHash</code>, <code>tinyThumbnailSize</code>, <code>smallThumbnailSize</code>, <code>mediumThumbnailSize</code>, <code>largeThumbnailSize</code>, <code>videoFilename</code>, <code>videoFileExtension</code> and <code>videoFileHash</code>) are empty for files, and they are deprecated, see <a href="#upgrading-an-installation">Upgrading an Installation</a>.</p>
+<h3 id="reading-files-and-thumbnails">Reading Files and Thumbnails<a class="headerlink" href="#reading-files-and-thumbnails" title="Permanent link">#</a></h3>
+<p><code>Image::getFile()</code> returns the file of an image, of the poster of a video or of the preview of a video link, <code>Image::getVideoFile()</code> the file of a video, <code>null</code> if there is none.
+The files of all items of an <code>ImageList</code> are loaded together when the first one is requested.</p>
+<p>The files of images, posters and previews have the thumbnails <code>tiny</code> (144 × 144), <code>small</code> (280 × 210) and <code>medium</code> (560 × 420), which are cropped, and <code>large</code>, which fits the image into 1200 × 900.
+Their identifiers are available as <code>Image::THUMBNAIL_TINY</code>, <code>Image::THUMBNAIL_SMALL</code>, <code>Image::THUMBNAIL_MEDIUM</code> and <code>Image::THUMBNAIL_LARGE</code>, from the smallest to the largest in <code>Image::THUMBNAIL_FORMATS</code>.
+There is no <code>largeCropped</code> thumbnail any more.</p>
+<p>Read the url and the dimensions of a thumbnail from the file instead of assuming those of its format:</p>
+<ul>
+<li><code>Image::getSource($size)</code> returns the <code>gallery\data\image\ImageSource</code> that is served for a thumbnail or, for an empty string or <code>original</code>, for the original, with its <code>url</code>, <code>width</code>, <code>height</code> and <code>mimeType</code> and its size through <code>getFilesize()</code>.
+  A thumbnail that does not exist falls back to the original, <code>null</code> is returned for items without a file.
+  For items in the legacy storage, <code>null</code> is returned for a thumbnail that does not exist instead.</li>
+<li><code>Image::hasThumbnail($size)</code> tells whether the thumbnail exists.</li>
+<li><code>Image::getURL($size)</code> returns the url of <code>getSource($size)</code>, or of a placeholder for items without a file.
+  For items in the legacy storage, it returns a placeholder for the thumbnails <code>tiny</code>, <code>small</code> and <code>medium</code> if they do not exist.</li>
+<li><code>Image::getMimeType()</code> returns the type of the original, which is <code>image/webp</code> if Core created a WebP variant of it.</li>
+<li><code>Image::getDisplayFilename()</code> and <code>Image::getVideoDisplayFilename()</code> return the name of the uploaded file.</li>
+</ul>
+<p>These methods also work for items that are still stored in the legacy storage of the Gallery.</p>
+<h3 id="delivering-files">Delivering Files<a class="headerlink" href="#delivering-files" title="Permanent link">#</a></h3>
+<p>Images, posters and previews are static files of Core in <code>_data/public/</code>, the originals as well as their thumbnails.
+Their urls change whenever their content does, for example after a rotation, and whenever the thumbnails are generated again, for example after the thumbnail area has been changed.
+The original and the thumbnails <code>medium</code>, <code>large</code> and <code>largeCropped</code> of images in the legacy storage were delivered through <code>gallery\page\RawImagePage</code> with a check of the permission to view the image, now only their unguessable urls protect them, like the images in attachments.</p>
+<p>Uploaded videos are not stored as static files, Core's <code>wcf\action\FileDownloadAction</code> delivers them and supports range requests.
+<code>VideoFileProcessor::canDownload()</code> grants access to the uploader of a pending video and to everyone who may view the video otherwise (<code>Image::canView()</code>), whereas videos in the legacy storage were served statically to anyone who knew their url.
+<code>Image::getVideoLink()</code> returns this link for uploaded videos.</p>
+<p>The link has no file extension, therefore code that derives the type of a video from its url has to pass the type explicitly.
+The items of the image lists provide it in <code>data-mime-type</code> for uploaded videos, which the slideshow passes to Fancybox as an <code>html5video</code> slide with its <code>html5videoFormat</code>.
+<code>&lt;video src="…"&gt;</code> elements need no type, the browser determines it from the response.</p>
+<p>The static urls of files in the legacy storage (<code>userImages/…</code>, <code>userVideos/…</code>) stop working once an item has been migrated, like those of attachments and media before.
+Links to <code>RawImagePage</code> keep working: it redirects the request of a migrated image to the url of its file or thumbnail (<code>largeCropped</code> to <code>large</code>) after checking the permissions, and it responds with a 404 for items without a file.
+<code>RawImagePage</code> is deprecated, link to the url of <code>Image::getURL()</code> instead.</p>
+<h2 id="uploading-images">Uploading Images<a class="headerlink" href="#uploading-images" title="Permanent link">#</a></h2>
+<p>Images are uploaded through Core's <a href="../../../php/api/file_uploads/">file uploads</a> with the object type <code>com.woltlab.gallery.image</code>.
+The context of an upload is <code>{"tmpHash": "…"}</code>, the hash that identifies the uploads of one visit of the upload page.
+Each uploaded image becomes a file that <code>gallery1_image.fileID</code> references, and a pending upload of its uploader, which is completed by saving its form as before.</p>
+<p>Uploads are sent in chunks and are no longer limited by PHP's <code>upload_max_filesize</code> and <code>post_max_size</code>.
+The client scales images down to the maximum dimensions of the uploader before the upload and keeps their type; an image that arrives larger is scaled down on the server by <code>gallery\system\event\listener\DownscaleUploadedImageListener</code> before it is validated.
+<code>ImageFileProcessor::acceptUpload()</code> therefore checks the extension and the permission before the upload, but rejects only files above ten times the maximum size.
+<code>ImageFileProcessor::validateUpload()</code> checks the uploaded file and reports <code>tooManyImages</code>, <code>quotaExceeded</code>, <code>noImage</code>, <code>fileExtension</code>, <code>minWidth</code>, <code>maxWidth</code>, <code>minHeight</code>, <code>maxHeight</code> and <code>maxSize</code> as a <code>validation</code> error of the final chunk.
+The extension is checked against the type that is detected from the content of the file, and an image that the image adapter cannot read is rejected as <code>noImage</code>, unless it is too large for the memory limit to be read at all, which is accepted as before.
+An image is rejected if it would exceed the quota, a single image could exceed it before.</p>
+<p>Core's options for images apply to the originals: they lose their EXIF data if <code>image_strip_exif</code> is enabled, and they are converted according to <code>image_convert_format</code>.
+<code>CompleteImageUpload</code> processes the file like Core does after an upload, in case the client did not request it, and burns the watermark into the original if the Gallery is configured to do so.</p>
+<p>Uploading images in archives (Zip, Tar and Gzip) is no longer supported.</p>
+<h2 id="uploading-videos">Uploading Videos<a class="headerlink" href="#uploading-videos" title="Permanent link">#</a></h2>
+<p>Videos are uploaded through Core's <a href="../../../php/api/file_uploads/">file uploads</a> as well, with the object type <code>com.woltlab.gallery.video</code> and the same context <code>{"tmpHash": "…"}</code> as images.
+Each uploaded video becomes a file that <code>gallery1_image.videoFileID</code> references, and a pending upload with <code>isVideo = 1</code> of its uploader.</p>
+<p><code>VideoFileProcessor::acceptUpload()</code> checks the permission, the extension and the maximum size of videos before the upload.
+<code>VideoFileProcessor::validateUpload()</code> reports <code>tooManyVideos</code>, <code>quotaExceeded</code>, <code>noVideo</code> and <code>maxSize</code> as a <code>validation</code> error of the final chunk.
+The type that is detected from the content of the file must be a video type (<code>video/*</code>).
+A video is rejected if it would exceed the video quota, a single video could exceed it before.</p>
+<h3 id="posters">Posters<a class="headerlink" href="#posters" title="Permanent link">#</a></h3>
+<p>The poster of an uploaded video is a file of the object type <code>com.woltlab.gallery.video.thumbnail</code>, which <code>gallery1_image.fileID</code> references like the file of an image.
+It has the same thumbnails as images, which receive the watermark like those of images.
+The form of a video uploads it through Core's <code>FileProcessorFormField</code> with the context <code>{"imageID": …}</code>.
+A poster is saved as soon as its upload is completed, replacing the previous one, and deleting it removes it right away; saving the form leaves the poster as it is.
+<code>gallery\command\image\SetVideoThumbnail</code> sets or removes the poster of a video.</p>
+<p>The poster of a pending video may be changed by its uploader, the poster of a saved video by everyone who may edit it (<code>Image::canEdit()</code>), both only while uploading videos is enabled and with the permission to upload videos.
+The rules for images apply to posters, except for the number of images and the quota: <code>VideoThumbnailFileProcessor::validateUpload()</code> reports <code>noImage</code>, <code>fileExtension</code>, <code>minDimensions</code>, <code>maxDimensions</code> and <code>maxSize</code> as a <code>validation</code> error of the final chunk, all but <code>noImage</code> with a message that explains the requirement.
+Posters above the maximum dimensions are scaled down like images.</p>
+<h2 id="video-links">Video Links<a class="headerlink" href="#video-links" title="Permanent link">#</a></h2>
+<p>Video links are added through the endpoint <code>POST /gallery/images/video-links</code> with the link in <code>videoLink</code> and the <code>tmpHash</code> of the upload page, which creates the pending video link through <code>gallery\command\image\CreateVideoLink</code> and responds with its <code>imageID</code>, <code>title</code> and the url of its tile (<code>tinyURL</code>).
+A link that cannot be added is rejected as a validation error of <code>videoLink</code> with the code <code>invalid</code>, <code>unknownVideoProvider</code>, <code>tooManyVideos</code> or <code>inaccessible</code>.</p>
+<p>The title, the description and the preview of a link are fetched from the video platform by the command <code>gallery\command\image\FetchVideoLinkData</code>.
+The endpoint, the background jobs <code>ThumbnailFetchingBackgroundJob</code> and <code>PendingVideoThumbnailFetchingBackgroundJob</code>, and <code>gallery\command\image\UpdateImage</code> for a changed link use it.
+The preview is a file of the object type <code>com.woltlab.gallery.video.thumbnail</code> that <code>gallery1_image.fileID</code> references, and its thumbnails are generated right away; a new link previously had no thumbnails.
+Previews are not watermarked, and they cannot be uploaded, replaced or deleted through Core's file endpoints.
+Changing the link of a video link deletes its previous preview.</p>
+<p>Video providers keep returning the preview in <code>thumbnail</code> of <code>IVideoProvider::fetchData()</code> as the location of a temporary file, which the Gallery moves into the file or deletes.
+A preview that is not a JPEG, PNG, GIF or WebP image, cannot be read or is too large for the memory limit is discarded, the link then has no preview.</p>
+<h2 id="thumbnails-rotation-and-watermark">Thumbnails, Rotation and Watermark<a class="headerlink" href="#thumbnails-rotation-and-watermark" title="Permanent link">#</a></h2>
+<p>The Gallery generates the thumbnails of images, posters and previews in a listener of <code>wcf\event\file\GenerateThumbnail</code>, as WebP images like all thumbnails of Core.
+The cropped formats <code>tiny</code>, <code>small</code> and <code>medium</code> show the thumbnail area of the image, or its center if it has none, <code>large</code> shows the whole image.
+Thumbnails are never upscaled: a format that the image or its area does not fill in one dimension is smaller than the format, a format that the image does not fill in both dimensions does not exist.
+The thumbnail area of an image must be at least as large as the largest cropped format that the image exceeds, at most 560 × 420 (<code>Image::getMinimumThumbnailAreaSize()</code>).</p>
+<p>The watermark is applied to the thumbnails unless it is burned into the original.
+<code>large</code> receives the watermark on its own, the cropped formats are derived from one watermarked image of 1200 × 900, which scales the watermark down with them.
+Previously only <code>large</code> received it, unless the image or its thumbnail area was too small for <code>largeCropped</code>: then the largest of the remaining thumbnails received it and passed it on to the smaller ones.</p>
+<p>These commands change the files of an image and generate its thumbnails again, which changes their urls:</p>
+<ul>
+<li><code>gallery\command\image\RegenerateImageThumbnails</code> deletes the thumbnails and generates them again, for example after the thumbnail area or the watermark settings have changed.</li>
+<li><code>gallery\command\image\RotateImage</code> turns the original, scales it down if the turned image exceeds the maximum dimensions, resets the thumbnail area and moves the markers with the image.
+  The endpoint <code>POST /gallery/images/{id}/rotate</code> with the <code>angle</code> (90, 180 or 270) rotates an image and responds with its new <code>width</code>, <code>height</code>, the urls <code>stageURL</code> and <code>tinyURL</code> and the <code>minimumThumbnailArea</code>.</li>
+<li><code>gallery\command\image\ApplyImageWatermark</code> burns the watermark into the original.</li>
+</ul>
+<p>“Rebuild Thumbnails of Gallery Images” in the ACP (<code>gallery\system\worker\ThumbnailRebuildDataWorker</code>) generates the thumbnails of all files again and burns the watermark into the originals where it is missing.</p>
+<h2 id="deleting-images">Deleting Images<a class="headerlink" href="#deleting-images" title="Permanent link">#</a></h2>
+<p><code>ImageAction::delete()</code> deletes each image through <code>gallery\command\image\DeleteImage</code> now.
+The command deletes the files of the image through Core and its associated data, such as its comments, reactions, tags and moderation queue entries, updates the counters of its author and fires <code>gallery\event\image\ImageDeleted</code>.
+The files of an item in the legacy storage are deleted as well.
+Code that removed this data itself after calling <code>ImageAction::delete()</code> no longer needs to.</p>
+<p><code>ImageAction</code> no longer overrides <code>validateDelete()</code>, so the action <code>delete</code> can no longer be invoked through the AJAX proxy.
+Use <code>gallery\command\image\DeleteImage</code> or the endpoint <code>DELETE /gallery/images/{id}</code> instead, which deletes a published image only once it is in the trash (<code>POST /gallery/images/{id}/soft-delete</code>) and requires <code>mod.gallery.canDeleteImageCompletely</code> for it, while uploaders can delete their own uploads that were never completed.</p>
+<h2 id="deleting-albums">Deleting Albums<a class="headerlink" href="#deleting-albums" title="Permanent link">#</a></h2>
+<p><code>AlbumAction</code> no longer overrides <code>validateDelete()</code> and <code>delete()</code>, so the action <code>delete</code> can no longer be invoked through the AJAX proxy, and calling it directly no longer resets the <code>galleryAlbums</code> user storage of the owner.
+Use <code>gallery\command\album\DeleteAlbum</code> or the endpoint <code>DELETE /gallery/albums/{id}</code> instead, which requires the user to own the album or to have <code>mod.gallery.canDeleteAlbum</code>.
+The command resets the user storage, deletes the album and fires <code>gallery\event\album\AlbumDeleted</code>, the images of the album are kept without an album.</p>
+<h2 id="replaced-methods-of-imageaction">Replaced Methods of <code>ImageAction</code><a class="headerlink" href="#replaced-methods-of-imageaction" title="Permanent link">#</a></h2>
+<p>These methods of <code>gallery\data\image\ImageAction</code> have been removed together with their validation:</p>
+<table>
+<thead>
+<tr>
+<th>Removed method</th>
+<th>Replacement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>upload()</code>, <code>uploadImages()</code>, <code>uploadVideo()</code></td>
+<td>Core's file upload with the object type <code>com.woltlab.gallery.image</code> or <code>com.woltlab.gallery.video</code>, see <a href="#uploading-images">Uploading Images</a> and <a href="#uploading-videos">Uploading Videos</a></td>
+</tr>
+<tr>
+<td><code>processImages()</code>, <code>rotateImageByOrientation()</code></td>
+<td>Core processes uploaded files and turns images upright according to their orientation</td>
+</tr>
+<tr>
+<td><code>saveImageData()</code></td>
+<td><code>gallery\command\image\CompleteImageUpload</code> or <code>gallery\command\image\UpdateImage</code></td>
+</tr>
+<tr>
+<td><code>generateThumbnails()</code></td>
+<td><code>gallery\command\image\RegenerateImageThumbnails</code></td>
+</tr>
+<tr>
+<td><code>rotateImage()</code></td>
+<td><code>gallery\command\image\RotateImage</code> and the endpoint <code>POST /gallery/images/{id}/rotate</code></td>
+</tr>
+<tr>
+<td><code>addWatermark()</code></td>
+<td><code>gallery\command\image\ApplyImageWatermark</code></td>
+</tr>
+<tr>
+<td><code>uploadVideoThumbnail()</code>, <code>deleteVideoThumbnail()</code></td>
+<td>Core's file upload with the object type <code>com.woltlab.gallery.video.thumbnail</code> and Core's deletion of files (<code>DELETE /core/files/{id}</code>), see <a href="#posters">Posters</a></td>
+</tr>
+<tr>
+<td><code>createVideoLink()</code></td>
+<td><code>gallery\command\image\CreateVideoLink</code> and the endpoint <code>POST /gallery/images/video-links</code></td>
+</tr>
+<tr>
+<td><code>fetchVideoData()</code></td>
+<td><code>gallery\command\image\FetchVideoLinkData</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>ImageAction</code> no longer implements <code>wcf\data\IUploadAction</code>, uploads through <code>ajax-upload</code> with the action <code>upload</code> are rejected.
+The <code>ImageUploadFileValidationStrategy</code>, <code>VideoUploadFileValidationStrategy</code>, <code>VideoThumbnailUploadFileValidationStrategy</code> and the unused <code>WatermarkUploadFileValidationStrategy</code> in <code>gallery\system\upload</code> have been removed, the file processors validate the files instead.</p>
+<h2 id="upgrading-an-installation">Upgrading an Installation<a class="headerlink" href="#upgrading-an-installation" title="Permanent link">#</a></h2>
+<p>The update to 6.3 adds the columns <code>fileID</code> and <code>videoFileID</code> and registers the object types of the files, but it does not move any file.
+The images, videos, posters and previews of existing items stay in the legacy storage of the Gallery (<code>userImages/</code> and <code>userVideos/</code>) until the rebuild of the data moves them into files.
+An installation is therefore expected to be updated like this:</p>
+<ol>
+<li>Enable the maintenance mode.</li>
+<li>Update to WoltLab Suite 6.3.</li>
+<li>Rebuild the data, at least “Rebuild Gallery Images” and then “Rebuild Files”, which is also the order in which all workers run.</li>
+<li>Disable the maintenance mode.</li>
+</ol>
+<p>“Rebuild Gallery Images” (<code>gallery\system\worker\ImageRebuildDataWorker</code>) moves the files of the items in the legacy storage into files through <code>gallery\command\image\MigrateImageStorage</code>, which only moves them, like Core's migration of attachments.
+“Rebuild Files” (Core's <code>wcf\system\worker\FileRebuildDataWorker</code>) afterwards generates their thumbnails and applies Core's options for images to the originals, such as the removal of EXIF data and the conversion of the format.
+Core turns a migrated image upright according to the orientation of the file, which resets its thumbnail area and moves its markers with it.</p>
+<p>A migrated item no longer has a <code>fileHash</code>, <code>filename</code> or <code>fileExtension</code> (<code>videoFileHash</code>, <code>videoFilename</code> and <code>videoFileExtension</code> for videos), its legacy files and thumbnails are deleted, and the static urls of these files stop working, see <a href="#delivering-files">Delivering Files</a>.</p>
+<h3 id="items-in-the-legacy-storage">Items in the Legacy Storage<a class="headerlink" href="#items-in-the-legacy-storage" title="Permanent link">#</a></h3>
+<p>Items that have not been migrated yet are shown as before, from the legacy storage.
+They cannot be edited: the edit pages, <code>gallery\action\ImageItemFormAction</code>, the rotation endpoint and the upload of posters refuse them, and pending uploads in the legacy storage are not offered on the upload page.
+<code>Image::usesLegacyStorage()</code> tells whether an item still has a file in the legacy storage (<code>Image::hasLegacyFile()</code>, <code>Image::hasLegacyVideoFile()</code>).</p>
+<p>A legacy file that cannot become a file, because it is missing, cannot be read, is empty or, for images, posters and previews, is no image, is logged once and the item no longer references it, as if Core had deleted its file: the item stays and can be edited, but it has no image, poster or video any more.
+The files left in <code>userImages/</code> and <code>userVideos/</code> are not touched.
+Failures that may be temporary, such as a file that cannot be copied, are logged as well and the next rebuild of the data tries again.</p>
+<h3 id="deprecated-legacy-storage">Deprecated Legacy Storage<a class="headerlink" href="#deprecated-legacy-storage" title="Permanent link">#</a></h3>
+<p>Everything that only serves items in the legacy storage is deprecated and will be removed in the next version, together with the legacy storage itself.
+That includes <code>Image::getLocation()</code>, <code>Image::getVideoLocation()</code>, <code>Image::getFilename()</code> and <code>Image::getVideoFilename()</code>, the columns of the legacy storage, <code>ImageEditor::deleteFiles()</code> and <code>ImageEditor::deleteImageFiles()</code>, <code>RawImagePage</code>, the constants <code>Image::VALID_SIZES</code>, <code>Image::UNRESTRICTED_ACCESS_SIZES</code>, <code>Image::LARGECROPPED_THUMBNAIL_WIDTH</code> and <code>Image::LARGECROPPED_THUMBNAIL_HEIGHT</code>, and the methods <code>Image::hasLegacyFile()</code>, <code>Image::hasLegacyVideoFile()</code> and <code>Image::usesLegacyStorage()</code>, see <a href="../deprecations_removals/#deprecations">Deprecations and Removals</a>.
+The parameter <code>$ignorePlaceholder</code> of <code>Image::getURL()</code> only affects items in the legacy storage and is deprecated as well.
+Use the methods described in <a href="#reading-files-and-thumbnails">Reading Files and Thumbnails</a>, which work for both.</p>
+<h2 id="importing-images">Importing Images<a class="headerlink" href="#importing-images" title="Permanent link">#</a></h2>
+<p><code>gallery\system\importer\ImageImporter</code> stores the image at <code>fileLocation</code> as a file of the image now, the source itself is not modified.
+The columns of the legacy storage that an exporter passes, such as <code>fileHash</code>, <code>filesize</code>, <code>width</code>, <code>height</code> and the sizes of the thumbnails, are ignored, they are read from the file instead; <code>filename</code> becomes the name of the file, and <code>rawExifData</code> is stored as its EXIF data.
+The thumbnails are generated by the rebuild of the thumbnails or of the files, like for the attachments and the media of Core.
+An image that does not exist or is not a JPEG, PNG, GIF or WebP image is not imported.</p>
+<h2 id="adding-fields-to-the-image-form">Adding Fields to the Image Form<a class="headerlink" href="#adding-fields-to-the-image-form" title="Permanent link">#</a></h2>
+<p>All fields of an item are created by the form container <code>gallery\system\form\builder\container\ImageFormContainer</code>, which the single edit form, the forms of the upload and bulk edit page and the bulk edit dialogs share.
+After creating its fields, the container fires the event <code>populate</code>, where plugins add their own fields.</p>
+<p>Most fields of an item are shown as collapsible rows, which are the children of the container with the id <code>rows</code>.
+A row is a <code>gallery\system\form\builder\container\CollapsibleFormContainer</code> that shows a summary of its values while it is collapsed.
+Required fields are not marked with an asterisk: a row that contains a required field shows “(Required)” while it is empty.</p>
+<p>The fields write their values into the <code>ImageBuilder</code>.
+A plugin that stores a value in a column of its own, which it added to the <code>gallery1_image</code> table, uses <code>setCustomProperty()</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">example\system\event\listener</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">gallery\data\image\Image</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">gallery\data\image\ImageBuilder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">gallery\system\form\builder\container\CollapsibleFormContainer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">gallery\system\form\builder\container\ImageFormContainer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\event\listener\IParameterizedEventListener</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\form\builder\container\IFormContainer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">wcf\system\form\builder\field\TextFormField</span><span class="p">;</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">ImageFormContainerLicenseListener</span> <span class="k">implements</span> <span class="nx">IParameterizedEventListener</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @param ImageFormContainer $eventObj</span>
+<span class="sd">     */</span>
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">$eventObj</span><span class="p">,</span> <span class="nv">$className</span><span class="p">,</span> <span class="nv">$eventName</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span><span class="nv">$parameters</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$rows</span> <span class="o">=</span> <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">getNodeById</span><span class="p">(</span><span class="s1">'rows'</span><span class="p">);</span>
+        <span class="nx">\assert</span><span class="p">(</span><span class="nv">$rows</span> <span class="nx">instanceof</span> <span class="nx">IFormContainer</span><span class="p">);</span>
+
+        <span class="nv">$rows</span><span class="o">-&gt;</span><span class="na">appendChild</span><span class="p">(</span>
+            <span class="nx">CollapsibleFormContainer</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'licenseRow'</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">'example.image.license'</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">appendChild</span><span class="p">(</span>
+                    <span class="nx">TextFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'license'</span><span class="p">)</span>
+                        <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="s1">'example.image.license'</span><span class="p">)</span>
+                        <span class="o">-&gt;</span><span class="na">maximumLength</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+                        <span class="o">-&gt;</span><span class="na">loadValueCallback</span><span class="p">(</span><span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Image</span> <span class="nv">$image</span><span class="p">,</span> <span class="nx">TextFormField</span> <span class="nv">$field</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="nv">$field</span><span class="o">-&gt;</span><span class="na">value</span><span class="p">(</span><span class="nv">$image</span><span class="o">-&gt;</span><span class="na">license</span> <span class="o">??</span> <span class="s1">''</span><span class="p">);</span>
+                        <span class="p">})</span>
+                        <span class="o">-&gt;</span><span class="na">saveValueCallback</span><span class="p">(</span><span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">ImageBuilder</span> <span class="nv">$builder</span><span class="p">,</span> <span class="nx">TextFormField</span> <span class="nv">$field</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">setCustomProperty</span><span class="p">(</span><span class="s1">'license'</span><span class="p">,</span> <span class="nv">$field</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">());</span>
+                        <span class="p">})</span>
+                <span class="p">)</span>
+        <span class="p">);</span>
+
+        <span class="c1">// Offers the row in the "Edit" menu for selected items, see below.</span>
+        <span class="nv">$eventObj</span><span class="o">-&gt;</span><span class="na">bulkEditable</span><span class="p">(</span><span class="s1">'licenseRow'</span><span class="p">,</span> <span class="s1">'example.image.license'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;eventlistener</span><span class="w"> </span><span class="na">name=</span><span class="s">"imageFormContainerLicense"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;eventclassname&gt;</span>gallery\system\form\builder\container\ImageFormContainer<span class="nt">&lt;/eventclassname&gt;</span>
+<span class="w">    </span><span class="nt">&lt;eventname&gt;</span>populate<span class="nt">&lt;/eventname&gt;</span>
+<span class="w">    </span><span class="nt">&lt;listenerclassname&gt;</span>example\system\event\listener\ImageFormContainerLicenseListener<span class="nt">&lt;/listenerclassname&gt;</span>
+<span class="nt">&lt;/eventlistener&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p><code>ImageFormContainer::getImage()</code> returns the edited image, for example to add a field to images only (<code>Image::isImage()</code>).
+Data that is not a column of the image, such as rows in a table of the plugin, is saved in a listener of <code>ImageUploadCompleted</code> and <code>ImageUpdated</code>.</p>
+<h3 id="editing-a-row-for-several-items">Editing a Row for Several Items<a class="headerlink" href="#editing-a-row-for-several-items" title="Permanent link">#</a></h3>
+<p>On the upload page and the bulk edit page, the “Edit” menu edits a row for all selected items at once in a dialog.
+The Gallery offers its own rows there, plugins opt in with <code>ImageFormContainer::bulkEditable()</code>, which takes the id of the row and the language item of its name in the menu.
+The dialog shows only that row and applies its values to the forms of the selected items, which are saved later with the rest of the form.</p>
+<h2 id="removals">Removals<a class="headerlink" href="#removals" title="Permanent link">#</a></h2>
+<p>The removed classes, methods, properties, JavaScript and templates are listed in <a href="../deprecations_removals/#removals">Deprecations and Removals</a>.</p>
+<h3 id="php">PHP<a class="headerlink" href="#php" title="Permanent link">#</a></h3>
+<p><code>gallery\page\ImageAddPage::$pendingImageList</code> is typed as <code>gallery\data\image\ImageList</code> now and always holds the uploads that were not saved in an earlier visit.</p>
+<h3 id="javascript">JavaScript<a class="headerlink" href="#javascript" title="Permanent link">#</a></h3>
+<p><code>js/Gallery.js</code> has been removed together with the <code>Gallery</code> namespace and all of its classes, which only served the previous upload and edit page.</p>
+<h3 id="templates">Templates<a class="headerlink" href="#templates" title="Permanent link">#</a></h3>
+<p>The template <code>imageAdd</code> has been rewritten, and the template events of the previous page have been removed.
+Use the <code>populate</code> event of <code>ImageFormContainer</code> to add fields instead, see <a href="#adding-fields-to-the-image-form">Adding Fields to the Image Form</a>.
+The markup of the previous page has been removed with it, including <code>#thumbnailList</code>, <code>#imageContainer</code>, <code>#currentImageContainer</code>, <code>#pendingImageContainer</code> and <code>.jsOverwriteDataButton</code>, as well as their styles.</p>
+<p>The template <code>imageAddRestrictions</code> is shown in a dialog that the upload page loads on demand.
+Its root element is <code>div.galleryUploadRestrictions</code> instead of <code>#galleryUploadRestrictions.jsStaticDialogContent</code>, its template events <code>imageUploadRestrictions</code>, <code>videoUploadRestrictions</code> and <code>videoLinkRestrictions</code> are unchanged.
+The entry for archives has been removed from it.</p>
+<p>The template <code>__imageViewer</code>, which no template included any more, has been removed.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    2026-11-14
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2020 WoltLab GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-copyright">
+	<a href="https://www.woltlab.com/legal-notice/">Legal Notice</a> 
+	<a href="https://www.woltlab.com/privacy-policy/">Privacy Policy</a>
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tracking"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

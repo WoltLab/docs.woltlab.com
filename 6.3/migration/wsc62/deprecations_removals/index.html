@@ -4306,6 +4306,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../gallery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gallery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../libraries/" class="md-nav__link">
         
   
@@ -6672,6 +6700,7 @@
 <li><code>wbb\data\board\BoardAction</code>, use <code>wbb\data\board\BoardBuilder</code>, the commands and the RPC endpoints instead</li>
 <li><code>wbb\data\board\BoardEditor</code>, use <code>wbb\data\board\BoardBuilder</code> instead</li>
 <li><code>wcf\system\form\builder\field\SingleSelectionFormField</code>, use <code>wcf\system\form\builder\field\SelectFormField</code> or <code>wcf\system\form\builder\field\FilterableSelectFormField</code> instead, see <a href="../php/#single-selection-fields">Single Selection Fields</a></li>
+<li><code>gallery\page\RawImagePage</code>, which only serves images in the legacy storage of the Gallery and redirects links of migrated images, use the url of <code>gallery\data\image\Image::getURL()</code> instead</li>
 </ul>
 <h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">#</a></h4>
 <ul>
@@ -6679,17 +6708,12 @@
 <li><code>gallery\data\image\ImageList::enableAlbumLoading()</code></li>
 <li><code>gallery\data\image\ImageList::enableMarkerLoading()</code></li>
 <li><code>gallery\data\image\ImageAction::trash()</code></li>
-<li><code>gallery\data\image\ImageAction::validateTrash()</code></li>
 <li><code>gallery\data\image\ImageAction::restore()</code></li>
-<li><code>gallery\data\image\ImageAction::validateRestore()</code></li>
 <li><code>gallery\data\image\ImageAction::markAsRead()</code></li>
-<li><code>gallery\data\image\AlbumAction::updateImages()</code></li>
+<li><code>gallery\data\album\AlbumAction::updateImages()</code></li>
 <li><code>gallery\data\image\ImageAction::enable()</code></li>
-<li><code>gallery\data\image\ImageAction::validateEnable()</code></li>
 <li><code>gallery\data\image\ImageAction::disable()</code></li>
-<li><code>gallery\data\image\ImageAction::validateDisable()</code></li>
 <li><code>gallery\data\image\ImageAction::triggerPublication()</code></li>
-<li><code>gallery\data\image\ImageAction::validateFavorite()</code></li>
 <li><code>gallery\data\image\ImageAction::favorite()</code></li>
 <li><code>blog\data\entry\EntryAction::triggerPublication()</code></li>
 <li><code>blog\data\entry\EntryAction::markAsRead()</code></li>
@@ -6901,6 +6925,15 @@
 <li><code>wbb\data\thread\Thread::setFirstPost()</code>, the first post is loaded on demand by <code>wbb\data\thread\Thread::getFirstPost()</code></li>
 <li><code>wbb\data\thread\Thread::setBestAnswerPost()</code>, the best answer is loaded on demand by <code>wbb\data\thread\Thread::getBestAnswerPost()</code></li>
 <li><code>wbb\data\thread\BoardThreadList::getLogList()</code>, use <code>wbb\data\thread\Thread::getLogEntry()</code> instead</li>
+<li><code>gallery\data\image\Image::getLocation()</code>, use <code>gallery\data\image\Image::getFile()</code> or <code>gallery\data\image\Image::getSource()</code> instead</li>
+<li><code>gallery\data\image\Image::getVideoLocation()</code>, use <code>gallery\data\image\Image::getVideoFile()</code> instead</li>
+<li><code>gallery\data\image\Image::getFilename()</code>, use <code>gallery\data\image\Image::getFile()</code> or <code>gallery\data\image\Image::getDisplayFilename()</code> instead</li>
+<li><code>gallery\data\image\Image::getVideoFilename()</code>, use <code>gallery\data\image\Image::getVideoFile()</code> or <code>gallery\data\image\Image::getVideoDisplayFilename()</code> instead</li>
+<li><code>gallery\data\image\Image::hasLegacyFile()</code>, the rebuild of the data migrates the legacy storage of the Gallery, see <a href="../gallery/#upgrading-an-installation">Gallery</a></li>
+<li><code>gallery\data\image\Image::hasLegacyVideoFile()</code>, the rebuild of the data migrates the legacy storage of the Gallery, see <a href="../gallery/#upgrading-an-installation">Gallery</a></li>
+<li><code>gallery\data\image\Image::usesLegacyStorage()</code>, the rebuild of the data migrates the legacy storage of the Gallery, see <a href="../gallery/#upgrading-an-installation">Gallery</a></li>
+<li><code>gallery\data\image\ImageEditor::deleteFiles()</code>, use <code>gallery\command\image\DeleteImage</code> instead</li>
+<li><code>gallery\data\image\ImageEditor::deleteImageFiles()</code>, use <code>gallery\command\image\DeleteImage</code> or <code>gallery\command\image\SetVideoThumbnail</code> instead</li>
 </ul>
 <h4 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h4>
 <ul>
@@ -6910,11 +6943,25 @@
 <li><code>wbb\data\thread\BoardThreadList::$daysPrune</code></li>
 <li><code>wbb\data\thread\BoardThreadList::$logList</code>, use <code>wbb\data\thread\Thread::getLogEntry()</code> instead</li>
 <li><code>wbb\data\thread\BoardThreadList::$loadDeleteNote</code>, the deletion data is loaded on demand by <code>wbb\data\thread\Thread::getLogEntry()</code></li>
+<li><code>gallery\data\image\Image::$filename</code>, use <code>gallery\data\image\Image::getDisplayFilename()</code> instead</li>
+<li><code>gallery\data\image\Image::$fileExtension</code>, use <code>gallery\data\image\Image::getFile()</code> instead</li>
+<li><code>gallery\data\image\Image::$fileHash</code>, use <code>gallery\data\image\Image::getFile()</code> instead</li>
+<li><code>gallery\data\image\Image::$tinyThumbnailSize</code>, use <code>gallery\data\image\Image::getSource()</code> instead</li>
+<li><code>gallery\data\image\Image::$smallThumbnailSize</code>, use <code>gallery\data\image\Image::getSource()</code> instead</li>
+<li><code>gallery\data\image\Image::$mediumThumbnailSize</code>, use <code>gallery\data\image\Image::getSource()</code> instead</li>
+<li><code>gallery\data\image\Image::$largeThumbnailSize</code>, use <code>gallery\data\image\Image::getSource()</code> instead</li>
+<li><code>gallery\data\image\Image::$videoFilename</code>, use <code>gallery\data\image\Image::getVideoDisplayFilename()</code> instead</li>
+<li><code>gallery\data\image\Image::$videoFileExtension</code>, use <code>gallery\data\image\Image::getVideoFile()</code> instead</li>
+<li><code>gallery\data\image\Image::$videoFileHash</code>, use <code>gallery\data\image\Image::getVideoFile()</code> instead</li>
 </ul>
 <h4 id="constants">Constants<a class="headerlink" href="#constants" title="Permanent link">#</a></h4>
 <ul>
 <li><code>wcf\system\worker\SitemapRebuildWorker::REGISTRY_PREFIX</code>, use <code>wcf\system\sitemap\SitemapHandler::REGISTRY_PREFIX</code> instead</li>
 <li><code>wcf\system\trophy\condition\TrophyConditionHandler::CONDITION_DEFINITION_NAME</code></li>
+<li><code>gallery\data\image\Image::VALID_SIZES</code>, use <code>gallery\data\image\Image::THUMBNAIL_FORMATS</code> instead</li>
+<li><code>gallery\data\image\Image::UNRESTRICTED_ACCESS_SIZES</code>, files and their thumbnails are always served statically</li>
+<li><code>gallery\data\image\Image::LARGECROPPED_THUMBNAIL_HEIGHT</code>, files have no <code>largeCropped</code> thumbnail</li>
+<li><code>gallery\data\image\Image::LARGECROPPED_THUMBNAIL_WIDTH</code>, files have no <code>largeCropped</code> thumbnail</li>
 </ul>
 <h4 id="object-type-definitions">Object Type Definitions<a class="headerlink" href="#object-type-definitions" title="Permanent link">#</a></h4>
 <ul>
@@ -7102,30 +7149,27 @@
 <li><code>wbb\data\thread\ThreadStatusAction</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\forum\threads\SetThreadSubscriptionStatus</code> instead</li>
 <li><code>wbb\system\clipboard\action\ThreadClipboardAction</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
 <li><code>wbb\data\board\BoardStatusAction</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\forum\boards\SetBoardSubscriptionStatus</code> instead</li>
+<li><code>gallery\page\ImageEditPage</code>, use <code>gallery\form\ImageEditForm</code> or <code>gallery\page\ImageBulkEditPage</code> instead</li>
+<li><code>gallery\system\upload\ImageUploadFileValidationStrategy</code>, use <code>gallery\system\file\processor\ImageFileProcessor</code> instead</li>
+<li><code>gallery\system\upload\VideoUploadFileValidationStrategy</code>, use <code>gallery\system\file\processor\VideoFileProcessor</code> instead</li>
+<li><code>gallery\system\upload\VideoThumbnailUploadFileValidationStrategy</code>, use <code>gallery\system\file\processor\VideoThumbnailFileProcessor</code> instead</li>
+<li><code>gallery\system\upload\WatermarkUploadFileValidationStrategy</code></li>
 </ul>
 <h4 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">#</a></h4>
 <ul>
 <li><code>gallery\data\album\Album::setCoverImage()</code></li>
 <li><code>gallery\data\album\Album::setCoverImages()</code></li>
 <li><code>gallery\data\album\Album::setUserProfile()</code></li>
-<li><code>gallery\data\album\AlbumAction::delete()</code></li>
 <li><code>gallery\data\album\AlbumAction::loadSortableImages()</code></li>
 <li><code>gallery\data\album\AlbumAction::rebuildCoverImages()</code></li>
 <li><code>gallery\data\album\AlbumAction::sortImages()</code></li>
-<li><code>gallery\data\album\AlbumAction::validateDelete()</code></li>
-<li><code>gallery\data\album\AlbumAction::validateLoadSortableImages()</code></li>
-<li><code>gallery\data\album\AlbumAction::validateSortImages()</code></li>
 <li><code>gallery\data\image\ImageAction::updatePosition()</code></li>
-<li><code>gallery\data\image\ImageAction::validateUpdatePosition()</code></li>
 <li><code>gallery\data\image\marker\ImageMarkerList::enableUserProfileLoading()</code></li>
 <li><code>gallery\data\image\Image::setAlbum()</code></li>
 <li><code>gallery\data\image\Image::setMarkers()</code></li>
-<li><code>gallery\data\image\ImageAction::validateDelete()</code></li>
 <li><code>gallery\data\image\ImageEditor::updateVideoCounter()</code></li>
 <li><code>gallery\data\image\Image::canMoveToAlbum()</code></li>
-<li><code>gallery\data\image\ImageAction::validatePrepareMoveToAlbum()</code></li>
 <li><code>gallery\data\image\ImageAction::prepareMoveToAlbum()</code></li>
-<li><code>gallery\data\image\ImageAction::validateMoveToAlbum()</code></li>
 <li><code>gallery\data\image\ImageAction::moveToAlbum()</code></li>
 <li><code>blog\data\blog\BlogAction::delete()</code></li>
 <li><code>blog\data\entry\EntryAction::delete()</code></li>
@@ -7183,7 +7227,6 @@
 <li><code>calendar\data\event\EventAction::getMapMarkers()</code></li>
 <li><code>wcf\data\wsdb\record\RecordAction::validateGetMapMarkers()</code></li>
 <li><code>wcf\data\wsdb\record\RecordAction::getMapMarkers()</code></li>
-<li><code>gallery\data\image\ImageAction::validateGetMapMarkers()</code></li>
 <li><code>gallery\data\image\ImageAction::getMapMarkers()</code></li>
 <li><code>wcf\data\session\Session::supportsPersistentLogins()</code></li>
 <li><code>wcf\data\user\User::checkCookiePassword()</code></li>
@@ -7267,6 +7310,25 @@
 <li><code>wbb\data\thread\form\option\ThreadFormOptionEditor::setShowOrder()</code></li>
 <li><code>wbb\data\thread\DeletedThreadList::getMarkedItems()</code></li>
 <li><code>wbb\data\board\BoardAction::cloneBoard()</code>, use the <code>wbb\command\board\CopyBoard</code> command instead</li>
+<li><code>gallery\data\image\ImageAction::loadPendingImages()</code></li>
+<li><code>gallery\data\image\ImageAction::prepareEditLink()</code></li>
+<li><code>gallery\data\image\ImageAction::saveImageData()</code>, use <code>gallery\command\image\CompleteImageUpload</code> or <code>gallery\command\image\UpdateImage</code> instead</li>
+<li><code>gallery\page\ImageAddPage::readAlbums()</code></li>
+<li><code>gallery\page\ImageAddPage::readPendingImages()</code></li>
+<li><code>gallery\page\ImageAddPage::setLocation()</code></li>
+<li><code>gallery\data\image\ImageAction::uploadImages()</code></li>
+<li><code>gallery\data\image\ImageAction::upload()</code>, use Core's file upload with the object type <code>com.woltlab.gallery.image</code> for images or <code>com.woltlab.gallery.video</code> for videos instead</li>
+<li><code>gallery\data\image\ImageAction::uploadVideo()</code></li>
+<li><code>gallery\data\image\ImageAction::uploadVideoThumbnail()</code>, use Core's file upload with the object type <code>com.woltlab.gallery.video.thumbnail</code> instead</li>
+<li><code>gallery\data\image\ImageAction::deleteVideoThumbnail()</code>, use Core's file deletion (<code>DELETE /core/files/{id}</code>) instead</li>
+<li><code>gallery\data\image\ImageAction::createVideoLink()</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\gallery\images\CreateVideoLink</code> instead</li>
+<li><code>gallery\data\image\ImageAction::fetchVideoData()</code>, use <code>gallery\command\image\FetchVideoLinkData</code> instead</li>
+<li><code>gallery\data\image\ImageAction::processImages()</code></li>
+<li><code>gallery\data\image\ImageAction::rotateImageByOrientation()</code></li>
+<li><code>gallery\data\image\ImageAction::generateThumbnails()</code>, use <code>gallery\command\image\RegenerateImageThumbnails</code> instead</li>
+<li><code>gallery\data\image\ImageAction::generateThumbnail()</code></li>
+<li><code>gallery\data\image\ImageAction::rotateImage()</code>, use <code>gallery\command\image\RotateImage</code> or the RPC endpoint <code>wcf\system\endpoint\controller\gallery\images\RotateImage</code> instead</li>
+<li><code>gallery\data\image\ImageAction::addWatermark()</code>, use <code>gallery\command\image\ApplyImageWatermark</code> instead</li>
 </ul>
 <h4 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h4>
 <ul>
@@ -7308,6 +7370,26 @@
 <li><code>wbb\data\board\Board::$title</code>, use <code>wbb\data\board\Board::getTitle()</code> or <code>wbb\data\board\Board::getL10nValues()</code> instead</li>
 <li><code>wbb\data\board\Board::$description</code>, use <code>wbb\data\board\Board::getDescription()</code> or <code>wbb\data\board\Board::getL10nValues()</code> instead</li>
 <li><code>wbb\data\board\Board::$metaDescription</code>, use <code>wbb\data\board\Board::getMetaDescription()</code> or <code>wbb\data\board\Board::getL10nValues()</code> instead</li>
+<li><code>gallery\data\image\ImageAction::$disallowedBBCodesPermission</code></li>
+<li><code>gallery\data\image\ImageAction::$imageErrors</code></li>
+<li><code>gallery\data\image\ImageAction::$imageParameters</code></li>
+<li><code>gallery\page\ImageAddPage::$albumList</code></li>
+<li><code>gallery\page\ImageAddPage::$albumSelectable</code></li>
+<li><code>gallery\page\ImageAddPage::$canLinkVideo</code></li>
+<li><code>gallery\page\ImageAddPage::$categoryList</code></li>
+<li><code>gallery\page\ImageAddPage::$defaultSmilies</code></li>
+<li><code>gallery\page\ImageAddPage::$disallowedBBCodesPermission</code></li>
+<li><code>gallery\page\ImageAddPage::$maxInputVars</code></li>
+<li><code>gallery\page\ImageAddPage::$smileyCategories</code></li>
+<li><code>gallery\data\image\ImageAction::$uploadValidator</code></li>
+<li><code>gallery\data\image\ImageAction::$image</code></li>
+<li><code>gallery\data\image\ImageAction::$uploadFile</code></li>
+<li><code>gallery\data\image\ImageAction::$videoProvider</code></li>
+<li><code>gallery\data\image\ImageAction::$htmlInputProcessor</code></li>
+<li><code>gallery\data\image\ImageAction::$userID</code></li>
+<li><code>gallery\data\image\ImageAction::$user</code></li>
+<li><code>gallery\data\image\ImageAction::$viewableImage</code></li>
+<li><code>gallery\data\image\ImageAction::$album</code></li>
 </ul>
 <h4 id="options_1">Options<a class="headerlink" href="#options_1" title="Permanent link">#</a></h4>
 <ul>
@@ -7437,6 +7519,27 @@
 <li><code>WoltLabSuite/Core/Ui/Toggle/Input</code></li>
 <li><code>WoltLabSuite/Core/Form/Builder/Field/Controller/Rating</code>, <code>RatingFormField</code> is rendered as native radio buttons that do not require a controller</li>
 <li><code>codemirror</code>, including <code>codemirror/addon/*</code>, <code>codemirror/mode/*</code> and the copies of <code>codemirror.js</code> and <code>codemirror.css</code> in <code>js/3rdParty/codemirror/</code>, use <code>@woltlab/codemirror</code> and <code>WoltLabSuite/Core/Component/CodeMirror</code> instead (<a href="https://github.com/WoltLab/WCF/issues/6686">WoltLab/WCF#6686</a>)</li>
+<li><code>Gallery.Image.DataHandler.Album</code></li>
+<li><code>Gallery.Image.DataHandler.Base</code></li>
+<li><code>Gallery.Image.DataHandler.Default</code></li>
+<li><code>Gallery.Image.DataHandler.EnableComments</code></li>
+<li><code>Gallery.Image.DataHandler.Location</code></li>
+<li><code>Gallery.Image.DataHandler.Tagging</code></li>
+<li><code>Gallery.Image.DataHandler.VideoThumbnail</code></li>
+<li><code>Gallery.Image.Handler</code></li>
+<li><code>Gallery.Image.Handler.Image</code></li>
+<li><code>Gallery.Image.Marker.Editor</code></li>
+<li><code>Gallery.Image.PendingImageHandler</code></li>
+<li><code>Gallery.Image.Processor</code></li>
+<li><code>Gallery.Image.ThumbnailAreaSelector</code></li>
+<li><code>Gallery.Image.ThumbnailGenerator</code></li>
+<li><code>Gallery.Image.Upload</code></li>
+<li><code>WoltLabSuite/Gallery/LegacyTypes</code></li>
+<li><code>WoltLabSuite/Gallery/Ui/Video/Link/Handler</code></li>
+<li><code>WoltLabSuite/Gallery/Ui/Video/Thumbnail/Upload</code></li>
+<li><code>WoltLabSuite/Gallery/Component/Image/Browser</code></li>
+<li><code>WoltLabSuite/Gallery/Component/Image/Viewer</code>, use <code>showFancybox()</code> of <code>WoltLabSuite/Core/Component/Image/Viewer</code> instead</li>
+<li><code>WoltLabSuite/Gallery/Ui/Category/MarkAllAsRead</code>, use <code>WoltLabSuite/Gallery/Component/Image/MarkAllImagesAsRead</code> instead</li>
 </ul>
 <h3 id="templates_1">Templates<a class="headerlink" href="#templates_1" title="Permanent link">#</a></h3>
 <ul>
@@ -7449,6 +7552,21 @@
 <li><code>unreadThreadList</code>, use the <code>unread</code> filter of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
 <li><code>unresolvedThreadList</code>, use the <code>undone</code> filter of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
 <li>The template events <code>javascriptIncludes</code> and <code>javascriptInit</code> of <code>shared_codemirror</code>, see <a href="../libraries/#template-events">Third Party Libraries</a></li>
+<li>The template events <code>categoryFields</code>, <code>contentNavigationButtonsCurrentImage</code>, <code>contentNavigationButtonsCurrentVideo</code>, <code>contentNavigationButtonsPendingImages</code>, <code>coordinateFields</code>, <code>informationFields</code>, <code>javascriptInit</code>, <code>messageFields</code>, <code>sections</code> and <code>videoThumbnailFields</code> of <code>imageAdd</code>, use the <code>populate</code> event of <code>gallery\system\form\builder\container\ImageFormContainer</code> instead, see <a href="../gallery/#adding-fields-to-the-image-form">Gallery</a></li>
+<li><code>__imageViewer</code>, which was no longer included</li>
+<li><code>boxImageGrid</code></li>
+<li><code>boxImageList</code></li>
+<li><code>boxImagesInMotion</code></li>
+<li><code>deletedImageList</code>, use <code>gallery\system\listView\user\DeletedImageListView</code> instead</li>
+<li><code>imageBrowser</code>, also in the ACP</li>
+<li><code>imageBrowserAlbumList</code>, also in the ACP</li>
+<li><code>imageBrowserImageList</code>, also in the ACP</li>
+<li><code>imageDeleteReason</code></li>
+<li><code>moveImagesToAlbum</code></li>
+<li><code>shared_wysiwygCkeditor5</code> of the Gallery</li>
+<li><code>sortableImageListItems</code></li>
+<li><code>taggedImageList</code>, use <code>gallery\system\listView\user\TaggedImageListView</code> instead</li>
+<li><code>watchedImageList</code></li>
 </ul>
 
 
@@ -7470,7 +7588,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-12
+    2026-11-14
   </span>
 
     

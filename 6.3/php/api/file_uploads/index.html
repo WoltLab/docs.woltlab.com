@@ -898,6 +898,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#rejecting-uploaded-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rejecting Uploaded Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#adopting-files-and-thumbnails" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4162,6 +4173,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../migration/wsc62/gallery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gallery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../migration/wsc62/libraries/" class="md-nav__link">
         
   
@@ -6079,6 +6118,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#rejecting-uploaded-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rejecting Uploaded Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#adopting-files-and-thumbnails" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6229,6 +6279,39 @@ The existing rebuild data worker for files will check the existing thumbnails ag
 </code></pre></div></td></tr></table></div>
 <p>The <code>ResizeFileType</code> controls the output format of the resized image.
 The available options are <code>jpeg</code> and <code>webp</code> but it is also possible to keep the existing image format.</p>
+<h4 id="rejecting-uploaded-files">Rejecting Uploaded Files<a class="headerlink" href="#rejecting-uploaded-files" title="Permanent link">#</a></h4>
+<p><code>validateUpload(File $file): void</code> is invoked once the file has been uploaded completely, before it is adopted.
+Throw a <code>UserInputException</code> to reject the file, which deletes the file and shows the phrase <code>wcf.upload.validation.error.{type}</code> to the user.
+Starting with WoltLab Suite 6.3, a generic message is shown instead if there is no such phrase.
+The client looks the phrase up, so preload it through the <code>wcf\event\language\PreloadPhrasesCollecting</code> event; a phrase that has not been preloaded counts as missing.</p>
+<p>Starting with WoltLab Suite 6.3, throw <code>wcf\system\file\processor\exception\UploadRejected</code> instead to tell the user why the file was rejected, for example, which dimensions the image must have.
+The first parameter is a code that identifies the reason for clients that handle the error themselves, the second one is the message.
+<code>UploadRejected::fromPhrase()</code> renders a phrase in the language of the active user and uses it as the message.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">validateUpload</span><span class="p">(</span><span class="nx">File</span> <span class="nv">$file</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$file</span><span class="o">-&gt;</span><span class="na">isImage</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nv">$file</span><span class="o">-&gt;</span><span class="na">width</span> <span class="o">&lt;</span> <span class="mi">400</span> <span class="o">||</span> <span class="nv">$file</span><span class="o">-&gt;</span><span class="na">height</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="nx">UploadRejected</span><span class="o">::</span><span class="na">fromPhrase</span><span class="p">(</span><span class="s1">'minimumDimensions'</span><span class="p">,</span> <span class="s1">'wcf.example.upload.error.minimumDimensions'</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">'width'</span> <span class="o">=&gt;</span> <span class="mi">400</span><span class="p">,</span>
+            <span class="s1">'height'</span> <span class="o">=&gt;</span> <span class="mi">300</span><span class="p">,</span>
+        <span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The message is plain text, the client never interprets it as HTML.
+<code>fromPhrase()</code> converts the rendered phrase to plain text: markup of the phrase is removed and variables inserted with <code>{$var}</code>, such as a filename, appear exactly as they are.
+Variables inserted with <code>{@$var}</code> are not escaped, so tags inside their values are removed as well.
+A message passed to the constructor must not be HTML-encoded, <code>&amp;amp;</code> is shown as is.
+<code>UploadRejected</code> extends <code>UserInputException</code>, without a message it behaves like a <code>UserInputException</code> with the same code.</p>
 <h4 id="adopting-files-and-thumbnails">Adopting Files and Thumbnails<a class="headerlink" href="#adopting-files-and-thumbnails" title="Permanent link">#</a></h4>
 <p>Files are associated with your object type after being uploaded but you possibly want to store the file id in your database table.
 This is where <code>adopt(File $file, array $context): void</code> comes into play which notifies you of the successful upload of a file while providing the context that is used to upload the file in the first place.</p>
@@ -6283,15 +6366,33 @@ You can provide anything you need in order to recognize what the file belongs to
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>This code will generate a <code>&lt;woltlab-core-file-upload&gt;</code> HTML element that can be inserted anywhere on the page.
-You do not need to initialize any extra JavaScript to make the element work, it will be initialized dynamically.</p>
+You do not need to initialize any extra JavaScript to make the element work, it will be initialized dynamically.
+Starting with WoltLab Suite 6.3, files that are handed to <code>uploadFiles()</code> or selected through the element before it has been initialized are handed to the upload pipeline once it is, in the order in which they were handed over.</p>
 <h3 id="lifecycle-of-uploaded-files">Lifecycle of Uploaded Files<a class="headerlink" href="#lifecycle-of-uploaded-files" title="Permanent link">#</a></h3>
 <p>Any file that passes the pre-upload validation will be uploaded to the server.
 This will trigger the <code>uploadStart</code> event on the <code>&lt;woltlab-core-file-upload&gt;</code> element, exposing a <code>&lt;woltlab-core-file&gt;</code> element as the only detail.</p>
 <p>It is your responsibility to insert this element at a location of your choice on the page, it represents the upload progress, reports any errors when uploading the file and shows the uploaded file on completion.</p>
+<p>The <code>.sourceFile</code> property (WoltLab Suite 6.3+) holds the <code>File</code> object that was handed over for upload, for example, through <code>uploadFiles()</code>.
+Use it to map the <code>&lt;woltlab-core-file&gt;</code> element to the file it belongs to, because images can be resized or cropped before the upload, changing the name, size and type of the uploaded file.</p>
 <p>The <code>&lt;woltlab-core-file&gt;</code> element exposes the <code>.ready</code> property that is a Promise representing the state of the upload.
 A successful upload will resolve the promise without any value, you can then access the file id through the <code>.fileId</code> property.</p>
 <p>A failed upload will reject the <code>.ready</code> promise without any value, instead you can retrieve the error through the <code>.apiError</code> property if you want to further process it.
-The UI is automatically updated with the error message, you only need to handle the <code>.apiError</code> property if you need to inspect the root cause.</p>
+The UI is automatically updated with the error message, you only need to handle the <code>.apiError</code> property if you need to inspect the root cause.
+Starting with WoltLab Suite 6.3, failures without a response from the server, such as connection errors, reject <code>.ready</code> without an <code>.apiError</code>, these are reported through the regular error dialog for failed requests.</p>
+<p>A file rejected by <code>validateUpload()</code> fails with a validation error whose <code>param</code> is <code>validation</code> and whose <code>code</code> is the type of the <code>UserInputException</code>, the server has discarded the upload at this point.
+Starting with WoltLab Suite 6.3, a file that is detected as a GIF, JPEG, PNG or WebP image but whose dimensions cannot be read is rejected the same way with the code <code>noImage</code>, before <code>validateUpload()</code> is invoked.
+The <code>message</code> of the validation error is the message of an <code>UploadRejected</code> and an empty string otherwise (WoltLab Suite 6.3+).
+The UI shows this message, otherwise the phrase <code>wcf.upload.validation.error.{code}</code> if it has been preloaded, otherwise a generic message.</p>
+<p>The file exists once the final chunk has been processed, even if the thumbnails cannot be generated afterwards.
+Starting with WoltLab Suite 6.3, the <code>.ready</code> promise is resolved in this case and the element lists no thumbnails, although the server may have generated some of them.
+The error is reported through the regular error dialog for failed requests.</p>
+<h3 id="aborting-an-upload">Aborting an Upload<a class="headerlink" href="#aborting-an-upload" title="Permanent link">#</a></h3>
+<p>Starting with WoltLab Suite 6.3, an upload can be stopped by invoking <code>.abort()</code> on the <code>&lt;woltlab-core-file&gt;</code> element.
+The chunks that have already been uploaded are discarded on the server, an abort that arrives after the final chunk has been sent deletes the resulting file instead.
+Once the abort has been processed, <code>.ready</code> is rejected without an <code>.apiError</code> and <code>.isAborted()</code> returns <code>true</code>, which distinguishes it from a connection error.</p>
+<p>Calling <code>.abort()</code> has no effect after <code>.ready</code> has settled.
+If the uploaded file cannot be deleted, the upload completes regularly and <code>.ready</code> is resolved.</p>
+<p>Starting with WoltLab Suite 6.3, uploads that are never completed are discarded by the daily clean up 24 hours after they were started.</p>
 <h3 id="deleting-a-file">Deleting a File<a class="headerlink" href="#deleting-a-file" title="Permanent link">#</a></h3>
 <p>You can delete a file from the UI by invoking <code>deleteFile()</code> from <code>WoltLabSuite/Core/Api/Files</code> which takes the value of <code>.fileId</code>.</p>
 <h3 id="render-a-previously-uploaded-file">Render a Previously Uploaded File<a class="headerlink" href="#render-a-previously-uploaded-file" title="Permanent link">#</a></h3>
@@ -6318,7 +6419,7 @@ This method accepts an optional list of meta data that is serialized to JSON and
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2025-02-14
+    2026-11-14
   </span>
 
     
