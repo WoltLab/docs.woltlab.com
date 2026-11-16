@@ -4225,10 +4225,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deleting-albums" class="md-nav__link">
+  <a href="#creating-editing-and-deleting-albums" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deleting Albums
+        Creating, Editing and Deleting Albums
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moderation-clean-ups-and-bulk-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moderation, Clean-Ups and Bulk Processing
       
     </span>
   </a>
@@ -6400,10 +6411,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deleting-albums" class="md-nav__link">
+  <a href="#creating-editing-and-deleting-albums" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deleting Albums
+        Creating, Editing and Deleting Albums
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moderation-clean-ups-and-bulk-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moderation, Clean-Ups and Bulk Processing
       
     </span>
   </a>
@@ -6745,10 +6767,85 @@ The files of an item in the legacy storage are deleted as well.
 Code that removed this data itself after calling <code>ImageAction::delete()</code> no longer needs to.</p>
 <p><code>ImageAction</code> no longer overrides <code>validateDelete()</code>, so the action <code>delete</code> can no longer be invoked through the AJAX proxy.
 Use <code>gallery\command\image\DeleteImage</code> or the endpoint <code>DELETE /gallery/images/{id}</code> instead, which deletes a published image only once it is in the trash (<code>POST /gallery/images/{id}/soft-delete</code>) and requires <code>mod.gallery.canDeleteImageCompletely</code> for it, while uploaders can delete their own uploads that were never completed.</p>
-<h2 id="deleting-albums">Deleting Albums<a class="headerlink" href="#deleting-albums" title="Permanent link">#</a></h2>
+<h2 id="creating-editing-and-deleting-albums">Creating, Editing and Deleting Albums<a class="headerlink" href="#creating-editing-and-deleting-albums" title="Permanent link">#</a></h2>
+<p>Albums are written through <code>gallery\data\album\AlbumBuilder</code> and its commands, <code>gallery\data\album\AlbumAction</code> is deprecated.
+The album dialog (<code>gallery\action\AlbumManageAction</code>) no longer runs <code>AlbumAction</code>, event listeners on its actions <code>create</code> and <code>update</code> are therefore not called for it.
+Listen to the events fired by the commands instead:</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Command</th>
+<th>Event</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Creating an album</td>
+<td><code>gallery\command\album\CreateAlbum</code></td>
+<td><code>gallery\event\album\AlbumCreated</code></td>
+</tr>
+<tr>
+<td>Editing an album</td>
+<td><code>gallery\command\album\UpdateAlbum</code></td>
+<td><code>gallery\event\album\AlbumUpdated</code></td>
+</tr>
+<tr>
+<td>Deleting an album</td>
+<td><code>gallery\command\album\DeleteAlbum</code></td>
+<td><code>gallery\event\album\AlbumDeleted</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>AlbumCreated</code> and <code>AlbumUpdated</code> also carry the builder that wrote the album.
+Changing the access level through <code>AlbumBuilder::setAccessLevel()</code> passes it on to the images of the album, <code>UpdateAlbum</code> resets the unread albums and images of all users only in that case.</p>
+<p><code>gallery\command\album\RebuildAlbumData</code> counts the images of an album and sets its last update time from the newest of them, considering only images that are enabled and not in the trash.
+The commands that change images call it for the albums they affect, including <code>SoftDeleteImage</code> and <code>RestoreImage</code>, as do the deprecated methods of <code>ImageAction</code> and the rebuild of the albums in the ACP.
+The Gallery no longer calls the deprecated <code>AlbumAction::updateImages()</code>.</p>
 <p><code>AlbumAction</code> no longer overrides <code>validateDelete()</code> and <code>delete()</code>, so the action <code>delete</code> can no longer be invoked through the AJAX proxy, and calling it directly no longer resets the <code>galleryAlbums</code> user storage of the owner.
 Use <code>gallery\command\album\DeleteAlbum</code> or the endpoint <code>DELETE /gallery/albums/{id}</code> instead, which requires the user to own the album or to have <code>mod.gallery.canDeleteAlbum</code>.
 The command resets the user storage, deletes the album and fires <code>gallery\event\album\AlbumDeleted</code>, the images of the album are kept without an album.</p>
+<h2 id="moderation-clean-ups-and-bulk-processing">Moderation, Clean-Ups and Bulk Processing<a class="headerlink" href="#moderation-clean-ups-and-bulk-processing" title="Permanent link">#</a></h2>
+<p>The Gallery no longer runs <code>gallery\data\image\ImageAction</code> for the following operations, event listeners on its actions are therefore not called for them.
+Listen to the events fired by the commands instead:</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Command</th>
+<th>Event</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Approving an image in the moderation</td>
+<td><code>gallery\command\image\EnableImage</code></td>
+<td><code>gallery\event\image\ImageEnabled</code></td>
+</tr>
+<tr>
+<td>Moving reported content to the trash</td>
+<td><code>gallery\command\image\SoftDeleteImage</code></td>
+<td><code>gallery\event\image\ImageSoftDeleted</code></td>
+</tr>
+<tr>
+<td>Emptying the trash, deleting users or categories</td>
+<td><code>gallery\command\image\DeleteImage</code></td>
+<td><code>gallery\event\image\ImageDeleted</code></td>
+</tr>
+<tr>
+<td>Setting the categories through the bulk processing in the ACP</td>
+<td><code>gallery\command\image\UpdateImage</code></td>
+<td><code>gallery\event\image\ImageUpdated</code></td>
+</tr>
+<tr>
+<td>Enabling or disabling the comments through the bulk processing in the ACP</td>
+<td><code>gallery\command\image\EnableImageComments</code>, <code>gallery\command\image\DisableImageComments</code></td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<p><code>gallery\system\bulk\processing\image\ImageBulkProcessingAction</code> no longer passes unknown actions on to <code>ImageAction</code>, it only supports the actions of the bulk processing object types of the Gallery (<code>delete</code>, <code>restore</code>, <code>disable</code>, <code>enable</code>, <code>enableComments</code>, <code>disableComments</code>).
+An object type of <code>com.woltlab.gallery.bulkProcessing.image.action</code> that uses this class with any other <code>action</code> fails with a <code>LogicException</code>, implement its own <code>IBulkProcessingAction</code> instead.</p>
 <h2 id="replaced-methods-of-imageaction">Replaced Methods of <code>ImageAction</code><a class="headerlink" href="#replaced-methods-of-imageaction" title="Permanent link">#</a></h2>
 <p>These methods of <code>gallery\data\image\ImageAction</code> have been removed together with their validation:</p>
 <table>
@@ -6794,6 +6891,10 @@ The command resets the user storage, deletes the album and fires <code>gallery\e
 <tr>
 <td><code>fetchVideoData()</code></td>
 <td><code>gallery\command\image\FetchVideoLinkData</code></td>
+</tr>
+<tr>
+<td><code>deletePendingImages()</code></td>
+<td>The endpoint <code>POST /gallery/images/delete-pending</code> with the <code>imageIDs</code> of the uploads to discard, which only deletes uploads of the active user that were never completed</td>
 </tr>
 </tbody>
 </table>
@@ -6974,7 +7075,7 @@ The entry for archives has been removed from it.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-14
+    2026-11-16
   </span>
 
     

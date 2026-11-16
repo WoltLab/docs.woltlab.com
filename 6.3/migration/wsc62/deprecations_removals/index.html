@@ -6701,6 +6701,7 @@
 <li><code>wbb\data\board\BoardEditor</code>, use <code>wbb\data\board\BoardBuilder</code> instead</li>
 <li><code>wcf\system\form\builder\field\SingleSelectionFormField</code>, use <code>wcf\system\form\builder\field\SelectFormField</code> or <code>wcf\system\form\builder\field\FilterableSelectFormField</code> instead, see <a href="../php/#single-selection-fields">Single Selection Fields</a></li>
 <li><code>gallery\page\RawImagePage</code>, which only serves images in the legacy storage of the Gallery and redirects links of migrated images, use the url of <code>gallery\data\image\Image::getURL()</code> instead</li>
+<li><code>gallery\data\album\AlbumAction</code>, use <code>gallery\data\album\AlbumBuilder</code>, the commands and the RPC endpoints instead</li>
 </ul>
 <h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">#</a></h4>
 <ul>
@@ -6710,7 +6711,7 @@
 <li><code>gallery\data\image\ImageAction::trash()</code></li>
 <li><code>gallery\data\image\ImageAction::restore()</code></li>
 <li><code>gallery\data\image\ImageAction::markAsRead()</code></li>
-<li><code>gallery\data\album\AlbumAction::updateImages()</code></li>
+<li><code>gallery\data\album\AlbumAction::updateImages()</code>, use <code>gallery\command\album\RebuildAlbumData</code> instead</li>
 <li><code>gallery\data\image\ImageAction::enable()</code></li>
 <li><code>gallery\data\image\ImageAction::disable()</code></li>
 <li><code>gallery\data\image\ImageAction::triggerPublication()</code></li>
@@ -6934,6 +6935,12 @@
 <li><code>gallery\data\image\Image::usesLegacyStorage()</code>, the rebuild of the data migrates the legacy storage of the Gallery, see <a href="../gallery/#upgrading-an-installation">Gallery</a></li>
 <li><code>gallery\data\image\ImageEditor::deleteFiles()</code>, use <code>gallery\command\image\DeleteImage</code> instead</li>
 <li><code>gallery\data\image\ImageEditor::deleteImageFiles()</code>, use <code>gallery\command\image\DeleteImage</code> or <code>gallery\command\image\SetVideoThumbnail</code> instead</li>
+<li><code>gallery\data\image\ImageAction::enableComments()</code>, use <code>gallery\command\image\EnableImageComments</code> instead</li>
+<li><code>gallery\data\image\ImageAction::disableComments()</code>, use <code>gallery\command\image\DisableImageComments</code> instead</li>
+<li><code>gallery\data\image\ImageAction::create()</code>, use <code>gallery\command\image\CreateImageUpload</code> and <code>gallery\command\image\CompleteImageUpload</code> instead</li>
+<li><code>gallery\data\image\ImageAction::update()</code>, use <code>gallery\command\image\UpdateImage</code> instead</li>
+<li><code>gallery\data\album\AlbumAction::create()</code>, use <code>gallery\command\album\CreateAlbum</code> instead</li>
+<li><code>gallery\data\album\AlbumAction::update()</code>, use <code>gallery\command\album\UpdateAlbum</code> instead</li>
 </ul>
 <h4 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h4>
 <ul>
@@ -7329,6 +7336,7 @@
 <li><code>gallery\data\image\ImageAction::generateThumbnail()</code></li>
 <li><code>gallery\data\image\ImageAction::rotateImage()</code>, use <code>gallery\command\image\RotateImage</code> or the RPC endpoint <code>wcf\system\endpoint\controller\gallery\images\RotateImage</code> instead</li>
 <li><code>gallery\data\image\ImageAction::addWatermark()</code>, use <code>gallery\command\image\ApplyImageWatermark</code> instead</li>
+<li><code>gallery\data\image\ImageAction::deletePendingImages()</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\gallery\images\DeletePendingImages</code> instead</li>
 </ul>
 <h4 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h4>
 <ul>
@@ -7588,7 +7596,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-14
+    2026-11-16
   </span>
 
     
