@@ -174,11 +174,44 @@ Code that removed this data itself after calling `ImageAction::delete()` no long
 `ImageAction` no longer overrides `validateDelete()`, so the action `delete` can no longer be invoked through the AJAX proxy.
 Use `gallery\command\image\DeleteImage` or the endpoint `DELETE /gallery/images/{id}` instead, which deletes a published image only once it is in the trash (`POST /gallery/images/{id}/soft-delete`) and requires `mod.gallery.canDeleteImageCompletely` for it, while uploaders can delete their own uploads that were never completed.
 
-## Deleting Albums
+## Creating, Editing and Deleting Albums
+
+Albums are written through `gallery\data\album\AlbumBuilder` and its commands, `gallery\data\album\AlbumAction` is deprecated.
+The album dialog (`gallery\action\AlbumManageAction`) no longer runs `AlbumAction`, event listeners on its actions `create` and `update` are therefore not called for it.
+Listen to the events fired by the commands instead:
+
+| Operation | Command | Event |
+|---|---|---|
+| Creating an album | `gallery\command\album\CreateAlbum` | `gallery\event\album\AlbumCreated` |
+| Editing an album | `gallery\command\album\UpdateAlbum` | `gallery\event\album\AlbumUpdated` |
+| Deleting an album | `gallery\command\album\DeleteAlbum` | `gallery\event\album\AlbumDeleted` |
+
+`AlbumCreated` and `AlbumUpdated` also carry the builder that wrote the album.
+Changing the access level through `AlbumBuilder::setAccessLevel()` passes it on to the images of the album, `UpdateAlbum` resets the unread albums and images of all users only in that case.
+
+`gallery\command\album\RebuildAlbumData` counts the images of an album and sets its last update time from the newest of them, considering only images that are enabled and not in the trash.
+The commands that change images call it for the albums they affect, including `SoftDeleteImage` and `RestoreImage`, as do the deprecated methods of `ImageAction` and the rebuild of the albums in the ACP.
+The Gallery no longer calls the deprecated `AlbumAction::updateImages()`.
 
 `AlbumAction` no longer overrides `validateDelete()` and `delete()`, so the action `delete` can no longer be invoked through the AJAX proxy, and calling it directly no longer resets the `galleryAlbums` user storage of the owner.
 Use `gallery\command\album\DeleteAlbum` or the endpoint `DELETE /gallery/albums/{id}` instead, which requires the user to own the album or to have `mod.gallery.canDeleteAlbum`.
 The command resets the user storage, deletes the album and fires `gallery\event\album\AlbumDeleted`, the images of the album are kept without an album.
+
+## Moderation, Clean-Ups and Bulk Processing
+
+The Gallery no longer runs `gallery\data\image\ImageAction` for the following operations, event listeners on its actions are therefore not called for them.
+Listen to the events fired by the commands instead:
+
+| Operation | Command | Event |
+|---|---|---|
+| Approving an image in the moderation | `gallery\command\image\EnableImage` | `gallery\event\image\ImageEnabled` |
+| Moving reported content to the trash | `gallery\command\image\SoftDeleteImage` | `gallery\event\image\ImageSoftDeleted` |
+| Emptying the trash, deleting users or categories | `gallery\command\image\DeleteImage` | `gallery\event\image\ImageDeleted` |
+| Setting the categories through the bulk processing in the ACP | `gallery\command\image\UpdateImage` | `gallery\event\image\ImageUpdated` |
+| Enabling or disabling the comments through the bulk processing in the ACP | `gallery\command\image\EnableImageComments`, `gallery\command\image\DisableImageComments` | – |
+
+`gallery\system\bulk\processing\image\ImageBulkProcessingAction` no longer passes unknown actions on to `ImageAction`, it only supports the actions of the bulk processing object types of the Gallery (`delete`, `restore`, `disable`, `enable`, `enableComments`, `disableComments`).
+An object type of `com.woltlab.gallery.bulkProcessing.image.action` that uses this class with any other `action` fails with a `LogicException`, implement its own `IBulkProcessingAction` instead.
 
 ## Replaced Methods of `ImageAction`
 
@@ -195,6 +228,7 @@ These methods of `gallery\data\image\ImageAction` have been removed together wit
 | `uploadVideoThumbnail()`, `deleteVideoThumbnail()` | Core's file upload with the object type `com.woltlab.gallery.video.thumbnail` and Core's deletion of files (`DELETE /core/files/{id}`), see [Posters](#posters) |
 | `createVideoLink()` | `gallery\command\image\CreateVideoLink` and the endpoint `POST /gallery/images/video-links` |
 | `fetchVideoData()` | `gallery\command\image\FetchVideoLinkData` |
+| `deletePendingImages()` | The endpoint `POST /gallery/images/delete-pending` with the `imageIDs` of the uploads to discard, which only deletes uploads of the active user that were never completed |
 
 `ImageAction` no longer implements `wcf\data\IUploadAction`, uploads through `ajax-upload` with the action `upload` are rejected.
 The `ImageUploadFileValidationStrategy`, `VideoUploadFileValidationStrategy`, `VideoThumbnailUploadFileValidationStrategy` and the unused `WatermarkUploadFileValidationStrategy` in `gallery\system\upload` have been removed, the file processors validate the files instead.

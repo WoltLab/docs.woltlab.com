@@ -246,6 +246,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\board\BoardEditor`, use `wbb\data\board\BoardBuilder` instead
 - `wcf\system\form\builder\field\SingleSelectionFormField`, use `wcf\system\form\builder\field\SelectFormField` or `wcf\system\form\builder\field\FilterableSelectFormField` instead, see [Single Selection Fields](php.md#single-selection-fields)
 - `gallery\page\RawImagePage`, which only serves images in the legacy storage of the Gallery and redirects links of migrated images, use the url of `gallery\data\image\Image::getURL()` instead
+- `gallery\data\album\AlbumAction`, use `gallery\data\album\AlbumBuilder`, the commands and the RPC endpoints instead
 
 #### Methods
 
@@ -255,7 +256,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\data\image\ImageAction::trash()`
 - `gallery\data\image\ImageAction::restore()`
 - `gallery\data\image\ImageAction::markAsRead()`
-- `gallery\data\album\AlbumAction::updateImages()`
+- `gallery\data\album\AlbumAction::updateImages()`, use `gallery\command\album\RebuildAlbumData` instead
 - `gallery\data\image\ImageAction::enable()`
 - `gallery\data\image\ImageAction::disable()`
 - `gallery\data\image\ImageAction::triggerPublication()`
@@ -479,6 +480,12 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\data\image\Image::usesLegacyStorage()`, the rebuild of the data migrates the legacy storage of the Gallery, see [Gallery](gallery.md#upgrading-an-installation)
 - `gallery\data\image\ImageEditor::deleteFiles()`, use `gallery\command\image\DeleteImage` instead
 - `gallery\data\image\ImageEditor::deleteImageFiles()`, use `gallery\command\image\DeleteImage` or `gallery\command\image\SetVideoThumbnail` instead
+- `gallery\data\image\ImageAction::enableComments()`, use `gallery\command\image\EnableImageComments` instead
+- `gallery\data\image\ImageAction::disableComments()`, use `gallery\command\image\DisableImageComments` instead
+- `gallery\data\image\ImageAction::create()`, use `gallery\command\image\CreateImageUpload` and `gallery\command\image\CompleteImageUpload` instead
+- `gallery\data\image\ImageAction::update()`, use `gallery\command\image\UpdateImage` instead
+- `gallery\data\album\AlbumAction::create()`, use `gallery\command\album\CreateAlbum` instead
+- `gallery\data\album\AlbumAction::update()`, use `gallery\command\album\UpdateAlbum` instead
 
 #### Properties
 
@@ -876,6 +883,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\data\image\ImageAction::generateThumbnail()`
 - `gallery\data\image\ImageAction::rotateImage()`, use `gallery\command\image\RotateImage` or the RPC endpoint `wcf\system\endpoint\controller\gallery\images\RotateImage` instead
 - `gallery\data\image\ImageAction::addWatermark()`, use `gallery\command\image\ApplyImageWatermark` instead
+- `gallery\data\image\ImageAction::deletePendingImages()`, use the RPC endpoint `wcf\system\endpoint\controller\gallery\images\DeletePendingImages` instead
 
 #### Properties
 
