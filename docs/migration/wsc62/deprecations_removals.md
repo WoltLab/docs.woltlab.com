@@ -247,6 +247,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\system\form\builder\field\SingleSelectionFormField`, use `wcf\system\form\builder\field\SelectFormField` or `wcf\system\form\builder\field\FilterableSelectFormField` instead, see [Single Selection Fields](php.md#single-selection-fields)
 - `gallery\page\RawImagePage`, which only serves images in the legacy storage of the Gallery and redirects links of migrated images, use the url of `gallery\data\image\Image::getURL()` instead
 - `gallery\data\album\AlbumAction`, use `gallery\data\album\AlbumBuilder`, the commands and the RPC endpoints instead
+- `gallery\data\image\marker\ImageMarkerAction`, use `gallery\data\image\ImageBuilder::setMarkers()` instead
 
 #### Methods
 
