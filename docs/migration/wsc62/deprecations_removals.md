@@ -254,14 +254,14 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\data\image\ImageList::enableCategoryLoading()`
 - `gallery\data\image\ImageList::enableAlbumLoading()`
 - `gallery\data\image\ImageList::enableMarkerLoading()`
-- `gallery\data\image\ImageAction::trash()`
-- `gallery\data\image\ImageAction::restore()`
-- `gallery\data\image\ImageAction::markAsRead()`
+- `gallery\data\image\ImageAction::trash()`, use `gallery\command\image\SoftDeleteImage` instead
+- `gallery\data\image\ImageAction::restore()`, use `gallery\command\image\RestoreImage` instead
+- `gallery\data\image\ImageAction::markAsRead()`, use `gallery\command\image\MarkImageAsRead` instead
 - `gallery\data\album\AlbumAction::updateImages()`, use `gallery\command\album\RebuildAlbumData` instead
-- `gallery\data\image\ImageAction::enable()`
-- `gallery\data\image\ImageAction::disable()`
-- `gallery\data\image\ImageAction::triggerPublication()`
-- `gallery\data\image\ImageAction::favorite()`
+- `gallery\data\image\ImageAction::enable()`, use `gallery\command\image\EnableImage` instead
+- `gallery\data\image\ImageAction::disable()`, use `gallery\command\image\DisableImage` instead
+- `gallery\data\image\ImageAction::triggerPublication()`, use `gallery\command\image\PublishImage` instead
+- `gallery\data\image\ImageAction::favorite()`, use `gallery\command\image\FavoriteImage` or `gallery\command\image\UnfavoriteImage` instead
 - `blog\data\entry\EntryAction::triggerPublication()`
 - `blog\data\entry\EntryAction::markAsRead()`
 - `blog\data\entry\EntryAction::enable()`
@@ -885,6 +885,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\data\image\ImageAction::rotateImage()`, use `gallery\command\image\RotateImage` or the RPC endpoint `wcf\system\endpoint\controller\gallery\images\RotateImage` instead
 - `gallery\data\image\ImageAction::addWatermark()`, use `gallery\command\image\ApplyImageWatermark` instead
 - `gallery\data\image\ImageAction::deletePendingImages()`, use the RPC endpoint `wcf\system\endpoint\controller\gallery\images\DeletePendingImages` instead
+- `gallery\data\image\ImageAction::removeModeratedContent()`
+- `gallery\data\image\ImageAction::updateUserCounters()`
 
 #### Properties
 

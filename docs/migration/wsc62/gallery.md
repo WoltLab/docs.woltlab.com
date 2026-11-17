@@ -191,7 +191,7 @@ Changing the access level through `AlbumBuilder::setAccessLevel()` passes it on 
 
 `gallery\command\album\RebuildAlbumData` counts the images of an album and sets its last update time from the newest of them, considering only images that are enabled and not in the trash.
 The commands that change images call it for the albums they affect, including `SoftDeleteImage` and `RestoreImage`, as do the deprecated methods of `ImageAction` and the rebuild of the albums in the ACP.
-The Gallery no longer calls the deprecated `AlbumAction::updateImages()`.
+The Gallery no longer calls the deprecated `AlbumAction::updateImages()`, which now runs `RebuildAlbumData` for its albums and ignores the parameters `addedImages` and `removedImages`.
 
 `AlbumAction` no longer overrides `validateDelete()` and `delete()`, so the action `delete` can no longer be invoked through the AJAX proxy, and calling it directly no longer resets the `galleryAlbums` user storage of the owner.
 Use `gallery\command\album\DeleteAlbum` or the endpoint `DELETE /gallery/albums/{id}` instead, which requires the user to own the album or to have `mod.gallery.canDeleteAlbum`.
@@ -212,6 +212,13 @@ Listen to the events fired by the commands instead:
 
 `gallery\system\bulk\processing\image\ImageBulkProcessingAction` no longer passes unknown actions on to `ImageAction`, it only supports the actions of the bulk processing object types of the Gallery (`delete`, `restore`, `disable`, `enable`, `enableComments`, `disableComments`).
 An object type of `com.woltlab.gallery.bulkProcessing.image.action` that uses this class with any other `action` fails with a `LogicException`, implement its own `IBulkProcessingAction` instead.
+
+The deprecated methods `enable()`, `disable()`, `triggerPublication()`, `trash()`, `restore()` and `markAsRead()` of `ImageAction` run the commands `EnableImage`, `DisableImage`, `PublishImage`, `SoftDeleteImage`, `RestoreImage` and `MarkImageAsRead` for each image, all of them except `MarkImageAsRead` fire their events.
+`enable()` and `disable()` skip images that are enabled or disabled already.
+Together with `triggerPublication()`, they also skip pending uploads, which `CompleteImageUpload` counts and publishes once the upload is completed.
+`enable()` no longer runs the action `triggerPublication`, so event listeners on it are not called.
+The parameter `isBulkProcessing` no longer skips the update of the counters, the activity points, the recent activity events and the albums.
+`triggerPublication()` fires one recent activity event per image instead of grouping the images of an author, and `markAsRead()` ignores the parameter `visitTime` and does nothing for guests.
 
 ## Replaced Methods of `ImageAction`
 
