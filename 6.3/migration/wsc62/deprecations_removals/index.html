@@ -6709,14 +6709,14 @@
 <li><code>gallery\data\image\ImageList::enableCategoryLoading()</code></li>
 <li><code>gallery\data\image\ImageList::enableAlbumLoading()</code></li>
 <li><code>gallery\data\image\ImageList::enableMarkerLoading()</code></li>
-<li><code>gallery\data\image\ImageAction::trash()</code></li>
-<li><code>gallery\data\image\ImageAction::restore()</code></li>
-<li><code>gallery\data\image\ImageAction::markAsRead()</code></li>
+<li><code>gallery\data\image\ImageAction::trash()</code>, use <code>gallery\command\image\SoftDeleteImage</code> instead</li>
+<li><code>gallery\data\image\ImageAction::restore()</code>, use <code>gallery\command\image\RestoreImage</code> instead</li>
+<li><code>gallery\data\image\ImageAction::markAsRead()</code>, use <code>gallery\command\image\MarkImageAsRead</code> instead</li>
 <li><code>gallery\data\album\AlbumAction::updateImages()</code>, use <code>gallery\command\album\RebuildAlbumData</code> instead</li>
-<li><code>gallery\data\image\ImageAction::enable()</code></li>
-<li><code>gallery\data\image\ImageAction::disable()</code></li>
-<li><code>gallery\data\image\ImageAction::triggerPublication()</code></li>
-<li><code>gallery\data\image\ImageAction::favorite()</code></li>
+<li><code>gallery\data\image\ImageAction::enable()</code>, use <code>gallery\command\image\EnableImage</code> instead</li>
+<li><code>gallery\data\image\ImageAction::disable()</code>, use <code>gallery\command\image\DisableImage</code> instead</li>
+<li><code>gallery\data\image\ImageAction::triggerPublication()</code>, use <code>gallery\command\image\PublishImage</code> instead</li>
+<li><code>gallery\data\image\ImageAction::favorite()</code>, use <code>gallery\command\image\FavoriteImage</code> or <code>gallery\command\image\UnfavoriteImage</code> instead</li>
 <li><code>blog\data\entry\EntryAction::triggerPublication()</code></li>
 <li><code>blog\data\entry\EntryAction::markAsRead()</code></li>
 <li><code>blog\data\entry\EntryAction::enable()</code></li>
@@ -7338,6 +7338,8 @@
 <li><code>gallery\data\image\ImageAction::rotateImage()</code>, use <code>gallery\command\image\RotateImage</code> or the RPC endpoint <code>wcf\system\endpoint\controller\gallery\images\RotateImage</code> instead</li>
 <li><code>gallery\data\image\ImageAction::addWatermark()</code>, use <code>gallery\command\image\ApplyImageWatermark</code> instead</li>
 <li><code>gallery\data\image\ImageAction::deletePendingImages()</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\gallery\images\DeletePendingImages</code> instead</li>
+<li><code>gallery\data\image\ImageAction::removeModeratedContent()</code></li>
+<li><code>gallery\data\image\ImageAction::updateUserCounters()</code></li>
 </ul>
 <h4 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h4>
 <ul>
@@ -7597,7 +7599,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-16
+    2026-11-17
   </span>
 
     

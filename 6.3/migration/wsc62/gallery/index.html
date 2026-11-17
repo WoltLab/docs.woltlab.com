@@ -6801,7 +6801,7 @@ Listen to the events fired by the commands instead:</p>
 Changing the access level through <code>AlbumBuilder::setAccessLevel()</code> passes it on to the images of the album, <code>UpdateAlbum</code> resets the unread albums and images of all users only in that case.</p>
 <p><code>gallery\command\album\RebuildAlbumData</code> counts the images of an album and sets its last update time from the newest of them, considering only images that are enabled and not in the trash.
 The commands that change images call it for the albums they affect, including <code>SoftDeleteImage</code> and <code>RestoreImage</code>, as do the deprecated methods of <code>ImageAction</code> and the rebuild of the albums in the ACP.
-The Gallery no longer calls the deprecated <code>AlbumAction::updateImages()</code>.</p>
+The Gallery no longer calls the deprecated <code>AlbumAction::updateImages()</code>, which now runs <code>RebuildAlbumData</code> for its albums and ignores the parameters <code>addedImages</code> and <code>removedImages</code>.</p>
 <p><code>AlbumAction</code> no longer overrides <code>validateDelete()</code> and <code>delete()</code>, so the action <code>delete</code> can no longer be invoked through the AJAX proxy, and calling it directly no longer resets the <code>galleryAlbums</code> user storage of the owner.
 Use <code>gallery\command\album\DeleteAlbum</code> or the endpoint <code>DELETE /gallery/albums/{id}</code> instead, which requires the user to own the album or to have <code>mod.gallery.canDeleteAlbum</code>.
 The command resets the user storage, deletes the album and fires <code>gallery\event\album\AlbumDeleted</code>, the images of the album are kept without an album.</p>
@@ -6846,6 +6846,12 @@ Listen to the events fired by the commands instead:</p>
 </table>
 <p><code>gallery\system\bulk\processing\image\ImageBulkProcessingAction</code> no longer passes unknown actions on to <code>ImageAction</code>, it only supports the actions of the bulk processing object types of the Gallery (<code>delete</code>, <code>restore</code>, <code>disable</code>, <code>enable</code>, <code>enableComments</code>, <code>disableComments</code>).
 An object type of <code>com.woltlab.gallery.bulkProcessing.image.action</code> that uses this class with any other <code>action</code> fails with a <code>LogicException</code>, implement its own <code>IBulkProcessingAction</code> instead.</p>
+<p>The deprecated methods <code>enable()</code>, <code>disable()</code>, <code>triggerPublication()</code>, <code>trash()</code>, <code>restore()</code> and <code>markAsRead()</code> of <code>ImageAction</code> run the commands <code>EnableImage</code>, <code>DisableImage</code>, <code>PublishImage</code>, <code>SoftDeleteImage</code>, <code>RestoreImage</code> and <code>MarkImageAsRead</code> for each image, all of them except <code>MarkImageAsRead</code> fire their events.
+<code>enable()</code> and <code>disable()</code> skip images that are enabled or disabled already.
+Together with <code>triggerPublication()</code>, they also skip pending uploads, which <code>CompleteImageUpload</code> counts and publishes once the upload is completed.
+<code>enable()</code> no longer runs the action <code>triggerPublication</code>, so event listeners on it are not called.
+The parameter <code>isBulkProcessing</code> no longer skips the update of the counters, the activity points, the recent activity events and the albums.
+<code>triggerPublication()</code> fires one recent activity event per image instead of grouping the images of an author, and <code>markAsRead()</code> ignores the parameter <code>visitTime</code> and does nothing for guests.</p>
 <h2 id="replaced-methods-of-imageaction">Replaced Methods of <code>ImageAction</code><a class="headerlink" href="#replaced-methods-of-imageaction" title="Permanent link">#</a></h2>
 <p>These methods of <code>gallery\data\image\ImageAction</code> have been removed together with their validation:</p>
 <table>
@@ -7075,7 +7081,7 @@ The entry for archives has been removed from it.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-16
+    2026-11-17
   </span>
 
     
