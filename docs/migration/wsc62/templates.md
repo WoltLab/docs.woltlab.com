@@ -184,6 +184,31 @@ The CSS class `labelList` is deprecated.
 
 Template listeners for the template events `beforeLabels` and `afterLabels` of the templates `threadList` and `threadContentHeaderTitle` have to output the labels without a surrounding `li` element.
 
+## Status Badges
+
+Badges that show the status of content, such as deleted, disabled, featured, or scheduled, are rendered with the new template plugin [`{badge}`](../../view/template-plugins.md#badge).
+Each status has its own color and icon, whereas palette colors such as `green` were previously used for different statuses.
+Templates should use `{badge}` instead of writing the markup with a color class:
+
+#### Previous Code Example
+
+```smarty
+{if $object->isDeleted}<span class="badge red">{lang}wcf.message.status.deleted{/lang}</span>{/if}
+{if $object->isFeatured}<span class="badge green">{lang}foo.object.featured{/lang}</span>{/if}
+```
+
+#### New Code Example
+
+```smarty
+{if $object->isDeleted}{badge type='deleted'}{/if}
+{if $object->isFeatured}{badge type='featured' label='foo.object.featured'}{/if}
+```
+
+In PHP, the badges are rendered with the enum `wcf\system\style\BadgeType`, for example `BadgeType::Deleted->toHtml()`.
+
+The colors are defined by the CSS classes `badge--<type>`, which set the CSS custom properties `--background-color` and `--color`.
+Styles that change the colors of a status badge should set these properties.
+
 ## Form Styles
 
 The styling of inputs, labels, and required marks has changed for all forms, including forms not created with the form builder:

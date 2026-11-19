@@ -88,6 +88,44 @@ New template variables can be declared and new values can be assigned to existin
 ```
 
 
+## `{badge}`
+
+!!! info "This template plugin has been added in WoltLab Suite 6.3."
+
+`{badge}` renders a badge that shows the status of content, for example a deleted or disabled message.
+Each type has its own color, icon, and default label, so the same status looks the same everywhere.
+
+```smarty
+{badge type='deleted'}
+{badge type='featured' class='jsLabelFeatured'}
+{badge type='done' label='wbb.thread.bestAnswer'}
+```
+
+| Attribute | Description |
+|-----------|-------------|
+| `type` | the type of the badge, see the table below; required |
+| `class` | additional CSS classes of the badge, for example to find the badge with JavaScript |
+| `label` | name of a language item that replaces the default label of the type |
+
+| Type | Icon | Default Label |
+|------|------|---------------|
+| `deleted` | `trash-can` | `wcf.message.status.deleted` |
+| `disabled` | `eye-slash` | `wcf.message.status.disabled` |
+| `done` | `circle-check` | `wcf.message.status.done` |
+| `featured` | `star` | `wcf.message.status.featured` |
+| `official` | `shield-halved` | `wcf.message.status.official` |
+| `scheduled` | `clock` | `wcf.message.status.scheduled` |
+
+The same markup can be created in PHP with the enum `wcf\system\style\BadgeType`:
+
+```php
+BadgeType::Deleted->toHtml();
+BadgeType::Disabled->toHtml(languageItem: 'wcf.acp.article.publicationStatus.unpublished');
+```
+
+The colors of each type are set by the CSS class `badge--<type>`, for example `badge--deleted`, which defines the CSS custom properties `--background-color` and `--color`.
+
+
 ## `{capture}`
 
 In some situations, `{assign}` is not sufficient to assign values to variables in templates if the value is complex.
