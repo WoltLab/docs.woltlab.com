@@ -234,12 +234,6 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\ViewableThreadList`, use `wbb\data\thread\ThreadList` instead
 - `wbb\data\thread\UnreadThreadList`, use the `unread` filter of `wbb\system\listView\user\ThreadListView` or `wbb\data\thread\ThreadList::excludeReadThreads()` instead
 - `wbb\data\thread\UnresolvedThreadList`, use the `undone` filter of `wbb\system\listView\user\ThreadListView` instead
-- `wbb\system\thread\ThreadHandler`, the thread editor dialog is no longer used
-- `wbb\system\thread\editor\IThreadEditor`, the thread editor dialog is no longer used
-- `wbb\system\thread\editor\AbstractThreadEditor`, the thread editor dialog is no longer used
-- `wbb\system\thread\editor\DefaultThreadEditor`, the thread editor dialog is no longer used
-- `wbb\system\thread\editor\LabelThreadEditor`, the thread editor dialog is no longer used
-- `wbb\system\thread\editor\TagThreadEditor`, the thread editor dialog is no longer used
 - `wbb\data\rss\feed\RssFeedAction`, use `wbb\data\rss\feed\RssFeedBuilder` and commands instead
 - `wbb\data\rss\feed\RssFeedEditor`, use `wbb\data\rss\feed\RssFeedBuilder` instead
 - `wbb\data\board\BoardAction`, use `wbb\data\board\BoardBuilder`, the commands and the RPC endpoints instead
@@ -472,6 +466,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\Thread::setFirstPost()`, the first post is loaded on demand by `wbb\data\thread\Thread::getFirstPost()`
 - `wbb\data\thread\Thread::setBestAnswerPost()`, the best answer is loaded on demand by `wbb\data\thread\Thread::getBestAnswerPost()`
 - `wbb\data\thread\BoardThreadList::getLogList()`, use `wbb\data\thread\Thread::getLogEntry()` instead
+- `wcf\acp\form\LoginForm::performRedirect()`, use `getRedirectResponse()` and `setPsr7Response()` instead ([WoltLab/WCF#6657](https://github.com/WoltLab/WCF/issues/6657))
+- `wcf\form\MultifactorAuthenticationForm::performRedirect()`, use `getRedirectResponse()` and `setPsr7Response()` instead ([WoltLab/WCF#6657](https://github.com/WoltLab/WCF/issues/6657))
 - `gallery\data\image\Image::getLocation()`, use `gallery\data\image\Image::getFile()` or `gallery\data\image\Image::getSource()` instead
 - `gallery\data\image\Image::getVideoLocation()`, use `gallery\data\image\Image::getVideoFile()` instead
 - `gallery\data\image\Image::getFilename()`, use `gallery\data\image\Image::getFile()` or `gallery\data\image\Image::getDisplayFilename()` instead
@@ -549,20 +545,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Form/Builder/Field/Wysiwyg/Poll`, use `WoltLabSuite/Core/Form/Builder/Field/PollOptionList` instead
 - `WoltLabSuite/Core/Component/User/Ignore`
 - `WoltLabSuite/Core/Ui/User/Ignore/List`
-- `WBB.Thread.Editor`, the thread editor dialog is no longer used
-- `WBB.Thread.Editor.Default`, the thread editor dialog is no longer used
-- `WBB.Thread.Editor.LabelChooser`, the thread editor dialog is no longer used
-- `WBB.Thread.Editor.Language`, the thread editor dialog is no longer used
-- `WBB.Thread.Editor.TagList`, the thread editor dialog is no longer used
-- `WBB.Thread.InlineEditor`, use the interactions of `wbb\system\listView\user\ThreadListView` instead
-- `WBB.Thread.Clipboard`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
-- `WBB.Thread.MergeHandler`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
-- `WBB.Thread.AssignLabelHandler`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
-- `WBB.Thread.CopyHandler`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
-- `WBB.Thread.MoveHandler`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
 - `WoltLabSuite/Forum/Ui/Board/MarkAllAsRead`, use `WoltLabSuite/Forum/Component/Board/MarkAllBoardsAsRead` instead
 - `WoltLabSuite/Forum/Ui/Board/MarkAllThreadsAsRead`, use `WoltLabSuite/Forum/Component/Board/MarkAllThreadsAsRead` instead
-- `WoltLabSuite/Forum/Ui/Thread/Enable`
 - `WoltLabSuite/Forum/Ui/Thread/MarkAsRead`, use the RPC endpoint `wcf\system\endpoint\controller\forum\threads\MarkThreadAsRead` instead
 - `WoltLabSuite/Forum/Ui/Board/MarkAsRead`, use `WoltLabSuite/Forum/Component/Board/MarkAsRead` instead
 
@@ -575,9 +559,6 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `pollResult`, use standalone polls that are embedded through the `[poll]` BBCode instead
 - `pollVote`, use standalone polls that are embedded through the `[poll]` BBCode instead
 - `shared_pollOptionsFormField`, use `shared_pollOptionListFormField` instead
-- `threadEditorDefault`, the thread editor dialog is no longer used
-- `threadEditorLabel`, the thread editor dialog is no longer used
-- `threadEditorTag`, the thread editor dialog is no longer used
 - `threadList`, use `wbb\system\listView\user\ThreadListView` instead
 
 ## Removals
@@ -704,6 +685,13 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\ThreadStatusAction`, use the RPC endpoint `wcf\system\endpoint\controller\forum\threads\SetThreadSubscriptionStatus` instead
 - `wbb\system\clipboard\action\ThreadClipboardAction`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
 - `wbb\data\board\BoardStatusAction`, use the RPC endpoint `wcf\system\endpoint\controller\forum\boards\SetBoardSubscriptionStatus` instead
+- `wbb\system\thread\ThreadHandler`, the thread editor dialog is no longer used
+- `wbb\system\thread\editor\IThreadEditor`, the thread editor dialog is no longer used
+- `wbb\system\thread\editor\AbstractThreadEditor`, the thread editor dialog is no longer used
+- `wbb\system\thread\editor\DefaultThreadEditor`, the thread editor dialog is no longer used
+- `wbb\system\thread\editor\LabelThreadEditor`, the thread editor dialog is no longer used
+- `wbb\system\thread\editor\TagThreadEditor`, the thread editor dialog is no longer used
+- `wbb\system\clipboard\action\PostClipboardAction`, use the bulk interactions of `wbb\system\listView\user\ThreadPostListView` instead
 - `gallery\page\ImageEditPage`, use `gallery\form\ImageEditForm` or `gallery\page\ImageBulkEditPage` instead
 - `gallery\system\upload\ImageUploadFileValidationStrategy`, use `gallery\system\file\processor\ImageFileProcessor` instead
 - `gallery\system\upload\VideoUploadFileValidationStrategy`, use `gallery\system\file\processor\VideoFileProcessor` instead
@@ -854,6 +842,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\ThreadAction::validateUnmarkAll()`
 - `wbb\data\thread\ThreadAction::unmarkAll()`
 - `wbb\data\thread\ThreadAction::unmarkItems()`
+- `wbb\data\post\PostAction::validateUnmarkAll()`
+- `wbb\data\post\PostAction::unmarkAll()`
+- `wbb\data\post\PostAction::unmarkItems()`
 - `wbb\data\thread\form\option\ThreadFormOptionAction::validateGetDialogAddForm()`
 - `wbb\data\thread\form\option\ThreadFormOptionAction::getDialogAddForm()`
 - `wbb\data\thread\form\option\ThreadFormOptionAction::validatePrepareEdit()`
@@ -865,6 +856,28 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\thread\form\option\ThreadFormOptionEditor::setShowOrder()`
 - `wbb\data\thread\DeletedThreadList::getMarkedItems()`
 - `wbb\data\board\BoardAction::cloneBoard()`, use the `wbb\command\board\CopyBoard` command instead
+- `wbb\data\thread\ThreadAction::validateBeginEdit()`, the legacy dialogs are no longer used
+- `wbb\data\thread\ThreadAction::beginEdit()`, the legacy dialogs are no longer used
+- `wbb\data\thread\ThreadAction::validateSaveEdit()`, the legacy dialogs are no longer used
+- `wbb\data\thread\ThreadAction::saveEdit()`, the legacy dialogs are no longer used
+- `wbb\data\thread\ThreadAction::validatePrepareEnable()`, the legacy dialogs are no longer used
+- `wbb\data\thread\ThreadAction::prepareEnable()`, the legacy dialogs are no longer used
+- `wbb\data\thread\ThreadAction::validateSetEnableTime()`, the legacy dialogs are no longer used
+- `wbb\data\thread\ThreadAction::setEnableTime()`, the legacy dialogs are no longer used
+- `wbb\data\thread\ThreadAction::validatePrepareMove()`, the legacy dialogs are no longer used
+- `wbb\data\thread\ThreadAction::prepareMove()`, the legacy dialogs are no longer used
+- `wbb\data\thread\ThreadAction::validatePrepareMerge()`, the legacy dialogs are no longer used
+- `wbb\data\thread\ThreadAction::prepareMerge()`, the legacy dialogs are no longer used
+- `wbb\data\thread\ThreadAction::validateGetSearchResultList()`
+- `wbb\data\thread\ThreadAction::getSearchResultList()`
+- `wbb\data\post\PostAction::validatePrepareEnable()`, the legacy dialogs are no longer used
+- `wbb\data\post\PostAction::prepareEnable()`, the legacy dialogs are no longer used
+- `wbb\data\post\PostAction::validateSetEnableTime()`, the legacy dialogs are no longer used
+- `wbb\data\post\PostAction::setEnableTime()`, the legacy dialogs are no longer used
+- `wbb\data\post\PostAction::validatePrepareMerge()`, the legacy dialogs are no longer used
+- `wbb\data\post\PostAction::prepareMerge()`, the legacy dialogs are no longer used
+- `wbb\data\post\PostAction::validateGetIpLog()`, the legacy dialogs are no longer used
+- `wbb\data\post\PostAction::getIpLog()`, the legacy dialogs are no longer used
 - `gallery\data\image\ImageAction::loadPendingImages()`
 - `gallery\data\image\ImageAction::prepareEditLink()`
 - `gallery\data\image\ImageAction::saveImageData()`, use `gallery\command\image\CompleteImageUpload` or `gallery\command\image\UpdateImage` instead
@@ -956,6 +969,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 #### Object Types
 
 - `com.woltlab.wbb.thread` (`com.woltlab.wcf.clipboardItem`), use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
+- `com.woltlab.wbb.post` (`com.woltlab.wcf.clipboardItem`), use the bulk interactions of `wbb\system\listView\user\ThreadPostListView` instead
 
 ### JavaScript
 
@@ -1077,6 +1091,35 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Core/Ui/Toggle/Input`
 - `WoltLabSuite/Core/Form/Builder/Field/Controller/Rating`, `RatingFormField` is rendered as native radio buttons that do not require a controller
 - `codemirror`, including `codemirror/addon/*`, `codemirror/mode/*` and the copies of `codemirror.js` and `codemirror.css` in `js/3rdParty/codemirror/`, use `@woltlab/codemirror` and `WoltLabSuite/Core/Component/CodeMirror` instead ([WoltLab/WCF#6686](https://github.com/WoltLab/WCF/issues/6686))
+- `WBB.ACP.Board.Collapsible`
+- `WBB.ACP.Board.Permission.UserGroup`
+- `WBB.ACP.Board.Permission.User`
+- `WBB.Thread.Editor`, the thread editor dialog is no longer used
+- `WBB.Thread.Editor.Default`, the thread editor dialog is no longer used
+- `WBB.Thread.Editor.LabelChooser`, the thread editor dialog is no longer used
+- `WBB.Thread.Editor.Language`, the thread editor dialog is no longer used
+- `WBB.Thread.Editor.TagList`, the thread editor dialog is no longer used
+- `WBB.Thread.InlineEditor`, use the interactions of `wbb\system\listView\user\ThreadListView` instead
+- `WBB.Thread.Clipboard`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
+- `WBB.Thread.MergeHandler`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
+- `WBB.Thread.AssignLabelHandler`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
+- `WBB.Thread.CopyHandler`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
+- `WBB.Thread.MoveHandler`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
+- `WoltLabSuite/Forum/Ui/Thread/Enable`
+- `WBB.Thread.UpdateHandler`, use the interactions of `wbb\system\listView\user\ThreadListView` instead
+- `WBB.Thread.UpdateHandler.Board`, use the interactions of `wbb\system\listView\user\BoardThreadListView` instead
+- `WBB.Post.Add.MessageOptions`
+- `WBB.Post.Clipboard`, use the bulk interactions of `wbb\system\listView\user\ThreadPostListView` instead
+- `WBB.Post.MergeHandler`, use the bulk interactions of `wbb\system\listView\user\ThreadPostListView` instead
+- `WBB.Post.CopyToExistingThread`, use the bulk interactions of `wbb\system\listView\user\ThreadPostListView` instead
+- `WBB.Post.CopyToNewThread`, use the bulk interactions of `wbb\system\listView\user\ThreadPostListView` instead
+- `WBB.Post.MoveToNewThread`, use the bulk interactions of `wbb\system\listView\user\ThreadPostListView` instead
+- `WoltLabSuite/Forum/Ui/Post/Enable`, use the enable interaction of `wbb\system\listView\user\ThreadPostListView` instead
+- `WoltLabSuite/Forum/Ui/Post/InlineEditor`, use the interactions of `wbb\system\listView\user\ThreadPostListView` instead
+- `WoltLabSuite/Forum/Ui/Post/IpAddressHandler`, use the RPC endpoint `wcf\system\endpoint\controller\forum\posts\GetPostIpLog` instead
+- `WoltLabSuite/Forum/Ui/Post/Manager`
+- `WoltLabSuite/Forum/Handler/Thread/UpdateHandler`, use the interactions of `wbb\system\listView\user\ThreadListView` instead
+- `WoltLabSuite/Forum/Handler/Thread/BoardUpdateHandler`, use the interactions of `wbb\system\listView\user\BoardThreadListView` instead
 - `Gallery.Image.DataHandler.Album`
 - `Gallery.Image.DataHandler.Base`
 - `Gallery.Image.DataHandler.Default`
@@ -1105,7 +1148,21 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `boardThreadListFilter`, use the filters of `wbb\system\listView\user\BoardThreadListView` instead
 - `boxThreadListTable`, use `wbb\system\listView\user\BoxThreadListView` instead
 - `deletedThreadList`, use `wbb\system\listView\user\DeletedThreadListView` instead
+- `moveThreads`, use the move bulk interaction of `wbb\system\listView\user\ThreadListView` instead
+- `postCopyToNewThread`, use the bulk interactions of `wbb\system\listView\user\ThreadPostListView` instead
+- `postDeleteReason`
+- `postEnable`
+- `postMerge`, use the bulk interactions of `wbb\system\listView\user\ThreadPostListView` instead
+- `postMoveToNewThread`, use the bulk interactions of `wbb\system\listView\user\ThreadPostListView` instead
 - `searchResultThreadList`, use `wbb\system\listView\user\SearchResultThreadListView` instead
+- `threadAssignLabel`, use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
+- `threadDeleteReason`
+- `threadEditorDefault`, the thread editor dialog is no longer used
+- `threadEditorLabel`, the thread editor dialog is no longer used
+- `threadEditorTag`, the thread editor dialog is no longer used
+- `threadEnable`
+- `threadMerge`, use the merge bulk interaction of `wbb\system\listView\user\ThreadListView` instead
+- `threadTrash`
 - `threadTypeSelection`
 - `unreadThreadList`, use the `unread` filter of `wbb\system\listView\user\ThreadListView` instead
 - `unresolvedThreadList`, use the `undone` filter of `wbb\system\listView\user\ThreadListView` instead
