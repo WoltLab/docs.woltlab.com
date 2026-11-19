@@ -4219,6 +4219,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#status-badges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status Badges
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Status Badges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#previous-code-example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Previous Code Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-code-example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Code Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#form-styles" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6305,6 +6344,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#status-badges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status Badges
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Status Badges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#previous-code-example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Previous Code Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-code-example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Code Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#form-styles" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6517,6 +6595,23 @@ The labels are direct children of the container and are no longer wrapped in <co
 <span class="x">&lt;/div&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>Template listeners for the template events <code>beforeLabels</code> and <code>afterLabels</code> of the templates <code>threadList</code> and <code>threadContentHeaderTitle</code> have to output the labels without a surrounding <code>li</code> element.</p>
+<h2 id="status-badges">Status Badges<a class="headerlink" href="#status-badges" title="Permanent link">#</a></h2>
+<p>Badges that show the status of content, such as deleted, disabled, featured, or scheduled, are rendered with the new template plugin <a href="../../../view/template-plugins/#badge"><code>{badge}</code></a>.
+Each status has its own color and icon, whereas palette colors such as <code>green</code> were previously used for different statuses.
+Templates should use <code>{badge}</code> instead of writing the markup with a color class:</p>
+<h4 id="previous-code-example_2">Previous Code Example<a class="headerlink" href="#previous-code-example_2" title="Permanent link">#</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">if</span> <span class="nv">$object</span><span class="o">-&gt;</span><span class="na">isDeleted</span><span class="cp">}</span><span class="x">&lt;span class="badge red"&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">wcf.message.status.deleted</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/span&gt;</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">if</span> <span class="nv">$object</span><span class="o">-&gt;</span><span class="na">isFeatured</span><span class="cp">}</span><span class="x">&lt;span class="badge green"&gt;</span><span class="cp">{</span><span class="nf">lang</span><span class="cp">}</span><span class="x">foo.object.featured</span><span class="cp">{</span><span class="nf">/lang</span><span class="cp">}</span><span class="x">&lt;/span&gt;</span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="new-code-example_2">New Code Example<a class="headerlink" href="#new-code-example_2" title="Permanent link">#</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">if</span> <span class="nv">$object</span><span class="o">-&gt;</span><span class="na">isDeleted</span><span class="cp">}{</span><span class="nf">badge</span> <span class="na">type</span><span class="o">=</span><span class="s1">'deleted'</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span>
+<span class="cp">{</span><span class="nf">if</span> <span class="nv">$object</span><span class="o">-&gt;</span><span class="na">isFeatured</span><span class="cp">}{</span><span class="nf">badge</span> <span class="na">type</span><span class="o">=</span><span class="s1">'featured'</span> <span class="na">label</span><span class="o">=</span><span class="s1">'foo.object.featured'</span><span class="cp">}{</span><span class="nf">/if</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<p>In PHP, the badges are rendered with the enum <code>wcf\system\style\BadgeType</code>, for example <code>BadgeType::Deleted-&gt;toHtml()</code>.</p>
+<p>The colors are defined by the CSS classes <code>badge--&lt;type&gt;</code>, which set the CSS custom properties <code>--background-color</code> and <code>--color</code>.
+Styles that change the colors of a status badge should set these properties.</p>
 <h2 id="form-styles">Form Styles<a class="headerlink" href="#form-styles" title="Permanent link">#</a></h2>
 <p>The styling of inputs, labels, and required marks has changed for all forms, including forms not created with the form builder:</p>
 <ul>
@@ -6546,7 +6641,7 @@ The labels are direct children of the container and are no longer wrapped in <co
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-10
+    2026-11-19
   </span>
 
     

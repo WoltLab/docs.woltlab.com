@@ -6689,12 +6689,6 @@
 <li><code>wbb\data\thread\ViewableThreadList</code>, use <code>wbb\data\thread\ThreadList</code> instead</li>
 <li><code>wbb\data\thread\UnreadThreadList</code>, use the <code>unread</code> filter of <code>wbb\system\listView\user\ThreadListView</code> or <code>wbb\data\thread\ThreadList::excludeReadThreads()</code> instead</li>
 <li><code>wbb\data\thread\UnresolvedThreadList</code>, use the <code>undone</code> filter of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
-<li><code>wbb\system\thread\ThreadHandler</code>, the thread editor dialog is no longer used</li>
-<li><code>wbb\system\thread\editor\IThreadEditor</code>, the thread editor dialog is no longer used</li>
-<li><code>wbb\system\thread\editor\AbstractThreadEditor</code>, the thread editor dialog is no longer used</li>
-<li><code>wbb\system\thread\editor\DefaultThreadEditor</code>, the thread editor dialog is no longer used</li>
-<li><code>wbb\system\thread\editor\LabelThreadEditor</code>, the thread editor dialog is no longer used</li>
-<li><code>wbb\system\thread\editor\TagThreadEditor</code>, the thread editor dialog is no longer used</li>
 <li><code>wbb\data\rss\feed\RssFeedAction</code>, use <code>wbb\data\rss\feed\RssFeedBuilder</code> and commands instead</li>
 <li><code>wbb\data\rss\feed\RssFeedEditor</code>, use <code>wbb\data\rss\feed\RssFeedBuilder</code> instead</li>
 <li><code>wbb\data\board\BoardAction</code>, use <code>wbb\data\board\BoardBuilder</code>, the commands and the RPC endpoints instead</li>
@@ -6927,6 +6921,8 @@
 <li><code>wbb\data\thread\Thread::setFirstPost()</code>, the first post is loaded on demand by <code>wbb\data\thread\Thread::getFirstPost()</code></li>
 <li><code>wbb\data\thread\Thread::setBestAnswerPost()</code>, the best answer is loaded on demand by <code>wbb\data\thread\Thread::getBestAnswerPost()</code></li>
 <li><code>wbb\data\thread\BoardThreadList::getLogList()</code>, use <code>wbb\data\thread\Thread::getLogEntry()</code> instead</li>
+<li><code>wcf\acp\form\LoginForm::performRedirect()</code>, use <code>getRedirectResponse()</code> and <code>setPsr7Response()</code> instead (<a href="https://github.com/WoltLab/WCF/issues/6657">WoltLab/WCF#6657</a>)</li>
+<li><code>wcf\form\MultifactorAuthenticationForm::performRedirect()</code>, use <code>getRedirectResponse()</code> and <code>setPsr7Response()</code> instead (<a href="https://github.com/WoltLab/WCF/issues/6657">WoltLab/WCF#6657</a>)</li>
 <li><code>gallery\data\image\Image::getLocation()</code>, use <code>gallery\data\image\Image::getFile()</code> or <code>gallery\data\image\Image::getSource()</code> instead</li>
 <li><code>gallery\data\image\Image::getVideoLocation()</code>, use <code>gallery\data\image\Image::getVideoFile()</code> instead</li>
 <li><code>gallery\data\image\Image::getFilename()</code>, use <code>gallery\data\image\Image::getFile()</code> or <code>gallery\data\image\Image::getDisplayFilename()</code> instead</li>
@@ -7004,20 +7000,8 @@
 <li><code>WoltLabSuite/Core/Form/Builder/Field/Wysiwyg/Poll</code>, use <code>WoltLabSuite/Core/Form/Builder/Field/PollOptionList</code> instead</li>
 <li><code>WoltLabSuite/Core/Component/User/Ignore</code></li>
 <li><code>WoltLabSuite/Core/Ui/User/Ignore/List</code></li>
-<li><code>WBB.Thread.Editor</code>, the thread editor dialog is no longer used</li>
-<li><code>WBB.Thread.Editor.Default</code>, the thread editor dialog is no longer used</li>
-<li><code>WBB.Thread.Editor.LabelChooser</code>, the thread editor dialog is no longer used</li>
-<li><code>WBB.Thread.Editor.Language</code>, the thread editor dialog is no longer used</li>
-<li><code>WBB.Thread.Editor.TagList</code>, the thread editor dialog is no longer used</li>
-<li><code>WBB.Thread.InlineEditor</code>, use the interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
-<li><code>WBB.Thread.Clipboard</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
-<li><code>WBB.Thread.MergeHandler</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
-<li><code>WBB.Thread.AssignLabelHandler</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
-<li><code>WBB.Thread.CopyHandler</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
-<li><code>WBB.Thread.MoveHandler</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
 <li><code>WoltLabSuite/Forum/Ui/Board/MarkAllAsRead</code>, use <code>WoltLabSuite/Forum/Component/Board/MarkAllBoardsAsRead</code> instead</li>
 <li><code>WoltLabSuite/Forum/Ui/Board/MarkAllThreadsAsRead</code>, use <code>WoltLabSuite/Forum/Component/Board/MarkAllThreadsAsRead</code> instead</li>
-<li><code>WoltLabSuite/Forum/Ui/Thread/Enable</code></li>
 <li><code>WoltLabSuite/Forum/Ui/Thread/MarkAsRead</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\forum\threads\MarkThreadAsRead</code> instead</li>
 <li><code>WoltLabSuite/Forum/Ui/Board/MarkAsRead</code>, use <code>WoltLabSuite/Forum/Component/Board/MarkAsRead</code> instead</li>
 </ul>
@@ -7030,9 +7014,6 @@
 <li><code>pollResult</code>, use standalone polls that are embedded through the <code>[poll]</code> BBCode instead</li>
 <li><code>pollVote</code>, use standalone polls that are embedded through the <code>[poll]</code> BBCode instead</li>
 <li><code>shared_pollOptionsFormField</code>, use <code>shared_pollOptionListFormField</code> instead</li>
-<li><code>threadEditorDefault</code>, the thread editor dialog is no longer used</li>
-<li><code>threadEditorLabel</code>, the thread editor dialog is no longer used</li>
-<li><code>threadEditorTag</code>, the thread editor dialog is no longer used</li>
 <li><code>threadList</code>, use <code>wbb\system\listView\user\ThreadListView</code> instead</li>
 </ul>
 <h2 id="removals">Removals<a class="headerlink" href="#removals" title="Permanent link">#</a></h2>
@@ -7157,6 +7138,13 @@
 <li><code>wbb\data\thread\ThreadStatusAction</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\forum\threads\SetThreadSubscriptionStatus</code> instead</li>
 <li><code>wbb\system\clipboard\action\ThreadClipboardAction</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
 <li><code>wbb\data\board\BoardStatusAction</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\forum\boards\SetBoardSubscriptionStatus</code> instead</li>
+<li><code>wbb\system\thread\ThreadHandler</code>, the thread editor dialog is no longer used</li>
+<li><code>wbb\system\thread\editor\IThreadEditor</code>, the thread editor dialog is no longer used</li>
+<li><code>wbb\system\thread\editor\AbstractThreadEditor</code>, the thread editor dialog is no longer used</li>
+<li><code>wbb\system\thread\editor\DefaultThreadEditor</code>, the thread editor dialog is no longer used</li>
+<li><code>wbb\system\thread\editor\LabelThreadEditor</code>, the thread editor dialog is no longer used</li>
+<li><code>wbb\system\thread\editor\TagThreadEditor</code>, the thread editor dialog is no longer used</li>
+<li><code>wbb\system\clipboard\action\PostClipboardAction</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadPostListView</code> instead</li>
 <li><code>gallery\page\ImageEditPage</code>, use <code>gallery\form\ImageEditForm</code> or <code>gallery\page\ImageBulkEditPage</code> instead</li>
 <li><code>gallery\system\upload\ImageUploadFileValidationStrategy</code>, use <code>gallery\system\file\processor\ImageFileProcessor</code> instead</li>
 <li><code>gallery\system\upload\VideoUploadFileValidationStrategy</code>, use <code>gallery\system\file\processor\VideoFileProcessor</code> instead</li>
@@ -7307,6 +7295,9 @@
 <li><code>wbb\data\thread\ThreadAction::validateUnmarkAll()</code></li>
 <li><code>wbb\data\thread\ThreadAction::unmarkAll()</code></li>
 <li><code>wbb\data\thread\ThreadAction::unmarkItems()</code></li>
+<li><code>wbb\data\post\PostAction::validateUnmarkAll()</code></li>
+<li><code>wbb\data\post\PostAction::unmarkAll()</code></li>
+<li><code>wbb\data\post\PostAction::unmarkItems()</code></li>
 <li><code>wbb\data\thread\form\option\ThreadFormOptionAction::validateGetDialogAddForm()</code></li>
 <li><code>wbb\data\thread\form\option\ThreadFormOptionAction::getDialogAddForm()</code></li>
 <li><code>wbb\data\thread\form\option\ThreadFormOptionAction::validatePrepareEdit()</code></li>
@@ -7318,6 +7309,28 @@
 <li><code>wbb\data\thread\form\option\ThreadFormOptionEditor::setShowOrder()</code></li>
 <li><code>wbb\data\thread\DeletedThreadList::getMarkedItems()</code></li>
 <li><code>wbb\data\board\BoardAction::cloneBoard()</code>, use the <code>wbb\command\board\CopyBoard</code> command instead</li>
+<li><code>wbb\data\thread\ThreadAction::validateBeginEdit()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\thread\ThreadAction::beginEdit()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\thread\ThreadAction::validateSaveEdit()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\thread\ThreadAction::saveEdit()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\thread\ThreadAction::validatePrepareEnable()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\thread\ThreadAction::prepareEnable()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\thread\ThreadAction::validateSetEnableTime()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\thread\ThreadAction::setEnableTime()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\thread\ThreadAction::validatePrepareMove()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\thread\ThreadAction::prepareMove()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\thread\ThreadAction::validatePrepareMerge()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\thread\ThreadAction::prepareMerge()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\thread\ThreadAction::validateGetSearchResultList()</code></li>
+<li><code>wbb\data\thread\ThreadAction::getSearchResultList()</code></li>
+<li><code>wbb\data\post\PostAction::validatePrepareEnable()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\post\PostAction::prepareEnable()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\post\PostAction::validateSetEnableTime()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\post\PostAction::setEnableTime()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\post\PostAction::validatePrepareMerge()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\post\PostAction::prepareMerge()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\post\PostAction::validateGetIpLog()</code>, the legacy dialogs are no longer used</li>
+<li><code>wbb\data\post\PostAction::getIpLog()</code>, the legacy dialogs are no longer used</li>
 <li><code>gallery\data\image\ImageAction::loadPendingImages()</code></li>
 <li><code>gallery\data\image\ImageAction::prepareEditLink()</code></li>
 <li><code>gallery\data\image\ImageAction::saveImageData()</code>, use <code>gallery\command\image\CompleteImageUpload</code> or <code>gallery\command\image\UpdateImage</code> instead</li>
@@ -7409,6 +7422,7 @@
 <h4 id="object-types">Object Types<a class="headerlink" href="#object-types" title="Permanent link">#</a></h4>
 <ul>
 <li><code>com.woltlab.wbb.thread</code> (<code>com.woltlab.wcf.clipboardItem</code>), use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
+<li><code>com.woltlab.wbb.post</code> (<code>com.woltlab.wcf.clipboardItem</code>), use the bulk interactions of <code>wbb\system\listView\user\ThreadPostListView</code> instead</li>
 </ul>
 <h3 id="javascript_1">JavaScript<a class="headerlink" href="#javascript_1" title="Permanent link">#</a></h3>
 <ul>
@@ -7530,6 +7544,35 @@
 <li><code>WoltLabSuite/Core/Ui/Toggle/Input</code></li>
 <li><code>WoltLabSuite/Core/Form/Builder/Field/Controller/Rating</code>, <code>RatingFormField</code> is rendered as native radio buttons that do not require a controller</li>
 <li><code>codemirror</code>, including <code>codemirror/addon/*</code>, <code>codemirror/mode/*</code> and the copies of <code>codemirror.js</code> and <code>codemirror.css</code> in <code>js/3rdParty/codemirror/</code>, use <code>@woltlab/codemirror</code> and <code>WoltLabSuite/Core/Component/CodeMirror</code> instead (<a href="https://github.com/WoltLab/WCF/issues/6686">WoltLab/WCF#6686</a>)</li>
+<li><code>WBB.ACP.Board.Collapsible</code></li>
+<li><code>WBB.ACP.Board.Permission.UserGroup</code></li>
+<li><code>WBB.ACP.Board.Permission.User</code></li>
+<li><code>WBB.Thread.Editor</code>, the thread editor dialog is no longer used</li>
+<li><code>WBB.Thread.Editor.Default</code>, the thread editor dialog is no longer used</li>
+<li><code>WBB.Thread.Editor.LabelChooser</code>, the thread editor dialog is no longer used</li>
+<li><code>WBB.Thread.Editor.Language</code>, the thread editor dialog is no longer used</li>
+<li><code>WBB.Thread.Editor.TagList</code>, the thread editor dialog is no longer used</li>
+<li><code>WBB.Thread.InlineEditor</code>, use the interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
+<li><code>WBB.Thread.Clipboard</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
+<li><code>WBB.Thread.MergeHandler</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
+<li><code>WBB.Thread.AssignLabelHandler</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
+<li><code>WBB.Thread.CopyHandler</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
+<li><code>WBB.Thread.MoveHandler</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
+<li><code>WoltLabSuite/Forum/Ui/Thread/Enable</code></li>
+<li><code>WBB.Thread.UpdateHandler</code>, use the interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
+<li><code>WBB.Thread.UpdateHandler.Board</code>, use the interactions of <code>wbb\system\listView\user\BoardThreadListView</code> instead</li>
+<li><code>WBB.Post.Add.MessageOptions</code></li>
+<li><code>WBB.Post.Clipboard</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadPostListView</code> instead</li>
+<li><code>WBB.Post.MergeHandler</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadPostListView</code> instead</li>
+<li><code>WBB.Post.CopyToExistingThread</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadPostListView</code> instead</li>
+<li><code>WBB.Post.CopyToNewThread</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadPostListView</code> instead</li>
+<li><code>WBB.Post.MoveToNewThread</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadPostListView</code> instead</li>
+<li><code>WoltLabSuite/Forum/Ui/Post/Enable</code>, use the enable interaction of <code>wbb\system\listView\user\ThreadPostListView</code> instead</li>
+<li><code>WoltLabSuite/Forum/Ui/Post/InlineEditor</code>, use the interactions of <code>wbb\system\listView\user\ThreadPostListView</code> instead</li>
+<li><code>WoltLabSuite/Forum/Ui/Post/IpAddressHandler</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\forum\posts\GetPostIpLog</code> instead</li>
+<li><code>WoltLabSuite/Forum/Ui/Post/Manager</code></li>
+<li><code>WoltLabSuite/Forum/Handler/Thread/UpdateHandler</code>, use the interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
+<li><code>WoltLabSuite/Forum/Handler/Thread/BoardUpdateHandler</code>, use the interactions of <code>wbb\system\listView\user\BoardThreadListView</code> instead</li>
 <li><code>Gallery.Image.DataHandler.Album</code></li>
 <li><code>Gallery.Image.DataHandler.Base</code></li>
 <li><code>Gallery.Image.DataHandler.Default</code></li>
@@ -7558,7 +7601,21 @@
 <li><code>boardThreadListFilter</code>, use the filters of <code>wbb\system\listView\user\BoardThreadListView</code> instead</li>
 <li><code>boxThreadListTable</code>, use <code>wbb\system\listView\user\BoxThreadListView</code> instead</li>
 <li><code>deletedThreadList</code>, use <code>wbb\system\listView\user\DeletedThreadListView</code> instead</li>
+<li><code>moveThreads</code>, use the move bulk interaction of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
+<li><code>postCopyToNewThread</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadPostListView</code> instead</li>
+<li><code>postDeleteReason</code></li>
+<li><code>postEnable</code></li>
+<li><code>postMerge</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadPostListView</code> instead</li>
+<li><code>postMoveToNewThread</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadPostListView</code> instead</li>
 <li><code>searchResultThreadList</code>, use <code>wbb\system\listView\user\SearchResultThreadListView</code> instead</li>
+<li><code>threadAssignLabel</code>, use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
+<li><code>threadDeleteReason</code></li>
+<li><code>threadEditorDefault</code>, the thread editor dialog is no longer used</li>
+<li><code>threadEditorLabel</code>, the thread editor dialog is no longer used</li>
+<li><code>threadEditorTag</code>, the thread editor dialog is no longer used</li>
+<li><code>threadEnable</code></li>
+<li><code>threadMerge</code>, use the merge bulk interaction of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
+<li><code>threadTrash</code></li>
 <li><code>threadTypeSelection</code></li>
 <li><code>unreadThreadList</code>, use the <code>unread</code> filter of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
 <li><code>unresolvedThreadList</code>, use the <code>undone</code> filter of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
@@ -7599,7 +7656,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-17
+    2026-11-19
   </span>
 
     
