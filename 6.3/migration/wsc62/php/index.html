@@ -4645,6 +4645,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#labels-of-select-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Labels of Select Filters
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7252,6 +7263,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#labels-of-select-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Labels of Select Filters
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -8881,6 +8903,40 @@ Fields that adjust their options, like <code>ShowOrderFormField</code> prependin
     <span class="c1">// Adjust `$this-&gt;options` and `$this-&gt;nestedOptions` here.</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="labels-of-select-filters">Labels of Select Filters<a class="headerlink" href="#labels-of-select-filters" title="Permanent link">#</a></h3>
+<p>The labels passed to <code>wcf\system\view\filter\SelectFilter</code> and <code>wcf\system\view\filter\MultipleSelectFilter</code> are plain text and encoded by the filter.
+Previously, string labels were output as HTML in the filter dialog, while the same labels were shown as text in the filter pill.
+Callers that encoded the labels must pass them unencoded, otherwise they are encoded twice, and overrides of <code>getFormField()</code> that only encoded the labels can be removed:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Previously</span>
+<span class="k">new</span> <span class="k">class</span><span class="p">(</span><span class="nv">$titles</span><span class="p">,</span> <span class="s1">'fooID'</span><span class="p">,</span> <span class="s1">'foo.bar.title'</span><span class="p">,</span> <span class="nx">labelLanguageItems</span><span class="o">:</span> <span class="k">false</span><span class="p">)</span> <span class="k">extends</span> <span class="nx">SelectFilter</span> <span class="p">{</span>
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFormField</span><span class="p">()</span><span class="o">:</span> <span class="nx">SelectFormField</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">SelectFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">languageItem</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">options</span><span class="p">(</span><span class="nx">\array_map</span><span class="p">(</span><span class="nx">StringUtil</span><span class="o">::</span><span class="na">encodeHTML</span><span class="p">(</span><span class="o">...</span><span class="p">),</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">),</span> <span class="k">false</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// Now</span>
+<span class="k">new</span> <span class="nx">SelectFilter</span><span class="p">(</span><span class="nv">$titles</span><span class="p">,</span> <span class="s1">'fooID'</span><span class="p">,</span> <span class="s1">'foo.bar.title'</span><span class="p">,</span> <span class="nx">labelLanguageItems</span><span class="o">:</span> <span class="k">false</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p><code>$labelLanguageItems</code> of <code>SelectFilter</code> and <code>MultipleSelectFilter</code> keeps its meaning.
+If it is <code>true</code>, which is the default, string labels that are phrase names are resolved as phrases, which may contain HTML, and all other labels are text.
+If it is <code>false</code>, every label is text, even if it looks like a phrase name; this is recommended for labels with content entered by users or administrators.</p>
+<p><code>wcf\system\view\filter\CategoryFilter</code> treats the category titles as text as well, a title that looks like a phrase name is no longer resolved a second time.</p>
 <h2 id="multiple-labels-per-label-group">Multiple Labels per Label Group<a class="headerlink" href="#multiple-labels-per-label-group" title="Permanent link">#</a></h2>
 <p>Label groups have a new setting <code>maxSelection</code> that limits the number of labels of the group that can be assigned to a single object.
 The default value <code>1</code> keeps the previous behavior.</p>
