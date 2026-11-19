@@ -7189,9 +7189,46 @@ The implementing class has to implement the methods <code>placeholder($languageI
 <code>TPlaceholderFormField</code> provides a default implementation of these two methods.</p>
 <h4 id="iselectionformfield"><code>ISelectionFormField</code><a class="headerlink" href="#iselectionformfield" title="Permanent link">#</a></h4>
 <p><code>ISelectionFormField</code> has to be implemented by form fields with a predefined set of possible values.
-The implementing class has to implement the getter and setter methods <code>options($options, $nestedOptions = false, $labelLanguageItems = true)</code> and <code>getOptions()</code> and additionally two methods related to nesting, i.e. whether the selectable options have a hierarchy:
-<code>supportsNestedOptions()</code> and <code>getNestedOptions()</code>.
-<code>TSelectionFormField</code> provides a default implementation of these four methods.</p>
+The implementing class has to implement the following methods:</p>
+<ul>
+<li><code>choices(array|\Closure|\Traversable $choices, bool $nested = false): static</code> sets the possible values.
+  <code>$choices</code> is an array mapping the values to their labels, a <code>\Traversable</code>, or a <code>\Closure</code> returning one of both; a <code>DatabaseObjectList</code> is read automatically.
+  An array is always treated as data, even if PHP considers it callable.
+  Labels are plain text and HTML-encoded by the field: strings, integers, floats, and objects implementing <code>__toString()</code> or <code>ITitledObject</code>.
+  Only <code>wcf\util\HtmlString</code> labels are output as they are, so markup requires an explicit <code>HtmlString::fromSafeHtml()</code>.
+  Labels are never resolved as phrases, even if they look like a phrase name.
+  For nested choices, <code>$choices</code> is a traversable of <code>IObjectTreeNode</code> objects or a list of arrays with the entries <code>depth</code>, <code>label</code>, <code>value</code>, and optionally <code>isSelectable</code>.</li>
+<li><code>phraseChoices(array $choices): static</code> sets the possible values with phrases as labels.
+  <code>$choices</code> maps the values to phrase names, which are resolved with the active language and output as HTML.
+  Labels that are no phrase name are rejected with an <code>\InvalidArgumentException</code>.</li>
+<li><code>getOptions()</code> returns the selectable values mapped to their labels as HTML.</li>
+<li><code>supportsNestedOptions()</code> and <code>getNestedOptions()</code> relate to nesting, i.e. whether the selectable options have a hierarchy.</li>
+<li><code>options($options, $nestedOptions = false, $labelLanguageItems = true)</code> is deprecated since version 6.3, use <code>choices()</code> or <code>phraseChoices()</code> instead.
+  It outputs string labels as HTML and resolves labels that look like a phrase name.</li>
+</ul>
+<p><code>TSelectionFormField</code> provides a default implementation of these methods.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">SelectFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'status'</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">phraseChoices</span><span class="p">([</span>
+    <span class="s1">'open'</span> <span class="o">=&gt;</span> <span class="s1">'foo.bar.status.open'</span><span class="p">,</span>
+    <span class="s1">'closed'</span> <span class="o">=&gt;</span> <span class="s1">'foo.bar.status.closed'</span><span class="p">,</span>
+  <span class="p">]);</span>
+
+<span class="c1">// `$filenames` maps file ids to user-provided file names, which are encoded by the field.</span>
+<span class="nx">SelectFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'fileID'</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">choices</span><span class="p">(</span>
+    <span class="p">[</span><span class="mi">0</span> <span class="o">=&gt;</span> <span class="nx">HtmlString</span><span class="o">::</span><span class="na">fromSafeHtml</span><span class="p">(</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'foo.bar.file.none'</span><span class="p">))]</span> <span class="o">+</span> <span class="nv">$filenames</span>
+  <span class="p">);</span>
+</code></pre></div></td></tr></table></div>
 <h4 id="isuffixedformfield"><code>ISuffixedFormField</code><a class="headerlink" href="#isuffixedformfield" title="Permanent link">#</a></h4>
 <p><code>ISuffixedFormField</code> has to be implemented by form fields that support supports displaying a suffix behind the actual input field.
 The implementing class has to implement the methods <code>suffix($languageItem = null, array $variables = [])</code> and <code>getSuffix()</code>.
@@ -7223,7 +7260,7 @@ The implementing class has to implement the methods <code>suffix($languageItem =
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-05
+    2026-11-19
   </span>
 
     

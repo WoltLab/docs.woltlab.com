@@ -4634,6 +4634,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#options-of-selection-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options of Selection Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7230,6 +7241,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#options-of-selection-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options of Selection Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -8774,9 +8796,91 @@ Artificial options with the key <code>''</code> that represent no selection and 
 
 <span class="c1">// Now</span>
 <span class="nx">FilterableSelectFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'categoryID'</span><span class="p">)</span>
-    <span class="o">-&gt;</span><span class="na">options</span><span class="p">(</span><span class="nv">$categories</span><span class="p">);</span>
+    <span class="o">-&gt;</span><span class="na">choices</span><span class="p">(</span><span class="nv">$categories</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p><code>SortOrderFormField</code> and <code>ShowOrderFormField</code> extend <code>AbstractSingleSelectFormField</code> instead of <code>SingleSelectionFormField</code>.</p>
+<h3 id="options-of-selection-fields">Options of Selection Fields<a class="headerlink" href="#options-of-selection-fields" title="Permanent link">#</a></h3>
+<p><code>ISelectionFormField::options()</code> has been deprecated, because it output string labels as HTML and silently replaced every label that looked like a phrase name, including version numbers like <code>1.0.0</code>, with that phrase.
+It is replaced by two methods that encode by default:</p>
+<ul>
+<li><code>choices()</code> accepts the same options as <code>options()</code>, without <code>$labelLanguageItems</code>, except that a callable must be a <code>\Closure</code>.
+  Array and string callables have to be converted, e.g. <code>[$this, 'getCategoryOptions']</code> into <code>$this-&gt;getCategoryOptions(...)</code>; an array is always treated as data.
+  Strings, integers, floats, and objects implementing <code>__toString()</code> or <code>ITitledObject</code> are plain text and encoded by the field.
+  Only <code>wcf\util\HtmlString</code> labels are output as they are.
+  Labels are never resolved as phrases.</li>
+<li><code>phraseChoices()</code> accepts a flat array of values mapped to phrase names and outputs the resolved phrases as HTML.
+  A label that is no phrase name causes an <code>\InvalidArgumentException</code>.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Previously</span>
+<span class="nx">SelectFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'sortOrder'</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">options</span><span class="p">([</span>
+        <span class="s1">'ASC'</span> <span class="o">=&gt;</span> <span class="s1">'wcf.global.sortOrder.ascending'</span><span class="p">,</span>
+        <span class="s1">'DESC'</span> <span class="o">=&gt;</span> <span class="s1">'wcf.global.sortOrder.descending'</span><span class="p">,</span>
+    <span class="p">]);</span>
+
+<span class="c1">// Now</span>
+<span class="nx">SelectFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'sortOrder'</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">phraseChoices</span><span class="p">([</span>
+        <span class="s1">'ASC'</span> <span class="o">=&gt;</span> <span class="s1">'wcf.global.sortOrder.ascending'</span><span class="p">,</span>
+        <span class="s1">'DESC'</span> <span class="o">=&gt;</span> <span class="s1">'wcf.global.sortOrder.descending'</span><span class="p">,</span>
+    <span class="p">]);</span>
+</code></pre></div></td></tr></table></div>
+<p>Dynamic text that was encoded by the caller must be passed unencoded, otherwise it is encoded twice:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Previously</span>
+<span class="nv">$field</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">(</span><span class="nx">\array_map</span><span class="p">(</span><span class="nx">StringUtil</span><span class="o">::</span><span class="na">encodeHTML</span><span class="p">(</span><span class="o">...</span><span class="p">),</span> <span class="nv">$filenames</span><span class="p">));</span>
+
+<span class="c1">// Now</span>
+<span class="nv">$field</span><span class="o">-&gt;</span><span class="na">choices</span><span class="p">(</span><span class="nv">$filenames</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Labels with intentional markup and phrases in lists with other labels have to be wrapped in <code>HtmlString::fromSafeHtml()</code>, which makes the caller responsible for the safety of the markup:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$field</span><span class="o">-&gt;</span><span class="na">choices</span><span class="p">([</span>
+    <span class="mi">0</span> <span class="o">=&gt;</span> <span class="nx">HtmlString</span><span class="o">::</span><span class="na">fromSafeHtml</span><span class="p">(</span><span class="nx">WCF</span><span class="o">::</span><span class="na">getLanguage</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'foo.bar.file.none'</span><span class="p">)),</span>
+    <span class="mi">1</span> <span class="o">=&gt;</span> <span class="nx">HtmlString</span><span class="o">::</span><span class="na">fromSafeHtml</span><span class="p">(</span><span class="s1">'&lt;span class="badge"&gt;'</span> <span class="o">.</span> <span class="nx">StringUtil</span><span class="o">::</span><span class="na">encodeHTML</span><span class="p">(</span><span class="nv">$title</span><span class="p">)</span> <span class="o">.</span> <span class="s1">'&lt;/span&gt;'</span><span class="p">),</span>
+    <span class="mi">2</span> <span class="o">=&gt;</span> <span class="nv">$filename</span><span class="p">,</span>
+<span class="p">]);</span>
+</code></pre></div></td></tr></table></div>
+<p>Nested options keep their array shape with the entries <code>depth</code>, <code>label</code>, <code>value</code>, and <code>isSelectable</code>, so <code>options($options, true)</code> becomes <code>choices($options, true)</code>, with the labels following the same rules.
+Calls with <code>$labelLanguageItems = false</code> become <code>choices()</code> as well; their string labels are encoded from now on.
+<code>HtmlString</code> labels passed to the deprecated <code>options()</code> are no longer encoded a second time.</p>
+<p><code>getOptions()</code> and <code>getNestedOptions()</code> still return the labels as HTML, which templates output with <code>{unsafe:…}</code>.</p>
+<p><code>choices()</code> and <code>phraseChoices()</code> have been added to <code>ISelectionFormField</code>.
+Classes that implement the interface without using <code>TSelectionFormField</code> have to implement both methods.</p>
+<p>Overrides of <code>options()</code> are not invoked by <code>choices()</code> and <code>phraseChoices()</code>.
+Fields that adjust their options, like <code>ShowOrderFormField</code> prepending its first position option, have to override the protected <code>applyOptions()</code> instead, which validates and stores the options and is called exactly once by each of the three methods:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+<span class="k">protected</span> <span class="k">function</span> <span class="nf">applyOptions</span><span class="p">(</span><span class="k">array</span><span class="o">|</span><span class="nx">\Traversable</span> <span class="nv">$options</span><span class="p">,</span> <span class="nx">bool</span> <span class="nv">$nestedOptions</span><span class="p">,</span> <span class="nx">\Closure</span> <span class="nv">$normalizeLabel</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
+<span class="p">{</span>
+    <span class="k">parent</span><span class="o">::</span><span class="na">applyOptions</span><span class="p">(</span><span class="nv">$options</span><span class="p">,</span> <span class="nv">$nestedOptions</span><span class="p">,</span> <span class="nv">$normalizeLabel</span><span class="p">);</span>
+
+    <span class="c1">// Adjust `$this-&gt;options` and `$this-&gt;nestedOptions` here.</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="multiple-labels-per-label-group">Multiple Labels per Label Group<a class="headerlink" href="#multiple-labels-per-label-group" title="Permanent link">#</a></h2>
 <p>Label groups have a new setting <code>maxSelection</code> that limits the number of labels of the group that can be assigned to a single object.
 The default value <code>1</code> keeps the previous behavior.</p>
@@ -8867,7 +8971,7 @@ References to the deleted thumbnails must tolerate this, e.g. through a foreign 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-14
+    2026-11-19
   </span>
 
     
