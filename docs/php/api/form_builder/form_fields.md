@@ -27,7 +27,7 @@ An empty selection is represented by `null`, which fails the validation of requi
 The following methods are specific to this form field class:
 
 - `defaultValue($defaultValue)` and `hasDefaultValue()` can be used to set an initial default value which also removes the “No Selection” option.
-  The default value has to be one of the options, thus `defaultValue()` has to be called after `options()`.
+  The default value has to be one of the options, thus `defaultValue()` has to be called after `choices()` or `phraseChoices()`.
 - `ignoreInvalidValues($ignoreInvalidValues = true)` ignores values that are not among the options instead of throwing an exception when setting the value.
 
 ### `AbstractFormFieldDecorator`
@@ -191,7 +191,7 @@ Example:
 ```php
 FilterableSelectFormField::create('example')
   ->label('foo.bar.example')
-  ->options($categories, true)
+  ->choices($categories, true)
 ```
 
 
@@ -340,7 +340,7 @@ Example:
 ```php
 MultipleSelectionFormField::create('example')
   ->label('foo.bar.example')
-  ->options([
+  ->choices([
     1 => 'one',
     2 => 'two',
   ])
@@ -391,9 +391,9 @@ Example:
 ```php
 RadioButtonFormField::create('example')
   ->label('foo.bar.example')
-  ->options([
-    1 => 'one',
-    2 => 'two',
+  ->phraseChoices([
+    1 => 'foo.bar.example.one',
+    2 => 'foo.bar.example.two',
   ])
 ```
 
@@ -425,14 +425,14 @@ Example:
 
 ```php
 SelectFormField::create('select')
-  ->options(['option1', 'option2', 'option3']);
+  ->choices(['option1', 'option2', 'option3']);
 ```
 
 ### `ShowOrderFormField`
 
 `ShowOrderFormField` is a [single select form field](#abstractsingleselectformfield) for which the selected value determines the position at which an object is shown.
 The show order field provides a list of all siblings and the object will be positioned **after** the selected sibling.
-To insert objects at the very beginning, the `options()` automatically method prepends an additional option for that case so that only the existing siblings need to be passed.
+To insert objects at the very beginning, an additional option for that case is automatically prepended to the options set by `choices()` or `phraseChoices()` so that only the existing siblings need to be passed.
 The default id of instances of this class is `showOrder` and their default label is `wcf.form.field.showOrder`.
 
 !!! info "It is important that the relevant object property is always kept updated. Whenever a new object is added or an existing object is edited or delete, the values of the other objects have to be adjusted to ensure consecutive numbering."
@@ -441,7 +441,7 @@ Example:
 
 ```php
 ShowOrderFormField::create('example')
-  ->options(new FooList())
+  ->choices(new FooList())
 ```
 
 
@@ -457,7 +457,7 @@ Example:
 
 ```php
 SingleSelectionFormField::create('example')
-  ->options(['option1', 'option2', 'option3'])
+  ->choices(['option1', 'option2', 'option3'])
 ```
 
 

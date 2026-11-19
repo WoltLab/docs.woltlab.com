@@ -1111,10 +1111,81 @@ SingleSelectionFormField::create('categoryID')
 
 // Now
 FilterableSelectFormField::create('categoryID')
-    ->options($categories);
+    ->choices($categories);
 ```
 
 `SortOrderFormField` and `ShowOrderFormField` extend `AbstractSingleSelectFormField` instead of `SingleSelectionFormField`.
+
+### Options of Selection Fields
+
+`ISelectionFormField::options()` has been deprecated, because it output string labels as HTML and silently replaced every label that looked like a phrase name, including version numbers like `1.0.0`, with that phrase.
+It is replaced by two methods that encode by default:
+
+- `choices()` accepts the same options as `options()`, without `$labelLanguageItems`, except that a callable must be a `\Closure`.
+  Array and string callables have to be converted, e.g. `[$this, 'getCategoryOptions']` into `$this->getCategoryOptions(...)`; an array is always treated as data.
+  Strings, integers, floats, and objects implementing `__toString()` or `ITitledObject` are plain text and encoded by the field.
+  Only `wcf\util\HtmlString` labels are output as they are.
+  Labels are never resolved as phrases.
+- `phraseChoices()` accepts a flat array of values mapped to phrase names and outputs the resolved phrases as HTML.
+  A label that is no phrase name causes an `\InvalidArgumentException`.
+
+```php
+// Previously
+SelectFormField::create('sortOrder')
+    ->options([
+        'ASC' => 'wcf.global.sortOrder.ascending',
+        'DESC' => 'wcf.global.sortOrder.descending',
+    ]);
+
+// Now
+SelectFormField::create('sortOrder')
+    ->phraseChoices([
+        'ASC' => 'wcf.global.sortOrder.ascending',
+        'DESC' => 'wcf.global.sortOrder.descending',
+    ]);
+```
+
+Dynamic text that was encoded by the caller must be passed unencoded, otherwise it is encoded twice:
+
+```php
+// Previously
+$field->options(\array_map(StringUtil::encodeHTML(...), $filenames));
+
+// Now
+$field->choices($filenames);
+```
+
+Labels with intentional markup and phrases in lists with other labels have to be wrapped in `HtmlString::fromSafeHtml()`, which makes the caller responsible for the safety of the markup:
+
+```php
+$field->choices([
+    0 => HtmlString::fromSafeHtml(WCF::getLanguage()->get('foo.bar.file.none')),
+    1 => HtmlString::fromSafeHtml('<span class="badge">' . StringUtil::encodeHTML($title) . '</span>'),
+    2 => $filename,
+]);
+```
+
+Nested options keep their array shape with the entries `depth`, `label`, `value`, and `isSelectable`, so `options($options, true)` becomes `choices($options, true)`, with the labels following the same rules.
+Calls with `$labelLanguageItems = false` become `choices()` as well; their string labels are encoded from now on.
+`HtmlString` labels passed to the deprecated `options()` are no longer encoded a second time.
+
+`getOptions()` and `getNestedOptions()` still return the labels as HTML, which templates output with `{unsafe:…}`.
+
+`choices()` and `phraseChoices()` have been added to `ISelectionFormField`.
+Classes that implement the interface without using `TSelectionFormField` have to implement both methods.
+
+Overrides of `options()` are not invoked by `choices()` and `phraseChoices()`.
+Fields that adjust their options, like `ShowOrderFormField` prepending its first position option, have to override the protected `applyOptions()` instead, which validates and stores the options and is called exactly once by each of the three methods:
+
+```php
+#[\Override]
+protected function applyOptions(array|\Traversable $options, bool $nestedOptions, \Closure $normalizeLabel): void
+{
+    parent::applyOptions($options, $nestedOptions, $normalizeLabel);
+
+    // Adjust `$this->options` and `$this->nestedOptions` here.
+}
+```
 
 ## Multiple Labels per Label Group
 

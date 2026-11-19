@@ -456,9 +456,38 @@ The implementing class has to implement the methods `placeholder($languageItem =
 #### `ISelectionFormField`
 
 `ISelectionFormField` has to be implemented by form fields with a predefined set of possible values.
-The implementing class has to implement the getter and setter methods `options($options, $nestedOptions = false, $labelLanguageItems = true)` and `getOptions()` and additionally two methods related to nesting, i.e. whether the selectable options have a hierarchy:
-`supportsNestedOptions()` and `getNestedOptions()`.
-`TSelectionFormField` provides a default implementation of these four methods.
+The implementing class has to implement the following methods:
+
+- `choices(array|\Closure|\Traversable $choices, bool $nested = false): static` sets the possible values.
+  `$choices` is an array mapping the values to their labels, a `\Traversable`, or a `\Closure` returning one of both; a `DatabaseObjectList` is read automatically.
+  An array is always treated as data, even if PHP considers it callable.
+  Labels are plain text and HTML-encoded by the field: strings, integers, floats, and objects implementing `__toString()` or `ITitledObject`.
+  Only `wcf\util\HtmlString` labels are output as they are, so markup requires an explicit `HtmlString::fromSafeHtml()`.
+  Labels are never resolved as phrases, even if they look like a phrase name.
+  For nested choices, `$choices` is a traversable of `IObjectTreeNode` objects or a list of arrays with the entries `depth`, `label`, `value`, and optionally `isSelectable`.
+- `phraseChoices(array $choices): static` sets the possible values with phrases as labels.
+  `$choices` maps the values to phrase names, which are resolved with the active language and output as HTML.
+  Labels that are no phrase name are rejected with an `\InvalidArgumentException`.
+- `getOptions()` returns the selectable values mapped to their labels as HTML.
+- `supportsNestedOptions()` and `getNestedOptions()` relate to nesting, i.e. whether the selectable options have a hierarchy.
+- `options($options, $nestedOptions = false, $labelLanguageItems = true)` is deprecated since version 6.3, use `choices()` or `phraseChoices()` instead.
+  It outputs string labels as HTML and resolves labels that look like a phrase name.
+
+`TSelectionFormField` provides a default implementation of these methods.
+
+```php
+SelectFormField::create('status')
+  ->phraseChoices([
+    'open' => 'foo.bar.status.open',
+    'closed' => 'foo.bar.status.closed',
+  ]);
+
+// `$filenames` maps file ids to user-provided file names, which are encoded by the field.
+SelectFormField::create('fileID')
+  ->choices(
+    [0 => HtmlString::fromSafeHtml(WCF::getLanguage()->get('foo.bar.file.none'))] + $filenames
+  );
+```
 
 
 #### `ISuffixedFormField`

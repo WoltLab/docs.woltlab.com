@@ -483,6 +483,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\data\image\ImageAction::update()`, use `gallery\command\image\UpdateImage` instead
 - `gallery\data\album\AlbumAction::create()`, use `gallery\command\album\CreateAlbum` instead
 - `gallery\data\album\AlbumAction::update()`, use `gallery\command\album\UpdateAlbum` instead
+- `wcf\system\form\builder\field\ISelectionFormField::options()`, use `wcf\system\form\builder\field\ISelectionFormField::choices()` or `wcf\system\form\builder\field\ISelectionFormField::phraseChoices()` instead
+- `wcf\system\form\builder\field\TSelectionFormField::options()`, use `wcf\system\form\builder\field\TSelectionFormField::choices()` or `wcf\system\form\builder\field\TSelectionFormField::phraseChoices()` instead
 
 #### Properties
 
