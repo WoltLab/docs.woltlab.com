@@ -168,6 +168,7 @@ class ExampleListView extends AbstractListView
 ### CategoryFilter
 
 `CategoryFilter` is a filter for columns that contain category ids.
+The titles of the categories are plain text.
 
 ```php
 class ExampleListView extends AbstractListView
@@ -235,6 +236,7 @@ class ExampleListView extends AbstractListView
 ### MultipleSelectFilter
 
 `MultipleSelectFilter` allows a column to be filtered on the basis of a multi-select.
+The labels are handled like those of [`SelectFilter`](#selectfilter).
 
 ```php
 class ExampleListView extends AbstractListView
@@ -258,6 +260,9 @@ class ExampleListView extends AbstractListView
 ### SelectFilter
 
 `SelectFilter` allows a column to be filtered on the basis of a select dropdown.
+The labels are plain text and encoded by the filter: strings, integers, floats, and objects implementing `__toString()` or `ITitledObject`.
+By default, string labels that are phrase names are resolved as phrases, which may contain HTML.
+Pass `labelLanguageItems: false` to treat every label as text, which is recommended for labels with content entered by users or administrators.
 
 ```php
 class ExampleListView extends AbstractListView

@@ -1187,6 +1187,34 @@ protected function applyOptions(array|\Traversable $options, bool $nestedOptions
 }
 ```
 
+### Labels of Select Filters
+
+The labels passed to `wcf\system\view\filter\SelectFilter` and `wcf\system\view\filter\MultipleSelectFilter` are plain text and encoded by the filter.
+Previously, string labels were output as HTML in the filter dialog, while the same labels were shown as text in the filter pill.
+Callers that encoded the labels must pass them unencoded, otherwise they are encoded twice, and overrides of `getFormField()` that only encoded the labels can be removed:
+
+```php
+// Previously
+new class($titles, 'fooID', 'foo.bar.title', labelLanguageItems: false) extends SelectFilter {
+    #[\Override]
+    public function getFormField(): SelectFormField
+    {
+        return SelectFormField::create($this->id)
+            ->label($this->languageItem)
+            ->options(\array_map(StringUtil::encodeHTML(...), $this->options), false, false);
+    }
+};
+
+// Now
+new SelectFilter($titles, 'fooID', 'foo.bar.title', labelLanguageItems: false);
+```
+
+`$labelLanguageItems` of `SelectFilter` and `MultipleSelectFilter` keeps its meaning.
+If it is `true`, which is the default, string labels that are phrase names are resolved as phrases, which may contain HTML, and all other labels are text.
+If it is `false`, every label is text, even if it looks like a phrase name; this is recommended for labels with content entered by users or administrators.
+
+`wcf\system\view\filter\CategoryFilter` treats the category titles as text as well, a title that looks like a phrase name is no longer resolved a second time.
+
 ## Multiple Labels per Label Group
 
 Label groups have a new setting `maxSelection` that limits the number of labels of the group that can be assigned to a single object.
