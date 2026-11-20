@@ -209,6 +209,33 @@ In PHP, the badges are rendered with the enum `wcf\system\style\BadgeType`, for 
 The colors are defined by the CSS classes `badge--<type>`, which set the CSS custom properties `--background-color` and `--color`.
 Styles that change the colors of a status badge should set these properties.
 
+## User Stat Items
+
+The user profile header, the user card and the sidebar of messages show the stat items of the PSR-14 event `wcf\event\user\profile\UserProfileStatItemCollecting`, see [PHP API](php.md#user-stat-items).
+The template `__userStatItems` renders the items returned by `UserProfile::getStatItems()`, the parameter `className` sets the CSS class of the items, which is also used as the prefix of the child elements `{$className}__key` and `{$className}__value`.
+
+```smarty
+{include file='__userStatItems' statItems=$userProfile->getStatItems('userCard') className='userCard__footer__statsItem'}
+```
+
+The template events `beforeStats` and `afterStats` of the template `userCard` are deprecated, use the event `UserProfileStatItemCollecting` instead.
+
+## Message List View Sidebar
+
+The template `messageListViewSidebar` contains the sidebar of the redesigned message list view, which shows the avatar, the username, the user title, the rank image, the special trophies, the stat items and the user options configured with `MESSAGE_SIDEBAR_USER_OPTIONS`.
+The template expects the variable `$userProfile` and supports the following optional variables:
+
+- `$isReply` hides everything except the avatar and the username, the username is also hidden for guests.
+- `$enableMicrodata` adds the schema.org microdata of the author.
+- `$isContentAuthor` marks the user as the author of the content to which the message belongs.
+- `$contentAuthorTitlePhrase` sets the phrase of this mark, the default value is `wcf.comment.objectAuthor`.
+
+```smarty
+{include file='messageListViewSidebar' userProfile=$message->getUserProfile() enableMicrodata=true isContentAuthor=$isContentAuthor}
+```
+
+The template events `icons`, `afterUserTitle` and `sidebar` allow additional content to be added after the username, after the user title and at the end of the sidebar.
+
 ## Form Styles
 
 The styling of inputs, labels, and required marks has changed for all forms, including forms not created with the form builder:

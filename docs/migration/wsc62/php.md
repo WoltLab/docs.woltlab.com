@@ -669,7 +669,7 @@ The permission checks for the administration of users are available as methods o
 The result of `canConfirmEmail()` can be modified through the PSR-14 event `wcf\event\user\UserEmailConfirmationChecking`.
 Do not confuse this method with the existing `canEmailConfirm()`, which checks whether the user can confirm the email address themselves.
 
-The avatar, the rank, the user title, the online status and the privacy settings are also available on `User` through `getAvatar()`, `getRank()`, `getUserTitle()`, `isOnline()` and `isAccessible()`, it is no longer necessary to create a `UserProfile` for these.
+The avatar, the rank, the user title, the online status, the special trophies and the privacy settings are also available on `User` through `getAvatar()`, `getRank()`, `getUserTitle()`, `isOnline()`, `getSpecialTrophies()` and `isAccessible()`, it is no longer necessary to create a `UserProfile` for these.
 The data required for these methods is loaded for all users of the same collection at once (`wcf\data\user\UserCollection`).
 The corresponding methods of `UserProfile` remain available.
 The constants `UserProfile::ACCESS_*` are aliases of the new constants `User::ACCESS_*`.
@@ -764,6 +764,43 @@ The forms to assign users to groups, to export email addresses, to merge users a
 The edit page of a user in the ACP shows the profile header of the user (`wcf\system\view\user\profile\AdminUserProfileHeaderView`), which provides the interactions of the user.
 The header fires the existing events `wcf\event\user\profile\UserProfileStatItemCollecting` and `wcf\event\user\profile\UserProfileHeaderSearchContentLinkCollecting`, which means that their listeners are also executed in the ACP.
 Links of stat items must be absolute, e.g. `$user->getLink() . '#foo'` instead of `#foo`.
+Stat items created with `UserProfileStatItem::forButton()` are rendered as buttons in the ACP as well, previously they were shown as plain text.
+
+## User Stat Items
+
+The stat items collected by the PSR-14 event `wcf\event\user\profile\UserProfileStatItemCollecting` are no longer limited to the user profile header, they are also shown in the user card and in the sidebar of messages.
+The new property `$context` of the event contains the location in which the items are displayed as a value of the enum `wcf\system\view\user\profile\UserStatContext`:
+
+- `UserStatContext::ProfileHeader`, the header of the user profile in the frontend and in the ACP
+- `UserStatContext::UserCard`, the user card shown when hovering a username
+- `UserStatContext::MessageSidebar`, the sidebar of messages
+
+The method `isMessageSidebar()` of the event returns `true` if the items are displayed in the sidebar of messages.
+The default items of the reactions received, the activity points and the trophy points respect the options `MESSAGE_SIDEBAR_ENABLE_LIKES_RECEIVED`, `MESSAGE_SIDEBAR_ENABLE_ACTIVITY_POINTS` and `MESSAGE_SIDEBAR_ENABLE_TROPHY_POINTS` in the sidebar of messages, the trophy points are not shown in the user profile header.
+Listeners that add items should check the context, because the space in the user card and in the sidebar of messages is limited:
+
+```php
+EventHandler::getInstance()->register(
+    \wcf\event\user\profile\UserProfileStatItemCollecting::class,
+    static function (\wcf\event\user\profile\UserProfileStatItemCollecting $event) {
+        if ($event->isMessageSidebar() || !$event->user->exampleCounter) {
+            return;
+        }
+
+        $event->register(\wcf\system\view\user\profile\UserProfileStatItem::forLink(
+            WCF::getLanguage()->get('phrase.exampleCounter'),
+            StringUtil::formatNumeric($event->user->exampleCounter),
+            LinkHandler::getInstance()->getControllerLink(
+                \example\page\ExampleListPage::class,
+                ['object' => $event->user]
+            )
+        ));
+    }
+);
+```
+
+The items of a user are returned by `UserProfile::getStatItems()`, which accepts either a `UserStatContext` or its string value and fires the event only once per user and context.
+The template `__userStatItems` renders the items, see [Templates](templates.md#user-stat-items).
 
 ## User Options
 

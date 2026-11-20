@@ -446,6 +446,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\user\profile\menu\item\UserProfileMenuItemAction::validateGetContent()`
 - `wcf\data\user\profile\menu\item\UserProfileMenuItemAction::getContent()`
 - `wcf\data\user\UserProfile::setFileAvatar()`
+- `wcf\data\user\UserProfile::prepareSpecialTrophies()`, the special trophies are loaded for all users of a `wcf\data\user\UserCollection` at once
 - `wcf\system\view\user\profile\UserProfileHeaderView::isInAccessibleGroup()`
 - `wcf\util\UserRegistrationUtil::getRandomFieldName()`
 - `wcf\data\media\Media::getI18nData()`, use `wcf\data\media\Media::getL10nValues()` instead
@@ -562,6 +563,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `pollVote`, use standalone polls that are embedded through the `[poll]` BBCode instead
 - `shared_pollOptionsFormField`, use `shared_pollOptionListFormField` instead
 - `threadList`, use `wbb\system\listView\user\ThreadListView` instead
+- The template events `beforeStats` and `afterStats` of `userCard`, use the event `wcf\event\user\profile\UserProfileStatItemCollecting` instead, see [User Stat Items](php.md#user-stat-items)
 
 ## Removals
 
