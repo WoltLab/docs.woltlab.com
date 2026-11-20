@@ -4038,6 +4038,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../migration/wsc62/forum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../migration/wsc62/gallery/" class="md-nav__link">
         
   
@@ -7124,10 +7152,142 @@
 <td>Deletes the filebase license with the given ID.</td>
 </tr>
 <tr>
+<td>GetCreateThreadBoardSelection</td>
+<td>Get</td>
+<td>/forum/boards/create-thread-board-selection</td>
+<td>Retrieves the HTML code for the selection of the forum boards in which the active user can create a thread.</td>
+</tr>
+<tr>
+<td>GetIgnoreBoardsDialog</td>
+<td>Get</td>
+<td>/forum/boards/ignore-dialog</td>
+<td>Retrieves the HTML code for the dialog to select the forum boards ignored by the active user.</td>
+</tr>
+<tr>
+<td>SetIgnoredBoards</td>
+<td>Post</td>
+<td>/forum/boards/ignored</td>
+<td>Sets the forum boards ignored by the active user, replacing the previously ignored boards.</td>
+</tr>
+<tr>
+<td>MarkAllBoardsAsRead</td>
+<td>Post</td>
+<td>/forum/boards/mark-all-as-read</td>
+<td>Marks all threads of all forum boards as read for the active user.</td>
+</tr>
+<tr>
+<td>SetBoardPositions</td>
+<td>Post</td>
+<td>/forum/boards/positions</td>
+<td>Sets the positions of the forum boards.</td>
+</tr>
+<tr>
+<td>StopWatchingBoards</td>
+<td>Post</td>
+<td>/forum/boards/stop-watching</td>
+<td>Stops watching the given forum boards for the active user, an empty list stops watching all boards.</td>
+</tr>
+<tr>
+<td>DeleteBoard</td>
+<td>Delete</td>
+<td>/forum/boards/{id:\d+}</td>
+<td>Deletes the forum board with the given ID.</td>
+</tr>
+<tr>
+<td>DisableBoard</td>
+<td>Post</td>
+<td>/forum/boards/{id:\d+}/disable</td>
+<td>Disables the forum board with the given ID.</td>
+</tr>
+<tr>
+<td>EnableBoard</td>
+<td>Post</td>
+<td>/forum/boards/{id:\d+}/enable</td>
+<td>Enables the forum board with the given ID.</td>
+</tr>
+<tr>
+<td>MarkBoardAsRead</td>
+<td>Post</td>
+<td>/forum/boards/{id:\d+}/mark-as-read</td>
+<td>Marks all threads of the forum board with the given ID and its child boards as read for the active user.</td>
+</tr>
+<tr>
+<td>SetBoardSubscriptionStatus</td>
+<td>Post</td>
+<td>/forum/boards/{id:\d+}/subscription-status</td>
+<td>Sets the subscription status of the active user for the forum board with the given ID.</td>
+</tr>
+<tr>
+<td>CopyPosts</td>
+<td>Post</td>
+<td>/forum/posts/copy</td>
+<td>Copies forum posts to a thread in chunks.</td>
+</tr>
+<tr>
+<td>DeletePost</td>
+<td>Delete</td>
+<td>/forum/posts/{id:\d+}</td>
+<td>Deletes the forum post with the given ID that is in the trash.</td>
+</tr>
+<tr>
+<td>ClosePost</td>
+<td>Post</td>
+<td>/forum/posts/{id:\d+}/close</td>
+<td>Closes the forum post with the given ID.</td>
+</tr>
+<tr>
+<td>DisablePost</td>
+<td>Post</td>
+<td>/forum/posts/{id:\d+}/disable</td>
+<td>Disables the forum post with the given ID.</td>
+</tr>
+<tr>
+<td>EnablePost</td>
+<td>Post</td>
+<td>/forum/posts/{id:\d+}/enable</td>
+<td>Enables the forum post with the given ID.</td>
+</tr>
+<tr>
+<td>GetPostIpLog</td>
+<td>Get</td>
+<td>/forum/posts/{id:\d+}/ip-log</td>
+<td>Retrieves the HTML code of the IP addresses of the author of the forum post with the given ID.</td>
+</tr>
+<tr>
+<td>MarkPostAsBestAnswer</td>
+<td>Post</td>
+<td>/forum/posts/{id:\d+}/mark-as-best-answer</td>
+<td>Marks the forum post with the given ID as the best answer of its thread.</td>
+</tr>
+<tr>
+<td>OpenPost</td>
+<td>Post</td>
+<td>/forum/posts/{id:\d+}/open</td>
+<td>Opens the forum post with the given ID.</td>
+</tr>
+<tr>
 <td>GetPostPopover</td>
 <td>Get</td>
 <td>/forum/posts/{id:\d+}/popover</td>
 <td>Retrieves the HTML code for the popover of the forum post with the given ID.</td>
+</tr>
+<tr>
+<td>RestorePost</td>
+<td>Post</td>
+<td>/forum/posts/{id:\d+}/restore</td>
+<td>Restores the forum post with the given ID.</td>
+</tr>
+<tr>
+<td>SoftDeletePost</td>
+<td>Post</td>
+<td>/forum/posts/{id:\d+}/soft-delete</td>
+<td>Moves the forum post with the given ID to the trash.</td>
+</tr>
+<tr>
+<td>UnmarkPostAsBestAnswer</td>
+<td>Post</td>
+<td>/forum/posts/{id:\d+}/unmark-as-best-answer</td>
+<td>Unmarks the forum post with the given ID as the best answer of its thread.</td>
 </tr>
 <tr>
 <td>DeleteFeed</td>
@@ -7148,10 +7308,190 @@
 <td>Enables the RSS feed with the given ID.</td>
 </tr>
 <tr>
+<td>DeleteOption</td>
+<td>Delete</td>
+<td>/forum/threadForms/options/{id:\d+}</td>
+<td>Deletes the thread form option with the given ID.</td>
+</tr>
+<tr>
+<td>DisableOption</td>
+<td>Post</td>
+<td>/forum/threadForms/options/{id:\d+}/disable</td>
+<td>Disables the thread form option with the given ID.</td>
+</tr>
+<tr>
+<td>EnableOption</td>
+<td>Post</td>
+<td>/forum/threadForms/options/{id:\d+}/enable</td>
+<td>Enables the thread form option with the given ID.</td>
+</tr>
+<tr>
+<td>DeleteThreadForm</td>
+<td>Delete</td>
+<td>/forum/threadForms/{id:\d+}</td>
+<td>Deletes the thread form with the given ID.</td>
+</tr>
+<tr>
+<td>GetOptionShowOrder</td>
+<td>Get</td>
+<td>/forum/threadForms/{id:\d+}/options/show-order</td>
+<td>Retrieves the show order of the options of the thread form with the given ID.</td>
+</tr>
+<tr>
+<td>ChangeOptionShowOrder</td>
+<td>Post</td>
+<td>/forum/threadForms/{id:\d+}/options/show-order</td>
+<td>Saves the show order of the options of the thread form with the given ID.</td>
+</tr>
+<tr>
+<td>GetSimilarThreads</td>
+<td>Get</td>
+<td>/forum/threads/similar</td>
+<td>Retrieves the HTML code for a list of forum threads with a similar topic.</td>
+</tr>
+<tr>
+<td>UnignoreAllThreads</td>
+<td>Post</td>
+<td>/forum/threads/unignore-all</td>
+<td>Stops ignoring all forum threads for the active user.</td>
+</tr>
+<tr>
+<td>UnsubscribeAllThreads</td>
+<td>Post</td>
+<td>/forum/threads/unsubscribe-all</td>
+<td>Unsubscribes the active user from all forum threads.</td>
+</tr>
+<tr>
+<td>DeleteThread</td>
+<td>Delete</td>
+<td>/forum/threads/{id:\d+}</td>
+<td>Deletes the forum thread with the given ID.</td>
+</tr>
+<tr>
+<td>CloseThread</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/close</td>
+<td>Closes the forum thread with the given ID.</td>
+</tr>
+<tr>
+<td>GetThreadContentHeaderTitle</td>
+<td>Get</td>
+<td>/forum/threads/{id:\d+}/content-header-title</td>
+<td>Retrieves the HTML code for the content header title of the forum thread with the given ID.</td>
+</tr>
+<tr>
+<td>CopyThread</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/copy</td>
+<td>Creates a copy of the forum thread with the given ID in another board, the posts are copied afterwards with <code>CopyThreadPosts</code>.</td>
+</tr>
+<tr>
+<td>CopyThreadPosts</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/copy-posts</td>
+<td>Copies the posts of the forum thread with the given ID in chunks into the copy created by <code>CopyThread</code>.</td>
+</tr>
+<tr>
+<td>DisableThread</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/disable</td>
+<td>Disables the forum thread with the given ID.</td>
+</tr>
+<tr>
+<td>MarkThreadAsDone</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/done</td>
+<td>Marks the forum thread with the given ID as done.</td>
+</tr>
+<tr>
+<td>EnableThread</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/enable</td>
+<td>Enables the forum thread with the given ID.</td>
+</tr>
+<tr>
+<td>MarkThreadAsRead</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/mark-as-read</td>
+<td>Marks the forum thread with the given ID as read for the active user.</td>
+</tr>
+<tr>
+<td>GetNewPosts</td>
+<td>Get</td>
+<td>/forum/threads/{id:\d+}/new-posts</td>
+<td>Retrieves the HTML code of the posts of a page of the forum thread with the given ID.</td>
+</tr>
+<tr>
+<td>GetNewPostsCount</td>
+<td>Get</td>
+<td>/forum/threads/{id:\d+}/new-posts/count</td>
+<td>Retrieves the number of posts in the forum thread with the given ID that have been created after the given time.</td>
+</tr>
+<tr>
+<td>OpenThread</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/open</td>
+<td>Opens the forum thread with the given ID.</td>
+</tr>
+<tr>
+<td>PinThread</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/pin</td>
+<td>Pins the forum thread with the given ID.</td>
+</tr>
+<tr>
 <td>GetThreadPopover</td>
 <td>Get</td>
 <td>/forum/threads/{id:\d+}/popover</td>
 <td>Retrieves the HTML code for the popover of the forum thread with the given ID.</td>
+</tr>
+<tr>
+<td>RemoveThreadLink</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/remove-link</td>
+<td>Removes the link to the moved forum thread with the given ID.</td>
+</tr>
+<tr>
+<td>RestoreThread</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/restore</td>
+<td>Restores the forum thread with the given ID.</td>
+</tr>
+<tr>
+<td>SoftDeleteThread</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/soft-delete</td>
+<td>Moves the forum thread with the given ID to the trash.</td>
+</tr>
+<tr>
+<td>SetThreadSubscriptionStatus</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/subscription-status</td>
+<td>Sets the subscription status of the active user for the forum thread with the given ID.</td>
+</tr>
+<tr>
+<td>MarkThreadAsUndone</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/undone</td>
+<td>Marks the forum thread with the given ID as undone.</td>
+</tr>
+<tr>
+<td>UnignoreThread</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/unignore</td>
+<td>Stops ignoring the forum thread with the given ID for the active user.</td>
+</tr>
+<tr>
+<td>UnpinThread</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/unpin</td>
+<td>Unpins the forum thread with the given ID.</td>
+</tr>
+<tr>
+<td>UnsubscribeThread</td>
+<td>Post</td>
+<td>/forum/threads/{id:\d+}/unsubscribe</td>
+<td>Unsubscribes the active user from the forum thread with the given ID.</td>
 </tr>
 </tbody>
 </table>
@@ -7175,7 +7515,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-10-25
+    2026-11-20
   </span>
 
     

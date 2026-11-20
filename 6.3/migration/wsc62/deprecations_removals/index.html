@@ -4306,6 +4306,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../forum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../gallery/" class="md-nav__link">
         
   
@@ -6697,6 +6725,9 @@
 <li><code>gallery\page\RawImagePage</code>, which only serves images in the legacy storage of the Gallery and redirects links of migrated images, use the url of <code>gallery\data\image\Image::getURL()</code> instead</li>
 <li><code>gallery\data\album\AlbumAction</code>, use <code>gallery\data\album\AlbumBuilder</code>, the commands and the RPC endpoints instead</li>
 <li><code>gallery\data\image\marker\ImageMarkerAction</code>, use <code>gallery\data\image\ImageBuilder::setMarkers()</code> instead</li>
+<li><code>wbb\data\post\ViewablePost</code>, use <code>wbb\data\post\Post</code> instead</li>
+<li><code>wbb\data\post\ViewablePostList</code>, use <code>wbb\data\post\PostList</code> instead</li>
+<li><code>wbb\data\post\SimplifiedViewablePostList</code>, use <code>wbb\data\post\PostList</code> instead</li>
 </ul>
 <h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">#</a></h4>
 <ul>
@@ -6941,6 +6972,38 @@
 <li><code>gallery\data\album\AlbumAction::update()</code>, use <code>gallery\command\album\UpdateAlbum</code> instead</li>
 <li><code>wcf\system\form\builder\field\ISelectionFormField::options()</code>, use <code>wcf\system\form\builder\field\ISelectionFormField::choices()</code> or <code>wcf\system\form\builder\field\ISelectionFormField::phraseChoices()</code> instead</li>
 <li><code>wcf\system\form\builder\field\TSelectionFormField::options()</code>, use <code>wcf\system\form\builder\field\TSelectionFormField::choices()</code> or <code>wcf\system\form\builder\field\TSelectionFormField::phraseChoices()</code> instead</li>
+<li><code>wbb\data\post\PostAction::validateEnable()</code>, use <code>wbb\command\post\EnablePosts</code> instead</li>
+<li><code>wbb\data\post\PostAction::enable()</code>, use <code>wbb\command\post\EnablePosts</code> instead</li>
+<li><code>wbb\data\post\PostAction::validateDisable()</code>, use <code>wbb\command\post\DisablePosts</code> instead</li>
+<li><code>wbb\data\post\PostAction::disable()</code>, use <code>wbb\command\post\DisablePosts</code> instead</li>
+<li><code>wbb\data\post\PostAction::validateTrash()</code>, use <code>wbb\command\post\SoftDeletePosts</code> instead</li>
+<li><code>wbb\data\post\PostAction::trash()</code>, use <code>wbb\command\post\SoftDeletePosts</code> instead</li>
+<li><code>wbb\data\post\PostAction::validateRestore()</code>, use <code>wbb\command\post\RestorePosts</code> instead</li>
+<li><code>wbb\data\post\PostAction::restore()</code>, use <code>wbb\command\post\RestorePosts</code> instead</li>
+<li><code>wbb\data\post\PostAction::validateDelete()</code>, use <code>wbb\command\post\DeletePosts</code> instead</li>
+<li><code>wbb\data\post\PostAction::delete()</code>, use <code>wbb\command\post\DeletePosts</code> instead</li>
+<li><code>wbb\data\post\PostAction::validateDeleteCompletely()</code>, use <code>wbb\command\post\DeletePosts</code> instead</li>
+<li><code>wbb\data\post\PostAction::deleteCompletely()</code>, use <code>wbb\command\post\DeletePosts</code> instead</li>
+<li><code>wbb\data\post\PostAction::validateClose()</code>, use <code>wbb\command\post\ClosePost</code> instead</li>
+<li><code>wbb\data\post\PostAction::close()</code>, use <code>wbb\command\post\ClosePost</code> instead</li>
+<li><code>wbb\data\post\PostAction::validateOpen()</code>, use <code>wbb\command\post\OpenPost</code> instead</li>
+<li><code>wbb\data\post\PostAction::open()</code>, use <code>wbb\command\post\OpenPost</code> instead</li>
+<li><code>wbb\data\post\Post::setThread()</code>, the thread is loaded on demand by <code>wbb\data\post\Post::getThread()</code></li>
+<li><code>wbb\data\post\Post::getPoll()</code>, use standalone polls that are embedded through the <code>[poll]</code> BBCode instead</li>
+<li><code>wbb\data\post\Post::setPoll()</code>, the poll is loaded on demand by <code>wbb\data\post\Post::getPoll()</code></li>
+<li><code>wbb\data\post\Post::canVote()</code>, use standalone polls that are embedded through the <code>[poll]</code> BBCode instead</li>
+<li><code>wbb\data\post\ViewablePost::setLogEntry()</code>, the deletion data is loaded on demand by <code>wbb\data\post\Post::getLogEntry()</code></li>
+<li><code>wbb\data\post\ViewablePostList::readAttachments()</code>, use <code>wbb\data\post\Post::getAttachments()</code> instead</li>
+<li><code>wbb\data\post\ViewablePostList::getAttachmentList()</code>, use <code>wbb\data\post\Post::getAttachments()</code> instead</li>
+<li><code>wbb\data\post\ViewablePostList::enableAttachmentLoading()</code>, use <code>wbb\data\post\Post::getAttachments()</code> instead</li>
+<li><code>wbb\data\post\ViewablePostList::readEmbeddedObjects()</code>, embedded objects are loaded on demand by <code>wbb\data\post\Post::loadEmbeddedObjects()</code></li>
+<li><code>wbb\data\post\ViewablePostList::enableEmbeddedObjectLoading()</code>, embedded objects are loaded on demand by <code>wbb\data\post\Post::loadEmbeddedObjects()</code></li>
+<li><code>wbb\data\post\ViewablePostList::getLogList()</code>, use <code>wbb\data\post\Post::getLogEntry()</code> instead</li>
+<li><code>wbb\data\post\ViewablePostList::enableModificationLogLoading()</code>, the deletion data is loaded on demand by <code>wbb\data\post\Post::getLogEntry()</code></li>
+<li><code>wbb\data\post\ViewablePostList::readPolls()</code>, the poll is loaded on demand by <code>wbb\data\post\Post::getPoll()</code></li>
+<li><code>wbb\data\post\ViewablePostList::enablePollLoading()</code>, the poll is loaded on demand by <code>wbb\data\post\Post::getPoll()</code></li>
+<li><code>wbb\data\post\ViewablePostList::readThreads()</code>, the thread is loaded on demand by <code>wbb\data\post\Post::getThread()</code></li>
+<li><code>wbb\data\post\ViewablePostList::enableThreadLoading()</code>, the thread is loaded on demand by <code>wbb\data\post\Post::getThread()</code></li>
 </ul>
 <h4 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h4>
 <ul>
@@ -6960,6 +7023,18 @@
 <li><code>gallery\data\image\Image::$videoFilename</code>, use <code>gallery\data\image\Image::getVideoDisplayFilename()</code> instead</li>
 <li><code>gallery\data\image\Image::$videoFileExtension</code>, use <code>gallery\data\image\Image::getVideoFile()</code> instead</li>
 <li><code>gallery\data\image\Image::$videoFileHash</code>, use <code>gallery\data\image\Image::getVideoFile()</code> instead</li>
+<li><code>wbb\data\post\Post::$poll</code>, use <code>wbb\data\post\Post::getPoll()</code> instead</li>
+<li><code>wbb\data\post\Post::$thread</code>, use <code>wbb\data\post\Post::getThread()</code> instead</li>
+<li><code>wbb\data\post\ViewablePost::$logEntry</code>, use <code>wbb\data\post\Post::getLogEntry()</code> instead</li>
+<li><code>wbb\data\post\ViewablePostList::$attachmentObjectIDs</code>, use <code>wbb\data\post\Post::getAttachments()</code> instead</li>
+<li><code>wbb\data\post\ViewablePostList::$attachmentList</code>, use <code>wbb\data\post\Post::getAttachments()</code> instead</li>
+<li><code>wbb\data\post\ViewablePostList::$attachmentLoading</code>, use <code>wbb\data\post\Post::getAttachments()</code> instead</li>
+<li><code>wbb\data\post\ViewablePostList::$embeddedObjectPostIDs</code>, embedded objects are loaded on demand by <code>wbb\data\post\Post::loadEmbeddedObjects()</code></li>
+<li><code>wbb\data\post\ViewablePostList::$embeddedObjectLoading</code>, embedded objects are loaded on demand by <code>wbb\data\post\Post::loadEmbeddedObjects()</code></li>
+<li><code>wbb\data\post\ViewablePostList::$logList</code>, use <code>wbb\data\post\Post::getLogEntry()</code> instead</li>
+<li><code>wbb\data\post\ViewablePostList::$modificationLogLoading</code>, the deletion data is loaded on demand by <code>wbb\data\post\Post::getLogEntry()</code></li>
+<li><code>wbb\data\post\ViewablePostList::$pollLoading</code>, the poll is loaded on demand by <code>wbb\data\post\Post::getPoll()</code></li>
+<li><code>wbb\data\post\ViewablePostList::$threadLoading</code>, the thread is loaded on demand by <code>wbb\data\post\Post::getThread()</code></li>
 </ul>
 <h4 id="constants">Constants<a class="headerlink" href="#constants" title="Permanent link">#</a></h4>
 <ul>
@@ -7357,6 +7432,34 @@
 <li><code>gallery\data\image\ImageAction::deletePendingImages()</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\gallery\images\DeletePendingImages</code> instead</li>
 <li><code>gallery\data\image\ImageAction::removeModeratedContent()</code></li>
 <li><code>gallery\data\image\ImageAction::updateUserCounters()</code></li>
+<li><code>wbb\data\post\PostAction::validateQuickReply()</code>, use <code>wbb\action\ThreadQuickReplyAction</code> instead, see <a href="../forum/#editing-posts-and-the-quick-reply">Forum</a></li>
+<li><code>wbb\data\post\PostAction::quickReply()</code>, use <code>wbb\action\ThreadQuickReplyAction</code> instead, see <a href="../forum/#editing-posts-and-the-quick-reply">Forum</a></li>
+<li><code>wbb\data\post\PostAction::validateMessage()</code></li>
+<li><code>wbb\data\post\PostAction::validateContainer()</code></li>
+<li><code>wbb\data\post\PostAction::getMessageList()</code></li>
+<li><code>wbb\data\post\PostAction::getPageNo()</code></li>
+<li><code>wbb\data\post\PostAction::getRedirectUrl()</code></li>
+<li><code>wbb\data\post\PostAction::getAttachmentHandler()</code></li>
+<li><code>wbb\data\post\PostAction::getHtmlInputProcessor()</code></li>
+<li><code>wbb\data\post\PostAction::getAllowedQuickReplyParameters()</code></li>
+<li><code>wbb\data\post\PostAction::validateBeginEdit()</code>, use <code>wbb\action\PostEditAction</code> instead, see <a href="../forum/#editing-posts-and-the-quick-reply">Forum</a></li>
+<li><code>wbb\data\post\PostAction::beginEdit()</code>, use <code>wbb\action\PostEditAction</code> instead, see <a href="../forum/#editing-posts-and-the-quick-reply">Forum</a></li>
+<li><code>wbb\data\post\PostAction::validateSave()</code>, use <code>wbb\action\PostEditAction</code> instead, see <a href="../forum/#editing-posts-and-the-quick-reply">Forum</a></li>
+<li><code>wbb\data\post\PostAction::save()</code>, use <code>wbb\action\PostEditAction</code> instead, see <a href="../forum/#editing-posts-and-the-quick-reply">Forum</a></li>
+<li><code>wbb\data\post\PostAction::validateGetPosts()</code></li>
+<li><code>wbb\data\post\PostAction::getPosts()</code></li>
+<li><code>wbb\data\post\PostAction::validateValidateThreadFormValues()</code></li>
+<li><code>wbb\data\post\PostAction::validateThreadFormValues()</code></li>
+<li><code>wbb\data\post\PostAction::updateThreadFormValues()</code></li>
+<li><code>wbb\data\post\PostAction::messageIsProbablySpam()</code></li>
+<li><code>wbb\data\thread\ThreadAction::validateGetNewPosts()</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\forum\threads\GetNewPosts</code> instead</li>
+<li><code>wbb\data\thread\ThreadAction::getNewPosts()</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\forum\threads\GetNewPosts</code> instead</li>
+<li><code>wbb\data\thread\ViewableThread::getLastPostTime()</code></li>
+<li><code>wbb\data\post\DeletedPostList::getMarkedItems()</code></li>
+<li><code>wbb\page\ThreadPage::getOfficialPostMapping()</code>, use <code>wbb\system\listView\user\ThreadPostListView::getFirstOfficialPostLink()</code> instead</li>
+<li><code>wbb\system\attachment\PostAttachmentObjectType::cacheObjects()</code></li>
+<li><code>wbb\system\moderation\DeletedPostProvider::getObjectList()</code>, use <code>wbb\system\moderation\DeletedPostProvider::getListView()</code> instead</li>
+<li><code>wbb\system\moderation\DeletedPostProvider::getTemplateName()</code>, use <code>wbb\system\moderation\DeletedPostProvider::getListView()</code> instead</li>
 </ul>
 <h4 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h4>
 <ul>
@@ -7418,6 +7521,16 @@
 <li><code>gallery\data\image\ImageAction::$user</code></li>
 <li><code>gallery\data\image\ImageAction::$viewableImage</code></li>
 <li><code>gallery\data\image\ImageAction::$album</code></li>
+<li><code>wbb\page\ThreadPage::$likeData</code></li>
+<li><code>wbb\page\ThreadPage::$similarThreadList</code>, use <code>wbb\page\ThreadPage::$similarThreads</code> instead</li>
+<li><code>wbb\page\ThreadPage::$modificationLogList</code></li>
+<li><code>wbb\page\ThreadPage::$bestAnswerOnCurrentPage</code></li>
+<li><code>wbb\page\ThreadPage::$officialPostMapping</code>, use <code>wbb\system\listView\user\ThreadPostListView::getFirstOfficialPostLink()</code> instead</li>
+<li><code>wbb\page\ThreadPage::$itemsPerPage</code></li>
+<li><code>wbb\page\ThreadPage::$sortOrder</code></li>
+<li><code>wbb\page\ThreadPage::$postID</code>, use <code>wbb\page\ThreadPage::$post</code> instead</li>
+<li><code>wbb\page\ThreadPage::$numberOfHiddenPosts</code>, use <code>wbb\system\listView\user\ThreadPostListView::getNumberOfHiddenPosts()</code> instead</li>
+<li><code>wbb\page\UserPostListPage::$userID</code>, use <code>wbb\page\UserPostListPage::$user</code> instead</li>
 </ul>
 <h4 id="options_1">Options<a class="headerlink" href="#options_1" title="Permanent link">#</a></h4>
 <ul>
@@ -7427,6 +7540,7 @@
 <ul>
 <li><code>com.woltlab.wbb.thread</code> (<code>com.woltlab.wcf.clipboardItem</code>), use the bulk interactions of <code>wbb\system\listView\user\ThreadListView</code> instead</li>
 <li><code>com.woltlab.wbb.post</code> (<code>com.woltlab.wcf.clipboardItem</code>), use the bulk interactions of <code>wbb\system\listView\user\ThreadPostListView</code> instead</li>
+<li><code>com.woltlab.wbb.post</code> (<code>com.woltlab.wcf.deletedContent</code>), use the event <code>wcf\event\moderation\DeletedContentProvidersCollecting</code> instead</li>
 </ul>
 <h3 id="javascript_1">JavaScript<a class="headerlink" href="#javascript_1" title="Permanent link">#</a></h3>
 <ul>
@@ -7598,6 +7712,16 @@
 <li><code>WoltLabSuite/Gallery/Component/Image/Browser</code></li>
 <li><code>WoltLabSuite/Gallery/Component/Image/Viewer</code>, use <code>showFancybox()</code> of <code>WoltLabSuite/Core/Component/Image/Viewer</code> instead</li>
 <li><code>WoltLabSuite/Gallery/Ui/Category/MarkAllAsRead</code>, use <code>WoltLabSuite/Gallery/Component/Image/MarkAllImagesAsRead</code> instead</li>
+<li><code>js/WBB.js</code> together with the <code>WBB</code> namespace and all of its classes</li>
+<li><code>WoltLabSuite/Forum/Controller/Thread</code></li>
+<li><code>WoltLabSuite/Forum/Handler/Thread/ThreadUpdateHandler</code>, use the interactions of <code>wbb\system\listView\user\ThreadPostListView</code> instead</li>
+<li><code>WoltLabSuite/Forum/Ui/Post/List/Mixed</code></li>
+<li><code>WoltLabSuite/Forum/Ui/Post/Loader</code></li>
+<li><code>WoltLabSuite/Forum/Ui/Post/ThreadFormInline</code></li>
+<li><code>WoltLabSuite/Forum/Ui/Thread/BestAnswer</code>, use the interactions of <code>wbb\system\listView\user\ThreadPostListView</code> instead</li>
+<li><code>WoltLabSuite/Forum/Ui/Thread/LastPageHandler</code>, use <code>WoltLabSuite/Forum/Component/Thread/NewPosts</code> instead</li>
+<li><code>WoltLabSuite/Forum/Ui/Thread/Modification/Log/Hide</code>, use <code>WoltLabSuite/Forum/Component/Thread/Modification/Log/Hide</code> instead</li>
+<li><code>WoltLabSuite/Forum/Ui/Thread/Reply</code>, use <code>WoltLabSuite/Forum/Component/Thread/QuickReply</code> instead</li>
 </ul>
 <h3 id="templates_1">Templates<a class="headerlink" href="#templates_1" title="Permanent link">#</a></h3>
 <ul>
@@ -7639,6 +7763,17 @@
 <li><code>sortableImageListItems</code></li>
 <li><code>taggedImageList</code>, use <code>gallery\system\listView\user\TaggedImageListView</code> instead</li>
 <li><code>watchedImageList</code></li>
+<li><code>__messageFormSettingsInlinePost</code>, see <a href="../forum/#editing-posts-and-the-quick-reply">Forum</a></li>
+<li><code>__threadFormInline</code>, see <a href="../forum/#editing-posts-and-the-quick-reply">Forum</a></li>
+<li><code>__threadFormInlineTab</code>, see <a href="../forum/#editing-posts-and-the-quick-reply">Forum</a></li>
+<li><code>deletedPostList</code>, use <code>wbb\system\listView\user\DeletedPostListView</code> instead</li>
+<li><code>moderationPost</code>, use <code>wbb\system\listView\user\ModerationPostListView</code> instead</li>
+<li><code>postInlineEditor</code>, see <a href="../forum/#editing-posts-and-the-quick-reply">Forum</a></li>
+<li><code>threadGoToBestAnswer</code></li>
+<li><code>threadPostList</code>, use <code>wbb\system\listView\user\ThreadPostListView</code> instead, see <a href="../forum/#templates">Forum</a></li>
+<li><code>threadPostListLog</code></li>
+<li><code>threadQuickReply</code>, see <a href="../forum/#editing-posts-and-the-quick-reply">Forum</a></li>
+<li>The template events of the posts in <code>userPostList</code> and the template event <code>javascriptInclude</code> of <code>thread</code>, see <a href="../forum/#templates">Forum</a></li>
 </ul>
 
 
