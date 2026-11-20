@@ -382,7 +382,7 @@ All additional attributes are added as attributes of the `<select>` HTML element
 `{js}` generates script tags based on whether `ENABLE_DEBUG_MODE` and `VISITOR_USE_TINY_BUILD` are enabled.
 
 ```smarty
-{js application='wbb' file='WBB'} {* generates 'http://example.com/js/WBB.js' *}
+{js application='example' file='Example'} {* generates 'http://example.com/js/Example.js' *}
 
 {js application='wcf' file='WCF.User' bundle='WCF.Combined'}
 	{* generates 'http://example.com/wcf/js/WCF.User.js' if ENABLE_DEBUG_MODE=1 *}

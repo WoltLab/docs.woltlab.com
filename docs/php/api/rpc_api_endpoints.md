@@ -196,8 +196,60 @@
 | RevertVersion | Post | /core/version-trackers/revert  | Reverts a version tracker object to a previous version. |
 | GetFilePopover | Get | /filebase/files/{id:\d+}/popover  | Retrieves the HTML code for the popover of the filebase file with the given ID. |
 | DeleteLicense | Delete | /filebase/licenses/{id:\d+}  | Deletes the filebase license with the given ID. |
+| GetCreateThreadBoardSelection | Get | /forum/boards/create-thread-board-selection  | Retrieves the HTML code for the selection of the forum boards in which the active user can create a thread. |
+| GetIgnoreBoardsDialog | Get | /forum/boards/ignore-dialog  | Retrieves the HTML code for the dialog to select the forum boards ignored by the active user. |
+| SetIgnoredBoards | Post | /forum/boards/ignored  | Sets the forum boards ignored by the active user, replacing the previously ignored boards. |
+| MarkAllBoardsAsRead | Post | /forum/boards/mark-all-as-read  | Marks all threads of all forum boards as read for the active user. |
+| SetBoardPositions | Post | /forum/boards/positions  | Sets the positions of the forum boards. |
+| StopWatchingBoards | Post | /forum/boards/stop-watching  | Stops watching the given forum boards for the active user, an empty list stops watching all boards. |
+| DeleteBoard | Delete | /forum/boards/{id:\d+}  | Deletes the forum board with the given ID. |
+| DisableBoard | Post | /forum/boards/{id:\d+}/disable  | Disables the forum board with the given ID. |
+| EnableBoard | Post | /forum/boards/{id:\d+}/enable  | Enables the forum board with the given ID. |
+| MarkBoardAsRead | Post | /forum/boards/{id:\d+}/mark-as-read  | Marks all threads of the forum board with the given ID and its child boards as read for the active user. |
+| SetBoardSubscriptionStatus | Post | /forum/boards/{id:\d+}/subscription-status  | Sets the subscription status of the active user for the forum board with the given ID. |
+| CopyPosts | Post | /forum/posts/copy  | Copies forum posts to a thread in chunks. |
+| DeletePost | Delete | /forum/posts/{id:\d+}  | Deletes the forum post with the given ID that is in the trash. |
+| ClosePost | Post | /forum/posts/{id:\d+}/close  | Closes the forum post with the given ID. |
+| DisablePost | Post | /forum/posts/{id:\d+}/disable  | Disables the forum post with the given ID. |
+| EnablePost | Post | /forum/posts/{id:\d+}/enable  | Enables the forum post with the given ID. |
+| GetPostIpLog | Get | /forum/posts/{id:\d+}/ip-log  | Retrieves the HTML code of the IP addresses of the author of the forum post with the given ID. |
+| MarkPostAsBestAnswer | Post | /forum/posts/{id:\d+}/mark-as-best-answer  | Marks the forum post with the given ID as the best answer of its thread. |
+| OpenPost | Post | /forum/posts/{id:\d+}/open  | Opens the forum post with the given ID. |
 | GetPostPopover | Get | /forum/posts/{id:\d+}/popover  | Retrieves the HTML code for the popover of the forum post with the given ID. |
+| RestorePost | Post | /forum/posts/{id:\d+}/restore  | Restores the forum post with the given ID. |
+| SoftDeletePost | Post | /forum/posts/{id:\d+}/soft-delete  | Moves the forum post with the given ID to the trash. |
+| UnmarkPostAsBestAnswer | Post | /forum/posts/{id:\d+}/unmark-as-best-answer  | Unmarks the forum post with the given ID as the best answer of its thread. |
 | DeleteFeed | Delete | /forum/rss/feeds/{id:\d+}  | Deletes the RSS feed with the given ID. |
 | DisableFeed | Post | /forum/rss/feeds/{id:\d+}/disable  | Disables the RSS feed with the given ID. |
 | EnableFeed | Post | /forum/rss/feeds/{id:\d+}/enable  | Enables the RSS feed with the given ID. |
+| DeleteOption | Delete | /forum/threadForms/options/{id:\d+}  | Deletes the thread form option with the given ID. |
+| DisableOption | Post | /forum/threadForms/options/{id:\d+}/disable  | Disables the thread form option with the given ID. |
+| EnableOption | Post | /forum/threadForms/options/{id:\d+}/enable  | Enables the thread form option with the given ID. |
+| DeleteThreadForm | Delete | /forum/threadForms/{id:\d+}  | Deletes the thread form with the given ID. |
+| GetOptionShowOrder | Get | /forum/threadForms/{id:\d+}/options/show-order  | Retrieves the show order of the options of the thread form with the given ID. |
+| ChangeOptionShowOrder | Post | /forum/threadForms/{id:\d+}/options/show-order  | Saves the show order of the options of the thread form with the given ID. |
+| GetSimilarThreads | Get | /forum/threads/similar  | Retrieves the HTML code for a list of forum threads with a similar topic. |
+| UnignoreAllThreads | Post | /forum/threads/unignore-all  | Stops ignoring all forum threads for the active user. |
+| UnsubscribeAllThreads | Post | /forum/threads/unsubscribe-all  | Unsubscribes the active user from all forum threads. |
+| DeleteThread | Delete | /forum/threads/{id:\d+}  | Deletes the forum thread with the given ID. |
+| CloseThread | Post | /forum/threads/{id:\d+}/close  | Closes the forum thread with the given ID. |
+| GetThreadContentHeaderTitle | Get | /forum/threads/{id:\d+}/content-header-title  | Retrieves the HTML code for the content header title of the forum thread with the given ID. |
+| CopyThread | Post | /forum/threads/{id:\d+}/copy  | Creates a copy of the forum thread with the given ID in another board, the posts are copied afterwards with `CopyThreadPosts`. |
+| CopyThreadPosts | Post | /forum/threads/{id:\d+}/copy-posts  | Copies the posts of the forum thread with the given ID in chunks into the copy created by `CopyThread`. |
+| DisableThread | Post | /forum/threads/{id:\d+}/disable  | Disables the forum thread with the given ID. |
+| MarkThreadAsDone | Post | /forum/threads/{id:\d+}/done  | Marks the forum thread with the given ID as done. |
+| EnableThread | Post | /forum/threads/{id:\d+}/enable  | Enables the forum thread with the given ID. |
+| MarkThreadAsRead | Post | /forum/threads/{id:\d+}/mark-as-read  | Marks the forum thread with the given ID as read for the active user. |
+| GetNewPosts | Get | /forum/threads/{id:\d+}/new-posts  | Retrieves the HTML code of the posts of a page of the forum thread with the given ID. |
+| GetNewPostsCount | Get | /forum/threads/{id:\d+}/new-posts/count  | Retrieves the number of posts in the forum thread with the given ID that have been created after the given time. |
+| OpenThread | Post | /forum/threads/{id:\d+}/open  | Opens the forum thread with the given ID. |
+| PinThread | Post | /forum/threads/{id:\d+}/pin  | Pins the forum thread with the given ID. |
 | GetThreadPopover | Get | /forum/threads/{id:\d+}/popover  | Retrieves the HTML code for the popover of the forum thread with the given ID. |
+| RemoveThreadLink | Post | /forum/threads/{id:\d+}/remove-link  | Removes the link to the moved forum thread with the given ID. |
+| RestoreThread | Post | /forum/threads/{id:\d+}/restore  | Restores the forum thread with the given ID. |
+| SoftDeleteThread | Post | /forum/threads/{id:\d+}/soft-delete  | Moves the forum thread with the given ID to the trash. |
+| SetThreadSubscriptionStatus | Post | /forum/threads/{id:\d+}/subscription-status  | Sets the subscription status of the active user for the forum thread with the given ID. |
+| MarkThreadAsUndone | Post | /forum/threads/{id:\d+}/undone  | Marks the forum thread with the given ID as undone. |
+| UnignoreThread | Post | /forum/threads/{id:\d+}/unignore  | Stops ignoring the forum thread with the given ID for the active user. |
+| UnpinThread | Post | /forum/threads/{id:\d+}/unpin  | Unpins the forum thread with the given ID. |
+| UnsubscribeThread | Post | /forum/threads/{id:\d+}/unsubscribe  | Unsubscribes the active user from the forum thread with the given ID. |

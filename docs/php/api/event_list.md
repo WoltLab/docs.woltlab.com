@@ -133,14 +133,6 @@ Events whose name is marked with an asterisk are called from a static method and
 | `wcf\system\infraction\suspension\BanSuspensionAction` | `suspend` |
 | `wcf\system\infraction\suspension\BanSuspensionAction` | `unsuspend` |
 
-## WoltLab Suite Forum
-
-| Class | Event Name |
-|-------|------------|
-| `wbb\data\board\BoardAction` | `cloneBoard` |
-| `wbb\data\post\PostAction` | `quickReplyShouldMerge` |
-| `wbb\system\thread\ThreadHandler` | `didInit` |
-
 ## WoltLab Suite Filebase
 
 | Class | Event Name |

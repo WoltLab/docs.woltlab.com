@@ -242,6 +242,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\page\RawImagePage`, which only serves images in the legacy storage of the Gallery and redirects links of migrated images, use the url of `gallery\data\image\Image::getURL()` instead
 - `gallery\data\album\AlbumAction`, use `gallery\data\album\AlbumBuilder`, the commands and the RPC endpoints instead
 - `gallery\data\image\marker\ImageMarkerAction`, use `gallery\data\image\ImageBuilder::setMarkers()` instead
+- `wbb\data\post\ViewablePost`, use `wbb\data\post\Post` instead
+- `wbb\data\post\ViewablePostList`, use `wbb\data\post\PostList` instead
+- `wbb\data\post\SimplifiedViewablePostList`, use `wbb\data\post\PostList` instead
 
 #### Methods
 
@@ -486,6 +489,38 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\data\album\AlbumAction::update()`, use `gallery\command\album\UpdateAlbum` instead
 - `wcf\system\form\builder\field\ISelectionFormField::options()`, use `wcf\system\form\builder\field\ISelectionFormField::choices()` or `wcf\system\form\builder\field\ISelectionFormField::phraseChoices()` instead
 - `wcf\system\form\builder\field\TSelectionFormField::options()`, use `wcf\system\form\builder\field\TSelectionFormField::choices()` or `wcf\system\form\builder\field\TSelectionFormField::phraseChoices()` instead
+- `wbb\data\post\PostAction::validateEnable()`, use `wbb\command\post\EnablePosts` instead
+- `wbb\data\post\PostAction::enable()`, use `wbb\command\post\EnablePosts` instead
+- `wbb\data\post\PostAction::validateDisable()`, use `wbb\command\post\DisablePosts` instead
+- `wbb\data\post\PostAction::disable()`, use `wbb\command\post\DisablePosts` instead
+- `wbb\data\post\PostAction::validateTrash()`, use `wbb\command\post\SoftDeletePosts` instead
+- `wbb\data\post\PostAction::trash()`, use `wbb\command\post\SoftDeletePosts` instead
+- `wbb\data\post\PostAction::validateRestore()`, use `wbb\command\post\RestorePosts` instead
+- `wbb\data\post\PostAction::restore()`, use `wbb\command\post\RestorePosts` instead
+- `wbb\data\post\PostAction::validateDelete()`, use `wbb\command\post\DeletePosts` instead
+- `wbb\data\post\PostAction::delete()`, use `wbb\command\post\DeletePosts` instead
+- `wbb\data\post\PostAction::validateDeleteCompletely()`, use `wbb\command\post\DeletePosts` instead
+- `wbb\data\post\PostAction::deleteCompletely()`, use `wbb\command\post\DeletePosts` instead
+- `wbb\data\post\PostAction::validateClose()`, use `wbb\command\post\ClosePost` instead
+- `wbb\data\post\PostAction::close()`, use `wbb\command\post\ClosePost` instead
+- `wbb\data\post\PostAction::validateOpen()`, use `wbb\command\post\OpenPost` instead
+- `wbb\data\post\PostAction::open()`, use `wbb\command\post\OpenPost` instead
+- `wbb\data\post\Post::setThread()`, the thread is loaded on demand by `wbb\data\post\Post::getThread()`
+- `wbb\data\post\Post::getPoll()`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `wbb\data\post\Post::setPoll()`, the poll is loaded on demand by `wbb\data\post\Post::getPoll()`
+- `wbb\data\post\Post::canVote()`, use standalone polls that are embedded through the `[poll]` BBCode instead
+- `wbb\data\post\ViewablePost::setLogEntry()`, the deletion data is loaded on demand by `wbb\data\post\Post::getLogEntry()`
+- `wbb\data\post\ViewablePostList::readAttachments()`, use `wbb\data\post\Post::getAttachments()` instead
+- `wbb\data\post\ViewablePostList::getAttachmentList()`, use `wbb\data\post\Post::getAttachments()` instead
+- `wbb\data\post\ViewablePostList::enableAttachmentLoading()`, use `wbb\data\post\Post::getAttachments()` instead
+- `wbb\data\post\ViewablePostList::readEmbeddedObjects()`, embedded objects are loaded on demand by `wbb\data\post\Post::loadEmbeddedObjects()`
+- `wbb\data\post\ViewablePostList::enableEmbeddedObjectLoading()`, embedded objects are loaded on demand by `wbb\data\post\Post::loadEmbeddedObjects()`
+- `wbb\data\post\ViewablePostList::getLogList()`, use `wbb\data\post\Post::getLogEntry()` instead
+- `wbb\data\post\ViewablePostList::enableModificationLogLoading()`, the deletion data is loaded on demand by `wbb\data\post\Post::getLogEntry()`
+- `wbb\data\post\ViewablePostList::readPolls()`, the poll is loaded on demand by `wbb\data\post\Post::getPoll()`
+- `wbb\data\post\ViewablePostList::enablePollLoading()`, the poll is loaded on demand by `wbb\data\post\Post::getPoll()`
+- `wbb\data\post\ViewablePostList::readThreads()`, the thread is loaded on demand by `wbb\data\post\Post::getThread()`
+- `wbb\data\post\ViewablePostList::enableThreadLoading()`, the thread is loaded on demand by `wbb\data\post\Post::getThread()`
 
 #### Properties
 
@@ -505,6 +540,18 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\data\image\Image::$videoFilename`, use `gallery\data\image\Image::getVideoDisplayFilename()` instead
 - `gallery\data\image\Image::$videoFileExtension`, use `gallery\data\image\Image::getVideoFile()` instead
 - `gallery\data\image\Image::$videoFileHash`, use `gallery\data\image\Image::getVideoFile()` instead
+- `wbb\data\post\Post::$poll`, use `wbb\data\post\Post::getPoll()` instead
+- `wbb\data\post\Post::$thread`, use `wbb\data\post\Post::getThread()` instead
+- `wbb\data\post\ViewablePost::$logEntry`, use `wbb\data\post\Post::getLogEntry()` instead
+- `wbb\data\post\ViewablePostList::$attachmentObjectIDs`, use `wbb\data\post\Post::getAttachments()` instead
+- `wbb\data\post\ViewablePostList::$attachmentList`, use `wbb\data\post\Post::getAttachments()` instead
+- `wbb\data\post\ViewablePostList::$attachmentLoading`, use `wbb\data\post\Post::getAttachments()` instead
+- `wbb\data\post\ViewablePostList::$embeddedObjectPostIDs`, embedded objects are loaded on demand by `wbb\data\post\Post::loadEmbeddedObjects()`
+- `wbb\data\post\ViewablePostList::$embeddedObjectLoading`, embedded objects are loaded on demand by `wbb\data\post\Post::loadEmbeddedObjects()`
+- `wbb\data\post\ViewablePostList::$logList`, use `wbb\data\post\Post::getLogEntry()` instead
+- `wbb\data\post\ViewablePostList::$modificationLogLoading`, the deletion data is loaded on demand by `wbb\data\post\Post::getLogEntry()`
+- `wbb\data\post\ViewablePostList::$pollLoading`, the poll is loaded on demand by `wbb\data\post\Post::getPoll()`
+- `wbb\data\post\ViewablePostList::$threadLoading`, the thread is loaded on demand by `wbb\data\post\Post::getThread()`
 
 #### Constants
 
@@ -904,6 +951,34 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\data\image\ImageAction::deletePendingImages()`, use the RPC endpoint `wcf\system\endpoint\controller\gallery\images\DeletePendingImages` instead
 - `gallery\data\image\ImageAction::removeModeratedContent()`
 - `gallery\data\image\ImageAction::updateUserCounters()`
+- `wbb\data\post\PostAction::validateQuickReply()`, use `wbb\action\ThreadQuickReplyAction` instead, see [Forum](forum.md#editing-posts-and-the-quick-reply)
+- `wbb\data\post\PostAction::quickReply()`, use `wbb\action\ThreadQuickReplyAction` instead, see [Forum](forum.md#editing-posts-and-the-quick-reply)
+- `wbb\data\post\PostAction::validateMessage()`
+- `wbb\data\post\PostAction::validateContainer()`
+- `wbb\data\post\PostAction::getMessageList()`
+- `wbb\data\post\PostAction::getPageNo()`
+- `wbb\data\post\PostAction::getRedirectUrl()`
+- `wbb\data\post\PostAction::getAttachmentHandler()`
+- `wbb\data\post\PostAction::getHtmlInputProcessor()`
+- `wbb\data\post\PostAction::getAllowedQuickReplyParameters()`
+- `wbb\data\post\PostAction::validateBeginEdit()`, use `wbb\action\PostEditAction` instead, see [Forum](forum.md#editing-posts-and-the-quick-reply)
+- `wbb\data\post\PostAction::beginEdit()`, use `wbb\action\PostEditAction` instead, see [Forum](forum.md#editing-posts-and-the-quick-reply)
+- `wbb\data\post\PostAction::validateSave()`, use `wbb\action\PostEditAction` instead, see [Forum](forum.md#editing-posts-and-the-quick-reply)
+- `wbb\data\post\PostAction::save()`, use `wbb\action\PostEditAction` instead, see [Forum](forum.md#editing-posts-and-the-quick-reply)
+- `wbb\data\post\PostAction::validateGetPosts()`
+- `wbb\data\post\PostAction::getPosts()`
+- `wbb\data\post\PostAction::validateValidateThreadFormValues()`
+- `wbb\data\post\PostAction::validateThreadFormValues()`
+- `wbb\data\post\PostAction::updateThreadFormValues()`
+- `wbb\data\post\PostAction::messageIsProbablySpam()`
+- `wbb\data\thread\ThreadAction::validateGetNewPosts()`, use the RPC endpoint `wcf\system\endpoint\controller\forum\threads\GetNewPosts` instead
+- `wbb\data\thread\ThreadAction::getNewPosts()`, use the RPC endpoint `wcf\system\endpoint\controller\forum\threads\GetNewPosts` instead
+- `wbb\data\thread\ViewableThread::getLastPostTime()`
+- `wbb\data\post\DeletedPostList::getMarkedItems()`
+- `wbb\page\ThreadPage::getOfficialPostMapping()`, use `wbb\system\listView\user\ThreadPostListView::getFirstOfficialPostLink()` instead
+- `wbb\system\attachment\PostAttachmentObjectType::cacheObjects()`
+- `wbb\system\moderation\DeletedPostProvider::getObjectList()`, use `wbb\system\moderation\DeletedPostProvider::getListView()` instead
+- `wbb\system\moderation\DeletedPostProvider::getTemplateName()`, use `wbb\system\moderation\DeletedPostProvider::getListView()` instead
 
 #### Properties
 
@@ -965,6 +1040,16 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\data\image\ImageAction::$user`
 - `gallery\data\image\ImageAction::$viewableImage`
 - `gallery\data\image\ImageAction::$album`
+- `wbb\page\ThreadPage::$likeData`
+- `wbb\page\ThreadPage::$similarThreadList`, use `wbb\page\ThreadPage::$similarThreads` instead
+- `wbb\page\ThreadPage::$modificationLogList`
+- `wbb\page\ThreadPage::$bestAnswerOnCurrentPage`
+- `wbb\page\ThreadPage::$officialPostMapping`, use `wbb\system\listView\user\ThreadPostListView::getFirstOfficialPostLink()` instead
+- `wbb\page\ThreadPage::$itemsPerPage`
+- `wbb\page\ThreadPage::$sortOrder`
+- `wbb\page\ThreadPage::$postID`, use `wbb\page\ThreadPage::$post` instead
+- `wbb\page\ThreadPage::$numberOfHiddenPosts`, use `wbb\system\listView\user\ThreadPostListView::getNumberOfHiddenPosts()` instead
+- `wbb\page\UserPostListPage::$userID`, use `wbb\page\UserPostListPage::$user` instead
 
 #### Options
 
@@ -974,6 +1059,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 
 - `com.woltlab.wbb.thread` (`com.woltlab.wcf.clipboardItem`), use the bulk interactions of `wbb\system\listView\user\ThreadListView` instead
 - `com.woltlab.wbb.post` (`com.woltlab.wcf.clipboardItem`), use the bulk interactions of `wbb\system\listView\user\ThreadPostListView` instead
+- `com.woltlab.wbb.post` (`com.woltlab.wcf.deletedContent`), use the event `wcf\event\moderation\DeletedContentProvidersCollecting` instead
 
 ### JavaScript
 
@@ -1145,6 +1231,16 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Gallery/Component/Image/Browser`
 - `WoltLabSuite/Gallery/Component/Image/Viewer`, use `showFancybox()` of `WoltLabSuite/Core/Component/Image/Viewer` instead
 - `WoltLabSuite/Gallery/Ui/Category/MarkAllAsRead`, use `WoltLabSuite/Gallery/Component/Image/MarkAllImagesAsRead` instead
+- `js/WBB.js` together with the `WBB` namespace and all of its classes
+- `WoltLabSuite/Forum/Controller/Thread`
+- `WoltLabSuite/Forum/Handler/Thread/ThreadUpdateHandler`, use the interactions of `wbb\system\listView\user\ThreadPostListView` instead
+- `WoltLabSuite/Forum/Ui/Post/List/Mixed`
+- `WoltLabSuite/Forum/Ui/Post/Loader`
+- `WoltLabSuite/Forum/Ui/Post/ThreadFormInline`
+- `WoltLabSuite/Forum/Ui/Thread/BestAnswer`, use the interactions of `wbb\system\listView\user\ThreadPostListView` instead
+- `WoltLabSuite/Forum/Ui/Thread/LastPageHandler`, use `WoltLabSuite/Forum/Component/Thread/NewPosts` instead
+- `WoltLabSuite/Forum/Ui/Thread/Modification/Log/Hide`, use `WoltLabSuite/Forum/Component/Thread/Modification/Log/Hide` instead
+- `WoltLabSuite/Forum/Ui/Thread/Reply`, use `WoltLabSuite/Forum/Component/Thread/QuickReply` instead
 
 ### Templates
 
@@ -1186,3 +1282,14 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `sortableImageListItems`
 - `taggedImageList`, use `gallery\system\listView\user\TaggedImageListView` instead
 - `watchedImageList`
+- `__messageFormSettingsInlinePost`, see [Forum](forum.md#editing-posts-and-the-quick-reply)
+- `__threadFormInline`, see [Forum](forum.md#editing-posts-and-the-quick-reply)
+- `__threadFormInlineTab`, see [Forum](forum.md#editing-posts-and-the-quick-reply)
+- `deletedPostList`, use `wbb\system\listView\user\DeletedPostListView` instead
+- `moderationPost`, use `wbb\system\listView\user\ModerationPostListView` instead
+- `postInlineEditor`, see [Forum](forum.md#editing-posts-and-the-quick-reply)
+- `threadGoToBestAnswer`
+- `threadPostList`, use `wbb\system\listView\user\ThreadPostListView` instead, see [Forum](forum.md#templates)
+- `threadPostListLog`
+- `threadQuickReply`, see [Forum](forum.md#editing-posts-and-the-quick-reply)
+- The template events of the posts in `userPostList` and the template event `javascriptInclude` of `thread`, see [Forum](forum.md#templates)
