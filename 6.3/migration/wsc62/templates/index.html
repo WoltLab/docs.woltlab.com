@@ -4258,6 +4258,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#user-stat-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Stat Items
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-list-view-sidebar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message List View Sidebar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#form-styles" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6383,6 +6405,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#user-stat-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Stat Items
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-list-view-sidebar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message List View Sidebar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#form-styles" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6612,6 +6656,24 @@ Templates should use <code>{badge}</code> instead of writing the markup with a c
 <p>In PHP, the badges are rendered with the enum <code>wcf\system\style\BadgeType</code>, for example <code>BadgeType::Deleted-&gt;toHtml()</code>.</p>
 <p>The colors are defined by the CSS classes <code>badge--&lt;type&gt;</code>, which set the CSS custom properties <code>--background-color</code> and <code>--color</code>.
 Styles that change the colors of a status badge should set these properties.</p>
+<h2 id="user-stat-items">User Stat Items<a class="headerlink" href="#user-stat-items" title="Permanent link">#</a></h2>
+<p>The user profile header, the user card and the sidebar of messages show the stat items of the PSR-14 event <code>wcf\event\user\profile\UserProfileStatItemCollecting</code>, see <a href="../php/#user-stat-items">PHP API</a>.
+The template <code>__userStatItems</code> renders the items returned by <code>UserProfile::getStatItems()</code>, the parameter <code>className</code> sets the CSS class of the items, which is also used as the prefix of the child elements <code>{$className}__key</code> and <code>{$className}__value</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'__userStatItems'</span> <span class="na">statItems</span><span class="o">=</span><span class="nv">$userProfile</span><span class="o">-&gt;</span><span class="na">getStatItems</span><span class="o">(</span><span class="s1">'userCard'</span><span class="o">)</span> <span class="na">className</span><span class="o">=</span><span class="s1">'userCard__footer__statsItem'</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The template events <code>beforeStats</code> and <code>afterStats</code> of the template <code>userCard</code> are deprecated, use the event <code>UserProfileStatItemCollecting</code> instead.</p>
+<h2 id="message-list-view-sidebar">Message List View Sidebar<a class="headerlink" href="#message-list-view-sidebar" title="Permanent link">#</a></h2>
+<p>The template <code>messageListViewSidebar</code> contains the sidebar of the redesigned message list view, which shows the avatar, the username, the user title, the rank image, the special trophies, the stat items and the user options configured with <code>MESSAGE_SIDEBAR_USER_OPTIONS</code>.
+The template expects the variable <code>$userProfile</code> and supports the following optional variables:</p>
+<ul>
+<li><code>$isReply</code> hides everything except the avatar and the username, the username is also hidden for guests.</li>
+<li><code>$enableMicrodata</code> adds the schema.org microdata of the author.</li>
+<li><code>$isContentAuthor</code> marks the user as the author of the content to which the message belongs.</li>
+<li><code>$contentAuthorTitlePhrase</code> sets the phrase of this mark, the default value is <code>wcf.comment.objectAuthor</code>.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">'messageListViewSidebar'</span> <span class="na">userProfile</span><span class="o">=</span><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">getUserProfile</span><span class="o">()</span> <span class="na">enableMicrodata</span><span class="o">=</span><span class="kc">true</span> <span class="na">isContentAuthor</span><span class="o">=</span><span class="nv">$isContentAuthor</span><span class="cp">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The template events <code>icons</code>, <code>afterUserTitle</code> and <code>sidebar</code> allow additional content to be added after the username, after the user title and at the end of the sidebar.</p>
 <h2 id="form-styles">Form Styles<a class="headerlink" href="#form-styles" title="Permanent link">#</a></h2>
 <p>The styling of inputs, labels, and required marks has changed for all forms, including forms not created with the form builder:</p>
 <ul>
@@ -6641,7 +6703,7 @@ Styles that change the colors of a status badge should set these properties.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-19
+    2026-11-20
   </span>
 
     
