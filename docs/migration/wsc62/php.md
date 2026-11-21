@@ -1224,9 +1224,63 @@ protected function applyOptions(array|\Traversable $options, bool $nestedOptions
 }
 ```
 
+### Labels, Descriptions, and Suffixes
+
+`label()` and `description()` of `IFormElement`, `suffix()` of `ISuffixedFormField`, and `PagesFormField::invertedLabel()` accept a `wcf\util\HtmlString` in addition to a phrase name.
+The result is HTML in both cases:
+
+- A string is a phrase name and is resolved as before, the phrase is trusted HTML.
+  A string that is no phrase name is still used as it is.
+- An `HtmlString` is used as it is and never resolved as a phrase, even if it looks like a phrase name.
+  Passing `$variables` together with an `HtmlString` causes an `\InvalidArgumentException`.
+
+Plain text, like titles entered by administrators, must be wrapped in `HtmlString::fromText()`, which encodes it.
+`HtmlString::fromSafeHtml()` is meant for intentional markup and makes the caller responsible for its safety.
+Callers that encoded plain text with `StringUtil::encodeHTML()` should switch to `HtmlString::fromText()`, because an encoded string is still resolved as a phrase if it looks like a phrase name:
+
+```php
+// Previously
+$field->label(StringUtil::encodeHTML($option->getTitle()));
+
+// Now
+$field->label(HtmlString::fromText($option->getTitle()));
+```
+
+Markup built in code is passed with `HtmlString::fromSafeHtml()`, every value embedded in it has to be encoded:
+
+```php
+$field->description(HtmlString::fromSafeHtml(
+    '<a href="' . StringUtil::encodeHTML($link) . '">' . StringUtil::encodeHTML($title) . '</a>'
+));
+```
+
+`getLabel()`, `getDescription()`, and `getSuffix()` still return HTML.
+
+The type of the first parameter has been widened from `?string` to `HtmlString|string|null` in `IFormElement`, `TFormElement`, `ISuffixedFormField`, `TSuffixedFormField`, and `AbstractFormFieldDecorator`.
+Classes that override `label()`, `description()`, or `suffix()`, or that implement these interfaces without using the traits, have to widen the parameter type as well.
+
+### Labels of View Filters
+
+The label of a view filter, which is the `$languageItem` passed to `wcf\system\view\filter\AbstractFilter`, is either a phrase name or plain text and is treated as text, both in the filter dialog and in the label of an active filter.
+Previously, the filter dialog output it as HTML, while the active filter showed it as text, so neither plain text nor phrases with markup were shown correctly in both places.
+The filters of the core label their form field with the text returned by `getLabel()`, subclasses that override `getFormField()` should do the same:
+
+```php
+// Previously
+return TextFormField::create($this->id)
+    ->label($this->languageItem);
+
+// Now
+return TextFormField::create($this->id)
+    ->label(HtmlString::fromText($this->getLabel()));
+```
+
+Markup and entities in the phrase of a filter label are shown literally in the filter dialog from now on, as they already were in the label of an active filter.
+This also applies to the label of a grid view column that `GridViewColumn::filter()` passes to a filter given as a class name, the label of the column itself is still HTML.
+
 ### Labels of Select Filters
 
-The labels passed to `wcf\system\view\filter\SelectFilter` and `wcf\system\view\filter\MultipleSelectFilter` are plain text and encoded by the filter.
+The option labels passed to `wcf\system\view\filter\SelectFilter` and `wcf\system\view\filter\MultipleSelectFilter` are plain text and encoded by the filter.
 Previously, string labels were output as HTML in the filter dialog, while the same labels were shown as text in the filter pill.
 Callers that encoded the labels must pass them unencoded, otherwise they are encoded twice, and overrides of `getFormField()` that only encoded the labels can be removed:
 

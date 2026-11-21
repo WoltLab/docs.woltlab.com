@@ -299,6 +299,9 @@ GridViewColumn::for('id')
     ->filter(new TextFilter('id', 'label'));
 ```
 
+A filter given as a class name receives the id and the label of the column.
+The label of a filter is shown as text (see [List Views](list_views.md#filtering)), therefore markup and entities in the label of the column are shown literally in the filter dialog.
+
 In addition, filters can be assigned directly to the grid view if, for example, filtering should be possible for data that is not displayed as a separate column.
 
 ```php
