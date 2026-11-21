@@ -4657,6 +4657,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#labels-descriptions-and-suffixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Labels, Descriptions, and Suffixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#labels-of-view-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Labels of View Filters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#labels-of-select-filters" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7314,6 +7336,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#labels-descriptions-and-suffixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Labels, Descriptions, and Suffixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#labels-of-view-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Labels of View Filters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#labels-of-select-filters" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -9001,8 +9045,60 @@ Fields that adjust their options, like <code>ShowOrderFormField</code> prependin
     <span class="c1">// Adjust `$this-&gt;options` and `$this-&gt;nestedOptions` here.</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="labels-descriptions-and-suffixes">Labels, Descriptions, and Suffixes<a class="headerlink" href="#labels-descriptions-and-suffixes" title="Permanent link">#</a></h3>
+<p><code>label()</code> and <code>description()</code> of <code>IFormElement</code>, <code>suffix()</code> of <code>ISuffixedFormField</code>, and <code>PagesFormField::invertedLabel()</code> accept a <code>wcf\util\HtmlString</code> in addition to a phrase name.
+The result is HTML in both cases:</p>
+<ul>
+<li>A string is a phrase name and is resolved as before, the phrase is trusted HTML.
+  A string that is no phrase name is still used as it is.</li>
+<li>An <code>HtmlString</code> is used as it is and never resolved as a phrase, even if it looks like a phrase name.
+  Passing <code>$variables</code> together with an <code>HtmlString</code> causes an <code>\InvalidArgumentException</code>.</li>
+</ul>
+<p>Plain text, like titles entered by administrators, must be wrapped in <code>HtmlString::fromText()</code>, which encodes it.
+<code>HtmlString::fromSafeHtml()</code> is meant for intentional markup and makes the caller responsible for its safety.
+Callers that encoded plain text with <code>StringUtil::encodeHTML()</code> should switch to <code>HtmlString::fromText()</code>, because an encoded string is still resolved as a phrase if it looks like a phrase name:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Previously</span>
+<span class="nv">$field</span><span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="nx">StringUtil</span><span class="o">::</span><span class="na">encodeHTML</span><span class="p">(</span><span class="nv">$option</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="p">()));</span>
+
+<span class="c1">// Now</span>
+<span class="nv">$field</span><span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="nx">HtmlString</span><span class="o">::</span><span class="na">fromText</span><span class="p">(</span><span class="nv">$option</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="p">()));</span>
+</code></pre></div></td></tr></table></div>
+<p>Markup built in code is passed with <code>HtmlString::fromSafeHtml()</code>, every value embedded in it has to be encoded:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$field</span><span class="o">-&gt;</span><span class="na">description</span><span class="p">(</span><span class="nx">HtmlString</span><span class="o">::</span><span class="na">fromSafeHtml</span><span class="p">(</span>
+    <span class="s1">'&lt;a href="'</span> <span class="o">.</span> <span class="nx">StringUtil</span><span class="o">::</span><span class="na">encodeHTML</span><span class="p">(</span><span class="nv">$link</span><span class="p">)</span> <span class="o">.</span> <span class="s1">'"&gt;'</span> <span class="o">.</span> <span class="nx">StringUtil</span><span class="o">::</span><span class="na">encodeHTML</span><span class="p">(</span><span class="nv">$title</span><span class="p">)</span> <span class="o">.</span> <span class="s1">'&lt;/a&gt;'</span>
+<span class="p">));</span>
+</code></pre></div></td></tr></table></div>
+<p><code>getLabel()</code>, <code>getDescription()</code>, and <code>getSuffix()</code> still return HTML.</p>
+<p>The type of the first parameter has been widened from <code>?string</code> to <code>HtmlString|string|null</code> in <code>IFormElement</code>, <code>TFormElement</code>, <code>ISuffixedFormField</code>, <code>TSuffixedFormField</code>, and <code>AbstractFormFieldDecorator</code>.
+Classes that override <code>label()</code>, <code>description()</code>, or <code>suffix()</code>, or that implement these interfaces without using the traits, have to widen the parameter type as well.</p>
+<h3 id="labels-of-view-filters">Labels of View Filters<a class="headerlink" href="#labels-of-view-filters" title="Permanent link">#</a></h3>
+<p>The label of a view filter, which is the <code>$languageItem</code> passed to <code>wcf\system\view\filter\AbstractFilter</code>, is either a phrase name or plain text and is treated as text, both in the filter dialog and in the label of an active filter.
+Previously, the filter dialog output it as HTML, while the active filter showed it as text, so neither plain text nor phrases with markup were shown correctly in both places.
+The filters of the core label their form field with the text returned by <code>getLabel()</code>, subclasses that override <code>getFormField()</code> should do the same:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Previously</span>
+<span class="k">return</span> <span class="nx">TextFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">languageItem</span><span class="p">);</span>
+
+<span class="c1">// Now</span>
+<span class="k">return</span> <span class="nx">TextFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="nx">HtmlString</span><span class="o">::</span><span class="na">fromText</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getLabel</span><span class="p">()));</span>
+</code></pre></div></td></tr></table></div>
+<p>Markup and entities in the phrase of a filter label are shown literally in the filter dialog from now on, as they already were in the label of an active filter.
+This also applies to the label of a grid view column that <code>GridViewColumn::filter()</code> passes to a filter given as a class name, the label of the column itself is still HTML.</p>
 <h3 id="labels-of-select-filters">Labels of Select Filters<a class="headerlink" href="#labels-of-select-filters" title="Permanent link">#</a></h3>
-<p>The labels passed to <code>wcf\system\view\filter\SelectFilter</code> and <code>wcf\system\view\filter\MultipleSelectFilter</code> are plain text and encoded by the filter.
+<p>The option labels passed to <code>wcf\system\view\filter\SelectFilter</code> and <code>wcf\system\view\filter\MultipleSelectFilter</code> are plain text and encoded by the filter.
 Previously, string labels were output as HTML in the filter dialog, while the same labels were shown as text in the filter pill.
 Callers that encoded the labels must pass them unencoded, otherwise they are encoded twice, and overrides of <code>getFormField()</code> that only encoded the labels can be removed:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -9125,7 +9221,7 @@ References to the deleted thumbnails must tolerate this, e.g. through a foreign 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-20
+    2026-11-21
   </span>
 
     

@@ -6939,6 +6939,15 @@ The interface requires the following methods:</p>
   A label-less form element that requires a label will prevent the form from being rendered by throwing an exception.</li>
 <li><code>description($languageItem = null, array $variables = [])</code> and <code>getDescription()</code> can be used to set and get the description of the form element.</li>
 </ul>
+<p>The label and the description are HTML.
+A string passed to <code>label()</code> or <code>description()</code> is a phrase name that is resolved with <code>$variables</code>, the phrase is trusted HTML.
+Starting with WoltLab Suite 6.3, a <code>wcf\util\HtmlString</code> is used as it is and never resolved as a phrase, plain text like titles entered by administrators has to be wrapped in <code>HtmlString::fromText()</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">TextFormField</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'value'</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="nx">HtmlString</span><span class="o">::</span><span class="na">fromText</span><span class="p">(</span><span class="nv">$option</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="p">()))</span>
+    <span class="o">-&gt;</span><span class="na">description</span><span class="p">(</span><span class="s1">'foo.bar.value.description'</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="iobjecttypeformnode"><code>IObjectTypeFormNode</code><a class="headerlink" href="#iobjecttypeformnode" title="Permanent link">#</a></h3>
 <p><code>IObjectTypeFormField</code> has to be implemented by form nodes that rely on a object type of a specific object type definition in order to function.
 The implementing class has to implement the methods <code>objectType($objectType)</code>, <code>getObjectType()</code>, and <code>getObjectTypeDefinition()</code>.
@@ -7045,7 +7054,7 @@ Every form container has to implement the <code>IFormContainer</code> interface 
 <p>The methods of the interfaces that <code>FormContainer</code> is implementing are well documented, but here is a short overview of the most important methods when setting up a form or extending a form with an event listener:</p>
 <ul>
 <li><code>appendChild(IFormChildNode $child)</code>, <code>appendChildren(array $children)</code>, and <code>insertBefore(IFormChildNode $child, $referenceNodeId)</code> are used to insert new children into the form container.</li>
-<li><code>description($languageItem = null, array $variables = [])</code> and <code>label($languageItem = null, array $variables = [])</code> are used to set the description and the label or title of the form container.</li>
+<li><code>description($languageItem = null, array $variables = [])</code> and <code>label($languageItem = null, array $variables = [])</code> are used to set the description and the label or title of the form container, see <a href="#iformelement"><code>IFormElement</code></a> for the accepted values.</li>
 </ul>
 <p>Example:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -7260,6 +7269,7 @@ The implementing class has to implement the following methods:</p>
 <h4 id="isuffixedformfield"><code>ISuffixedFormField</code><a class="headerlink" href="#isuffixedformfield" title="Permanent link">#</a></h4>
 <p><code>ISuffixedFormField</code> has to be implemented by form fields that support supports displaying a suffix behind the actual input field.
 The implementing class has to implement the methods <code>suffix($languageItem = null, array $variables = [])</code> and <code>getSuffix()</code>.
+Like the label, the suffix is HTML: a string is resolved as a phrase and a <code>wcf\util\HtmlString</code> is used as it is (see <a href="#iformelement"><code>IFormElement</code></a>).
 <code>TSuffixedFormField</code> provides a default implementation of these two methods.</p>
 <h4 id="tdefaultidformfield"><code>TDefaultIdFormField</code><a class="headerlink" href="#tdefaultidformfield" title="Permanent link">#</a></h4>
 <p>Form fields that have a default id have to use <code>TDefaultIdFormField</code> and have to implement the method <code>getDefaultId()</code>.</p>
@@ -7288,7 +7298,7 @@ The implementing class has to implement the methods <code>suffix($languageItem =
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-19
+    2026-11-21
   </span>
 
     
