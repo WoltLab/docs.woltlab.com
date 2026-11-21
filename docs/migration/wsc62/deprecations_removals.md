@@ -743,6 +743,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\system\thread\editor\LabelThreadEditor`, the thread editor dialog is no longer used
 - `wbb\system\thread\editor\TagThreadEditor`, the thread editor dialog is no longer used
 - `wbb\system\clipboard\action\PostClipboardAction`, use the bulk interactions of `wbb\system\listView\user\ThreadPostListView` instead
+- `wbb\system\option\ThreadFormOptionHandler`, use `wbb\data\post\PostBuilder::setThreadFormOptionValue()` instead; the `optionHandler` parameter of `wbb\data\thread\ThreadAction::create()` and `wbb\data\post\PostAction::create()` is no longer supported
 - `gallery\page\ImageEditPage`, use `gallery\form\ImageEditForm` or `gallery\page\ImageBulkEditPage` instead
 - `gallery\system\upload\ImageUploadFileValidationStrategy`, use `gallery\system\file\processor\ImageFileProcessor` instead
 - `gallery\system\upload\VideoUploadFileValidationStrategy`, use `gallery\system\file\processor\VideoFileProcessor` instead
