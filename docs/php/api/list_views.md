@@ -396,7 +396,7 @@ class ExampleListPage extends AbstractListViewPage
 
 ## Primary Button
 
-A primary button can be displayed in the list view header using the `ListViewPrimaryButton` class.
+A primary button can be displayed in the list view header using the `ViewPrimaryButton` class.
 It supports two modes: a link that navigates to a URL, or a button that triggers an action via a CSS class.
 
 ### Link Button
@@ -407,7 +407,7 @@ class ExampleListView extends AbstractListView
     public function __construct()
     {
         $this->setPrimaryButton(
-            ListViewPrimaryButton::forLink(
+            ViewPrimaryButton::forLink(
                 'wcf.example.add',
                 FontAwesomeIcon::fromValues('plus'),
                 LinkHandler::getInstance()->getControllerLink(ExampleAddForm::class),
@@ -425,7 +425,7 @@ class ExampleListView extends AbstractListView
     public function __construct()
     {
         $this->setPrimaryButton(
-            ListViewPrimaryButton::forButton(
+            ViewPrimaryButton::forButton(
                 'wcf.example.add',
                 FontAwesomeIcon::fromValues('plus'),
                 'exampleAddButton',

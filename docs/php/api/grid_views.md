@@ -364,6 +364,49 @@ The title column (see `titleColumn()`) is always visible and cannot be hidden by
 The selected columns are not persisted, but they are part of the URL of the page (`columns[]` parameter).
 In grid views that are not column configurable, hidden columns are never shown.
 
+### Primary Button
+
+A primary button can be displayed in the filter bar of the grid view using the `ViewPrimaryButton` class.
+It supports two modes: a link that navigates to a URL, or a button that triggers an action via a CSS class.
+
+#### Link Button
+
+```php
+class ExampleGridView extends AbstractGridView
+{
+    public function __construct()
+    {
+        $this->setPrimaryButton(
+            ViewPrimaryButton::forLink(
+                'wcf.example.add',
+                FontAwesomeIcon::fromValues('plus'),
+                LinkHandler::getInstance()->getControllerLink(ExampleAddForm::class),
+            )
+        );
+    }
+}
+```
+
+#### Action Button
+
+```php
+class ExampleGridView extends AbstractGridView
+{
+    public function __construct()
+    {
+        $this->setPrimaryButton(
+            ViewPrimaryButton::forButton(
+                'wcf.example.add',
+                FontAwesomeIcon::fromValues('plus'),
+                'exampleAddButton',
+            )
+        );
+    }
+}
+```
+
+The same class is used for the [primary button of list views](list_views.md#primary-button).
+
 
 ### Additional Parameters
 
