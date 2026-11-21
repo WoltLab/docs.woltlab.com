@@ -161,6 +161,10 @@ class ExampleListView extends AbstractListView
 }
 ```
 
+The label of a filter is either a phrase name or plain text, like the title of an option entered by an administrator.
+It is shown as text, both in the filter dialog and in the label of an active filter.
+Filters that override `getFormField()` label their form field with `HtmlString::fromText($this->getLabel())`.
+
 ### BooleanFilter
 
 `BooleanFilter` is a filter for columns that contain boolean values (`1` or `0`).

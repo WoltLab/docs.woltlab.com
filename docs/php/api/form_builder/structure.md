@@ -101,6 +101,16 @@ The interface requires the following methods:
   A label-less form element that requires a label will prevent the form from being rendered by throwing an exception.
 - `description($languageItem = null, array $variables = [])` and `getDescription()` can be used to set and get the description of the form element.
 
+The label and the description are HTML.
+A string passed to `label()` or `description()` is a phrase name that is resolved with `$variables`, the phrase is trusted HTML.
+Starting with WoltLab Suite 6.3, a `wcf\util\HtmlString` is used as it is and never resolved as a phrase, plain text like titles entered by administrators has to be wrapped in `HtmlString::fromText()`:
+
+```php
+TextFormField::create('value')
+    ->label(HtmlString::fromText($option->getTitle()))
+    ->description('foo.bar.value.description');
+```
+
 
 ### `IObjectTypeFormNode`
 
@@ -223,7 +233,7 @@ There are multiple default container implementations:
 The methods of the interfaces that `FormContainer` is implementing are well documented, but here is a short overview of the most important methods when setting up a form or extending a form with an event listener:
 
 - `appendChild(IFormChildNode $child)`, `appendChildren(array $children)`, and `insertBefore(IFormChildNode $child, $referenceNodeId)` are used to insert new children into the form container.
-- `description($languageItem = null, array $variables = [])` and `label($languageItem = null, array $variables = [])` are used to set the description and the label or title of the form container.
+- `description($languageItem = null, array $variables = [])` and `label($languageItem = null, array $variables = [])` are used to set the description and the label or title of the form container, see [`IFormElement`](#iformelement) for the accepted values.
 
 Example:
 
@@ -494,6 +504,7 @@ SelectFormField::create('fileID')
 
 `ISuffixedFormField` has to be implemented by form fields that support supports displaying a suffix behind the actual input field.
 The implementing class has to implement the methods `suffix($languageItem = null, array $variables = [])` and `getSuffix()`.
+Like the label, the suffix is HTML: a string is resolved as a phrase and a `wcf\util\HtmlString` is used as it is (see [`IFormElement`](#iformelement)).
 `TSuffixedFormField` provides a default implementation of these two methods.
 
 
