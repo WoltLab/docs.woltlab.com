@@ -973,7 +973,7 @@ User options of the `profile` category tree are automatically available as filte
 
 - the filters of the user list in the ACP, which also provides a hidden column for each option,
 - the filters of the members list for options that are `searchable` and visible to other users than the owner,
-- the object filters of ads, notices, automatic user group assignments and trophies (`wcf\system\object\filter\user\UserOptionObjectFilter`).
+- the [object filters](../../php/api/object_filters.md) of ads, notices, automatic user group assignments and trophies (`wcf\system\object\filter\user\UserOptionObjectFilter`).
 
 No additional code is required, the filter is provided by the form option of the user option.
 
@@ -981,6 +981,129 @@ No additional code is required, the filter is provided by the form option of the
 
 Grid views can allow users to select the visible columns, see [Column Visibility](../../php/api/grid_views.md#column-visibility).
 `AbstractGridViewPage` reads the selected columns from the `columns` parameter into the new property `$columns`, which may conflict with an existing property of the same name in a subclass.
+
+## Conditions of Ads, Notices, User Group Assignments and Trophies
+
+The conditions of ads, notices, automatic user group assignments and trophies have been migrated from the legacy condition system to [object filters](../../php/api/object_filters.md).
+The configured filters are stored as JSON in the new `conditions` column of `wcf1_ad`, `wcf1_notice`, `wcf1_user_group_assignment` and `wcf1_trophy` instead of `wcf1_condition`.
+
+The object type definitions `com.woltlab.wcf.condition.ad`, `com.woltlab.wcf.condition.notice`, `com.woltlab.wcf.condition.userGroupAssignment` and `com.woltlab.wcf.condition.trophy` are deprecated and only kept for the migration of existing conditions, object types of these definitions are no longer evaluated.
+The conditions of boxes and of the bulk processing of users are not affected.
+
+### Registering Filters
+
+Filters are registered through a PSR-14 event of the respective builder instead of an object type:
+
+| Legacy Object Type Definition | Event | Accepted Filters |
+|-------------------------------|-------|------------------|
+| `com.woltlab.wcf.condition.ad` | `wcf\event\ad\AdObjectFilterCollecting` | `IObjectFilter` |
+| `com.woltlab.wcf.condition.notice` | `wcf\event\notice\NoticeObjectFilterCollecting` | `IObjectFilter` |
+| `com.woltlab.wcf.condition.userGroupAssignment` | `wcf\event\user\group\assignment\UserGroupAssignmentObjectFilterCollecting` | `IObjectListFilter` |
+| `com.woltlab.wcf.condition.trophy` | `wcf\event\trophy\TrophyObjectFilterCollecting` | `IObjectListFilter` |
+
+```php
+EventHandler::getInstance()->register(
+    \wcf\event\notice\NoticeObjectFilterCollecting::class,
+    static function (\wcf\event\notice\NoticeObjectFilterCollecting $event) {
+        $event->register(new \foo\system\object\filter\BarObjectFilter());
+        $event->register(new \wcf\system\object\filter\user\UserIntegerPropertyObjectFilter('fooPoints', 'foo.user.condition.fooPoints'));
+    }
+);
+```
+
+Legacy conditions based on `wcf\system\condition\UserIntegerPropertyCondition` are replaced by `wcf\system\object\filter\user\UserIntegerPropertyObjectFilter`, custom conditions require a custom filter, see [Object Filters](../../php/api/object_filters.md#base-classes).
+
+The following legacy condition classes are deprecated:
+
+| Legacy Condition | Replacement |
+|------------------|-------------|
+| `wcf\system\condition\DaysOfWeekCondition` | `wcf\system\object\filter\user\DaysOfWeekObjectFilter` |
+| `wcf\system\condition\TimeCondition` | `wcf\system\object\filter\user\TimeRangeObjectFilter` |
+| `wcf\system\condition\UserBirthdayCondition` | `wcf\system\object\filter\user\UserBirthdayObjectFilter` |
+| `wcf\system\condition\UserMobileBrowserCondition` | `wcf\system\object\filter\user\UserMobileBrowserObjectFilter` |
+| `wcf\system\condition\page\MultiPageCondition` | `wcf\system\object\filter\RequestedPageObjectFilter`, `wcf\system\object\filter\NotRequestedPageObjectFilter` |
+
+### Evaluating Filters
+
+`Ad::getConditions()`, `Notice::getConditions()`, `UserGroupAssignment::getConditions()` and `Trophy::getConditions()` are deprecated, the filters are evaluated by the builders instead:
+
+- `AdObjectFilterBuilder::testUser()` and `NoticeObjectFilterBuilder::testUser()` return whether a user matches the filters of an ad or a notice.
+- `UserGroupAssignmentObjectFilterBuilder::testUser()` and `UserGroupAssignmentObjectFilterBuilder::applyFilters()` test a single user or add the filters to a `UserList`.
+- `TrophyObjectFilterBuilder::applyFilters()` adds the filters of a trophy to a `UserList`.
+
+The builders are located in the `wcf\system\object\filter\builder` namespace.
+`ObjectListFilterHandler::applyFilters()` returns whether any of the stored filters has been applied.
+
+### Migrating Existing Conditions
+
+Packages that provided conditions must migrate the existing conditions during the update using `wcf\system\object\filter\migration\LegacyConditionMigration`.
+The migration converts the conditions of a legacy object type definition into filters, appends them to the filters already stored in the `conditions` column of the object and deletes the converted conditions from `wcf1_condition`.
+
+The converters are indexed by the class name of the legacy condition and receive the unserialized condition data and the object type of the condition.
+A converter returns a list of pairs that consist of the identifier of the filter and its serialized value, a condition can be converted into multiple filters.
+Conditions that cannot be represented by a filter must return `null`, exceptions thrown by a converter are treated the same way.
+The legacy condition classes are not loaded during the migration, therefore they can be deleted in the same update.
+
+The update of WoltLab Suite Core converts the conditions provided by the core and disables all objects with conditions that it cannot convert, because evaluating only a part of their conditions would match more users than intended.
+The objects are enabled again once the updates of the other packages have converted all remaining conditions.
+Objects that were already disabled before the update are not enabled.
+
+`LegacyConditionMigration::getUserIntegerPropertyConverter()` provides a converter for conditions of `UserIntegerPropertyCondition` with the given property names that are migrated to `UserIntegerPropertyObjectFilter`.
+It also converts the exclusive bounds of the legacy condition into the inclusive bounds of the filter.
+
+```php title="files/acp/update_com.example.foo_6.3_conditions.php"
+<?php
+
+use foo\system\condition\BarCondition;
+use wcf\data\object\type\ObjectType;
+use wcf\system\condition\UserIntegerPropertyCondition;
+use wcf\system\object\filter\migration\LegacyConditionMigration;
+
+$converters = [
+    UserIntegerPropertyCondition::class => LegacyConditionMigration::getUserIntegerPropertyConverter([
+        'fooPoints',
+    ]),
+    BarCondition::class => static function (array $data, ObjectType $objectType): ?array {
+        if (!isset($data['barIDs']) || !\is_array($data['barIDs']) || $data['barIDs'] === []) {
+            return null;
+        }
+
+        return [[
+            'com.example.foo.bar',
+            \implode(',', \array_map(static fn($barID) => (int)$barID, $data['barIDs'])),
+        ]];
+    },
+];
+
+foreach ([
+    ['com.woltlab.wcf.condition.notice', 'wcf1_notice', 'noticeID'],
+    ['com.woltlab.wcf.condition.ad', 'wcf1_ad', 'adID'],
+    ['com.woltlab.wcf.condition.userGroupAssignment', 'wcf1_user_group_assignment', 'assignmentID'],
+    ['com.woltlab.wcf.condition.trophy', 'wcf1_trophy', 'trophyID'],
+] as [$definitionName, $tableName, $idColumn]) {
+    new LegacyConditionMigration($definitionName, $tableName, $idColumn)->migrate($converters);
+}
+```
+
+The migration must run before the `objectType` package installation plugin removes the legacy object types, because deleting the object types also deletes their conditions:
+
+```xml title="package.xml"
+<instructions type="update" fromversion="1.0.*">
+    <instruction type="script" run="standalone">acp/update_com.example.foo_6.3_conditions.php</instruction>
+    <instruction type="objectType" />
+    <!-- … -->
+</instructions>
+```
+
+The legacy object types are then removed through the `<delete>` section of the `objectType.xml`:
+
+```xml title="objectType.xml"
+<delete>
+    <type name="com.example.foo.bar">
+        <definitionname>com.woltlab.wcf.condition.notice</definitionname>
+    </type>
+</delete>
+```
 
 ## Trophies
 
@@ -1029,35 +1152,12 @@ The images are no longer stored in `images/trophy/` and the image upload of `Tro
 
 ### Conditions
 
-The conditions of trophies that are awarded automatically have been migrated to object filters, the same system that is used for the conditions of ads, notices and automatic user group assignments.
-The configured filters are stored as JSON in the `conditions` column of `wcf1_trophy` and are provided by `wcf\system\object\filter\builder\TrophyObjectFilterBuilder`.
-The object type definition `com.woltlab.wcf.condition.trophy` is deprecated, object types of this definition are no longer evaluated.
+The conditions of trophies that are awarded automatically have been migrated to object filters, see [Conditions of Ads, Notices, User Group Assignments and Trophies](#conditions-of-ads-notices-user-group-assignments-and-trophies).
+The configured filters are provided by `wcf\system\object\filter\builder\TrophyObjectFilterBuilder`, an empty list of filters is stored as `null`.
+The trophies are awarded and revoked by applying the filters to a `UserList`, therefore `wcf\event\trophy\TrophyObjectFilterCollecting` only accepts filters implementing `wcf\system\object\filter\IObjectListFilter`.
+A trophy without any active filters matches no users.
 
-Additional filters are registered through the PSR-14 event `wcf\event\trophy\TrophyObjectFilterCollecting`.
-The trophies are awarded and revoked by applying the filters to a `UserList`, therefore only filters implementing `wcf\system\object\filter\IObjectListFilter` are supported.
-
-```php
-EventHandler::getInstance()->register(
-    \wcf\event\trophy\TrophyObjectFilterCollecting::class,
-    static function (\wcf\event\trophy\TrophyObjectFilterCollecting $event) {
-        $event->register(new \wcf\system\object\filter\user\UserIntegerPropertyObjectFilter('fooPoints', 'wcf.user.condition.fooPoints'));
-    }
-);
-```
-
-Packages that provided trophy conditions must migrate the existing conditions during the update using `wcf\system\object\filter\migration\LegacyConditionMigration`.
-The update of WoltLab Suite Core disables all trophies with conditions that it cannot convert, the trophies are enabled again once the remaining conditions have been converted by the updates of the other packages.
-The migration must run before the `objectType` package installation plugin removes the legacy object types, because deleting the object types also deletes their conditions.
-
-```php
-(new LegacyConditionMigration('com.woltlab.wcf.condition.trophy', 'wcf1_trophy', 'trophyID'))->migrate([
-    UserIntegerPropertyCondition::class => LegacyConditionMigration::getUserIntegerPropertyConverter([
-        'fooPoints',
-    ]),
-]);
-```
-
-`ObjectListFilterHandler::applyFilters()` now returns whether any of the stored filters has been applied.
+The legacy conditions of trophies that are not awarded automatically were never evaluated and are deleted during the update of WoltLab Suite Core.
 
 ## Polls
 

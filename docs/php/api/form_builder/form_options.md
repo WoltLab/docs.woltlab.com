@@ -64,7 +64,7 @@ The option types offered by the type selection can be customized by overriding `
 
 Apart from the list of predefined form options that ship with the software, developers can add own implementations that will be available with every form that is build on top of `AbstractFormOptionAddForm`.
 It offers a seamless integration into list views and grid views through `getFilterFormField()`, `renderFilterValue()` and `applyFilter()`.
-Since version 6.3, `matchesFilterValue()` is the equivalent of `applyFilter()` for a single value and is used by object filters, `AbstractFormOption` provides a default implementation that compares the values for equality.
+Since version 6.3, `matchesFilterValue()` is the equivalent of `applyFilter()` for a single value and is used by [object filters](../object_filters.md), `AbstractFormOption` provides a default implementation that compares the values for equality.
 The column used to store the values is defined by `getDatabaseTableColumn()`, which is also used to create the columns of user options.
 
 For a full documentation of the required methods please see the `IFormOption` interface.
