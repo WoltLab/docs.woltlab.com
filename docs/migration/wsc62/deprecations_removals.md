@@ -66,6 +66,10 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `filebase\data\file\version\review\FileVersionReviewEditor`
 - `filebase\data\file\version\review\response\FileVersionReviewResponseAction`
 - `filebase\data\file\version\review\response\FileVersionReviewResponseBuilder`
+- `filebase\data\file\option\FileOptionAction`, use `filebase\data\file\option\FileOptionBuilder` with the commands in `filebase\command\file\option` instead
+- `filebase\data\file\option\FileOptionEditor`, use `filebase\data\file\option\FileOptionBuilder` instead
+- `filebase\data\license\LicenseAction`, use `filebase\data\license\LicenseBuilder` with the commands in `filebase\command\license` instead
+- `filebase\data\license\LicenseEditor`, use `filebase\data\license\LicenseBuilder` instead
 - `blog\data\blog\BlogAction`
 - `blog\data\blog\BlogEditor`
 - `blog\data\entry\EntryAction`
@@ -130,6 +134,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `calendar\data\event\date\EventDateEditor`
 - `calendar\data\event\EventAction`
 - `calendar\data\event\EventEditor`
+- `calendar\data\event\option\EventOptionAction`, use `calendar\data\event\option\EventOptionBuilder` with the commands in `calendar\command\event\option` instead
+- `calendar\data\event\option\EventOptionEditor`, use `calendar\data\event\option\EventOptionBuilder` instead
 - `wcf\data\user\group\assignment\UserGroupAssignmentAction`
 - `wcf\data\user\group\assignment\UserGroupAssignmentEditor`
 - `wcf\data\notice\NoticeAction`
@@ -245,6 +251,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\post\ViewablePost`, use `wbb\data\post\Post` instead
 - `wbb\data\post\ViewablePostList`, use `wbb\data\post\PostList` instead
 - `wbb\data\post\SimplifiedViewablePostList`, use `wbb\data\post\PostList` instead
+- `wbb\data\post\PostEditor`, use `wbb\data\post\PostBuilder` instead
+- `wbb\data\post\PostAction`, use `wbb\data\post\PostBuilder` and commands instead
+- `wbb\system\event\listener\AbstractObjectActionThreadListener`, use the commands `wbb\command\thread\CreateContentThread` and `wbb\command\thread\UpdateContentThread` in a PSR-14 event listener instead
 
 #### Methods
 
@@ -489,22 +498,6 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\data\album\AlbumAction::update()`, use `gallery\command\album\UpdateAlbum` instead
 - `wcf\system\form\builder\field\ISelectionFormField::options()`, use `wcf\system\form\builder\field\ISelectionFormField::choices()` or `wcf\system\form\builder\field\ISelectionFormField::phraseChoices()` instead
 - `wcf\system\form\builder\field\TSelectionFormField::options()`, use `wcf\system\form\builder\field\TSelectionFormField::choices()` or `wcf\system\form\builder\field\TSelectionFormField::phraseChoices()` instead
-- `wbb\data\post\PostAction::validateEnable()`, use `wbb\command\post\EnablePosts` instead
-- `wbb\data\post\PostAction::enable()`, use `wbb\command\post\EnablePosts` instead
-- `wbb\data\post\PostAction::validateDisable()`, use `wbb\command\post\DisablePosts` instead
-- `wbb\data\post\PostAction::disable()`, use `wbb\command\post\DisablePosts` instead
-- `wbb\data\post\PostAction::validateTrash()`, use `wbb\command\post\SoftDeletePosts` instead
-- `wbb\data\post\PostAction::trash()`, use `wbb\command\post\SoftDeletePosts` instead
-- `wbb\data\post\PostAction::validateRestore()`, use `wbb\command\post\RestorePosts` instead
-- `wbb\data\post\PostAction::restore()`, use `wbb\command\post\RestorePosts` instead
-- `wbb\data\post\PostAction::validateDelete()`, use `wbb\command\post\DeletePosts` instead
-- `wbb\data\post\PostAction::delete()`, use `wbb\command\post\DeletePosts` instead
-- `wbb\data\post\PostAction::validateDeleteCompletely()`, use `wbb\command\post\DeletePosts` instead
-- `wbb\data\post\PostAction::deleteCompletely()`, use `wbb\command\post\DeletePosts` instead
-- `wbb\data\post\PostAction::validateClose()`, use `wbb\command\post\ClosePost` instead
-- `wbb\data\post\PostAction::close()`, use `wbb\command\post\ClosePost` instead
-- `wbb\data\post\PostAction::validateOpen()`, use `wbb\command\post\OpenPost` instead
-- `wbb\data\post\PostAction::open()`, use `wbb\command\post\OpenPost` instead
 - `wbb\data\post\Post::setThread()`, the thread is loaded on demand by `wbb\data\post\Post::getThread()`
 - `wbb\data\post\Post::getPoll()`, use standalone polls that are embedded through the `[poll]` BBCode instead
 - `wbb\data\post\Post::setPoll()`, the poll is loaded on demand by `wbb\data\post\Post::getPoll()`
@@ -749,6 +742,14 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\system\upload\VideoUploadFileValidationStrategy`, use `gallery\system\file\processor\VideoFileProcessor` instead
 - `gallery\system\upload\VideoThumbnailUploadFileValidationStrategy`, use `gallery\system\file\processor\VideoThumbnailFileProcessor` instead
 - `gallery\system\upload\WatermarkUploadFileValidationStrategy`
+- `wbb\system\event\listener\ArticleActionThreadListener`, the article threads are maintained by `wbb\system\event\listener\ArticleThreadListener` through the PSR-14 article events; changes made through `wcf\data\article\ArticleAction` are no longer synchronized
+- `blog\system\event\listener\EntryActionThreadListener`, the entry threads are maintained by `blog\system\event\listener\EntryThreadListener` through the PSR-14 entry events; changes made through `blog\data\entry\EntryAction` are no longer synchronized
+- `calendar\system\event\listener\EventActionEventThreadListener`, the event threads are maintained by `calendar\system\event\listener\EventThreadListener` through the PSR-14 event events; changes made through `calendar\data\event\EventAction` are no longer synchronized
+- `calendar\command\event\option\SetOptionI18nValues`, use `calendar\data\event\option\EventOptionBuilder::setTitle()` and `calendar\data\event\option\EventOptionBuilder::setDescription()` instead; the `optionTitle_i18n` and `optionDescription_i18n` parameters of `calendar\data\event\option\EventOptionAction` are no longer supported
+- `filebase\command\file\option\SetOptionI18nValues`, use `filebase\data\file\option\FileOptionBuilder::setTitle()` and `filebase\data\file\option\FileOptionBuilder::setDescription()` instead; the `optionTitle_i18n` and `optionDescription_i18n` parameters of `filebase\data\file\option\FileOptionAction` are no longer supported
+- `filebase\system\event\listener\FileActionSupportThreadListener`, the support threads are maintained by `filebase\system\event\listener\FileSupportThreadListener` through the PSR-14 file events; changes made through `filebase\data\file\FileAction` are no longer synchronized
+- `filebase\system\event\listener\FileVersionActionSupportThreadListener`, the posts for new versions are maintained by `filebase\system\event\listener\FileVersionSupportPostListener` through the PSR-14 file version events; changes made through `filebase\data\file\version\FileVersionAction` are no longer synchronized
+- `filebase\system\event\listener\AssignLabelSupportThreadListener`, the labels of the support threads are synchronized by `filebase\command\file\RebuildFileSupportThreads`
 
 #### Methods
 
@@ -804,7 +805,6 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\like\LikeAction::copy()`
 - `wcf\data\like\object\LikeObject::getUsers()`
 - `wcf\data\like\object\LikeObject::setLikedObject()`
-- `filebase\data\file\option\FileOptionAction::delete()`
 - `filebase\data\file\content\FileContentAction::delete()`
 - `filebase\data\file\version\content\FileVersionContentAction::delete()`
 - `filebase\data\file\version\review\FileVersionReviewAction::markNotificationsAsConfirmed()`
@@ -847,6 +847,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `calendar\data\event\date\participation\EventDateParticipationAction::validateRemoveParticipant()`
 - `calendar\data\event\date\participation\EventDateParticipationAction::removeParticipant()`
 - `calendar\data\event\date\participation\EventDateParticipationAction::invite()`
+- `calendar\acp\form\EventOptionAddForm::getEventOptions()`, the show order of event options is changed in the grid view of `calendar\acp\page\EventOptionListPage`
+- `filebase\acp\form\FileOptionAddForm::getFileOptions()`, the show order of file options is changed in the grid view of `filebase\acp\page\FileOptionListPage`
 - `wcf\data\package\update\PackageUpdateAction::validateSearchForUpdates()`
 - `wcf\data\package\update\PackageUpdateAction::searchForUpdates()`
 - `wcf\data\user\UserAction::validatePrepareRemoveContent()`
@@ -980,6 +982,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\system\attachment\PostAttachmentObjectType::cacheObjects()`
 - `wbb\system\moderation\DeletedPostProvider::getObjectList()`, use `wbb\system\moderation\DeletedPostProvider::getListView()` instead
 - `wbb\system\moderation\DeletedPostProvider::getTemplateName()`, use `wbb\system\moderation\DeletedPostProvider::getListView()` instead
+- `wbb\data\thread\ThreadAction::rebuildArticleThreads()`, use `wbb\command\thread\RebuildArticleThreads` instead
+- `filebase\data\license\LicenseAction::getI18nSaveTypes()`, `filebase\data\license\LicenseAction::getLanguageCategory()` and `filebase\data\license\LicenseAction::getPackageID()`, the class no longer uses `wcf\data\TI18nDatabaseObjectAction`; use `filebase\data\license\LicenseBuilder::setText()` instead, the `licenseText_i18n` parameter of `filebase\data\license\LicenseAction` is no longer supported
 
 #### Properties
 
@@ -1021,6 +1025,11 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\board\Board::$title`, use `wbb\data\board\Board::getTitle()` or `wbb\data\board\Board::getL10nValues()` instead
 - `wbb\data\board\Board::$description`, use `wbb\data\board\Board::getDescription()` or `wbb\data\board\Board::getL10nValues()` instead
 - `wbb\data\board\Board::$metaDescription`, use `wbb\data\board\Board::getMetaDescription()` or `wbb\data\board\Board::getL10nValues()` instead
+- `calendar\data\event\option\EventOption::$optionTitle`, use `calendar\data\event\option\EventOption::getTitle()` or `calendar\data\event\option\EventOption::getL10nValues()` instead
+- `calendar\data\event\option\EventOption::$optionDescription`, use `calendar\data\event\option\EventOption::getDescription()` or `calendar\data\event\option\EventOption::getL10nValues()` instead
+- `filebase\data\file\option\FileOption::$optionTitle`, use `filebase\data\file\option\FileOption::getTitle()` or `filebase\data\file\option\FileOption::getL10nValues()` instead
+- `filebase\data\file\option\FileOption::$optionDescription`, use `filebase\data\file\option\FileOption::getDescription()` or `filebase\data\file\option\FileOption::getL10nValues()` instead
+- `filebase\data\license\License::$licenseText` of global licenses (it remains available for file-specific licenses), use `filebase\data\license\License::getLicenseText()` or `filebase\data\license\License::getL10nValues()` instead
 - `gallery\data\image\ImageAction::$disallowedBBCodesPermission`
 - `gallery\data\image\ImageAction::$imageErrors`
 - `gallery\data\image\ImageAction::$imageParameters`
@@ -1294,3 +1303,4 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `threadPostListLog`
 - `threadQuickReply`, see [Forum](forum.md#editing-posts-and-the-quick-reply)
 - The template events of the posts in `userPostList` and the template event `javascriptInclude` of `thread`, see [Forum](forum.md#templates)
+- `eventOptionFieldList`
