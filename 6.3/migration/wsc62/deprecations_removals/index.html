@@ -6549,6 +6549,10 @@
 <li><code>filebase\data\file\version\review\FileVersionReviewEditor</code></li>
 <li><code>filebase\data\file\version\review\response\FileVersionReviewResponseAction</code></li>
 <li><code>filebase\data\file\version\review\response\FileVersionReviewResponseBuilder</code></li>
+<li><code>filebase\data\file\option\FileOptionAction</code>, use <code>filebase\data\file\option\FileOptionBuilder</code> with the commands in <code>filebase\command\file\option</code> instead</li>
+<li><code>filebase\data\file\option\FileOptionEditor</code>, use <code>filebase\data\file\option\FileOptionBuilder</code> instead</li>
+<li><code>filebase\data\license\LicenseAction</code>, use <code>filebase\data\license\LicenseBuilder</code> with the commands in <code>filebase\command\license</code> instead</li>
+<li><code>filebase\data\license\LicenseEditor</code>, use <code>filebase\data\license\LicenseBuilder</code> instead</li>
 <li><code>blog\data\blog\BlogAction</code></li>
 <li><code>blog\data\blog\BlogEditor</code></li>
 <li><code>blog\data\entry\EntryAction</code></li>
@@ -6613,6 +6617,8 @@
 <li><code>calendar\data\event\date\EventDateEditor</code></li>
 <li><code>calendar\data\event\EventAction</code></li>
 <li><code>calendar\data\event\EventEditor</code></li>
+<li><code>calendar\data\event\option\EventOptionAction</code>, use <code>calendar\data\event\option\EventOptionBuilder</code> with the commands in <code>calendar\command\event\option</code> instead</li>
+<li><code>calendar\data\event\option\EventOptionEditor</code>, use <code>calendar\data\event\option\EventOptionBuilder</code> instead</li>
 <li><code>wcf\data\user\group\assignment\UserGroupAssignmentAction</code></li>
 <li><code>wcf\data\user\group\assignment\UserGroupAssignmentEditor</code></li>
 <li><code>wcf\data\notice\NoticeAction</code></li>
@@ -6728,6 +6734,9 @@
 <li><code>wbb\data\post\ViewablePost</code>, use <code>wbb\data\post\Post</code> instead</li>
 <li><code>wbb\data\post\ViewablePostList</code>, use <code>wbb\data\post\PostList</code> instead</li>
 <li><code>wbb\data\post\SimplifiedViewablePostList</code>, use <code>wbb\data\post\PostList</code> instead</li>
+<li><code>wbb\data\post\PostEditor</code>, use <code>wbb\data\post\PostBuilder</code> instead</li>
+<li><code>wbb\data\post\PostAction</code>, use <code>wbb\data\post\PostBuilder</code> and commands instead</li>
+<li><code>wbb\system\event\listener\AbstractObjectActionThreadListener</code>, use the commands <code>wbb\command\thread\CreateContentThread</code> and <code>wbb\command\thread\UpdateContentThread</code> in a PSR-14 event listener instead</li>
 </ul>
 <h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">#</a></h4>
 <ul>
@@ -6972,22 +6981,6 @@
 <li><code>gallery\data\album\AlbumAction::update()</code>, use <code>gallery\command\album\UpdateAlbum</code> instead</li>
 <li><code>wcf\system\form\builder\field\ISelectionFormField::options()</code>, use <code>wcf\system\form\builder\field\ISelectionFormField::choices()</code> or <code>wcf\system\form\builder\field\ISelectionFormField::phraseChoices()</code> instead</li>
 <li><code>wcf\system\form\builder\field\TSelectionFormField::options()</code>, use <code>wcf\system\form\builder\field\TSelectionFormField::choices()</code> or <code>wcf\system\form\builder\field\TSelectionFormField::phraseChoices()</code> instead</li>
-<li><code>wbb\data\post\PostAction::validateEnable()</code>, use <code>wbb\command\post\EnablePosts</code> instead</li>
-<li><code>wbb\data\post\PostAction::enable()</code>, use <code>wbb\command\post\EnablePosts</code> instead</li>
-<li><code>wbb\data\post\PostAction::validateDisable()</code>, use <code>wbb\command\post\DisablePosts</code> instead</li>
-<li><code>wbb\data\post\PostAction::disable()</code>, use <code>wbb\command\post\DisablePosts</code> instead</li>
-<li><code>wbb\data\post\PostAction::validateTrash()</code>, use <code>wbb\command\post\SoftDeletePosts</code> instead</li>
-<li><code>wbb\data\post\PostAction::trash()</code>, use <code>wbb\command\post\SoftDeletePosts</code> instead</li>
-<li><code>wbb\data\post\PostAction::validateRestore()</code>, use <code>wbb\command\post\RestorePosts</code> instead</li>
-<li><code>wbb\data\post\PostAction::restore()</code>, use <code>wbb\command\post\RestorePosts</code> instead</li>
-<li><code>wbb\data\post\PostAction::validateDelete()</code>, use <code>wbb\command\post\DeletePosts</code> instead</li>
-<li><code>wbb\data\post\PostAction::delete()</code>, use <code>wbb\command\post\DeletePosts</code> instead</li>
-<li><code>wbb\data\post\PostAction::validateDeleteCompletely()</code>, use <code>wbb\command\post\DeletePosts</code> instead</li>
-<li><code>wbb\data\post\PostAction::deleteCompletely()</code>, use <code>wbb\command\post\DeletePosts</code> instead</li>
-<li><code>wbb\data\post\PostAction::validateClose()</code>, use <code>wbb\command\post\ClosePost</code> instead</li>
-<li><code>wbb\data\post\PostAction::close()</code>, use <code>wbb\command\post\ClosePost</code> instead</li>
-<li><code>wbb\data\post\PostAction::validateOpen()</code>, use <code>wbb\command\post\OpenPost</code> instead</li>
-<li><code>wbb\data\post\PostAction::open()</code>, use <code>wbb\command\post\OpenPost</code> instead</li>
 <li><code>wbb\data\post\Post::setThread()</code>, the thread is loaded on demand by <code>wbb\data\post\Post::getThread()</code></li>
 <li><code>wbb\data\post\Post::getPoll()</code>, use standalone polls that are embedded through the <code>[poll]</code> BBCode instead</li>
 <li><code>wbb\data\post\Post::setPoll()</code>, the poll is loaded on demand by <code>wbb\data\post\Post::getPoll()</code></li>
@@ -7230,6 +7223,14 @@
 <li><code>gallery\system\upload\VideoUploadFileValidationStrategy</code>, use <code>gallery\system\file\processor\VideoFileProcessor</code> instead</li>
 <li><code>gallery\system\upload\VideoThumbnailUploadFileValidationStrategy</code>, use <code>gallery\system\file\processor\VideoThumbnailFileProcessor</code> instead</li>
 <li><code>gallery\system\upload\WatermarkUploadFileValidationStrategy</code></li>
+<li><code>wbb\system\event\listener\ArticleActionThreadListener</code>, the article threads are maintained by <code>wbb\system\event\listener\ArticleThreadListener</code> through the PSR-14 article events; changes made through <code>wcf\data\article\ArticleAction</code> are no longer synchronized</li>
+<li><code>blog\system\event\listener\EntryActionThreadListener</code>, the entry threads are maintained by <code>blog\system\event\listener\EntryThreadListener</code> through the PSR-14 entry events; changes made through <code>blog\data\entry\EntryAction</code> are no longer synchronized</li>
+<li><code>calendar\system\event\listener\EventActionEventThreadListener</code>, the event threads are maintained by <code>calendar\system\event\listener\EventThreadListener</code> through the PSR-14 event events; changes made through <code>calendar\data\event\EventAction</code> are no longer synchronized</li>
+<li><code>calendar\command\event\option\SetOptionI18nValues</code>, use <code>calendar\data\event\option\EventOptionBuilder::setTitle()</code> and <code>calendar\data\event\option\EventOptionBuilder::setDescription()</code> instead; the <code>optionTitle_i18n</code> and <code>optionDescription_i18n</code> parameters of <code>calendar\data\event\option\EventOptionAction</code> are no longer supported</li>
+<li><code>filebase\command\file\option\SetOptionI18nValues</code>, use <code>filebase\data\file\option\FileOptionBuilder::setTitle()</code> and <code>filebase\data\file\option\FileOptionBuilder::setDescription()</code> instead; the <code>optionTitle_i18n</code> and <code>optionDescription_i18n</code> parameters of <code>filebase\data\file\option\FileOptionAction</code> are no longer supported</li>
+<li><code>filebase\system\event\listener\FileActionSupportThreadListener</code>, the support threads are maintained by <code>filebase\system\event\listener\FileSupportThreadListener</code> through the PSR-14 file events; changes made through <code>filebase\data\file\FileAction</code> are no longer synchronized</li>
+<li><code>filebase\system\event\listener\FileVersionActionSupportThreadListener</code>, the posts for new versions are maintained by <code>filebase\system\event\listener\FileVersionSupportPostListener</code> through the PSR-14 file version events; changes made through <code>filebase\data\file\version\FileVersionAction</code> are no longer synchronized</li>
+<li><code>filebase\system\event\listener\AssignLabelSupportThreadListener</code>, the labels of the support threads are synchronized by <code>filebase\command\file\RebuildFileSupportThreads</code></li>
 </ul>
 <h4 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">#</a></h4>
 <ul>
@@ -7285,7 +7286,6 @@
 <li><code>wcf\data\like\LikeAction::copy()</code></li>
 <li><code>wcf\data\like\object\LikeObject::getUsers()</code></li>
 <li><code>wcf\data\like\object\LikeObject::setLikedObject()</code></li>
-<li><code>filebase\data\file\option\FileOptionAction::delete()</code></li>
 <li><code>filebase\data\file\content\FileContentAction::delete()</code></li>
 <li><code>filebase\data\file\version\content\FileVersionContentAction::delete()</code></li>
 <li><code>filebase\data\file\version\review\FileVersionReviewAction::markNotificationsAsConfirmed()</code></li>
@@ -7328,6 +7328,8 @@
 <li><code>calendar\data\event\date\participation\EventDateParticipationAction::validateRemoveParticipant()</code></li>
 <li><code>calendar\data\event\date\participation\EventDateParticipationAction::removeParticipant()</code></li>
 <li><code>calendar\data\event\date\participation\EventDateParticipationAction::invite()</code></li>
+<li><code>calendar\acp\form\EventOptionAddForm::getEventOptions()</code>, the show order of event options is changed in the grid view of <code>calendar\acp\page\EventOptionListPage</code></li>
+<li><code>filebase\acp\form\FileOptionAddForm::getFileOptions()</code>, the show order of file options is changed in the grid view of <code>filebase\acp\page\FileOptionListPage</code></li>
 <li><code>wcf\data\package\update\PackageUpdateAction::validateSearchForUpdates()</code></li>
 <li><code>wcf\data\package\update\PackageUpdateAction::searchForUpdates()</code></li>
 <li><code>wcf\data\user\UserAction::validatePrepareRemoveContent()</code></li>
@@ -7461,6 +7463,8 @@
 <li><code>wbb\system\attachment\PostAttachmentObjectType::cacheObjects()</code></li>
 <li><code>wbb\system\moderation\DeletedPostProvider::getObjectList()</code>, use <code>wbb\system\moderation\DeletedPostProvider::getListView()</code> instead</li>
 <li><code>wbb\system\moderation\DeletedPostProvider::getTemplateName()</code>, use <code>wbb\system\moderation\DeletedPostProvider::getListView()</code> instead</li>
+<li><code>wbb\data\thread\ThreadAction::rebuildArticleThreads()</code>, use <code>wbb\command\thread\RebuildArticleThreads</code> instead</li>
+<li><code>filebase\data\license\LicenseAction::getI18nSaveTypes()</code>, <code>filebase\data\license\LicenseAction::getLanguageCategory()</code> and <code>filebase\data\license\LicenseAction::getPackageID()</code>, the class no longer uses <code>wcf\data\TI18nDatabaseObjectAction</code>; use <code>filebase\data\license\LicenseBuilder::setText()</code> instead, the <code>licenseText_i18n</code> parameter of <code>filebase\data\license\LicenseAction</code> is no longer supported</li>
 </ul>
 <h4 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h4>
 <ul>
@@ -7502,6 +7506,11 @@
 <li><code>wbb\data\board\Board::$title</code>, use <code>wbb\data\board\Board::getTitle()</code> or <code>wbb\data\board\Board::getL10nValues()</code> instead</li>
 <li><code>wbb\data\board\Board::$description</code>, use <code>wbb\data\board\Board::getDescription()</code> or <code>wbb\data\board\Board::getL10nValues()</code> instead</li>
 <li><code>wbb\data\board\Board::$metaDescription</code>, use <code>wbb\data\board\Board::getMetaDescription()</code> or <code>wbb\data\board\Board::getL10nValues()</code> instead</li>
+<li><code>calendar\data\event\option\EventOption::$optionTitle</code>, use <code>calendar\data\event\option\EventOption::getTitle()</code> or <code>calendar\data\event\option\EventOption::getL10nValues()</code> instead</li>
+<li><code>calendar\data\event\option\EventOption::$optionDescription</code>, use <code>calendar\data\event\option\EventOption::getDescription()</code> or <code>calendar\data\event\option\EventOption::getL10nValues()</code> instead</li>
+<li><code>filebase\data\file\option\FileOption::$optionTitle</code>, use <code>filebase\data\file\option\FileOption::getTitle()</code> or <code>filebase\data\file\option\FileOption::getL10nValues()</code> instead</li>
+<li><code>filebase\data\file\option\FileOption::$optionDescription</code>, use <code>filebase\data\file\option\FileOption::getDescription()</code> or <code>filebase\data\file\option\FileOption::getL10nValues()</code> instead</li>
+<li><code>filebase\data\license\License::$licenseText</code> of global licenses (it remains available for file-specific licenses), use <code>filebase\data\license\License::getLicenseText()</code> or <code>filebase\data\license\License::getL10nValues()</code> instead</li>
 <li><code>gallery\data\image\ImageAction::$disallowedBBCodesPermission</code></li>
 <li><code>gallery\data\image\ImageAction::$imageErrors</code></li>
 <li><code>gallery\data\image\ImageAction::$imageParameters</code></li>
@@ -7775,6 +7784,7 @@
 <li><code>threadPostListLog</code></li>
 <li><code>threadQuickReply</code>, see <a href="../forum/#editing-posts-and-the-quick-reply">Forum</a></li>
 <li>The template events of the posts in <code>userPostList</code> and the template event <code>javascriptInclude</code> of <code>thread</code>, see <a href="../forum/#templates">Forum</a></li>
+<li><code>eventOptionFieldList</code></li>
 </ul>
 
 
@@ -7796,7 +7806,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-21
+    2026-11-23
   </span>
 
     
