@@ -274,7 +274,7 @@ final class ValueDumpListener
 | `wcf\event\comment\response\ResponsePublished` | Indicates that a new comment response has been published. This can happen directly when a comment is created or be delayed if a response has first been checked and approved by a moderator. |
 | `wcf\event\comment\response\ResponseUpdated` | Indicates that a response has been updated. |
 | `wcf\event\comment\response\ResponsesDeleted` | Indicates that multiple responses have been deleted. |
-| `wcf\event\endpoint\ControllerCollecting` | Collects the list of API controllers. |
+| `wcf\event\endpoint\ControllerCollecting` | Collects the list of API controllers. *Deprecated since 6.3, endpoints are [discovered automatically](rpc_api.md#auto-discovery-of-endpoints).* |
 | `wcf\event\language\LanguageContentCopying` | Indicates that the contents of a language should be copied to another one. |
 | `wcf\event\language\LanguageImported` | Indicates that a language was created or updated through a manual import. |
 | `wcf\event\language\PhraseChanged` | Indicates that a phrase has been modified by the user. |

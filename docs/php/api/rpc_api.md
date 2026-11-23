@@ -111,7 +111,10 @@ Endpoints are defined using a strict rule set:
 
 ### Convention for File Name and Location
 
-It is strongly recommended to place the files in `lib/system/endpoint/controller/<namespace>/<objects>/<nameOfTheAction>.class.php`.
+Endpoints MUST be placed in `lib/system/endpoint/controller/<namespace>/<objects>/<NameOfTheAction>.class.php` inside the directory of WoltLab Suite Core and use the matching namespace `wcf\system\endpoint\controller\<namespace>\<objects>`.
+This also applies to apps: their endpoints are installed into the directory of the Core (application `wcf`), not into the directory of the app.
+Endpoints at this location are [discovered automatically](#auto-discovery-of-endpoints).
+
 The file name should reflect the action itself, following the pattern `<Verb><Object>`, for example, `DeleteFile` or `CreatePost`.
 
 ### Registering the Route of an Endpoint
@@ -139,23 +142,20 @@ final class ValidateUsername implements IController
 }
 ```
 
-### Registering of an Endpoint
+### Auto-Discovery of Endpoints
 
-Custom endpoints can be registered via the `ControllerCollecting` event in the [bootstrap script](../../package/bootstrap-scripts.md) of a package.
+Since WoltLab Suite 6.3, endpoints are discovered automatically and do not need to be registered.
+All files in `lib/system/endpoint/controller/` (including subdirectories) of the Core are considered, the class name is derived from the path of the file.
+For example, the file `lib/system/endpoint/controller/foo/bars/DeleteBar.class.php` must contain the class `wcf\system\endpoint\controller\foo\bars\DeleteBar`.
 
-Example:
+A class is registered as an endpoint if it:
 
-```php title="files/lib/bootstrap/com.example.bar.php"
-<?php
-return static function (): void {
-    \wcf\system\event\EventHandler::getInstance()->register(
-        \wcf\event\endpoint\ControllerCollecting::class,
-        static function (\wcf\event\endpoint\ControllerCollecting $event) {
-            $event->register(new \wcf\system\endpoint\controller\foo\bar\DeleteFooBar());
-        }
-    );
-};
-```
+- is located at the [expected location](#convention-for-file-name-and-location) with the matching namespace,
+- can be instantiated (i.e. it is neither abstract nor an interface),
+- implements `wcf\system\endpoint\IController`,
+- has a constructor that can be called without any arguments.
+
+!!! info "The `wcf\event\endpoint\ControllerCollecting` event, which was previously used to register endpoints in the [bootstrap script](../../package/bootstrap-scripts.md) of a package, is deprecated since WoltLab Suite 6.3. It continues to work, but is no longer required for endpoints that follow the convention above."
 
 ### Available Helper Methods
 

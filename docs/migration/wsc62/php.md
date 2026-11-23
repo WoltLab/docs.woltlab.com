@@ -349,6 +349,27 @@ Until then they keep returning `true`, but throw a `BadMethodCallException` if b
 
 !!! warning "Do not call `parent::isAccessible()` when the parent class does not implement it itself, the deprecated default implementation throws in debug mode. Views that extend another concrete view, for example `ArticleListView`, may continue to delegate to their parent."
 
+## Auto-Discovery of RPC Endpoints
+
+[RPC endpoints](../../php/api/rpc_api.md) are now discovered automatically ([WoltLab/WCF#6608](https://github.com/WoltLab/WCF/pull/6608)).
+Every class in `lib/system/endpoint/controller/` of the Core that uses the matching namespace `wcf\system\endpoint\controller\…` and implements `wcf\system\endpoint\IController` is registered without any further action.
+See the [auto-discovery of endpoints](../../php/api/rpc_api.md#auto-discovery-of-endpoints) for the full list of requirements.
+
+The `wcf\event\endpoint\ControllerCollecting` event is deprecated.
+Event listeners that only register endpoints at this location can be removed from the bootstrap script:
+
+```php
+// This is no longer required.
+EventHandler::getInstance()->register(
+    \wcf\event\endpoint\ControllerCollecting::class,
+    static function (\wcf\event\endpoint\ControllerCollecting $event) {
+        $event->register(new \wcf\system\endpoint\controller\foo\bars\DeleteBar());
+    }
+);
+```
+
+Endpoints that are still registered through the event continue to work.
+
 ## Sitemaps
 
 The registration of sitemap objects has been overhauled.
