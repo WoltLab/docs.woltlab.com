@@ -1526,10 +1526,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#registering-of-an-endpoint" class="md-nav__link">
+  <a href="#auto-discovery-of-endpoints" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Registering of an Endpoint
+        Auto-Discovery of Endpoints
       
     </span>
   </a>
@@ -6480,10 +6480,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#registering-of-an-endpoint" class="md-nav__link">
+  <a href="#auto-discovery-of-endpoints" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Registering of an Endpoint
+        Auto-Discovery of Endpoints
       
     </span>
   </a>
@@ -6733,8 +6733,10 @@ You are more than welcome to share any feedback, including but not limited to su
 <li>The name of a parameter MUST be unique within one endpoint.</li>
 </ul>
 <h3 id="convention-for-file-name-and-location">Convention for File Name and Location<a class="headerlink" href="#convention-for-file-name-and-location" title="Permanent link">#</a></h3>
-<p>It is strongly recommended to place the files in <code>lib/system/endpoint/controller/&lt;namespace&gt;/&lt;objects&gt;/&lt;nameOfTheAction&gt;.class.php</code>.
-The file name should reflect the action itself, following the pattern <code>&lt;Verb&gt;&lt;Object&gt;</code>, for example, <code>DeleteFile</code> or <code>CreatePost</code>.</p>
+<p>Endpoints MUST be placed in <code>lib/system/endpoint/controller/&lt;namespace&gt;/&lt;objects&gt;/&lt;NameOfTheAction&gt;.class.php</code> inside the directory of WoltLab Suite Core and use the matching namespace <code>wcf\system\endpoint\controller\&lt;namespace&gt;\&lt;objects&gt;</code>.
+This also applies to apps: their endpoints are installed into the directory of the Core (application <code>wcf</code>), not into the directory of the app.
+Endpoints at this location are <a href="#auto-discovery-of-endpoints">discovered automatically</a>.</p>
+<p>The file name should reflect the action itself, following the pattern <code>&lt;Verb&gt;&lt;Object&gt;</code>, for example, <code>DeleteFile</code> or <code>CreatePost</code>.</p>
 <h3 id="registering-the-route-of-an-endpoint">Registering the Route of an Endpoint<a class="headerlink" href="#registering-the-route-of-an-endpoint" title="Permanent link">#</a></h3>
 <p>Every endpoint needs to implement <code>wcf\system\endpoint\IController</code> which defines the <code>__invoke()</code> method that will receive the <code>ServerRequestInterface</code> and an array containing any defined route parameters.</p>
 <p>Any endpoint can only ever serve a single verb, registered through the use of the <code>wcf\system\endpoint\GetRequest</code>, <code>wcf\system\endpoint\PostRequest</code> or <code>wcf\system\endpoint\DeleteRequest</code> class attribute.
@@ -6756,27 +6758,20 @@ Endpoints that are required before logging in, for example to support the regist
     <span class="c1">// …</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="registering-of-an-endpoint">Registering of an Endpoint<a class="headerlink" href="#registering-of-an-endpoint" title="Permanent link">#</a></h3>
-<p>Custom endpoints can be registered via the <code>ControllerCollecting</code> event in the <a href="../../../package/bootstrap-scripts/">bootstrap script</a> of a package.</p>
-<p>Example:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">files/lib/bootstrap/com.example.bar.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="k">return</span> <span class="k">static</span> <span class="k">function</span> <span class="p">()</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
-    <span class="nx">\wcf\system\event\EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span>
-        <span class="nx">\wcf\event\endpoint\ControllerCollecting</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
-        <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">\wcf\event\endpoint\ControllerCollecting</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="k">new</span> <span class="nx">\wcf\system\endpoint\controller\foo\bar\DeleteFooBar</span><span class="p">());</span>
-        <span class="p">}</span>
-    <span class="p">);</span>
-<span class="p">};</span>
-</code></pre></div></td></tr></table></div>
+<h3 id="auto-discovery-of-endpoints">Auto-Discovery of Endpoints<a class="headerlink" href="#auto-discovery-of-endpoints" title="Permanent link">#</a></h3>
+<p>Since WoltLab Suite 6.3, endpoints are discovered automatically and do not need to be registered.
+All files in <code>lib/system/endpoint/controller/</code> (including subdirectories) of the Core are considered, the class name is derived from the path of the file.
+For example, the file <code>lib/system/endpoint/controller/foo/bars/DeleteBar.class.php</code> must contain the class <code>wcf\system\endpoint\controller\foo\bars\DeleteBar</code>.</p>
+<p>A class is registered as an endpoint if it:</p>
+<ul>
+<li>is located at the <a href="#convention-for-file-name-and-location">expected location</a> with the matching namespace,</li>
+<li>can be instantiated (i.e. it is neither abstract nor an interface),</li>
+<li>implements <code>wcf\system\endpoint\IController</code>,</li>
+<li>has a constructor that can be called without any arguments.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">The <code>wcf\event\endpoint\ControllerCollecting</code> event, which was previously used to register endpoints in the <a href="../../../package/bootstrap-scripts/">bootstrap script</a> of a package, is deprecated since WoltLab Suite 6.3. It continues to work, but is no longer required for endpoints that follow the convention above.</p>
+</div>
 <h3 id="available-helper-methods">Available Helper Methods<a class="headerlink" href="#available-helper-methods" title="Permanent link">#</a></h3>
 <p>The <code>wcf\http\Helper</code> class offers a few helpful methods that simplify the validation and processing of request parameters.</p>
 <h4 id="mapapiparametersserverrequestinterface-request-string-classname"><code>mapApiParameters(ServerRequestInterface $request, string $className)</code><a class="headerlink" href="#mapapiparametersserverrequestinterface-request-string-classname" title="Permanent link">#</a></h4>
@@ -6810,7 +6805,7 @@ Afterwards the object is tested to have a non-falsy object id, otherwise a <code
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-10-12
+    2026-11-23
   </span>
 
     
