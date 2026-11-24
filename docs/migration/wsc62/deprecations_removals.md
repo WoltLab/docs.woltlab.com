@@ -258,6 +258,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\system\event\listener\AbstractObjectActionThreadListener`, use the commands `wbb\command\thread\CreateContentThread` and `wbb\command\thread\UpdateContentThread` in a PSR-14 event listener instead
 - `gallery\data\image\marker\ImageAction`
 - `gallery\data\image\marker\ImageEditor`
+- `wcf\data\user\group\application\UserGroupApplicationAction`, use `wcf\data\user\group\application\UserGroupApplicationBuilder` and commands instead
+- `wcf\data\user\group\application\UserGroupApplicationEditor`, use `wcf\data\user\group\application\UserGroupApplicationBuilder` instead
+- `wcf\data\user\group\ModeratedUserGroupAction`, use `wcf\command\user\AddUserToGroups` or the `POST /core/users/groups/{id}/members` RPC endpoint instead
 
 #### Methods
 
@@ -742,6 +745,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `blog\system\cronjob\EmptyRecycleBinCronjob`, see [Pruning the Trash](php.md#pruning-the-trash)
 - `filebase\system\cronjob\EmptyRecycleBinCronjob`, see [Pruning the Trash](php.md#pruning-the-trash)
 - `calendar\system\cronjob\EmptyRecycleBinCronjob`, see [Pruning the Trash](php.md#pruning-the-trash)
+- `wcf\action\UserGroupApplicationRevokeAction`, use the `DELETE /core/users/groups/applications/{id}` RPC endpoint instead
+- `wcf\action\UserGroupLeaveAction`, use the `POST /core/users/groups/{id}/leave` RPC endpoint instead
+- `wcf\action\UserGroupManageKickMemberAction`, use the `DELETE /core/users/groups/{id}/members/{userID}` RPC endpoint instead
 
 #### Methods
 
