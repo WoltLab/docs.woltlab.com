@@ -247,27 +247,23 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\system\form\builder\field\SingleSelectionFormField`, use `wcf\system\form\builder\field\SelectFormField` or `wcf\system\form\builder\field\FilterableSelectFormField` instead, see [Single Selection Fields](php.md#single-selection-fields)
 - `gallery\page\RawImagePage`, which only serves images in the legacy storage of the Gallery and redirects links of migrated images, use the url of `gallery\data\image\Image::getURL()` instead
 - `gallery\data\album\AlbumAction`, use `gallery\data\album\AlbumBuilder`, the commands and the RPC endpoints instead
+- `gallery\data\album\AlbumEditor`, use `gallery\data\album\AlbumBuilder`
 - `gallery\data\image\marker\ImageMarkerAction`, use `gallery\data\image\ImageBuilder::setMarkers()` instead
+- `gallery\data\image\marker\ImageMarkerEditor`
 - `wbb\data\post\ViewablePost`, use `wbb\data\post\Post` instead
 - `wbb\data\post\ViewablePostList`, use `wbb\data\post\PostList` instead
 - `wbb\data\post\SimplifiedViewablePostList`, use `wbb\data\post\PostList` instead
 - `wbb\data\post\PostEditor`, use `wbb\data\post\PostBuilder` instead
 - `wbb\data\post\PostAction`, use `wbb\data\post\PostBuilder` and commands instead
 - `wbb\system\event\listener\AbstractObjectActionThreadListener`, use the commands `wbb\command\thread\CreateContentThread` and `wbb\command\thread\UpdateContentThread` in a PSR-14 event listener instead
+- `gallery\data\image\marker\ImageAction`
+- `gallery\data\image\marker\ImageEditor`
 
 #### Methods
 
 - `gallery\data\image\ImageList::enableCategoryLoading()`
 - `gallery\data\image\ImageList::enableAlbumLoading()`
 - `gallery\data\image\ImageList::enableMarkerLoading()`
-- `gallery\data\image\ImageAction::trash()`, use `gallery\command\image\SoftDeleteImage` instead
-- `gallery\data\image\ImageAction::restore()`, use `gallery\command\image\RestoreImage` instead
-- `gallery\data\image\ImageAction::markAsRead()`, use `gallery\command\image\MarkImageAsRead` instead
-- `gallery\data\album\AlbumAction::updateImages()`, use `gallery\command\album\RebuildAlbumData` instead
-- `gallery\data\image\ImageAction::enable()`, use `gallery\command\image\EnableImage` instead
-- `gallery\data\image\ImageAction::disable()`, use `gallery\command\image\DisableImage` instead
-- `gallery\data\image\ImageAction::triggerPublication()`, use `gallery\command\image\PublishImage` instead
-- `gallery\data\image\ImageAction::favorite()`, use `gallery\command\image\FavoriteImage` or `gallery\command\image\UnfavoriteImage` instead
 - `blog\data\entry\EntryAction::triggerPublication()`
 - `blog\data\entry\EntryAction::markAsRead()`
 - `blog\data\entry\EntryAction::enable()`
@@ -282,8 +278,6 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wcf\data\user\profile\UserProfileVisitorAction::registerVisitor()`
 - `wcf\data\style\Style\StyleAction::validateChangeStyle()`
 - `wcf\data\style\Style\StyleAction::changeStyle()`
-- `wcf\data\style\Style\StyleAction::validateGetStyleChooser()`
-- `wcf\data\style\Style\StyleAction::getStyleChooser()`
 - `wcf\data\style\Style\StyleAction::validateToggle()`
 - `wcf\data\style\Style\StyleAction::toggle()`
 - `wcf\data\article\ArticleAction::validateTrash()`
@@ -488,14 +482,6 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\data\image\Image::hasLegacyFile()`, the rebuild of the data migrates the legacy storage of the Gallery, see [Gallery](gallery.md#upgrading-an-installation)
 - `gallery\data\image\Image::hasLegacyVideoFile()`, the rebuild of the data migrates the legacy storage of the Gallery, see [Gallery](gallery.md#upgrading-an-installation)
 - `gallery\data\image\Image::usesLegacyStorage()`, the rebuild of the data migrates the legacy storage of the Gallery, see [Gallery](gallery.md#upgrading-an-installation)
-- `gallery\data\image\ImageEditor::deleteFiles()`, use `gallery\command\image\DeleteImage` instead
-- `gallery\data\image\ImageEditor::deleteImageFiles()`, use `gallery\command\image\DeleteImage` or `gallery\command\image\SetVideoThumbnail` instead
-- `gallery\data\image\ImageAction::enableComments()`, use `gallery\command\image\EnableImageComments` instead
-- `gallery\data\image\ImageAction::disableComments()`, use `gallery\command\image\DisableImageComments` instead
-- `gallery\data\image\ImageAction::create()`, use `gallery\command\image\CreateImageUpload` and `gallery\command\image\CompleteImageUpload` instead
-- `gallery\data\image\ImageAction::update()`, use `gallery\command\image\UpdateImage` instead
-- `gallery\data\album\AlbumAction::create()`, use `gallery\command\album\CreateAlbum` instead
-- `gallery\data\album\AlbumAction::update()`, use `gallery\command\album\UpdateAlbum` instead
 - `wcf\system\form\builder\field\ISelectionFormField::options()`, use `wcf\system\form\builder\field\ISelectionFormField::choices()` or `wcf\system\form\builder\field\ISelectionFormField::phraseChoices()` instead
 - `wcf\system\form\builder\field\TSelectionFormField::options()`, use `wcf\system\form\builder\field\TSelectionFormField::choices()` or `wcf\system\form\builder\field\TSelectionFormField::phraseChoices()` instead
 - `wbb\data\post\Post::setThread()`, the thread is loaded on demand by `wbb\data\post\Post::getThread()`
@@ -592,6 +578,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Forum/Ui/Board/MarkAllThreadsAsRead`, use `WoltLabSuite/Forum/Component/Board/MarkAllThreadsAsRead` instead
 - `WoltLabSuite/Forum/Ui/Thread/MarkAsRead`, use the RPC endpoint `wcf\system\endpoint\controller\forum\threads\MarkThreadAsRead` instead
 - `WoltLabSuite/Forum/Ui/Board/MarkAsRead`, use `WoltLabSuite/Forum/Component/Board/MarkAsRead` instead
+- `WoltLabSuite/Core/Controller/Style/Changer::showDialog()`, the style changer is a dropdown that is opened through its toggle button
 
 ### Templates
 
@@ -984,6 +971,10 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\system\moderation\DeletedPostProvider::getTemplateName()`, use `wbb\system\moderation\DeletedPostProvider::getListView()` instead
 - `wbb\data\thread\ThreadAction::rebuildArticleThreads()`, use `wbb\command\thread\RebuildArticleThreads` instead
 - `filebase\data\license\LicenseAction::getI18nSaveTypes()`, `filebase\data\license\LicenseAction::getLanguageCategory()` and `filebase\data\license\LicenseAction::getPackageID()`, the class no longer uses `wcf\data\TI18nDatabaseObjectAction`; use `filebase\data\license\LicenseBuilder::setText()` instead, the `licenseText_i18n` parameter of `filebase\data\license\LicenseAction` is no longer supported
+- `wcf\data\style\StyleAction::getStyleChooser()` and `wcf\data\style\StyleAction::validateGetStyleChooser()`, the style changer is a dropdown that is rendered with the page
+- `wcf\data\style\StyleAction::updateStylePreviewImage()`, see [Style Preview Images](php.md#style-preview-images)
+- `wcf\data\style\Style::getPreviewImage()`, see [Style Preview Images](php.md#style-preview-images)
+- `wcf\data\style\Style::getPreviewImage2x()`, see [Style Preview Images](php.md#style-preview-images)
 
 #### Properties
 
@@ -1060,6 +1051,13 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\page\ThreadPage::$postID`, use `wbb\page\ThreadPage::$post` instead
 - `wbb\page\ThreadPage::$numberOfHiddenPosts`, use `wbb\system\listView\user\ThreadPostListView::getNumberOfHiddenPosts()` instead
 - `wbb\page\UserPostListPage::$userID`, use `wbb\page\UserPostListPage::$user` instead
+- `wcf\data\style\Style::$image`, see [Style Preview Images](php.md#style-preview-images)
+- `wcf\data\style\Style::$image2x`, see [Style Preview Images](php.md#style-preview-images)
+
+#### Constants
+
+- `wcf\data\style\Style::PREVIEW_IMAGE_MAX_HEIGHT`, see [Style Preview Images](php.md#style-preview-images)
+- `wcf\data\style\Style::PREVIEW_IMAGE_MAX_WIDTH`, see [Style Preview Images](php.md#style-preview-images)
 
 #### Options
 
@@ -1304,3 +1302,4 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `threadQuickReply`, see [Forum](forum.md#editing-posts-and-the-quick-reply)
 - The template events of the posts in `userPostList` and the template event `javascriptInclude` of `thread`, see [Forum](forum.md#templates)
 - `eventOptionFieldList`
+- `styleChooser`, the style changer is a dropdown that is rendered with the page
