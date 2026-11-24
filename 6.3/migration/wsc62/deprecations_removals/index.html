@@ -4209,6 +4209,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#constants_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constants
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#options_1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6440,6 +6451,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#constants_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constants
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#options_1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6758,27 +6780,23 @@
 <li><code>wcf\system\form\builder\field\SingleSelectionFormField</code>, use <code>wcf\system\form\builder\field\SelectFormField</code> or <code>wcf\system\form\builder\field\FilterableSelectFormField</code> instead, see <a href="../php/#single-selection-fields">Single Selection Fields</a></li>
 <li><code>gallery\page\RawImagePage</code>, which only serves images in the legacy storage of the Gallery and redirects links of migrated images, use the url of <code>gallery\data\image\Image::getURL()</code> instead</li>
 <li><code>gallery\data\album\AlbumAction</code>, use <code>gallery\data\album\AlbumBuilder</code>, the commands and the RPC endpoints instead</li>
+<li><code>gallery\data\album\AlbumEditor</code>, use <code>gallery\data\album\AlbumBuilder</code></li>
 <li><code>gallery\data\image\marker\ImageMarkerAction</code>, use <code>gallery\data\image\ImageBuilder::setMarkers()</code> instead</li>
+<li><code>gallery\data\image\marker\ImageMarkerEditor</code></li>
 <li><code>wbb\data\post\ViewablePost</code>, use <code>wbb\data\post\Post</code> instead</li>
 <li><code>wbb\data\post\ViewablePostList</code>, use <code>wbb\data\post\PostList</code> instead</li>
 <li><code>wbb\data\post\SimplifiedViewablePostList</code>, use <code>wbb\data\post\PostList</code> instead</li>
 <li><code>wbb\data\post\PostEditor</code>, use <code>wbb\data\post\PostBuilder</code> instead</li>
 <li><code>wbb\data\post\PostAction</code>, use <code>wbb\data\post\PostBuilder</code> and commands instead</li>
 <li><code>wbb\system\event\listener\AbstractObjectActionThreadListener</code>, use the commands <code>wbb\command\thread\CreateContentThread</code> and <code>wbb\command\thread\UpdateContentThread</code> in a PSR-14 event listener instead</li>
+<li><code>gallery\data\image\marker\ImageAction</code></li>
+<li><code>gallery\data\image\marker\ImageEditor</code></li>
 </ul>
 <h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">#</a></h4>
 <ul>
 <li><code>gallery\data\image\ImageList::enableCategoryLoading()</code></li>
 <li><code>gallery\data\image\ImageList::enableAlbumLoading()</code></li>
 <li><code>gallery\data\image\ImageList::enableMarkerLoading()</code></li>
-<li><code>gallery\data\image\ImageAction::trash()</code>, use <code>gallery\command\image\SoftDeleteImage</code> instead</li>
-<li><code>gallery\data\image\ImageAction::restore()</code>, use <code>gallery\command\image\RestoreImage</code> instead</li>
-<li><code>gallery\data\image\ImageAction::markAsRead()</code>, use <code>gallery\command\image\MarkImageAsRead</code> instead</li>
-<li><code>gallery\data\album\AlbumAction::updateImages()</code>, use <code>gallery\command\album\RebuildAlbumData</code> instead</li>
-<li><code>gallery\data\image\ImageAction::enable()</code>, use <code>gallery\command\image\EnableImage</code> instead</li>
-<li><code>gallery\data\image\ImageAction::disable()</code>, use <code>gallery\command\image\DisableImage</code> instead</li>
-<li><code>gallery\data\image\ImageAction::triggerPublication()</code>, use <code>gallery\command\image\PublishImage</code> instead</li>
-<li><code>gallery\data\image\ImageAction::favorite()</code>, use <code>gallery\command\image\FavoriteImage</code> or <code>gallery\command\image\UnfavoriteImage</code> instead</li>
 <li><code>blog\data\entry\EntryAction::triggerPublication()</code></li>
 <li><code>blog\data\entry\EntryAction::markAsRead()</code></li>
 <li><code>blog\data\entry\EntryAction::enable()</code></li>
@@ -6793,8 +6811,6 @@
 <li><code>wcf\data\user\profile\UserProfileVisitorAction::registerVisitor()</code></li>
 <li><code>wcf\data\style\Style\StyleAction::validateChangeStyle()</code></li>
 <li><code>wcf\data\style\Style\StyleAction::changeStyle()</code></li>
-<li><code>wcf\data\style\Style\StyleAction::validateGetStyleChooser()</code></li>
-<li><code>wcf\data\style\Style\StyleAction::getStyleChooser()</code></li>
 <li><code>wcf\data\style\Style\StyleAction::validateToggle()</code></li>
 <li><code>wcf\data\style\Style\StyleAction::toggle()</code></li>
 <li><code>wcf\data\article\ArticleAction::validateTrash()</code></li>
@@ -6999,14 +7015,6 @@
 <li><code>gallery\data\image\Image::hasLegacyFile()</code>, the rebuild of the data migrates the legacy storage of the Gallery, see <a href="../gallery/#upgrading-an-installation">Gallery</a></li>
 <li><code>gallery\data\image\Image::hasLegacyVideoFile()</code>, the rebuild of the data migrates the legacy storage of the Gallery, see <a href="../gallery/#upgrading-an-installation">Gallery</a></li>
 <li><code>gallery\data\image\Image::usesLegacyStorage()</code>, the rebuild of the data migrates the legacy storage of the Gallery, see <a href="../gallery/#upgrading-an-installation">Gallery</a></li>
-<li><code>gallery\data\image\ImageEditor::deleteFiles()</code>, use <code>gallery\command\image\DeleteImage</code> instead</li>
-<li><code>gallery\data\image\ImageEditor::deleteImageFiles()</code>, use <code>gallery\command\image\DeleteImage</code> or <code>gallery\command\image\SetVideoThumbnail</code> instead</li>
-<li><code>gallery\data\image\ImageAction::enableComments()</code>, use <code>gallery\command\image\EnableImageComments</code> instead</li>
-<li><code>gallery\data\image\ImageAction::disableComments()</code>, use <code>gallery\command\image\DisableImageComments</code> instead</li>
-<li><code>gallery\data\image\ImageAction::create()</code>, use <code>gallery\command\image\CreateImageUpload</code> and <code>gallery\command\image\CompleteImageUpload</code> instead</li>
-<li><code>gallery\data\image\ImageAction::update()</code>, use <code>gallery\command\image\UpdateImage</code> instead</li>
-<li><code>gallery\data\album\AlbumAction::create()</code>, use <code>gallery\command\album\CreateAlbum</code> instead</li>
-<li><code>gallery\data\album\AlbumAction::update()</code>, use <code>gallery\command\album\UpdateAlbum</code> instead</li>
 <li><code>wcf\system\form\builder\field\ISelectionFormField::options()</code>, use <code>wcf\system\form\builder\field\ISelectionFormField::choices()</code> or <code>wcf\system\form\builder\field\ISelectionFormField::phraseChoices()</code> instead</li>
 <li><code>wcf\system\form\builder\field\TSelectionFormField::options()</code>, use <code>wcf\system\form\builder\field\TSelectionFormField::choices()</code> or <code>wcf\system\form\builder\field\TSelectionFormField::phraseChoices()</code> instead</li>
 <li><code>wbb\data\post\Post::setThread()</code>, the thread is loaded on demand by <code>wbb\data\post\Post::getThread()</code></li>
@@ -7103,6 +7111,7 @@
 <li><code>WoltLabSuite/Forum/Ui/Board/MarkAllThreadsAsRead</code>, use <code>WoltLabSuite/Forum/Component/Board/MarkAllThreadsAsRead</code> instead</li>
 <li><code>WoltLabSuite/Forum/Ui/Thread/MarkAsRead</code>, use the RPC endpoint <code>wcf\system\endpoint\controller\forum\threads\MarkThreadAsRead</code> instead</li>
 <li><code>WoltLabSuite/Forum/Ui/Board/MarkAsRead</code>, use <code>WoltLabSuite/Forum/Component/Board/MarkAsRead</code> instead</li>
+<li><code>WoltLabSuite/Core/Controller/Style/Changer::showDialog()</code>, the style changer is a dropdown that is opened through its toggle button</li>
 </ul>
 <h3 id="templates">Templates<a class="headerlink" href="#templates" title="Permanent link">#</a></h3>
 <ul>
@@ -7493,6 +7502,10 @@
 <li><code>wbb\system\moderation\DeletedPostProvider::getTemplateName()</code>, use <code>wbb\system\moderation\DeletedPostProvider::getListView()</code> instead</li>
 <li><code>wbb\data\thread\ThreadAction::rebuildArticleThreads()</code>, use <code>wbb\command\thread\RebuildArticleThreads</code> instead</li>
 <li><code>filebase\data\license\LicenseAction::getI18nSaveTypes()</code>, <code>filebase\data\license\LicenseAction::getLanguageCategory()</code> and <code>filebase\data\license\LicenseAction::getPackageID()</code>, the class no longer uses <code>wcf\data\TI18nDatabaseObjectAction</code>; use <code>filebase\data\license\LicenseBuilder::setText()</code> instead, the <code>licenseText_i18n</code> parameter of <code>filebase\data\license\LicenseAction</code> is no longer supported</li>
+<li><code>wcf\data\style\StyleAction::getStyleChooser()</code> and <code>wcf\data\style\StyleAction::validateGetStyleChooser()</code>, the style changer is a dropdown that is rendered with the page</li>
+<li><code>wcf\data\style\StyleAction::updateStylePreviewImage()</code>, see <a href="../php/#style-preview-images">Style Preview Images</a></li>
+<li><code>wcf\data\style\Style::getPreviewImage()</code>, see <a href="../php/#style-preview-images">Style Preview Images</a></li>
+<li><code>wcf\data\style\Style::getPreviewImage2x()</code>, see <a href="../php/#style-preview-images">Style Preview Images</a></li>
 </ul>
 <h4 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h4>
 <ul>
@@ -7569,6 +7582,13 @@
 <li><code>wbb\page\ThreadPage::$postID</code>, use <code>wbb\page\ThreadPage::$post</code> instead</li>
 <li><code>wbb\page\ThreadPage::$numberOfHiddenPosts</code>, use <code>wbb\system\listView\user\ThreadPostListView::getNumberOfHiddenPosts()</code> instead</li>
 <li><code>wbb\page\UserPostListPage::$userID</code>, use <code>wbb\page\UserPostListPage::$user</code> instead</li>
+<li><code>wcf\data\style\Style::$image</code>, see <a href="../php/#style-preview-images">Style Preview Images</a></li>
+<li><code>wcf\data\style\Style::$image2x</code>, see <a href="../php/#style-preview-images">Style Preview Images</a></li>
+</ul>
+<h4 id="constants_1">Constants<a class="headerlink" href="#constants_1" title="Permanent link">#</a></h4>
+<ul>
+<li><code>wcf\data\style\Style::PREVIEW_IMAGE_MAX_HEIGHT</code>, see <a href="../php/#style-preview-images">Style Preview Images</a></li>
+<li><code>wcf\data\style\Style::PREVIEW_IMAGE_MAX_WIDTH</code>, see <a href="../php/#style-preview-images">Style Preview Images</a></li>
 </ul>
 <h4 id="options_1">Options<a class="headerlink" href="#options_1" title="Permanent link">#</a></h4>
 <ul>
@@ -7816,6 +7836,7 @@
 <li><code>threadQuickReply</code>, see <a href="../forum/#editing-posts-and-the-quick-reply">Forum</a></li>
 <li>The template events of the posts in <code>userPostList</code> and the template event <code>javascriptInclude</code> of <code>thread</code>, see <a href="../forum/#templates">Forum</a></li>
 <li><code>eventOptionFieldList</code></li>
+<li><code>styleChooser</code>, the style changer is a dropdown that is rendered with the page</li>
 </ul>
 
 
@@ -7837,7 +7858,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-23
+    2026-11-24
   </span>
 
     
