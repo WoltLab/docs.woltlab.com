@@ -258,6 +258,8 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\system\event\listener\AbstractObjectActionThreadListener`, use the commands `wbb\command\thread\CreateContentThread` and `wbb\command\thread\UpdateContentThread` in a PSR-14 event listener instead
 - `gallery\data\image\marker\ImageAction`
 - `gallery\data\image\marker\ImageEditor`
+- `wcf\data\user\group\application\UserGroupApplicationAction`, use `wcf\data\user\group\application\UserGroupApplicationBuilder` and commands instead
+- `wcf\data\user\group\application\UserGroupApplicationEditor`, use `wcf\data\user\group\application\UserGroupApplicationBuilder` instead
 
 #### Methods
 
