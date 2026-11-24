@@ -1504,3 +1504,12 @@ With `false`, the file is left without them until the caller generates them, e.g
 References to the deleted thumbnails must tolerate this, e.g. through a foreign key with `ON DELETE SET NULL` like `wcf1_attachment.thumbnailID`; `adoptThumbnail()` is called for the new thumbnails as usual.
 
 Callers that only strip metadata or convert the format pass the new parameter `visuallyIdentical: true` to keep the derived files, as `FileProcessor::stripExif()` and `ReplaceWithWebpVariant` do.
+
+## Style Preview Images
+
+Styles no longer have a preview image, the style changer in the page footer is a dropdown that lists the names of the available styles.
+The columns `image` and `image2x` of `wcf1_style` have been removed together with `Style::getPreviewImage()`, `Style::getPreviewImage2x()` and the constants `Style::PREVIEW_IMAGE_MAX_HEIGHT` and `Style::PREVIEW_IMAGE_MAX_WIDTH`.
+The existing preview images are deleted during the upgrade.
+
+The elements `<image>` and `<image2x>` of the `style.xml` are ignored when a style is imported and are no longer written when a style is exported.
+Style packages can remove them together with the referenced image files.
