@@ -1249,6 +1249,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `WoltLabSuite/Forum/Ui/Thread/LastPageHandler`, use `WoltLabSuite/Forum/Component/Thread/NewPosts` instead
 - `WoltLabSuite/Forum/Ui/Thread/Modification/Log/Hide`, use `WoltLabSuite/Forum/Component/Thread/Modification/Log/Hide` instead
 - `WoltLabSuite/Forum/Ui/Thread/Reply`, use `WoltLabSuite/Forum/Component/Thread/QuickReply` instead
+- `WCF.System.Dependency.Manager`, use `WoltLabSuite/Core/Event/Handler` instead
+- `WCF.Upload.Parallel`, use `WoltLabSuite/Core/Upload` instead
+- `WCF.Language.Chooser`, use `WoltLabSuite/Core/Language/Chooser` instead
 
 ### Templates
 
