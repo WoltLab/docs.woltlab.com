@@ -409,6 +409,50 @@ Sitemap objects that are still registered through the deprecated object type def
 The template events `headColumns`, `columns` and `contentFooterNavigation` of the template `sitemapList` have been removed.
 Additional columns are added through the PSR-14 event `wcf\event\gridView\admin\SitemapGridViewInitialized` instead.
 
+## Pruning the Trash
+
+The apps no longer ship their own cronjob and option to permanently delete content from the trash.
+The option `message_empty_recycle_bin_cycle` defines the number of days after which trashed content is deleted for all apps, `0` disables the pruning.
+The cronjob `wcf\system\cronjob\EmptyRecycleBinCronjob` runs once per hour and calls the pruners that are registered through the PSR-14 event `wcf\event\moderation\TrashedContentPrunersCollecting`.
+
+### Registering a Pruner
+
+A bootstrap script registers an event listener that adds the pruners:
+
+```php
+EventHandler::getInstance()->register(
+    \wcf\event\moderation\TrashedContentPrunersCollecting::class,
+    static function (\wcf\event\moderation\TrashedContentPrunersCollecting $event) {
+        $event->register(new \example\system\moderation\FooTrashedContentPruner());
+    }
+);
+```
+
+A pruner implements `wcf\system\moderation\ITrashedContentPruner` and permanently deletes up to `$limit` objects that have been moved to the trash before `$deletedBefore`:
+
+```php
+final class FooTrashedContentPruner implements ITrashedContentPruner
+{
+    #[\Override]
+    public function prune(int $deletedBefore, int $limit): void
+    {
+        $fooList = new FooList();
+        $fooList->getConditionBuilder()->add('isDeleted = ?', [1]);
+        $fooList->getConditionBuilder()->add('deleteTime < ?', [$deletedBefore]);
+        $fooList->sqlLimit = $limit;
+        $fooList->readObjects();
+
+        foreach ($fooList as $foo) {
+            new DeleteFoo($foo)();
+        }
+    }
+}
+```
+
+The content must store the time at which it was moved to the trash, usually in a `deleteTime` column that is set when the content is trashed and reset when it is restored.
+Delete the objects through the same command that is used to delete them manually, so that the associated data is removed and the events are fired.
+Each pruner only deletes a limited number of objects per execution of the cronjob, the remaining objects are deleted during the following executions.
+
 ## Recent Activity Events of Guests
 
 Recent activity events now support content created by guests.

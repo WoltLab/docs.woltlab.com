@@ -737,6 +737,11 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `filebase\system\event\listener\FileActionSupportThreadListener`, the support threads are maintained by `filebase\system\event\listener\FileSupportThreadListener` through the PSR-14 file events; changes made through `filebase\data\file\FileAction` are no longer synchronized
 - `filebase\system\event\listener\FileVersionActionSupportThreadListener`, the posts for new versions are maintained by `filebase\system\event\listener\FileVersionSupportPostListener` through the PSR-14 file version events; changes made through `filebase\data\file\version\FileVersionAction` are no longer synchronized
 - `filebase\system\event\listener\AssignLabelSupportThreadListener`, the labels of the support threads are synchronized by `filebase\command\file\RebuildFileSupportThreads`
+- `wbb\system\cronjob\EmptyRecycleBinCronjob`, see [Pruning the Trash](php.md#pruning-the-trash)
+- `gallery\system\cronjob\EmptyRecycleBinCronjob`, see [Pruning the Trash](php.md#pruning-the-trash)
+- `blog\system\cronjob\EmptyRecycleBinCronjob`, see [Pruning the Trash](php.md#pruning-the-trash)
+- `filebase\system\cronjob\EmptyRecycleBinCronjob`, see [Pruning the Trash](php.md#pruning-the-trash)
+- `calendar\system\cronjob\EmptyRecycleBinCronjob`, see [Pruning the Trash](php.md#pruning-the-trash)
 
 #### Methods
 
@@ -1062,6 +1067,11 @@ With version 6.3, we have deprecated certain components and removed several othe
 #### Options
 
 - `wbb_board_default_days_prune`
+- `wbb_thread_empty_recycle_bin_cycle`, use `message_empty_recycle_bin_cycle` instead, see [Pruning the Trash](php.md#pruning-the-trash)
+- `gallery_image_empty_recycle_bin_cycle`, use `message_empty_recycle_bin_cycle` instead, see [Pruning the Trash](php.md#pruning-the-trash)
+- `blog_entry_empty_recycle_bin_cycle`, use `message_empty_recycle_bin_cycle` instead, see [Pruning the Trash](php.md#pruning-the-trash)
+- `filebase_file_empty_recycle_bin_cycle`, use `message_empty_recycle_bin_cycle` instead, see [Pruning the Trash](php.md#pruning-the-trash)
+- `calendar_event_empty_recycle_bin_cycle`, use `message_empty_recycle_bin_cycle` instead, see [Pruning the Trash](php.md#pruning-the-trash)
 
 #### Object Types
 
