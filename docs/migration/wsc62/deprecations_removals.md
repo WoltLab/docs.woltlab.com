@@ -260,6 +260,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `gallery\data\image\marker\ImageEditor`
 - `wcf\data\user\group\application\UserGroupApplicationAction`, use `wcf\data\user\group\application\UserGroupApplicationBuilder` and commands instead
 - `wcf\data\user\group\application\UserGroupApplicationEditor`, use `wcf\data\user\group\application\UserGroupApplicationBuilder` instead
+- `wcf\data\user\group\ModeratedUserGroupAction`, use `wcf\command\user\AddUserToGroups` or the `POST /core/users/groups/{id}/members` RPC endpoint instead
 
 #### Methods
 
@@ -739,6 +740,9 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `filebase\system\event\listener\FileActionSupportThreadListener`, the support threads are maintained by `filebase\system\event\listener\FileSupportThreadListener` through the PSR-14 file events; changes made through `filebase\data\file\FileAction` are no longer synchronized
 - `filebase\system\event\listener\FileVersionActionSupportThreadListener`, the posts for new versions are maintained by `filebase\system\event\listener\FileVersionSupportPostListener` through the PSR-14 file version events; changes made through `filebase\data\file\version\FileVersionAction` are no longer synchronized
 - `filebase\system\event\listener\AssignLabelSupportThreadListener`, the labels of the support threads are synchronized by `filebase\command\file\RebuildFileSupportThreads`
+- `wcf\action\UserGroupApplicationRevokeAction`, use the `DELETE /core/users/groups/applications/{id}` RPC endpoint instead
+- `wcf\action\UserGroupLeaveAction`, use the `POST /core/users/groups/{id}/leave` RPC endpoint instead
+- `wcf\action\UserGroupManageKickMemberAction`, use the `DELETE /core/users/groups/{id}/members/{userID}` RPC endpoint instead
 
 #### Methods
 
