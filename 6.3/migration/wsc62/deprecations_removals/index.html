@@ -7271,6 +7271,11 @@
 <li><code>filebase\system\event\listener\FileActionSupportThreadListener</code>, the support threads are maintained by <code>filebase\system\event\listener\FileSupportThreadListener</code> through the PSR-14 file events; changes made through <code>filebase\data\file\FileAction</code> are no longer synchronized</li>
 <li><code>filebase\system\event\listener\FileVersionActionSupportThreadListener</code>, the posts for new versions are maintained by <code>filebase\system\event\listener\FileVersionSupportPostListener</code> through the PSR-14 file version events; changes made through <code>filebase\data\file\version\FileVersionAction</code> are no longer synchronized</li>
 <li><code>filebase\system\event\listener\AssignLabelSupportThreadListener</code>, the labels of the support threads are synchronized by <code>filebase\command\file\RebuildFileSupportThreads</code></li>
+<li><code>wbb\system\cronjob\EmptyRecycleBinCronjob</code>, see <a href="../php/#pruning-the-trash">Pruning the Trash</a></li>
+<li><code>gallery\system\cronjob\EmptyRecycleBinCronjob</code>, see <a href="../php/#pruning-the-trash">Pruning the Trash</a></li>
+<li><code>blog\system\cronjob\EmptyRecycleBinCronjob</code>, see <a href="../php/#pruning-the-trash">Pruning the Trash</a></li>
+<li><code>filebase\system\cronjob\EmptyRecycleBinCronjob</code>, see <a href="../php/#pruning-the-trash">Pruning the Trash</a></li>
+<li><code>calendar\system\cronjob\EmptyRecycleBinCronjob</code>, see <a href="../php/#pruning-the-trash">Pruning the Trash</a></li>
 <li><code>wcf\action\UserGroupApplicationRevokeAction</code>, use the <code>DELETE /core/users/groups/applications/{id}</code> RPC endpoint instead</li>
 <li><code>wcf\action\UserGroupLeaveAction</code>, use the <code>POST /core/users/groups/{id}/leave</code> RPC endpoint instead</li>
 <li><code>wcf\action\UserGroupManageKickMemberAction</code>, use the <code>DELETE /core/users/groups/{id}/members/{userID}</code> RPC endpoint instead</li>
@@ -7599,6 +7604,11 @@
 <h4 id="options_1">Options<a class="headerlink" href="#options_1" title="Permanent link">#</a></h4>
 <ul>
 <li><code>wbb_board_default_days_prune</code></li>
+<li><code>wbb_thread_empty_recycle_bin_cycle</code>, use <code>message_empty_recycle_bin_cycle</code> instead, see <a href="../php/#pruning-the-trash">Pruning the Trash</a></li>
+<li><code>gallery_image_empty_recycle_bin_cycle</code>, use <code>message_empty_recycle_bin_cycle</code> instead, see <a href="../php/#pruning-the-trash">Pruning the Trash</a></li>
+<li><code>blog_entry_empty_recycle_bin_cycle</code>, use <code>message_empty_recycle_bin_cycle</code> instead, see <a href="../php/#pruning-the-trash">Pruning the Trash</a></li>
+<li><code>filebase_file_empty_recycle_bin_cycle</code>, use <code>message_empty_recycle_bin_cycle</code> instead, see <a href="../php/#pruning-the-trash">Pruning the Trash</a></li>
+<li><code>calendar_event_empty_recycle_bin_cycle</code>, use <code>message_empty_recycle_bin_cycle</code> instead, see <a href="../php/#pruning-the-trash">Pruning the Trash</a></li>
 </ul>
 <h4 id="object-types">Object Types<a class="headerlink" href="#object-types" title="Permanent link">#</a></h4>
 <ul>

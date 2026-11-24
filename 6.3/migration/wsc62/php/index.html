@@ -4319,6 +4319,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pruning-the-trash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pruning the Trash
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pruning the Trash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registering-a-pruner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registering a Pruner
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#recent-activity-events-of-guests" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7070,6 +7098,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pruning-the-trash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pruning the Trash
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pruning the Trash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registering-a-pruner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registering a Pruner
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#recent-activity-events-of-guests" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -8089,6 +8145,60 @@ Keeping the previous object type name therefore preserves the settings of existi
 <p><code>wcf\acp\page\SitemapListPage</code> has been converted into a grid view page and now renders <code>wcf\system\gridView\admin\SitemapGridView</code>.
 The template events <code>headColumns</code>, <code>columns</code> and <code>contentFooterNavigation</code> of the template <code>sitemapList</code> have been removed.
 Additional columns are added through the PSR-14 event <code>wcf\event\gridView\admin\SitemapGridViewInitialized</code> instead.</p>
+<h2 id="pruning-the-trash">Pruning the Trash<a class="headerlink" href="#pruning-the-trash" title="Permanent link">#</a></h2>
+<p>The apps no longer ship their own cronjob and option to permanently delete content from the trash.
+The option <code>message_empty_recycle_bin_cycle</code> defines the number of days after which trashed content is deleted for all apps, <code>0</code> disables the pruning.
+The cronjob <code>wcf\system\cronjob\EmptyRecycleBinCronjob</code> runs once per hour and calls the pruners that are registered through the PSR-14 event <code>wcf\event\moderation\TrashedContentPrunersCollecting</code>.</p>
+<h3 id="registering-a-pruner">Registering a Pruner<a class="headerlink" href="#registering-a-pruner" title="Permanent link">#</a></h3>
+<p>A bootstrap script registers an event listener that adds the pruners:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">EventHandler</span><span class="o">::</span><span class="na">getInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span>
+    <span class="nx">\wcf\event\moderation\TrashedContentPrunersCollecting</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">\wcf\event\moderation\TrashedContentPrunersCollecting</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="k">new</span> <span class="nx">\example\system\moderation\FooTrashedContentPruner</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>A pruner implements <code>wcf\system\moderation\ITrashedContentPruner</code> and permanently deletes up to <code>$limit</code> objects that have been moved to the trash before <code>$deletedBefore</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">final</span> <span class="k">class</span> <span class="nc">FooTrashedContentPruner</span> <span class="k">implements</span> <span class="nx">ITrashedContentPruner</span>
+<span class="p">{</span>
+    <span class="p">#[</span><span class="nd">\Override</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">prune</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$deletedBefore</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$limit</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="nv">$fooList</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FooList</span><span class="p">();</span>
+        <span class="nv">$fooList</span><span class="o">-&gt;</span><span class="na">getConditionBuilder</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'isDeleted = ?'</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+        <span class="nv">$fooList</span><span class="o">-&gt;</span><span class="na">getConditionBuilder</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'deleteTime &lt; ?'</span><span class="p">,</span> <span class="p">[</span><span class="nv">$deletedBefore</span><span class="p">]);</span>
+        <span class="nv">$fooList</span><span class="o">-&gt;</span><span class="na">sqlLimit</span> <span class="o">=</span> <span class="nv">$limit</span><span class="p">;</span>
+        <span class="nv">$fooList</span><span class="o">-&gt;</span><span class="na">readObjects</span><span class="p">();</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$fooList</span> <span class="k">as</span> <span class="nv">$foo</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">new</span> <span class="nx">DeleteFoo</span><span class="p">(</span><span class="nv">$foo</span><span class="p">)();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The content must store the time at which it was moved to the trash, usually in a <code>deleteTime</code> column that is set when the content is trashed and reset when it is restored.
+Delete the objects through the same command that is used to delete them manually, so that the associated data is removed and the events are fired.
+Each pruner only deletes a limited number of objects per execution of the cronjob, the remaining objects are deleted during the following executions.</p>
 <h2 id="recent-activity-events-of-guests">Recent Activity Events of Guests<a class="headerlink" href="#recent-activity-events-of-guests" title="Permanent link">#</a></h2>
 <p>Recent activity events now support content created by guests.
 The <code>userID</code> column of <code>wcf1_user_activity_event</code> is nullable and the new <code>username</code> column stores the name of the guest.</p>
