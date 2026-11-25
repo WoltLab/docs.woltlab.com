@@ -112,7 +112,10 @@ Example:
 The attribute `minversion` must be a valid version number as described in [`<version>`](#version).
 The `file` attribute is optional and specifies the location of the required package's archive relative to the `package.xml`.
 
-### `<optionalpackage>`
+### `<optionalpackages>`
+
+!!! warning "Deprecated in WoltLab Suite 6.3"
+    Use [`<suggestedpackages>`](#suggestedpackages) to name packages that are useful alongside this package.
 
 A list of optional packages which can be selected by the user at the very end of the installation process.
 
@@ -125,6 +128,27 @@ Example:
 ```
 
 The `file` attribute specifies the location of the optional package's archive relative to the `package.xml`.
+
+### `<suggestedpackages>`
+
+!!! info "`<suggestedpackages>` is available since WoltLab Suite 6.3."
+
+A list of packages that are useful alongside this package.
+Suggested packages are not shipped with the package and are neither installed nor offered during its installation, the list only declares them.
+
+#### `<suggestedpackage>`
+
+Example:
+
+```xml
+<suggestedpackages>
+	<suggestedpackage>com.example.bar</suggestedpackage>
+</suggestedpackages>
+```
+
+The element has no attributes, its value is the package identifier of the suggested package.
+An invalid package identifier causes the package to fail validation, just like an invalid identifier of a required or excluded package.
+Duplicate entries and a suggestion of the package itself are ignored, the package identifiers are compared case-insensitively.
 
 ### `<excludedpackages>`
 

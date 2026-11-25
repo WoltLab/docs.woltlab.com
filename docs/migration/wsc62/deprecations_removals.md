@@ -503,6 +503,10 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\post\ViewablePostList::enablePollLoading()`, the poll is loaded on demand by `wbb\data\post\Post::getPoll()`
 - `wbb\data\post\ViewablePostList::readThreads()`, the thread is loaded on demand by `wbb\data\post\Post::getThread()`
 - `wbb\data\post\ViewablePostList::enableThreadLoading()`, the thread is loaded on demand by `wbb\data\post\Post::getThread()`
+- `wcf\system\package\PackageArchive::getOptionals()`, use `wcf\system\package\PackageArchive::getSuggestions()` instead
+- `wcf\system\package\PackageInstallationDispatcher::promptOptionalPackages()`
+- `wcf\system\package\PackageInstallationDispatcher::selectOptionalPackages()`
+- `wcf\system\package\PackageInstallationNodeBuilder::buildOptionalNodes()`
 
 #### Properties
 
@@ -534,6 +538,7 @@ With version 6.3, we have deprecated certain components and removed several othe
 - `wbb\data\post\ViewablePostList::$modificationLogLoading`, the deletion data is loaded on demand by `wbb\data\post\Post::getLogEntry()`
 - `wbb\data\post\ViewablePostList::$pollLoading`, the poll is loaded on demand by `wbb\data\post\Post::getPoll()`
 - `wbb\data\post\ViewablePostList::$threadLoading`, the thread is loaded on demand by `wbb\data\post\Post::getThread()`
+- `wcf\system\package\PackageArchive::$optionals`
 
 #### Constants
 

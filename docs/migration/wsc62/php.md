@@ -1557,3 +1557,19 @@ The existing preview images are deleted during the upgrade.
 
 The elements `<image>` and `<image2x>` of the `style.xml` are ignored when a style is imported and are no longer written when a style is exported.
 Style packages can remove them together with the referenced image files.
+
+## Suggested Packages
+
+The new element [`<suggestedpackages>`](../../package/package-xml.md#suggestedpackages) of the `package.xml` lists packages that are useful alongside a package.
+Suggested packages are not shipped with the package and are neither installed nor offered during its installation, the element only declares them.
+Package servers can provide the same element inside the `<version>` of a package.
+
+```xml title="package.xml"
+<suggestedpackages>
+	<suggestedpackage>com.example.bar</suggestedpackage>
+</suggestedpackages>
+```
+
+[`<optionalpackages>`](../../package/package-xml.md#optionalpackages) is deprecated, use `<suggestedpackages>` instead.
+Optional packages continue to work unchanged.
+WoltLab Suite 6.2 ignores `<suggestedpackages>`, so the element can also be used in packages that still support it.

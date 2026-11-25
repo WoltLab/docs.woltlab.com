@@ -1138,3 +1138,8 @@ The following form fields are specific for certain forms and hardly reusable in 
 ### `DevtoolsProjectRequiredPackagesFormField`
 
 `DevtoolsProjectRequiredPackagesFormField` is a form field for setting the required packages of a devtools project.
+
+
+### `DevtoolsProjectSuggestedPackagesFormField`
+
+`DevtoolsProjectSuggestedPackagesFormField` is a form field for setting the suggested packages of a devtools project.
