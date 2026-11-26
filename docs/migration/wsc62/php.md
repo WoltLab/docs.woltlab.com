@@ -1561,7 +1561,9 @@ Style packages can remove them together with the referenced image files.
 ## Suggested Packages
 
 The new element [`<suggestedpackages>`](../../package/package-xml.md#suggestedpackages) of the `package.xml` lists packages that are useful alongside a package.
-Suggested packages are not shipped with the package and are neither installed nor offered during its installation, the element only declares them.
+Suggested packages are not shipped with the package.
+After the installation, the suggested packages that can be installed from the configured package servers are offered for installation, the administrator may skip this step.
+Packages that are not available or cannot be installed are not listed.
 Package servers can provide the same element inside the `<version>` of a package.
 
 ```xml title="package.xml"

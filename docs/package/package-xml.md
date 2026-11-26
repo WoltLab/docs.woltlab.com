@@ -134,7 +134,9 @@ The `file` attribute specifies the location of the optional package's archive re
 !!! info "`<suggestedpackages>` is available since WoltLab Suite 6.3."
 
 A list of packages that are useful alongside this package.
-Suggested packages are not shipped with the package and are neither installed nor offered during its installation, the list only declares them.
+Suggested packages are not shipped with the package.
+After the installation, the suggested packages that can be installed from the configured package servers are offered for installation, the administrator may skip this step.
+Packages that are not available or cannot be installed are not listed.
 
 #### `<suggestedpackage>`
 
