@@ -1327,3 +1327,4 @@ With version 6.3, we have deprecated certain components and removed several othe
 - The template events of the posts in `userPostList` and the template event `javascriptInclude` of `thread`, see [Forum](forum.md#templates)
 - `eventOptionFieldList`
 - `styleChooser`, the style changer is a dropdown that is rendered with the page
+- The PHP function `spl_object_hash()` in templates, use `spl_object_id()` instead

@@ -256,7 +256,7 @@ A limited number of safe native PHP functions may also be used as variable modif
 * `reset`
 * `round`
 * `sha1`
-* `spl_object_hash`
+* `spl_object_id`
 * `strip_tags`
 * `strlen`
 * `str_contains`
