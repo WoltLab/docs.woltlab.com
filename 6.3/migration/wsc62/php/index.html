@@ -4866,6 +4866,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#suggested-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suggested Packages
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -7645,6 +7656,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#suggested-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suggested Packages
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -9673,6 +9695,21 @@ The columns <code>image</code> and <code>image2x</code> of <code>wcf1_style</cod
 The existing preview images are deleted during the upgrade.</p>
 <p>The elements <code>&lt;image&gt;</code> and <code>&lt;image2x&gt;</code> of the <code>style.xml</code> are ignored when a style is imported and are no longer written when a style is exported.
 Style packages can remove them together with the referenced image files.</p>
+<h2 id="suggested-packages">Suggested Packages<a class="headerlink" href="#suggested-packages" title="Permanent link">#</a></h2>
+<p>The new element <a href="../../../package/package-xml/#suggestedpackages"><code>&lt;suggestedpackages&gt;</code></a> of the <code>package.xml</code> lists packages that are useful alongside a package.
+Suggested packages are not shipped with the package.
+After the installation, the suggested packages that can be installed from the configured package servers are offered for installation, the administrator may skip this step.
+Packages that are not available or cannot be installed are not listed.
+Package servers can provide the same element inside the <code>&lt;version&gt;</code> of a package.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">package.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;suggestedpackages&gt;</span>
+<span class="w">    </span><span class="nt">&lt;suggestedpackage&gt;</span>com.example.bar<span class="nt">&lt;/suggestedpackage&gt;</span>
+<span class="nt">&lt;/suggestedpackages&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p><a href="../../../package/package-xml/#optionalpackages"><code>&lt;optionalpackages&gt;</code></a> is deprecated, use <code>&lt;suggestedpackages&gt;</code> instead.
+Optional packages continue to work unchanged.
+WoltLab Suite 6.2 ignores <code>&lt;suggestedpackages&gt;</code>, so the element can also be used in packages that still support it.</p>
 
 
 
@@ -9693,7 +9730,7 @@ Style packages can remove them together with the referenced image files.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-11-24
+    2026-11-26
   </span>
 
     
